@@ -1,0 +1,18 @@
+- categoria: Civiles
+  unidades:
+    - nombre: Aldeano
+      ataque: 1
+    - nombre: Carreta Mercante
+      ataque: 0
+- categoria: Infanteria
+  unidades:
+    - nombre: Milicia
+      ataque: 4
+    - nombre: Hombre de armas
+      ataque: 6
+    - nombre: Espadachin de espada larga
+      ataque: 9
+    - nombre: Espadachin de mandoble
+      ataque: 11
+    - nombre: Campeon
+      ataque: 13

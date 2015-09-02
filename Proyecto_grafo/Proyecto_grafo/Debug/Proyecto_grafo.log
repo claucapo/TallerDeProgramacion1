@@ -1,30 +1,37 @@
-﻿Compilación iniciada a las 01/09/2015 15:13:23.
-Proyecto "C:\Documents and Settings\Alejandro\Escritorio\Taller\GrafoCpp\Proyecto_grafo\Proyecto_grafo\Proyecto_grafo.vcxproj" en el nodo 2 (build destinos).
+﻿Compilación iniciada a las 02/09/2015 10:28:44.
+Proyecto "C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Proyecto_grafo\Proyecto_grafo\Proyecto_grafo.vcxproj" en el nodo 2 (build destinos).
 InitializeBuildStatus:
   Se creará "Debug\Proyecto_grafo.unsuccessfulbuild" porque se especificó "AlwaysCreate".
 ClCompile:
   C:\Archivos de programa\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt EscenarioTest.cpp
   EscenarioTest.cpp
-c:\documents and settings\alejandro\escritorio\taller\grafocpp\proyecto_grafo\proyecto_grafo\escenariotest.cpp(58): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _getch. See online help for details.
+c:\documents and settings\usuario\mis documentos\taller\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\escenariotest.cpp(117): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _getch. See online help for details.
           c:\archivos de programa\microsoft visual studio 10.0\vc\include\conio.h(128) : vea la declaración de 'getch'
+c:\archivos de programa\microsoft visual studio 10.0\vc\include\xutility(2227): warning C4996: 'std::_Copy_impl': Function call with parameters that may be unsafe - this call relies on the caller to check that the passed values are correct. To disable this warning, use -D_SCL_SECURE_NO_WARNINGS. See documentation on how to use Visual C++ 'Checked Iterators'
+          c:\archivos de programa\microsoft visual studio 10.0\vc\include\xutility(2212) : vea la declaración de 'std::_Copy_impl'
+          c:\documents and settings\usuario\mis documentos\taller\tallerdeprogramacion1\recursos\librerias\include\yaml-cpp 0.3.0\yaml-cpp\binary.h(33) : vea la referencia a la creación de instancias de plantilla de función '_OutIt std::copy<const unsigned char*,unsigned char*>(_InIt,_InIt,_OutIt)' que se está compilando
+          with
+          [
+              _OutIt=unsigned char *,
+              _InIt=const unsigned char *
+          ]
 ResourceCompile:
   Todas las salidas están actualizadas.
 Link:
-  C:\Archivos de programa\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Documents and Settings\Alejandro\Escritorio\Taller\GrafoCpp\Proyecto_grafo\Debug\Proyecto_grafo.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Proyecto_grafo.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Documents and Settings\Alejandro\Escritorio\Taller\GrafoCpp\Proyecto_grafo\Debug\Proyecto_grafo.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Documents and Settings\Alejandro\Escritorio\Taller\GrafoCpp\Proyecto_grafo\Debug\Proyecto_grafo.lib" /MACHINE:X86 Debug\Proyecto_grafo.res
+  C:\Archivos de programa\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Proyecto_grafo\Debug\Proyecto_grafo.exe" /NOLOGO SDL2.lib SDL2main.lib SDL2_image.lib "libyaml-cppmdd.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Proyecto_grafo.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Proyecto_grafo\Debug\Proyecto_grafo.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Proyecto_grafo\Debug\Proyecto_grafo.lib" /MACHINE:X86 Debug\Proyecto_grafo.res
   Debug\Escenario.obj
   Debug\Grafo.obj
   Debug\EscenarioTest.obj
   Debug\Posicion.obj
-  Debug\principal.obj
-  LINK : no se encontró C:\Documents and Settings\Alejandro\Escritorio\Taller\GrafoCpp\Proyecto_grafo\Debug\Proyecto_grafo.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
-  Proyecto_grafo.vcxproj -> C:\Documents and Settings\Alejandro\Escritorio\Taller\GrafoCpp\Proyecto_grafo\Debug\Proyecto_grafo.exe
+  LINK : no se encontró C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Proyecto_grafo\Debug\Proyecto_grafo.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+  Proyecto_grafo.vcxproj -> C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Proyecto_grafo\Debug\Proyecto_grafo.exe
 Manifest:
-  C:\Archivos de programa\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Documents and Settings\Alejandro\Escritorio\Taller\GrafoCpp\Proyecto_grafo\Debug\Proyecto_grafo.exe;#1" /manifest Debug\Proyecto_grafo.exe.intermediate.manifest
+  C:\Archivos de programa\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Proyecto_grafo\Debug\Proyecto_grafo.exe;#1" /manifest Debug\Proyecto_grafo.exe.intermediate.manifest
 FinalizeBuildStatus:
   Se eliminará el archivo "Debug\Proyecto_grafo.unsuccessfulbuild".
   Aplicando tarea Touch a "Debug\Proyecto_grafo.lastbuildstate".
-Compilación del proyecto terminada "C:\Documents and Settings\Alejandro\Escritorio\Taller\GrafoCpp\Proyecto_grafo\Proyecto_grafo\Proyecto_grafo.vcxproj" (build destinos).
+Compilación del proyecto terminada "C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Proyecto_grafo\Proyecto_grafo\Proyecto_grafo.vcxproj" (build destinos).
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:00.71
+Tiempo transcurrido 00:00:08.13

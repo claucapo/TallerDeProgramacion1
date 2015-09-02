@@ -5,6 +5,10 @@
 #include <map>
 #include "Grafo.h"
 #include "Escenario.h"
+#include <fstream>
+
+//YAML 0.3!!
+#include <yaml-cpp\yaml.h>
 
 using namespace std;
 
@@ -49,13 +53,67 @@ void testEscenarioGrande(){
 
 }
 
-int main(){
+struct Unidad {
+	std::string nombre;
+	int ataque;
+};
 
+void operator >> (const YAML::Node& node, Unidad& unit) {
+	node["nombre"] >> unit.nombre;
+	node["ataque"] >> unit.ataque;
+}
+
+void testEmitirYAML() {
+	YAML::Emitter out;
+
+	// Secuencia de categorías
+	out << YAML::BeginSeq;
+	// Primer categoría
+	out << YAML::BeginMap;
+	out << YAML::Key << "categoria" << YAML::Value << "Civiles";
+	out << YAML::Key << "unidades" << YAML::Value << YAML::BeginSeq;
+	// Aldeano
+	out << YAML::BeginMap << YAML::Key << "nombre" << YAML::Value << "Aldeano";
+	out << YAML::Key << "ataque" << YAML::Value << "1" << YAML::EndMap;
+	// Carreta
+	out << YAML::BeginMap << YAML::Key << "nombre" << YAML::Value << "Carreta Mercante";
+	out << YAML::Key << "ataque" << YAML::Value << "0" << YAML::EndMap;
+	// Fin de unidades << Fin de categoría
+	out << YAML::EndSeq << YAML::EndMap;
+
+	// Segunda categoria	
+	out << YAML::BeginMap;
+	out << YAML::Key << "categoria" << YAML::Value << "Infanteria";
+	out << YAML::Key << "unidades" << YAML::Value << YAML::BeginSeq;
+	
+	// Unidades
+	std::string nombres[] = {"Milicia", "Hombre de armas", "Espadachin de espada larga", "Espadachin de mandoble", "Campeon"};
+	int ataques[] = {4, 6, 9, 11, 13};
+	for (int i = 0; i < 5; i++) {
+		out << YAML::BeginMap << YAML::Key << "nombre" << YAML::Value << nombres[i];
+		out << YAML::Key << "ataque" << YAML::Value << ataques[i] << YAML::EndMap;
+	}
+	out << YAML::EndSeq << YAML::EndMap << YAML::EndSeq;
+	
+	ofstream outFile;
+	outFile.open("test.yaml");
+	outFile << out.c_str();
+	outFile.close();
+}
+
+void testParsearYAML(){
+	//TODO: Testear el parseo con el archivo que se genera en testEmitirYAML()
+}
+
+
+int main( int argc, char** argv ){
 	testEscenarioChico();
-
 	testEscenarioGrande();
+	
+	//Test YAML
+	testEmitirYAML();
+	testParsearYAML();
 
 	getch();
 	return 0;
 }
-	
