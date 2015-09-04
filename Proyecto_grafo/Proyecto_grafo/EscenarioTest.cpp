@@ -53,12 +53,12 @@ void testEscenarioGrande(){
 
 }
 
-struct Unidad {
+struct UnidadTest {
 	std::string nombre;
 	int ataque;
 };
 
-void operator >> (const YAML::Node& node, Unidad& unit) {
+void operator >> (const YAML::Node& node, UnidadTest& unit) {
 	node["nombre"] >> unit.nombre;
 	node["ataque"] >> unit.ataque;
 }

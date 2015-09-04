@@ -1,6 +1,9 @@
 #include "Escenario.h"
 #include "Grafo.h"
 #include "Posicion.h"
+#include "Entidad.h"
+#include "EstadoEntidad.h"
+#include "Unidad.h"
 #include <list>
 
 void Escenario::generarMapaVacio(int casillas_x, int casillas_y){
@@ -32,7 +35,30 @@ Escenario::Escenario(int casillas_x, int casillas_y)
 	generarMapaVacio(casillas_x, casillas_y);
 }
 
+Escenario::Escenario(void)
+{
+}
 
 Escenario::~Escenario(void)
+{
+}
+
+
+void Escenario::avanzarFrame(void)
+{
+}
+
+
+void Escenario::ubicarEntidad(Entidad entidad, Posicion pos)
+{
+}
+
+
+void Escenario::quitarEntidad(Entidad entidad)
+{
+}
+
+
+void Escenario::moverUnidad(Unidad unidad, Posicion destino)
 {
 }

@@ -37,10 +37,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Recursos\Librerias\include\SDL2_image;C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Recursos\Librerias\include\SDL2;C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Recursos\Librerias\include\yaml-cpp 0.3.0;$(IncludePath)</IncludePath>
+    <IncludePath>C:\TallerDeProgramacion1\Recursos\Librerias\include\yaml-cpp 0.3.0;C:\TallerDeProgramacion1\Recursos\Librerias\include\SDL2_image;C:\TallerDeProgramacion1\Recursos\Librerias\include\SDL2;C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Recursos\Librerias\include\SDL2_image;C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Recursos\Librerias\include\SDL2;C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Recursos\Librerias\include\yaml-cpp 0.3.0;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Recursos\Librerias\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Recursos\Librerias\lib;C:\TallerDeProgramacion1\Recursos\Librerias\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -67,19 +67,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BibliotecaDeImagenes.h" />
+    <ClInclude Include="Entidad.h" />
+    <ClInclude Include="ErrorLog.h" />
     <ClInclude Include="Escenario.h" />
+    <ClInclude Include="EstadoEntidad.h" />
     <ClInclude Include="Grafo.h" />
+    <ClInclude Include="Jugador.h" />
+    <ClInclude Include="Partida.h" />
     <ClInclude Include="Posicion.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Spritesheet.h" />
+    <ClInclude Include="Unidad.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Proyecto_grafo.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BibliotecaDeImagenes.cpp" />
+    <ClCompile Include="Entidad.cpp" />
+    <ClCompile Include="ErrorLog.cpp" />
     <ClCompile Include="Escenario.cpp" />
+    <ClCompile Include="EstadoEntidad.cpp" />
     <ClCompile Include="Grafo.cpp" />
     <ClCompile Include="EscenarioTest.cpp" />
+    <ClCompile Include="Jugador.cpp" />
+    <ClCompile Include="Partida.cpp" />
     <ClCompile Include="Posicion.cpp" />
+    <ClCompile Include="Spritesheet.cpp" />
+    <ClCompile Include="Unidad.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

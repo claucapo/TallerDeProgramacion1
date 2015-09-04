@@ -1,5 +1,10 @@
 #include "Posicion.h"
 
+Posicion::Posicion()
+{
+	coord_x = 0;
+	coord_y = 0;
+}
 
 Posicion::Posicion(int x, int y)
 {
