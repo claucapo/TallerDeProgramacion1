@@ -26,7 +26,7 @@ public:
 	 * Pre: path valido.
 	 * Pos: Crea una nueva instancia.
 	 */
-	Archivo(const string &path, bool binario = true);
+	Archivo(const string &path);
 
 	/*
 	 * Pre: -
@@ -35,34 +35,17 @@ public:
 	virtual ~Archivo();
 
 	/*
-	 * Pre: offset valido
-	 * Pos: escribe en el archivo los Bytes pasados por argumento.
+	 * Pre: archivo abierto
+	 * Pos: escribe en el archivo el string pasado por argumento.
 	 */
-	virtual void escribir(const string&, unsigned long int offset);
+	virtual void escribir(const string&);
 
-	/*
-	 * Pre: argumentos validos
-	 * Pos: devuelve una tira de bytes con la informacion obtenida.
-	 */
-	virtual string leer(unsigned long int offset, unsigned long int cantBytes);
 
 	/*
 	 * Pre: -
 	 * Pos: devuelve el tamanio en bytes del archivo.
 	 */
 	long getTamanio();
-
-	/*
-	 * Pre: Memoria disponible en disco rigido.
-	 * Pos: Expande el archivo.
-	 */
-	bool expandirArchivo(unsigned long int longitudArchivo);
-
-	/*
-	 * Pre: -
-	 * Pos: devuelve true si el archivo es valido.
-	 */
-	bool esValido() const;
 
 	/*
 	 * Pre: -

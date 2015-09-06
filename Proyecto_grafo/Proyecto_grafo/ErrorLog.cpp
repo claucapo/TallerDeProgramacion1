@@ -1,4 +1,5 @@
 #include "ErrorLog.h"
+#include <ctime>
 
 
 ErrorLog::ErrorLog(void)
@@ -10,17 +11,30 @@ ErrorLog::~ErrorLog(void)
 {
 }
 
+string obtenerFechaHora(){
+  time_t rawtime;
+  struct tm * timeinfo;
+  char buffer[80];
+
+  time (&rawtime);
+  timeinfo = localtime(&rawtime);
+
+  strftime(buffer,80,"%d/%m/%Y %I:%M:%S",timeinfo);
+  std::string str(buffer);
+
+  return str + " ";
+}
 
 void ErrorLog::escribirLog(string msj)
 {
-	arch->escribir(msj + "\n",arch->getTamanio());
+	arch->escribir(obtenerFechaHora() + msj);
 }
 
 
 void ErrorLog::escribirLogW(string msj)
 {
 	if(_warnings){
-	    arch->escribir("WARNING " + msj + "\n" ,arch->getTamanio());
+	    arch->escribir(obtenerFechaHora() + "WARNING " + msj);
 	}
 }
 
@@ -28,7 +42,7 @@ void ErrorLog::escribirLogW(string msj)
 void ErrorLog::escribirLogI(string msj)
 {
 	if(_info){
-	   arch->escribir("INFO"  + msj + "\n",arch->getTamanio());
+	   arch->escribir(obtenerFechaHora() + "INFO"  + msj);
 	}
 }
 
@@ -36,14 +50,14 @@ void ErrorLog::escribirLogI(string msj)
 void ErrorLog::escribirLogE(string msj)
 {
 	if(_errores){
-	   arch->escribir("ERROR " +  msj + "\n",arch->getTamanio());
+	   arch->escribir(obtenerFechaHora() + "ERROR " +  msj);
 	}
 }
 
 
 void ErrorLog::abrirLog(void)
 {
-	arch = new Archivo("c:\\Proyecto_grafo.log",false);
+	arch = new Archivo("c:\\Proyecto_grafo.log");
 }
 
 
