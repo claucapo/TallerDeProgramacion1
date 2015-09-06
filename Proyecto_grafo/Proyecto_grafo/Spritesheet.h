@@ -1,4 +1,6 @@
 #include<string>
+#include <SDL.h>
+#include <SDL_image.h>
 #pragma once
 
 using namespace std;
@@ -22,6 +24,14 @@ fila que tendría las subimagenes de cuando la unidad
 se mueve hacia abajo y la derecha.*/
 class Spritesheet
 {
+private:
+	int offsetX, offsetY;
+	int rows, columnas;
+
+	int x_pant, y_pant;
+
+	SDL_Surface* sprite;
+
 public:
 	// Constructor y destructor por defecto
 	Spritesheet(void);
@@ -31,10 +41,12 @@ public:
 	// de la imagen correspondiente. Se deben
 	// especificar además la cantidad de rows
 	// y columnas de la imagen respecto de sus
-	// subimágens.
+	// subimágens. Además, se agrega un x_offset
+	// y un y_offset que representa el "origen" de
+	// las subimagenes dentro de estas.
 	// NOTA: Para no llenar la memoria, la imagen
 	// se obtiene de la BibliotecaDeImagenes.
-	Spritesheet(string imagen, int rows, int cols);
+	Spritesheet(string imagen, int rows, int cols, int x_offset, int y_offset);
 
 	// Devuelve la coordenada x respeto de la
 	// vista de la pantalla donde debe alinearse
@@ -56,6 +68,21 @@ public:
 	// Cambia la imagen asignada al Spritesheet
 	// por una imagen nueva, de forma similar
 	// que en el constructor.
-	void cambiarImagen(string nuevaImagen, int rows, int cols);
+	void cambiarImagen(string nuevaImagen, int rows, int cols, int x_offset, int y_offset);
+	
+	// Devuelve el valor de offset en x de
+	// cada una de las subimágenes.
+	int verOffsetX(void);
+
+	// Devuelve el valor de offset en y de
+	// cada una de las subimágenes.
+	int verOffsetY(void);
+
+	// Devuelve la imagen asociada al Spritesheet
+	// que se cargo desde el constructor o con el
+	// método de cambiarImagen.
+	SDL_Surface* devolverImagenAsociada(void);
+	int getRows(void);
+	int getCols(void);
 };
 
