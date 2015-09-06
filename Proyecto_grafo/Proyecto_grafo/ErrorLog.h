@@ -1,4 +1,6 @@
 #include<string>
+#include "Archivo.h"
+
 #pragma once
 using namespace std;
 
@@ -11,6 +13,10 @@ public:
 	// Constructor y destructor por defecto
 	ErrorLog(void);
 	~ErrorLog(void);
+	Archivo* arch;
+	bool _warnings;
+	bool _info; 
+	bool _errores;
 
 	// Crea un ErrorLog asociado al archivo 
 	// de log de errores en el directorio 

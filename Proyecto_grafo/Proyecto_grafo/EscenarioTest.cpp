@@ -5,6 +5,7 @@
 #include <map>
 #include "Grafo.h"
 #include "Escenario.h"
+#include "ErrorLog.h"
 #include <fstream>
 
 //YAML 0.3!!
@@ -18,6 +19,7 @@ void print_test(char* name, bool result) {
 }
 
 void testEscenarioChico(){
+	
 	Escenario ej(5, 4);
 
 	Grafo mapa = ej.verMapa();
@@ -32,6 +34,8 @@ void testEscenarioChico(){
 	print_test("(3,3) y (3,2) conectados", mapa.elementosEstanConectados(Posicion(3,3), Posicion(3,2)));
 	print_test("(2,3) y (1,2) conectados", mapa.elementosEstanConectados(Posicion(2,3), Posicion(1,2)));
 	print_test("(1,1) y (3,3) no conectados", !mapa.elementosEstanConectados(Posicion(1,1), Posicion(3,3)));
+	
+
 
 }
 
@@ -107,7 +111,7 @@ void testParsearYAML(){
 
 
 int main( int argc, char** argv ){
-	testEscenarioChico();
+	/*testEscenarioChico();
 	testEscenarioGrande();
 	
 	//Test YAML
@@ -115,5 +119,11 @@ int main( int argc, char** argv ){
 	testParsearYAML();
 
 	getch();
+	*/
+	ErrorLog log;
+	log.abrirLog();
+	log.habilitarFlags(true,true,true);
+	log.escribirLog("pruebaLog");
+	log.cerrarLog();
 	return 0;
 }
