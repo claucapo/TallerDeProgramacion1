@@ -3,88 +3,59 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-Spritesheet::Spritesheet(void)
-{
-	this->rows = 1;
-	columnas = 1;
-	offsetX = 0;
-	offsetY = 0;
-	x_pant = 0;
-	y_pant = 0;
+Spritesheet::Spritesheet(void) {
+	this->sprite = nullptr;
+	this->filas = 1;
+	this->columnas = 1;
+	this->subX = 1;
+	this->subY = 1;
+	this->x_pant = 0;
+	this->y_pant = 0;
 }
 
-Spritesheet::Spritesheet(string imagen, int rows, int cols, int x_offset, int y_offset)
-{
-	this->rows = rows;
-	columnas = cols;
-	offsetX = x_offset;
-	offsetY = y_offset;
-	x_pant = 0;
-	y_pant = 0;
-	sprite = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(imagen);
+//TODO: Chequear errores como subX < rows
+Spritesheet::Spritesheet(string imagen, int fil, int cols, int subX, int subY) {
+	this->sprite = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(imagen);
+	this->filas = fil;
+	this->columnas = cols;
+	this->subX = subX;
+	this->subY = subY;
+	this->y_pant = 0;
+	this->x_pant = 0;
 }
 
-
-Spritesheet::~Spritesheet(void)
-{
+Spritesheet::~Spritesheet(void) {
 }
 
-
-int Spritesheet::verCoordXPantalla(void)
-{
-	return x_pant;
+void Spritesheet::cambiarImagen(string nuevaImagen, int fil, int cols, int subX, int subY) {
+	this->sprite = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(nuevaImagen);
+	this->filas = fil;
+	this->columnas = cols;
+	this->subX = subX;
+	this->subY = subY;
 }
 
-
-int Spritesheet::verCoordYPantalla(void)
-{
-	return y_pant;
+void Spritesheet::cambiarSubImagen(int subX, int subY) {
+	this->subX = subX;
+	this->subY = subY;
 }
 
-
-void Spritesheet::cambirCoordPantalla(int coordXPant, int coordYPant)
-{
-	x_pant = coordXPant;
-	y_pant = coordYPant;
+void Spritesheet::siguienteFrame() {
+	this->subX++;
+	if (this->subX >= this->columnas)
+		this->subX = 0;
 }
 
-
-void Spritesheet::cambiarImagen(string nuevaImagen, int rows, int cols, int x_offset, int y_offset)
-{
-	this->rows = rows;
-	columnas = cols;
-	offsetX = x_offset;
-	offsetY = y_offset;
-	sprite = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(nuevaImagen);
-
+int Spritesheet::subImagenWidth() {
+	return this->sprite->w / this->columnas;
+}
+int Spritesheet::subImagenHeight() {
+	return this->sprite->h / this->filas;
 }
 
-
-int Spritesheet::verOffsetX(void)
-{
-	return offsetX;
+int Spritesheet::calcularOffsetX(void) {
+	return (this->subX)  * this->subImagenWidth();
 }
-
-
-int Spritesheet::verOffsetY(void)
-{
-	return offsetY;
-}
-
-
-SDL_Surface* Spritesheet::devolverImagenAsociada(void)
-{
-	return sprite;
-}
-
-
-int Spritesheet::getRows(void)
-{
-	return rows;
-}
-
-
-int Spritesheet::getCols(void)
-{
-	return columnas;
+int Spritesheet::calcularOffsetY(void) {
+	return (this->subY) * this->subImagenHeight();
 }

@@ -1,6 +1,5 @@
 #include "Escenario.h"
 #include "Entidad.h"
-#include "EstadoEntidad.h"
 #include "Posicion.h"
 #pragma once
 

@@ -5,6 +5,7 @@
 #include <map>
 #include "Grafo.h"
 #include "Escenario.h"
+#include "Unidad.h"
 #include "ErrorLog.h"
 #include <fstream>
 #include "Spritesheet.h"
@@ -13,7 +14,7 @@
 #include <SDL_image.h>
 
 
-	// COPIO A LO TURBIO LAS FUNCIONES DE SDL
+// COPIO A LO TURBIO LAS FUNCIONES DE SDL
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;
@@ -205,61 +206,62 @@ void testUsarLog(void){
 
 void testSpritesheet(){
 	//Start up SDL and create window
-	if( !init() )
-	{
+	if(!init()) {
 		printf( "Failed to initialize!\n" );
-	}
-	else
-	{
-			//Main loop flag
-			bool quit = false;
+	} else {
+		//Main loop flag
+		bool quit = false;
+		//Event handler
+		SDL_Event e;
+		
+		// ACA CREO A LA UNIDAD
+		Unidad* unit = new Unidad();
+		unit->asignarSprite("champion");
+		unit->setVelocidad(5);
+		printf("El champion esperara 500 frames\n");
+		int i = 0;
+		
+		//While application is running
+		while(!quit) {
+			SDL_FillRect(gScreenSurface, NULL, 0x000000);
 
-			//Event handler
-			SDL_Event e;
-
-			//While application is running
-			while( !quit )
-			{
-
-				SDL_FillRect(gScreenSurface, NULL, 0x000000);
-
-				//Handle events on queue
-				while( SDL_PollEvent( &e ) != 0 )
-				{
-					//User requests quit
-					if( e.type == SDL_QUIT )
-					{
-						quit = true;
-					}
-				}
-
-			
-
-	//		
-				Spritesheet mySprite("champion_move.png", 8, 10, 0, 0);
-				mySprite.cambirCoordPantalla(100, 100);
-
-				SDL_Rect rectangulo, rectDestino;
-				SDL_SetColorKey( mySprite.devolverImagenAsociada(), true, SDL_MapRGB( mySprite.devolverImagenAsociada()->format, 4, 2, 4) );
-				
-				rectangulo.x =  mySprite.verOffsetX();
-				rectangulo.y =  mySprite.verOffsetY();
-				rectangulo.w = 330 /mySprite.getCols();
-				rectangulo.h = 480/ mySprite.getRows();
-
-				rectDestino.x = mySprite.verCoordXPantalla();
-				rectDestino.y = mySprite.verCoordYPantalla();
-
-				SDL_BlitSurface( mySprite.devolverImagenAsociada(), &rectangulo, gScreenSurface, &rectDestino );
-
-				//Update the surface
-				SDL_UpdateWindowSurface( gWindow );
+			//Handle events on queue
+			while( SDL_PollEvent( &e ) != 0 ) {
+				//User requests quit
+				if( e.type == SDL_QUIT )
+					quit = true;
 			}
-		}
+			// Cuento frames para que la orden se demore
+			if (i < 100)
+				i++;
+			else if (i == 100) {
+				printf("Ha recibido la orden de moverse al pixel 400-100!!\n");
+				unit->nuevoDestino(400,100);
+				i++;
+			}
+			Spritesheet ss = *(unit->verSprites());
+			SDL_Rect rectangulo, rectDestino;
+			SDL_SetColorKey( ss.devolverImagenAsociada(), true, SDL_MapRGB( ss.devolverImagenAsociada()->format, 255, 0, 255) );
+				
+			rectangulo.x = ss.calcularOffsetX();
+			rectangulo.y = ss.calcularOffsetY();
+			rectangulo.w = ss.subImagenWidth();
+			rectangulo.h = ss.subImagenHeight();
 
+			rectDestino.x = ss.getCoordX();
+			rectDestino.y = ss.getCoordY();
+
+			SDL_BlitSurface( ss.devolverImagenAsociada(), &rectangulo, gScreenSurface, &rectDestino );
+
+			//Update the surface
+			SDL_UpdateWindowSurface( gWindow );
+
+			unit->avanzarFrame();
+			SDL_Delay(100);
+		}
+	}
 	//Free resources and close SDL
 	close();
-
 }
 
 int main( int argc, char** argv ){

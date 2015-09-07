@@ -11,7 +11,7 @@ class Posicion
 {
 private:
 	// Atributos
-	int coord_x, coord_y;
+	float coord_x, coord_y;
 public:
 	// Constructor y destructor por defecto
 	Posicion();
@@ -19,13 +19,11 @@ public:
 
 	// Crea una Posicion con las coordenadas
 	// xy recibidas.
-	Posicion(int x, int y);
-
-	// Devuelve la coordenada x de la Posicion
-	int devolverCoordX();
-
-	// Devuelve la coordenada y de la Posicion
-	int devolverCoordY();
+	Posicion(float x, float y);
+	
+	// Devuelve las coordeadas en punto flotante
+	float getX() {return this->coord_x;}
+	float getY() {return this->coord_y;}
 
 	// Redefinición de operadores:
 	// "Dos Posicion son iguales si poseen las

@@ -70,9 +70,9 @@
     <ClInclude Include="Archivo.h" />
     <ClInclude Include="BibliotecaDeImagenes.h" />
     <ClInclude Include="Entidad.h" />
+    <ClInclude Include="Enumerados.h" />
     <ClInclude Include="ErrorLog.h" />
     <ClInclude Include="Escenario.h" />
-    <ClInclude Include="EstadoEntidad.h" />
     <ClInclude Include="Grafo.h" />
     <ClInclude Include="Jugador.h" />
     <ClInclude Include="Partida.h" />
@@ -90,7 +90,6 @@
     <ClCompile Include="Entidad.cpp" />
     <ClCompile Include="ErrorLog.cpp" />
     <ClCompile Include="Escenario.cpp" />
-    <ClCompile Include="EstadoEntidad.cpp" />
     <ClCompile Include="Grafo.cpp" />
     <ClCompile Include="EscenarioTest.cpp" />
     <ClCompile Include="Jugador.cpp" />

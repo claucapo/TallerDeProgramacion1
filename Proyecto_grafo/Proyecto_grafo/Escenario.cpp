@@ -2,7 +2,6 @@
 #include "Grafo.h"
 #include "Posicion.h"
 #include "Entidad.h"
-#include "EstadoEntidad.h"
 #include "Unidad.h"
 #include <list>
 

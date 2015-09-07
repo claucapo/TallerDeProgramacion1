@@ -1,5 +1,6 @@
 #include "Posicion.h"
-#include "EstadoEntidad.h"
+#include "Spritesheet.h"
+#include "Enumerados.h"
 
 #pragma once
 
@@ -9,25 +10,42 @@ Posicion. El Estado asociado a la Entidad
 depende de lo que "esté haciendo" ella.
 NOTA: Esta clase es una base, y de ella
 deberán heredar los "entes" verdaderos.*/
-class Entidad
-{
+class Entidad {
+protected:
+	Posicion* pos;
+	Spritesheet* sprites;
+	string spriteBaseName;
+	Estados_t state;
+
+
 public:
 	// Constructor y destructor por defecto
 	Entidad(void);
 	~Entidad(void);
-	// Constructor sobrecargado
 
-	Entidad(Posicion p);
+	// Constructor sobrecargado
+	Entidad(Posicion* p);
+	
 	// Devuelve la Posicion sobre la cual
 	// está asociada la Entidad.
 	// NOTA: ¿Qué hacemos si la Entidad
 	// ocupa más de una Posicion? ¿lista
-	// de Posicion?
-	virtual Posicion verPosicion(void);
+	// de Posicion? ----> Devuelve la menor posición,
+	// la posición en la que iría el pixel origen
+	Posicion* verPosicion(void) {return this->pos;}
 	
-	// Devuelve el EstadoEntidad asoaciado
-	// actualmente a la Entidad.
-	virtual EstadoEntidad verEstado(void);
+	// Devuelve los sprites asociados a la entidad
+	Spritesheet* verSprites(void) {return this->sprites;}
+
+	// Devuelve el estado
+	Estados_t verEstado(void) {return this->state;}
+
+	// Avanza un frame modificando los valores de la entidad
+	virtual void avanzarFrame(void);
+
+	// Metodos para setear los sprites.
+	void asignarSprite(Spritesheet* sprites); // Quizas sacar este método
+	void asignarSprite(string name);
 
 	// NOTA: Sobrescribir los operadores
 	// ==, < y >.
@@ -35,4 +53,3 @@ public:
 	// las mismas casillas y tienen los
 	// mismos estados".
 };
-

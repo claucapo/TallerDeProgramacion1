@@ -6,8 +6,7 @@ Posicion::Posicion()
 	coord_y = 0;
 }
 
-Posicion::Posicion(int x, int y)
-{
+Posicion::Posicion(float x, float y) {
 	coord_x = x;
 	coord_y = y;
 }
@@ -15,14 +14,6 @@ Posicion::Posicion(int x, int y)
 
 Posicion::~Posicion(void)
 {
-}
-
-int Posicion::devolverCoordX(){
-	return coord_x;
-}
-
-int Posicion::devolverCoordY(){
-	return coord_y;
 }
 
 int Posicion::generarCodigo(){

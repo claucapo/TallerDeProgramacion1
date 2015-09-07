@@ -25,12 +25,12 @@ se mueve hacia abajo y la derecha.*/
 class Spritesheet
 {
 private:
-	int offsetX, offsetY;
-	int rows, columnas;
-
-	int x_pant, y_pant;
-
+	int subX, subY;
+	int filas, columnas;
 	SDL_Surface* sprite;
+
+	// Coordenadas de la imágen en la pantalla
+	int x_pant, y_pant;
 
 public:
 	// Constructor y destructor por defecto
@@ -41,48 +41,47 @@ public:
 	// de la imagen correspondiente. Se deben
 	// especificar además la cantidad de rows
 	// y columnas de la imagen respecto de sus
-	// subimágens. Además, se agrega un x_offset
-	// y un y_offset que representa el "origen" de
-	// las subimagenes dentro de estas.
+	// subimágenes. Además, se agrega un par de
+	// coordenadas subX subY que indican la columna
+	// y fila específicas de la imagen que se está mostrando.
 	// NOTA: Para no llenar la memoria, la imagen
 	// se obtiene de la BibliotecaDeImagenes.
-	Spritesheet(string imagen, int rows, int cols, int x_offset, int y_offset);
+	Spritesheet(string imagen, int rows, int cols, int subX, int subY);
 
-	// Devuelve la coordenada x respeto de la
-	// vista de la pantalla donde debe alinearse
-	// el origen de la subimagen asociada.
-	// Pre: la clase tiene una imagen asociada.
-	int verCoordXPantalla(void);
+	// GETTERS
+	// Devuelve las coordenadas en pantalla en la que se deben mostrar las imágenes
+	int getCoordX(void) {return this->x_pant;}
+	int getCoordY(void) {return this->y_pant;}
+	int getFilas(void) {return this->filas;}
+	int getColumnas(void) {return this->columnas;}
+	SDL_Surface* devolverImagenAsociada(void) {return this->sprite;}
 
-	// Devuelve la coordenada y respeto de la
-	// vista de la pantalla donde debe alinearse
-	// el origen de la subimagen asociada.
-	// Pre: la clase tiene una imagen asociada.
-	int verCoordYPantalla(void);
+	// Métodos para calcular las dimensiones de las subimagenes
+	int subImagenWidth();
+	int subImagenHeight();
 
-	// Cambia las coordenadas (x,y) respecto de
-	// la vista de la pantalla por los valores
-	// nuevos recibidos.
-	void cambirCoordPantalla(int coordXPant, int coordYPant);
+
+	// Cambia las coordenadas de la pantalla
+	// en las que será dibujada la imágen
+	void cambirCoord(int x, int y) {
+		this->x_pant = x;
+		this->y_pant = y;
+	}
 
 	// Cambia la imagen asignada al Spritesheet
 	// por una imagen nueva, de forma similar
 	// que en el constructor.
-	void cambiarImagen(string nuevaImagen, int rows, int cols, int x_offset, int y_offset);
+	void cambiarImagen(string nuevaImagen, int rows, int cols, int subX, int subY);
+
+	// Cambia la subimagen dentro de una misma spritesheet.
+	void Spritesheet::cambiarSubImagen(int subX, int subY);
+
+	// Pasa a la siguiente subimagen dentro de latira, si se llega al final vuelve al principio
+	void Spritesheet::siguienteFrame();
 	
-	// Devuelve el valor de offset en x de
-	// cada una de las subimágenes.
-	int verOffsetX(void);
-
-	// Devuelve el valor de offset en y de
-	// cada una de las subimágenes.
-	int verOffsetY(void);
-
-	// Devuelve la imagen asociada al Spritesheet
-	// que se cargo desde el constructor o con el
-	// método de cambiarImagen.
-	SDL_Surface* devolverImagenAsociada(void);
-	int getRows(void);
-	int getCols(void);
+	// Calcula el offset en pixeles en que se encuentra el primer
+	// pixel de la subimagen
+	int calcularOffsetX(void);
+	int calcularOffsetY(void);
 };
 
