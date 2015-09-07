@@ -20,6 +20,12 @@ BibliotecaDeImagenes::BibliotecaDeImagenes(void)
 
 BibliotecaDeImagenes::~BibliotecaDeImagenes(void)
 {
+	//
+	map<string, SDL_Surface*>::iterator it;
+	for(it = imagenes.begin(); it != imagenes.end(); it++)
+		SDL_FreeSurface(it->second);
+	imagenes.clear();
+	delete singleton;
 }
 
 
@@ -41,7 +47,7 @@ using namespace std;
 SDL_Surface* loadSurface(std::string path)
 {
 	SDL_Surface* optimizedSurface = NULL;
-	//Carga la imagen path
+	//Carga la imagen del path
 	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
 	if(!loadedSurface)
 		printf( "SDL_image Error: %s con imagen %s\n", IMG_GetError(), path.c_str() );

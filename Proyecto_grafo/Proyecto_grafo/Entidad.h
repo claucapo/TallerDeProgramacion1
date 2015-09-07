@@ -28,10 +28,9 @@ public:
 	
 	// Devuelve la Posicion sobre la cual
 	// está asociada la Entidad.
-	// NOTA: ¿Qué hacemos si la Entidad
-	// ocupa más de una Posicion? ¿lista
-	// de Posicion? ----> Devuelve la menor posición,
-	// la posición en la que iría el pixel origen
+	// NOTA: Si la Entidad ocupa más de
+	// una Posicion, devuelve la Posicion
+	// en la que iría el pixel origen.
 	Posicion* verPosicion(void) {return this->pos;}
 	
 	// Devuelve los sprites asociados a la entidad
@@ -44,7 +43,6 @@ public:
 	virtual void avanzarFrame(void);
 
 	// Metodos para setear los sprites.
-	void asignarSprite(Spritesheet* sprites); // Quizas sacar este método
 	void asignarSprite(string name);
 
 	// NOTA: Sobrescribir los operadores
@@ -52,4 +50,7 @@ public:
 	// "Dos Entidad son iguales si ocupan
 	// las mismas casillas y tienen los
 	// mismos estados".
+
+	// Asigna una Posicion de prepo
+	void asignarPos(Posicion* pos);
 };

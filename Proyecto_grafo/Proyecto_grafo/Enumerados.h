@@ -1,5 +1,9 @@
+
+
 #ifndef ENUM_H
 #define ENUM_H
+
+using namespace std;
 
 // Enumerado de posible direcciones de movimiento, escritos en un orden arbitrario para
 // que concidan con las filas de los sprites de movimiento
@@ -12,5 +16,10 @@ const string estados_extensiones[] = {"", "_move"};
 
 // Otras constantes
 const string IMG_EXT = ".png";
+
+const float LARGO_TILE = 30.2696;
+
+// Duracion de 1 frame en ms
+const float FRAME_DURATION = 50;
 
 #endif

@@ -215,7 +215,8 @@ void testSpritesheet(){
 		SDL_Event e;
 		
 		// ACA CREO A LA UNIDAD
-		Unidad* unit = new Unidad();
+		Unidad* unit = new Unidad(new Posicion(1,1));
+	
 		unit->asignarSprite("champion");
 		unit->setVelocidad(5);
 		printf("El champion esperara 500 frames\n");
@@ -223,6 +224,7 @@ void testSpritesheet(){
 		
 		//While application is running
 		while(!quit) {
+
 			SDL_FillRect(gScreenSurface, NULL, 0x000000);
 
 			//Handle events on queue
@@ -232,11 +234,12 @@ void testSpritesheet(){
 					quit = true;
 			}
 			// Cuento frames para que la orden se demore
-			if (i < 100)
+			if (i < 50)
 				i++;
-			else if (i == 100) {
+			else if (i == 50) {
 				printf("Ha recibido la orden de moverse al pixel 400-100!!\n");
-				unit->nuevoDestino(400,100);
+				//unit->nuevoDestino(400,100);
+				unit->nuevoDestino(3,8);
 				i++;
 			}
 			Spritesheet ss = *(unit->verSprites());
@@ -258,9 +261,14 @@ void testSpritesheet(){
 
 			unit->avanzarFrame();
 			SDL_Delay(100);
+
+	
 		}
+
+			delete unit;
 	}
 	//Free resources and close SDL
+
 	close();
 }
 
