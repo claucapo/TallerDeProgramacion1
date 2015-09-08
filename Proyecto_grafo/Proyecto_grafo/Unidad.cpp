@@ -29,6 +29,9 @@ void Unidad::setVelocidad(float nuevaVelocidad) {
 void Unidad::asignarSprite(string name) {
 	this->spriteBaseName = name;
 	this->sprites = new Spritesheet(name + IMG_EXT, 8, 10, 0, this->direccion);
+	int x = (int) (ConversorUnidades::obtenerInstancia())->obtenerCoordPantallaX(this->pos->getX(), this->pos->getY()); 
+	int y = (int) (ConversorUnidades::obtenerInstancia())->obtenerCoordPantallaY(this->pos->getX(), this->pos->getY());
+	this->sprites->cambirCoord(x, y);
 }
 
 
@@ -39,18 +42,19 @@ void Unidad::nuevoDestino(float newX, float newY){
 		delete this->destino;
 	this->destino = new Posicion(newX, newY);
 	
-	// TODO: Calcular la dirección de movimiento
-	this->direccion = calcularDirecion(this->destino->getX() - this->pos->getX(), this->destino->getY() - this->pos->getY());
-
+	// Calcular la dirección de movimiento
+	float deltaX = newX - this->verPosicion()->getX();
+	float deltaY = newY - this->verPosicion()->getY();
+	
+	this->direccion = calcularDirecion(deltaX, deltaY);
 	// Asigno la direccion al sprite
 	if (this->state != EST_CAMINANDO) {
 		this->state = EST_CAMINANDO;
-		// delete this->sprites; Debería borrar esto?
 		// TODO: determinar los numeros "8" y "10" con algun metodo o establecerlos como constante
-		
-		this->sprites = new Spritesheet(this->spriteBaseName + estados_extensiones[EST_CAMINANDO] + IMG_EXT, 8, 10, 0, this->direccion);
+		this->sprites->cambiarImagen(this->spriteBaseName + estados_extensiones[EST_CAMINANDO] + IMG_EXT, 8, 10, 0, this->direccion);
+		//this->sprites = new Spritesheet(this->spriteBaseName + estados_extensiones[EST_CAMINANDO] + IMG_EXT, 8, 10, 0, this->direccion);
 	}
-	this->sprites->cambiarSubImagen(1, this->direccion);
+	//this->sprites->cambiarSubImagen(1, this->direccion);
 }
 
 #define TOLERANCIA 3
@@ -67,10 +71,10 @@ void Unidad::avanzarFrame() {
 		if (distancia < TOLERANCIA) {
 			// Si es menor a la tolerancia, llegue al destino
 			delete this->pos;
-			this->pos = this->destino;
+			this->sprites->cambiarImagen(this->spriteBaseName + IMG_EXT, 8, 10, 0, this->direccion);
+			this->pos = new Posicion(this->destino->getX(),this->destino->getY() );
 			this->state = EST_QUIETO;
 			// TODO: Idem que en el metodo nuevoDestino
-			this->sprites = new Spritesheet(this->spriteBaseName + IMG_EXT, 8, 10, 0, this->direccion);
 		} else {
 			// Normalizo el vector direccion y calculo el desplazamiento en cada eje
 			float newX = this->pos->getX() + (dirX * this->rapidez)/distancia;
@@ -80,31 +84,50 @@ void Unidad::avanzarFrame() {
 			this->pos = new Posicion(newX, newY);
 		}
 	}
-	float newX = ConversorUnidades::obtenerInstancia()->convertULToPixels(this->pos->getX());
-	float newY= ConversorUnidades::obtenerInstancia()->convertULToPixels(this->pos->getY());
+	int x = (int) (ConversorUnidades::obtenerInstancia())->obtenerCoordPantallaX(this->pos->getX(), this->pos->getY()); 
+	int y = (int) (ConversorUnidades::obtenerInstancia())->obtenerCoordPantallaY(this->pos->getX(), this->pos->getY());
 	
-	this->sprites->cambirCoord(newX, newY);
+	this->sprites->cambirCoord(x, y);
 	this->sprites->siguienteFrame();
 }
 
 
 Direcciones_t Unidad::calcularDirecion(float velocidadX, float velocidadY)
 {
+	
+	// Transformo a cartesianas comunes
+	float vX = velocidadY * 0.866 - velocidadX * 0.866;
+	float vY = velocidadY * (-0.5) - velocidadX * 0.5;
+	
+	cout << "Velocidad: " << vX << " " << vY << endl;
 
-	if(velocidadX > 0) {
-		if(velocidadY == 0) return DIR_DOWN_LEFT;
-		if(velocidadX == velocidadY) return DIR_DOWN;
+	if(vX > 0){
+		float tang = vY/vX;
+		if(tang > 2.414)
+			return DIR_TOP;
+		else if(tang > 0.414)
+			return DIR_TOP_RIGHT;
+		else if(tang < -2.414)
+			return DIR_DOWN;
+		else if(tang < -0.414)
+			return DIR_DOWN_RIGHT;
+		else
+			return DIR_RIGHT;
 		}
-	if(velocidadX < 0) {
-		if(velocidadY == 0) return DIR_TOP_RIGHT;
-		if(velocidadX == velocidadY) return DIR_TOP;
-		if((velocidadY > 0) && ((velocidadY+velocidadX) == 0))return DIR_RIGHT;
+	if(vX < 0){
+		float tang = - vY/vX;
+		if(tang > 2.414)
+			return DIR_TOP;
+		else if(tang > 0.414)
+			return DIR_TOP_LEFT;
+		else if(tang < -2.414)
+			return DIR_DOWN;
+		else if(tang < -0.414)
+			return DIR_DOWN_LEFT;
+		else
+			return DIR_LEFT;
+		}
+	if(vY > 0)
+		return DIR_TOP;
+	return DIR_DOWN;
 	}
-	if(velocidadY > 0)
-		if(velocidadX == 0) return DIR_DOWN_RIGHT;
-	if(velocidadY < 0)
-		if(velocidadX == 0) return DIR_TOP_LEFT;
-	
-	
-	return DIR_LEFT;
-}

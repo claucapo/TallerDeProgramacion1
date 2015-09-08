@@ -239,7 +239,7 @@ void testSpritesheet(){
 			else if (i == 50) {
 				printf("Ha recibido la orden de moverse al pixel 400-100!!\n");
 				//unit->nuevoDestino(400,100);
-				unit->nuevoDestino(3,8);
+				unit->nuevoDestino(5,4);
 				i++;
 			}
 			Spritesheet ss = *(unit->verSprites());

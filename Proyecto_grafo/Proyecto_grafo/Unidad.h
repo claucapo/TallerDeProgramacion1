@@ -20,6 +20,7 @@ public:
 	~Unidad(void);
 
 	Unidad(Posicion* p);
+
 	// Devuelve el valor de la velocidad de
 	// la Unidad.
 	// NOTA: Debemos decidir una "unidad" para
@@ -39,6 +40,7 @@ public:
 	virtual void asignarSprite(string name);
 
 	virtual void avanzarFrame(void);
+
 private:
 	Direcciones_t calcularDirecion(float velocidadX, float velocidadY);
 };

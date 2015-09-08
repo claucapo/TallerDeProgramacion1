@@ -22,6 +22,14 @@ Spritesheet::Spritesheet(string imagen, int fil, int cols, int subX, int subY) {
 	this->subY = subY;
 	this->y_pant = 0;
 	this->x_pant = 0;
+	this->origenX = 0;
+	this->origenY = 0;
+	if(subX < cols){
+		this->subX = 0;
+		}
+	if(subY < fil){
+		this->subY = 0;
+		}
 }
 
 Spritesheet::~Spritesheet(void) {
@@ -49,6 +57,7 @@ void Spritesheet::siguienteFrame() {
 int Spritesheet::subImagenWidth() {
 	return this->sprite->w / this->columnas;
 }
+
 int Spritesheet::subImagenHeight() {
 	return this->sprite->h / this->filas;
 }
@@ -56,6 +65,7 @@ int Spritesheet::subImagenHeight() {
 int Spritesheet::calcularOffsetX(void) {
 	return (this->subX)  * this->subImagenWidth();
 }
+
 int Spritesheet::calcularOffsetY(void) {
 	return (this->subY) * this->subImagenHeight();
 }

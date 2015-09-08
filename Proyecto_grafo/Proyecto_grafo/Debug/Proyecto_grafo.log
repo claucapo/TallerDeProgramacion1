@@ -1,19 +1,13 @@
-﻿Compilación iniciada a las 07/09/2015 18:01:38.
+﻿Compilación iniciada a las 08/09/2015 4:26:28.
 Proyecto "C:\TallerDeProgramacion1\Proyecto_grafo\Proyecto_grafo\Proyecto_grafo.vcxproj" en el nodo 2 (build destinos).
 InitializeBuildStatus:
   Se creará "Debug\Proyecto_grafo.unsuccessfulbuild" porque se especificó "AlwaysCreate".
 ClCompile:
-  C:\Archivos de programa\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt EscenarioTest.cpp
-  EscenarioTest.cpp
+  C:\Archivos de programa\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Unidad.cpp
+  Unidad.cpp
 c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\enumerados.h(20): warning C4305: 'inicializando' : truncamiento de 'double' a 'const float'
-c:\archivos de programa\microsoft visual studio 10.0\vc\include\xutility(2227): warning C4996: 'std::_Copy_impl': Function call with parameters that may be unsafe - this call relies on the caller to check that the passed values are correct. To disable this warning, use -D_SCL_SECURE_NO_WARNINGS. See documentation on how to use Visual C++ 'Checked Iterators'
-          c:\archivos de programa\microsoft visual studio 10.0\vc\include\xutility(2212) : vea la declaración de 'std::_Copy_impl'
-          c:\tallerdeprogramacion1\recursos\librerias\include\yaml-cpp 0.3.0\yaml-cpp\binary.h(33) : vea la referencia a la creación de instancias de plantilla de función '_OutIt std::copy<const unsigned char*,unsigned char*>(_InIt,_InIt,_OutIt)' que se está compilando
-          with
-          [
-              _OutIt=unsigned char *,
-              _InIt=const unsigned char *
-          ]
+c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\unidad.cpp(99): warning C4244: 'inicializando' : conversión de 'double' a 'float'; posible pérdida de datos
+c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\unidad.cpp(100): warning C4244: 'inicializando' : conversión de 'double' a 'float'; posible pérdida de datos
 ResourceCompile:
   Todas las salidas están actualizadas.
 Link:
@@ -57,4 +51,4 @@ Compilación del proyecto terminada "C:\TallerDeProgramacion1\Proyecto_grafo\Pro
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:02.49
+Tiempo transcurrido 00:00:02.32

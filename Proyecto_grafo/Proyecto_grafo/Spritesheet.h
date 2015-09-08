@@ -25,12 +25,19 @@ se mueve hacia abajo y la derecha.*/
 class Spritesheet
 {
 private:
-	int subX, subY;
+	// Rows y cols de la spritesheet
 	int filas, columnas;
+
+	int subX, subY;
+
 	SDL_Surface* sprite;
 
 	// Coordenadas de la imágen en la pantalla
 	int x_pant, y_pant;
+
+	// Falso origen RESPECTO DE LA SUBIMAGEN para
+	// mostrar el spritesheet
+	int origenX, origenY;
 
 public:
 	// Constructor y destructor por defecto
@@ -52,14 +59,17 @@ public:
 	// Devuelve las coordenadas en pantalla en la que se deben mostrar las imágenes
 	int getCoordX(void) {return this->x_pant;}
 	int getCoordY(void) {return this->y_pant;}
+
+	// Devuelve las rows y las cols de la spritesheet
 	int getFilas(void) {return this->filas;}
 	int getColumnas(void) {return this->columnas;}
+	
+	// Devuelve el surface asociado a la imagen
 	SDL_Surface* devolverImagenAsociada(void) {return this->sprite;}
 
 	// Métodos para calcular las dimensiones de las subimagenes
 	int subImagenWidth();
 	int subImagenHeight();
-
 
 	// Cambia las coordenadas de la pantalla
 	// en las que será dibujada la imágen
