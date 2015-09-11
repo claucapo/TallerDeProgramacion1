@@ -106,7 +106,7 @@ void print_test(char* name, bool result) {
 }
 
 void testEscenarioChico(){
-	
+	/*
 	Escenario ej(5, 4);
 
 	Grafo mapa = ej.verMapa();
@@ -122,11 +122,11 @@ void testEscenarioChico(){
 	print_test("(2,3) y (1,2) conectados", mapa.elementosEstanConectados(Posicion(2,3), Posicion(1,2)));
 	print_test("(1,1) y (3,3) no conectados", !mapa.elementosEstanConectados(Posicion(1,1), Posicion(3,3)));
 	
-
+	*/
 
 }
 
-void testEscenarioGrande(){
+void testEscenarioGrande(){/*
 	Escenario ej(100, 100);
 
 	Grafo mapa = ej.verMapa();
@@ -141,7 +141,7 @@ void testEscenarioGrande(){
 	print_test("(37,13) y (38,13) conectados", mapa.elementosEstanConectados(Posicion(37,13), Posicion(38,13)));
 	print_test("(21,39) y (22,40) conectados", mapa.elementosEstanConectados(Posicion(21,39), Posicion(22,40)));
 	print_test("(23,18) y (34,35) no conectados", !mapa.elementosEstanConectados(Posicion(23,18), Posicion(34,35)));
-
+	*/
 }
 
 struct UnidadTest {
@@ -203,6 +203,7 @@ void testUsarLog(void){
 	log.escribirLog("pruebaLog");
 	log.cerrarLog();
 }
+
 
 void testSpritesheet(){
 	//Start up SDL and create window

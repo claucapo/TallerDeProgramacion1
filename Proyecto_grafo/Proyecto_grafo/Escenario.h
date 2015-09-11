@@ -1,7 +1,8 @@
-#include "Grafo.h"
+#include "Matriz.h"
 #include "Posicion.h"
 #include "Entidad.h"
 #include "Unidad.h"
+#include <list>
 #pragma once
 
 /* La clase Escenario representa la cuadricula
@@ -12,12 +13,11 @@ actùan dentro de ese mapa.*/
 class Escenario
 {
 private:
+	//Atributos
+	list<Entidad> entidades;
 	// El grafo siguiente es el mapa
-	Grafo mapa;
-	// Método interno que genera un mapa de
-	// casillas_x x casillas_y vacío a partir
-	// de un Grafo.
-	void generarMapaVacio(int casillas_x, int casillas_y);
+	Matriz* mapa;
+
 public:
 	// Constructor y destructor por defecto
 	Escenario(void);
@@ -27,9 +27,9 @@ public:
 	// Grafo de tamaño casillas_x x casillas_y.
 	Escenario(int casillas_x, int casillas_y);
 
-	// Devuelve el Grafo que representa el
-	// mapa con sus conexiones.
-	Grafo verMapa(){return mapa;} ;
+	// Devuelve la matriz que representa el
+	// mapa.
+	Matriz* verMapa(){return mapa;} ;
 
 	// Avanza un frame para cada Entidad sobre
 	// el mapa, ejecutando sus acciones.

@@ -53,4 +53,6 @@ public:
 
 	// Asigna una Posicion de prepo
 	void asignarPos(Posicion* pos);
+
+	bool operator ==(const Entidad other);
 };

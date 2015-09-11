@@ -1,54 +1,9 @@
-﻿Compilación iniciada a las 08/09/2015 4:26:28.
-Proyecto "C:\TallerDeProgramacion1\Proyecto_grafo\Proyecto_grafo\Proyecto_grafo.vcxproj" en el nodo 2 (build destinos).
-InitializeBuildStatus:
-  Se creará "Debug\Proyecto_grafo.unsuccessfulbuild" porque se especificó "AlwaysCreate".
-ClCompile:
-  C:\Archivos de programa\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Unidad.cpp
-  Unidad.cpp
-c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\enumerados.h(20): warning C4305: 'inicializando' : truncamiento de 'double' a 'const float'
-c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\unidad.cpp(99): warning C4244: 'inicializando' : conversión de 'double' a 'float'; posible pérdida de datos
-c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\unidad.cpp(100): warning C4244: 'inicializando' : conversión de 'double' a 'float'; posible pérdida de datos
-ResourceCompile:
-  Todas las salidas están actualizadas.
-Link:
-  C:\Archivos de programa\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\TallerDeProgramacion1\Proyecto_grafo\Debug\Proyecto_grafo.exe" /NOLOGO SDL2.lib SDL2main.lib SDL2_image.lib "libyaml-cppmdd.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Proyecto_grafo.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\TallerDeProgramacion1\Proyecto_grafo\Debug\Proyecto_grafo.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\TallerDeProgramacion1\Proyecto_grafo\Debug\Proyecto_grafo.lib" /MACHINE:X86 Debug\Proyecto_grafo.res
-  Debug\Archivo.obj
-  Debug\BibliotecaDeImagenes.obj
-  Debug\ConversorUnidades.obj
-  Debug\Entidad.obj
-  Debug\ErrorLog.obj
-  Debug\Escenario.obj
-  Debug\Grafo.obj
-  Debug\EscenarioTest.obj
-  Debug\Jugador.obj
-  Debug\Partida.obj
-  Debug\Posicion.obj
-  Debug\Spritesheet.obj
-  Debug\Unidad.obj
-  LINK : no se encontró C:\TallerDeProgramacion1\Proyecto_grafo\Debug\Proyecto_grafo.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
-MSVCRTD.lib(cinitexe.obj) : warning LNK4098: la biblioteca predeterminada'msvcrt.lib' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
-libyaml-cppmdd.lib(aliasmanager.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'libyaml-cppmdd.lib(aliasmanager.obj)' o en 'C:\TallerDeProgramacion1\Proyecto_grafo\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-libyaml-cppmdd.lib(binary.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'libyaml-cppmdd.lib(binary.obj)' o en 'C:\TallerDeProgramacion1\Proyecto_grafo\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-libyaml-cppmdd.lib(conversion.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'libyaml-cppmdd.lib(conversion.obj)' o en 'C:\TallerDeProgramacion1\Proyecto_grafo\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-libyaml-cppmdd.lib(emitfromevents.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'libyaml-cppmdd.lib(emitfromevents.obj)' o en 'C:\TallerDeProgramacion1\Proyecto_grafo\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-libyaml-cppmdd.lib(emitter.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'libyaml-cppmdd.lib(emitter.obj)' o en 'C:\TallerDeProgramacion1\Proyecto_grafo\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-libyaml-cppmdd.lib(emitterstate.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'libyaml-cppmdd.lib(emitterstate.obj)' o en 'C:\TallerDeProgramacion1\Proyecto_grafo\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-libyaml-cppmdd.lib(emitterutils.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'libyaml-cppmdd.lib(emitterutils.obj)' o en 'C:\TallerDeProgramacion1\Proyecto_grafo\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-libyaml-cppmdd.lib(iterator.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'libyaml-cppmdd.lib(iterator.obj)' o en 'C:\TallerDeProgramacion1\Proyecto_grafo\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-libyaml-cppmdd.lib(node.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'libyaml-cppmdd.lib(node.obj)' o en 'C:\TallerDeProgramacion1\Proyecto_grafo\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-libyaml-cppmdd.lib(nodebuilder.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'libyaml-cppmdd.lib(nodebuilder.obj)' o en 'C:\TallerDeProgramacion1\Proyecto_grafo\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-libyaml-cppmdd.lib(nodeownership.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'libyaml-cppmdd.lib(nodeownership.obj)' o en 'C:\TallerDeProgramacion1\Proyecto_grafo\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-libyaml-cppmdd.lib(null.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'libyaml-cppmdd.lib(null.obj)' o en 'C:\TallerDeProgramacion1\Proyecto_grafo\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-libyaml-cppmdd.lib(ostream.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'libyaml-cppmdd.lib(ostream.obj)' o en 'C:\TallerDeProgramacion1\Proyecto_grafo\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-libyaml-cppmdd.lib(regex.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'libyaml-cppmdd.lib(regex.obj)' o en 'C:\TallerDeProgramacion1\Proyecto_grafo\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-  Proyecto_grafo.vcxproj -> C:\TallerDeProgramacion1\Proyecto_grafo\Debug\Proyecto_grafo.exe
-Manifest:
-  C:\Archivos de programa\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\TallerDeProgramacion1\Proyecto_grafo\Debug\Proyecto_grafo.exe;#1" /manifest Debug\Proyecto_grafo.exe.intermediate.manifest
-FinalizeBuildStatus:
-  Se eliminará el archivo "Debug\Proyecto_grafo.unsuccessfulbuild".
-  Aplicando tarea Touch a "Debug\Proyecto_grafo.lastbuildstate".
-Compilación del proyecto terminada "C:\TallerDeProgramacion1\Proyecto_grafo\Proyecto_grafo\Proyecto_grafo.vcxproj" (build destinos).
+﻿Compilación iniciada a las 11/09/2015 3:06:55.
+Proyecto "C:\Documents and Settings\Camila\Escritorio\Taller\Repos\TallerDeProgramacion1\Proyecto_grafo\Proyecto_grafo\Proyecto_grafo.vcxproj" en el nodo 2 (clean destinos).
+_PrepareForClean:
+  Se eliminará el archivo "Debug\Proyecto_grafo.lastbuildstate".
+Compilación del proyecto terminada "C:\Documents and Settings\Camila\Escritorio\Taller\Repos\TallerDeProgramacion1\Proyecto_grafo\Proyecto_grafo\Proyecto_grafo.vcxproj" (clean destinos).
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:02.32
+Tiempo transcurrido 00:00:00.03

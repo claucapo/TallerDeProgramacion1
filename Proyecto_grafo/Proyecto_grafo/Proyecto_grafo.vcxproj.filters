@@ -63,6 +63,9 @@
     <ClInclude Include="ConversorUnidades.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="Matriz.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Proyecto_grafo.rc">
@@ -78,9 +81,6 @@
     </ClCompile>
     <ClCompile Include="Escenario.cpp">
       <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="EscenarioTest.cpp">
-      <Filter>Archivos de código fuente\Tests</Filter>
     </ClCompile>
     <ClCompile Include="Entidad.cpp">
       <Filter>Archivos de código fuente</Filter>
@@ -108,6 +108,12 @@
     </ClCompile>
     <ClCompile Include="ConversorUnidades.cpp">
       <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="Matriz.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="EscenarioTest.cpp">
+      <Filter>Archivos de código fuente\Tests</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

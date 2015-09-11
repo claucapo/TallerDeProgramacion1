@@ -37,10 +37,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\TallerDeProgramacion1\Recursos\Librerias\include\yaml-cpp 0.3.0;C:\TallerDeProgramacion1\Recursos\Librerias\include\SDL2_image;C:\TallerDeProgramacion1\Recursos\Librerias\include\SDL2;C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Recursos\Librerias\include\SDL2_image;C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Recursos\Librerias\include\SDL2;C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Recursos\Librerias\include\yaml-cpp 0.3.0;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Documents and Settings\Camila\Escritorio\Taller\Repos\TallerDeProgramacion1\Recursos\Librerias\include\yaml-cpp 0.3.0;C:\Documents and Settings\Camila\Escritorio\Taller\Repos\TallerDeProgramacion1\Recursos\Librerias\include\SDL2_image;C:\Documents and Settings\Camila\Escritorio\Taller\Repos\TallerDeProgramacion1\Recursos\Librerias\include\SDL2;C:\TallerDeProgramacion1\Recursos\Librerias\include\yaml-cpp 0.3.0;C:\TallerDeProgramacion1\Recursos\Librerias\include\SDL2_image;C:\TallerDeProgramacion1\Recursos\Librerias\include\SDL2;C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Recursos\Librerias\include\SDL2_image;C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Recursos\Librerias\include\SDL2;C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Recursos\Librerias\include\yaml-cpp 0.3.0;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Recursos\Librerias\lib;C:\TallerDeProgramacion1\Recursos\Librerias\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Documents and Settings\Camila\Escritorio\Taller\Repos\TallerDeProgramacion1\Recursos\Librerias\lib;C:\Documents and Settings\Usuario\Mis documentos\Taller\TallerDeProgramacion1\Recursos\Librerias\lib;C:\TallerDeProgramacion1\Recursos\Librerias\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -76,6 +76,7 @@
     <ClInclude Include="Escenario.h" />
     <ClInclude Include="Grafo.h" />
     <ClInclude Include="Jugador.h" />
+    <ClInclude Include="Matriz.h" />
     <ClInclude Include="Partida.h" />
     <ClInclude Include="Posicion.h" />
     <ClInclude Include="resource.h" />
@@ -92,9 +93,10 @@
     <ClCompile Include="Entidad.cpp" />
     <ClCompile Include="ErrorLog.cpp" />
     <ClCompile Include="Escenario.cpp" />
-    <ClCompile Include="Grafo.cpp" />
     <ClCompile Include="EscenarioTest.cpp" />
+    <ClCompile Include="Grafo.cpp" />
     <ClCompile Include="Jugador.cpp" />
+    <ClCompile Include="Matriz.cpp" />
     <ClCompile Include="Partida.cpp" />
     <ClCompile Include="Posicion.cpp" />
     <ClCompile Include="Spritesheet.cpp" />

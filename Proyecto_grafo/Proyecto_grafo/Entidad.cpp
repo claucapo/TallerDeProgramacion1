@@ -41,3 +41,7 @@ void Entidad::asignarPos(Posicion* pos)
 	if(pos)
 		this->pos = pos;
 }
+
+bool Entidad::operator==(Entidad other){
+	return ((this->pos == other.verPosicion()) && (this->state == other.verEstado()) );
+}

@@ -59,6 +59,7 @@ void Unidad::nuevoDestino(float newX, float newY){
 
 #define TOLERANCIA 3
 void Unidad::avanzarFrame() {
+	/*
 	// SI esta caminando
 	if (this->state == EST_CAMINANDO) {
 		// La unidad se traslada
@@ -84,6 +85,7 @@ void Unidad::avanzarFrame() {
 			this->pos = new Posicion(newX, newY);
 		}
 	}
+	*/
 	int x = (int) (ConversorUnidades::obtenerInstancia())->obtenerCoordPantallaX(this->pos->getX(), this->pos->getY()); 
 	int y = (int) (ConversorUnidades::obtenerInstancia())->obtenerCoordPantallaY(this->pos->getX(), this->pos->getY());
 	
