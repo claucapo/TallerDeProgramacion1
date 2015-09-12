@@ -12,6 +12,7 @@
 #include "BibliotecaDeImagenes.h"
 #include <SDL.h>
 #include <SDL_image.h>
+#include "ConfigParser.h"
 
 
 // COPIO A LO TURBIO LAS FUNCIONES DE SDL
@@ -285,6 +286,5 @@ int main( int argc, char** argv ){
 	getch();
 	*/
 	testSpritesheet();
-
 	return 0;
 }

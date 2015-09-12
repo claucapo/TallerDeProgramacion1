@@ -1,0 +1,30 @@
+pantalla: 
+  ancho: 1200
+  alto: 1000
+gameplay: 
+  velocidad: 75
+  margen: 54
+tipo:
+  - nombre: "centro_urbano"
+    ruta: "una\\ruta\\cualquiera.png"
+    baseX: 4
+    baseY: 4
+    pixelX: 100
+    pixelY: 200
+  - nombre: "casa"
+    ruta: "una\\ruta\\cualquiera.png"
+    baseX: 2
+    baseY: 2
+    pixelX: 50
+    pixelY: 50
+  - nombre: "aldeano"
+  - nombre: "champeon"
+escenario:
+  nombre: orleans
+  sizeX: 100
+  sizeY: 80
+  entidades:
+   - {x: 20, y: 30, tipo: "casa"}
+   - {x: 20, y: 40, tipo: "casa"}
+   - {x: 50, y: 70, tipo: "centro_urbano"}
+  protagonista: {x: 2, y: 1, tipo: "champeon"}
