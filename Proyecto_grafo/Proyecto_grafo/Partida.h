@@ -26,11 +26,5 @@ public:
 	// bien no si esta estaba ocupada. ¿Lanzar
 	// excepción?
 	void crearEntidad(Entidad entidad, Posicion pos);
-
-	// Mueve la Unidad recibida en dirección
-	// a la Posicion de destino.
-	// Pre: La Unidad estaba en el mapa,
-	// destino es una Posicion del mapa.
-	void moverUnidad(Unidad unidad, Posicion destino);
 };
 

@@ -3,12 +3,10 @@
 Archivo::Archivo(const string &path) {
 	this->path = path;
 	ofstream myfile;
-    this->archivo.open (path.c_str(),fstream::app);
+    this->archivo.open (path.c_str(), fstream::app);
 }
 
 Archivo::~Archivo() {
-
-	
 }
 
 void Archivo::escribir(const string& contenido) {

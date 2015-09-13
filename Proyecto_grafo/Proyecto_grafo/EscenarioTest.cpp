@@ -1,290 +1,66 @@
-#include <stdio.h>
-#include <list>
-#include <conio.h>
-#include "Posicion.h"
-#include <map>
-#include "Grafo.h"
 #include "Escenario.h"
-#include "Unidad.h"
-#include "ErrorLog.h"
-#include <fstream>
-#include "Spritesheet.h"
-#include "BibliotecaDeImagenes.h"
-#include <SDL.h>
-#include <SDL_image.h>
-#include "ConfigParser.h"
-
-
-// COPIO A LO TURBIO LAS FUNCIONES DE SDL
-
-//Screen dimension constants
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
-
-//Starts up SDL and creates window
-bool init();
-
-//Loads media
-bool loadMedia();
-
-//Frees media and shuts down SDL
-void close();
-
-//Loads individual image
-SDL_Surface* loadSurface( std::string path );
-
-//The window we'll be rendering to
-SDL_Window* gWindow = NULL;
-	
-//The surface contained by the window
-SDL_Surface* gScreenSurface = NULL;
-
-
-bool init()
-{
-	//Initialization flag
-	bool success = true;
-
-	//Initialize SDL
-	if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
-	{
-		printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
-		success = false;
-	}
-	else
-	{
-		//Create window
-		gWindow = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
-		if( gWindow == NULL )
-		{
-			printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
-			success = false;
-		}
-		else
-		{
-			//Initialize PNG loading
-			int imgFlags = IMG_INIT_PNG;
-			if( !( IMG_Init( imgFlags ) & imgFlags ) )
-			{
-				printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
-				success = false;
-			}
-			else
-			{
-				//Get window surface
-				gScreenSurface = SDL_GetWindowSurface( gWindow );
-			}
-		}
-	}
-
-	return success;
-}
-
-void close()
-{
-
-
-	//Destroy window
-	SDL_DestroyWindow( gWindow );
-	gWindow = NULL;
-
-	//Quit SDL subsystems
-	IMG_Quit();
-	SDL_Quit();
-}
-
-	// <------ hasta acá xd
-
-
-//YAML 0.3!!
-#include <yaml-cpp\yaml.h>
+#include "Entidad.h"
+#include "Posicion.h"
+#include "Edificios.h"
+#include "Protagonistas.h"
+#include <iostream>
 
 using namespace std;
 
-/* Función auxiliar para imprimir si estuvo OK o no. */
-void print_test(char* name, bool result) {
-	printf("%s: %s\n", name, result? "OK" : "ERROR");
-}
-
-void testEscenarioChico(){
-	/*
-	Escenario ej(5, 4);
-
-	Grafo mapa = ej.verMapa();
-
-	print_test("Tam. grafo correcto", mapa.size()==20);
-	print_test("(0,0) pertenece", mapa.elementoPertenece(Posicion(0,0)));
-	print_test("(2,3) pertenece", mapa.elementoPertenece(Posicion(2,3)));
-	print_test("(4,3) pertenece", mapa.elementoPertenece(Posicion(4,3)));
-	print_test("(5,5) no pertenece", !mapa.elementoPertenece(Posicion(5,5)));
-	print_test("(0,0) y (0,1) conectados", mapa.elementosEstanConectados(Posicion(0,0), Posicion(0,1)));
-	print_test("(2,3) y (1,3) conectados", mapa.elementosEstanConectados(Posicion(2,3), Posicion(1,3)));
-	print_test("(3,3) y (3,2) conectados", mapa.elementosEstanConectados(Posicion(3,3), Posicion(3,2)));
-	print_test("(2,3) y (1,2) conectados", mapa.elementosEstanConectados(Posicion(2,3), Posicion(1,2)));
-	print_test("(1,1) y (3,3) no conectados", !mapa.elementosEstanConectados(Posicion(1,1), Posicion(3,3)));
-	
-	*/
-
-}
-
-void testEscenarioGrande(){/*
-	Escenario ej(100, 100);
-
-	Grafo mapa = ej.verMapa();
-
-	print_test("Tam. grafo correcto", mapa.size()== 10000);
-	print_test("(0,0) pertenece", mapa.elementoPertenece(Posicion(0,0)));
-	print_test("(99,99) pertenece", mapa.elementoPertenece(Posicion(99,99)));
-	print_test("(56,78) pertenece", mapa.elementoPertenece(Posicion(56,78)));
-	print_test("(500,500) no pertenece", !mapa.elementoPertenece(Posicion(500,500)));
-	print_test("(99,99) y (99,98) conectados", mapa.elementosEstanConectados(Posicion(99,99), Posicion(99,98)));
-	print_test("(54,31) y (53,30) conectados", mapa.elementosEstanConectados(Posicion(54,31), Posicion(53,30)));
-	print_test("(37,13) y (38,13) conectados", mapa.elementosEstanConectados(Posicion(37,13), Posicion(38,13)));
-	print_test("(21,39) y (22,40) conectados", mapa.elementosEstanConectados(Posicion(21,39), Posicion(22,40)));
-	print_test("(23,18) y (34,35) no conectados", !mapa.elementosEstanConectados(Posicion(23,18), Posicion(34,35)));
-	*/
-}
-
-struct UnidadTest {
-	std::string nombre;
-	int ataque;
-};
-
-void operator >> (const YAML::Node& node, UnidadTest& unit) {
-	node["nombre"] >> unit.nombre;
-	node["ataque"] >> unit.ataque;
-}
-
-void testEmitirYAML() {
-	YAML::Emitter out;
-
-	// Secuencia de categorías
-	out << YAML::BeginSeq;
-	// Primer categoría
-	out << YAML::BeginMap;
-	out << YAML::Key << "categoria" << YAML::Value << "Civiles";
-	out << YAML::Key << "unidades" << YAML::Value << YAML::BeginSeq;
-	// Aldeano
-	out << YAML::BeginMap << YAML::Key << "nombre" << YAML::Value << "Aldeano";
-	out << YAML::Key << "ataque" << YAML::Value << "1" << YAML::EndMap;
-	// Carreta
-	out << YAML::BeginMap << YAML::Key << "nombre" << YAML::Value << "Carreta Mercante";
-	out << YAML::Key << "ataque" << YAML::Value << "0" << YAML::EndMap;
-	// Fin de unidades << Fin de categoría
-	out << YAML::EndSeq << YAML::EndMap;
-
-	// Segunda categoria	
-	out << YAML::BeginMap;
-	out << YAML::Key << "categoria" << YAML::Value << "Infanteria";
-	out << YAML::Key << "unidades" << YAML::Value << YAML::BeginSeq;
-	
-	// Unidades
-	std::string nombres[] = {"Milicia", "Hombre de armas", "Espadachin de espada larga", "Espadachin de mandoble", "Campeon"};
-	int ataques[] = {4, 6, 9, 11, 13};
-	for (int i = 0; i < 5; i++) {
-		out << YAML::BeginMap << YAML::Key << "nombre" << YAML::Value << nombres[i];
-		out << YAML::Key << "ataque" << YAML::Value << ataques[i] << YAML::EndMap;
+void imprimirEscenario(Escenario* scene) {
+	for(int i = 0; i < scene->verTamX(); i++) {
+		for(int j = 0; j < scene->verTamY(); j++) {
+			Posicion pos = Posicion(i, j);
+			bool vacia = scene->casillaEstaVacia(&pos);
+			if (vacia)
+				cout << "0";
+			else
+				cout << "1";
+		} 
+		cout << endl;
 	}
-	out << YAML::EndSeq << YAML::EndMap << YAML::EndSeq;
-	
-	ofstream outFile;
-	outFile.open("test.yaml");
-	outFile << out.c_str();
-	outFile.close();
-}
-
-void testParsearYAML(){
-	//TODO: Testear el parseo con el archivo que se genera en testEmitirYAML()
-}
-
-void testUsarLog(void){
-	ErrorLog log;
-	log.abrirLog();
-	log.habilitarFlags(true,true,true);
-	log.escribirLog("pruebaLog");
-	log.cerrarLog();
+	cout << endl;
 }
 
 
-void testSpritesheet(){
-	//Start up SDL and create window
-	if(!init()) {
-		printf( "Failed to initialize!\n" );
-	} else {
-		//Main loop flag
-		bool quit = false;
-		//Event handler
-		SDL_Event e;
-		
-		// ACA CREO A LA UNIDAD
-		Unidad* unit = new Unidad(new Posicion(1,1));
-	
-		unit->asignarSprite("champion");
-		unit->setVelocidad(5);
-		printf("El champion esperara 500 frames\n");
-		int i = 0;
-		
-		//While application is running
-		while(!quit) {
+// Testea la creación de un escenario de 50x50
+// Posiciona dos edificios
+// Coloca un aldeano y lo hace caminar hasta una posición
+// y en medio del camino le asigna otro nuevo destino
 
-			SDL_FillRect(gScreenSurface, NULL, 0x000000);
+// Imprime el mapa y como cambia la posición del aldeano a medida que avanzan los frames
+void testEscenarioBasico() {
+	Escenario* scene = new Escenario();
 
-			//Handle events on queue
-			while( SDL_PollEvent( &e ) != 0 ) {
-				//User requests quit
-				if( e.type == SDL_QUIT )
-					quit = true;
-			}
-			// Cuento frames para que la orden se demore
-			if (i < 50)
-				i++;
-			else if (i == 50) {
-				printf("Ha recibido la orden de moverse al pixel 400-100!!\n");
-				//unit->nuevoDestino(400,100);
-				unit->nuevoDestino(5,4);
-				i++;
-			}
-			Spritesheet ss = *(unit->verSprites());
-			SDL_Rect rectangulo, rectDestino;
-			SDL_SetColorKey( ss.devolverImagenAsociada(), true, SDL_MapRGB( ss.devolverImagenAsociada()->format, 255, 0, 255) );
-				
-			rectangulo.x = ss.calcularOffsetX();
-			rectangulo.y = ss.calcularOffsetY();
-			rectangulo.w = ss.subImagenWidth();
-			rectangulo.h = ss.subImagenHeight();
+	Entidad* ent1 = new CentroUrbano();
+	Entidad* ent2 = new Casa();
+	Unidad* unit = new Aldeano();
+	cout << "Se crea un mapa de 50x50" << endl;
+	cout << "Se coloca una casa (2x2) en la posicion 0,15" << endl;
+	cout << "Se coloca un centro urbano (4x4) en la posicion 15,0" << endl;
+	cout << "Se imprime el mapa (0=posicion vacia, 1=posicion ocupada)" << endl;
+	Posicion pos1 = Posicion(0, 15);
+	Posicion pos2 = Posicion(15, 0);
 
-			rectDestino.x = ss.getCoordX();
-			rectDestino.y = ss.getCoordY();
+	scene->asignarProtagonista(unit, &pos2);
+	scene->asignarDestinoProtagonista(&pos1);
+	scene->ubicarEntidad(ent1, &pos1);
+	scene->ubicarEntidad(ent2, &pos2);
 
-			SDL_BlitSurface( ss.devolverImagenAsociada(), &rectangulo, gScreenSurface, &rectDestino );
+	imprimirEscenario(scene);
 
-			//Update the surface
-			SDL_UpdateWindowSurface( gWindow );
-
-			unit->avanzarFrame();
-			SDL_Delay(100);
-
-	
+	cout << endl << "Se posiciona un aldeano en 15,0; y se le designa como destino la posicion 0,15" << endl;
+	cout << "Cada linea representa la posicion del aldeano en cada frame que pasa" << endl;
+	cout << "Se simulan solo 50 frames" << endl << endl;
+	for (int i = 0; i < 50; i++) {
+		scene->avanzarFrame();
+		if (i == 20) {
+			cout << "El se le impone una nueva posicion de desitno, 40,40" << endl;
+			Posicion pos3 = Posicion(40, 40);
+			scene->asignarDestinoProtagonista(&pos3);
 		}
-
-			delete unit;
+		cout << unit->verPosicion()->getX() << "-" << unit->verPosicion()->getY() << endl;
 	}
-	//Free resources and close SDL
 
-	close();
-}
-
-int main( int argc, char** argv ){
-	/*testEscenarioChico();
-	testEscenarioGrande();
-	
-	//Test YAML
-	testEmitirYAML();
-	testParsearYAML();
-
-	testUsarLog();
-	getch();
-	*/
-	testSpritesheet();
-	return 0;
+	delete scene;
 }

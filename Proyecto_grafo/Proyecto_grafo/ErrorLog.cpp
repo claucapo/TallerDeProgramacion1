@@ -1,14 +1,12 @@
 #include "ErrorLog.h"
 #include <ctime>
 
+#define LOG_DIR_DEFAULT "log.log"
 
-ErrorLog::ErrorLog(void)
-{
+
+ErrorLog::ErrorLog(void) {
 }
-
-
-ErrorLog::~ErrorLog(void)
-{
+ErrorLog::~ErrorLog(void) {
 }
 
 string obtenerFechaHora(){
@@ -22,53 +20,41 @@ string obtenerFechaHora(){
   strftime(buffer,80,"%d/%m/%Y %I:%M:%S",timeinfo);
   std::string str(buffer);
 
-  return str + " ";
+  return "[" + str + "]";
 }
 
-void ErrorLog::escribirLog(string msj)
-{
+void ErrorLog::escribirLog(string msj) {
 	arch->escribir(obtenerFechaHora() + msj);
 }
 
-
-void ErrorLog::escribirLogW(string msj)
-{
+void ErrorLog::escribirLogW(string msj) {
 	if(_warnings){
-	    arch->escribir(obtenerFechaHora() + "WARNING " + msj);
+	    arch->escribir(obtenerFechaHora() + " - [WARNING] - " + msj);
 	}
 }
 
 
-void ErrorLog::escribirLogI(string msj)
-{
+void ErrorLog::escribirLogI(string msj) {
 	if(_info){
-	   arch->escribir(obtenerFechaHora() + "INFO"  + msj);
+	   arch->escribir(obtenerFechaHora() + " - [INFO] - "  + msj);
 	}
 }
 
-
-void ErrorLog::escribirLogE(string msj)
-{
+void ErrorLog::escribirLogE(string msj) {
 	if(_errores){
-	   arch->escribir(obtenerFechaHora() + "ERROR " +  msj);
+	   arch->escribir(obtenerFechaHora() + " - [ERROR] - " +  msj);
 	}
 }
 
-
-void ErrorLog::abrirLog(void)
-{
+void ErrorLog::abrirLog(void) {
 	arch = new Archivo("c:\\Proyecto_grafo.log");
 }
 
-
-void ErrorLog::cerrarLog(void)
-{
+void ErrorLog::cerrarLog(void) {
 	arch->cerrar();
 }
 
-
-void ErrorLog::habilitarFlags(bool warnings, bool info, bool errores)
-{
+void ErrorLog::habilitarFlags(bool warnings, bool info, bool errores) {
 	_warnings = warnings;
 	_info = info;
 	_errores = errores;

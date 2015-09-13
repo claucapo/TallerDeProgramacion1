@@ -1,4 +1,10 @@
+#ifndef POSICION_H
+#define POSICION_H
+
+
 #pragma once
+
+#include <cmath>
 
 
 /* La clase Posicion representa la casilla (tile)
@@ -25,14 +31,14 @@ public:
 	float getX() {return this->coord_x;}
 	float getY() {return this->coord_y;}
 
-	// Redefinición de operadores:
-	// "Dos Posicion son iguales si poseen las
-	// mismas coordenadas (x,y)"
-	// El mayor y el menor sólo fueron inventados
-	// para que existiera un orden en el grafo.
-	int generarCodigo();
-	bool operator <(const Posicion other);
-	bool operator >(const Posicion other);
-	bool operator ==(const Posicion other);
+	// Devuelve los valores enteros de las coordenadas.
+	// Como siempre son flotantes enteros, puedo utilizar la función floor.
+	int getRoundX() const {return (int)std::floor(this->coord_x);}
+	int getRoundY() const {return (int)std::floor(this->coord_y);}
+
+	// Redefino el operador, dos posiciones son iguales si refieren
+	// a la misma casilla, es decir, si tienen la misma parte entera
+	bool operator == (const Posicion& other);
 };
 
+#endif //POSICION_H

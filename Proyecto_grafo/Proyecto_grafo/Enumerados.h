@@ -11,12 +11,10 @@ enum Direcciones_t {DIR_RIGHT, DIR_TOP_RIGHT, DIR_TOP, DIR_TOP_LEFT, DIR_LEFT, D
 
 // Estados
 enum Estados_t {EST_QUIETO, EST_CAMINANDO};
-
 const string estados_extensiones[] = {"", "_move"};
 
 // Otras constantes
 const string IMG_EXT = ".png";
-
 const float LARGO_TILE = 30.2696;
 
 // Duracion de 1 frame en ms

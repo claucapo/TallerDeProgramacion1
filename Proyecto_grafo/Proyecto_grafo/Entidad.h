@@ -1,8 +1,9 @@
+#ifndef ENTIDAD_H
+#define ENTIDAD_H
+
 #include "Posicion.h"
 #include "Spritesheet.h"
 #include "Enumerados.h"
-
-#pragma once
 
 /* La clase Entidad representa cualquier
 elemento que pueda ubicarse sobre una
@@ -13,9 +14,11 @@ deberán heredar los "entes" verdaderos.*/
 class Entidad {
 protected:
 	Posicion* pos;
-	Spritesheet* sprites;
-	string spriteBaseName;
+	string name;
 	Estados_t state;
+
+	int tamX;
+	int tamY;
 
 
 public:
@@ -32,18 +35,16 @@ public:
 	// una Posicion, devuelve la Posicion
 	// en la que iría el pixel origen.
 	Posicion* verPosicion(void) {return this->pos;}
-	
-	// Devuelve los sprites asociados a la entidad
-	Spritesheet* verSprites(void) {return this->sprites;}
 
 	// Devuelve el estado
 	Estados_t verEstado(void) {return this->state;}
 
+	// Devuelve los dos tamanios
+	int verTamX() {return this->tamX;}
+	int verTamY() {return this->tamY;}
+
 	// Avanza un frame modificando los valores de la entidad
 	virtual void avanzarFrame(void);
-
-	// Metodos para setear los sprites.
-	void asignarSprite(string name);
 
 	// NOTA: Sobrescribir los operadores
 	// ==, < y >.
@@ -56,3 +57,5 @@ public:
 
 	bool operator ==(const Entidad other);
 };
+
+#endif ENTIDAD_H

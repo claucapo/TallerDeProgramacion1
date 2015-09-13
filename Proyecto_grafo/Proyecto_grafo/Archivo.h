@@ -55,6 +55,8 @@ public:
 	
 	virtual void cerrar();
 
+	bool is_open() {return archivo.is_open();}
+
 };
 
 #endif /* ARCHIVO_H_ */

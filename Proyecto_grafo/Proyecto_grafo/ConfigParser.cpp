@@ -1,4 +1,5 @@
 #include "ConfigParser.h"
+#include "ErrorLog.h"
 #include <fstream>
 #include <yaml-cpp\yaml.h>
 

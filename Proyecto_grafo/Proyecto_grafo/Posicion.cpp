@@ -11,24 +11,10 @@ Posicion::Posicion(float x, float y) {
 	coord_y = y;
 }
 
-
-Posicion::~Posicion(void)
-{
+Posicion::~Posicion(void){
 }
 
-int Posicion::generarCodigo(){
-	return coord_x * 1000 + coord_y;
-}
-
-bool Posicion::operator<(const Posicion other){
-	return ((coord_x < other.coord_x)&&(coord_y < other.coord_y));
-}
-
-bool Posicion::operator>(const Posicion other){
-	return ((coord_x > other.coord_x)&&(coord_y > other.coord_y));
-}
-
-bool Posicion::operator==(const Posicion other){
-	return ((coord_x == other.coord_x)&&(coord_y == other.coord_y));
+bool Posicion::operator==(const Posicion& other){
+	return ((getRoundX() == other.getRoundX()) && (getRoundX() == other.getRoundY()));
 }
 

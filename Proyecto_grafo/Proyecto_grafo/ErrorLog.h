@@ -7,8 +7,7 @@ using namespace std;
 // La clase ErrorLog es la encargada de abrir,
 // cerrar y escribir en el log de errores.
 // ¿Implementar usando singleton?
-class ErrorLog
-{
+class ErrorLog {
 public:
 	// Constructor y destructor por defecto
 	ErrorLog(void);

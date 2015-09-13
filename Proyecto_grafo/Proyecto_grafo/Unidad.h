@@ -9,7 +9,7 @@ representa cada uno de los elementos móviles
 una base abstracta de la cual derivaran las
 unidades genuinas del juego.*/
 class Unidad : public Entidad {
-private:
+protected:
 	Posicion* destino;
 	float rapidez;
 	Direcciones_t direccion;
@@ -25,20 +25,22 @@ public:
 	// la Unidad.
 	// NOTA: Debemos decidir una "unidad" para
 	// medir la velocidad de las cosas.
-	float getVelocidad(void) {return this->rapidez;}
+	float verVelocidad(void) {return this->rapidez;}
+
+	Direcciones_t verDireccion(void) {return this->direccion;}
+	Posicion* verDestino(void) {return this->destino;}
 
 	// Si entendì bien a Juanma, con esto se
 	// asigna una dirección respecto del sistema
 	// coordenado del escenario para que la unidad
 	// se mueva hacia allí.
-	virtual void nuevoDestino(float x, float y);
+	virtual void nuevoDestino(Posicion* pos);
 
 	// Aumenta la velocidad de la Unidad
 	// a partir de la aceleracion recibida.
 	virtual void setVelocidad(float nuevaVelocidad);
-
-	virtual void asignarSprite(string name);
-
+	virtual void setEstado(Estados_t nuevoEstado);
+	
 	virtual void avanzarFrame(void);
 
 private:

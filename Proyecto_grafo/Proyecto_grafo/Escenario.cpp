@@ -2,83 +2,104 @@
 #include "Matriz.h"
 #include "Posicion.h"
 #include "Entidad.h"
-#include "Unidad.h"
 #include <list>
-#define TAM_DEFAULT 100
+#define TAM_DEFAULT 50
 
-/*
-void Escenario::generarMapaVacio(int casillas_x, int casillas_y){
-	// Primero agrego las Posicion
-	int i, j;
-	for(i = 0; i < casillas_x; i++)
-		for(j = 0; j < casillas_y; j++)
-			mapa.crearVertice(Posicion(i, j));
-
-	// Debo crear las aristas
-	for(i = 0; i < casillas_x; i++)
-		for(j = 0; j < casillas_y; j++){
-			Posicion org(i, j);
-			list<Posicion> adyacentes;
-			adyacentes.push_front(Posicion(i-1, j));
-			adyacentes.push_front(Posicion(i, j-1));
-			adyacentes.push_front(Posicion(i-1, j-1));
-			adyacentes.push_front(Posicion(i+1, j-1));
-			// Itero para los adyacentes y creo arista
-			for (list<Posicion>::iterator it = adyacentes.begin(); it != adyacentes.end(); ++it)
-				if(mapa.elementoPertenece(*it))
-					if(!mapa.crearCamino(org, *it, true, 0))
-						return; // Lanzar excepcion?
-		}
-}
-*/
-
-Escenario::Escenario(int casillas_x, int casillas_y)
-{
+// Constructor especificando tamanio
+Escenario::Escenario(int casillas_x, int casillas_y) {
 	mapa = new Matriz(casillas_x, casillas_y);
+	this->entidades = list<Entidad*>();
+	this->tamX = casillas_x;
+	this->tamY = casillas_y;
+	this->protagonista = nullptr;
 }
 
-Escenario::Escenario(void)
-{
+// Constructor por defecto
+Escenario::Escenario(void) {
 	mapa = new Matriz(TAM_DEFAULT, TAM_DEFAULT);
+	this->entidades = list<Entidad*>();
+	this->tamX = TAM_DEFAULT;
+	this->tamY = TAM_DEFAULT;
+	this->protagonista = nullptr;
 }
 
-Escenario::~Escenario(void)
-{
+// Destructor
+Escenario::~Escenario(void) {
 	delete mapa;
+	if (this->protagonista)
+		delete protagonista;
+	while (!this->entidades.empty()) {
+		delete this->entidades.front();
+		this->entidades.pop_front();
+	}
+}
+
+void Escenario::moverProtagonista(void) {
+	Unidad* unit = this->protagonista;
+	Estados_t state = unit->verEstado();
+	// Si se esta moviendo
+	if (state = EST_CAMINANDO) {
+		Posicion* act = unit->verPosicion();
+		Posicion* dest = unit->verDestino();
+
+		// Distantcais
+		float distX = dest->getX() - act->getX();
+		float distY = dest->getY() - act->getY();
+		float totalDist = sqrt((distX*distX) + (distY*distY));
+			
+		float rapidez = unit->verVelocidad();
+
+		if (totalDist > rapidez) {
+			float nuevoX = act->getX() + (distX*rapidez)/totalDist;
+			float nuevoY = act->getY() + (distY*rapidez)/totalDist;
+			Posicion nuevaPos(nuevoX, nuevoY);
+			unit->asignarPos(&nuevaPos);
+		} else {
+			unit->setEstado(EST_QUIETO);
+		}
+	}
 }
 
 
-void Escenario::avanzarFrame(void)
-{
-	for(list<Entidad>::iterator it = entidades.begin(); it != entidades.end(); it++)
-		(*it).avanzarFrame();
-}
+void Escenario::avanzarFrame(void) {
+	// Avanzo el frame en cada edificio (por ahora no hace nada)
+	for(list<Entidad*>::const_iterator it = entidades.begin(); it != entidades.end(); ++it)
+		(*it)->avanzarFrame();
 
 
-void Escenario::ubicarEntidad(Entidad entidad, Posicion pos)
-{
-
-	// Asumo que la entidad fue creada recientemente
-	// Mejor: Lanzar excepcion en lugar de preguntar
-	if (mapa->ubicarEntidad(entidad, pos)) {
-		entidades.push_back(entidad);
-		entidad.asignarPos(&pos);
+	// Modifico la posición del protagonista
+	if (this->protagonista) {
+		moverProtagonista();
 	}
 
 }
 
+void Escenario::ubicarEntidad(Entidad* entidad, Posicion* pos) {
+	if (mapa->ubicarEntidad(entidad, pos)) {
+		entidades.push_back(entidad);
+		entidad->asignarPos(pos);
+	}
+}
 
-void Escenario::quitarEntidad(Entidad entidad)
-{
-	// lo mismo que antes
+void Escenario::quitarEntidad(Entidad* entidad) {
 	mapa->quitarEntidad(entidad);
 	entidades.remove(entidad);
 }
 
 
-void Escenario::moverUnidad(Unidad unidad, Posicion destino)
-{
-	mapa->quitarEntidad(unidad);
-	unidad.nuevoDestino(destino.getX() + 0.5, destino.getY() + 0.5);
-	mapa->ubicarEntidad(unidad, *(unidad.verPosicion()));
+void Escenario::asignarProtagonista(Unidad* unidad, Posicion* pos) {
+	if (pos && mapa->posicionPertenece(pos)) {
+		unidad->asignarPos(pos);
+		unidad->setEstado(EST_QUIETO);
+		this->protagonista = unidad;
+	}
+}
+
+void Escenario::asignarDestinoProtagonista(Posicion* pos) {
+	if (this->protagonista) {
+		if (this->mapa->posicionPertenece(pos)) {
+			this->protagonista->nuevoDestino(pos);
+			this->protagonista->setEstado(EST_CAMINANDO);
+		}
+	}
 }
