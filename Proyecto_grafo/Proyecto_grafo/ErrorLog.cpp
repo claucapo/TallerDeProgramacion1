@@ -1,12 +1,32 @@
 #include "ErrorLog.h"
 #include <ctime>
 
-#define LOG_DIR_DEFAULT "log.log"
+#define LOG_DIR_DEFAULT "C:\\log.log"
 
+bool ErrorLog::hay_instancia = false;
+ErrorLog* ErrorLog::singleton = nullptr;
+Archivo* ErrorLog::arch = nullptr;
 
-ErrorLog::ErrorLog(void) {
-}
+bool _warnings = true;
+bool _info = true;
+bool _errores = true;
+
 ErrorLog::~ErrorLog(void) {
+	if (arch->is_open())
+		arch->cerrar();
+	delete arch;
+	singleton = nullptr;
+	arch = nullptr;
+	hay_instancia = false;
+}
+
+ErrorLog* ErrorLog::getInstance(void) {
+	if (!hay_instancia) {
+		singleton = new ErrorLog();
+		arch = new Archivo(LOG_DIR_DEFAULT);
+		hay_instancia = true;
+	}
+	return singleton;
 }
 
 string obtenerFechaHora(){
@@ -24,34 +44,30 @@ string obtenerFechaHora(){
 }
 
 void ErrorLog::escribirLog(string msj) {
-	arch->escribir(obtenerFechaHora() + msj);
+	arch->escribir(obtenerFechaHora()+ log_separator + log_lvl_str[LOG_ALLWAYS] + log_separator + msj);
 }
 
 void ErrorLog::escribirLogW(string msj) {
 	if(_warnings){
-	    arch->escribir(obtenerFechaHora() + " - [WARNING] - " + msj);
+	    arch->escribir(obtenerFechaHora()+ log_separator + log_lvl_str[LOG_WARNING] + log_separator + msj);
 	}
 }
 
-
 void ErrorLog::escribirLogI(string msj) {
 	if(_info){
-	   arch->escribir(obtenerFechaHora() + " - [INFO] - "  + msj);
+		arch->escribir(obtenerFechaHora()+ log_separator + log_lvl_str[LOG_INFO] + log_separator + msj);
 	}
 }
 
 void ErrorLog::escribirLogE(string msj) {
 	if(_errores){
-	   arch->escribir(obtenerFechaHora() + " - [ERROR] - " +  msj);
+		arch->escribir(obtenerFechaHora()+ log_separator + log_lvl_str[LOG_ERROR] + log_separator + msj);
 	}
 }
 
-void ErrorLog::abrirLog(void) {
-	arch = new Archivo("c:\\Proyecto_grafo.log");
-}
-
 void ErrorLog::cerrarLog(void) {
-	arch->cerrar();
+	if (hay_instancia)
+		delete singleton;
 }
 
 void ErrorLog::habilitarFlags(bool warnings, bool info, bool errores) {

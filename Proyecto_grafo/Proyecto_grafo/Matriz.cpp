@@ -1,6 +1,7 @@
 #include <list>
 #include "Matriz.h"
 #include "Spritesheet.h"
+#include "ErrorLog.h"
 
 using namespace std;
 
@@ -64,8 +65,9 @@ bool Matriz::posicionPertenece(Posicion* pos){
 }
 
 bool Matriz::posicionEstaVacia(Posicion* pos){
-	if (!posicionPertenece(pos))
+	if (!posicionPertenece(pos)) {
 		return false;
+	}
 	if(casillas[pos->getRoundX()][pos->getRoundY()] != nullptr)
 		return false;
 	return true;
@@ -98,8 +100,9 @@ bool Matriz::ubicarEntidad(Entidad* elemento, Posicion* pos){
 	// TODO: levantar error o warning cuando pase esto
 	if (!elemento)
 		return false;
-	if (!posicionPertenece(pos))
+	if (!posicionPertenece(pos)) {
 		return false;
+	}
 		
 	// Obtengo el tamanio de la entidad
 	int altura_x = elemento->verTamX();
@@ -109,10 +112,12 @@ bool Matriz::ubicarEntidad(Entidad* elemento, Posicion* pos){
 	for(int i = 0; i < altura_x; i++)
 		for(int j = 0; j < ancho_y; j++) {
 			Posicion act = Posicion(pos->getX() + i, pos->getRoundY() + j);
-			if (!posicionPertenece(&act))
+			if (!posicionPertenece(&act)) {
 				return false;
-			if(casillas[pos->getRoundX() + i][pos->getRoundY() + j] != nullptr)
+			}
+			if(casillas[pos->getRoundX() + i][pos->getRoundY() + j] != nullptr) {
 				return false;
+			}
 		}
 
 

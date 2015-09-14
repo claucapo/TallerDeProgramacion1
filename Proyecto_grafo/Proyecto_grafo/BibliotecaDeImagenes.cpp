@@ -13,13 +13,11 @@ bool BibliotecaDeImagenes::hay_instancia = false;
 
 BibliotecaDeImagenes* BibliotecaDeImagenes::singleton = NULL;
 
-BibliotecaDeImagenes::BibliotecaDeImagenes(void)
-{
+BibliotecaDeImagenes::BibliotecaDeImagenes(void) {
 }
 
 
-BibliotecaDeImagenes::~BibliotecaDeImagenes(void)
-{
+BibliotecaDeImagenes::~BibliotecaDeImagenes(void) {
 	//
 	map<string, SDL_Surface*>::iterator it;
 	for(it = imagenes.begin(); it != imagenes.end(); it++)

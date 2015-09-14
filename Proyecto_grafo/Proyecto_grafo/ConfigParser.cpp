@@ -48,16 +48,13 @@ enum yaml_error_code_t {	NO_ERROR = 0,
 						};
 
 // Levanta un error generado a partir del código y un mensaje específico.
-// El booleano "required" determinará si se trata de un ERROR o un WARNING, posteriormente
-// reemplazar con niveles de log en caso de implementarlos.
+// El booleano "required" determinará si se trata de un ERROR o un WARNING
 void raiseError(yaml_error_code_t code, std::string msg, bool required = true) {
 	if (required) {
-		std::cout << "[ERROR] - ";
+		ErrorLog::getInstance()->escribirLogE(msg);
 	} else {
-		std::cout << "[WARNING] - ";
+		ErrorLog::getInstance()->escribirLogW(msg);
 	}
-	std::cout << "Internal code: " << code << " - ";
-	std::cout << msg << std::endl << std::endl;
 }
 
 

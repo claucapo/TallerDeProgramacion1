@@ -110,13 +110,11 @@ void Escenario::asignarDestinoProtagonista(Posicion* pos) {
 	}
 }
 
-Unidad* Escenario::verProtagonista(void)
-{
+Unidad* Escenario::verProtagonista(void) {
 	return this->protagonista;
 }
 
 
-list<Entidad*> Escenario::verEntidades(void)
-{
+list<Entidad*> Escenario::verEntidades(void) {
 	return this->entidades;
 }
