@@ -1,5 +1,4 @@
-#ifndef ESCENARIO_H
-#define ESCENARIO_H
+#pragma once
 
 #include "Matriz.h"
 #include "Posicion.h"
@@ -74,6 +73,3 @@ public:
 	Unidad* verProtagonista(void);
 	list<Entidad*> verEntidades(void);
 };
-
-
-#endif //ESCNEARIO_H
