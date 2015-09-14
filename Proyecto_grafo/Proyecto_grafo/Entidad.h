@@ -14,7 +14,8 @@ deberán heredar los "entes" verdaderos.*/
 class Entidad {
 protected:
 	Posicion* pos;
-	string name;
+	Spritesheet* sprites;
+
 	Estados_t state;
 
 	int tamX;
@@ -22,6 +23,7 @@ protected:
 
 
 public:
+		string name;
 	// Constructor y destructor por defecto
 	Entidad(void);
 	~Entidad(void);
@@ -46,6 +48,9 @@ public:
 	// Avanza un frame modificando los valores de la entidad
 	virtual void avanzarFrame(void);
 
+	// Metodos para setear los sprites.
+	void asignarSprite(Spritesheet* sp);
+
 	// NOTA: Sobrescribir los operadores
 	// ==, < y >.
 	// "Dos Entidad son iguales si ocupan
@@ -56,6 +61,7 @@ public:
 	void asignarPos(Posicion* pos);
 
 	bool operator ==(const Entidad other);
+	Spritesheet* verSpritesheet(void);
 };
 
 #endif ENTIDAD_H

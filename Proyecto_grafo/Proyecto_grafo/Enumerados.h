@@ -20,4 +20,7 @@ const float LARGO_TILE = 30.2696;
 // Duracion de 1 frame en ms
 const float FRAME_DURATION = 50;
 
+// Constante de velocidad
+const float VEL_CONST = 0.2;
+
 #endif

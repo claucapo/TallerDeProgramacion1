@@ -70,6 +70,9 @@ public:
 
 private:
 	void moverProtagonista(void);
+public:
+	Unidad* verProtagonista(void);
+	list<Entidad*> verEntidades(void);
 };
 
 

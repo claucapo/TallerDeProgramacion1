@@ -25,7 +25,7 @@ public:
 	// la Unidad.
 	// NOTA: Debemos decidir una "unidad" para
 	// medir la velocidad de las cosas.
-	float verVelocidad(void) {return this->rapidez;}
+	float verVelocidad(void) {return (this->rapidez * VEL_CONST);}
 
 	Direcciones_t verDireccion(void) {return this->direccion;}
 	Posicion* verDestino(void) {return this->destino;}
@@ -43,6 +43,7 @@ public:
 	
 	virtual void avanzarFrame(void);
 
-private:
 	Direcciones_t calcularDirecion(float velocidadX, float velocidadY);
+public:
+	void setDireccion(Direcciones_t);
 };

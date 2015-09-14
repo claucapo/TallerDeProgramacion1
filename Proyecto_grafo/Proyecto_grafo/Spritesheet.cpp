@@ -1,7 +1,9 @@
 #include "Spritesheet.h"
 #include "BibliotecaDeImagenes.h"
+#include "ConversorUnidades.h"
 #include <SDL.h>
 #include <SDL_image.h>
+#include <iostream>
 
 Spritesheet::Spritesheet(void) {
 	this->sprite = nullptr;
@@ -11,6 +13,9 @@ Spritesheet::Spritesheet(void) {
 	this->subY = 1;
 	this->x_pant = 0;
 	this->y_pant = 0;
+
+	delayAnimacion = 1;
+	contFrames = 0;
 }
 
 //TODO: Chequear errores como subX < rows
@@ -30,17 +35,20 @@ Spritesheet::Spritesheet(string imagen, int fil, int cols, int subX, int subY) {
 	if(subY < fil){
 		this->subY = 0;
 		}
+
+	delayAnimacion = 1;
+	contFrames = 0;
 }
 
 Spritesheet::~Spritesheet(void) {
 }
 
-void Spritesheet::cambiarImagen(string nuevaImagen, int fil, int cols, int subX, int subY) {
+void Spritesheet::cambiarImagen(string nuevaImagen, int fil, int cols) {
 	this->sprite = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(nuevaImagen);
 	this->filas = fil;
 	this->columnas = cols;
-	this->subX = subX;
-	this->subY = subY;
+	//this->subX = subX;
+	//this->subY = subY;
 }
 
 void Spritesheet::cambiarSubImagen(int subX, int subY) {
@@ -49,9 +57,15 @@ void Spritesheet::cambiarSubImagen(int subX, int subY) {
 }
 
 void Spritesheet::siguienteFrame() {
-	this->subX++;
-	if (this->subX >= this->columnas)
-		this->subX = 0;
+	contFrames++;
+	if(contFrames >= delayAnimacion){
+		contFrames = 0;
+		this->subX++;
+		if (this->subX >= this->columnas)
+			this->subX = 0;
+	}
+	cout << "Count: " << contFrames << endl;
+	cout << "SubX: " << subX << endl;
 }
 
 int Spritesheet::subImagenWidth() {
@@ -68,4 +82,10 @@ int Spritesheet::calcularOffsetX(void) {
 
 int Spritesheet::calcularOffsetY(void) {
 	return (this->subY) * this->subImagenHeight();
+}
+
+void Spritesheet::setAnimationDelay(float delay_ms)
+{
+	delayAnimacion = (int) ConversorUnidades::obtenerInstancia()->convertMilisecondsToFrames(delay_ms);
+	cout << "Delay: " << delayAnimacion << endl;
 }

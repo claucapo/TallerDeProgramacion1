@@ -39,6 +39,16 @@ void Entidad::asignarPos(Posicion* pos) {
 	}
 }
 
+void Entidad::asignarSprite(Spritesheet* sp){
+	this->sprites = sp;
+}
+
 bool Entidad::operator==(Entidad other){
 	return ((this->pos == other.verPosicion()) && (this->state == other.verEstado()) );
+}
+
+
+Spritesheet* Entidad::verSpritesheet(void)
+{
+	return sprites;
 }

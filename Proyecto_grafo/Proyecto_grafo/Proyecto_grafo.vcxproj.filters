@@ -108,6 +108,9 @@
     <ClInclude Include="Tests.h">
       <Filter>Archivos de encabezado\Tests</Filter>
     </ClInclude>
+    <ClInclude Include="GraficadorPantalla.h">
+      <Filter>Archivos de encabezado\Utilidades</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -160,6 +163,9 @@
     </ClCompile>
     <ClCompile Include="Partida.cpp">
       <Filter>Archivos de código fuente\Partida</Filter>
+    </ClCompile>
+    <ClCompile Include="GraficadorPantalla.cpp">
+      <Filter>Archivos de código fuente\Utilidades</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

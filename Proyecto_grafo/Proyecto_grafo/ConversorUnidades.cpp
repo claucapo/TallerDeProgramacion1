@@ -43,15 +43,17 @@ float ConversorUnidades::convertMilisecondsToFrames(float miliseconds)
 }
 
 // Super hardcodeado por ahora
-float ConversorUnidades::obtenerCoordPantallaX(float x_UL, float y_UL)
+float ConversorUnidades::obtenerCoordPantallaX(float x_UL, float y_UL, float view_x, float view_y, float ancho_borde)
 {
-	return ((y_UL - x_UL)*LARGO_TILE +369.504)/1.1547 -26;;
+	float v = 0.866 * (y_UL - x_UL) * LARGO_TILE;
+	return (v - view_x + ancho_borde * 0.5);
 }
 
 // Tambien super hardcodeado
-float ConversorUnidades::obtenerCoordPantallaY(float x_UL, float y_UL)
+float ConversorUnidades::obtenerCoordPantallaY(float x_UL, float y_UL, float view_x, float view_y, float ancho_borde)
 {
-	return ((y_UL + x_UL)*0.5*LARGO_TILE);
+	float u = 0.5 * (y_UL + x_UL) * LARGO_TILE;
+	return (u - view_y);
 }
 
 
@@ -63,4 +65,20 @@ ConversorUnidades* ConversorUnidades::obtenerInstancia(void)
 		}
 
 	return singleton;
+}
+
+
+float ConversorUnidades::obtenerCoordLogicaX(float x_pant, float y_pant, float view_x, float view_y, float ancho_borde)
+{
+	float u = y_pant + view_y;
+	float v = x_pant+ view_x - 0.5*ancho_borde;
+	return (u - 0.57735*v)/LARGO_TILE;
+}
+
+
+float ConversorUnidades::obtenerCoordLogicaY(float x_pant, float y_pant, float view_x, float view_y, float ancho_borde)
+{
+	float u = y_pant + view_y;
+	float v = x_pant+ view_x - 0.5*ancho_borde;
+	return (u + 0.57735*v)/LARGO_TILE;
 }

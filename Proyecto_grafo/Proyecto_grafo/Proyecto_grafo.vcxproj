@@ -50,7 +50,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;libyaml-cppmdd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>NotSet</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -76,6 +76,7 @@
     <ClInclude Include="Enumerados.h" />
     <ClInclude Include="ErrorLog.h" />
     <ClInclude Include="Escenario.h" />
+    <ClInclude Include="GraficadorPantalla.h" />
     <ClInclude Include="Jugador.h" />
     <ClInclude Include="Matriz.h" />
     <ClInclude Include="Partida.h" />
@@ -95,6 +96,7 @@
     <ClCompile Include="ErrorLog.cpp" />
     <ClCompile Include="Escenario.cpp" />
     <ClCompile Include="EscenarioTest.cpp" />
+    <ClCompile Include="GraficadorPantalla.cpp" />
     <ClCompile Include="Jugador.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Matriz.cpp" />

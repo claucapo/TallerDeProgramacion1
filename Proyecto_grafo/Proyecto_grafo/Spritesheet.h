@@ -39,6 +39,9 @@ private:
 	// mostrar el spritesheet
 	int origenX, origenY;
 
+	// Indica cada cuantos frames cambia la subimagen
+	int delayAnimacion, contFrames;
+
 public:
 	// Constructor y destructor por defecto
 	Spritesheet(void);
@@ -81,7 +84,7 @@ public:
 	// Cambia la imagen asignada al Spritesheet
 	// por una imagen nueva, de forma similar
 	// que en el constructor.
-	void cambiarImagen(string nuevaImagen, int rows, int cols, int subX, int subY);
+	void cambiarImagen(string nuevaImagen, int rows, int cols);
 
 	// Cambia la subimagen dentro de una misma spritesheet.
 	void Spritesheet::cambiarSubImagen(int subX, int subY);
@@ -93,5 +96,6 @@ public:
 	// pixel de la subimagen
 	int calcularOffsetX(void);
 	int calcularOffsetY(void);
+	void setAnimationDelay(float delay_ms);
 };
 

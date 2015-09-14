@@ -2,6 +2,7 @@
 #include "Matriz.h"
 #include "Posicion.h"
 #include "Entidad.h"
+#include "Unidad.h"
 #include <list>
 #define TAM_DEFAULT 50
 
@@ -37,17 +38,22 @@ Escenario::~Escenario(void) {
 void Escenario::moverProtagonista(void) {
 	Unidad* unit = this->protagonista;
 	Estados_t state = unit->verEstado();
+	Spritesheet* sp = unit->verSpritesheet();
 	// Si se esta moviendo
-	if (state = EST_CAMINANDO) {
+	if (state == EST_CAMINANDO) {
 		Posicion* act = unit->verPosicion();
 		Posicion* dest = unit->verDestino();
 
-		// Distantcais
+		// Distantcias
 		float distX = dest->getX() - act->getX();
 		float distY = dest->getY() - act->getY();
-		float totalDist = sqrt((distX*distX) + (distY*distY));
-			
+		float totalDist = sqrt((distX*distX) + (distY*distY));	
+
+		unit->setDireccion(unit->calcularDirecion(distX, distY));
 		float rapidez = unit->verVelocidad();
+		sp->cambiarImagen(unit->name + "_move.png", sp->getFilas(), sp->getColumnas());
+		sp->siguienteFrame();
+		sp->cambiarSubImagen(sp->calcularOffsetX()/sp->subImagenWidth(), unit->verDireccion());
 
 		if (totalDist > rapidez) {
 			float nuevoX = act->getX() + (distX*rapidez)/totalDist;
@@ -56,6 +62,7 @@ void Escenario::moverProtagonista(void) {
 			unit->asignarPos(&nuevaPos);
 		} else {
 			unit->setEstado(EST_QUIETO);
+			sp->cambiarImagen(unit->name + ".png", sp->getFilas(), sp->getColumnas());
 		}
 	}
 }
@@ -65,7 +72,6 @@ void Escenario::avanzarFrame(void) {
 	// Avanzo el frame en cada edificio (por ahora no hace nada)
 	for(list<Entidad*>::const_iterator it = entidades.begin(); it != entidades.end(); ++it)
 		(*it)->avanzarFrame();
-
 
 	// Modifico la posición del protagonista
 	if (this->protagonista) {
@@ -102,4 +108,15 @@ void Escenario::asignarDestinoProtagonista(Posicion* pos) {
 			this->protagonista->setEstado(EST_CAMINANDO);
 		}
 	}
+}
+
+Unidad* Escenario::verProtagonista(void)
+{
+	return this->protagonista;
+}
+
+
+list<Entidad*> Escenario::verEntidades(void)
+{
+	return this->entidades;
 }

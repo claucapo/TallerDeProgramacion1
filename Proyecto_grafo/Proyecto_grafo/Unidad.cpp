@@ -26,6 +26,7 @@ Unidad::~Unidad() {
 	delete this->destino;
 }
 
+// Se espera la velocidad en UL/frames!
 void Unidad::setVelocidad(float nuevaVelocidad) {
 	this->rapidez = nuevaVelocidad;
 }
@@ -95,3 +96,9 @@ Direcciones_t Unidad::calcularDirecion(float velocidadX, float velocidadY) {
 		return DIR_TOP;
 	return DIR_DOWN;
 	}
+
+
+void Unidad::setDireccion(Direcciones_t dir)
+{
+	direccion = dir;
+}

@@ -1,7 +1,7 @@
 #include "Protagonistas.h"
 
 Aldeano::Aldeano() {
-	this->name = "aldeano";
+	this->name = "champion";
 	this->state = EST_QUIETO;
 	this->destino = nullptr;
 	this->pos = nullptr;

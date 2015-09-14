@@ -4,10 +4,13 @@
 #include "Edificios.h"
 #include "Protagonistas.h"
 #include <iostream>
+#include "GraficadorPantalla.h"
+#include <conio.h>
 
 using namespace std;
 
-void imprimirEscenario(Escenario* scene) {
+void imprimirEscenario(GraficadorPantalla* gp) {
+	/*
 	for(int i = 0; i < scene->verTamX(); i++) {
 		for(int j = 0; j < scene->verTamY(); j++) {
 			Posicion pos = Posicion(i, j);
@@ -20,6 +23,9 @@ void imprimirEscenario(Escenario* scene) {
 		cout << endl;
 	}
 	cout << endl;
+	*/
+
+
 }
 
 
@@ -31,35 +37,50 @@ void imprimirEscenario(Escenario* scene) {
 // Imprime el mapa y como cambia la posición del aldeano a medida que avanzan los frames
 void testEscenarioBasico() {
 	Escenario* scene = new Escenario();
+	GraficadorPantalla gp(scene, 640, 480);
+
 
 	Entidad* ent1 = new CentroUrbano();
 	Entidad* ent2 = new Casa();
+	Entidad* ent3 = new CentroUrbano();
 	Unidad* unit = new Aldeano();
-	cout << "Se crea un mapa de 50x50" << endl;
-	cout << "Se coloca una casa (2x2) en la posicion 0,15" << endl;
-	cout << "Se coloca un centro urbano (4x4) en la posicion 15,0" << endl;
-	cout << "Se imprime el mapa (0=posicion vacia, 1=posicion ocupada)" << endl;
-	Posicion pos1 = Posicion(0, 15);
-	Posicion pos2 = Posicion(15, 0);
+	
+	Spritesheet* ald = new Spritesheet("champion.png", 8, 10, 0, 0);
+	unit->asignarSprite(ald);
+	ald->setAnimationDelay(50);
+	Spritesheet* cas = new Spritesheet("house.png", 1, 1, 0, 0);
+	ent2->asignarSprite(cas);
+	Spritesheet* curb = new Spritesheet("urbanCenter.png", 1, 1, 0, 0);
+	ent1->asignarSprite(curb);
+	Spritesheet* swf = new Spritesheet("siegeWeaponFactory.png", 1, 1, 0, 0);
+	ent3->asignarSprite(swf);
 
-	scene->asignarProtagonista(unit, &pos2);
-	scene->asignarDestinoProtagonista(&pos1);
+	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
+
+	Posicion pos1 = Posicion(24, 17);
+	Posicion pos2 = Posicion(20, 24);
+	Posicion posW = Posicion(26, 25);
+	Posicion posP = Posicion(26, 25);
+	Posicion posD = Posicion(22, 25);
+
+	scene->asignarProtagonista(unit, &posP);
+	scene->asignarDestinoProtagonista(&posD);
 	scene->ubicarEntidad(ent1, &pos1);
 	scene->ubicarEntidad(ent2, &pos2);
+	scene->ubicarEntidad(ent3, &posW);
+	gp.dibujarPantalla();
 
-	imprimirEscenario(scene);
-
-	cout << endl << "Se posiciona un aldeano en 15,0; y se le designa como destino la posicion 0,15" << endl;
-	cout << "Cada linea representa la posicion del aldeano en cada frame que pasa" << endl;
-	cout << "Se simulan solo 50 frames" << endl << endl;
-	for (int i = 0; i < 50; i++) {
+	for (int i = 0; i < 100; i++) {
 		scene->avanzarFrame();
 		if (i == 20) {
 			cout << "El se le impone una nueva posicion de desitno, 40,40" << endl;
-			Posicion pos3 = Posicion(40, 40);
+			Posicion pos3 = Posicion(21, 4);
 			scene->asignarDestinoProtagonista(&pos3);
 		}
 		cout << unit->verPosicion()->getX() << "-" << unit->verPosicion()->getY() << endl;
+		//
+		gp.dibujarPantalla();
+		SDL_Delay(50);
 	}
 
 	delete scene;

@@ -19,8 +19,10 @@ public:
 	float convertULToPixels(float logic_units);
 	float convertFramesToMiliseconds(float frames);
 	float convertMilisecondsToFrames(float miliseconds);
-	float obtenerCoordPantallaX(float x_UL, float y_UL);
-	float obtenerCoordPantallaY(float x_UL, float y_UL);
+	float obtenerCoordPantallaX(float x_UL, float y_UL, float view_x, float view_y, float ancho_borde);
+	float obtenerCoordPantallaY(float x_UL, float y_UL, float view_x, float view_y, float ancho_borde);
 	static ConversorUnidades* obtenerInstancia(void);
+	float obtenerCoordLogicaX(float x_pant, float y_pant, float view_x, float view_y, float ancho_borde);
+	float obtenerCoordLogicaY(float x_pant, float y_pant, float view_x, float view_y, float ancho_borde);
 };
 
