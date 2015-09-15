@@ -31,10 +31,10 @@ Spritesheet::Spritesheet(string imagen, int fil, int cols, int subX, int subY) {
 	this->origenY = 0;
 	if(subX < cols){
 		this->subX = 0;
-		}
+	}
 	if(subY < fil){
 		this->subY = 0;
-		}
+	}
 
 	delayAnimacion = 1;
 	contFrames = 0;
@@ -64,8 +64,8 @@ void Spritesheet::siguienteFrame() {
 		if (this->subX >= this->columnas)
 			this->subX = 0;
 	}
-	cout << "Count: " << contFrames << endl;
-	cout << "SubX: " << subX << endl;
+	//cout << "Count: " << contFrames << endl;
+	//cout << "SubX: " << subX << endl;
 }
 
 int Spritesheet::subImagenWidth() {

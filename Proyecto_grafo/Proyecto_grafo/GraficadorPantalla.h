@@ -4,8 +4,7 @@
 #include "ConversorUnidades.h"
 
 #pragma once
-class GraficadorPantalla
-{
+class GraficadorPantalla {
 private:
 	SDL_Window* ventana;
 	SDL_Surface* pantalla;
@@ -22,6 +21,9 @@ public:
 	void dibujarPantalla(void);
 private:
 	void reajustarCamara(void);
+	void renderizarTerreno(void);
+	void renderizarProtagonista(void);
+	void renderizarEntidades(void);
 public:
 	bool cargarSDL(void);
 	SDL_Window* getVentana(void);

@@ -64,8 +64,7 @@ SDL_Surface* BibliotecaDeImagenes::loadSurface(std::string path)
 	return loadedSurface;
 }
 
-bool BibliotecaDeImagenes::cargarImagen(string img_name)
-{
+bool BibliotecaDeImagenes::cargarImagen(string img_name) {
 	SDL_Surface* imagenActual = loadSurface( img_name );
 	if(!imagenActual) {
 		printf( "\r\nError al cargar imagen. ¡Imagen inexistente!" );
@@ -75,14 +74,12 @@ bool BibliotecaDeImagenes::cargarImagen(string img_name)
 	// Si la surface se cargó, la agrego al
 	// mapa de imagenes
 	imagenes[img_name] = imagenActual;
-
 	return true;
 }
 
 
 
-SDL_Surface* BibliotecaDeImagenes::devolverImagen(string img_name)
-{
+SDL_Surface* BibliotecaDeImagenes::devolverImagen(string img_name) {
 	if(imagenes.count(img_name) > 0)
 		return imagenes[img_name];
 	// Si la surface no estaba en el mapa

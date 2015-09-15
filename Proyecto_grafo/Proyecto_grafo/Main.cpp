@@ -59,39 +59,47 @@ Escenario* cargarEscenario(){
 	return scene;
 }
 
+// Define distintas acciones para cada tecla
+int procesarEventoKeyDown(Escenario* scene, GraficadorPantalla* gp, SDL_Event e) {
+	switch (e.key.keysym.scancode) {
+	case SDL_SCANCODE_ESCAPE:
+		return CODE_EXIT;
+	case SDL_SCANCODE_R:
+		return CODE_RESET;
+	}
+}
+
+// Define distintas acciones para los botones del mouse
+int procesarEventoMouse(Escenario* scene, GraficadorPantalla* gp, SDL_Event e) {
+	int mx, my;	
+	if( e.button.button == SDL_BUTTON_RIGHT){
+		SDL_GetMouseState(&mx, &my);
+
+		ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
+		float pX = cu->obtenerCoordLogicaX(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
+		float pY = cu->obtenerCoordLogicaY(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
+		Posicion destino = Posicion(pX, pY);
+					
+		scene->asignarDestinoProtagonista(&destino);
+	}
+	return CODE_CONTINUE;
+}
+
 int procesarEventos(Escenario* scene, GraficadorPantalla* gp){
 	int retorno = CODE_CONTINUE;
 	SDL_Event evento;
-	while(SDL_PollEvent(&evento)){
-		if((evento.type == SDL_QUIT))
-			retorno = CODE_EXIT;
-		else if(evento.type == SDL_KEYDOWN){
-			if(evento.key.keysym.scancode == SDL_SCANCODE_ESCAPE)
-				retorno = CODE_EXIT;
-			else if(evento.key.keysym.scancode == SDL_SCANCODE_R)
-				retorno = CODE_RESET;	
-			else{
-				}
-			}
-			else if(evento.type == SDL_MOUSEBUTTONDOWN ){
-				int mx = 5 , my = 9;	
-				if( evento.button.button == SDL_BUTTON_RIGHT){
-					SDL_GetMouseState(&mx, &my);
-					ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
-					float pX = cu->obtenerCoordLogicaX(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
-					float pY = cu->obtenerCoordLogicaY(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
-					Posicion destino = Posicion(pX, pY);
-					
-					scene->asignarDestinoProtagonista(&destino);
-				}
-				else {
-					}
-				}
-		else{
-			
-			}
+	while(SDL_PollEvent(&evento) != 0){
+		switch (evento.type) {
+		case SDL_QUIT:
+			retorno = CODE_EXIT; break;
+
+		case SDL_KEYDOWN:
+			retorno = procesarEventoKeyDown(scene, gp, evento); break;
+
+		case SDL_MOUSEBUTTONDOWN:
+			retorno = procesarEventoMouse(scene, gp, evento); break;
 		}
-	
+	}
 	return retorno;
 }
 
@@ -106,46 +114,42 @@ int procesarEventos(Escenario* scene, GraficadorPantalla* gp){
 
 //  Se puede definir como main... cambiando el subsistema del proyecto a Windows
 int wmain(int argc, char** argv) {
-	inicio:
-	// CARGAR EL ESCENARIO ESTA RE HARDCODEADO AHORA
-	// LA IDEA ES QUE USE LO DEL YAML
-	Escenario* scene = cargarEscenario();
-	GraficadorPantalla* gp = new GraficadorPantalla(scene, SCREEN_WIDTH, SCREEN_HEIGHT);
-	SDL_Window* gameWindow = gp->getVentana();
-	SDL_Surface* gameScreen = gp->getPantalla();
-	BibliotecaDeImagenes::obtenerInstancia()->asignarPantalla(gameScreen);
-	int i = 0;
-	// Main loop del juego
 	int codigo_programa = CODE_CONTINUE;
+	while (codigo_programa != CODE_EXIT) {
+		codigo_programa = CODE_CONTINUE;
+		Escenario* scene = cargarEscenario();
+		GraficadorPantalla* gp = new GraficadorPantalla(scene, SCREEN_WIDTH, SCREEN_HEIGHT);
+		SDL_Window* gameWindow = gp->getVentana();
+		SDL_Surface* gameScreen = gp->getPantalla();
+		BibliotecaDeImagenes::obtenerInstancia()->asignarPantalla(gameScreen);
+		// int i = 0;
+		// Main loop del juego
+		while(codigo_programa > 0){
+			float timeA = SDL_GetTicks();
 
-//	gp->dibujarPantalla();
-	while(codigo_programa > 0){
-		float timeA = SDL_GetTicks();
+			codigo_programa = procesarEventos(scene, gp);
+		//	cout << "Prog code: " << codigo_programa << endl;
+		//	cout << " i: " << i << endl;
+			scene->avanzarFrame();
+			gp->dibujarPantalla();
 
-		codigo_programa = procesarEventos(scene, gp);
-	//	cout << "Prog code: " << codigo_programa << endl;
-	//	cout << " i: " << i << endl;
-		scene->avanzarFrame();
-		gp->dibujarPantalla();
+			float timeB = SDL_GetTicks();
+			// cout<< "D:" << FRAME_DURATION - timeB + timeA<< endl;
+			// cout<< "D:" << timeB - timeA<< endl;
+			if((FRAME_DURATION -timeB + timeA) > 0)
+				SDL_Delay(FRAME_DURATION -timeB + timeA);
 
-		float timeB = SDL_GetTicks();
-	//	cout<< "D:" << FRAME_DURATION -timeB + timeA<< endl;
-		if((FRAME_DURATION -timeB + timeA) > 0)
-			SDL_Delay(FRAME_DURATION -timeB + timeA);
+			// i++;
+		}
 
-		i++;
-	}
-
-	delete gp;
-	delete scene;
+		delete gp;
+		delete scene;
 	
-	SDL_DestroyWindow(gameWindow);
-	gameWindow = NULL;
-	IMG_Quit();
-	SDL_Quit();
-
-	if(codigo_programa == CODE_RESET)
-		goto inicio;
+		SDL_DestroyWindow(gameWindow);
+		gameWindow = NULL;
+		IMG_Quit();
+		SDL_Quit();
+	}
 
 	return 0;
 }
