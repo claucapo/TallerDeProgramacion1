@@ -11,6 +11,8 @@ using namespace std;
 
 bool BibliotecaDeImagenes::hay_instancia = false;
 
+SDL_Surface* BibliotecaDeImagenes::pantalla = NULL;
+
 BibliotecaDeImagenes* BibliotecaDeImagenes::singleton = NULL;
 
 BibliotecaDeImagenes::BibliotecaDeImagenes(void) {
@@ -32,6 +34,7 @@ BibliotecaDeImagenes* BibliotecaDeImagenes::obtenerInstancia(void)
 	if(!hay_instancia){
 		singleton = new BibliotecaDeImagenes();
 		hay_instancia = true;
+		pantalla = NULL;
 		}
 
 	return singleton;
@@ -42,22 +45,22 @@ using namespace std;
 
 
 
-SDL_Surface* loadSurface(std::string path)
+SDL_Surface* BibliotecaDeImagenes::loadSurface(std::string path)
 {
 	SDL_Surface* optimizedSurface = NULL;
 	//Carga la imagen del path
 	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
 	if(!loadedSurface)
-		printf( "SDL_image Error: %s con imagen %s\n", IMG_GetError(), path.c_str() );
-	else
-/*	{
-		//Convert surface to screen format
-		optimizedSurface = SDL_ConvertSurface( loadedSurface, gScreenSurface->format, NULL );
-		if( optimizedSurface == NULL )
-			printf( "Unable to optimize image %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
-		SDL_FreeSurface( loadedSurface );
+		printf("SDL_image Error: %s con imagen %s\n", IMG_GetError(), path.c_str());
+	// Si hay una pantalla, optimizo el formato de la
+	// imagen cargada al de la pantalla
+	else if(pantalla){
+		optimizedSurface = SDL_ConvertSurface(loadedSurface, pantalla->format, NULL);
+		if(!optimizedSurface)
+			printf("Error al optimizar %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
+		SDL_FreeSurface(loadedSurface);
+		return optimizedSurface;
 	}
-	return optimizedSurface;*/
 	return loadedSurface;
 }
 
@@ -87,4 +90,22 @@ SDL_Surface* BibliotecaDeImagenes::devolverImagen(string img_name)
 	if(cargarImagen(img_name))
 		return imagenes[img_name];
 	return NULL;
+}
+
+
+void BibliotecaDeImagenes::asignarPantalla(SDL_Surface* screen){
+	if(!screen)
+		return;
+	this->pantalla = screen;
+
+/*	map<string, SDL_Surface*>::iterator it;
+	for(it = imagenes.begin(); it != imagenes.end(); it++){
+		SDL_Surface* optimizedSurface = SDL_ConvertSurface(it->second, pantalla->format, NULL );
+		if(!optimizedSurface){
+			printf("Error al optimizar imagen: SDL Error: %s\n", SDL_GetError());
+			return;
+			}
+		SDL_FreeSurface(it->second);
+		imagenes[it->first] = optimizedSurface;
+		}*/
 }

@@ -26,6 +26,8 @@ private:
 	// Constructor privado que inicializa el map
 	BibliotecaDeImagenes(void);
 
+	SDL_Surface* loadSurface(std::string path);
+
 	// Carga una imagen en memoria y la guarda en
 	// el mapa de imagenes.
 	bool cargarImagen(string img_name);
@@ -42,7 +44,7 @@ private:
 	// con sus determinados punteros a imagen según SDL
 	map<string, SDL_Surface*> imagenes;
 
-
+	static SDL_Surface* pantalla;
 
 public:
 	// Destructor por defecto
@@ -58,4 +60,5 @@ public:
 	// a dicha imagen no fue creada, la crea y la
 	// agrega al mapa de imagenes.
 	SDL_Surface* devolverImagen(string img_name);
+	void asignarPantalla(SDL_Surface* screen);
 };

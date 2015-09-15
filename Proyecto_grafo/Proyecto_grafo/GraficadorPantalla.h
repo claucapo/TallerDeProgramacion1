@@ -24,5 +24,9 @@ private:
 	void reajustarCamara(void);
 public:
 	bool cargarSDL(void);
+	SDL_Window* getVentana(void);
+	float getViewX(void);
+	float getViewY(void);
+	float getAnchoBorde(void);
 };
 

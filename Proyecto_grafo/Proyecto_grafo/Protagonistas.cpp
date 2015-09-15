@@ -5,5 +5,5 @@ Aldeano::Aldeano() {
 	this->state = EST_QUIETO;
 	this->destino = nullptr;
 	this->pos = nullptr;
-	this->rapidez = 1;
+	this->rapidez = 2;
 }

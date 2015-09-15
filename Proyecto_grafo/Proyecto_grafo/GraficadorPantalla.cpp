@@ -54,7 +54,7 @@ void GraficadorPantalla::dibujarPantalla(void)
 	// 4) Dibujar los edificios
 	// 5) Window_Update
 	SDL_FillRect(pantalla, NULL, 0x000000);
-	SDL_PumpEvents(); // Actualiza los eventos de SDL
+//	SDL_PumpEvents(); // Actualiza los eventos de SDL
 
 	SDL_Rect rectangulo;
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
@@ -64,7 +64,7 @@ void GraficadorPantalla::dibujarPantalla(void)
 
 	// 2) ESTE PASO ESTA SEMI HARDCODEADO
 	SDL_Surface* imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tileG.png");
-	SDL_SetColorKey( imgTile, true, SDL_MapRGB(imgTile->format, 255, 255, 255) );
+	SDL_SetColorKey(imgTile, true, SDL_MapRGB(imgTile->format, 255, 255, 255));
 	
 	int i=0, j=0;
 	for(i = 0; i < escenario->verTamX(); i++)
@@ -133,6 +133,16 @@ void GraficadorPantalla::reajustarCamara(void)
 		view_y += -VEL_ZERO + my * K_SCREEN;
 	else if(my> screen_height - MARGEN)
 		view_y += VEL_ZERO*(1 - screen_height/MARGEN) + VEL_ZERO*my/(MARGEN);
+
+	if(view_x < -MARGEN)
+		view_x = -MARGEN;
+	else if((view_x + screen_width) > (ancho_borde + MARGEN))
+		view_x = ancho_borde + MARGEN - screen_width;
+
+	if(view_y < -MARGEN)
+		view_y = -MARGEN;
+	else if((view_y + screen_height) > (alto_borde + MARGEN))
+		view_y = alto_borde + MARGEN - screen_height;
 }
 
 
@@ -145,7 +155,7 @@ bool GraficadorPantalla::cargarSDL(void)
 	}
 	else
 	{
-		ventana = SDL_CreateWindow( "AGE OF TALLER DE PROGRAMACION I", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screen_width, screen_height, SDL_WINDOW_SHOWN );
+		ventana = SDL_CreateWindow( "AGE OF TALLER DE PROGRAMACION I", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screen_width, screen_height, SDL_WINDOW_SHOWN || SDL_WINDOW_BORDERLESS);
 		if(!ventana)
 		{
 			printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
@@ -164,4 +174,26 @@ bool GraficadorPantalla::cargarSDL(void)
 		}
 	}
 	return true;
+}
+
+
+SDL_Window* GraficadorPantalla::getVentana(void)
+{
+	return this->ventana;
+}
+
+
+float GraficadorPantalla::getViewX(void){
+	return this->view_x;
+}
+
+
+float GraficadorPantalla::getViewY(void){
+	return this->view_y;
+}
+
+
+float GraficadorPantalla::getAnchoBorde(void)
+{
+	return this->ancho_borde;
 }

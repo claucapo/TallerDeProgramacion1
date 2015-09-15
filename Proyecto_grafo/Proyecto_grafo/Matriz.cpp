@@ -58,7 +58,8 @@ void Matriz::generarMatrizVacia(){
 bool Matriz::posicionPertenece(Posicion* pos){
 	int pos_x = pos->getRoundX();
 	int pos_y = pos->getRoundY();
-
+	if((pos_x < 0) || (pos_y < 0))
+		return false;
 	if ((this->filas < pos_x) || (this->columnas < pos_y))
 		return false;
 	return true;
