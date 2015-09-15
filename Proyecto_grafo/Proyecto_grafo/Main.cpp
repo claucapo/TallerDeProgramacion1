@@ -122,7 +122,7 @@ int wmain(int argc, char** argv) {
 		SDL_Window* gameWindow = gp->getVentana();
 		SDL_Surface* gameScreen = gp->getPantalla();
 		BibliotecaDeImagenes::obtenerInstancia()->asignarPantalla(gameScreen);
-		// int i = 0;
+		 int i = 1; float dTot = 0;
 		// Main loop del juego
 		while(codigo_programa > 0){
 			float timeA = SDL_GetTicks();
@@ -134,12 +134,14 @@ int wmain(int argc, char** argv) {
 			gp->dibujarPantalla();
 
 			float timeB = SDL_GetTicks();
-			// cout<< "D:" << FRAME_DURATION - timeB + timeA<< endl;
-			// cout<< "D:" << timeB - timeA<< endl;
+			
+			dTot += (timeB - timeA);
+			cout<< "Duracion Prom.:" << dTot/i << endl;
+			
 			if((FRAME_DURATION -timeB + timeA) > 0)
 				SDL_Delay(FRAME_DURATION -timeB + timeA);
 
-			// i++;
+			 i++;
 		}
 
 		delete gp;

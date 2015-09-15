@@ -102,10 +102,55 @@ void GraficadorPantalla::reajustarCamara(void) {
 // posición central, y se itera alrededor de esa casilla.
 
 void GraficadorPantalla::renderizarTerreno(void) {
-	SDL_Surface* imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tileG.png");
+	SDL_Surface* imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tileHuge.png");
+	SDL_SetColorKey(imgTile, true, SDL_MapRGB(imgTile->format, 255, 255, 255));
+	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
+	SDL_Rect rectangulo;
+	int i = 0, j = 0;
+	while((escenario->verTamY() - j) > 10){
+		i = 0;
+		while((escenario->verTamX() - i) > 10){
+			rectangulo.x = cu->obtenerCoordPantallaX(i, j, view_x, view_y, ancho_borde) -260;
+			rectangulo.y = cu->obtenerCoordPantallaY(i, j, view_x, view_y, ancho_borde);	
+			SDL_BlitSurface( imgTile, NULL, pantalla, &rectangulo );
+			i += 10;
+			}
+		j += 10;
+		}
+
+	imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tileG.png");
+	SDL_SetColorKey(imgTile, true, SDL_MapRGB(imgTile->format, 255, 255, 255));
+
+	for(int k = i; k < escenario->verTamX(); k++) {
+		for(int m = 0; m < escenario->verTamY(); m++){
+			rectangulo.x = cu->obtenerCoordPantallaX(k, m, view_x, view_y, ancho_borde) -26;
+			// Esto chequea si la casilla cae dentro del la pantalla... si no resulta visible, no la grafica
+			if ((rectangulo.x) < (this->screen_width) && (rectangulo.x + imgTile->w) > 0) {
+				rectangulo.y = cu->obtenerCoordPantallaY(k, m, view_x, view_y, ancho_borde);
+				if ((rectangulo.y) < (this->screen_height) && (rectangulo.y + imgTile->h) > 0) 
+					SDL_BlitSurface( imgTile, NULL, pantalla, &rectangulo );
+				}
+			}
+		}
+
+	for(int k = 0; k < i; k++) {
+		for(int m = j; m < escenario->verTamY(); m++){
+			rectangulo.x = cu->obtenerCoordPantallaX(k, m, view_x, view_y, ancho_borde) -26;
+			// Esto chequea si la casilla cae dentro del la pantalla... si no resulta visible, no la grafica
+			if ((rectangulo.x) < (this->screen_width) && (rectangulo.x + imgTile->w) > 0) {
+				rectangulo.y = cu->obtenerCoordPantallaY(k, m, view_x, view_y, ancho_borde);
+				if ((rectangulo.y) < (this->screen_height) && (rectangulo.y + imgTile->h) > 0) 
+					SDL_BlitSurface( imgTile, NULL, pantalla, &rectangulo );
+				}
+			}
+		}
+	
+	/*SDL_Surface* imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tileG.png");
 	SDL_SetColorKey(imgTile, true, SDL_MapRGB(imgTile->format, 255, 255, 255));
 	SDL_Rect rectangulo;
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
+	
+
 
 	for(int i = 0; i < escenario->verTamX(); i++) {
 		for(int j = 0; j < escenario->verTamY(); j++){
@@ -118,7 +163,7 @@ void GraficadorPantalla::renderizarTerreno(void) {
 				}
 			}
 		}
-	}
+	}*/
 }
 
 
