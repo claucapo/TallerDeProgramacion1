@@ -1,6 +1,6 @@
 pantalla: 
-  ancho: 1200
-  alto: 1000
+  ancho: 640
+  alto: 480
 gameplay: 
   velocidad: 75
   margen: 54
