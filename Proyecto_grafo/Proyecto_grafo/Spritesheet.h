@@ -32,7 +32,7 @@ private:
 
 	SDL_Surface* sprite;
 
-	// Coordenadas de la imágen en la pantalla
+	// Coordenadas de la imagen en la pantalla
 	int x_pant, y_pant;
 
 	// Falso origen RESPECTO DE LA SUBIMAGEN para

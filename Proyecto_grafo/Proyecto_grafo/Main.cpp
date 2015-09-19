@@ -24,9 +24,7 @@ using namespace std;
 #define CODE_EXIT -1
 
 /*******************************************
-
 		FUNCIONES DEL BUCLE DEL JUEGO
-
 ********************************************/
 
 // Ejemplo hardcodeado!
@@ -38,7 +36,7 @@ Escenario* cargarEscenario(escenarioInfo_t escenarioInfo){
 		Entidad* entidad = Factory::obtenerEntidad((*it));
 		Posicion posicion = Posicion((float)(*it)->x, (float)(*it)->y);
 	    scene->ubicarEntidad(entidad, &posicion);
-		Spritesheet* cas = new Spritesheet("house.png", 1, 1, 0, 0);
+		Spritesheet* cas = new Spritesheet("houseAOE.png", 1, 1, 0, 0);
 	    entidad->asignarSprite(cas);
 	}
 
@@ -47,7 +45,7 @@ Escenario* cargarEscenario(escenarioInfo_t escenarioInfo){
 	Entidad* ent3 = new CentroUrbano();*/
 	Unidad* unit = new Aldeano();
 	
-	Spritesheet* ald = new Spritesheet("champion.png", 8, 10, 0, 0);
+	Spritesheet* ald = new Spritesheet("championAOE.png", 8, 10, 0, 0);
 	unit->asignarSprite(ald);
 	ald->setAnimationDelay(40);
 	Posicion posP = Posicion(26, 25);
@@ -63,7 +61,6 @@ Escenario* cargarEscenario(escenarioInfo_t escenarioInfo){
 	Posicion pos2 = Posicion(20, 24);
 	Posicion posW = Posicion(26, 25);
 	Posicion posP = Posicion(26, 25);
-
 	scene->asignarProtagonista(unit, &posP);
 	scene->ubicarEntidad(ent1, &pos1);
 	scene->ubicarEntidad(ent2, &pos2);
@@ -120,9 +117,7 @@ int procesarEventos(Escenario* scene, GraficadorPantalla* gp){
 
 
 /*******************************************
-
 			PROGRAMA PRINCIPAL
-
 ********************************************/
 
 //  Se puede definir como main... cambiando el subsistema del proyecto a Windows

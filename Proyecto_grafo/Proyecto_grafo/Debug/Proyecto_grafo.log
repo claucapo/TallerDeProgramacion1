@@ -1,30 +1,27 @@
-﻿Compilación iniciada a las 15/09/2015 15:02:59.
+﻿Compilación iniciada a las 19/09/2015 16:15:52.
 Proyecto "C:\TallerDeProgramacion1\Proyecto_grafo\Proyecto_grafo\Proyecto_grafo.vcxproj" en el nodo 2 (build destinos).
 InitializeBuildStatus:
   Se creará "Debug\Proyecto_grafo.unsuccessfulbuild" porque se especificó "AlwaysCreate".
 ClCompile:
-  C:\Archivos de programa\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
-  Main.cpp
+  C:\Archivos de programa\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Protagonistas.cpp
+  Protagonistas.cpp
 c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\enumerados.h(16): warning C4305: 'inicializando' : truncamiento de 'double' a 'const float'
 c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\enumerados.h(22): warning C4305: 'inicializando' : truncamiento de 'double' a 'const float'
-c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(79): warning C4244: 'argumento' : conversión de 'int' a 'float'; posible pérdida de datos
-c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(79): warning C4244: 'argumento' : conversión de 'int' a 'float'; posible pérdida de datos
-c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(80): warning C4244: 'argumento' : conversión de 'int' a 'float'; posible pérdida de datos
-c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(80): warning C4244: 'argumento' : conversión de 'int' a 'float'; posible pérdida de datos
-c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(128): warning C4244: 'inicializando' : conversión de 'Uint32' a 'float'; posible pérdida de datos
-c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(136): warning C4244: 'inicializando' : conversión de 'Uint32' a 'float'; posible pérdida de datos
-c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(142): warning C4244: 'argumento' : conversión de 'const float' a 'Uint32'; posible pérdida de datos
-c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(70): warning C4715: 'procesarEventoKeyDown' : no todas las rutas de acceso de control devuelven un valor
+ResourceCompile:
+  Todas las salidas están actualizadas.
 Link:
-  C:\Archivos de programa\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\TallerDeProgramacion1\Proyecto_grafo\Debug\Proyecto_grafo.exe" /NOLOGO SDL2.lib SDL2main.lib SDL2_image.lib "libyaml-cppmdd.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Proyecto_grafo.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\TallerDeProgramacion1\Proyecto_grafo\Debug\Proyecto_grafo.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\TallerDeProgramacion1\Proyecto_grafo\Debug\Proyecto_grafo.lib" /MACHINE:X86 Debug\Archivo.obj
+  C:\Archivos de programa\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\TallerDeProgramacion1\Proyecto_grafo\Debug\Proyecto_grafo.exe" /NOLOGO SDL2.lib SDL2main.lib SDL2_image.lib "libyaml-cppmdd.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Proyecto_grafo.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\TallerDeProgramacion1\Proyecto_grafo\Debug\Proyecto_grafo.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\TallerDeProgramacion1\Proyecto_grafo\Debug\Proyecto_grafo.lib" /MACHINE:X86 Debug\Proyecto_grafo.res
+  Debug\Archivo.obj
   Debug\BibliotecaDeImagenes.obj
   Debug\ConfigParser.obj
   Debug\ConversorUnidades.obj
+  Debug\DatosImagen.obj
   Debug\Edificios.obj
   Debug\Entidad.obj
   Debug\ErrorLog.obj
   Debug\Escenario.obj
   Debug\EscenarioTest.obj
+  Debug\Factory.obj
   Debug\GraficadorPantalla.obj
   Debug\Jugador.obj
   Debug\Main.obj
@@ -70,4 +67,4 @@ Compilación del proyecto terminada "C:\TallerDeProgramacion1\Proyecto_grafo\Pro
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:01.93
+Tiempo transcurrido 00:00:02.37

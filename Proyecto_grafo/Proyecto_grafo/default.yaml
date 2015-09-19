@@ -25,6 +25,6 @@ escenario:
   sizeY: 80
   entidades:
    - {x: 20, y: 30, tipo: "casa"}
-   - {x: 20, y: 40, tipo: "casa"}
-   - {x: 50, y: 70, tipo: "centro_urbano"}
+   - {x: 40, y: 40, tipo: "casa"}
+   - {x: 40, y: 70, tipo: "centro_urbano"}
   protagonista: {x: 2, y: 1, tipo: "champeon"}
