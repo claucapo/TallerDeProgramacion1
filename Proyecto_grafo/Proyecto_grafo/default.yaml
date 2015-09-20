@@ -96,8 +96,8 @@ tipo:
     pixelY: 12
 escenario:
   nombre: orleans
-  sizeX: 100
-  sizeY: 80
+  sizeX: 30
+  sizeY: 30
   entidades:
    - {x: 18, y: 25, tipo: "house"}
    - {x: 18, y: 21, tipo: "house"}

@@ -71,28 +71,35 @@ void GraficadorPantalla::dibujarPantalla(void) {
 #define K_SCREEN 0.2	// Constante mágica???? ------> Explicar... ya se... es la pendiente de la recta?;
 #define VEL_ZERO 19		// Velocidad de scroll en el borde de la pantalla		
 void GraficadorPantalla::reajustarCamara(void) {
+
 	int mx = 5 , my = 9;
 	SDL_GetMouseState(&mx, &my);
 
+
+	if(screen_width < ancho_borde){
 	if(mx < MARGEN)
 		view_x += -VEL_ZERO + mx * K_SCREEN;
 	else if(mx > screen_width - MARGEN)
 		view_x += VEL_ZERO*(1 - screen_width/MARGEN) + VEL_ZERO*mx/(MARGEN);
 
+	if(view_x < -MARGEN)
+		view_x = -MARGEN;
+	else if((view_x + screen_width) > (ancho_borde + MARGEN))
+		view_x = ancho_borde + MARGEN - screen_width;
+	}
+
+	if(screen_height < alto_borde){
 	if(my < MARGEN)
 		view_y += -VEL_ZERO + my * K_SCREEN;
 	else if(my> screen_height - MARGEN)
 		view_y += VEL_ZERO*(1 - screen_height/MARGEN) + VEL_ZERO*my/(MARGEN);
 
-	if(view_x < -MARGEN)
-		view_x = -MARGEN;
-	else if((view_x + screen_width) > (ancho_borde + MARGEN))
-		view_x = ancho_borde + MARGEN - screen_width;
-
+	
 	if(view_y < -MARGEN)
 		view_y = -MARGEN;
 	else if((view_y + screen_height) > (alto_borde + MARGEN))
 		view_y = alto_borde + MARGEN - screen_height;
+	}
 }
 
 
