@@ -77,6 +77,7 @@ int main (int argc, char** argv) {
 #define IMG_PATH_DEFAULT "no_image.png"
 
 #define SCENARY_NAME_DEAFAULT "orleans"
+#define INSTANCE_FPS_DEFAULT 1
 
 
 
@@ -106,13 +107,23 @@ struct gameplayInfo_t {
 struct entidadInfo_t {
 	std::string nombre;
 	std::string spritePath;
+
+	int subX;
+	int subY;
+
 	int tamX;
 	int tamY;
+
 	int pixel_align_X;
 	int pixel_align_Y;
 
+	int fps;
+	int delay;
+
 	// Inicializa los valores a cero por defecto
-	entidadInfo_t(): nombre(TYPE_NAME_DEFAULT), spritePath(IMG_PATH_DEFAULT), tamX(1), tamY(1), pixel_align_X(0), pixel_align_Y(0) {};
+	entidadInfo_t(): nombre(TYPE_NAME_DEFAULT), spritePath(IMG_PATH_DEFAULT),
+					fps(INSTANCE_FPS_DEFAULT), delay(0),
+					subX(1), subY(1), tamX(1), tamY(1), pixel_align_X(0), pixel_align_Y(0) {};
 };
 
 
@@ -121,7 +132,6 @@ struct instanciaInfo_t {
 	int x;
 	int y;
 	std::string tipo;
-
 	// Inicializa los valores a cero por defecto
 	instanciaInfo_t(): x(0), y(0), tipo(TYPE_NAME_DEFAULT) {};
 };

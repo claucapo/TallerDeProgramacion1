@@ -98,7 +98,6 @@ Direcciones_t Unidad::calcularDirecion(float velocidadX, float velocidadY) {
 	}
 
 
-void Unidad::setDireccion(Direcciones_t dir)
-{
+void Unidad::setDireccion(Direcciones_t dir) {
 	direccion = dir;
 }

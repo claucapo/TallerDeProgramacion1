@@ -5,26 +5,78 @@ gameplay:
   velocidad: 75
   margen: 54
 tipo:
-  - nombre: "centro_urbano"
-    ruta: "una\\ruta\\cualquiera.png"
-    baseX: 4
-    baseY: 4
-    pixelX: 100
-    pixelY: 200
-  - nombre: "casa"
-    ruta: "una\\ruta\\cualquiera.png"
-    baseX: 2
-    baseY: 2
-    pixelX: 50
-    pixelY: 50
-  - nombre: "aldeano"
-  - nombre: "champeon"
+  - nombre: "champion"
+    ruta: "championAOE.png"
+    subX: 10
+    subY: 8
+    sizeX: 1
+    sizeY: 1
+    pixelX: 21
+    pixelY: 38
+  - nombre: "champion_move"
+    ruta: "champion_moveAOE.png"
+    subX: 10
+    subY: 8
+    sizeX: 1
+    sizeY: 1
+    pixelX: 21
+    pixelY: 38
+  - nombre: "knight"
+    ruta: "knightAOE.png"
+    subX: 10
+    subY: 8
+    sizeX: 1
+    sizeY: 1
+    pixelX: 34
+    pixelY: 41
+    fps: 1
+    delay: 10
+  - nombre: "knight_move"
+    ruta: "knight_moveAOE.png"
+    subX: 10
+    subY: 8
+    sizeX: 1
+    sizeY: 1
+    pixelX: 26
+    pixelY: 49
+  - nombre: "housee"
+    ruta: "houseAOE.png"
+    subX: 1
+    subY: 1
+    sizeX: 3
+    sizeY: 3
+    pixelX: 76
+    pixelY: 42
+  - nombre: "tile"
+    ruta: "tileG.png"
+    subX: 1
+    subY: 1
+    sizeX: 1
+    sizeY: 1
+    pixelX: 26
+    pixelY: 0
+  - nombre: "tileHuge"
+    ruta: "tileHuge.png"
+    subX: 1
+    subY: 1
+    sizeX: 10
+    sizeY: 10
+    pixelX: 260
+    pixelY: 0
+  - nombre: "town_center"
+    ruta: "townCenterAOE.png"
+    subX: 1
+    subY: 1
+    sizeX: 2
+    sizeY: 2
+    pixelX: 56
+    pixelY: 159
 escenario:
   nombre: orleans
   sizeX: 100
   sizeY: 80
   entidades:
-   - {x: 20, y: 30, tipo: "casa"}
-   - {x: 40, y: 40, tipo: "casa"}
-   - {x: 40, y: 70, tipo: "centro_urbano"}
-  protagonista: {x: 2, y: 1, tipo: "champeon"}
+   - {x: 20, y: 30, tipo: "house"}
+   - {x: 40, y: 40, tipo: "house"}
+   - {x: 40, y: 70, tipo: "town_center"}
+  protagonista: {x: 2, y: 1, tipo: "knight"}

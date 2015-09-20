@@ -16,9 +16,10 @@ private:
 public:
 	GraficadorPantalla(void);
 	~GraficadorPantalla(void);
-	GraficadorPantalla(Escenario* escenario, int pant_width, int pant_height);
+	GraficadorPantalla(int pant_width, int pant_height);
 	SDL_Surface* getPantalla(void);
 	void dibujarPantalla(void);
+	void asignarEscenario(Escenario* scene);
 private:
 	void reajustarCamara(void);
 	void renderizarTerreno(void);

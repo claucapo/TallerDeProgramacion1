@@ -36,7 +36,7 @@ void imprimirEscenario(GraficadorPantalla* gp) {
 
 // Imprime el mapa y como cambia la posición del aldeano a medida que avanzan los frames
 void testEscenarioBasico() {
-	Escenario* scene = new Escenario();
+	/* Escenario* scene = new Escenario();
 	GraficadorPantalla gp(scene, 640, 480);
 
 
@@ -84,4 +84,6 @@ void testEscenarioBasico() {
 	}
 
 	delete scene;
+
+	*/
 }

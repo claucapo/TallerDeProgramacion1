@@ -1,5 +1,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
+#include <string>
 
 #pragma once
 
@@ -11,14 +12,13 @@ La idea de distinguir esta clase es que cada
 imagen .png tiene asociados distintos valores
 completamente independientes de la forma de
 representarla lógicamente.*/
-class DatosImagen
-{
-public:
-
-	// DATOS ASOCIADOS A CADA IMAGEN
-
+class DatosImagen {
+public:	
 	// La imagen en sí
 	SDL_Surface* imagen;
+
+	// DATOS ASOCIADOS A CADA IMAGEN
+	std::string path;
 
 	// Las dimensiones en píxeles
 	int anchoImagen, altoImagen;
@@ -36,14 +36,11 @@ public:
 	// X e Y que ocupa la imagen
 	int casillasX, casillasY;
 
+	// FPS y delay (este último en ms)
+	int fps, delay;
+
 public:
 	DatosImagen(void);
 	~DatosImagen(void);
-
-	// CONSTRUCTOR RECOMENDADO
-	// Inicializa a la instancia con una
-	// surface asociada y valores por
-	// defecto.
-	DatosImagen(SDL_Surface* img);
 };
 

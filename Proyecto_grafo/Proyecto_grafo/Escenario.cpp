@@ -51,7 +51,7 @@ void Escenario::moverProtagonista(void) {
 
 		unit->setDireccion(unit->calcularDirecion(distX, distY));
 		float rapidez = unit->verVelocidad();
-		sp->cambiarImagen(unit->name + "_moveAOE.png", sp->getFilas(), sp->getColumnas());
+		sp->cambiarImagen(unit->name + "_move");
 		sp->siguienteFrame();
 		sp->cambiarSubImagen(sp->calcularOffsetX()/sp->subImagenWidth(), unit->verDireccion());
 
@@ -62,7 +62,7 @@ void Escenario::moverProtagonista(void) {
 			unit->asignarPos(&nuevaPos);
 		} else {
 			unit->setEstado(EST_QUIETO);
-			sp->cambiarImagen(unit->name + "AOE.png", sp->getFilas(), sp->getColumnas());
+			sp->cambiarImagen(unit->name);
 		}
 	}
 	else

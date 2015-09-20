@@ -2,26 +2,49 @@
 #include <SDL_image.h>
 #include "BibliotecaDeImagenes.h"
 #include "DatosImagen.h"
+#include "ErrorLog.h"
+#include "Enumerados.h"
 #include <map>
 #include <string>
 #include <stdio.h>
-
-
 using namespace std;
 
+#define DEFAULT_IMAGE_LABEL "default.png"
 
 bool BibliotecaDeImagenes::hay_instancia = false;
-
 SDL_Surface* BibliotecaDeImagenes::pantalla = NULL;
-
 BibliotecaDeImagenes* BibliotecaDeImagenes::singleton = NULL;
 
+// El constructor siempre asigna una imagen por defecto al ser creado.
+// Si se busca una imagen y no se encuentra, se redirigirá a este valor.
 BibliotecaDeImagenes::BibliotecaDeImagenes(void) {
+	DatosImagen* def = cargarImagenDefault();
+	this->imagenes[DEFAULT_IMAGE_LABEL] = def;
 }
 
+// Devuelve una imagen con sus datos por defecto.
+// TODO: reemplazar el caso de error por una surface creada por software (un cuadrado amarillo, por ejemplo)
+DatosImagen* BibliotecaDeImagenes::cargarImagenDefault() {
+	DatosImagen* def = new DatosImagen();
+	def->columnas = 1;
+	def->filas = 1;
+	def->origenX = 0;
+	def->origenY = 0;
+	def->fps = 1;
+	def->delay = 0;
+	def->casillasX = 1;
+	def->casillasY = 1;
+	def->path = "default.png";
+	if (!this->cargarImagen(def)) {
+		ErrorLog::getInstance()->escribirLog("No se encuentra imagen por defecto!!", LOG_ERROR);
+	} else {
+		def->altoImagen = def->imagen->h;
+		def->anchoImagen = def->imagen->w;
+	}
+	return def;
+}
 
 BibliotecaDeImagenes::~BibliotecaDeImagenes(void) {
-	//
 	map<string, DatosImagen*>::iterator it;
 	for(it = imagenes.begin(); it != imagenes.end(); it++){
 		SDL_FreeSurface(it->second->imagen);
@@ -30,26 +53,31 @@ BibliotecaDeImagenes::~BibliotecaDeImagenes(void) {
 	imagenes.clear();
 	delete singleton;
 }
-
-
-BibliotecaDeImagenes* BibliotecaDeImagenes::obtenerInstancia(void)
-{
+BibliotecaDeImagenes* BibliotecaDeImagenes::obtenerInstancia(void) {
 	if(!hay_instancia){
 		singleton = new BibliotecaDeImagenes();
 		hay_instancia = true;
 		pantalla = NULL;
 		}
-
 	return singleton;
 }
+void BibliotecaDeImagenes::asignarPantalla(SDL_Surface* screen){
+	if(!screen)
+		return;
+	this->pantalla = screen;
+}
 
-SDL_Surface* BibliotecaDeImagenes::loadSurface(std::string path)
-{
+
+// Método que carga una surface a partir de un path cualquiera.
+// Si ocurre algun error, devuelve NULL.
+SDL_Surface* BibliotecaDeImagenes::loadSurface(std::string path) {
 	SDL_Surface* optimizedSurface = NULL;
+
 	//Carga la imagen del path
 	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
 	if(!loadedSurface)
 		printf("SDL_image Error: %s con imagen %s\n", IMG_GetError(), path.c_str());
+
 	// Si hay una pantalla, optimizo el formato de la
 	// imagen cargada al de la pantalla
 	else if(pantalla){
@@ -62,69 +90,50 @@ SDL_Surface* BibliotecaDeImagenes::loadSurface(std::string path)
 	return loadedSurface;
 }
 
-bool BibliotecaDeImagenes::cargarImagen(string img_name) {
-	SDL_Surface* imagenActual = loadSurface( img_name );
+
+// Método que carga una surface al paquete DatosImagen a partir de su path.
+// Si no se encuentra la imágen especificada, o no se puede cargar; loguea el evento y devuelve false.
+bool BibliotecaDeImagenes::cargarImagen(DatosImagen* data) {
+	SDL_Surface* imagenActual = loadSurface(data->path);
 	if(!imagenActual) {
-		printf( "\r\nError al cargar imagen. ¡Imagen inexistente!" );
+		ErrorLog::getInstance()->escribirLog("Error al cargar imágen: " + data->path + ".¡Imagen inexistente!", LOG_ERROR);
+		data->imagen = nullptr;
 		return false;
 	}
-
 	// Si la surface se cargó, la agrego al
 	// mapa de imagenes
-	DatosImagen* dataImg = new DatosImagen(imagenActual);
-	imagenes[img_name] = dataImg;
+	data->imagen = imagenActual;
 	return true;
 }
 
 
-
+// Este método es el público que se llamará cada vez que se quiera obtener una instancia
+// de la imágen asociada a un nombre particular. Si la imágen no se encuentra devuelve la
+// imágen por default.
 SDL_Surface* BibliotecaDeImagenes::devolverImagen(string img_name) {
 	if(imagenes.count(img_name) > 0)
 		return imagenes[img_name]->imagen;
-	// Si la surface no estaba en el mapa
-	// de imagenes, la agrego
-	if(cargarImagen(img_name))
-		return imagenes[img_name]->imagen;
-	return NULL;
+
+	return imagenes[DEFAULT_IMAGE_LABEL]->imagen;
 }
 
+DatosImagen* BibliotecaDeImagenes::devolverDatosImagen(string img_name) {
+	if(imagenes.count(img_name) > 0)
+		 return imagenes[img_name];
 
-void BibliotecaDeImagenes::asignarPantalla(SDL_Surface* screen){
-	if(!screen)
-		return;
-	this->pantalla = screen;
+	return imagenes[DEFAULT_IMAGE_LABEL];
 }
 
-
-bool BibliotecaDeImagenes::devolverCargadosDatosImagen(string img_name, int* altoImagen, int* anchoImagen, int* cantFilas, int* cantCol, int* coordOrigX, int* coordOrigY, int* casillasX, int* casillasY)
-{
-	if(imagenes.count(img_name) > 0){
-		*altoImagen = imagenes[img_name]->altoImagen;
-		*anchoImagen = imagenes[img_name]->anchoImagen;
-		*cantFilas = imagenes[img_name]->filas;
-		*cantCol = imagenes[img_name]->columnas;
-		*coordOrigX = imagenes[img_name]->origenX;
-		*coordOrigY = imagenes[img_name]->origenY;
-		*casillasX = imagenes[img_name]->casillasX;
-		*casillasY = imagenes[img_name]->casillasY;
-		return true;
+void BibliotecaDeImagenes::cargarDatosImagen(string name, DatosImagen* data) {
+	bool success = this->cargarImagen(data);
+	if (success) {
+		if (this->imagenes.count(name) >0) {
+			ErrorLog::getInstance()->escribirLog("Se intento cargar imagenes distintas para una misma entidad, se sobreescribirá el valor previo", LOG_WARNING);
+			delete this->imagenes[name];
 		}
-	return false;
-}
-
-
-bool BibliotecaDeImagenes::asignarDatosAImagen(string img_name, int altoImagen, int anchoImagen, int cantFilas, int cantColumnas, int origX, int origY, int casillasX, int casillasY)
-{
-	if(imagenes.count(img_name) > 0){
-		imagenes[img_name]->altoImagen = altoImagen;
-		imagenes[img_name]->anchoImagen = anchoImagen;
-		imagenes[img_name]->filas = cantFilas;
-		imagenes[img_name]->columnas = cantColumnas;
-		imagenes[img_name]->origenX = origX;
-		imagenes[img_name]->origenY = origY;
-		imagenes[img_name]->casillasX = casillasX;
-		imagenes[img_name]->casillasY = casillasY;
-		return true;
-		}
-	return false;
+		this->imagenes[name] = data;
+	} else {
+		// Si no se puede cargar la imágen, borro la información y no cargo nada. (Agregar una referencia al default??)
+		delete data;
+	}
 }

@@ -22,8 +22,7 @@ la segunda fila, cuando se mueve a 45º, la tercera
 fila a 90º (arriba), y así hasta llegar a la octava
 fila que tendría las subimagenes de cuando la unidad
 se mueve hacia abajo y la derecha.*/
-class Spritesheet
-{
+class Spritesheet {
 private:
 	// Rows y cols de la spritesheet
 	int filas, columnas;
@@ -56,12 +55,12 @@ public:
 	// y fila específicas de la imagen que se está mostrando.
 	// NOTA: Para no llenar la memoria, la imagen
 	// se obtiene de la BibliotecaDeImagenes.
-	Spritesheet(string imagen, int rows, int cols, int subX, int subY);
+	Spritesheet(string imagen);
 
 	// GETTERS
 	// Devuelve las coordenadas en pantalla en la que se deben mostrar las imágenes
-	int getCoordX(void) {return this->x_pant;}
-	int getCoordY(void) {return this->y_pant;}
+	int getCoordX(void) {return (this->x_pant - this->origenX);}
+	int getCoordY(void) {return (this->y_pant - this->origenY);}
 
 	// Devuelve las rows y las cols de la spritesheet
 	int getFilas(void) {return this->filas;}
@@ -84,7 +83,7 @@ public:
 	// Cambia la imagen asignada al Spritesheet
 	// por una imagen nueva, de forma similar
 	// que en el constructor.
-	void cambiarImagen(string nuevaImagen, int rows, int cols);
+	void cambiarImagen(string nuevaImagen);
 
 	// Cambia la subimagen dentro de una misma spritesheet.
 	void Spritesheet::cambiarSubImagen(int subX, int subY);

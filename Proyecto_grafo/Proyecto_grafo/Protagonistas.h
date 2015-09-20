@@ -9,4 +9,16 @@ public:
 	~Aldeano() {};
 };
 
+class Campeon : public Unidad {
+public:
+	Campeon();
+	~Campeon() {};
+};
+
+class Jinete : public Unidad {
+public:
+	Jinete();
+	~Jinete() {};
+};
+
 #endif

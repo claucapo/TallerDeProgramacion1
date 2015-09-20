@@ -43,8 +43,21 @@ string obtenerFechaHora(){
   return "[" + str + "]";
 }
 
-void ErrorLog::escribirLog(string msj) {
-	arch->escribir(obtenerFechaHora()+ log_separator + log_lvl_str[LOG_ALLWAYS] + log_separator + msj);
+void ErrorLog::escribirLog(string msj, log_lvl_t lvl) {
+	switch(lvl) {
+	case LOG_ALLWAYS:
+		arch->escribir(obtenerFechaHora()+ log_separator + log_lvl_str[LOG_ALLWAYS] + log_separator + msj);
+		break;
+	case LOG_WARNING:
+		this->escribirLogW(msj);
+		break;
+	case LOG_ERROR:
+		this->escribirLogE(msj);
+		break;
+	case LOG_INFO:
+		this->escribirLogI(msj);
+		break;
+	}
 }
 
 void ErrorLog::escribirLogW(string msj) {

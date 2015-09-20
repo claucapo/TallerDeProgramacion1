@@ -2,22 +2,21 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-DatosImagen::DatosImagen(void)
-{
-}
-
-DatosImagen::DatosImagen(SDL_Surface* img){
-	imagen = img;
-	anchoImagen = 2000;
-	altoImagen = 2000;
+DatosImagen::DatosImagen(void) {
+	// Datos por default...
+	imagen = nullptr;
+	path = "default.png";
+	anchoImagen = 310;
+	altoImagen = 349;
 	filas = 1;
 	columnas = 1;
 	origenX = 0;
 	origenY = 0;
 	casillasX = 1;
 	casillasY = 1;
+	fps = 1;
+	delay = 0;
 }
 
-DatosImagen::~DatosImagen(void)
-{
+DatosImagen::~DatosImagen(void) {
 }

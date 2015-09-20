@@ -47,8 +47,6 @@ bool Entidad::operator==(Entidad other){
 	return ((this->pos == other.verPosicion()) && (this->state == other.verEstado()) );
 }
 
-
-Spritesheet* Entidad::verSpritesheet(void)
-{
+Spritesheet* Entidad::verSpritesheet(void) {
 	return sprites;
 }

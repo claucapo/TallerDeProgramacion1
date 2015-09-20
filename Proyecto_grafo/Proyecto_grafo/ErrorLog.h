@@ -67,7 +67,8 @@ public:
 	// Post: Se escribió el mensaje en el log
 	// Este metodo garantiza la escritura sin importar
 	// los flags.
-	void escribirLog(string msj);
+	void escribirLog(string msj, log_lvl_t lvl = LOG_ALLWAYS);
+
 
 	// Escribe el mensaje msj en el log de
 	// errores como tipo WARNING.

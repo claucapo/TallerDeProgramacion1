@@ -19,36 +19,36 @@ Spritesheet::Spritesheet(void) {
 }
 
 //TODO: Chequear errores como subX < rows
-Spritesheet::Spritesheet(string imagen, int fil, int cols, int subX, int subY) {
-	this->sprite = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(imagen);
-	this->filas = fil;
-	this->columnas = cols;
-	this->subX = subX;
-	this->subY = subY;
+Spritesheet::Spritesheet(string name) {
+	DatosImagen* data = BibliotecaDeImagenes::obtenerInstancia()->devolverDatosImagen(name);
+
+	this->sprite = data->imagen;
+	this->filas = data->filas;
+	this->columnas = data->columnas;
+	this->origenX = data->origenX;
+	this->origenY = data->origenY;
+
+	this->subX = 0;
+	this->subY = 0;
 	this->y_pant = 0;
 	this->x_pant = 0;
-	this->origenX = 0;
-	this->origenY = 0;
-	if(subX < cols){
-		this->subX = 0;
-	}
-	if(subY < fil){
-		this->subY = 0;
-	}
 
-	delayAnimacion = 1;
+	delayAnimacion = data->delay;
 	contFrames = 0;
 }
 
 Spritesheet::~Spritesheet(void) {
 }
 
-void Spritesheet::cambiarImagen(string nuevaImagen, int fil, int cols) {
-	this->sprite = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(nuevaImagen);
-	this->filas = fil;
-	this->columnas = cols;
-	//this->subX = subX;
-	//this->subY = subY;
+void Spritesheet::cambiarImagen(string nuevaImagen) {
+	DatosImagen* data = BibliotecaDeImagenes::obtenerInstancia()->devolverDatosImagen(nuevaImagen);
+
+	this->sprite = data->imagen;
+	this->filas = data->filas;
+	this->columnas = data->columnas;
+	this->origenX = data->origenX;
+	this->origenY = data->origenY;
+
 }
 
 void Spritesheet::cambiarSubImagen(int subX, int subY) {
@@ -84,8 +84,7 @@ int Spritesheet::calcularOffsetY(void) {
 	return (this->subY) * this->subImagenHeight();
 }
 
-void Spritesheet::setAnimationDelay(float delay_ms)
-{
+void Spritesheet::setAnimationDelay(float delay_ms) {
 	delayAnimacion = (int) ConversorUnidades::obtenerInstancia()->convertMilisecondsToFrames(delay_ms);
 	cout << "Delay: " << delayAnimacion << endl;
 }

@@ -15,24 +15,32 @@ GraficadorPantalla::GraficadorPantalla(void): pantalla(NULL) {}
 
 GraficadorPantalla::~GraficadorPantalla(void){}
 
-
-#define VIEW_X_DEFAULT (ancho_borde-screen_width)/2
-#define VIEW_Y_DEFAULT (alto_borde-screen_height)/2
-GraficadorPantalla::GraficadorPantalla(Escenario* escenario, int pant_width, int pant_height) {
-	this->escenario = escenario;
+#define VIEW_X_DEFAULT (ancho_borde - screen_width)/2
+#define VIEW_Y_DEFAULT (alto_borde - screen_height)/2
+GraficadorPantalla::GraficadorPantalla(int pant_width, int pant_height) {
+	this->escenario = nullptr;
 	this->screen_height = pant_height;
 	this->screen_width = pant_width;
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
-	this->alto_borde = cu->convertULToPixels(escenario->verTamX());
-	this->ancho_borde = 1.732 * cu->convertULToPixels(escenario->verTamY());
-	this->view_x = VIEW_X_DEFAULT;
-	this->view_y = VIEW_Y_DEFAULT;
 	if(!cargarSDL())
 		delete this;
 }
 
+void GraficadorPantalla::asignarEscenario(Escenario* scene) {
+	if (scene) {
+		ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
+		this->escenario = scene;
+		this->alto_borde = cu->convertULToPixels(escenario->verTamX());
+		this->ancho_borde = 1.732 * cu->convertULToPixels(escenario->verTamY());
+
+		this->view_x = VIEW_X_DEFAULT;
+		this->view_y = VIEW_Y_DEFAULT;
+	}
+}
+
 void GraficadorPantalla::dibujarPantalla(void) {
 	// PASOS DEL DIBUJO DE LA PANTALLA
+	if (!this->escenario) return;
 
 	// 0) Limpiar pantalla
 	SDL_FillRect(pantalla, NULL, 0x000000);
@@ -102,7 +110,7 @@ void GraficadorPantalla::reajustarCamara(void) {
 // posición central, y se itera alrededor de esa casilla.
 
 void GraficadorPantalla::renderizarTerreno(void) {
-	SDL_Surface* imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tileHuge.png");
+	SDL_Surface* imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tileHuge");
 	SDL_SetColorKey(imgTile, true, SDL_MapRGB(imgTile->format, 255, 255, 255));
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
 	SDL_Rect rectangulo;
@@ -118,7 +126,7 @@ void GraficadorPantalla::renderizarTerreno(void) {
 		j += 10;
 		}
 
-	imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tileG.png");
+	imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tile");
 	SDL_SetColorKey(imgTile, true, SDL_MapRGB(imgTile->format, 255, 255, 255));
 
 	for(int k = i; k < escenario->verTamX(); k++) {

@@ -15,6 +15,8 @@
 #define TIPO_KEY "tipo"
 	#define NOMBRE_KEY "nombre"
 	#define PATH_KEY "ruta"
+	#define SUB_X_KEY "subX"
+	#define SUB_Y_KEY "subY"
 	#define TAMANIO_X_KEY "sizeX"
 	#define TAMANIO_Y_KEY "sizeY"
 	#define ALIGN_X_KEY "pixelX"
@@ -25,6 +27,8 @@
 	#define COORD_X_KEY "x"
 	#define COORD_Y_KEY "y"
 	#define PC_KEY "protagonista"
+	#define FPS_KEY "fps"
+	#define DELAY_KEY "delay"
 
 
 /* Descripción de los errores
@@ -37,7 +41,7 @@ FORMAT_ERR: Error en el formato del yaml
 
 UNKNOWN_ERR: Error desconocido
 */
-enum yaml_error_code_t {	NO_ERROR = 0,
+enum yaml_error_code_t {NO_ERROR = 0,
 						NO_SUCH_FILE_ERR, 
 						NO_DEFAULT_FILE_ERR, 
 						MISSING_SECTION_ERR, 
@@ -49,12 +53,8 @@ enum yaml_error_code_t {	NO_ERROR = 0,
 
 // Levanta un error generado a partir del código y un mensaje específico.
 // El booleano "required" determinará si se trata de un ERROR o un WARNING
-void raiseError(yaml_error_code_t code, std::string msg, bool required = true) {
-	if (required) {
-		ErrorLog::getInstance()->escribirLogE(msg);
-	} else {
-		ErrorLog::getInstance()->escribirLogW(msg);
-	}
+void raiseError(yaml_error_code_t code, std::string msg, log_lvl_t log_lvl = LOG_ERROR) {
+	ErrorLog::getInstance()->escribirLog(msg, log_lvl);
 }
 
 
@@ -66,6 +66,7 @@ ConfigParser::ConfigParser() {
 	this->path = PATH_DEFAULT;
 	this->sInfo = struct escenarioInfo_t();
 }
+
 // Constructor y métodos específicos para cargar directorio arbitrario
 ConfigParser::ConfigParser(std::string path) {
 	this->pInfo = struct pantallaInfo_t();
@@ -114,23 +115,23 @@ void ConfigParser::limpiar() {
 // y eleva una excepción dejando a target en default si no se encuentra una clave.
 // Pre: target ya está inicializado en su valor por defecto
 // Post: se sobrescribió target con el valor correspondiente a clave, si es que existe
-void parsearEntero(const YAML::Node& node, std::string clave, int* target, bool required = true) {
+void parsearEntero(const YAML::Node& node, std::string clave, int* target, log_lvl_t log_lvl = LOG_ERROR) {
 	try {
 		node[clave] >> *target;
 	} catch (YAML::KeyNotFound e) {
-		raiseError(MISSING_VALUE_ERR, e.what(), required);
+		raiseError(MISSING_VALUE_ERR, e.what(), log_lvl);
 	} catch (YAML::Exception e) {
-		raiseError(FORMAT_ERR, e.what(), required);
+		raiseError(FORMAT_ERR, e.what(), log_lvl);
 	}
 }
 
-void parsearString(const YAML::Node& node, std::string clave, std::string* target, bool required = true) {
+void parsearString(const YAML::Node& node, std::string clave, std::string* target, log_lvl_t log_lvl = LOG_ERROR) {
 	try {
 		node[clave] >> *target;
 	} catch (YAML::KeyNotFound e) {
-		raiseError(MISSING_VALUE_ERR, e.what(), required);
+		raiseError(MISSING_VALUE_ERR, e.what(), log_lvl);
 	} catch (YAML::Exception e) {
-		raiseError(FORMAT_ERR, e.what(), required);
+		raiseError(FORMAT_ERR, e.what(), log_lvl);
 	}
 }
 
@@ -162,8 +163,8 @@ void operator >>(const YAML::Node& node, pantallaInfo_t& pInfo) {
 
 // Informacion de jugabilidad (gameplayInfo_t)
 void operator >>(const YAML::Node& node, gameplayInfo_t& gInfo) {
-	parsearEntero(node, VELOCIDAD_KEY, &gInfo.velocidad);
-	parsearEntero(node, MARGEN_KEY, &gInfo.margenScroll);
+	parsearEntero(node, VELOCIDAD_KEY, &gInfo.velocidad, LOG_WARNING);
+	parsearEntero(node, MARGEN_KEY, &gInfo.margenScroll, LOG_WARNING);
 }
 
 // Informacion de una clase (entidad) dentro del juego (entidadInfo_t)
@@ -173,10 +174,15 @@ void operator >> (const YAML::Node& node, entidadInfo_t& eInfo) {
 	parsearString(node, NOMBRE_KEY, &eInfo.nombre);
 	parsearString(node, PATH_KEY, &eInfo.spritePath);
 
-	parsearEntero(node, TAMANIO_X_KEY, &eInfo.tamX, false);
-	parsearEntero(node, TAMANIO_Y_KEY, &eInfo.tamY, false);
-	parsearEntero(node, ALIGN_X_KEY, &eInfo.pixel_align_X, false);
-	parsearEntero(node, ALIGN_Y_KEY, &eInfo.pixel_align_Y, false);
+	parsearEntero(node, FPS_KEY, &eInfo.fps, LOG_INFO);
+	parsearEntero(node, DELAY_KEY, &eInfo.delay, LOG_INFO);
+
+	parsearEntero(node, SUB_X_KEY, &eInfo.subX, LOG_INFO);
+	parsearEntero(node, SUB_Y_KEY, &eInfo.subY, LOG_INFO);
+	parsearEntero(node, TAMANIO_X_KEY, &eInfo.tamX, LOG_INFO);
+	parsearEntero(node, TAMANIO_Y_KEY, &eInfo.tamY, LOG_INFO);
+	parsearEntero(node, ALIGN_X_KEY, &eInfo.pixel_align_X, LOG_WARNING);
+	parsearEntero(node, ALIGN_Y_KEY, &eInfo.pixel_align_Y, LOG_WARNING);
 }
 
 // Carga una lista de struct entidadInfo_t para poder guardar en simultaneo
@@ -192,13 +198,14 @@ void operator >> (const YAML::Node& node, std::list<entidadInfo_t*>& eInfoL) {
 			eInfoL.push_back(eInfo);
 		}
 	} catch (YAML::Exception e) {
-		raiseError(UNKNOWN_ERR, e.what(), false);
+		raiseError(UNKNOWN_ERR, e.what(), LOG_ERROR);
 	}
 }
 
 // Informacion de una instancia particualr (instanciaInfo_t)
 void operator >> (const YAML::Node& node, instanciaInfo_t& iInfo) {
 	parsearString(node, TIPO_KEY, &iInfo.tipo);
+
 	parsearEntero(node, COORD_X_KEY, &iInfo.x);
 	parsearEntero(node, COORD_Y_KEY, &iInfo.y);
 }
@@ -215,22 +222,22 @@ void operator >> (const YAML::Node& node, std::list<instanciaInfo_t*>& iInfoL) {
 			iInfoL.push_back(iInfo);
 		}
 	} catch (YAML::Exception e) {
-		raiseError(UNKNOWN_ERR, e.what(), false);
+		raiseError(UNKNOWN_ERR, e.what(), LOG_INFO);
 	}
 }
 
 // Informacion del escenario (escenarioInfo_t)
 // Contiene el tamanio del mapa y la lista de entidades que hay en el mismo.
 void operator >> (const YAML::Node& node, escenarioInfo_t& sInfo) {
-	parsearString(node, NOMBRE_KEY, &sInfo.name, false);
-	parsearEntero(node, TAMANIO_X_KEY, &sInfo.size_X, false);
-	parsearEntero(node, TAMANIO_Y_KEY, &sInfo.size_Y, false);
+	parsearString(node, NOMBRE_KEY, &sInfo.name, LOG_INFO);
+	parsearEntero(node, TAMANIO_X_KEY, &sInfo.size_X, LOG_WARNING);
+	parsearEntero(node, TAMANIO_Y_KEY, &sInfo.size_Y, LOG_WARNING);
 
 	// Obtengo lista de entidades.
 	try {
 		node[INSTANCIAS_KEY] >> sInfo.instancias;
 	} catch (YAML::KeyNotFound e) {
-		raiseError(MISSING_SECTION_ERR, e.what(), false);
+		raiseError(MISSING_SECTION_ERR, e.what(), LOG_INFO);
 	}
 
 	// Obtengo instancia unica del protagonista (por ahora es uno solo)

@@ -23,19 +23,10 @@ y su cantidad de casillas en X y en Y.
 NOTA IMPORTANTE: Esta clase requiere que SDL esté
 inicializado correctamente para funcionar.*/
 
-class BibliotecaDeImagenes
-{
+
+class BibliotecaDeImagenes {
 private:
-	// Constructor privado que inicializa el map
-	BibliotecaDeImagenes(void);
-
-	// Método privado para cargar una SDL_Surface
-	SDL_Surface* loadSurface(std::string path);
-
-	// Carga una imagen en memoria y la guarda en
-	// el mapa de imagenes.
-	bool cargarImagen(string img_name);
-
+	
 	// Este atributo es la biblioteca singleton que
 	// es devuelta cada vez que se llama al metodo
 	// obtenerInstancia
@@ -51,6 +42,19 @@ private:
 	// Pantalla asociada a la BibliotecaDeImagenes sobre
 	// la cual optimizar las imagenes.
 	static SDL_Surface* pantalla;
+
+	// Constructor privado que inicializa el map
+	BibliotecaDeImagenes(void);
+
+	// Método privado para cargar una SDL_Surface
+	SDL_Surface* loadSurface(std::string path);
+
+	// Carga una imagen en memoria y la guarda en
+	// el mapa de imagenes.
+	bool cargarImagen(DatosImagen* data);
+
+	DatosImagen* cargarImagenDefault();
+
 
 public:
 	// Destructor por defecto
@@ -70,19 +74,6 @@ public:
 	// Asigna la pantalla screen
 	void asignarPantalla(SDL_Surface* screen);
 
-	// Busca la imagen img_name y devuelve sus datos
-	// asociados en los int* recibidos como parámetro.
-	// Devuelve true si la imagen fue encontrada y
-	// sus datos se devolvieron con éxito, o false en
-	// caso contrario. En caso de false, las posiciones
-	// apuntadas por los punteros recibidos mantienen su
-	// valor original.
-	bool devolverCargadosDatosImagen(string img_name, int* altoImagen, int* anchoImagen, int* cantFilas, int* cantCol, int* coordOrigX, int* coordOrigY, int* casillasX, int* casillasY);
-	
-	// Busca la imagen img_name y le asocia los datos
-	// recibidos como parámetros. Devuelve true si la
-	// carga fue exitosa o false en caso contrario.
-	// NOTA: esta función no hace chequeos de ningún
-	// tipo sobre los datos recibidos.
-	bool asignarDatosAImagen(string img_name, int altoImagen, int anchoImagen, int cantFilas, int cantColumnas, int origX, int origY, int casillasX, int casillasY);
+	void cargarDatosImagen(string name, DatosImagen* data);
+	DatosImagen* devolverDatosImagen(string img_name);
 };
