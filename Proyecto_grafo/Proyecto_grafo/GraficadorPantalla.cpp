@@ -240,7 +240,7 @@ bool GraficadorPantalla::cargarSDL(void) {
 		printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
 		return false;
 	} else {
-		ventana = SDL_CreateWindow( "AGE OF TALLER DE PROGRAMACION I", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screen_width, screen_height, SDL_WINDOW_SHOWN);
+		ventana = SDL_CreateWindow( "AGE OF TALLER DE PROGRAMACION I", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screen_width, screen_height, SDL_WINDOW_SHOWN || SDL_WINDOW_FULLSCREEN);
 		if(!ventana) {
 			printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
 			return false;
