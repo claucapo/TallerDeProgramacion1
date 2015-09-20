@@ -15,6 +15,7 @@ Spritesheet::Spritesheet(void) {
 	this->y_pant = 0;
 
 	delayAnimacion = 1;
+	delayReiniciarAnimacion = 0;
 	contFrames = 0;
 }
 
@@ -33,8 +34,10 @@ Spritesheet::Spritesheet(string name) {
 	this->y_pant = 0;
 	this->x_pant = 0;
 
-	delayAnimacion = data->delay;
+	delayAnimacion = ConversorUnidades::obtenerInstancia()->convertMilisecondsToFrames(1000/data->fps);
+	delayReiniciarAnimacion = ConversorUnidades::obtenerInstancia()->convertMilisecondsToFrames(data->delay*1000);
 	contFrames = 0;
+	subimagRecorridas = 0;
 }
 
 Spritesheet::~Spritesheet(void) {
@@ -48,6 +51,8 @@ void Spritesheet::cambiarImagen(string nuevaImagen) {
 	this->columnas = data->columnas;
 	this->origenX = data->origenX;
 	this->origenY = data->origenY;
+	delayAnimacion = ConversorUnidades::obtenerInstancia()->convertMilisecondsToFrames(1000/data->fps);
+	delayReiniciarAnimacion = ConversorUnidades::obtenerInstancia()->convertMilisecondsToFrames(data->delay*1000);
 
 }
 
@@ -58,11 +63,18 @@ void Spritesheet::cambiarSubImagen(int subX, int subY) {
 
 void Spritesheet::siguienteFrame() {
 	contFrames++;
-	if(contFrames >= delayAnimacion){
+	if((contFrames >= delayAnimacion) && (subimagRecorridas < this->columnas)){
 		contFrames = 0;
 		this->subX++;
+		subimagRecorridas++;
 		if (this->subX >= this->columnas)
 			this->subX = 0;
+		}
+	if(subimagRecorridas >= this->columnas){
+		if(contFrames >= delayReiniciarAnimacion){
+		contFrames = 0;
+		subimagRecorridas = 0;
+		}	
 	}
 	//cout << "Count: " << contFrames << endl;
 	//cout << "SubX: " << subX << endl;

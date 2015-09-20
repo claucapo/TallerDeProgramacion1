@@ -4,8 +4,18 @@
 Entidad* Factory::obtenerEntidad(instanciaInfo_t* instanciaInfo){	
 	if(instanciaInfo->tipo == "house")
 		return new Casa();
-	if(instanciaInfo->tipo == "town_center")
+	else if(instanciaInfo->tipo == "town_center")
 		return new CentroUrbano();
+	else if(instanciaInfo->tipo == "castle")
+		return new Castillo();
+	else if(instanciaInfo->tipo == "windmill")
+		return new Molino();
+	else if(instanciaInfo->tipo == "stable")
+		return new Establo();
+	else if(instanciaInfo->tipo == "barracks")
+		return new Cuarteles();
+	else if(instanciaInfo->tipo == "archery")
+		return new Arqueria();
 }
 
 Unidad* Factory::obtenerUnidad(instanciaInfo_t* instanciaInfo){	

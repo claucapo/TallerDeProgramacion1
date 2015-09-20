@@ -60,7 +60,7 @@ Escenario* cargarEscenario(escenarioInfo_t escenarioInfo){
 	Unidad* unit = Factory::obtenerUnidad(&escenarioInfo.protagonista);
 	Spritesheet* sprite = new Spritesheet(escenarioInfo.protagonista.tipo);
 	unit->asignarSprite(sprite);
-
+	unit->setVelocidad(1);
 	Posicion posP = Posicion(escenarioInfo.protagonista.x, escenarioInfo.protagonista.y);
 	scene->asignarProtagonista(unit, &posP);
 	return scene;

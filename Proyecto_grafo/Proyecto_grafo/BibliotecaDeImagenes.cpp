@@ -51,7 +51,7 @@ BibliotecaDeImagenes::~BibliotecaDeImagenes(void) {
 		free(it->second);
 		}
 	imagenes.clear();
-	delete singleton;
+	//delete singleton;
 }
 BibliotecaDeImagenes* BibliotecaDeImagenes::obtenerInstancia(void) {
 	if(!hay_instancia){

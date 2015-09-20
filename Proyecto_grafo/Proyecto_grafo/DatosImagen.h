@@ -37,7 +37,7 @@ public:
 	int casillasX, casillasY;
 
 	// FPS y delay (este último en ms)
-	int fps, delay;
+	float fps, delay;
 
 public:
 	DatosImagen(void);

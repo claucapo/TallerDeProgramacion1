@@ -73,7 +73,7 @@ ConfigParser::ConfigParser(std::string path) {
 	this->gInfo = struct gameplayInfo_t();
 	this->eInfoL = std::list<entidadInfo_t*>();
 	this->sInfo = struct escenarioInfo_t();
-
+	
 	if (!path.empty())
 		this->path = path;
 	else

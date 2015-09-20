@@ -39,7 +39,7 @@ private:
 	int origenX, origenY;
 
 	// Indica cada cuantos frames cambia la subimagen
-	int delayAnimacion, contFrames;
+	int delayAnimacion, delayReiniciarAnimacion, contFrames, subimagRecorridas;
 
 public:
 	// Constructor y destructor por defecto

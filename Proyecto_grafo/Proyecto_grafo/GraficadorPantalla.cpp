@@ -153,7 +153,7 @@ void GraficadorPantalla::renderizarTerreno(void) {
 			}
 		}
 	
-	/*SDL_Surface* imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tileG.png");
+	/*SDL_Surface* imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tile");
 	SDL_SetColorKey(imgTile, true, SDL_MapRGB(imgTile->format, 255, 255, 255));
 	SDL_Rect rectangulo;
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
@@ -222,7 +222,13 @@ void GraficadorPantalla::renderizarEntidades(void) {
 		rectangulo.x = entAct->getCoordX();
 		rectangulo.y = entAct->getCoordY();
 
-		SDL_BlitSurface( spEnt, NULL, pantalla, &rectangulo );
+		SDL_Rect recOr;
+		recOr.x = entAct->calcularOffsetX();
+		recOr.y = entAct->calcularOffsetY();
+		recOr.w = entAct->subImagenWidth();
+		recOr.h = entAct->subImagenHeight();
+
+		SDL_BlitSurface( spEnt, &recOr, pantalla, &rectangulo );
 	}
 }
 

@@ -16,6 +16,35 @@ public:
 	~CentroUrbano() {};
 };
 
+class Castillo : public Entidad {
+public:
+	Castillo();
+	~Castillo() {};
+};
+
+class Molino : public Entidad {
+public:
+	Molino();
+	~Molino() {};
+};
+
+class Cuarteles : public Entidad {
+public:
+	Cuarteles();
+	~Cuarteles() {};
+};
+
+class Arqueria : public Entidad {
+public:
+	Arqueria();
+	~Arqueria() {};
+};
+
+class Establo : public Entidad {
+public:
+	Establo();
+	~Establo() {};
+};
 
 
 #endif EDIFICIOS_H

@@ -2,7 +2,7 @@ pantalla:
   ancho: 640
   alto: 480
 gameplay: 
-  velocidad: 75
+  velocidad: 0.001
   margen: 54
 tipo:
   - nombre: "champion"
@@ -13,6 +13,8 @@ tipo:
     sizeY: 1
     pixelX: 21
     pixelY: 38
+    fps: 10
+    delay: 15
   - nombre: "champion_move"
     ruta: "champion_moveAOE.png"
     subX: 10
@@ -21,6 +23,16 @@ tipo:
     sizeY: 1
     pixelX: 21
     pixelY: 38
+    delay: 0
+    fps: 20
+  - nombre: "castle"
+    ruta: "castleAOE.png"
+    subX: 1
+    subY: 1
+    sizeX: 6
+    sizeY: 6
+    pixelX: 148
+    pixelY: 177
   - nombre: "knight"
     ruta: "knightAOE.png"
     subX: 10
@@ -29,8 +41,8 @@ tipo:
     sizeY: 1
     pixelX: 34
     pixelY: 41
-    fps: 1
-    delay: 10
+    fps: 8
+    delay: 3
   - nombre: "knight_move"
     ruta: "knight_moveAOE.png"
     subX: 10
@@ -39,7 +51,9 @@ tipo:
     sizeY: 1
     pixelX: 26
     pixelY: 49
-  - nombre: "housee"
+    fps: 18
+    delay: 0
+  - nombre: "house"
     ruta: "houseAOE.png"
     subX: 1
     subY: 1
@@ -63,6 +77,16 @@ tipo:
     sizeY: 10
     pixelX: 260
     pixelY: 0
+  - nombre: "windmill"
+    ruta: "windmillAOE.png"
+    subX: 8
+    subY: 1
+    sizeX: 3
+    sizeY: 3
+    pixelX: 84
+    pixelY: 53
+    fps: 10
+    delay: 0
   - nombre: "town_center"
     ruta: "townCenterAOE.png"
     subX: 1
@@ -71,12 +95,45 @@ tipo:
     sizeY: 2
     pixelX: 56
     pixelY: 159
+  - nombre: "barracks"
+    ruta: "barracksAOE.png"
+    subX: 1
+    subY: 1
+    sizeX: 4
+    sizeY: 4
+    pixelX: 101
+    pixelY: 41
+  - nombre: "archery"
+    ruta: "archeryAOE.png"
+    subX: 1
+    subY: 1
+    sizeX: 4
+    sizeY: 4
+    pixelX: 101
+    pixelY: 47
+  - nombre: "stable"
+    ruta: "stableAOE.png"
+    subX: 1
+    subY: 1
+    sizeX: 4
+    sizeY: 4
+    pixelX: 101
+    pixelY: 12
 escenario:
   nombre: orleans
   sizeX: 100
   sizeY: 80
   entidades:
-   - {x: 20, y: 30, tipo: "house"}
-   - {x: 40, y: 40, tipo: "house"}
-   - {x: 40, y: 70, tipo: "town_center"}
+   - {x: 18, y: 25, tipo: "house"}
+   - {x: 18, y: 21, tipo: "house"}
+   - {x: 18, y: 30, tipo: "house"}
+   - {x: 18, y: 34, tipo: "house"}
+   - {x: 5, y: 23, tipo: "windmill"}
+   - {x: 5, y: 27, tipo: "windmill"}
+   - {x: 5, y: 31, tipo: "windmill"}
+   - {x: 11, y: 7, tipo: "castle"}
+   - {x: 31, y: 35, tipo: "town_center"}
+   - {x: 26, y: 26, tipo: "stable"}
+   - {x: 22, y: 15, tipo: "barracks"}
+   - {x: 23, y: 21, tipo: "archery"}
   protagonista: {x: 2, y: 1, tipo: "knight"}

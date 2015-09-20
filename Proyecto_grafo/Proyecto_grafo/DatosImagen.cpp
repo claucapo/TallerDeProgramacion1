@@ -15,7 +15,7 @@ DatosImagen::DatosImagen(void) {
 	casillasX = 1;
 	casillasY = 1;
 	fps = 1;
-	delay = 0;
+	delay = 1;
 }
 
 DatosImagen::~DatosImagen(void) {

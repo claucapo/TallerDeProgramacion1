@@ -30,6 +30,7 @@ Entidad::~Entidad(void) {
 
 // Método para avanzar un frame
 void Entidad::avanzarFrame(void) {
+	this->sprites->siguienteFrame();
 }
 
 void Entidad::asignarPos(Posicion* pos) {
