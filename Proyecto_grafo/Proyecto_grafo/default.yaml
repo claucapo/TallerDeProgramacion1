@@ -1,16 +1,15 @@
 pantalla: 
-  ancho: 640
-  alto: 480
+  ancho: 800
+  alto: 600
+  fullscreen: 0
 gameplay: 
-  velocidad: 0.001
+  velocidad: 2 #en UL/frame
   margen: 54
 tipo:
   - nombre: "champion"
     ruta: "championAOE.png"
     subX: 10
     subY: 8
-    sizeX: 1
-    sizeY: 1
     pixelX: 21
     pixelY: 38
     fps: 10
@@ -19,16 +18,12 @@ tipo:
     ruta: "champion_moveAOE.png"
     subX: 10
     subY: 8
-    sizeX: 1
-    sizeY: 1
     pixelX: 21
     pixelY: 38
     delay: 0
     fps: 20
   - nombre: "castle"
     ruta: "castleAOE.png"
-    subX: 1
-    subY: 1
     sizeX: 6
     sizeY: 6
     pixelX: 148
@@ -37,8 +32,6 @@ tipo:
     ruta: "knightAOE.png"
     subX: 10
     subY: 8
-    sizeX: 1
-    sizeY: 1
     pixelX: 34
     pixelY: 41
     fps: 8
@@ -47,32 +40,22 @@ tipo:
     ruta: "knight_moveAOE.png"
     subX: 10
     subY: 8
-    sizeX: 1
-    sizeY: 1
     pixelX: 26
     pixelY: 49
     fps: 18
     delay: 0
   - nombre: "house"
     ruta: "houseAOE.png"
-    subX: 1
-    subY: 1
     sizeX: 3
     sizeY: 3
     pixelX: 76
     pixelY: 42
   - nombre: "tile"
     ruta: "tileG.png"
-    subX: 1
-    subY: 1
-    sizeX: 1
-    sizeY: 1
     pixelX: 26
     pixelY: 0
   - nombre: "tileHuge"
     ruta: "tileHuge.png"
-    subX: 1
-    subY: 1
     sizeX: 10
     sizeY: 10
     pixelX: 260
@@ -89,32 +72,24 @@ tipo:
     delay: 0
   - nombre: "town_center"
     ruta: "townCenterAOE.png"
-    subX: 1
-    subY: 1
     sizeX: 2
     sizeY: 2
     pixelX: 56
     pixelY: 159
   - nombre: "barracks"
     ruta: "barracksAOE.png"
-    subX: 1
-    subY: 1
     sizeX: 4
     sizeY: 4
     pixelX: 101
     pixelY: 41
   - nombre: "archery"
     ruta: "archeryAOE.png"
-    subX: 1
-    subY: 1
     sizeX: 4
     sizeY: 4
     pixelX: 101
     pixelY: 47
   - nombre: "stable"
     ruta: "stableAOE.png"
-    subX: 1
-    subY: 1
     sizeX: 4
     sizeY: 4
     pixelX: 101
@@ -129,7 +104,6 @@ escenario:
    - {x: 18, y: 30, tipo: "house"}
    - {x: 18, y: 34, tipo: "house"}
    - {x: 5, y: 23, tipo: "windmill"}
-   - {x: 5, y: 27, tipo: "windmill"}
    - {x: 5, y: 31, tipo: "windmill"}
    - {x: 11, y: 7, tipo: "castle"}
    - {x: 31, y: 35, tipo: "town_center"}

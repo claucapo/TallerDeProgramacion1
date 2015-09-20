@@ -17,12 +17,12 @@ GraficadorPantalla::~GraficadorPantalla(void){}
 
 #define VIEW_X_DEFAULT (ancho_borde - screen_width)/2
 #define VIEW_Y_DEFAULT (alto_borde - screen_height)/2
-GraficadorPantalla::GraficadorPantalla(int pant_width, int pant_height) {
+GraficadorPantalla::GraficadorPantalla(int pant_width, int pant_height, bool full_screen) {
 	this->escenario = nullptr;
 	this->screen_height = pant_height;
 	this->screen_width = pant_width;
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
-	if(!cargarSDL())
+	if(!cargarSDL(full_screen))
 		delete this;
 }
 
@@ -68,15 +68,17 @@ void GraficadorPantalla::dibujarPantalla(void) {
 // PASO 1: reajustar la cámara de acuerdo a la posición del mouse
 
 #define MARGEN 66		// Distancia para scrollear
-#define K_SCREEN 0.2	// Constante mágica???? ------> Explicar;
+#define K_SCREEN 0.2	// Constante mágica???? ------> Explicar... ya se... es la pendiente de la recta?;
 #define VEL_ZERO 19		// Velocidad de scroll en el borde de la pantalla		
 void GraficadorPantalla::reajustarCamara(void) {
 	int mx = 5 , my = 9;
 	SDL_GetMouseState(&mx, &my);
+
 	if(mx < MARGEN)
 		view_x += -VEL_ZERO + mx * K_SCREEN;
 	else if(mx > screen_width - MARGEN)
 		view_x += VEL_ZERO*(1 - screen_width/MARGEN) + VEL_ZERO*mx/(MARGEN);
+
 	if(my < MARGEN)
 		view_y += -VEL_ZERO + my * K_SCREEN;
 	else if(my> screen_height - MARGEN)
@@ -235,12 +237,17 @@ void GraficadorPantalla::renderizarEntidades(void) {
 
 // METODOS DE INICIALIZACION Y GETTERS
 
-bool GraficadorPantalla::cargarSDL(void) {
+bool GraficadorPantalla::cargarSDL(bool full_screen) {
+	Uint32 flags = SDL_WINDOW_SHOWN;
+	if (full_screen)
+		flags = flags || SDL_WINDOW_FULLSCREEN;
+
+
 	if(SDL_Init( SDL_INIT_VIDEO ) < 0)	{
 		printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
 		return false;
 	} else {
-		ventana = SDL_CreateWindow( "AGE OF TALLER DE PROGRAMACION I", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screen_width, screen_height, SDL_WINDOW_SHOWN || SDL_WINDOW_FULLSCREEN);
+		ventana = SDL_CreateWindow( "AGE OF TALLER DE PROGRAMACION I", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screen_width, screen_height, flags);
 		if(!ventana) {
 			printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
 			return false;

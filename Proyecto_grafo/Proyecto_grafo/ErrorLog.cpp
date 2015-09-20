@@ -1,15 +1,18 @@
 #include "ErrorLog.h"
 #include <ctime>
 
-#define LOG_DIR_DEFAULT "C:\\log.log"
+#define LOG_DIR_DEFAULT "log.log"
 
 bool ErrorLog::hay_instancia = false;
 ErrorLog* ErrorLog::singleton = nullptr;
 Archivo* ErrorLog::arch = nullptr;
 
-bool _warnings = true;
-bool _info = true;
-bool _errores = true;
+
+ErrorLog::ErrorLog() {
+	_warnings = true;
+	_info = false;
+	_errores = true;
+}
 
 ErrorLog::~ErrorLog(void) {
 	if (arch->is_open())

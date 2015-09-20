@@ -69,8 +69,9 @@ int main (int argc, char** argv) {
 
 #define PANTALLA_W_DEFAULT 800
 #define PANTALLA_H_DEFAULT 600
+#define FULLSCREEN_DEFAULT false
 
-#define VELOCIDAD_DEFAULT 3
+#define VELOCIDAD_DEFAULT 100
 #define MARGEN_DEFAULT 30
 
 #define TYPE_NAME_DEFAULT "unknown"
@@ -88,15 +89,16 @@ struct pantallaInfo_t {
 	// Tamaño de la pantalla
 	int screenW;
 	int screenH;
+	bool fullscreen;
 
 	// Inicializa los valores a cero por defecto
-	pantallaInfo_t(): screenW(PANTALLA_W_DEFAULT), screenH(PANTALLA_H_DEFAULT){};
+	pantallaInfo_t(): fullscreen(FULLSCREEN_DEFAULT), screenW(PANTALLA_W_DEFAULT), screenH(PANTALLA_H_DEFAULT){};
 };
 
 // Struct que define la categoría gameplay (jugabilidad)
 struct gameplayInfo_t {
 	// Velocidad del personaje
-	int velocidad;
+	float velocidad;
 	int margenScroll;
 
 	// Inicializa los valores a valores por defecto

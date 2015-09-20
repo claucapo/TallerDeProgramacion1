@@ -5,6 +5,7 @@
 #include "ConversorUnidades.h"
 #include "BibliotecaDeImagenes.h"
 #include "Posicion.h"
+#include "ErrorLog.h"
 #include "Edificios.h"
 #include "Protagonistas.h"
 #include "GraficadorPantalla.h"
@@ -131,7 +132,7 @@ int wmain(int argc, char** argv) {
 		parser.parsearTodo();
 			
 		// Inicializar pantalla y graficador
-		GraficadorPantalla* gp = new GraficadorPantalla(parser.verInfoPantalla().screenW, parser.verInfoPantalla().screenH);
+		GraficadorPantalla* gp = new GraficadorPantalla(parser.verInfoPantalla().screenW, parser.verInfoPantalla().screenH, parser.verInfoPantalla().fullscreen);
 
 		SDL_Window* gameWindow = gp->getVentana();
 		SDL_Surface* gameScreen = gp->getPantalla();
@@ -142,6 +143,7 @@ int wmain(int argc, char** argv) {
 
 		// Crear y asignar escenario
 		Escenario* scene = cargarEscenario(parser.verInfoEscenario());
+		scene->verProtagonista()->setVelocidad(parser.verInfoGameplay().velocidad);
 		gp->asignarEscenario(scene);
 		
 		 int i = 1; float dTot = 0;
@@ -168,11 +170,14 @@ int wmain(int argc, char** argv) {
 
 		delete gp;
 		delete scene;
-	
+		BibliotecaDeImagenes::obtenerInstancia()->clear();
+
 		SDL_DestroyWindow(gameWindow);
 		gameWindow = NULL;
 		IMG_Quit();
 		SDL_Quit();
 	}
+	delete BibliotecaDeImagenes::obtenerInstancia();
+	ErrorLog::getInstance()->cerrarLog();
 	return 0;
 }

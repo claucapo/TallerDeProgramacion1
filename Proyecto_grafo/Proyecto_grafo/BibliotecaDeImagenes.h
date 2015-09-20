@@ -64,7 +64,8 @@ public:
 	// BibliotecaDeImagenes, que o bien ya existía
 	// o bien se crea si no existía ninguna.
 	static BibliotecaDeImagenes* obtenerInstancia(void);
-
+	
+	void clear(void);
 	// Devuelve el surface asociado a la imagen
 	// con nombre img_name. Si la surface asociada
 	// a dicha imagen no fue creada, la crea y la

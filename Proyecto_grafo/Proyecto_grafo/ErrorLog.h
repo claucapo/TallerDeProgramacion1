@@ -30,7 +30,7 @@ const string log_separator = " - ";
 
 class ErrorLog {
 private:
-	ErrorLog(void) {};
+	ErrorLog(void);
 	// Archivo asociado
 	static Archivo* arch;
 

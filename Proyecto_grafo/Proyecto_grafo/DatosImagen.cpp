@@ -19,4 +19,6 @@ DatosImagen::DatosImagen(void) {
 }
 
 DatosImagen::~DatosImagen(void) {
+	if (this->imagen)
+		SDL_FreeSurface(this->imagen);
 }

@@ -44,15 +44,21 @@ DatosImagen* BibliotecaDeImagenes::cargarImagenDefault() {
 	return def;
 }
 
-BibliotecaDeImagenes::~BibliotecaDeImagenes(void) {
-	map<string, DatosImagen*>::iterator it;
-	for(it = imagenes.begin(); it != imagenes.end(); it++){
-		SDL_FreeSurface(it->second->imagen);
-		free(it->second);
-		}
+
+void BibliotecaDeImagenes::clear(void) {
+	map<string, DatosImagen*>::const_iterator it = imagenes.begin();
+	while (it != imagenes.end()) {
+		delete it->second;
+		it++;
+	}
 	imagenes.clear();
-	//delete singleton;
 }
+
+
+BibliotecaDeImagenes::~BibliotecaDeImagenes(void) {
+
+}
+
 BibliotecaDeImagenes* BibliotecaDeImagenes::obtenerInstancia(void) {
 	if(!hay_instancia){
 		singleton = new BibliotecaDeImagenes();
@@ -61,6 +67,7 @@ BibliotecaDeImagenes* BibliotecaDeImagenes::obtenerInstancia(void) {
 		}
 	return singleton;
 }
+
 void BibliotecaDeImagenes::asignarPantalla(SDL_Surface* screen){
 	if(!screen)
 		return;

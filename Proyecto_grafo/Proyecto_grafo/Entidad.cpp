@@ -26,6 +26,8 @@ Entidad::Entidad(void) {
 Entidad::~Entidad(void) {
 	if (this->pos)
 		delete this->pos;
+	if (this->sprites)
+		delete this->sprites;
 }
 
 // Método para avanzar un frame

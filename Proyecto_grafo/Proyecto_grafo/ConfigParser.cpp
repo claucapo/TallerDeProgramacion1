@@ -7,6 +7,7 @@
 #define PANTALLA_KEY "pantalla"
 	#define ANCHO_KEY "ancho"
 	#define ALTO_KEY "alto"
+	#define FULLSCREEN_KEY "fullscreen"
 
 #define GAMEPLAY_KEY "gameplay"
 	#define VELOCIDAD_KEY "velocidad"
@@ -135,6 +136,15 @@ void parsearString(const YAML::Node& node, std::string clave, std::string* targe
 	}
 }
 
+void parsearFloat(const YAML::Node& node, std::string clave, float* target, log_lvl_t log_lvl = LOG_ERROR) {
+	try {
+		node[clave] >> *target;
+	} catch (YAML::KeyNotFound e) {
+		raiseError(MISSING_VALUE_ERR, e.what(), log_lvl);
+	} catch (YAML::Exception e) {
+		raiseError(FORMAT_ERR, e.what(), log_lvl);
+	}
+}
 
 
 
@@ -150,6 +160,17 @@ void operator >>(const YAML::Node& node, pantallaInfo_t& pInfo) {
 	// Estos dos valores los chequeo juntos para que no exista la posibilidad
 	// de que la pantalla quede deformada
 	try {
+		int value = 0;
+		node[FULLSCREEN_KEY] >> value;
+		if (value != 0)
+			pInfo.fullscreen = true;
+		else
+			pInfo.fullscreen = false;
+	} catch (YAML::KeyNotFound e) {
+		raiseError(MISSING_VALUE_ERR, e.what(), LOG_INFO);
+	}
+
+	try {
 		node[ANCHO_KEY] >> pInfo.screenW;
 		node[ALTO_KEY] >> pInfo.screenH;
 	} catch (YAML::KeyNotFound e) {
@@ -163,7 +184,7 @@ void operator >>(const YAML::Node& node, pantallaInfo_t& pInfo) {
 
 // Informacion de jugabilidad (gameplayInfo_t)
 void operator >>(const YAML::Node& node, gameplayInfo_t& gInfo) {
-	parsearEntero(node, VELOCIDAD_KEY, &gInfo.velocidad, LOG_WARNING);
+	parsearFloat(node, VELOCIDAD_KEY, &gInfo.velocidad, LOG_WARNING);
 	parsearEntero(node, MARGEN_KEY, &gInfo.margenScroll, LOG_WARNING);
 }
 

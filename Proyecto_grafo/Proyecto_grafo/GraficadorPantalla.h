@@ -16,7 +16,7 @@ private:
 public:
 	GraficadorPantalla(void);
 	~GraficadorPantalla(void);
-	GraficadorPantalla(int pant_width, int pant_height);
+	GraficadorPantalla(int pant_width, int pant_height, bool full_screen = false);
 	SDL_Surface* getPantalla(void);
 	void dibujarPantalla(void);
 	void asignarEscenario(Escenario* scene);
@@ -26,7 +26,7 @@ private:
 	void renderizarProtagonista(void);
 	void renderizarEntidades(void);
 public:
-	bool cargarSDL(void);
+	bool cargarSDL(bool full_screen = false);
 	SDL_Window* getVentana(void);
 	float getViewX(void);
 	float getViewY(void);
