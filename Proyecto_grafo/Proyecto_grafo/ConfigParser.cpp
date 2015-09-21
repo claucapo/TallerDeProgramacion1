@@ -13,6 +13,11 @@
 	#define VELOCIDAD_KEY "velocidad"
 	#define MARGEN_KEY "margen"
 
+#define LOG_KEY "log"
+	#define WARNINGS_KEY "warnings"
+	#define INFO_KEY "info"
+	#define ERRORS_KEY "errors"
+
 #define TIPO_KEY "tipo"
 	#define NOMBRE_KEY "nombre"
 	#define PATH_KEY "ruta"
@@ -63,6 +68,7 @@ void raiseError(yaml_error_code_t code, std::string msg, log_lvl_t log_lvl = LOG
 ConfigParser::ConfigParser() {
 	this->pInfo = struct pantallaInfo_t();
 	this->gInfo = struct gameplayInfo_t();
+	this->lInfo = struct logInfo_t();
 	this->eInfoL = std::list<entidadInfo_t*>();
 	this->path = PATH_DEFAULT;
 	this->sInfo = struct escenarioInfo_t();
@@ -72,6 +78,7 @@ ConfigParser::ConfigParser() {
 ConfigParser::ConfigParser(std::string path) {
 	this->pInfo = struct pantallaInfo_t();
 	this->gInfo = struct gameplayInfo_t();
+	this->lInfo = struct logInfo_t();
 	this->eInfoL = std::list<entidadInfo_t*>();
 	this->sInfo = struct escenarioInfo_t();
 	
@@ -146,6 +153,22 @@ void parsearFloat(const YAML::Node& node, std::string clave, float* target, log_
 	}
 }
 
+void parsearBoolean(const YAML::Node& node, std::string clave, bool* target, log_lvl_t log_lvl = LOG_ERROR) {
+	try {
+		float number = 0;
+		node[clave] >> number;
+		if (number != 0)
+			*target = true;
+		else
+			*target = false;
+	} catch (YAML::KeyNotFound e) {
+		raiseError(MISSING_VALUE_ERR, e.what(), log_lvl);
+	} catch (YAML::Exception e) {
+		raiseError(FORMAT_ERR, e.what(), log_lvl);
+	}
+}
+
+
 
 
 //******************************************************//
@@ -159,16 +182,7 @@ void parsearFloat(const YAML::Node& node, std::string clave, float* target, log_
 void operator >>(const YAML::Node& node, pantallaInfo_t& pInfo) {
 	// Estos dos valores los chequeo juntos para que no exista la posibilidad
 	// de que la pantalla quede deformada
-	try {
-		int value = 0;
-		node[FULLSCREEN_KEY] >> value;
-		if (value != 0)
-			pInfo.fullscreen = true;
-		else
-			pInfo.fullscreen = false;
-	} catch (YAML::KeyNotFound e) {
-		raiseError(MISSING_VALUE_ERR, e.what(), LOG_INFO);
-	}
+	parsearBoolean(node, FULLSCREEN_KEY, &pInfo.fullscreen, LOG_INFO);
 
 	try {
 		node[ANCHO_KEY] >> pInfo.screenW;
@@ -221,6 +235,13 @@ void operator >> (const YAML::Node& node, std::list<entidadInfo_t*>& eInfoL) {
 	} catch (YAML::Exception e) {
 		raiseError(UNKNOWN_ERR, e.what(), LOG_ERROR);
 	}
+}
+
+// Informacion de una instancia particualr (instanciaInfo_t)
+void operator >> (const YAML::Node& node, logInfo_t& lInfo) {
+	parsearBoolean(node, WARNINGS_KEY, &lInfo.warnings, LOG_INFO);
+	parsearBoolean(node, INFO_KEY, &lInfo.info, LOG_INFO);
+	parsearBoolean(node, ERRORS_KEY, &lInfo.errors, LOG_INFO);
 }
 
 // Informacion de una instancia particualr (instanciaInfo_t)
@@ -304,6 +325,19 @@ void parsearInfoGameplay(const YAML::Node& node, gameplayInfo_t* gInfo) {
 	}
 }
 
+// Carga la info del log.
+// Pre: el struct se inicializó a los valores por defecto.
+// Post: si se pueden leer los datos del YAML, se sobreescriben en el struct.
+void parsearInfoLog(const YAML::Node& node, logInfo_t* lInfo) {
+	try {
+		node[LOG_KEY] >> *lInfo;
+	} catch (YAML::KeyNotFound e) {
+		raiseError(MISSING_SECTION_ERR, "Log se inicializa con valores por defecto: E:T, W:T, I:F", LOG_ALLWAYS);
+	} catch (YAML::Exception e) {
+		raiseError(UNKNOWN_ERR, e.what());
+	}
+}
+
 // Carga la informacion de todas las entidades que encuentre en la lista atributo de ConfigParser.
 // Pre: la lista esta vacia previamente.
 // Post: la lista contiene una coleccion de entidadInfo_t con todos los datos leidos, poniendo en default los faltantes.
@@ -340,9 +374,11 @@ void ConfigParser::parsearTodo() {
 		parser.GetNextDocument(doc);
 
 		this->limpiar();
+		parsearInfoLog(doc, &this->lInfo);
+		ErrorLog::getInstance()->habilitarFlags( this->lInfo.warnings, this->lInfo.info, this->lInfo.errors );
+		
 		parsearInfoPantalla(doc, &this->pInfo);
 		parsearInfoGameplay(doc, &this->gInfo);
-
 		parsearInfoEntidades(doc, &this->eInfoL);
 		parsearInfoEscenario(doc, &this->sInfo);
 

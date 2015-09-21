@@ -52,12 +52,12 @@ void GraficadorPantalla::dibujarPantalla(void) {
 	// 2) Dibujar el Escenario (HARDCODEADO DE MOMENTO)
 	renderizarTerreno();
 
-	// 3) Dibujar al protagonista (proximamente las unidades
-	// Si se cambia de lugar con (4) el protagonista pasa "por encima" de las demás entidades
-	renderizarProtagonista();
-
-	// 4) Dibujar los edificios
+	
+	// 3) Dibujar los edificios
 	renderizarEntidades();
+
+	// 4) Dibujar al protagonista (proximamente las unidades)
+	renderizarProtagonista();
 
 	// 5) Window_Update
 	SDL_UpdateWindowSurface(ventana);
@@ -207,6 +207,7 @@ void GraficadorPantalla::renderizarProtagonista(void) {
 	recOr.h = unidad->subImagenHeight();
 	rectangulo.x = unidad->getCoordX();
 	rectangulo.y = unidad->getCoordY();
+	
 	SDL_BlitSurface( spUnidad, &recOr, pantalla, &rectangulo );
 }
 

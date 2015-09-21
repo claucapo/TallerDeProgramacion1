@@ -49,8 +49,10 @@ void Spritesheet::cambiarImagen(string nuevaImagen) {
 	this->sprite = data->imagen;
 	this->filas = data->filas;
 	this->columnas = data->columnas;
+	
 	this->origenX = data->origenX;
 	this->origenY = data->origenY;
+
 	delayAnimacion = ConversorUnidades::obtenerInstancia()->convertMilisecondsToFrames(1000/data->fps);
 	delayReiniciarAnimacion = ConversorUnidades::obtenerInstancia()->convertMilisecondsToFrames(data->delay*1000);
 

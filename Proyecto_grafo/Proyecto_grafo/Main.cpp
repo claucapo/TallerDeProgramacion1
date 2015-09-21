@@ -52,10 +52,21 @@ Escenario* cargarEscenario(escenarioInfo_t escenarioInfo){
 
 	for(list<instanciaInfo_t*>::const_iterator it = escenarioInfo.instancias.begin(); it != escenarioInfo.instancias.end(); ++it) {
 		Entidad* entidad = Factory::obtenerEntidad((*it));
-		Posicion posicion = Posicion((float)(*it)->x, (float)(*it)->y);
-	    scene->ubicarEntidad(entidad, &posicion);
-		Spritesheet* cas = new Spritesheet((*it)->tipo);
-	    entidad->asignarSprite(cas);
+		if (entidad) {
+			Posicion posicion = Posicion((float)(*it)->x, (float)(*it)->y);
+			scene->ubicarEntidad(entidad, &posicion);
+			Spritesheet* cas = new Spritesheet((*it)->tipo);
+			entidad->asignarSprite(cas);
+		}
+
+		// Print de la lista de entidades ordenadas
+		/*
+		list<Entidad*> lEnt = scene->verEntidades();
+		for(list<Entidad*>::iterator it = lEnt.begin(); it != lEnt.end(); ++it) {
+			cout << (*it)->verPosicion()->getRoundX() << " - " << (*it)->verPosicion()->getRoundY() << " - " << (*it)->name << endl;
+		}
+		cout << endl;
+		*/
 	}
 
 	Unidad* unit = Factory::obtenerUnidad(&escenarioInfo.protagonista);
@@ -64,6 +75,7 @@ Escenario* cargarEscenario(escenarioInfo_t escenarioInfo){
 	unit->setVelocidad(1);
 	Posicion posP = Posicion(escenarioInfo.protagonista.x, escenarioInfo.protagonista.y);
 	scene->asignarProtagonista(unit, &posP);
+	
 	return scene;
 }
 
@@ -130,7 +142,7 @@ int wmain(int argc, char** argv) {
 	    ConfigParser parser = ConfigParser();
 		parser.setPath("Default.yaml");
 		parser.parsearTodo();
-			
+	
 		// Inicializar pantalla y graficador
 		GraficadorPantalla* gp = new GraficadorPantalla(parser.verInfoPantalla().screenW, parser.verInfoPantalla().screenH, parser.verInfoPantalla().fullscreen);
 
@@ -160,8 +172,7 @@ int wmain(int argc, char** argv) {
 			float timeB = SDL_GetTicks();
 			
 			dTot += (timeB - timeA);
-			cout<< "Duracion Prom.:" << dTot/i << endl;
-			
+			// cout<< "Duracion Prom.:" << dTot/i << endl;
 			if((FRAME_DURATION -timeB + timeA) > 0)
 				SDL_Delay(FRAME_DURATION -timeB + timeA);
 

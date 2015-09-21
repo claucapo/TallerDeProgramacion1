@@ -1,5 +1,6 @@
 #include "Entidad.h"
 #include "Posicion.h"
+#include <iostream>
 
 // El constructor sobrecargado inicializa la entidad en una posición determinada
 // por la referencia del parámetro
@@ -49,6 +50,42 @@ void Entidad::asignarSprite(Spritesheet* sp){
 bool Entidad::operator==(Entidad other){
 	return ((this->pos == other.verPosicion()) && (this->state == other.verEstado()) );
 }
+
+// Magic!!!
+bool Entidad::operator < (const Entidad& other) const {
+	int max_x_A = this->pos->getRoundX() + this->tamX;
+	int max_y_A = this->pos->getRoundY() + this->tamY;
+	int min_x_A = this->pos->getRoundX();
+	int min_y_A = this->pos->getRoundY();
+	
+	int max_x_B = other.pos->getRoundX() + other.tamX;
+	int max_y_B = other.pos->getRoundY() + other.tamY;
+	int min_x_B = other.pos->getRoundX();
+	int min_y_B = other.pos->getRoundY();
+
+	if (min_x_B < max_x_A && min_y_B < max_y_A)
+		return false;
+
+	if (min_x_B > min_x_A && min_y_B > max_y_B)
+		return true;
+
+	if (min_x_B >= max_x_A)
+		if (max_y_B > min_y_A)
+			return true;
+
+	if (min_y_B >= max_y_A)
+		if (max_x_B > min_x_A)
+			return true;
+
+	if (min_x_B + min_y_B > min_x_A + min_y_A)
+		return true;
+	else if (min_x_B + min_y_B == min_x_A + min_y_A)
+		return min_x_B > min_x_A;
+	else
+		return false;
+
+}
+
 
 Spritesheet* Entidad::verSpritesheet(void) {
 	return sprites;

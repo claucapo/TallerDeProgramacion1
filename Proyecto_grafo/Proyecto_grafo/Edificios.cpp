@@ -1,8 +1,8 @@
 #include "Edificios.h"
 
 Casa::Casa() {
-	this->tamX = 2;
-	this->tamY = 2;
+	this->tamX = 3;
+	this->tamY = 3;
 	this->name = "casa";
 	this->state = EST_QUIETO;
 }
@@ -15,15 +15,15 @@ CentroUrbano::CentroUrbano() {
 }
 
 Castillo::Castillo() {
-	this->tamX = 4;
-	this->tamY = 4;
+	this->tamX = 6;
+	this->tamY = 6;
 	this->name = "castillo";
 	this->state = EST_QUIETO;
 }
 
 Molino::Molino() {
-	this->tamX = 4;
-	this->tamY = 4;
+	this->tamX = 3;
+	this->tamY = 3;
 	this->name = "molino";
 	this->state = EST_QUIETO;
 }

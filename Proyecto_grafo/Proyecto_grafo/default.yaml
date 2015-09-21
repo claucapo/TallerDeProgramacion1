@@ -1,10 +1,14 @@
 pantalla: 
   ancho: 800
   alto: 600
-  fullscreen: 0
+  fullscreen: 0 # 1 = true, 0 = false
 gameplay: 
   velocidad: 2 #en UL/frame
   margen: 54
+log:
+  warnings: 1
+  info: 0
+  errors: 1
 tipo:
   - nombre: "champion"
     ruta: "championAOE.png"
@@ -99,15 +103,23 @@ escenario:
   sizeX: 30
   sizeY: 30
   entidades:
+   - {x: 1, y: 12, tipo: "house"}
+   - {x: 1, y: 6, tipo: "castle"}
+   - {x: 4, y: 12, tipo: "house"}
+   - {x: 4, y: 3, tipo: "windmill"}
+   - {x: 1, y: 6, tipo: "castle"}
+   - {x: 1, y: 12, tipo: "house"}
    - {x: 18, y: 25, tipo: "house"}
    - {x: 18, y: 21, tipo: "house"}
-   - {x: 18, y: 30, tipo: "house"}
-   - {x: 18, y: 34, tipo: "house"}
    - {x: 5, y: 23, tipo: "windmill"}
    - {x: 5, y: 31, tipo: "windmill"}
-   - {x: 11, y: 7, tipo: "castle"}
-   - {x: 31, y: 35, tipo: "town_center"}
-   - {x: 26, y: 26, tipo: "stable"}
+   - {x: 13, y: 9, tipo: "castle"}
+   - {x: 10, y: 11, tipo: "house"}
+   - {x: 16, y: 6, tipo: "house"}
+   - {x: 25, y: 25, tipo: "stable"}
+   - {x: 5, y: 0, tipo: "windmill"}
    - {x: 22, y: 15, tipo: "barracks"}
    - {x: 23, y: 21, tipo: "archery"}
+   - {x: 5, y: 18, tipo: "barracks"}
+   - {x: 9, y: 18, tipo: "barracks"}
   protagonista: {x: 2, y: 1, tipo: "knight"}

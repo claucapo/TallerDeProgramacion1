@@ -36,7 +36,7 @@ public:
 	// NOTA: Si la Entidad ocupa más de
 	// una Posicion, devuelve la Posicion
 	// en la que iría el pixel origen.
-	Posicion* verPosicion(void) {return this->pos;}
+	Posicion* verPosicion(void) const {return this->pos;}
 
 	// Devuelve el estado
 	Estados_t verEstado(void) {return this->state;}
@@ -61,6 +61,7 @@ public:
 	void asignarPos(Posicion* pos);
 
 	bool operator ==(const Entidad other);
+	bool operator < (const Entidad& other) const;
 	Spritesheet* verSpritesheet(void);
 };
 

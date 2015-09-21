@@ -39,6 +39,7 @@ void Escenario::moverProtagonista(void) {
 	Unidad* unit = this->protagonista;
 	Estados_t state = unit->verEstado();
 	Spritesheet* sp = unit->verSpritesheet();
+
 	// Si se esta moviendo
 	if (state == EST_CAMINANDO) {
 		Posicion* act = unit->verPosicion();
@@ -82,10 +83,15 @@ void Escenario::avanzarFrame(void) {
 
 }
 
+template <typename T> bool compare(const T* const & a, const T* const &b) {
+	return *a < *b;
+};
+
 void Escenario::ubicarEntidad(Entidad* entidad, Posicion* pos) {
 	if (mapa->ubicarEntidad(entidad, pos)) {
 		entidades.push_back(entidad);
 		entidad->asignarPos(pos);
+		entidades.sort(compare<Entidad>);
 	}
 }
 

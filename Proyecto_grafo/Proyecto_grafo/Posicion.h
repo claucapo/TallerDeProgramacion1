@@ -39,6 +39,8 @@ public:
 	// Redefino el operador, dos posiciones son iguales si refieren
 	// a la misma casilla, es decir, si tienen la misma parte entera
 	bool operator == (const Posicion& other);
+	bool operator >(const Posicion& other);
+	bool operator <(const Posicion& other);
 };
 
 #endif //POSICION_H

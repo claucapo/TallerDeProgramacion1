@@ -56,8 +56,8 @@ void Matriz::generarMatrizVacia(){
 } 
 
 bool Matriz::posicionPertenece(Posicion* pos){
-	int pos_x = pos->getRoundX();
-	int pos_y = pos->getRoundY();
+	float pos_x = pos->getX();
+	float pos_y = pos->getY();
 	if((pos_x < 0) || (pos_y < 0))
 		return false;
 	if ((this->filas < pos_x) || (this->columnas < pos_y))
@@ -114,9 +114,11 @@ bool Matriz::ubicarEntidad(Entidad* elemento, Posicion* pos){
 		for(int j = 0; j < ancho_y; j++) {
 			Posicion act = Posicion(pos->getX() + i, pos->getRoundY() + j);
 			if (!posicionPertenece(&act)) {
+				ErrorLog::getInstance()->escribirLog("No se puede agregar entidad: posición no pertenece al mapa", LOG_WARNING);
 				return false;
 			}
 			if(casillas[pos->getRoundX() + i][pos->getRoundY() + j] != nullptr) {
+				ErrorLog::getInstance()->escribirLog("No se puede agregar entidad: posición no pertenece al mapa", LOG_WARNING);
 				return false;
 			}
 		}

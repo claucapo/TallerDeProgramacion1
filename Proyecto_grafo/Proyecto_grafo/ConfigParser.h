@@ -105,6 +105,16 @@ struct gameplayInfo_t {
 	gameplayInfo_t(): velocidad(VELOCIDAD_DEFAULT), margenScroll(MARGEN_DEFAULT){};
 };
 
+// Struct que define la categoría log.
+struct logInfo_t {
+	bool warnings;
+	bool info;
+	bool errors;
+
+	logInfo_t(): warnings(true), info(false), errors(true) {};
+};
+
+
 // Struct que define la información acerca de una unidad (general)
 struct entidadInfo_t {
 	std::string nombre;
@@ -157,6 +167,7 @@ private:
 
 	pantallaInfo_t pInfo;
 	gameplayInfo_t gInfo;
+	logInfo_t lInfo;
 	std::list<entidadInfo_t*> eInfoL;
 	escenarioInfo_t sInfo;
 
@@ -173,6 +184,7 @@ public:
 	// Devuelve distintas estructuras con información
 	pantallaInfo_t verInfoPantalla() {return this->pInfo;}
 	gameplayInfo_t verInfoGameplay() {return this->gInfo;}
+	logInfo_t verInfoLog() {return this->lInfo;}
 	std::list<entidadInfo_t*> verInfoEntidades() {return this->eInfoL;}	// CUIDADO: Memoria dinamica en los elementos de eInfoL
 	escenarioInfo_t verInfoEscenario() {return this->sInfo;}				// CUIDADO: Memoria dinamica en los elementos de sInfo.instancias
 };
