@@ -3,7 +3,7 @@ pantalla:
   alto: 600
   fullscreen: 0 # 1 = true, 0 = false
 gameplay: 
-  velocidad: 2 #en UL/frame
+  velocidad: 1 #en UL/frame
   margen: 54
 log:
   warnings: 1

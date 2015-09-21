@@ -89,7 +89,7 @@ ConfigParser::ConfigParser(std::string path) {
 }
 void ConfigParser::setPath(std::string newpath) {
 	if (!path.empty())
-		this->path = path;
+		this->path = newpath;
 	else
 		this->path = PATH_DEFAULT;
 }

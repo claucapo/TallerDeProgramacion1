@@ -24,6 +24,7 @@ GraficadorPantalla::GraficadorPantalla(int pant_width, int pant_height, bool ful
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
 	if(!cargarSDL(full_screen))
 		delete this;
+	
 }
 
 void GraficadorPantalla::asignarEscenario(Escenario* scene) {
@@ -247,9 +248,8 @@ void GraficadorPantalla::renderizarEntidades(void) {
 
 bool GraficadorPantalla::cargarSDL(bool full_screen) {
 	Uint32 flags = SDL_WINDOW_SHOWN;
-	if (full_screen)
+	if (full_screen) 
 		flags = flags || SDL_WINDOW_FULLSCREEN;
-
 
 	if(SDL_Init( SDL_INIT_VIDEO ) < 0)	{
 		printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );

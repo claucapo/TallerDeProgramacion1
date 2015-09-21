@@ -113,7 +113,7 @@ bool Matriz::ubicarEntidad(Entidad* elemento, Posicion* pos){
 	for(int i = 0; i < altura_x; i++)
 		for(int j = 0; j < ancho_y; j++) {
 			Posicion act = Posicion(pos->getX() + i, pos->getRoundY() + j);
-			if (!posicionPertenece(&act)) {
+			if ((!posicionPertenece(&act)) || (this->filas == act.getX()) || (this->columnas == act.getY())) {
 				ErrorLog::getInstance()->escribirLog("No se puede agregar entidad: posición no pertenece al mapa", LOG_WARNING);
 				return false;
 			}

@@ -18,6 +18,9 @@
 
 using namespace std;
 
+
+#define ARCHIVO_YAML "testFullMap.yaml"
+
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 480
 
@@ -140,7 +143,7 @@ int wmain(int argc, char** argv) {
 
 		// Parseo de YAML
 	    ConfigParser parser = ConfigParser();
-		parser.setPath("Default.yaml");
+		parser.setPath(ARCHIVO_YAML);
 		parser.parsearTodo();
 	
 		// Inicializar pantalla y graficador
@@ -172,7 +175,7 @@ int wmain(int argc, char** argv) {
 			float timeB = SDL_GetTicks();
 			
 			dTot += (timeB - timeA);
-			// cout<< "Duracion Prom.:" << dTot/i << endl;
+			cout<< "Duracion Prom.:" << dTot/i << endl;
 			if((FRAME_DURATION -timeB + timeA) > 0)
 				SDL_Delay(FRAME_DURATION -timeB + timeA);
 

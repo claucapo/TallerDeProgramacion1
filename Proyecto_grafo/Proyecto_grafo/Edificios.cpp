@@ -8,15 +8,15 @@ Casa::Casa() {
 }
 
 CentroUrbano::CentroUrbano() {
-	this->tamX = 4;
-	this->tamY = 4;
+	this->tamX = 10;
+	this->tamY = 10;
 	this->name = "centro_urbano";
 	this->state = EST_QUIETO;
 }
 
 Castillo::Castillo() {
-	this->tamX = 6;
-	this->tamY = 6;
+	this->tamX = 5;
+	this->tamY = 5;
 	this->name = "castillo";
 	this->state = EST_QUIETO;
 }
