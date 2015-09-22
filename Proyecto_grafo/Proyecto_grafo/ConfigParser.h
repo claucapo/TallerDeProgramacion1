@@ -72,14 +72,13 @@ int main (int argc, char** argv) {
 #define FULLSCREEN_DEFAULT false
 
 #define VELOCIDAD_DEFAULT 100
-#define MARGEN_DEFAULT 30
+#define MARGEN_DEFAULT 19
 
 #define TYPE_NAME_DEFAULT "unknown"
 #define IMG_PATH_DEFAULT "no_image.png"
 
 #define SCENARY_NAME_DEAFAULT "orleans"
 #define INSTANCE_FPS_DEFAULT 1
-
 
 
 // STRUCTS (categorias) //
@@ -170,6 +169,16 @@ private:
 	logInfo_t lInfo;
 	std::list<entidadInfo_t*> eInfoL;
 	escenarioInfo_t sInfo;
+public:
+	class ConfigParserError {
+	private:
+		std::string msg;
+	public:
+		ConfigParserError(std::string msg) {this->msg = msg;}
+		~ConfigParserError() {};
+		std::string what(void) {return this->msg;}
+	};
+
 
 public:
 	ConfigParser();

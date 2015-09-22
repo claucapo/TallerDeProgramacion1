@@ -1,10 +1,10 @@
 pantalla: 
-  ancho: 800
-  alto: 600
+  ancho: 640
+  alto: 480
   fullscreen: 0 # 1 = true, 0 = false
 gameplay: 
   velocidad: 2 #en UL/frame
-  margen: 54
+  scroll: 19
 log:
   warnings: 1
   info: 0
@@ -100,8 +100,8 @@ tipo:
     pixelY: 12
 escenario:
   nombre: orleans
-  sizeX: 30
-  sizeY: 30
+  sizeX: 300
+  sizeY: 100
   entidades:
    - {x: 1, y: 12, tipo: "house"}
    - {x: 1, y: 6, tipo: "castle"}

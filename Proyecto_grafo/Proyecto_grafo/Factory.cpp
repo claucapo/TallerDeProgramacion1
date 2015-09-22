@@ -16,6 +16,8 @@ Entidad* Factory::obtenerEntidad(instanciaInfo_t* instanciaInfo){
 		return new Cuarteles();
 	else if(instanciaInfo->tipo == "archery")
 		return new Arqueria();
+	else
+		return new 
 
 	
 	ErrorLog::getInstance()->escribirLog("Se trató de crear una entidad de tipo: " + instanciaInfo->tipo + " inexistente en sistema", LOG_ERROR);

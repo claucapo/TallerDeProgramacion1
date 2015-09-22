@@ -19,7 +19,7 @@
 using namespace std;
 
 
-#define ARCHIVO_YAML "testFullMap.yaml"
+#define ARCHIVO_YAML "default2.yaml"
 
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 480
@@ -151,6 +151,7 @@ int wmain(int argc, char** argv) {
 
 		SDL_Window* gameWindow = gp->getVentana();
 		SDL_Surface* gameScreen = gp->getPantalla();
+		gp->asignarVelocidadScroll(parser.verInfoGameplay().margenScroll);		
 		BibliotecaDeImagenes::obtenerInstancia()->asignarPantalla(gameScreen);
 
 		// Cargar imagenes del YAML

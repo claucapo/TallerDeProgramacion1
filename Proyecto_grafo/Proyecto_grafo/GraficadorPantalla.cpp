@@ -16,11 +16,13 @@ GraficadorPantalla::GraficadorPantalla(void): pantalla(NULL) {}
 GraficadorPantalla::~GraficadorPantalla(void){}
 
 #define VIEW_X_DEFAULT (ancho_borde - screen_width)/2
-#define VIEW_Y_DEFAULT (alto_borde - screen_height)/2
+#define VIEW_Y_DEFAULT 0
+#define VEL_ZERO_DEFAULT 19
 GraficadorPantalla::GraficadorPantalla(int pant_width, int pant_height, bool full_screen) {
 	this->escenario = nullptr;
 	this->screen_height = pant_height;
 	this->screen_width = pant_width;
+	this->vel_scroll = VEL_ZERO_DEFAULT;
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
 	if(!cargarSDL(full_screen))
 		delete this;
@@ -70,10 +72,10 @@ void GraficadorPantalla::dibujarPantalla(void) {
 
 #define MARGEN 66		// Distancia para scrollear
 #define K_SCREEN 0.2	// Constante mágica???? ------> Explicar... ya se... es la pendiente de la recta?;
-#define VEL_ZERO 19		// Velocidad de scroll en el borde de la pantalla		
+	// Velocidad de scroll en el borde de la pantalla		
 void GraficadorPantalla::reajustarCamara(void) {
 
-	int mx = 5 , my = 9;
+/*	int mx = 5 , my = 9;
 	SDL_GetMouseState(&mx, &my);
 
 
@@ -101,6 +103,40 @@ void GraficadorPantalla::reajustarCamara(void) {
 	else if((view_y + screen_height) > (alto_borde + MARGEN))
 		view_y = alto_borde + MARGEN - screen_height;
 	}
+*/
+	float new_view_x = view_x, new_view_y = view_y;
+
+	int mx = 5 , my = 9;
+	SDL_GetMouseState(&mx, &my);
+
+	cout << vel_scroll << endl;
+
+	if(mx < MARGEN)
+		new_view_x += -vel_scroll + mx * K_SCREEN;
+	else if(mx > screen_width - MARGEN)
+		new_view_x += vel_scroll*(1 - screen_width/MARGEN) + vel_scroll*mx/(MARGEN);
+
+
+	if(my < MARGEN)
+		new_view_y += -vel_scroll + my * K_SCREEN;
+	else if(my> screen_height - MARGEN)
+		new_view_y += vel_scroll*(1 - screen_height/MARGEN) + vel_scroll*my/(MARGEN);
+
+	// Obtengo las coordenadas del punto central de la pantalla
+	float x_centPant = screen_width / 2;
+	float y_centPant = screen_height / 2;
+	
+	ConversorUnidades* cu =  ConversorUnidades::obtenerInstancia();
+	float x_central = cu->obtenerCoordLogicaX(x_centPant, y_centPant, new_view_x, new_view_y, ancho_borde);
+	float y_central = cu->obtenerCoordLogicaY(x_centPant, y_centPant, new_view_x, new_view_y, ancho_borde);
+	
+	// Si la posicion central no tiene una casilla en pantalla, return
+	Posicion pos_central = Posicion(x_central, y_central);
+	if(!escenario->verMapa()->posicionPertenece(&pos_central))
+		return;
+
+	view_x = new_view_x;
+	view_y = new_view_y;
 }
 
 
@@ -270,6 +306,12 @@ bool GraficadorPantalla::cargarSDL(bool full_screen) {
 		}
 	}
 	return true;
+}
+
+
+void GraficadorPantalla::asignarVelocidadScroll(int velocidad) {
+	if (velocidad > 0)
+		this->vel_scroll = velocidad;
 }
 
 // Pasar al .h???

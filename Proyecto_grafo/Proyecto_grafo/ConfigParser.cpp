@@ -11,7 +11,7 @@
 
 #define GAMEPLAY_KEY "gameplay"
 	#define VELOCIDAD_KEY "velocidad"
-	#define MARGEN_KEY "margen"
+	#define MARGEN_KEY "scroll"
 
 #define LOG_KEY "log"
 	#define WARNINGS_KEY "warnings"
@@ -54,6 +54,7 @@ enum yaml_error_code_t {NO_ERROR = 0,
 						MISSING_VALUE_ERR, 
 						FORMAT_ERR, 
 						MEMORY_ERR,
+						CORRUPTED_ERR,
 						UNKNOWN_ERR  
 						};
 
@@ -287,6 +288,7 @@ void operator >> (const YAML::Node& node, escenarioInfo_t& sInfo) {
 		node[PC_KEY] >> sInfo.protagonista;
 	} catch (YAML::KeyNotFound e) {
 		raiseError(MISSING_SECTION_ERR, e.what());
+		throw ConfigParser::ConfigParserError("No hay protagonista");
 	}
 }
 
@@ -359,8 +361,6 @@ void parsearInfoEscenario(const YAML::Node& node, escenarioInfo_t* sInfo) {
 		node[ESCENARIO_KEY] >> *sInfo;
 	} catch (YAML::KeyNotFound e) {
 		raiseError(MISSING_SECTION_ERR, e.what());
-	} catch (YAML::Exception e) {
-		raiseError(UNKNOWN_ERR, e.what());
 	}
 }
 
@@ -385,6 +385,14 @@ void ConfigParser::parsearTodo() {
 		file.close();
 	} catch (YAML::Exception e) {
 		raiseError(UNKNOWN_ERR, e.what());
+		this->setPath(PATH_DEFAULT);
+		this->parsearTodo();
+	
+	} catch (ConfigParser::ConfigParserError e) { 
+		raiseError(CORRUPTED_ERR, e.what(), LOG_ERROR);
+		this->setPath(PATH_DEFAULT);
+		this->parsearTodo();
+		
 	} catch (std::exception e) {
 		raiseError(UNKNOWN_ERR, e.what());
 	}
