@@ -1,12 +1,15 @@
 #include "Entidad.h"
 #include "Posicion.h"
+#include "ErrorLog.h"
 #include <iostream>
 
 // El constructor sobrecargado inicializa la entidad en una posición determinada
 // por la referencia del parámetro
 Entidad::Entidad(Posicion* p) {
-	if (!p) 
+	if (!p) {
 		this->pos = nullptr;
+		ErrorLog::getInstance()->escribirLog("Error al querer asignar Posicion a " + this->name + ": Posicion inexistente.", LOG_ERROR);
+		}
 	 else 
 		this->pos = new Posicion(*p);
 	this->state = EST_QUIETO;
@@ -41,6 +44,8 @@ void Entidad::asignarPos(Posicion* pos) {
 		delete this->pos;
 		this->pos = new Posicion(*pos);		
 	}
+	else
+		ErrorLog::getInstance()->escribirLog("Error al querer asignar Posicion a " + this->name + ": Posicion inexistente.", LOG_ERROR);
 }
 
 void Entidad::asignarSprite(Spritesheet* sp){

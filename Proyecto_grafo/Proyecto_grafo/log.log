@@ -64,3 +64,40 @@
 [22/09/2015 11:17:41] - [WARNING] - No se puede agregar entidad: posición no pertenece al mapa
 [22/09/2015 11:17:59] - [WARNING] - No se puede agregar entidad: posición no pertenece al mapa
 [22/09/2015 11:17:59] - [WARNING] - No se puede agregar entidad: posición no pertenece al mapa
+[23/09/2015 05:14:34] - [WARNING] - No se puede agregar entidad: posición no pertenece al mapa
+[23/09/2015 05:14:34] - [WARNING] - No se puede agregar entidad: posición no pertenece al mapa
+[23/09/2015 05:31:02] - [ERROR] - Error al querer asignar Posicion a casa: Posicion inexistente.
+[23/09/2015 05:31:02] - [ERROR] - Error al querer asignar Posicion a castillo: Posicion inexistente.
+[23/09/2015 05:31:02] - [ERROR] - Error al querer asignar Posicion a casa: Posicion inexistente.
+[23/09/2015 05:31:02] - [ERROR] - Error al querer asignar Posicion a molino: Posicion inexistente.
+[23/09/2015 05:31:02] - [ERROR] - Error al querer asignar Posicion a castillo: Posicion inexistente.
+[23/09/2015 05:31:02] - [ERROR] - Error al querer asignar Posicion a casa: Posicion inexistente.
+[23/09/2015 05:31:02] - [ERROR] - Error al querer asignar Posicion a casa: Posicion inexistente.
+[23/09/2015 05:31:02] - [ERROR] - Error al querer asignar Posicion a casa: Posicion inexistente.
+[23/09/2015 05:31:02] - [ERROR] - Error al querer asignar Posicion a molino: Posicion inexistente.
+[23/09/2015 05:31:02] - [ERROR] - Error al querer asignar Posicion a molino: Posicion inexistente.
+[23/09/2015 05:31:02] - [ERROR] - Error al querer asignar Posicion a castillo: Posicion inexistente.
+[23/09/2015 05:31:02] - [ERROR] - Error al querer asignar Posicion a casa: Posicion inexistente.
+[23/09/2015 05:31:02] - [ERROR] - Error al querer asignar Posicion a casa: Posicion inexistente.
+[23/09/2015 05:31:02] - [ERROR] - Error al querer asignar Posicion a establo: Posicion inexistente.
+[23/09/2015 05:31:02] - [WARNING] - No se puede agregar entidad: posición no pertenece al mapa
+[23/09/2015 05:31:02] - [ERROR] - Error al querer asignar Posicion a cuarteles: Posicion inexistente.
+[23/09/2015 05:31:02] - [ERROR] - Error al querer asignar Posicion a arqueria: Posicion inexistente.
+[23/09/2015 05:31:02] - [ERROR] - Error al querer asignar Posicion a cuarteles: Posicion inexistente.
+[23/09/2015 05:31:02] - [ERROR] - Error al querer asignar Posicion a cuarteles: Posicion inexistente.
+[23/09/2015 05:33:38] - [ERROR] - yaml-cpp: error at line 102, column 3: key not found: protagonista
+[23/09/2015 05:33:38] - [ERROR] - No hay protagonista
+[23/09/2015 05:33:38] - [WARNING] - yaml-cpp: error at line 6, column 3: key not found: scroll
+[23/09/2015 05:33:39] - [WARNING] - No se puede agregar entidad: posición no pertenece al mapa
+[23/09/2015 05:33:39] - [WARNING] - No se puede agregar entidad: posición no pertenece al mapa
+[23/09/2015 05:33:39] - [ERROR] - Error al querer asignar Posicion a molino: Posicion inexistente.
+[23/09/2015 05:34:47] - [WARNING] - No se puede agregar entidad: posición no pertenece al mapa
+[23/09/2015 05:34:47] - [WARNING] - No se puede agregar entidad: posición no pertenece al mapa
+[23/09/2015 05:34:47] - [ERROR] - Error al querer asignar Posicion a casa: Posicion inexistente.
+[23/09/2015 05:34:47] - [ERROR] - Error al querer asignar Posicion a casa: Posicion inexistente.
+[23/09/2015 05:34:47] - [ERROR] - Error al querer asignar Posicion a molino: Posicion inexistente.
+[23/09/2015 05:34:47] - [ERROR] - Error al querer asignar Posicion a molino: Posicion inexistente.
+[23/09/2015 05:34:47] - [ERROR] - Error al querer asignar Posicion a establo: Posicion inexistente.
+[23/09/2015 05:34:47] - [ERROR] - Error al querer asignar Posicion a arqueria: Posicion inexistente.
+[23/09/2015 05:34:47] - [WARNING] - No se puede agregar entidad: posición no pertenece al mapa
+[23/09/2015 05:34:47] - [WARNING] - No se puede agregar entidad: posición no pertenece al mapa

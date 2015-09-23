@@ -1,59 +1,24 @@
-﻿Compilación iniciada a las 22/09/2015 23:17:38.
+﻿Compilación iniciada a las 23/09/2015 5:33:35.
 Proyecto "C:\TallerDeProgramacion1\Proyecto_grafo\Proyecto_grafo\Proyecto_grafo.vcxproj" en el nodo 2 (build destinos).
 InitializeBuildStatus:
   Se creará "Debug\Proyecto_grafo.unsuccessfulbuild" porque se especificó "AlwaysCreate".
 ClCompile:
-  C:\Archivos de programa\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ConfigParser.cpp
-  ConfigParser.cpp
-c:\archivos de programa\microsoft visual studio 10.0\vc\include\xutility(2227): warning C4996: 'std::_Copy_impl': Function call with parameters that may be unsafe - this call relies on the caller to check that the passed values are correct. To disable this warning, use -D_SCL_SECURE_NO_WARNINGS. See documentation on how to use Visual C++ 'Checked Iterators'
-          c:\archivos de programa\microsoft visual studio 10.0\vc\include\xutility(2212) : vea la declaración de 'std::_Copy_impl'
-          c:\tallerdeprogramacion1\recursos\librerias\include\yaml-cpp 0.3.0\yaml-cpp\binary.h(33) : vea la referencia a la creación de instancias de plantilla de función '_OutIt std::copy<const unsigned char*,unsigned char*>(_InIt,_InIt,_OutIt)' que se está compilando
-          with
-          [
-              _OutIt=unsigned char *,
-              _InIt=const unsigned char *
-          ]
-c:\tallerdeprogramacion1\recursos\librerias\include\yaml-cpp 0.3.0\yaml-cpp\conversion.h(61): warning C4146: operador unario menos aplicado a un tipo unsigned; el resultado aún no tiene signo
-          c:\tallerdeprogramacion1\recursos\librerias\include\yaml-cpp 0.3.0\yaml-cpp\nodereadimpl.h(82) : vea la referencia a la creación de instancias de plantilla de función 'bool YAML::Convert<T>(const std::string &,T &,void *)' que se está compilando
-          with
-          [
-              T=unsigned int
-          ]
-          c:\tallerdeprogramacion1\recursos\librerias\include\yaml-cpp 0.3.0\yaml-cpp\nodereadimpl.h(35) : vea la referencia a la creación de instancias de plantilla de función 'bool YAML::ConvertScalar<T>(const YAML::Node &,T &)' que se está compilando
-          with
-          [
-              T=unsigned int
-          ]
-          c:\tallerdeprogramacion1\recursos\librerias\include\yaml-cpp 0.3.0\yaml-cpp\nodereadimpl.h(71) : vea la referencia a la creación de instancias de plantilla de función 'bool YAML::read_impl<true>::read<T>(const YAML::Node &,T &)' que se está compilando
-          with
-          [
-              T=unsigned int
-          ]
-          c:\tallerdeprogramacion1\recursos\librerias\include\yaml-cpp 0.3.0\yaml-cpp\nodeimpl.h(47) : vea la referencia a la creación de instancias de plantilla de función 'bool YAML::Node::Read<T>(T &) const' que se está compilando
-          with
-          [
-              T=unsigned int
-          ]
-          c:\tallerdeprogramacion1\recursos\librerias\include\yaml-cpp 0.3.0\yaml-cpp\nodeimpl.h(37) : vea la referencia a la creación de instancias de plantilla de función 'const YAML::Node *YAML::Node::FindValueForKey<T>(const T &) const' que se está compilando
-          with
-          [
-              T=unsigned int
-          ]
-          c:\tallerdeprogramacion1\recursos\librerias\include\yaml-cpp 0.3.0\yaml-cpp\nodeimpl.h(58) : vea la referencia a la creación de instancias de plantilla de función 'const YAML::Node *YAML::Node::FindValue<T>(const T &) const' que se está compilando
-          with
-          [
-              T=unsigned int
-          ]
-          c:\tallerdeprogramacion1\recursos\librerias\include\yaml-cpp 0.3.0\yaml-cpp\nodeimpl.h(65) : vea la referencia a la creación de instancias de plantilla de función 'const YAML::Node &YAML::Node::GetValue<T>(const T &) const' que se está compilando
-          with
-          [
-              T=unsigned int
-          ]
-          c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\configparser.cpp(233) : vea la referencia a la creación de instancias de plantilla de función 'const YAML::Node &YAML::Node::operator []<unsigned int>(const T &) const' que se está compilando
-          with
-          [
-              T=unsigned int
-          ]
+  C:\Archivos de programa\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+  Main.cpp
+c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\enumerados.h(16): warning C4305: 'inicializando' : truncamiento de 'double' a 'const float'
+c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\enumerados.h(22): warning C4305: 'inicializando' : truncamiento de 'double' a 'const float'
+c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(47): warning C4244: '=' : conversión de 'int' a 'float'; posible pérdida de datos
+c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(48): warning C4244: '=' : conversión de 'int' a 'float'; posible pérdida de datos
+c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(79): warning C4244: 'argumento' : conversión de 'int' a 'float'; posible pérdida de datos
+c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(79): warning C4244: 'argumento' : conversión de 'int' a 'float'; posible pérdida de datos
+c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(104): warning C4244: 'argumento' : conversión de 'int' a 'float'; posible pérdida de datos
+c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(104): warning C4244: 'argumento' : conversión de 'int' a 'float'; posible pérdida de datos
+c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(105): warning C4244: 'argumento' : conversión de 'int' a 'float'; posible pérdida de datos
+c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(105): warning C4244: 'argumento' : conversión de 'int' a 'float'; posible pérdida de datos
+c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(168): warning C4244: 'inicializando' : conversión de 'Uint32' a 'float'; posible pérdida de datos
+c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(176): warning C4244: 'inicializando' : conversión de 'Uint32' a 'float'; posible pérdida de datos
+c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(181): warning C4244: 'argumento' : conversión de 'const float' a 'Uint32'; posible pérdida de datos
+c:\tallerdeprogramacion1\proyecto_grafo\proyecto_grafo\main.cpp(95): warning C4715: 'procesarEventoKeyDown' : no todas las rutas de acceso de control devuelven un valor
 ResourceCompile:
   Todas las salidas están actualizadas.
 Link:
@@ -114,4 +79,4 @@ Compilación del proyecto terminada "C:\TallerDeProgramacion1\Proyecto_grafo\Pro
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:02.15
+Tiempo transcurrido 00:00:02.59

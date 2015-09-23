@@ -101,7 +101,7 @@ tipo:
 escenario:
   nombre: orleans
   sizeX: 300
-  sizeY: 100
+  sizeY: 20
   entidades:
    - {x: 1, y: 12, tipo: "house"}
    - {x: 1, y: 6, tipo: "castle"}
@@ -123,3 +123,4 @@ escenario:
    - {x: 5, y: 18, tipo: "barracks"}
    - {x: 9, y: 18, tipo: "barracks"}
   protagonista: {x: 2, y: 1, tipo: "knight"}
+  protagonista: {x: 22, y: 1, tipo: "knight"}

@@ -100,5 +100,5 @@ int Spritesheet::calcularOffsetY(void) {
 
 void Spritesheet::setAnimationDelay(float delay_ms) {
 	delayAnimacion = (int) ConversorUnidades::obtenerInstancia()->convertMilisecondsToFrames(delay_ms);
-	cout << "Delay: " << delayAnimacion << endl;
+	//cout << "Delay: " << delayAnimacion << endl;
 }

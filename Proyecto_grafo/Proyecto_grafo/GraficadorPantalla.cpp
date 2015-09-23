@@ -1,6 +1,7 @@
 #include "GraficadorPantalla.h"
 #include "Spritesheet.h"
 #include "Escenario.h"
+#include "ErrorLog.h"
 #include <SDL.h>
 #include <SDL_image.h>
 #include "ConversorUnidades.h"
@@ -43,8 +44,10 @@ void GraficadorPantalla::asignarEscenario(Escenario* scene) {
 
 void GraficadorPantalla::dibujarPantalla(void) {
 	// PASOS DEL DIBUJO DE LA PANTALLA
-	if (!this->escenario) return;
-
+	if (!this->escenario) {
+		ErrorLog::getInstance()->escribirLog("FATAL: No hay Escenario que graficar!" , LOG_ERROR);
+		return;
+		}
 	// 0) Limpiar pantalla
 	SDL_FillRect(pantalla, NULL, 0x000000);
 //	SDL_PumpEvents(); // Actualiza los eventos de SDL
@@ -108,8 +111,6 @@ void GraficadorPantalla::reajustarCamara(void) {
 
 	int mx = 5 , my = 9;
 	SDL_GetMouseState(&mx, &my);
-
-	cout << vel_scroll << endl;
 
 	if(mx < MARGEN)
 		new_view_x += -vel_scroll + mx * K_SCREEN;
@@ -288,16 +289,18 @@ bool GraficadorPantalla::cargarSDL(bool full_screen) {
 		flags = flags || SDL_WINDOW_FULLSCREEN;
 
 	if(SDL_Init( SDL_INIT_VIDEO ) < 0)	{
-		printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
+		ErrorLog::getInstance()->escribirLog("CRÍTICO: SDL no pudo inicializarse." , LOG_ERROR);
+		printf( "SDL Error: %s\n", SDL_GetError() );
 		return false;
 	} else {
 		ventana = SDL_CreateWindow( "AGE OF TALLER DE PROGRAMACION I", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screen_width, screen_height, flags);
 		if(!ventana) {
-			printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
+			ErrorLog::getInstance()->escribirLog("Ventana no pudo crearse" , LOG_ERROR);
 			return false;
 		} else {
 			int flags = IMG_INIT_PNG;
 			if(!(IMG_Init(flags) & flags)) {
+				ErrorLog::getInstance()->escribirLog("CRÍTICO: SDL no pudo inicializarse." , LOG_ERROR);
 				printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
 				return false;
 			} else {
@@ -312,6 +315,8 @@ bool GraficadorPantalla::cargarSDL(bool full_screen) {
 void GraficadorPantalla::asignarVelocidadScroll(int velocidad) {
 	if (velocidad > 0)
 		this->vel_scroll = velocidad;
+	else
+		ErrorLog::getInstance()->escribirLog("Se intento asignar una velocidad de scroll inválida." , LOG_WARNING);
 }
 
 // Pasar al .h???

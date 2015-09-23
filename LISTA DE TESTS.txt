@@ -3,11 +3,9 @@
 
 	- Optimizar el graficado de la pantalla
 
-	- Vincular el log con todo lo que tira error por consola
 
 	- Centrar bien los spritesheets de las unidades para que se vean lindo
 
-	- Arreglar el scroll para mapas de tamaños raros (ej: 20x200)
 
 	- Hacer que las cosas en la pantalla se muestren en un orden para que no se superpongan
 		- Hecho!!! Testear mucho!!!

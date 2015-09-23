@@ -61,6 +61,7 @@ BibliotecaDeImagenes::~BibliotecaDeImagenes(void) {
 
 BibliotecaDeImagenes* BibliotecaDeImagenes::obtenerInstancia(void) {
 	if(!hay_instancia){
+		ErrorLog::getInstance()->escribirLog("Se inicializa la biblioteca de imágenes de la partida.", LOG_INFO);
 		singleton = new BibliotecaDeImagenes();
 		hay_instancia = true;
 		pantalla = NULL;
@@ -69,8 +70,10 @@ BibliotecaDeImagenes* BibliotecaDeImagenes::obtenerInstancia(void) {
 }
 
 void BibliotecaDeImagenes::asignarPantalla(SDL_Surface* screen){
-	if(!screen)
+	if(!screen) {
+		ErrorLog::getInstance()->escribirLog("FATAL: Pantalla invalida.", LOG_ERROR);
 		return;
+		}
 	this->pantalla = screen;
 }
 
@@ -83,14 +86,14 @@ SDL_Surface* BibliotecaDeImagenes::loadSurface(std::string path) {
 	//Carga la imagen del path
 	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
 	if(!loadedSurface)
-		printf("SDL_image Error: %s con imagen %s\n", IMG_GetError(), path.c_str());
+		ErrorLog::getInstance()->escribirLog("SDL_image Error:  con imagen" +  path, LOG_ERROR);
 
 	// Si hay una pantalla, optimizo el formato de la
 	// imagen cargada al de la pantalla
 	else if(pantalla){
 		optimizedSurface = SDL_ConvertSurface(loadedSurface, pantalla->format, NULL);
 		if(!optimizedSurface)
-			printf("Error al optimizar %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
+			ErrorLog::getInstance()->escribirLog("Error al optimizar: " + path, LOG_ERROR);
 		SDL_FreeSurface(loadedSurface);
 		return optimizedSurface;
 	}
@@ -135,7 +138,7 @@ void BibliotecaDeImagenes::cargarDatosImagen(string name, DatosImagen* data) {
 	bool success = this->cargarImagen(data);
 	if (success) {
 		if (this->imagenes.count(name) >0) {
-			ErrorLog::getInstance()->escribirLog("Se intento cargar imagenes distintas para una misma entidad, se sobreescribirá el valor previo", LOG_WARNING);
+			ErrorLog::getInstance()->escribirLog("Se intentó cargar imagenes distintas para una misma entidad, se sobreescribirá el valor previo", LOG_INFO);
 			delete this->imagenes[name];
 		}
 		this->imagenes[name] = data;

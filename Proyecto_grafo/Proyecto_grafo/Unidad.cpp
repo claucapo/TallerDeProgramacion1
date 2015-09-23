@@ -1,6 +1,7 @@
 #include "Unidad.h"
 #include "Posicion.h"
 #include "Enumerados.h"
+#include "ErrorLog.h"
 #include "ConversorUnidades.h"
 #include <cmath>
 #include <iostream>
@@ -16,6 +17,7 @@ Unidad::Unidad(Posicion* p) : Entidad() {
 		this->pos = p;
 		this->destino = new Posicion(this->pos->getX(), this->pos->getY());
 	} else {
+		ErrorLog::getInstance()->escribirLog("Error al querer asignar Posicion a " + this->name + ": Posicion inexistente.", LOG_ERROR);
 		this->destino = nullptr;
 	}
 	this->rapidez = 0;

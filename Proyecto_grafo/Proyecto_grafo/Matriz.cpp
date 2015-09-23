@@ -67,6 +67,7 @@ bool Matriz::posicionPertenece(Posicion* pos){
 
 bool Matriz::posicionEstaVacia(Posicion* pos){
 	if (!posicionPertenece(pos)) {
+		ErrorLog::getInstance()->escribirLog("Se pregunta por una Posicion invalida." , LOG_WARNING);
 		return false;
 	}
 	if(casillas[pos->getRoundX()][pos->getRoundY()] != nullptr)
@@ -77,8 +78,10 @@ bool Matriz::posicionEstaVacia(Posicion* pos){
 
 bool Matriz::quitarEntidad(Entidad* elemento){
 	
-	if (!elemento || !elemento->verPosicion())
+	if (!elemento || !elemento->verPosicion()) {
+		ErrorLog::getInstance()->escribirLog("Error al querer remover " + elemento->name + ": No se encuentra en el mapa.", LOG_ERROR);
 		return false;
+		}
 
 	Posicion* pos = elemento->verPosicion();
 	if (! posicionPertenece(pos))
@@ -99,9 +102,12 @@ bool Matriz::quitarEntidad(Entidad* elemento){
 
 bool Matriz::ubicarEntidad(Entidad* elemento, Posicion* pos){
 	// TODO: levantar error o warning cuando pase esto
-	if (!elemento)
+	if (!elemento) {
 		return false;
+		ErrorLog::getInstance()->escribirLog("Se quiso agregar un elemento vacio al mapa.", LOG_WARNING);
+		}
 	if (!posicionPertenece(pos)) {
+		ErrorLog::getInstance()->escribirLog("Error al querer asignar Posicion a " + elemento->name + ": Posicion inexistente.", LOG_ERROR);
 		return false;
 	}
 		
