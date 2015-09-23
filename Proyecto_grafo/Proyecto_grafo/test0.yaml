@@ -99,6 +99,18 @@ tipo:
     sizeY: 4
     pixelX: 101
     pixelY: 12
+  - nombre: "arbol"
+    ruta: "tree2.png"
+    sizeX: 1
+    sizeY: 1
+    pixelX: 45
+    pixelY: 117
+  - nombre: "arbolMagico"
+    ruta: "tree1.png"
+    sizeX: 1
+    sizeY: 1
+    pixelX: 83
+    pixelY: 118
 escenario:
   nombre: THE_FIRST_TEST
   sizeX: 41
@@ -122,5 +134,9 @@ escenario:
    - {x: 22, y: 15, tipo: "barracks"}
    - {x: 23, y: 21, tipo: "archery"}
    - {x: 5, y: 18, tipo: "barracks"}
+   - {x: 38, y: 5, tipo: "arbol"}
+   - {x: 37, y: 5, tipo: "arbol"}
+   - {x: 36, y: 5, tipo: "arbol"}
    - {x: 9, y: 18, tipo: "barracks"}
-  protagonista: {x: 2, y: 1, tipo: "knight"}
+  protagonista: {x: 2, y: 1, tipo: "champion"}
+  #protagonista: {x: 2, y: 1, tipo: "knight"}

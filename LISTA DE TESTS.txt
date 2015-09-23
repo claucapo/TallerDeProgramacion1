@@ -4,9 +4,6 @@
 	- Optimizar el graficado de la pantalla
 
 
-	- Centrar bien los spritesheets de las unidades para que se vean lindo
-
-
 	- Hacer que las cosas en la pantalla se muestren en un orden para que no se superpongan
 		- Hecho!!! Testear mucho!!!
 		- PARA MI ANDA PERFECTO!
