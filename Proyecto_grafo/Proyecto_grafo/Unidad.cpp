@@ -12,6 +12,12 @@ Unidad::Unidad() : Entidad() {
 	this->destino = nullptr;
 }
 
+Unidad::Unidad(string name, int tamX, int tamY) : Entidad(name, tamX, tamY) {
+	this->rapidez = 0;
+	this->direccion = DIR_DOWN;
+	this->destino = nullptr;
+}
+
 Unidad::Unidad(Posicion* p) : Entidad() {
 	if (p) {
 		this->pos = p;

@@ -50,7 +50,7 @@ public:
 	// Posicion pos. Si la Posicion ya estaba
 	// ocupada, no se la ubica. ¿Lanzar excepción?
 	// Pre: pos es una Posicion del mapa vacìa.
-	void ubicarEntidad(Entidad* entidad, Posicion* pos);
+	bool ubicarEntidad(Entidad* entidad, Posicion* pos);
 
 	// Remueve del mapa la Entidad recibida,
 	// quitando sus referencias a cualquier
@@ -62,7 +62,7 @@ public:
 	// Pre: la unidad existe.
 	// Post: se asigno a la unidad en el mapa, en estado estacionario
 	// en la posicion especificada
-	void asignarProtagonista(Unidad* unidad, Posicion* pos);
+	bool asignarProtagonista(Unidad* unidad, Posicion* pos);
 
 	// Le asigna un destino al protagonista
 	void asignarDestinoProtagonista(Posicion* pos);

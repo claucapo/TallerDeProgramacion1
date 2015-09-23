@@ -67,7 +67,7 @@ bool Matriz::posicionPertenece(Posicion* pos){
 
 bool Matriz::posicionEstaVacia(Posicion* pos){
 	if (!posicionPertenece(pos)) {
-		ErrorLog::getInstance()->escribirLog("Se pregunta por una Posicion invalida." , LOG_WARNING);
+		ErrorLog::getInstance()->escribirLog("Se pregunta por una posicion invalida: " + pos->toStrRound() + "." , LOG_WARNING);
 		return false;
 	}
 	if(casillas[pos->getRoundX()][pos->getRoundY()] != nullptr)
@@ -79,7 +79,7 @@ bool Matriz::posicionEstaVacia(Posicion* pos){
 bool Matriz::quitarEntidad(Entidad* elemento){
 	
 	if (!elemento || !elemento->verPosicion()) {
-		ErrorLog::getInstance()->escribirLog("Error al querer remover " + elemento->name + ": No se encuentra en el mapa.", LOG_ERROR);
+		ErrorLog::getInstance()->escribirLog("Error al querer remover [" + elemento->name + "]: No se encuentra en el mapa.", LOG_ERROR);
 		return false;
 		}
 
@@ -107,7 +107,7 @@ bool Matriz::ubicarEntidad(Entidad* elemento, Posicion* pos){
 		ErrorLog::getInstance()->escribirLog("Se quiso agregar un elemento vacio al mapa.", LOG_WARNING);
 		}
 	if (!posicionPertenece(pos)) {
-		ErrorLog::getInstance()->escribirLog("Error al querer asignar Posicion a " + elemento->name + ": Posicion inexistente.", LOG_ERROR);
+		ErrorLog::getInstance()->escribirLog("Error al querer asignar posicion a [" + elemento->verTipo() + "]. Posicion " + pos->toStrRound() + " inexistente.", LOG_WARNING);
 		return false;
 	}
 		
@@ -120,11 +120,12 @@ bool Matriz::ubicarEntidad(Entidad* elemento, Posicion* pos){
 		for(int j = 0; j < ancho_y; j++) {
 			Posicion act = Posicion(pos->getX() + i, pos->getRoundY() + j);
 			if ((!posicionPertenece(&act)) || (this->filas == act.getX()) || (this->columnas == act.getY())) {
-				ErrorLog::getInstance()->escribirLog("No se puede agregar entidad: posición no pertenece al mapa", LOG_WARNING);
+				ErrorLog::getInstance()->escribirLog("No se puede agregar entidad [" + elemento->verTipo() +"] en " + pos->toStrRound() + ". Posición no pertenece al mapa.", LOG_WARNING);
 				return false;
 			}
 			if(casillas[pos->getRoundX() + i][pos->getRoundY() + j] != nullptr) {
-				ErrorLog::getInstance()->escribirLog("No se puede agregar entidad: posición no pertenece al mapa", LOG_WARNING);
+				Posicion tmp = Posicion(pos->getRoundX() + i,pos->getRoundY() + j);
+				ErrorLog::getInstance()->escribirLog("No se puede agregar entidad [" + elemento->verTipo() +"] en " + pos->toStrRound() + ". Colisiona con otra entidad en" + tmp.toStrRound() +".", LOG_WARNING);
 				return false;
 			}
 		}

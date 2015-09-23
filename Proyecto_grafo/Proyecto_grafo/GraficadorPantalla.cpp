@@ -19,13 +19,15 @@ GraficadorPantalla::~GraficadorPantalla(void){}
 #define VIEW_X_DEFAULT (ancho_borde - screen_width)/2
 #define VIEW_Y_DEFAULT 0
 #define VEL_ZERO_DEFAULT 19
-GraficadorPantalla::GraficadorPantalla(int pant_width, int pant_height, bool full_screen) {
+#define MARGEN_SCROLL_DEFAULT 66
+GraficadorPantalla::GraficadorPantalla(int pant_width, int pant_height, bool full_screen, string title) {
 	this->escenario = nullptr;
 	this->screen_height = pant_height;
 	this->screen_width = pant_width;
 	this->vel_scroll = VEL_ZERO_DEFAULT;
+	this->margen_scroll = MARGEN_SCROLL_DEFAULT;
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
-	if(!cargarSDL(full_screen))
+	if(!cargarSDL(full_screen, title))
 		delete this;
 	
 }
@@ -73,9 +75,7 @@ void GraficadorPantalla::dibujarPantalla(void) {
 
 // PASO 1: reajustar la cámara de acuerdo a la posición del mouse
 
-#define MARGEN 66		// Distancia para scrollear
 #define K_SCREEN 0.2	// Constante mágica???? ------> Explicar... ya se... es la pendiente de la recta?;
-	// Velocidad de scroll en el borde de la pantalla		
 void GraficadorPantalla::reajustarCamara(void) {
 
 /*	int mx = 5 , my = 9;
@@ -112,16 +112,16 @@ void GraficadorPantalla::reajustarCamara(void) {
 	int mx = 5 , my = 9;
 	SDL_GetMouseState(&mx, &my);
 
-	if(mx < MARGEN)
+	if(mx < margen_scroll)
 		new_view_x += -vel_scroll + mx * K_SCREEN;
-	else if(mx > screen_width - MARGEN)
-		new_view_x += vel_scroll*(1 - screen_width/MARGEN) + vel_scroll*mx/(MARGEN);
+	else if(mx > screen_width - margen_scroll)
+		new_view_x += vel_scroll*(1 - screen_width/margen_scroll) + vel_scroll*mx/(margen_scroll);
 
 
-	if(my < MARGEN)
+	if(my < margen_scroll)
 		new_view_y += -vel_scroll + my * K_SCREEN;
-	else if(my> screen_height - MARGEN)
-		new_view_y += vel_scroll*(1 - screen_height/MARGEN) + vel_scroll*my/(MARGEN);
+	else if(my> screen_height - margen_scroll)
+		new_view_y += vel_scroll*(1 - screen_height/margen_scroll) + vel_scroll*my/(margen_scroll);
 
 	// Obtengo las coordenadas del punto central de la pantalla
 	float x_centPant = screen_width / 2;
@@ -162,9 +162,9 @@ void GraficadorPantalla::renderizarTerreno(void) {
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
 	SDL_Rect rectangulo;
 	int i = 0, j = 0;
-	while((escenario->verTamY() - j) > 10){
+	while((escenario->verTamY() - j) >= 10){
 		i = 0;
-		while((escenario->verTamX() - i) > 10){
+		while((escenario->verTamX() - i) >= 10){
 			rectangulo.x = cu->obtenerCoordPantallaX(i, j, view_x, view_y, ancho_borde) -260;
 			rectangulo.y = cu->obtenerCoordPantallaY(i, j, view_x, view_y, ancho_borde);	
 			SDL_BlitSurface( imgTile, NULL, pantalla, &rectangulo );
@@ -283,7 +283,7 @@ void GraficadorPantalla::renderizarEntidades(void) {
 
 // METODOS DE INICIALIZACION Y GETTERS
 
-bool GraficadorPantalla::cargarSDL(bool full_screen) {
+bool GraficadorPantalla::cargarSDL(bool full_screen, string title) {
 	Uint32 flags = SDL_WINDOW_SHOWN;
 	if (full_screen) 
 		flags = flags || SDL_WINDOW_FULLSCREEN;
@@ -293,7 +293,10 @@ bool GraficadorPantalla::cargarSDL(bool full_screen) {
 		printf( "SDL Error: %s\n", SDL_GetError() );
 		return false;
 	} else {
-		ventana = SDL_CreateWindow( "AGE OF TALLER DE PROGRAMACION I", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screen_width, screen_height, flags);
+		if (title.length() == 0) {
+			title = "AGE OF TALLER DE PROGRAMACION I";
+		}
+		ventana = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screen_width, screen_height, flags);
 		if(!ventana) {
 			ErrorLog::getInstance()->escribirLog("Ventana no pudo crearse" , LOG_ERROR);
 			return false;
@@ -312,11 +315,19 @@ bool GraficadorPantalla::cargarSDL(bool full_screen) {
 }
 
 
-void GraficadorPantalla::asignarVelocidadScroll(int velocidad) {
+void GraficadorPantalla::asignarParametrosScroll(int margen, int velocidad) {
 	if (velocidad > 0)
 		this->vel_scroll = velocidad;
 	else
 		ErrorLog::getInstance()->escribirLog("Se intento asignar una velocidad de scroll inválida." , LOG_WARNING);
+
+	if (margen <= 0) {
+		ErrorLog::getInstance()->escribirLog("Se intento asignar un margen de scroll nulo." , LOG_WARNING);	
+	} else if(margen > (this->screen_height/3) || margen > (this->screen_width/3) ) {
+		ErrorLog::getInstance()->escribirLog("Se intento asignar un margen de scroll demasiado grande." , LOG_WARNING);	
+	} else {
+		this->margen_scroll = margen;
+	}
 }
 
 // Pasar al .h???

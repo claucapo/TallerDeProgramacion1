@@ -1,5 +1,6 @@
 #include "Entidad.h"
 #include "Posicion.h"
+#include "Enumerados.h"
 #include "ErrorLog.h"
 #include <iostream>
 
@@ -13,6 +14,7 @@ Entidad::Entidad(Posicion* p) {
 	 else 
 		this->pos = new Posicion(*p);
 	this->state = EST_QUIETO;
+	this->name = nombre_entidad_def;
 	this->tamX = 1;
 	this->tamY = 1;
 }
@@ -20,9 +22,20 @@ Entidad::Entidad(Posicion* p) {
 // El constructor por defecto inicializa la posición en nullptr
 Entidad::Entidad(void) {
 	this->pos = nullptr;
+	this->sprites = nullptr;
 	this->state = EST_QUIETO;
+	this->name = nombre_entidad_def;
 	this->tamX = 1;
 	this->tamY = 1;
+}
+
+Entidad::Entidad(string name, int tamX, int tamY) {
+	this->pos = nullptr;
+	this->sprites = nullptr;
+	this->name = name;
+	this->state = EST_QUIETO;
+	this->tamX = (tamX > 0) ? tamX : 1;
+	this->tamY = (tamY > 0) ? tamY : 1;
 }
 
 // Llamo al destructor de todos los miembros de la clase (en caso de que alguno

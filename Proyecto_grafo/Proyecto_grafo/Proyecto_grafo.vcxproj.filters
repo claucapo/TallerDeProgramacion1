@@ -57,9 +57,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Edificios.h">
-      <Filter>Archivos de encabezado\Entidades</Filter>
-    </ClInclude>
     <ClInclude Include="Entidad.h">
       <Filter>Archivos de encabezado\Entidades</Filter>
     </ClInclude>
@@ -74,9 +71,6 @@
     </ClInclude>
     <ClInclude Include="Escenario.h">
       <Filter>Archivos de encabezado\Escenario</Filter>
-    </ClInclude>
-    <ClInclude Include="Protagonistas.h">
-      <Filter>Archivos de encabezado\Entidades</Filter>
     </ClInclude>
     <ClInclude Include="Archivo.h">
       <Filter>Archivos de encabezado\Archivos</Filter>
@@ -111,14 +105,14 @@
     <ClInclude Include="GraficadorPantalla.h">
       <Filter>Archivos de encabezado\Utilidades</Filter>
     </ClInclude>
-    <ClInclude Include="Factory.h">
-      <Filter>Archivos de código fuente</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="DatosImagen.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoryEntidades.h">
+      <Filter>Archivos de encabezado\Entidades</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -131,9 +125,6 @@
     <ClCompile Include="Unidad.cpp">
       <Filter>Archivos de código fuente\Entidades</Filter>
     </ClCompile>
-    <ClCompile Include="Edificios.cpp">
-      <Filter>Archivos de código fuente\Entidades</Filter>
-    </ClCompile>
     <ClCompile Include="Matriz.cpp">
       <Filter>Archivos de código fuente\Escenario</Filter>
     </ClCompile>
@@ -142,9 +133,6 @@
     </ClCompile>
     <ClCompile Include="Escenario.cpp">
       <Filter>Archivos de código fuente\Escenario</Filter>
-    </ClCompile>
-    <ClCompile Include="Protagonistas.cpp">
-      <Filter>Archivos de código fuente\Entidades</Filter>
     </ClCompile>
     <ClCompile Include="Archivo.cpp">
       <Filter>Archivos de código fuente\Archivos</Filter>
@@ -176,11 +164,11 @@
     <ClCompile Include="GraficadorPantalla.cpp">
       <Filter>Archivos de código fuente\Utilidades</Filter>
     </ClCompile>
-    <ClCompile Include="Factory.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
     <ClCompile Include="DatosImagen.cpp">
-      <Filter>Archivos de código fuente</Filter>
+      <Filter>Archivos de código fuente\SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="FactoryEntidades.cpp">
+      <Filter>Archivos de código fuente\Entidades</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -28,8 +28,6 @@ DatosImagen* BibliotecaDeImagenes::cargarImagenDefault() {
 	DatosImagen* def = new DatosImagen();
 	def->columnas = 1;
 	def->filas = 1;
-	def->origenX = 0;
-	def->origenY = 0;
 	def->fps = 1;
 	def->delay = 0;
 	def->casillasX = 1;
@@ -40,6 +38,8 @@ DatosImagen* BibliotecaDeImagenes::cargarImagenDefault() {
 	} else {
 		def->altoImagen = def->imagen->h;
 		def->anchoImagen = def->imagen->w;
+		def->origenX = def->anchoImagen/2;
+		def->origenY = def->altoImagen/2;
 	}
 	return def;
 }
@@ -52,11 +52,20 @@ void BibliotecaDeImagenes::clear(void) {
 		it++;
 	}
 	imagenes.clear();
+
+	DatosImagen* def = cargarImagenDefault();
+	imagenes[DEFAULT_IMAGE_LABEL] = def;
 }
 
 
 BibliotecaDeImagenes::~BibliotecaDeImagenes(void) {
-
+	map<string, DatosImagen*>::const_iterator it = imagenes.begin();
+	while (it != imagenes.end()) {
+		delete it->second;
+		it++;
+	}
+	imagenes.clear();
+	hay_instancia = false;
 }
 
 BibliotecaDeImagenes* BibliotecaDeImagenes::obtenerInstancia(void) {
@@ -135,6 +144,11 @@ DatosImagen* BibliotecaDeImagenes::devolverDatosImagen(string img_name) {
 }
 
 void BibliotecaDeImagenes::cargarDatosImagen(string name, DatosImagen* data) {
+	if (name == DEFAULT_IMAGE_LABEL) {
+		delete data;
+		ErrorLog::getInstance()->escribirLog("Se intentó sobreescribir la imágen por defecto [" + nombre_entidad_def + "]. Operación cancelada.", LOG_WARNING);
+		return;
+	}
 	bool success = this->cargarImagen(data);
 	if (success) {
 		if (this->imagenes.count(name) >0) {

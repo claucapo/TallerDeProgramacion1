@@ -59,8 +59,10 @@ void Spritesheet::cambiarImagen(string nuevaImagen) {
 }
 
 void Spritesheet::cambiarSubImagen(int subX, int subY) {
-	this->subX = subX;
-	this->subY = subY;
+	if(this->columnas > subX)
+		this->subX = subX;
+	if (this->filas > subY)
+		this->subY = subY;
 }
 
 void Spritesheet::siguienteFrame() {

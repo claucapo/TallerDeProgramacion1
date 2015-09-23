@@ -18,6 +18,8 @@ public:
 	// Constructor y destructor por defecto
 	Unidad(void);
 	~Unidad(void);
+	
+	Unidad(string name, int tamX, int tamY);
 
 	Unidad(Posicion* p);
 

@@ -72,13 +72,15 @@ int main (int argc, char** argv) {
 #define FULLSCREEN_DEFAULT false
 
 #define VELOCIDAD_DEFAULT 100
-#define MARGEN_DEFAULT 19
+#define MARGEN_DEFAULT 66
+#define SCROLL_DEFAULT 19
 
 #define TYPE_NAME_DEFAULT "unknown"
 #define IMG_PATH_DEFAULT "no_image.png"
 
-#define SCENARY_NAME_DEAFAULT "orleans"
+#define SCENARY_NAME_DEAFAULT "Orleans"
 #define INSTANCE_FPS_DEFAULT 1
+
 
 
 // STRUCTS (categorias) //
@@ -98,10 +100,11 @@ struct pantallaInfo_t {
 struct gameplayInfo_t {
 	// Velocidad del personaje
 	float velocidad;
-	int margenScroll;
+	int scroll_margen;
+	int scroll_vel;
 
 	// Inicializa los valores a valores por defecto
-	gameplayInfo_t(): velocidad(VELOCIDAD_DEFAULT), margenScroll(MARGEN_DEFAULT){};
+	gameplayInfo_t(): velocidad(VELOCIDAD_DEFAULT), scroll_margen(MARGEN_DEFAULT), scroll_vel(SCROLL_DEFAULT) {};
 };
 
 // Struct que define la categoría log.
@@ -169,16 +172,6 @@ private:
 	logInfo_t lInfo;
 	std::list<entidadInfo_t*> eInfoL;
 	escenarioInfo_t sInfo;
-public:
-	class ConfigParserError {
-	private:
-		std::string msg;
-	public:
-		ConfigParserError(std::string msg) {this->msg = msg;}
-		~ConfigParserError() {};
-		std::string what(void) {return this->msg;}
-	};
-
 
 public:
 	ConfigParser();

@@ -23,14 +23,15 @@ protected:
 
 
 public:
-		string name;
+	string name;
 	// Constructor y destructor por defecto
 	Entidad(void);
 	~Entidad(void);
 
 	// Constructor sobrecargado
 	Entidad(Posicion* p);
-	
+	Entidad(string name, int tamX, int tamY);
+
 	// Devuelve la Posicion sobre la cual
 	// está asociada la Entidad.
 	// NOTA: Si la Entidad ocupa más de
@@ -44,6 +45,7 @@ public:
 	// Devuelve los dos tamanios
 	int verTamX() {return this->tamX;}
 	int verTamY() {return this->tamY;}
+	string verTipo() {return this->name;}
 
 	// Avanza un frame modificando los valores de la entidad
 	virtual void avanzarFrame(void);

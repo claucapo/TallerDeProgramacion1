@@ -5,6 +5,8 @@
 #pragma once
 
 #include <cmath>
+#include <string>
+using namespace std;
 
 
 /* La clase Posicion representa la casilla (tile)
@@ -35,6 +37,10 @@ public:
 	// Como siempre son flotantes enteros, puedo utilizar la función floor.
 	int getRoundX() const {return (int)std::floor(this->coord_x);}
 	int getRoundY() const {return (int)std::floor(this->coord_y);}
+	
+	// Para imprimir la posición más fácil
+	string toStr();
+	string toStrRound();
 
 	// Redefino el operador, dos posiciones son iguales si refieren
 	// a la misma casilla, es decir, si tienen la misma parte entera

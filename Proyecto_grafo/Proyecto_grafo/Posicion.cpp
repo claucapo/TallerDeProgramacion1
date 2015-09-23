@@ -1,4 +1,7 @@
 #include "Posicion.h"
+#include <string>
+#include <sstream>
+using namespace std;
 
 Posicion::Posicion()
 {
@@ -13,6 +16,20 @@ Posicion::Posicion(float x, float y) {
 
 Posicion::~Posicion(void){
 }
+
+
+string Posicion::toStr() {
+	std::stringstream s;
+	s << "(" << this->coord_x << "," << this->coord_y << ")";
+	return s.str();
+}
+
+string Posicion::toStrRound() {
+	std::stringstream s;
+	s << "(" << this->getRoundX() << "," << this->getRoundY() << ")";
+	return s.str();
+}
+
 
 bool Posicion::operator==(const Posicion& other){
 	return ((getRoundX() == other.getRoundX()) && (getRoundX() == other.getRoundY()));

@@ -87,12 +87,14 @@ template <typename T> bool compare(const T* const & a, const T* const &b) {
 	return *a < *b;
 };
 
-void Escenario::ubicarEntidad(Entidad* entidad, Posicion* pos) {
+bool Escenario::ubicarEntidad(Entidad* entidad, Posicion* pos) {
 	if (mapa->ubicarEntidad(entidad, pos)) {
 		entidades.push_back(entidad);
 		entidad->asignarPos(pos);
 		entidades.sort(compare<Entidad>);
+		return true;
 	}
+	return false;
 }
 
 void Escenario::quitarEntidad(Entidad* entidad) {
@@ -101,12 +103,14 @@ void Escenario::quitarEntidad(Entidad* entidad) {
 }
 
 
-void Escenario::asignarProtagonista(Unidad* unidad, Posicion* pos) {
+bool Escenario::asignarProtagonista(Unidad* unidad, Posicion* pos) {
 	if (pos && mapa->posicionPertenece(pos)) {
 		unidad->asignarPos(pos);
 		unidad->setEstado(EST_QUIETO);
 		this->protagonista = unidad;
+		return true;
 	}
+	return false;
 }
 
 void Escenario::asignarDestinoProtagonista(Posicion* pos) {

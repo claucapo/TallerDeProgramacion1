@@ -6,20 +6,20 @@
 #include "BibliotecaDeImagenes.h"
 #include "Posicion.h"
 #include "ErrorLog.h"
-#include "Edificios.h"
-#include "Protagonistas.h"
 #include "GraficadorPantalla.h"
 #include "ConfigParser.h"
-#include "Factory.h"
+#include "FactoryEntidades.h"
 #include "DatosImagen.h"
 #include <iostream>
+#include <sstream>
 #include <SDL.h>
 #include <SDL_image.h>
 
 using namespace std;
 
+#define TESTING_ENABLED true
 
-#define ARCHIVO_YAML "default2.yaml"
+#define ARCHIVO_YAML "test0.yaml"
 
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 480
@@ -47,6 +47,7 @@ void cargarBibliotecaImagenes(std::list<entidadInfo_t*> eInfoL) {
 		data->fps = act.fps;
 		data->delay = act.delay;
 		BibliotecaDeImagenes::obtenerInstancia()->cargarDatosImagen(act.nombre, data);
+		FactoryEntidades::obtenerInstancia()->agregarEntidad(act.nombre, act.tamX, act.tamY);
 	}
 }
 
@@ -54,12 +55,15 @@ Escenario* cargarEscenario(escenarioInfo_t escenarioInfo){
 	Escenario* scene = new Escenario(escenarioInfo.size_X,escenarioInfo.size_Y);
 
 	for(list<instanciaInfo_t*>::const_iterator it = escenarioInfo.instancias.begin(); it != escenarioInfo.instancias.end(); ++it) {
-		Entidad* entidad = Factory::obtenerEntidad((*it));
+		Entidad* entidad = FactoryEntidades::obtenerInstancia()->obtenerEntidad((*it)->tipo);
 		if (entidad) {
 			Posicion posicion = Posicion((float)(*it)->x, (float)(*it)->y);
-			scene->ubicarEntidad(entidad, &posicion);
-			Spritesheet* cas = new Spritesheet((*it)->tipo);
-			entidad->asignarSprite(cas);
+			if ( scene->ubicarEntidad(entidad, &posicion) ) {
+				Spritesheet* cas = new Spritesheet(entidad->verTipo());
+				entidad->asignarSprite(cas);
+			} else {
+				delete entidad;
+			}
 		}
 
 		// Print de la lista de entidades ordenadas
@@ -72,13 +76,14 @@ Escenario* cargarEscenario(escenarioInfo_t escenarioInfo){
 		*/
 	}
 
-	Unidad* unit = Factory::obtenerUnidad(&escenarioInfo.protagonista);
-	Spritesheet* sprite = new Spritesheet(escenarioInfo.protagonista.tipo);
+	Unidad* unit = FactoryEntidades::obtenerInstancia()->obtenerUnidad(escenarioInfo.protagonista.tipo);
+	Posicion posP = Posicion(escenarioInfo.protagonista.x, escenarioInfo.protagonista.y);
+	if (!scene->asignarProtagonista(unit, &posP)) {
+		scene->asignarProtagonista(unit, &Posicion(0,0));
+	}
+	Spritesheet* sprite = new Spritesheet(unit->verTipo());
 	unit->asignarSprite(sprite);
 	unit->setVelocidad(1);
-	Posicion posP = Posicion(escenarioInfo.protagonista.x, escenarioInfo.protagonista.y);
-	scene->asignarProtagonista(unit, &posP);
-	
 	return scene;
 }
 
@@ -137,21 +142,35 @@ int procesarEventos(Escenario* scene, GraficadorPantalla* gp){
 
 //  Se puede definir como main... cambiando el subsistema del proyecto a Windows
 int wmain(int argc, char** argv) {
+	int test_number = 0; // ONLY FOR TESTING
 	int codigo_programa = CODE_CONTINUE;
 	while (codigo_programa != CODE_EXIT) {
-		codigo_programa = CODE_CONTINUE;
 
+		ErrorLog::getInstance()->escribirLog("----INICIANDO----");
+
+		codigo_programa = CODE_CONTINUE;
+		
 		// Parseo de YAML
 	    ConfigParser parser = ConfigParser();
 		parser.setPath(ARCHIVO_YAML);
+
+		// TESTING MAP SEQUENCE
+		if (TESTING_ENABLED) {
+			stringstream ss;
+			ss << "test" << test_number << ".yaml";
+			parser.setPath(ss.str());
+			test_number++;
+		}
+
 		parser.parsearTodo();
 	
 		// Inicializar pantalla y graficador
-		GraficadorPantalla* gp = new GraficadorPantalla(parser.verInfoPantalla().screenW, parser.verInfoPantalla().screenH, parser.verInfoPantalla().fullscreen);
+		pantallaInfo_t pInfo = parser.verInfoPantalla();
+		GraficadorPantalla* gp = new GraficadorPantalla(pInfo.screenW, pInfo.screenH, pInfo.fullscreen, parser.verInfoEscenario().name);
 
 		SDL_Window* gameWindow = gp->getVentana();
 		SDL_Surface* gameScreen = gp->getPantalla();
-		gp->asignarVelocidadScroll(parser.verInfoGameplay().margenScroll);		
+		gp->asignarParametrosScroll(parser.verInfoGameplay().scroll_margen, parser.verInfoGameplay().scroll_vel);		
 		BibliotecaDeImagenes::obtenerInstancia()->asignarPantalla(gameScreen);
 
 		// Cargar imagenes del YAML
@@ -176,22 +195,28 @@ int wmain(int argc, char** argv) {
 			float timeB = SDL_GetTicks();
 			
 			dTot += (timeB - timeA);
-			cout<< "Duracion Prom.:" << dTot/i << endl;
+			// cout<< "Duracion Prom.:" << dTot/i << endl;
 			if((FRAME_DURATION -timeB + timeA) > 0)
 				SDL_Delay(FRAME_DURATION -timeB + timeA);
 
 			 i++;
 		}
 
+		if (codigo_programa == CODE_RESET) {
+			ErrorLog::getInstance()->escribirLog("----RESETEANDO----");
+		}
+
 		delete gp;
 		delete scene;
 		BibliotecaDeImagenes::obtenerInstancia()->clear();
+		FactoryEntidades::obtenerInstancia()->limpar();
 
 		SDL_DestroyWindow(gameWindow);
 		gameWindow = NULL;
 		IMG_Quit();
 		SDL_Quit();
 	}
+	delete FactoryEntidades::obtenerInstancia();
 	delete BibliotecaDeImagenes::obtenerInstancia();
 	ErrorLog::getInstance()->cerrarLog();
 	return 0;
