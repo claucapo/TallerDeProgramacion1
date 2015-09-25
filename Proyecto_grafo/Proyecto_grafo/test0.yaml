@@ -1,10 +1,10 @@
 pantalla: 
-  ancho: 640
-  alto: 480
+  ancho: 680
+  alto: 488
   fullscreen: 0 # 1 = true, 0 = false
 gameplay: 
-  velocidad: 1 #en UL/frame
-  scroll_margen: 60
+  velocidad: 2 #en UL/frame
+  scroll_margen: 110
   scroll_vel: 20
 log:
   warnings: 1
@@ -59,6 +59,10 @@ tipo:
     ruta: "tileG.png"
     pixelX: 26
     pixelY: 0
+  - nombre: "screen_frame"
+    ruta: "screenFrame.png"
+    pixelX: 0
+    pixelY: 0
   - nombre: "tileHuge"
     ruta: "tileHuge.png"
     sizeX: 10
@@ -73,7 +77,7 @@ tipo:
     sizeY: 3
     pixelX: 84
     pixelY: 53
-    fps: 10
+    fps: 12
     delay: 0
   - nombre: "town_center"
     ruta: "townCenterAOE.png"
@@ -114,7 +118,7 @@ tipo:
 escenario:
   nombre: THE_FIRST_TEST
   sizeX: 41
-  sizeY: 42
+  sizeY: 10g
   entidades:
    - {x: 4, y: 12, tipo: "house"}
    - {x: 4, y: 3, tipo: "windmill"}
@@ -138,5 +142,5 @@ escenario:
    - {x: 37, y: 5, tipo: "arbol"}
    - {x: 36, y: 5, tipo: "arbol"}
    - {x: 9, y: 18, tipo: "barracks"}
-  protagonista: {x: 2, y: 1, tipo: "champion"}
-  #protagonista: {x: 2, y: 1, tipo: "knight"}
+ # protagonista: {x: a, y: 1, tipo: "champion"}
+  protagonista: {x: 2, y: 1, tipo: "knight"}

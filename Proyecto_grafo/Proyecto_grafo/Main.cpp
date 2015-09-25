@@ -17,7 +17,7 @@
 
 using namespace std;
 
-#define TESTING_ENABLED true
+#define TESTING_ENABLED false
 
 #define ARCHIVO_YAML "test0.yaml"
 
@@ -195,7 +195,7 @@ int wmain(int argc, char** argv) {
 			float timeB = SDL_GetTicks();
 			
 			dTot += (timeB - timeA);
-			// cout<< "Duracion Prom.:" << dTot/i << endl;
+			cout<< "Duracion Prom.:" << dTot/i << endl;
 			if((FRAME_DURATION -timeB + timeA) > 0)
 				SDL_Delay(FRAME_DURATION -timeB + timeA);
 

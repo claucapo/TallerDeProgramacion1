@@ -101,8 +101,8 @@ tipo:
     pixelY: 12
 escenario:
   nombre: DEFAULT_MAP
-  sizeX: 41
-  sizeY: 42
+  sizeX: 40
+  sizeY: 40
   entidades:
    - {x: 4, y: 12, tipo: "house"}
    - {x: 4, y: 3, tipo: "windmill"}

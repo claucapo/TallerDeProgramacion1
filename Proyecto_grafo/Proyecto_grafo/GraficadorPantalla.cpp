@@ -67,7 +67,10 @@ void GraficadorPantalla::dibujarPantalla(void) {
 	// 4) Dibujar al protagonista (proximamente las unidades)
 	renderizarProtagonista();
 
-	// 5) Window_Update
+	// 5) Dibujar el screen frame alrededor de la pantalla
+	dibujarMarcoPantalla(NULL, NULL, NULL, NULL);
+				
+	// 6) Window_Update
 	SDL_UpdateWindowSurface(ventana);
 
 }
@@ -144,18 +147,6 @@ void GraficadorPantalla::reajustarCamara(void) {
 // PASO 2: renderizar terreno
 
 // TODO: Optimizaciones
-
-// Estadisticas en la pc de Juan: Escenario de 1000x1000: de 150 a 250 ms por frame
-//							      Escenario de 100x100: se estabiliza en 15-20 ms
-//								  Escenario de 50x50: idem 100x100
-// Sin la optimización solo hay una diferencia apreciable en el escenario de 1000x1000, que se mantiene siempre por encima de los 220 ms
-
-// Lo que mas realentiza esta parte (creo) es el cálculo de coordenadas. Se pordía optimizar reemplazando los for
-// Por dos bucles que solo iteren sobre las casillas necesarias.
-
-// Por ejemplo: se calcula la cantidad de casillas que entran en pantalla, se calcula la casilla que corresponde a la
-// posición central, y se itera alrededor de esa casilla.
-
 void GraficadorPantalla::renderizarTerreno(void) {
 	SDL_Surface* imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tileHuge");
 	SDL_SetColorKey(imgTile, true, SDL_MapRGB(imgTile->format, 255, 255, 255));
@@ -191,7 +182,7 @@ void GraficadorPantalla::renderizarTerreno(void) {
 	for(int k = 0; k < i; k++) {
 		for(int m = j; m < escenario->verTamY(); m++){
 			rectangulo.x = cu->obtenerCoordPantallaX(k, m, view_x, view_y, ancho_borde) -26;
-			// Esto chequea si la casilla cae dentro del la pantalla... si no resulta visible, no la grafica
+			// Esto chequea si la casilla cae dentro del la pantalla: si no resulta visible, no la grafica
 			if ((rectangulo.x) < (this->screen_width) && (rectangulo.x + imgTile->w) > 0) {
 				rectangulo.y = cu->obtenerCoordPantallaY(k, m, view_x, view_y, ancho_borde);
 				if ((rectangulo.y) < (this->screen_height) && (rectangulo.y + imgTile->h) > 0) 
@@ -256,6 +247,37 @@ void GraficadorPantalla::renderizarProtagonista(void) {
 // TODO: Optimizar para que no se grafiquen edificios que no aparezcan en pantalla (ver renderizarTerreno)
 
 void GraficadorPantalla::renderizarEntidades(void) {
+/*	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
+	SDL_Rect rectangulo;
+	list<Entidad*> lEnt = escenario->verEntidades();
+	for (list<Entidad*>::iterator it=lEnt.begin(); it != lEnt.end(); ++it){
+		Spritesheet* entAct = (*it)->verSpritesheet();
+	
+			// Esto chequea si la casilla cae dentro del la pantalla: si no resulta visible,no la grafica
+		int newX = (int) cu->obtenerCoordPantallaX((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY(), view_x, view_y, ancho_borde);
+		if ((newX-entAct->subImagenWidth()) < (this->screen_width) && (newX + entAct->subImagenWidth()) > 0) {
+			int newY = (int) cu->obtenerCoordPantallaY((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY(), view_x, view_y, ancho_borde);
+			if (newY < (this->screen_height) && (newY + entAct->subImagenHeight()) > 0){		
+				entAct->cambirCoord(newX, newY);
+				rectangulo.x = entAct->getCoordX();
+				rectangulo.y = entAct->getCoordY();
+	
+				SDL_Rect recOr;
+				recOr.x = entAct->calcularOffsetX();
+				recOr.y = entAct->calcularOffsetY();
+				recOr.w = entAct->subImagenWidth();
+				recOr.h = entAct->subImagenHeight();
+
+				
+				SDL_Surface* spEnt = entAct->devolverImagenAsociada();
+				SDL_SetColorKey( spEnt, true, SDL_MapRGB(spEnt->format, 255, 0, 255) );
+				SDL_BlitSurface( spEnt, &recOr, pantalla, &rectangulo );
+				}
+			}
+		}
+		*/
+
+
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
 	SDL_Rect rectangulo;
 	list<Entidad*> lEnt = escenario->verEntidades();
@@ -280,6 +302,35 @@ void GraficadorPantalla::renderizarEntidades(void) {
 	}
 }
 
+
+//	PASO 5:
+
+#define POS_REL_MINIMAP_X 0.805
+#define POS_REL_MINIMAP_Y 0.775
+#define	HEIGHT_REL_MINIMAP 0.225
+#define	WIDTH_REL_MINIMAP 0.331
+void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int* minimapW, int* minimapH){
+	DatosImagen* marcoData = BibliotecaDeImagenes::obtenerInstancia()->devolverDatosImagen("screen_frame");
+	if(marcoData->path == "default.png")
+		return;
+	SDL_Surface* borde = marcoData->imagen;
+	SDL_SetColorKey(borde, true, SDL_MapRGB(borde->format, 255, 0, 255));
+	SDL_Rect rectangulo;
+	rectangulo.x = 0;
+	rectangulo.y = 0;
+	rectangulo.h = screen_height;
+	rectangulo.w = screen_width;
+	SDL_BlitScaled( borde, NULL, pantalla, &rectangulo );
+	if(minimapX)
+		*minimapX = rectangulo.w * POS_REL_MINIMAP_X;
+	if(minimapY)
+		*minimapY = rectangulo.h * POS_REL_MINIMAP_Y;
+	if(minimapH)
+		*minimapH = rectangulo.h * HEIGHT_REL_MINIMAP;
+	if(minimapW)
+		*minimapW = rectangulo.w * WIDTH_REL_MINIMAP;
+
+}
 
 // METODOS DE INICIALIZACION Y GETTERS
 
@@ -330,8 +381,6 @@ void GraficadorPantalla::asignarParametrosScroll(int margen, int velocidad) {
 	}
 }
 
-// Pasar al .h???
-
 SDL_Window* GraficadorPantalla::getVentana(void) {
 	return this->ventana;
 }
@@ -351,3 +400,4 @@ float GraficadorPantalla::getViewY(void){
 float GraficadorPantalla::getAnchoBorde(void) {
 	return this->ancho_borde;
 }
+

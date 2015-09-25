@@ -77,8 +77,8 @@ tipo:
     delay: 0
   - nombre: "town_center"
     ruta: "townCenterAOE.png"
-    sizeX: 2
-    sizeY: 2
+    sizeX: 5
+    sizeY: 5
     pixelX: 56
     pixelY: 159
   - nombre: "barracks"
