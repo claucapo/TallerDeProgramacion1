@@ -12,7 +12,7 @@ log:
   errors: 1
 tipo:
   - nombre: "champion"
-    ruta: "championAOE.png"
+    ruta: "championAOEp2.png"
     subX: 10
     subY: 8
     pixelX: 21
@@ -20,7 +20,7 @@ tipo:
     fps: 10
     delay: 15
   - nombre: "champion_move"
-    ruta: "champion_moveAOE.png"
+    ruta: "champion_moveAOEp2.png"
     subX: 10
     subY: 8
     pixelX: 21
@@ -66,7 +66,7 @@ tipo:
     pixelX: 260
     pixelY: 0
   - nombre: "windmill"
-    ruta: "windmillAOE.png"
+    ruta: "windmillAOEp2.png"
     subX: 8
     subY: 1
     sizeX: 3

@@ -12,7 +12,7 @@ log:
   errors: 1
 tipo:
   - nombre: "champion"
-    ruta: "championAOE.png"
+    ruta: "championAOEp2.png"
     subX: 10
     subY: 8
     pixelX: 21
@@ -20,7 +20,7 @@ tipo:
     fps: 10
     delay: 15
   - nombre: "champion_move"
-    ruta: "champion_moveAOE.png"
+    ruta: "champion_moveAOEp2.png"
     subX: 10
     subY: 8
     pixelX: 21
@@ -70,7 +70,7 @@ tipo:
     pixelX: 260
     pixelY: 0
   - nombre: "windmill"
-    ruta: "windmillAOE.png"
+    ruta: "windmillAOEp2.png"
     subX: 8
     subY: 1
     sizeX: 3
@@ -117,8 +117,8 @@ tipo:
     pixelY: 118
 escenario:
   nombre: THE_FIRST_TEST
-  sizeX: 41
-  sizeY: 10g
+  sizeX: 44
+  sizeY: 55
   entidades:
    - {x: 4, y: 12, tipo: "house"}
    - {x: 4, y: 3, tipo: "windmill"}

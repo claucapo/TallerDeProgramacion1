@@ -101,7 +101,8 @@ int procesarEventoKeyDown(Escenario* scene, GraficadorPantalla* gp, SDL_Event e)
 
 // Define distintas acciones para los botones del mouse
 int procesarEventoMouse(Escenario* scene, GraficadorPantalla* gp, SDL_Event e) {
-	int mx, my;	
+	int mx, my;
+	float esc = gp->verEscalaMuestreo();
 	if( e.button.button == SDL_BUTTON_RIGHT){
 		SDL_GetMouseState(&mx, &my);
 
@@ -128,6 +129,12 @@ int procesarEventos(Escenario* scene, GraficadorPantalla* gp){
 
 		case SDL_MOUSEBUTTONDOWN:
 			retorno = procesarEventoMouse(scene, gp, evento); break;
+		
+		case SDL_MOUSEWHEEL:
+			if(evento.wheel.y > 0)
+				gp->aumentarZoom();
+			else
+				gp->disminuirZoom();
 		}
 	}
 	return retorno;

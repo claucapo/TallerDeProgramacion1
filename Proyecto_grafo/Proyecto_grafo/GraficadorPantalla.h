@@ -8,12 +8,13 @@ class GraficadorPantalla {
 private:
 	SDL_Window* ventana;
 	SDL_Surface* pantalla;
+	SDL_Surface* pantallaAuxiliar;
 	Escenario* escenario;
 	float view_x, view_y;
 	float ancho_borde, alto_borde;
 	float screen_width, screen_height;
 	int vel_scroll, margen_scroll;
-
+	float escala_mostrar;
 public:
 	GraficadorPantalla(void);
 	~GraficadorPantalla(void);
@@ -36,5 +37,8 @@ public:
 	float getViewX(void);
 	float getViewY(void);
 	float getAnchoBorde(void);
-	};
+	void aumentarZoom(void);
+	void disminuirZoom(void);
+	float verEscalaMuestreo(void);
+};
 
