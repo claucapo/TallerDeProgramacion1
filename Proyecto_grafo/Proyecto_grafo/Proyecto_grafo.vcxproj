@@ -86,6 +86,7 @@
     <ClInclude Include="Spritesheet.h" />
     <ClInclude Include="Tests.h" />
     <ClInclude Include="Unidad.h" />
+    <ClInclude Include="Vision.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Archivo.cpp" />
@@ -106,6 +107,7 @@
     <ClCompile Include="Posicion.cpp" />
     <ClCompile Include="Spritesheet.cpp" />
     <ClCompile Include="Unidad.cpp" />
+    <ClCompile Include="Vision.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Proyecto_grafo.rc" />

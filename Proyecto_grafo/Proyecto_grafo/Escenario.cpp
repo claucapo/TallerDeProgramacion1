@@ -71,6 +71,10 @@ void Escenario::moverProtagonista(void) {
 }
 
 
+template <typename T> bool compare(const T* const & a, const T* const &b) {
+	return *a < *b;
+};
+
 void Escenario::avanzarFrame(void) {
 	// Avanzo el frame en cada edificio (por ahora no hace nada)
 	for(list<Entidad*>::const_iterator it = entidades.begin(); it != entidades.end(); ++it)
@@ -80,12 +84,8 @@ void Escenario::avanzarFrame(void) {
 	if (this->protagonista) {
 		moverProtagonista();
 	}
-
 }
 
-template <typename T> bool compare(const T* const & a, const T* const &b) {
-	return *a < *b;
-};
 
 bool Escenario::ubicarEntidad(Entidad* entidad, Posicion* pos) {
 	if (mapa->ubicarEntidad(entidad, pos)) {

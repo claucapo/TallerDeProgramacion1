@@ -4,6 +4,7 @@
 #include "ErrorLog.h"
 #include <iostream>
 
+
 // El constructor sobrecargado inicializa la entidad en una posición determinada
 // por la referencia del parámetro
 Entidad::Entidad(Posicion* p) {
@@ -17,6 +18,7 @@ Entidad::Entidad(Posicion* p) {
 	this->name = nombre_entidad_def;
 	this->tamX = 1;
 	this->tamY = 1;
+	this->rangoVision = 2;
 }
 
 // El constructor por defecto inicializa la posición en nullptr
@@ -27,6 +29,7 @@ Entidad::Entidad(void) {
 	this->name = nombre_entidad_def;
 	this->tamX = 1;
 	this->tamY = 1;
+	this->rangoVision = 2;
 }
 
 Entidad::Entidad(string name, int tamX, int tamY) {
@@ -36,6 +39,7 @@ Entidad::Entidad(string name, int tamX, int tamY) {
 	this->state = EST_QUIETO;
 	this->tamX = (tamX > 0) ? tamX : 1;
 	this->tamY = (tamY > 0) ? tamY : 1;
+	this->rangoVision = 2;
 }
 
 // Llamo al destructor de todos los miembros de la clase (en caso de que alguno
@@ -63,6 +67,13 @@ void Entidad::asignarPos(Posicion* pos) {
 
 void Entidad::asignarSprite(Spritesheet* sp){
 	this->sprites = sp;
+}
+
+void Entidad::asignarJugador(Jugador* player) {
+	if (!player)
+		ErrorLog::getInstance()->escribirLog("Error al querer asignar un jugador a " + this->name + ": Jugador inexistente.", LOG_ERROR);
+	else
+		this->owner = player;
 }
 
 bool Entidad::operator==(Entidad other){
@@ -103,7 +114,6 @@ bool Entidad::operator < (const Entidad& other) const {
 		return false;
 
 }
-
 
 Spritesheet* Entidad::verSpritesheet(void) {
 	return sprites;

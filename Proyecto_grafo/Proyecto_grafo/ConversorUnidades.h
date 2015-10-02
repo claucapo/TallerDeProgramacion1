@@ -12,8 +12,6 @@ private:
 
 	// Flag para saber si hay instancia o no
 	static bool hay_instancia;
-
-	float escala_mostrar;
 public:
 
 	~ConversorUnidades(void);
@@ -26,6 +24,5 @@ public:
 	static ConversorUnidades* obtenerInstancia(void);
 	float obtenerCoordLogicaX(float x_pant, float y_pant, float view_x, float view_y, float ancho_borde);
 	float obtenerCoordLogicaY(float x_pant, float y_pant, float view_x, float view_y, float ancho_borde);
-	void asignarEscalaMostrar(float escala_mostrar);
 };
 

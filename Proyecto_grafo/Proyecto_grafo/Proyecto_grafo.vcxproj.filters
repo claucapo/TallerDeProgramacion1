@@ -114,6 +114,9 @@
     <ClInclude Include="FactoryEntidades.h">
       <Filter>Archivos de encabezado\Entidades</Filter>
     </ClInclude>
+    <ClInclude Include="Vision.h">
+      <Filter>Archivos de encabezado\Partida</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -169,6 +172,9 @@
     </ClCompile>
     <ClCompile Include="FactoryEntidades.cpp">
       <Filter>Archivos de código fuente\Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="Vision.cpp">
+      <Filter>Archivos de código fuente\Partida</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

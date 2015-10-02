@@ -1,89 +1,72 @@
-#include "Escenario.h"
+#include "Jugador.h"
+#include "Vision.h"
 #include "Entidad.h"
+#include "Matriz.h"
 #include "Posicion.h"
-#include "Edificios.h"
-#include "Protagonistas.h"
+
+#include <list>
 #include <iostream>
-#include "GraficadorPantalla.h"
 #include <conio.h>
 
 using namespace std;
 
-void imprimirEscenario(GraficadorPantalla* gp) {
-	/*
-	for(int i = 0; i < scene->verTamX(); i++) {
-		for(int j = 0; j < scene->verTamY(); j++) {
-			Posicion pos = Posicion(i, j);
-			bool vacia = scene->casillaEstaVacia(&pos);
-			if (vacia)
-				cout << "0";
-			else
-				cout << "1";
-		} 
+#define TEST_SIZE 20
+
+
+void imprimirVision(Vision* vis) {
+	for (int i = 0; i < TEST_SIZE; i++) {
+		for (int j = 0; j < TEST_SIZE; j++) {
+			Posicion pos(i, j);
+			estado_vision_t state = vis->visibilidadPosicion(pos);
+			switch (state) {
+			case VIS_NO_EXPLORADA:
+				cout << "-"; break;
+			case VIS_VISITADA:
+				cout << "X"; break;
+			case VIS_OBSERVADA:
+				cout << "0"; break;
+			}
+		}
 		cout << endl;
 	}
-	cout << endl;
-	*/
-
-
 }
 
+void testVision() {
+	Jugador p1 = Jugador("player1");
+	p1.asignarVision(TEST_SIZE, TEST_SIZE);
 
-// Testea la creación de un escenario de 50x50
-// Posiciona dos edificios
-// Coloca un aldeano y lo hace caminar hasta una posición
-// y en medio del camino le asigna otro nuevo destino
+	Vision* v1 = p1.verVision();
+	list<Posicion> posiciones;
 
-// Imprime el mapa y como cambia la posición del aldeano a medida que avanzan los frames
-void testEscenarioBasico() {
-	/* Escenario* scene = new Escenario();
-	GraficadorPantalla gp(scene, 640, 480);
-
-
-	Entidad* ent1 = new CentroUrbano();
-	Entidad* ent2 = new Casa();
-	Entidad* ent3 = new CentroUrbano();
-	Unidad* unit = new Aldeano();
-	
-	Spritesheet* ald = new Spritesheet("champion.png", 8, 10, 0, 0);
-	unit->asignarSprite(ald);
-	ald->setAnimationDelay(50);
-	Spritesheet* cas = new Spritesheet("house.png", 1, 1, 0, 0);
-	ent2->asignarSprite(cas);
-	Spritesheet* curb = new Spritesheet("urbanCenter.png", 1, 1, 0, 0);
-	ent1->asignarSprite(curb);
-	Spritesheet* swf = new Spritesheet("siegeWeaponFactory.png", 1, 1, 0, 0);
-	ent3->asignarSprite(swf);
-
-	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
-
-	Posicion pos1 = Posicion(24, 17);
-	Posicion pos2 = Posicion(20, 24);
-	Posicion posW = Posicion(26, 25);
-	Posicion posP = Posicion(26, 25);
-	Posicion posD = Posicion(22, 25);
-
-	scene->asignarProtagonista(unit, &posP);
-	scene->asignarDestinoProtagonista(&posD);
-	scene->ubicarEntidad(ent1, &pos1);
-	scene->ubicarEntidad(ent2, &pos2);
-	scene->ubicarEntidad(ent3, &posW);
-	gp.dibujarPantalla();
-
-	for (int i = 0; i < 100; i++) {
-		scene->avanzarFrame();
-		if (i == 20) {
-			cout << "El se le impone una nueva posicion de desitno, 40,40" << endl;
-			Posicion pos3 = Posicion(21, 4);
-			scene->asignarDestinoProtagonista(&pos3);
-		}
-		cout << unit->verPosicion()->getX() << "-" << unit->verPosicion()->getY() << endl;
-		//
-		gp.dibujarPantalla();
-		SDL_Delay(50);
+	for (int i = 0; i < 10; i++) {
+		Posicion pos = Posicion(i, i);
+		posiciones.push_front(pos);
 	}
+	p1.agregarPosiciones(posiciones);
 
-	delete scene;
+	cout << "Jugador1" << endl;
+	imprimirVision(v1);
+	cout << endl << endl;
 
-	*/
+	p1.reiniciarVision();
+	cout << "Jugador1" << endl;
+	imprimirVision(v1);
+	cout << endl << endl;
+
+	Entidad* ent = new Entidad("champion", 1, 1);
+	Matriz mat = Matriz(TEST_SIZE, TEST_SIZE);
+	Posicion* origen = new Posicion (15, 15);
+	ent->asignarPos(origen);
+	mat.ubicarEntidad(ent, origen);
+
+	posiciones = mat.posicionesVistas(ent);
+	p1.agregarPosiciones(posiciones);
+	cout << "Jugador1" << endl;
+	imprimirVision(v1);
+	cout << endl << endl;
+
+	p1.reiniciarVision();
+	cout << "Jugador1" << endl;
+	imprimirVision(v1);
+	cout << endl << endl;
 }

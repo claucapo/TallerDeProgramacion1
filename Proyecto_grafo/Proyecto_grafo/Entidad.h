@@ -5,6 +5,8 @@
 #include "Spritesheet.h"
 #include "Enumerados.h"
 
+class Jugador;
+
 /* La clase Entidad representa cualquier
 elemento que pueda ubicarse sobre una
 Posicion. El Estado asociado a la Entidad
@@ -21,6 +23,10 @@ protected:
 	int tamX;
 	int tamY;
 
+	// Quizas agregar un struct con la informacion?;
+	int rangoVision;
+
+	Jugador* owner;
 
 public:
 	string name;
@@ -45,13 +51,18 @@ public:
 	// Devuelve los dos tamanios
 	int verTamX() {return this->tamX;}
 	int verTamY() {return this->tamY;}
+	int verRango() {return this->rangoVision;}
 	string verTipo() {return this->name;}
+
+	Jugador* verJugador() {return this->owner;}
 
 	// Avanza un frame modificando los valores de la entidad
 	virtual void avanzarFrame(void);
 
 	// Metodos para setear los sprites.
 	void asignarSprite(Spritesheet* sp);
+
+	void asignarJugador(Jugador* player);
 
 	// NOTA: Sobrescribir los operadores
 	// ==, < y >.

@@ -140,3 +140,48 @@ bool Matriz::ubicarEntidad(Entidad* elemento, Posicion* pos){
 	return true;
 }
 
+// Calcula la distancia hamiltoniana entre una posicion y una entidad.
+int distanciaEntre(Posicion pos, Entidad* ent) {
+	int distX = 0;
+	int distY = 0;
+
+	int minX = ent->verPosicion()->getRoundX();
+	int minY = ent->verPosicion()->getRoundY();
+	int maxX = minX + ent->verTamX();
+	int maxY = minY + ent->verTamY();
+
+	int actX = pos.getRoundX();
+	int actY = pos.getRoundY();
+
+	if (actX < maxX && actX >= minX)
+		distX = 0;
+	else if (actX >= maxX)
+		distX = actX - maxX + 1;
+	else
+		distX = minX - actX;
+
+	if (actY < maxY && actY >= minY)
+		distY = 0;
+	else if (actY >= maxY)
+		distY = actY - maxY + 1;
+	else
+		distY = minY - actY;
+	return distX + distY;
+}
+
+// Devuelve la lista de posiciones que estan dentro del rango de vision de la entidad
+list<Posicion> Matriz::posicionesVistas(Entidad* elemento) {
+	int rango = elemento->verRango();
+	list<Posicion> posEnRango;
+	int origenX = elemento->verPosicion()->getRoundX();
+	int origenY = elemento->verPosicion()->getRoundY();
+	for (int i = -rango; i <= rango + elemento->verTamX(); i++) {
+		for (int j = -rango; j <= rango + elemento->verTamY(); j++) {
+			Posicion act = Posicion(i + origenX, j + origenY);
+			if (this->posicionPertenece(&act) && distanciaEntre(act, elemento) <= rango) {
+				posEnRango.push_back(act);
+			}
+		}
+	}
+	return posEnRango;
+}

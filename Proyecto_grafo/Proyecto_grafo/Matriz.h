@@ -3,6 +3,7 @@
 
 #include "Entidad.h"
 #include "Posicion.h"
+#include <list>
 using namespace std;
 
 /* La clase Matriz representa una cuadricula de posiciones
@@ -55,6 +56,9 @@ public:
 	// Si la posicion esta ocupada, no ubica al elemento
 	// y devuelve false.
 	bool ubicarEntidad(Entidad* elemento, Posicion* pos);
+
+	// Devuelve la lista de posiciones que caen dentro del rango de vision de una entidad
+	list<Posicion> posicionesVistas(Entidad* elemento);
 };
 
 
