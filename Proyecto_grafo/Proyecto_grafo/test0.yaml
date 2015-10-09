@@ -1,18 +1,27 @@
 pantalla: 
-  ancho: 680
-  alto: 488
+  ancho: 640
+  alto: 480
   fullscreen: 0 # 1 = true, 0 = false
 gameplay: 
-  velocidad: 2 #en UL/frame
-  scroll_margen: 110
+  velocidad: 1 #en UL/frame
+  scroll_margen: 60
   scroll_vel: 20
 log:
   warnings: 1
   info: 0
   errors: 1
 tipo:
+  - nombre: "moneda"
+    ruta: "coin.png"
+    tipo: "resource"
+    subX: 10
+    pixelX: 10
+    pixelY: 10
+    fps: 10
+    score: 1
   - nombre: "champion"
-    ruta: "championAOEp2.png"
+    ruta: "championAOE.png"
+    tipo: "unit"
     subX: 10
     subY: 8
     pixelX: 21
@@ -20,7 +29,8 @@ tipo:
     fps: 10
     delay: 15
   - nombre: "champion_move"
-    ruta: "champion_moveAOEp2.png"
+    ruta: "champion_moveAOE.png"
+    tipo: "none"
     subX: 10
     subY: 8
     pixelX: 21
@@ -35,6 +45,7 @@ tipo:
     pixelY: 177
   - nombre: "knight"
     ruta: "knightAOE.png"
+    tipo: "unit"
     subX: 10
     subY: 8
     pixelX: 34
@@ -43,6 +54,7 @@ tipo:
     delay: 3
   - nombre: "knight_move"
     ruta: "knight_moveAOE.png"
+    tipo: "none"
     subX: 10
     subY: 8
     pixelX: 26
@@ -57,27 +69,25 @@ tipo:
     pixelY: 42
   - nombre: "tile"
     ruta: "tileG.png"
+    tipo: "none"
     pixelX: 26
-    pixelY: 0
-  - nombre: "screen_frame"
-    ruta: "screenFrame.png"
-    pixelX: 0
     pixelY: 0
   - nombre: "tileHuge"
     ruta: "tileHuge.png"
+    tipo: "none"
     sizeX: 10
     sizeY: 10
     pixelX: 260
     pixelY: 0
   - nombre: "windmill"
-    ruta: "windmillAOEp2.png"
+    ruta: "windmillAOE.png"
     subX: 8
     subY: 1
     sizeX: 3
     sizeY: 3
     pixelX: 84
     pixelY: 53
-    fps: 12
+    fps: 10
     delay: 0
   - nombre: "town_center"
     ruta: "townCenterAOE.png"
@@ -103,22 +113,10 @@ tipo:
     sizeY: 4
     pixelX: 101
     pixelY: 12
-  - nombre: "arbol"
-    ruta: "tree2.png"
-    sizeX: 1
-    sizeY: 1
-    pixelX: 45
-    pixelY: 117
-  - nombre: "arbolMagico"
-    ruta: "tree1.png"
-    sizeX: 1
-    sizeY: 1
-    pixelX: 83
-    pixelY: 118
 escenario:
-  nombre: THE_FIRST_TEST
-  sizeX: 44
-  sizeY: 55
+  nombre: DEFAULT_MAP
+  sizeX: 40
+  sizeY: 40
   entidades:
    - {x: 4, y: 12, tipo: "house"}
    - {x: 4, y: 3, tipo: "windmill"}
@@ -131,16 +129,20 @@ escenario:
    - {x: 13, y: 9, tipo: "castle"}
    - {x: 10, y: 11, tipo: "house"}
    - {x: 16, y: 6, tipo: "house"}
-   - {x: 35, y: 35, tipo: "champion"}
-   - {x: 36, y: 35, tipo: "champion"}
+   - {x: 20, y: 35, tipo: "moneda"}
+   - {x: 30, y: 17, tipo: "moneda"}
+   - {x: 34, y: 30, tipo: "moneda"}
+   - {x: 12, y: 22, tipo: "moneda"}
+   - {x: 30, y: 10, tipo: "moneda"}
+   - {x: 15, y: 17, tipo: "moneda"}
+   - {x: 30, y: 28, tipo: "moneda"}
+   - {x: 35, y: 35, tipo: "moneda"}
+   - {x: 36, y: 35, tipo: "moneda"}
    - {x: 25, y: 25, tipo: "stable"}
    - {x: 5, y: 0, tipo: "windmill"}
    - {x: 22, y: 15, tipo: "barracks"}
    - {x: 23, y: 21, tipo: "archery"}
    - {x: 5, y: 18, tipo: "barracks"}
-   - {x: 38, y: 5, tipo: "arbol"}
-   - {x: 37, y: 5, tipo: "arbol"}
-   - {x: 36, y: 5, tipo: "arbol"}
+   - {x: 7, y: 22, tipo: "moneda"}
    - {x: 9, y: 18, tipo: "barracks"}
- # protagonista: {x: a, y: 1, tipo: "champion"}
   protagonista: {x: 2, y: 1, tipo: "knight"}

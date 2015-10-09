@@ -6,6 +6,7 @@
 #include "Enumerados.h"
 
 class Jugador;
+class Escenario;
 
 /* La clase Entidad representa cualquier
 elemento que pueda ubicarse sobre una
@@ -36,7 +37,7 @@ public:
 
 	// Constructor sobrecargado
 	Entidad(Posicion* p);
-	Entidad(string name, int tamX, int tamY);
+	Entidad(string name, int tamX, int tamY, int vision);
 
 	// Devuelve la Posicion sobre la cual
 	// está asociada la Entidad.
@@ -57,7 +58,8 @@ public:
 	Jugador* verJugador() {return this->owner;}
 
 	// Avanza un frame modificando los valores de la entidad
-	virtual void avanzarFrame(void);
+	// Si devuelve true, significa que hay que remover a la entidad el mapa
+	virtual bool avanzarFrame(Escenario* scene);
 
 	// Metodos para setear los sprites.
 	void asignarSprite(Spritesheet* sp);

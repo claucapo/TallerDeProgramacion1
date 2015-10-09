@@ -10,6 +10,7 @@
 #include "ConfigParser.h"
 #include "FactoryEntidades.h"
 #include "DatosImagen.h"
+#include "Jugador.h"
 #include <iostream>
 #include <sstream>
 #include <SDL.h>
@@ -49,7 +50,7 @@ void cargarBibliotecaImagenes(std::list<entidadInfo_t*> eInfoL) {
 		data->fps = act.fps;
 		data->delay = act.delay;
 		BibliotecaDeImagenes::obtenerInstancia()->cargarDatosImagen(act.nombre, data);
-		FactoryEntidades::obtenerInstancia()->agregarEntidad(act.nombre, act.tamX, act.tamY);
+		FactoryEntidades::obtenerInstancia()->agregarEntidad(act);
 	}
 }
 
@@ -188,6 +189,11 @@ int wmain(int argc, char** argv) {
 		scene->verProtagonista()->setVelocidad(parser.verInfoGameplay().velocidad);
 		gp->asignarEscenario(scene);
 		
+		// Por ahora le asigno un jugador sólo al protagonista
+		// ya hago que sea gaia
+		Jugador* player = new Jugador("gaia");
+		scene->verProtagonista()->asignarJugador(player);
+
 		 int i = 1; float dTot = 0;
 		// Main loop del juego
 		while(codigo_programa > 0){
@@ -203,7 +209,7 @@ int wmain(int argc, char** argv) {
 			
 			dTot += (timeB - timeA);
 			// cout<< "Duracion Prom.:" << dTot/i << endl;
-			// cout << "Time:" << timeB-timeA << endl;
+			cout << "Time:" << timeB-timeA << endl;
 			if((FRAME_DURATION -timeB + timeA) > 0)
 				SDL_Delay(FRAME_DURATION -timeB + timeA);
 
@@ -213,7 +219,7 @@ int wmain(int argc, char** argv) {
 		if (codigo_programa == CODE_RESET) {
 			ErrorLog::getInstance()->escribirLog("----RESETEANDO----");
 		}
-
+		delete player;
 		delete gp;
 		delete scene;
 		BibliotecaDeImagenes::obtenerInstancia()->clear();

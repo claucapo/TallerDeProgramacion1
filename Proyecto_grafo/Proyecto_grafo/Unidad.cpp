@@ -12,7 +12,7 @@ Unidad::Unidad() : Entidad() {
 	this->destino = nullptr;
 }
 
-Unidad::Unidad(string name, int tamX, int tamY) : Entidad(name, tamX, tamY) {
+Unidad::Unidad(string name, int tamX, int tamY, int vision) : Entidad(name, tamX, tamY, vision) {
 	this->rapidez = 0;
 	this->direccion = DIR_DOWN;
 	this->destino = nullptr;
@@ -62,8 +62,9 @@ void Unidad::setEstado(Estados_t state) {
 }
 
 #define TOLERANCIA 3
-void Unidad::avanzarFrame() {
-	// Lógica del movimiento
+bool Unidad::avanzarFrame(Escenario* scene) {
+	// TODO: Trasladar lógica de movimiento acá?
+	return false;
 }
 
 

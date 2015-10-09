@@ -28,6 +28,8 @@
 	#define TAMANIO_Y_KEY "sizeY"
 	#define ALIGN_X_KEY "pixelX"
 	#define ALIGN_Y_KEY "pixelY"
+	#define VIEW_RANGE_KEY "vision"
+	#define SCORE_KEY "score"
 
 #define ESCENARIO_KEY "escenario"
 	#define INSTANCIAS_KEY "entidades"
@@ -242,6 +244,7 @@ void operator >>(const YAML::Node& node, gameplayInfo_t& gInfo) {
 void operator >> (const YAML::Node& node, entidadInfo_t& eInfo) {
 	parsearString(node, NOMBRE_KEY, &eInfo.nombre);
 	parsearString(node, PATH_KEY, &eInfo.spritePath);
+	parsearString(node, TIPO_KEY, &eInfo.tipo, LOG_INFO);
 
 	parsearEntero(node, FPS_KEY, &eInfo.fps, LOG_INFO, false);
 	parsearEntero(node, DELAY_KEY, &eInfo.delay, LOG_INFO);
@@ -252,6 +255,9 @@ void operator >> (const YAML::Node& node, entidadInfo_t& eInfo) {
 	parsearEntero(node, TAMANIO_Y_KEY, &eInfo.tamY, LOG_INFO, false);
 	parsearEntero(node, ALIGN_X_KEY, &eInfo.pixel_align_X, LOG_WARNING);
 	parsearEntero(node, ALIGN_Y_KEY, &eInfo.pixel_align_Y, LOG_WARNING);
+
+	parsearEntero(node, VIEW_RANGE_KEY, &eInfo.vision, LOG_INFO, false);
+	parsearEntero(node, SCORE_KEY, &eInfo.score, LOG_INFO, false);
 }
 
 // Carga una lista de struct entidadInfo_t para poder guardar en simultaneo

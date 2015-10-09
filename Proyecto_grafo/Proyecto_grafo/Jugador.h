@@ -17,6 +17,7 @@ class Jugador {
 private:
 	string nombre;
 	Vision* vision;
+	int recurso;
 	
 	Jugador(void) {};
 
@@ -28,6 +29,7 @@ public:
 	// Getters
 	string verNombre(void) {return this->nombre;}
 	Vision* verVision(void) {return this->vision;}
+	int verRecurso(void) {return this->recurso;}
 
 	// Asigna al jugador una vision de tamaño fxc
 	void asignarVision(int filas, int columnas);
@@ -36,6 +38,9 @@ public:
 	void agregarPosiciones(list<Posicion> posiciones);
 
 	estado_vision_t visionCasilla(Posicion pos);
+
+	// Recurso básico para probar
+	void modificarRecurso(int cant) {this->recurso += cant;}
 
 	// Devuelve true si la Entidad recibida
 	// pertenece a este Jugador o false en

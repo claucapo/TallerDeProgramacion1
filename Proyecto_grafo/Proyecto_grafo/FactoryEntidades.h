@@ -8,14 +8,23 @@
 
 #pragma once
 
+enum entity_type_t {ENT_T_NONE, ENT_T_UNIT, ENT_T_RESOURCE};
+
 // Definición del struct que contendrá información particular de cada clase.
 struct tipoEntidad_t {
 	int tamX;
 	int tamY;
+	int vision;
+	entity_type_t tipo;
+	int score;
 
+	// Valores por defecto
 	tipoEntidad_t() {
 		tamX = 1;
 		tamY = 1;
+		vision = 1;
+		tipo = ENT_T_NONE;
+		score = 1;
 	}
 };
 
@@ -36,7 +45,7 @@ public:
 	static FactoryEntidades* obtenerInstancia(void);
 	void limpar();
 
-	void agregarEntidad(string name, int tamX, int tamY);
+	void agregarEntidad(entidadInfo_t eInfo);
 
 	Entidad* obtenerEntidad(string name);
 	Unidad* obtenerUnidad(string name);

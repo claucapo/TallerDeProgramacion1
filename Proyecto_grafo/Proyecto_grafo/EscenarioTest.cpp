@@ -53,7 +53,7 @@ void testVision() {
 	imprimirVision(v1);
 	cout << endl << endl;
 
-	Entidad* ent = new Entidad("champion", 1, 1);
+	Entidad* ent = new Entidad("champion", 1, 1, 2);
 	Matriz mat = Matriz(TEST_SIZE, TEST_SIZE);
 	Posicion* origen = new Posicion (15, 15);
 	ent->asignarPos(origen);

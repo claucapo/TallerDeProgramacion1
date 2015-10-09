@@ -140,8 +140,17 @@ bool Matriz::ubicarEntidad(Entidad* elemento, Posicion* pos){
 	return true;
 }
 
+Entidad* Matriz::verContenido(Posicion* pos) {
+	if (!this->posicionPertenece(pos)) {
+		ErrorLog::getInstance()->escribirLog("Error al querer ver contenido de posicion " + pos->toStrRound() + ", posición inexistente.", LOG_WARNING);
+		return nullptr;
+	} else {
+		return this->casillas[pos->getRoundX()][pos->getRoundY()];
+	}
+}
+
 // Calcula la distancia hamiltoniana entre una posicion y una entidad.
-int distanciaEntre(Posicion pos, Entidad* ent) {
+int Matriz::distanciaEntre(Posicion pos, Entidad* ent) {
 	int distX = 0;
 	int distY = 0;
 

@@ -19,6 +19,8 @@ Entidad::Entidad(Posicion* p) {
 	this->tamX = 1;
 	this->tamY = 1;
 	this->rangoVision = 2;
+
+	this->owner = nullptr;
 }
 
 // El constructor por defecto inicializa la posición en nullptr
@@ -30,16 +32,20 @@ Entidad::Entidad(void) {
 	this->tamX = 1;
 	this->tamY = 1;
 	this->rangoVision = 2;
+	
+	this->owner = nullptr;
 }
 
-Entidad::Entidad(string name, int tamX, int tamY) {
+Entidad::Entidad(string name, int tamX, int tamY, int vision) {
 	this->pos = nullptr;
 	this->sprites = nullptr;
 	this->name = name;
 	this->state = EST_QUIETO;
 	this->tamX = (tamX > 0) ? tamX : 1;
 	this->tamY = (tamY > 0) ? tamY : 1;
-	this->rangoVision = 2;
+	this->rangoVision = vision;
+
+	this->owner = nullptr;
 }
 
 // Llamo al destructor de todos los miembros de la clase (en caso de que alguno
@@ -52,8 +58,10 @@ Entidad::~Entidad(void) {
 }
 
 // Método para avanzar un frame
-void Entidad::avanzarFrame(void) {
+// Devuelve true si hay que quitar la entidad del escenario
+bool Entidad::avanzarFrame(Escenario* scene) {
 	this->sprites->siguienteFrame();
+	return false;
 }
 
 void Entidad::asignarPos(Posicion* pos) {

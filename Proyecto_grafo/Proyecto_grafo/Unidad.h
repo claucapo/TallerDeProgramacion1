@@ -19,7 +19,7 @@ public:
 	Unidad(void);
 	~Unidad(void);
 	
-	Unidad(string name, int tamX, int tamY);
+	Unidad(string name, int tamX, int tamY, int vision);
 
 	Unidad(Posicion* p);
 
@@ -43,7 +43,7 @@ public:
 	virtual void setVelocidad(float nuevaVelocidad);
 	virtual void setEstado(Estados_t nuevoEstado);
 	
-	virtual void avanzarFrame(void);
+	virtual bool avanzarFrame(Escenario* scene);
 
 	Direcciones_t calcularDirecion(float velocidadX, float velocidadY);
 public:

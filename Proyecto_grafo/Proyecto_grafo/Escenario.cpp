@@ -77,8 +77,20 @@ template <typename T> bool compare(const T* const & a, const T* const &b) {
 
 void Escenario::avanzarFrame(void) {
 	// Avanzo el frame en cada edificio (por ahora no hace nada)
-	for(list<Entidad*>::const_iterator it = entidades.begin(); it != entidades.end(); ++it)
-		(*it)->avanzarFrame();
+	list<Entidad*> toRmv = list<Entidad*>();
+	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
+		if ( (*it)->avanzarFrame(this) ) {
+			toRmv.push_front(*it);
+		}
+	}
+	while(!toRmv.empty()) {
+		Entidad* ent = toRmv.front();
+		toRmv.pop_front();
+		this->quitarEntidad(ent);
+		delete ent;
+	}
+
+
 
 	// Modifico la posición del protagonista
 	if (this->protagonista) {

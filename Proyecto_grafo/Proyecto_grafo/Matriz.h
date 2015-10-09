@@ -46,6 +46,9 @@ public:
 	// Devuelve la cantidad de columnas de la matriz.
 	int verColumnas(){return this->columnas;}
 
+	// Devuelve el contendio de la posición, si la posicion está ocupada
+	Entidad* verContenido(Posicion* pos);
+
 	// Elimina el elemento ubicado sobre la matriz.
 	// Post: la posicion queda vacia. Devuelve true 
 	// o false segun corresponda.
@@ -56,6 +59,9 @@ public:
 	// Si la posicion esta ocupada, no ubica al elemento
 	// y devuelve false.
 	bool ubicarEntidad(Entidad* elemento, Posicion* pos);
+
+	// Distancia entre una posición y una entidad
+	int distanciaEntre(Posicion pos, Entidad* ent);
 
 	// Devuelve la lista de posiciones que caen dentro del rango de vision de una entidad
 	list<Posicion> posicionesVistas(Entidad* elemento);

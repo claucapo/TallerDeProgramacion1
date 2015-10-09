@@ -5,6 +5,7 @@
 Jugador::Jugador(string name){
 	this->nombre = name;
 	this->vision = nullptr;
+	this->recurso = 0;
 }
 
 Jugador::~Jugador(void) {

@@ -77,10 +77,11 @@ int main (int argc, char** argv) {
 
 #define TYPE_NAME_DEFAULT "unknown"
 #define IMG_PATH_DEFAULT "no_image.png"
+#define ENT_TYPE_DEFAULT "none"
+#define VISION_DEFAULT 2
 
 #define SCENARY_NAME_DEAFAULT "Orleans"
 #define INSTANCE_FPS_DEFAULT 1
-
 
 
 // STRUCTS (categorias) //
@@ -121,6 +122,7 @@ struct logInfo_t {
 struct entidadInfo_t {
 	std::string nombre;
 	std::string spritePath;
+	std::string tipo;
 
 	int subX;
 	int subY;
@@ -134,10 +136,13 @@ struct entidadInfo_t {
 	int fps;
 	int delay;
 
+	int vision;
+	int score;
+
 	// Inicializa los valores a cero por defecto
 	entidadInfo_t(): nombre(TYPE_NAME_DEFAULT), spritePath(IMG_PATH_DEFAULT),
-					fps(INSTANCE_FPS_DEFAULT), delay(0),
-					subX(1), subY(1), tamX(1), tamY(1), pixel_align_X(0), pixel_align_Y(0) {};
+					tipo(ENT_TYPE_DEFAULT),	fps(INSTANCE_FPS_DEFAULT), delay(0), vision(VISION_DEFAULT),
+					subX(1), subY(1), tamX(1), tamY(1), pixel_align_X(0), pixel_align_Y(0), score(1) {};
 };
 
 

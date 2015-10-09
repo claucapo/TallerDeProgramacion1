@@ -82,6 +82,7 @@
     <ClInclude Include="Matriz.h" />
     <ClInclude Include="Partida.h" />
     <ClInclude Include="Posicion.h" />
+    <ClInclude Include="Recurso.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Spritesheet.h" />
     <ClInclude Include="Tests.h" />
@@ -105,6 +106,7 @@
     <ClCompile Include="Matriz.cpp" />
     <ClCompile Include="Partida.cpp" />
     <ClCompile Include="Posicion.cpp" />
+    <ClCompile Include="Recurso.cpp" />
     <ClCompile Include="Spritesheet.cpp" />
     <ClCompile Include="Unidad.cpp" />
     <ClCompile Include="Vision.cpp" />

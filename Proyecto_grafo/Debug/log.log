@@ -2496,3 +2496,18 @@
 [23/09/2015 05:59:20] - [WARNING] - Error al querer asignar posicion a [archery]. Posicion (23,21) inexistente.
 [23/09/2015 05:59:20] - [WARNING] - No se puede agregar entidad [barracks] en (5,18). Posición no pertenece al mapa.
 [23/09/2015 05:59:20] - [WARNING] - No se puede agregar entidad [barracks] en (9,18). Posición no pertenece al mapa.
+[08/10/2015 11:18:20] - [ALLWAYS] - ----INICIANDO----
+[08/10/2015 11:18:38] - [ERROR] - SDL_image Error:  con imagenchampionAOEp2.png
+[08/10/2015 11:18:38] - [ERROR] - Error al cargar imágen: championAOEp2.png.¡Imagen inexistente!
+[08/10/2015 11:18:38] - [ERROR] - SDL_image Error:  con imagenchampion_moveAOEp2.png
+[08/10/2015 11:18:38] - [ERROR] - Error al cargar imágen: champion_moveAOEp2.png.¡Imagen inexistente!
+[08/10/2015 11:18:39] - [ERROR] - SDL_image Error:  con imagenwindmillAOEp2.png
+[08/10/2015 11:18:39] - [ERROR] - Error al cargar imágen: windmillAOEp2.png.¡Imagen inexistente!
+[08/10/2015 11:19:15] - [ALLWAYS] - ----RESETEANDO----
+[08/10/2015 11:19:16] - [ALLWAYS] - ----INICIANDO----
+[08/10/2015 11:19:25] - [ERROR] - SDL_image Error:  con imagenchampionAOEp2.png
+[08/10/2015 11:19:25] - [ERROR] - Error al cargar imágen: championAOEp2.png.¡Imagen inexistente!
+[08/10/2015 11:19:25] - [ERROR] - SDL_image Error:  con imagenchampion_moveAOEp2.png
+[08/10/2015 11:19:25] - [ERROR] - Error al cargar imágen: champion_moveAOEp2.png.¡Imagen inexistente!
+[08/10/2015 11:19:26] - [ERROR] - SDL_image Error:  con imagenwindmillAOEp2.png
+[08/10/2015 11:19:26] - [ERROR] - Error al cargar imágen: windmillAOEp2.png.¡Imagen inexistente!
