@@ -99,6 +99,9 @@ int procesarEventoKeyDown(Escenario* scene, GraficadorPantalla* gp, SDL_Event e)
 		return CODE_EXIT;
 	case SDL_SCANCODE_R:
 		return CODE_RESET;
+	//HARDCODEO
+	case SDL_SCANCODE_S:
+		return 117;
 	}
 }
 
@@ -197,16 +200,59 @@ int wmain(int argc, char** argv) {
 
 		player->asignarVision(scene->verTamX(), scene->verTamY());
 
+			// Hardcodeo para agregar otro player!!!!
+			Jugador* playerHard = new Jugador("hardcodeado");
+			Posicion q = Posicion(1, 1);
+			Unidad* uniHard = FactoryEntidades::obtenerInstancia()->obtenerUnidad("champion");
+			uniHard->asignarJugador(playerHard);
+			scene->ubicarEntidad(uniHard, &q);
+			playerHard->asignarVision(scene->verTamX(), scene->verTamY());
+			Spritesheet* sprHard = new Spritesheet(uniHard->verTipo());
+			uniHard->asignarSprite(sprHard);
+			uniHard->setVelocidad(2);
+			uniHard->asignarPos(&q);
+			int currentPlayer = 1;
+
 		 int i = 1; float dTot = 0;
 		// Main loop del juego
 		while(codigo_programa > 0){
 			float timeA = SDL_GetTicks();
-
-			// Con esto actualizo la vision, ponele
-			player->reiniciarVision();
-			player->agregarPosiciones(scene->verMapa()->posicionesVistas(scene->verProtagonista()));
-
+			if(currentPlayer == 1){
+				// Con esto actualizo la vision, ponele
+				player->reiniciarVision();
+				player->agregarPosiciones(scene->verMapa()->posicionesVistas(scene->verProtagonista()));
+			}
+			else{
+				// Vision hardcodeada
+				playerHard->reiniciarVision();
+				playerHard->agregarPosiciones(scene->verMapa()->posicionesVistas(scene->verProtagonista()));
+			}
 			codigo_programa = procesarEventos(scene, gp);
+
+				// Cambio de personajes hardcodeado
+				if(codigo_programa == 117){
+					/*Jugador* aux = playerHard;
+					playerHard = player;
+					player = aux;
+					*/
+					q = *uniHard->verPosicion();
+					Unidad* uAux = scene->verProtagonista();
+					
+					scene->asignarProtagonista(uniHard, &q);
+					uniHard = uAux;
+					
+					if(currentPlayer == 1){
+						gp->asignarJugador(playerHard);
+						currentPlayer = 2;
+						}
+					else {
+						gp->asignarJugador(player);
+						currentPlayer = 1;
+						}
+						
+					codigo_programa = CODE_CONTINUE;
+					}
+
 			//	cout << "Prog code: " << codigo_programa << endl;
 		//	cout << " i: " << i << endl;
 			scene->avanzarFrame();

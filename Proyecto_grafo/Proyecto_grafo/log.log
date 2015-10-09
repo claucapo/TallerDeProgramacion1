@@ -1,774 +1,542 @@
-[09/10/2015 03:11:39] - [ALLWAYS] - ----INICIANDO----
-[09/10/2015 03:25:59] - [ALLWAYS] - ----INICIANDO----
-[09/10/2015 03:25:59] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
-[09/10/2015 03:25:59] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
-[09/10/2015 03:42:39] - [ALLWAYS] - ----INICIANDO----
-[09/10/2015 03:42:39] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
-[09/10/2015 03:42:39] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
-[09/10/2015 04:05:07] - [ALLWAYS] - ----INICIANDO----
-[09/10/2015 04:05:07] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
-[09/10/2015 04:05:07] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
-[09/10/2015 04:24:00] - [ALLWAYS] - ----INICIANDO----
-[09/10/2015 04:24:01] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
-[09/10/2015 04:24:01] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
-[09/10/2015 04:25:31] - [ALLWAYS] - ----INICIANDO----
-[09/10/2015 04:25:32] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
-[09/10/2015 04:25:32] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
-[09/10/2015 04:32:12] - [ALLWAYS] - ----INICIANDO----
-[09/10/2015 04:32:13] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
-[09/10/2015 04:32:13] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
-[09/10/2015 04:33:45] - [ALLWAYS] - ----INICIANDO----
-[09/10/2015 04:33:46] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
-[09/10/2015 04:33:46] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
-[09/10/2015 04:35:24] - [ALLWAYS] - ----INICIANDO----
-[09/10/2015 04:35:24] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
-[09/10/2015 04:35:24] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
-[09/10/2015 04:39:36] - [ALLWAYS] - ----INICIANDO----
-[09/10/2015 04:39:36] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
-[09/10/2015 04:39:36] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
-[09/10/2015 04:39:56] - [ALLWAYS] - ----INICIANDO----
-[09/10/2015 04:39:57] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
-[09/10/2015 04:39:57] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
-[09/10/2015 04:40:33] - [ALLWAYS] - ----INICIANDO----
-[09/10/2015 04:40:34] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
-[09/10/2015 04:40:34] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
-[09/10/2015 04:41:01] - [ALLWAYS] - ----INICIANDO----
-[09/10/2015 04:41:01] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
-[09/10/2015 04:41:01] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
-[09/10/2015 04:41:21] - [ALLWAYS] - ----INICIANDO----
-[09/10/2015 04:41:21] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
-[09/10/2015 04:41:21] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
-[09/10/2015 04:43:19] - [ALLWAYS] - ----INICIANDO----
-[09/10/2015 04:43:20] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
-[09/10/2015 04:43:20] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
-[09/10/2015 04:58:28] - [ALLWAYS] - ----INICIANDO----
-[09/10/2015 04:58:29] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
-[09/10/2015 04:58:29] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
-[09/10/2015 04:58:52] - [ERROR] - Posicion (13,40) excede matriz de vision.
-[09/10/2015 04:59:19] - [ALLWAYS] - ----INICIANDO----
-[09/10/2015 04:59:19] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
-[09/10/2015 04:59:19] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
-[09/10/2015 04:59:38] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:38] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:38] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:38] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:38] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:38] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:38] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (19,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (21,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (18,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (19,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (18,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (19,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (18,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (19,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (18,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (19,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (18,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (19,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (18,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (19,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (18,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (19,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (18,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (19,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (18,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (19,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (18,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (19,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (18,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (19,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (18,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (19,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (19,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (21,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (19,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (21,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (19,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (21,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (19,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (21,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (19,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (21,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (19,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (21,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (21,40) excede matriz de vision.
-[09/10/2015 04:59:39] - [ERROR] - Posicion (22,40) excede matriz de vision.
-[09/10/2015 04:59:40] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:40] - [ERROR] - Posicion (21,40) excede matriz de vision.
-[09/10/2015 04:59:40] - [ERROR] - Posicion (22,40) excede matriz de vision.
-[09/10/2015 04:59:40] - [ERROR] - Posicion (20,40) excede matriz de vision.
-[09/10/2015 04:59:40] - [ERROR] - Posicion (21,40) excede matriz de vision.
-[09/10/2015 04:59:40] - [ERROR] - Posicion (22,40) excede matriz de vision.
-[09/10/2015 04:59:40] - [ERROR] - Posicion (21,40) excede matriz de vision.
-[09/10/2015 04:59:40] - [ERROR] - Posicion (21,40) excede matriz de vision.
-[09/10/2015 04:59:40] - [ERROR] - Posicion (22,40) excede matriz de vision.
-[09/10/2015 04:59:40] - [ERROR] - Posicion (22,40) excede matriz de vision.
-[09/10/2015 04:59:40] - [ERROR] - Posicion (22,40) excede matriz de vision.
-[09/10/2015 04:59:40] - [ERROR] - Posicion (22,40) excede matriz de vision.
-[09/10/2015 04:59:40] - [ERROR] - Posicion (22,40) excede matriz de vision.
-[09/10/2015 04:59:40] - [ERROR] - Posicion (22,40) excede matriz de vision.
-[09/10/2015 04:59:40] - [ERROR] - Posicion (23,40) excede matriz de vision.
-[09/10/2015 04:59:40] - [ERROR] - Posicion (23,40) excede matriz de vision.
-[09/10/2015 04:59:40] - [ERROR] - Posicion (23,40) excede matriz de vision.
-[09/10/2015 04:59:40] - [ERROR] - Posicion (23,40) excede matriz de vision.
-[09/10/2015 04:59:40] - [ERROR] - Posicion (23,40) excede matriz de vision.
-[09/10/2015 04:59:46] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:46] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:46] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:46] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:46] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:46] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:46] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:46] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:46] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:46] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:47] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:48] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (34,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (34,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (34,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (34,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (34,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (34,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (34,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (34,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (34,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (34,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (34,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (35,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (36,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (34,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (35,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (36,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (34,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (35,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (36,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (34,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (35,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (36,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (34,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (35,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (36,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (35,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (36,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (37,40) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:49] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (35,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (36,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (37,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (35,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (36,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (37,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (35,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (36,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (37,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (35,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (36,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (37,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (36,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (37,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (38,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,38) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (36,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (37,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (38,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,38) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (36,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (37,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (38,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,38) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (36,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (37,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (38,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,38) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (36,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (37,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (38,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,38) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (36,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (37,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (38,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,38) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (36,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (37,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (38,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,38) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (36,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (37,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (38,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,38) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (36,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (37,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (38,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,38) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (37,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (37,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (37,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (37,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (38,40) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,38) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:50] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,37) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,36) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:51] - [ERROR] - Posicion (40,35) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,34) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,33) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,32) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,31) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,26) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,26) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,26) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,26) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:52] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,26) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,30) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,25) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,26) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,25) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,26) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,25) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,26) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,25) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,26) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,29) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,26) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,26) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,28) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,25) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,26) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,25) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,26) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,25) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,26) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,25) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,26) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,25) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,26) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,27) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,26) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,26) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,25) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,25) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,25) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,25) excede matriz de vision.
-[09/10/2015 04:59:53] - [ERROR] - Posicion (40,25) excede matriz de vision.
-[09/10/2015 05:00:22] - [ALLWAYS] - ----INICIANDO----
-[09/10/2015 05:00:23] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
-[09/10/2015 05:00:23] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
-[09/10/2015 05:32:25] - [ALLWAYS] - ----INICIANDO----
-[09/10/2015 05:32:25] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
-[09/10/2015 05:32:25] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:34:49] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:34:50] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:34:50] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:35:36] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:35:37] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:35:37] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:35:37] - [WARNING] - Entidad [champion.png] no existe en sistema. Se reemplazará por entidad por defecto.
+[09/10/2015 08:35:47] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:35:47] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:35:47] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:35:47] - [WARNING] - Entidad [champion.png] no existe en sistema. Se reemplazará por entidad por defecto.
+[09/10/2015 08:37:09] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:37:09] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:37:09] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:38:20] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:38:21] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:38:21] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:39:14] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:39:15] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:39:15] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:40:20] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:40:21] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:40:21] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:41:31] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:41:31] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:41:31] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:42:50] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:42:51] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:42:51] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:43:34] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:43:34] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:43:34] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:43:47] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:43:48] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:43:48] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:44:05] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:44:06] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:44:06] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:44:33] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:44:33] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:44:33] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:46:53] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:46:53] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:46:53] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:47:29] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:47:30] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:47:30] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:48:50] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:48:51] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:48:51] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:49:02] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:49:02] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:49:02] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:52:11] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:52:12] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:52:12] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:57:57] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:57:57] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:57:57] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:58:31] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:58:32] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:58:32] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 08:59:57] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 08:59:57] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 08:59:57] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 09:03:25] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 09:03:25] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 09:03:25] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 09:14:46] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 09:14:47] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 09:14:47] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 09:34:13] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 09:34:13] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 09:34:13] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 09:46:30] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 09:46:31] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 09:46:31] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 09:47:29] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 09:47:29] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 09:47:29] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 09:47:49] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 09:47:50] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 09:47:50] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 09:49:44] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 09:49:45] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 09:49:45] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 09:54:21] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 09:54:22] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 09:54:22] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 09:55:32] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 09:55:32] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 09:55:32] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 10:02:50] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 10:02:51] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 10:02:51] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 10:02:57] - [ALLWAYS] - ----RESETEANDO----
+[09/10/2015 10:02:57] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 10:02:57] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 10:02:57] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 10:03:44] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 10:03:44] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 10:03:44] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 10:03:49] - [ALLWAYS] - ----RESETEANDO----
+[09/10/2015 10:03:49] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 10:03:50] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 10:03:50] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 10:06:39] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 10:06:39] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 10:06:39] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 11:41:02] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 11:41:02] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 11:41:02] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 11:43:00] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 11:43:00] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 11:43:00] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 11:43:54] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 11:43:54] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 11:43:54] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 11:46:18] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 11:46:18] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 11:46:18] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 11:47:48] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 11:47:49] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 11:47:49] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 11:49:40] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 11:49:40] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 11:49:40] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 11:51:16] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 11:51:17] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 11:51:17] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 11:52:05] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 11:52:06] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 11:52:06] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 11:53:25] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 11:53:25] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 11:53:25] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 11:55:07] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 11:55:08] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 11:55:08] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 11:57:18] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 11:57:19] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 11:57:19] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[09/10/2015 11:58:42] - [ALLWAYS] - ----INICIANDO----
+[09/10/2015 11:58:42] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[09/10/2015 11:58:42] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[10/10/2015 12:01:06] - [ALLWAYS] - ----INICIANDO----
+[10/10/2015 12:01:07] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[10/10/2015 12:01:07] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[10/10/2015 12:01:27] - [ALLWAYS] - ----INICIANDO----
+[10/10/2015 12:01:27] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[10/10/2015 12:01:27] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[10/10/2015 12:07:02] - [ALLWAYS] - ----INICIANDO----
+[10/10/2015 12:07:02] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[10/10/2015 12:07:02] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[10/10/2015 12:10:21] - [ALLWAYS] - ----INICIANDO----
+[10/10/2015 12:10:21] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[10/10/2015 12:10:21] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[10/10/2015 12:10:52] - [ALLWAYS] - ----INICIANDO----
+[10/10/2015 12:10:53] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelX
+[10/10/2015 12:10:53] - [WARNING] - yaml-cpp: error at line 22, column 5: key not found: pixelY
+[10/10/2015 12:11:18] - [ERROR] - Posicion (22,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (22,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (21,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (21,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (22,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (21,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (22,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (21,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (21,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (21,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (21,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:18] - [ERROR] - Posicion (21,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:19] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:28] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:28] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:28] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:28] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:28] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:28] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:28] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:28] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:28] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:28] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:28] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:28] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:28] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:28] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:28] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:29] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,14) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,15) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,16) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,17) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (40,18) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:30] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (16,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (17,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (21,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (18,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (19,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (21,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (20,40) excede matriz de vision.
+[10/10/2015 12:11:31] - [ERROR] - Posicion (21,40) excede matriz de vision.

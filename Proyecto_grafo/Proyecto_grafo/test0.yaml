@@ -30,6 +30,7 @@ tipo:
     pixelY: 38
     fps: 10
     delay: 15
+    vision: 6
   - nombre: "champion_move"
     ruta: "champion_moveAOE.png"
     tipo: "none"
@@ -39,6 +40,7 @@ tipo:
     pixelY: 38
     delay: 0
     fps: 20
+    vision: 6
   - nombre: "castle"
     ruta: "castleAOE.png"
     sizeX: 6
