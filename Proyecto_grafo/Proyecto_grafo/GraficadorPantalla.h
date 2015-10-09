@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "ConversorUnidades.h"
+#include "Jugador.h"
 
 #pragma once
 class GraficadorPantalla {
@@ -13,7 +14,7 @@ private:
 	float ancho_borde, alto_borde;
 	float screen_width, screen_height;
 	int vel_scroll, margen_scroll;
-
+	Jugador* player;
 public:
 	GraficadorPantalla(void);
 	~GraficadorPantalla(void);
@@ -21,7 +22,7 @@ public:
 	SDL_Surface* getPantalla(void);
 	void dibujarPantalla(void);
 	void asignarEscenario(Escenario* scene);
-
+	void asignarJugador(Jugador* jugador);
 	void asignarParametrosScroll(int margen, int velocidad);
 private:
 	void reajustarCamara(void);

@@ -18,7 +18,7 @@ Entidad::Entidad(Posicion* p) {
 	this->name = nombre_entidad_def;
 	this->tamX = 1;
 	this->tamY = 1;
-	this->rangoVision = 2;
+	this->rangoVision = 4;
 
 	this->owner = nullptr;
 }
@@ -31,7 +31,7 @@ Entidad::Entidad(void) {
 	this->name = nombre_entidad_def;
 	this->tamX = 1;
 	this->tamY = 1;
-	this->rangoVision = 2;
+	this->rangoVision = 4;
 	
 	this->owner = nullptr;
 }

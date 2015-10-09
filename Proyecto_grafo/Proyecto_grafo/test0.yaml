@@ -19,6 +19,8 @@ tipo:
     pixelY: 10
     fps: 10
     score: 1
+  - nombre: "screen_frame"
+    ruta: "screenFrame.png"
   - nombre: "champion"
     ruta: "championAOE.png"
     tipo: "unit"
@@ -52,6 +54,7 @@ tipo:
     pixelY: 41
     fps: 8
     delay: 3
+    vision: 6
   - nombre: "knight_move"
     ruta: "knight_moveAOE.png"
     tipo: "none"
@@ -61,6 +64,7 @@ tipo:
     pixelY: 49
     fps: 18
     delay: 0
+    vision: 6
   - nombre: "house"
     ruta: "houseAOE.png"
     sizeX: 3

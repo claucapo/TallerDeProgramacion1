@@ -193,14 +193,21 @@ int wmain(int argc, char** argv) {
 		// ya hago que sea gaia
 		Jugador* player = new Jugador("gaia");
 		scene->verProtagonista()->asignarJugador(player);
+		gp->asignarJugador(player);
+
+		player->asignarVision(scene->verTamX(), scene->verTamY());
 
 		 int i = 1; float dTot = 0;
 		// Main loop del juego
 		while(codigo_programa > 0){
 			float timeA = SDL_GetTicks();
 
+			// Con esto actualizo la vision, ponele
+			player->reiniciarVision();
+			player->agregarPosiciones(scene->verMapa()->posicionesVistas(scene->verProtagonista()));
+
 			codigo_programa = procesarEventos(scene, gp);
-		//	cout << "Prog code: " << codigo_programa << endl;
+			//	cout << "Prog code: " << codigo_programa << endl;
 		//	cout << " i: " << i << endl;
 			scene->avanzarFrame();
 			gp->dibujarPantalla();

@@ -44,10 +44,19 @@ void GraficadorPantalla::asignarEscenario(Escenario* scene) {
 	}
 }
 
+void GraficadorPantalla::asignarJugador(Jugador* jugador) {
+	if (jugador) 
+		this->player = jugador;
+}
+
 void GraficadorPantalla::dibujarPantalla(void) {
 	// PASOS DEL DIBUJO DE LA PANTALLA
 	if (!this->escenario) {
 		ErrorLog::getInstance()->escribirLog("FATAL: No hay Escenario que graficar!" , LOG_ERROR);
+		return;
+		}
+	if (!this->player) {
+		ErrorLog::getInstance()->escribirLog("FATAL: No hay Jugador al que graficar!" , LOG_ERROR);
 		return;
 		}
 	// 0) Limpiar pantalla
@@ -140,9 +149,10 @@ void GraficadorPantalla::reajustarCamara(void) {
 
 
 // PASO 2: renderizar terreno
-
+#define TRANSPARENCIA_COLOR_MOD 160
 // TODO: Optimizaciones
 void GraficadorPantalla::renderizarTerreno(void) {
+	/*
 	SDL_Surface* imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tileHuge");
 	SDL_SetColorKey(imgTile, true, SDL_MapRGB(imgTile->format, 255, 255, 255));
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
@@ -185,24 +195,31 @@ void GraficadorPantalla::renderizarTerreno(void) {
 				}
 			}
 		}
-	
-	/*SDL_Surface* imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tile");
+	*/
+	SDL_Surface* imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tile");
 	SDL_SetColorKey(imgTile, true, SDL_MapRGB(imgTile->format, 255, 255, 255));
 	SDL_Rect rectangulo;
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
-	
+	Vision* vis = player->verVision();
+
 	for(int i = 0; i < escenario->verTamX(); i++) {
 		for(int j = 0; j < escenario->verTamY(); j++){
-			rectangulo.x = cu->obtenerCoordPantallaX(i, j, view_x, view_y, ancho_borde);
-			// Esto chequea si la casilla cae dentro del la pantalla... si no resulta visible, no la grafica
-			if ((rectangulo.x) < (this->screen_width) && (rectangulo.x + imgTile->w) > 0) {
-				rectangulo.y = cu->obtenerCoordPantallaY(i, j, view_x, view_y, ancho_borde);
-				if ((rectangulo.y) < (this->screen_height) && (rectangulo.y + imgTile->h) > 0) {
-					SDL_BlitSurface( imgTile, NULL, pantalla, &rectangulo );
+			if(vis->visibilidadPosicion(Posicion(i,j)) != VIS_NO_EXPLORADA){
+				rectangulo.x = cu->obtenerCoordPantallaX(i, j, view_x, view_y, ancho_borde);
+				// Esto chequea si la casilla cae dentro del la pantalla... si no resulta visible, no la grafica
+				if ((rectangulo.x) < (this->screen_width) && (rectangulo.x + imgTile->w) > 0) {
+					rectangulo.y = cu->obtenerCoordPantallaY(i, j, view_x, view_y, ancho_borde);
+					if ((rectangulo.y) < (this->screen_height) && (rectangulo.y + imgTile->h) > 0) {
+						if(vis->visibilidadPosicion(Posicion(i,j)) == VIS_VISITADA)
+							SDL_SetSurfaceColorMod(imgTile, TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD );
+						else
+							SDL_SetSurfaceColorMod(imgTile, 255, 255, 255 );
+						SDL_BlitSurface( imgTile, NULL, pantalla, &rectangulo );
+					}
 				}
 			}
 		}
-	}*/
+	}
 }
 
 
@@ -274,23 +291,41 @@ void GraficadorPantalla::renderizarEntidades(void) {
 	SDL_Rect rectangulo;
 	list<Entidad*> lEnt = escenario->verEntidades();
 	for (list<Entidad*>::iterator it=lEnt.begin(); it != lEnt.end(); ++it){
-		Spritesheet* entAct = (*it)->verSpritesheet();
-		SDL_Surface* spEnt = entAct->devolverImagenAsociada();
-		SDL_SetColorKey( spEnt, true, SDL_MapRGB(spEnt->format, 255, 0, 255) );
+		Posicion* posEntAct1 = (*it)->verPosicion();
+		int tx = (*it)->verTamX(); int ty = (*it)->verTamY();
+		Posicion posEntAct2 = Posicion(posEntAct1->getX() + tx - 1, posEntAct1->getY());
+		Posicion posEntAct3 = Posicion(posEntAct1->getX(), posEntAct1->getY() + ty - 1);
+		Posicion posEntAct4 = Posicion(posEntAct1->getX() + tx - 1, posEntAct1->getY() + ty - 1); 
+		Vision* vis = player->verVision();
+		// Si se ve alguna de las cuatro posiciones del borde, dibujo la entidad
+		bool entEsVisible= false;
+		entEsVisible |= (vis->visibilidadPosicion(*posEntAct1)!=VIS_NO_EXPLORADA);
+		entEsVisible |= (vis->visibilidadPosicion(posEntAct2)!=VIS_NO_EXPLORADA);
+		entEsVisible |= (vis->visibilidadPosicion(posEntAct3)!=VIS_NO_EXPLORADA);
+		entEsVisible |= (vis->visibilidadPosicion(posEntAct4)!=VIS_NO_EXPLORADA);
+		
+		if(entEsVisible){
+			Spritesheet* entAct = (*it)->verSpritesheet();
+			SDL_Surface* spEnt = entAct->devolverImagenAsociada();
+			SDL_SetColorKey( spEnt, true, SDL_MapRGB(spEnt->format, 255, 0, 255) );
 	
-		int newX = (int) cu->obtenerCoordPantallaX((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY(), view_x, view_y, ancho_borde);
-		int newY = (int) cu->obtenerCoordPantallaY((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY(), view_x, view_y, ancho_borde);
-		entAct->cambirCoord(newX, newY);
-		rectangulo.x = entAct->getCoordX();
-		rectangulo.y = entAct->getCoordY();
+			int newX = (int) cu->obtenerCoordPantallaX((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY(), view_x, view_y, ancho_borde);
+			int newY = (int) cu->obtenerCoordPantallaY((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY(), view_x, view_y, ancho_borde);
+			entAct->cambirCoord(newX, newY);
+			rectangulo.x = entAct->getCoordX();
+			rectangulo.y = entAct->getCoordY();
 
-		SDL_Rect recOr;
-		recOr.x = entAct->calcularOffsetX();
-		recOr.y = entAct->calcularOffsetY();
-		recOr.w = entAct->subImagenWidth();
-		recOr.h = entAct->subImagenHeight();
+			SDL_Rect recOr;
+			recOr.x = entAct->calcularOffsetX();
+			recOr.y = entAct->calcularOffsetY();
+			recOr.w = entAct->subImagenWidth();
+			recOr.h = entAct->subImagenHeight();
 
-		SDL_BlitSurface( spEnt, &recOr, pantalla, &rectangulo );
+			SDL_BlitSurface( spEnt, &recOr, pantalla, &rectangulo );	
+	
+		}
+
+		
 	}
 }
 
@@ -321,6 +356,8 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 		*minimapH = rectangulo.h * HEIGHT_REL_MINIMAP;
 	if(minimapW)
 		*minimapW = rectangulo.w * WIDTH_REL_MINIMAP;
+
+	
 
 }
 
