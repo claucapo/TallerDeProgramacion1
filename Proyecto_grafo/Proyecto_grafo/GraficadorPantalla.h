@@ -30,7 +30,7 @@ private:
 	void renderizarProtagonista(void);
 	void renderizarEntidades(void);
 	void dibujarMarcoPantalla(int* minimapX, int* minimapY, int* minimapW, int* minimapH);
-
+	void dibujarMinimapa(int minimapX, int minimapY, int minimapW, int minimapH);
 public:
 	bool cargarSDL(bool full_screen = false, string title = "AGE OF TALLER DE PROGRAMACION I");
 	SDL_Window* getVentana(void);

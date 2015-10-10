@@ -77,9 +77,13 @@ void GraficadorPantalla::dibujarPantalla(void) {
 	renderizarProtagonista();
 
 	// 5) Dibujar el screen frame alrededor de la pantalla
-	dibujarMarcoPantalla(NULL, NULL, NULL, NULL);
+	int minimapX, minimapY, minimapW, minimapH;
+	dibujarMarcoPantalla(&minimapX, &minimapY, &minimapW, &minimapH);
+
+	// 6) Dibujar el minimapa
+	dibujarMinimapa(minimapX, minimapY, minimapW, minimapH);
 				
-	// 6) Window_Update
+	// 7) Window_Update
 	SDL_UpdateWindowSurface(ventana);
 
 }
@@ -330,7 +334,7 @@ void GraficadorPantalla::renderizarEntidades(void) {
 }
 
 
-//	PASO 5:
+//	PASO 5: screen frame
 
 #define POS_REL_MINIMAP_X 0.805
 #define POS_REL_MINIMAP_Y 0.775
@@ -357,8 +361,83 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 	if(minimapW)
 		*minimapW = rectangulo.w * WIDTH_REL_MINIMAP;
 
+}
+
+//	PASO 6: dibujar el minimapa
+
+void GraficadorPantalla::dibujarMinimapa(int minimapX, int minimapY, int minimapW, int minimapH){
+	SDL_Rect pixel;
+	pixel.h = 2;
+	pixel.w = 2;
+	int i, j;
+	
+	for(i = 0; i < this->escenario->verTamX(); i++)
+		for(j = 0; j < this->escenario->verTamX(); j++){
+			Posicion pAct = Posicion(i, j);
+			if(this->player->visionCasilla(pAct) != VIS_NO_EXPLORADA){
+				pixel.x = minimapX - 4;
+				pixel.y = minimapY;
+				ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
+				pixel.x += floor(cu->obtenerCoordPantallaX(i, j, 0, 0, minimapW)/LARGO_TILE);
+				pixel.y += floor(cu->obtenerCoordPantallaY(i, j, 0, 0, minimapW)/LARGO_TILE);
+
+				if(this->escenario->verMapa()->posicionEstaVacia(&pAct))
+					SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 51, 151, 37));
+				else if(this->escenario->verMapa()->verContenido(&pAct)->verTipo() == "resource")
+					SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 250, 200, 16));
+				else
+					SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 10, 38, 163));
+			}
+		}
+	// LA CAMARA	
+	pixel.h = 1;
+	pixel.w = 1;
+
+	// Obtengo las coordenadas del minimapa de la view
+	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
+	float viewXlogico = cu->obtenerCoordLogicaX(0, 0, view_x, view_y, ancho_borde);
+	float viewYlogico = cu->obtenerCoordLogicaY(0, 0, view_x, view_y, ancho_borde);
+	
+	float ultimoXlogico = cu->obtenerCoordLogicaX(this->screen_width, this->screen_height, view_x, view_y, ancho_borde);
+	float ultimoYlogico = cu->obtenerCoordLogicaY(this->screen_width, this->screen_height, view_x, view_y, ancho_borde);
+	
+	float topeX = floor(cu->obtenerCoordPantallaX(ultimoXlogico, ultimoYlogico, 0, 0, minimapW)/LARGO_TILE);
+	float topeY = floor(cu->obtenerCoordPantallaY(ultimoXlogico, ultimoYlogico, 0, 0, minimapW)/LARGO_TILE);
+	
+	pixel.x = minimapX - 4;
+	pixel.y = minimapY;
+	pixel.x += floor(cu->obtenerCoordPantallaX(viewXlogico, viewYlogico, 0, 0, minimapW)/LARGO_TILE);
+	pixel.y += floor(cu->obtenerCoordPantallaY(viewXlogico, viewYlogico, 0, 0, minimapW)/LARGO_TILE);
+	SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 255, 255, 255));
+
+	while(pixel.x <= (topeX+minimapX - 4)){
+		SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 255, 255, 255));
+		pixel.x += 1;
+	}
+
+	while(pixel.y <= (topeY+minimapY)){
+		SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 255, 255, 255));
+		pixel.y += 1;
+	}
+		
+	pixel.x = minimapX - 4;
+	pixel.y = minimapY;
+	pixel.x += floor(cu->obtenerCoordPantallaX(viewXlogico, viewYlogico, 0, 0, minimapW)/LARGO_TILE);
+	pixel.y += floor(cu->obtenerCoordPantallaY(viewXlogico, viewYlogico, 0, 0, minimapW)/LARGO_TILE);
+
+	while(pixel.y <= (topeY+minimapY)){
+		SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 255, 255, 255));
+		pixel.y += 1;
+	}
+
+	while(pixel.x <= (topeX+minimapX - 4)){
+		SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 255, 255, 255));
+		pixel.x += 1;
+	}
 	
 
+SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 255, 255, 255));
+				
 }
 
 // METODOS DE INICIALIZACION Y GETTERS
