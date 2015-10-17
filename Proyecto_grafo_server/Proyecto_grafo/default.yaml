@@ -1,140 +1,77 @@
-pantalla: 
-  ancho: 640
-  alto: 480
-  fullscreen: 0 # 1 = true, 0 = false
-gameplay: 
-  velocidad: 1 #en UL/frame
-  scroll_margen: 60
-  scroll_vel: 20
 log:
   warnings: 1
   info: 0
   errors: 1
-tipo:
+jugadores:
+  - nombre: "Juana de Arco"
+    id: 1
+    color: "azul"
+  - nombre: "Genghis Khan"
+    id: 2
+    color: "rojo"
+  - nombre: "Saladino"
+    id: 3
+    color: "amarillo"
+entidades:
   - nombre: "moneda"
-    ruta: "coin.png"
     tipo: "resource"
-    subX: 10
-    pixelX: 10
-    pixelY: 10
-    fps: 10
     score: 1
   - nombre: "champion"
-    ruta: "championAOE.png"
     tipo: "unit"
-    subX: 10
-    subY: 8
-    pixelX: 21
-    pixelY: 38
-    fps: 10
-    delay: 15
-  - nombre: "champion_move"
-    ruta: "champion_moveAOE.png"
-    tipo: "none"
-    subX: 10
-    subY: 8
-    pixelX: 21
-    pixelY: 38
-    delay: 0
-    fps: 20
+    velocidad: 10
   - nombre: "castle"
-    ruta: "castleAOE.png"
+    tipo: "building"
     sizeX: 6
     sizeY: 6
-    pixelX: 148
-    pixelY: 177
   - nombre: "knight"
-    ruta: "knightAOE.png"
     tipo: "unit"
-    subX: 10
-    subY: 8
-    pixelX: 34
-    pixelY: 41
-    fps: 8
-    delay: 3
-  - nombre: "knight_move"
-    ruta: "knight_moveAOE.png"
-    tipo: "none"
-    subX: 10
-    subY: 8
-    pixelX: 26
-    pixelY: 49
-    fps: 18
-    delay: 0
+    velocidad: 20
   - nombre: "house"
-    ruta: "houseAOE.png"
-    sizeX: 3
-    sizeY: 3
-    pixelX: 76
-    pixelY: 42
-  - nombre: "tile"
-    ruta: "tileG.png"
-    tipo: "none"
-    pixelX: 26
-    pixelY: 0
-  - nombre: "tileHuge"
-    ruta: "tileHuge.png"
-    tipo: "none"
-    sizeX: 10
-    sizeY: 10
-    pixelX: 260
-    pixelY: 0
+    tipo: "building"
   - nombre: "windmill"
-    ruta: "windmillAOE.png"
-    subX: 8
-    subY: 1
+    tipo: "building"
     sizeX: 3
     sizeY: 3
-    pixelX: 84
-    pixelY: 53
-    fps: 10
-    delay: 0
   - nombre: "town_center"
-    ruta: "townCenterAOE.png"
+    tipo: "building"
     sizeX: 2
     sizeY: 2
-    pixelX: 56
-    pixelY: 159
   - nombre: "barracks"
-    ruta: "barracksAOE.png"
+    tipo: "building"
     sizeX: 4
     sizeY: 4
-    pixelX: 101
-    pixelY: 41
   - nombre: "archery"
-    ruta: "archeryAOE.png"
+    tipo: "building"
     sizeX: 4
     sizeY: 4
-    pixelX: 101
-    pixelY: 47
   - nombre: "stable"
-    ruta: "stableAOE.png"
+    tipo: "building"
     sizeX: 4
     sizeY: 4
-    pixelX: 101
-    pixelY: 12
 escenario:
   nombre: DEFAULT_MAP
   sizeX: 40
   sizeY: 40
   entidades:
-   - {x: 4, y: 12, tipo: "house"}
-   - {x: 4, y: 3, tipo: "windmill"}
-   - {x: 1, y: 6, tipo: "castle"}
-   - {x: 1, y: 12, tipo: "house"}
-   - {x: 18, y: 25, tipo: "house"}
-   - {x: 18, y: 21, tipo: "house"}
-   - {x: 5, y: 23, tipo: "windmill"}
-   - {x: 5, y: 31, tipo: "windmill"}
-   - {x: 13, y: 9, tipo: "castle"}
-   - {x: 10, y: 11, tipo: "house"}
-   - {x: 16, y: 6, tipo: "house"}
+   - {x: 4, y: 12, tipo: "house", p: 1}
+   - {x: 4, y: 3, tipo: "windmill", p: 1}
+   - {x: 1, y: 6, tipo: "castle", p: 2}
+   - {x: 1, y: 12, tipo: "house", p: 2}
+   - {x: 18, y: 25, tipo: "house", p: 2}
+   - {x: 18, y: 21, tipo: "house", p: 2}
+   - {x: 5, y: 23, tipo: "windmill", p: 2}
+   - {x: 5, y: 31, tipo: "windmill", p: 2}
+   - {x: 13, y: 9, tipo: "castle", p: 2}
+   - {x: 10, y: 11, tipo: "house", p: 2}
+   - {x: 16, y: 6, tipo: "house", p: 2}
    - {x: 35, y: 35, tipo: "moneda"}
-   - {x: 36, y: 35, tipo: "moneda"}
-   - {x: 25, y: 25, tipo: "stable"}
-   - {x: 5, y: 0, tipo: "windmill"}
-   - {x: 22, y: 15, tipo: "barracks"}
-   - {x: 23, y: 21, tipo: "archery"}
-   - {x: 5, y: 18, tipo: "barracks"}
-   - {x: 9, y: 18, tipo: "barracks"}
-  protagonista: {x: 2, y: 1, tipo: "knight"}
+   - {x: 36, y: 35, tipo: "moneda", p: 0}
+   - {x: 25, y: 25, tipo: "stable", p: 2}
+   - {x: 5, y: 0, tipo: "windmill", p: 2}
+   - {x: 22, y: 15, tipo: "barracks", p: 2}
+   - {x: 23, y: 21, tipo: "archery", p: 2}
+   - {x: 5, y: 18, tipo: "barracks", p: 2}
+   - {x: 9, y: 18, tipo: "barracks", p: 2}
+   - {x: 3, y: 30, tipo: "champion", p: 3}
+   - {x: 1, y: 1, tipo: "champion", p: 2}
+   - {x: 0, y: 0, tipo: "knight", p: 1}

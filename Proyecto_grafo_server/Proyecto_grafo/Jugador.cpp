@@ -1,9 +1,17 @@
 #include "Jugador.h"
 #include "Entidad.h"
+#include "ErrorLog.h"
 #include "Unidad.h"
 
-Jugador::Jugador(string name){
+Jugador::Jugador(string name, int id, string color){
 	this->nombre = name;
+	this->id = 1;
+	if (id < 0)
+		ErrorLog::getInstance()->escribirLog("Error al crear jugador [" + this->nombre + "]. ID invalida", LOG_ERROR);
+	else
+		this->id = id;
+	
+	this->color = color;
 	this->vision = nullptr;
 	this->recurso = 0;
 	this->esta_conectado = false;

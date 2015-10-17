@@ -3,10 +3,9 @@
 
 #include <Winsock2.h>
 #include "Protocolo.h"
+#include "Partida.h"
 #include <SDL_mutex.h>
 #include <SDL_thread.h>
-
-#include "ConfigParser.h"
 
 #include <queue>
 #include <list>
@@ -17,7 +16,6 @@ using namespace std;
 
 class Servidor {
 private:
-	ConfigParser* parserInicial;
 	SDL_sem* eventos_lock;
 	queue<struct msg_event> eventos;
 
@@ -26,7 +24,9 @@ private:
 
 	SDL_sem* clientes_lock;
 	list<ConexionCliente*> clientes;
-	// Partida* partida
+	
+	SDL_sem* partida_lock;
+	Partida* partida;
 	
 	Servidor() {};
 
@@ -37,11 +37,13 @@ public:
 
 
 	// Constructor y destructor
-	Servidor(SOCKET ls, ConfigParser* parser);
+	Servidor(SOCKET ls, Partida* partida);
 	~Servidor();
 
 	// Inicializa el thread que quedará a la espera de nuevos clientes
 	void start(void);
+
+	void avanzarFrame(void);
 
 	// Lockea la cola de eventos y los procesa
 	void procesarEventos(void);
@@ -49,6 +51,7 @@ public:
 
 	// Permite a los clientes agregar un nuevo evento
 	void agregarEvento(struct msg_event);
+	void agregarUpdate(struct msg_update);
 
 	// Valida una conexión entrante y la agrega a la lista de clientes
 	void aceptarCliente(SOCKET cs);

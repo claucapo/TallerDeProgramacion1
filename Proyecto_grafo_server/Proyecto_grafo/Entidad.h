@@ -2,7 +2,6 @@
 #define ENTIDAD_H
 
 #include "Posicion.h"
-#include "Spritesheet.h"
 #include "Enumerados.h"
 
 class Jugador;
@@ -16,9 +15,10 @@ NOTA: Esta clase es una base, y de ella
 deberán heredar los "entes" verdaderos.*/
 class Entidad {
 protected:
-	Posicion* pos;
-	Spritesheet* sprites;
+	unsigned int id;
 
+	Posicion* pos;
+	
 	Estados_t state;
 
 	int tamX;
@@ -29,15 +29,19 @@ protected:
 
 	Jugador* owner;
 
+	// Proximamente borrar (?
+	Entidad(void);
+	Entidad(Posicion* p);
+
 public:
 	string name;
+	entity_type_t tipo;
+
 	// Constructor y destructor por defecto
-	Entidad(void);
 	~Entidad(void);
 
 	// Constructor sobrecargado
-	Entidad(Posicion* p);
-	Entidad(string name, int tamX, int tamY, int vision);
+	Entidad(unsigned int id, string name, int tamX, int tamY, int vision);
 
 	// Devuelve la Posicion sobre la cual
 	// está asociada la Entidad.
@@ -51,19 +55,17 @@ public:
 
 	// Devuelve los dos tamanios
 	int verTamX() {return this->tamX;}
+	unsigned int verID() {return this->id;}
 	int verTamY() {return this->tamY;}
 	int verRango() {return this->rangoVision;}
-	string verTipo() {return this->name;}
+	string verNombre() {return this->name;}
 
 	Jugador* verJugador() {return this->owner;}
 
 	// Avanza un frame modificando los valores de la entidad
 	// Si devuelve true, significa que hay que remover a la entidad el mapa
-	virtual bool avanzarFrame(Escenario* scene);
-
-	// Metodos para setear los sprites.
-	void asignarSprite(Spritesheet* sp);
-
+	virtual af_result_t avanzarFrame(Escenario* scene);
+	
 	void asignarJugador(Jugador* player);
 
 	// NOTA: Sobrescribir los operadores
@@ -77,7 +79,6 @@ public:
 
 	bool operator ==(const Entidad other);
 	bool operator < (const Entidad& other) const;
-	Spritesheet* verSpritesheet(void);
 };
 
 #endif ENTIDAD_H

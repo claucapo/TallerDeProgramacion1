@@ -2,19 +2,19 @@
 #define FACTORY_ENTIDADES_H
 #include "Entidad.h"
 #include "ConfigParser.h"
+#include "Enumerados.h"
 #include "Unidad.h"
 
 #include <map>
 
 #pragma once
 
-enum entity_type_t {ENT_T_NONE, ENT_T_UNIT, ENT_T_RESOURCE};
-
 // Definición del struct que contendrá información particular de cada clase.
 struct tipoEntidad_t {
 	int tamX;
 	int tamY;
 	int vision;
+	int velocidad;
 	entity_type_t tipo;
 	int score;
 
@@ -23,6 +23,7 @@ struct tipoEntidad_t {
 		tamX = 1;
 		tamY = 1;
 		vision = 1;
+		velocidad = 1;
 		tipo = ENT_T_NONE;
 		score = 1;
 	}
@@ -38,6 +39,8 @@ private:
 
 	FactoryEntidades();
 
+	static unsigned int obtenerIDValida();
+	static unsigned int nextID;
 
 public:
 	// Destructor por defecto
@@ -48,7 +51,7 @@ public:
 	void agregarEntidad(entidadInfo_t eInfo);
 
 	Entidad* obtenerEntidad(string name);
-	Unidad* obtenerUnidad(string name);
+	// Unidad* obtenerUnidad(string name);
 };
 
 #endif FACTORY_ENTIDADES_H

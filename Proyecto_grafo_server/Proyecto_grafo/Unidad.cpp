@@ -12,8 +12,8 @@ Unidad::Unidad() : Entidad() {
 	this->destino = nullptr;
 }
 
-Unidad::Unidad(string name, int tamX, int tamY, int vision) : Entidad(name, tamX, tamY, vision) {
-	this->rapidez = 0;
+Unidad::Unidad(unsigned int id, string name, int tamX, int tamY, int vision, int velocidad) : Entidad(id, name, tamX, tamY, vision) {
+	this->rapidez = velocidad;
 	this->direccion = DIR_DOWN;
 	this->destino = nullptr;
 }
@@ -61,10 +61,35 @@ void Unidad::setEstado(Estados_t state) {
 	this->state = state;
 }
 
-#define TOLERANCIA 3
-bool Unidad::avanzarFrame(Escenario* scene) {
-	// TODO: Trasladar lógica de movimiento acá?
-	return false;
+af_result_t Unidad::avanzarFrame(Escenario* scene) {
+	// Aca habría que chequear si la entidad cambió de posición
+
+	Estados_t state = this->state;
+
+	// Si se esta moviendo
+	if (state == EST_CAMINANDO) {
+		Posicion* act = this->pos;
+		Posicion* dest = this->destino;
+
+		// Distantcias
+		float distX = dest->getX() - act->getX();
+		float distY = dest->getY() - act->getY();
+		float totalDist = sqrt((distX*distX) + (distY*distY));	
+
+		this->setDireccion(this->calcularDirecion(distX, distY));
+		
+		if (totalDist > this->rapidez) {
+			float nuevoX = act->getX() + (distX*rapidez)/totalDist;
+			float nuevoY = act->getY() + (distY*rapidez)/totalDist;
+			Posicion nuevaPos(nuevoX, nuevoY);
+			this->asignarPos(&nuevaPos);
+		} else {
+			this->setEstado(EST_QUIETO);
+		}
+		return AF_MOVE;
+	}
+
+	return AF_NONE;
 }
 
 

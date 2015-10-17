@@ -31,14 +31,8 @@
     <Filter Include="Archivos de código fuente\Archivos">
       <UniqueIdentifier>{4fea59dd-387b-4922-97d2-e4e5df73b116}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de código fuente\SDL">
-      <UniqueIdentifier>{56dd4752-055e-48b9-9cdd-d0d1829653b5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de código fuente\Utilidades">
       <UniqueIdentifier>{e2ba2a87-116c-42f1-84c7-83ecef37f9f4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\SDL">
-      <UniqueIdentifier>{43ea0b04-8384-4560-ad7f-fb17565b0141}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de encabezado\Utilidades">
       <UniqueIdentifier>{f5902a49-0dd7-4beb-9bde-8bbe64bfed77}</UniqueIdentifier>
@@ -84,15 +78,6 @@
     <ClInclude Include="ErrorLog.h">
       <Filter>Archivos de encabezado\Archivos</Filter>
     </ClInclude>
-    <ClInclude Include="BibliotecaDeImagenes.h">
-      <Filter>Archivos de encabezado\SDL</Filter>
-    </ClInclude>
-    <ClInclude Include="Spritesheet.h">
-      <Filter>Archivos de encabezado\SDL</Filter>
-    </ClInclude>
-    <ClInclude Include="ConversorUnidades.h">
-      <Filter>Archivos de encabezado\Utilidades</Filter>
-    </ClInclude>
     <ClInclude Include="Enumerados.h">
       <Filter>Archivos de encabezado\Utilidades</Filter>
     </ClInclude>
@@ -105,14 +90,8 @@
     <ClInclude Include="Tests.h">
       <Filter>Archivos de encabezado\Tests</Filter>
     </ClInclude>
-    <ClInclude Include="GraficadorPantalla.h">
-      <Filter>Archivos de encabezado\Utilidades</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="DatosImagen.h">
-      <Filter>Archivos de encabezado\SDL</Filter>
     </ClInclude>
     <ClInclude Include="FactoryEntidades.h">
       <Filter>Archivos de encabezado\Entidades</Filter>
@@ -134,6 +113,9 @@
     </ClInclude>
     <ClInclude Include="TranslatorServer.h">
       <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ConversorUnidades.h">
+      <Filter>Archivos de encabezado\Utilidades</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -161,12 +143,6 @@
     <ClCompile Include="ConfigParser.cpp">
       <Filter>Archivos de código fuente\Archivos</Filter>
     </ClCompile>
-    <ClCompile Include="BibliotecaDeImagenes.cpp">
-      <Filter>Archivos de código fuente\SDL</Filter>
-    </ClCompile>
-    <ClCompile Include="Spritesheet.cpp">
-      <Filter>Archivos de código fuente\SDL</Filter>
-    </ClCompile>
     <ClCompile Include="ConversorUnidades.cpp">
       <Filter>Archivos de código fuente\Utilidades</Filter>
     </ClCompile>
@@ -179,12 +155,6 @@
     <ClCompile Include="Partida.cpp">
       <Filter>Archivos de código fuente\Partida</Filter>
     </ClCompile>
-    <ClCompile Include="GraficadorPantalla.cpp">
-      <Filter>Archivos de código fuente\Utilidades</Filter>
-    </ClCompile>
-    <ClCompile Include="DatosImagen.cpp">
-      <Filter>Archivos de código fuente\SDL</Filter>
-    </ClCompile>
     <ClCompile Include="FactoryEntidades.cpp">
       <Filter>Archivos de código fuente\Entidades</Filter>
     </ClCompile>
@@ -193,9 +163,6 @@
     </ClCompile>
     <ClCompile Include="Recurso.cpp">
       <Filter>Archivos de código fuente\Entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="MainOriginal.cpp">
-      <Filter>Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Archivos de código fuente</Filter>

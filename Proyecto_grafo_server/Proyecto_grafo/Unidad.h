@@ -13,16 +13,17 @@ protected:
 	Posicion* destino;
 	float rapidez;
 	Direcciones_t direccion;
-	
-public:
-	// Constructor y destructor por defecto
-	Unidad(void);
-	~Unidad(void);
-	
-	Unidad(string name, int tamX, int tamY, int vision);
 
+	Unidad(void);
 	Unidad(Posicion* p);
 
+public:
+	// Constructor y destructor por defecto
+
+	~Unidad(void);
+	
+	Unidad(unsigned int id, string name, int tamX, int tamY, int vision, int velocidad);
+	
 	// Devuelve el valor de la velocidad de
 	// la Unidad.
 	// NOTA: Debemos decidir una "unidad" para
@@ -43,7 +44,7 @@ public:
 	virtual void setVelocidad(float nuevaVelocidad);
 	virtual void setEstado(Estados_t nuevoEstado);
 	
-	virtual bool avanzarFrame(Escenario* scene);
+	virtual af_result_t avanzarFrame(Escenario* scene);
 
 	Direcciones_t calcularDirecion(float velocidadX, float velocidadY);
 public:

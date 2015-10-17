@@ -67,46 +67,14 @@ int main (int argc, char** argv) {
 // los constructores)
 #define PATH_DEFAULT "default.yaml"
 
-#define PANTALLA_W_DEFAULT 800
-#define PANTALLA_H_DEFAULT 600
-#define FULLSCREEN_DEFAULT false
-
-#define VELOCIDAD_DEFAULT 100
-#define MARGEN_DEFAULT 66
-#define SCROLL_DEFAULT 19
-
 #define TYPE_NAME_DEFAULT "unknown"
-#define IMG_PATH_DEFAULT "no_image.png"
 #define ENT_TYPE_DEFAULT "none"
 #define VISION_DEFAULT 2
 
 #define SCENARY_NAME_DEAFAULT "Orleans"
-#define INSTANCE_FPS_DEFAULT 1
 
 
 // STRUCTS (categorias) //
-
-// Struct que define la categoría pantalla
-struct pantallaInfo_t {
-	// Tamaño de la pantalla
-	int screenW;
-	int screenH;
-	bool fullscreen;
-
-	// Inicializa los valores a cero por defecto
-	pantallaInfo_t(): fullscreen(FULLSCREEN_DEFAULT), screenW(PANTALLA_W_DEFAULT), screenH(PANTALLA_H_DEFAULT){};
-};
-
-// Struct que define la categoría gameplay (jugabilidad)
-struct gameplayInfo_t {
-	// Velocidad del personaje
-	float velocidad;
-	int scroll_margen;
-	int scroll_vel;
-
-	// Inicializa los valores a valores por defecto
-	gameplayInfo_t(): velocidad(VELOCIDAD_DEFAULT), scroll_margen(MARGEN_DEFAULT), scroll_vel(SCROLL_DEFAULT) {};
-};
 
 // Struct que define la categoría log.
 struct logInfo_t {
@@ -121,38 +89,37 @@ struct logInfo_t {
 // Struct que define la información acerca de una unidad (general)
 struct entidadInfo_t {
 	std::string nombre;
-	std::string spritePath;
 	std::string tipo;
-
-	int subX;
-	int subY;
-
+	
 	int tamX;
 	int tamY;
 
-	int pixel_align_X;
-	int pixel_align_Y;
-
-	int fps;
-	int delay;
-
 	int vision;
+	int velocidad;
 	int score;
 
 	// Inicializa los valores a cero por defecto
-	entidadInfo_t(): nombre(TYPE_NAME_DEFAULT), spritePath(IMG_PATH_DEFAULT),
-					tipo(ENT_TYPE_DEFAULT),	fps(INSTANCE_FPS_DEFAULT), delay(0), vision(VISION_DEFAULT),
-					subX(1), subY(1), tamX(1), tamY(1), pixel_align_X(0), pixel_align_Y(0), score(1) {};
+	entidadInfo_t(): nombre(TYPE_NAME_DEFAULT),	tipo(ENT_TYPE_DEFAULT), tamX(1), tamY(1),
+					score(1), vision(1), velocidad(1) {};
 };
 
+
+struct jugadorInfo_t {
+	std::string nombre;
+	int id;
+	std::string color;
+
+	jugadorInfo_t(): id(0), nombre("gaia"), color("blue") {};
+};
 
 // Struct que representa una instancia de alguna entidad dentro del escenario
 struct instanciaInfo_t {
 	int x;
 	int y;
 	std::string tipo;
+	int player;
 	// Inicializa los valores a cero por defecto
-	instanciaInfo_t(): x(0), y(0), tipo(TYPE_NAME_DEFAULT) {};
+	instanciaInfo_t(): x(0), y(0), tipo(TYPE_NAME_DEFAULT), player(0) {};
 };
 
 // Struct que define la información acerca del escenario
@@ -161,9 +128,8 @@ struct escenarioInfo_t {
 	int size_X;
 	int size_Y;
 	std::list<instanciaInfo_t*> instancias;
-	instanciaInfo_t protagonista;
 
-	escenarioInfo_t(): name(SCENARY_NAME_DEAFAULT), size_X(100), size_Y(100), instancias(), protagonista() {};
+	escenarioInfo_t(): name(SCENARY_NAME_DEAFAULT), size_X(100), size_Y(100), instancias() {};
 };
 
 // PARSER //
@@ -172,11 +138,10 @@ class ConfigParser {
 private:
 	std::string path;
 
-	pantallaInfo_t pInfo;
-	gameplayInfo_t gInfo;
 	logInfo_t lInfo;
 	std::list<entidadInfo_t*> eInfoL;
 	escenarioInfo_t sInfo;
+	std::list<jugadorInfo_t*> jInfoL;
 
 public:
 	ConfigParser();
@@ -189,9 +154,8 @@ public:
 	void limpiar();
 
 	// Devuelve distintas estructuras con información
-	pantallaInfo_t verInfoPantalla() {return this->pInfo;}
-	gameplayInfo_t verInfoGameplay() {return this->gInfo;}
 	logInfo_t verInfoLog() {return this->lInfo;}
+	std::list<jugadorInfo_t*> verInfoJugadores() {return this->jInfoL;}
 	std::list<entidadInfo_t*> verInfoEntidades() {return this->eInfoL;}	// CUIDADO: Memoria dinamica en los elementos de eInfoL
 	escenarioInfo_t verInfoEscenario() {return this->sInfo;}				// CUIDADO: Memoria dinamica en los elementos de sInfo.instancias
 };

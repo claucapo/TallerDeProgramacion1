@@ -1,6 +1,5 @@
 #include <list>
 #include "Matriz.h"
-#include "Spritesheet.h"
 #include "ErrorLog.h"
 
 using namespace std;
@@ -107,7 +106,7 @@ bool Matriz::ubicarEntidad(Entidad* elemento, Posicion* pos){
 		ErrorLog::getInstance()->escribirLog("Se quiso agregar un elemento vacio al mapa.", LOG_WARNING);
 		}
 	if (!posicionPertenece(pos)) {
-		ErrorLog::getInstance()->escribirLog("Error al querer asignar posicion a [" + elemento->verTipo() + "]. Posicion " + pos->toStrRound() + " inexistente.", LOG_WARNING);
+		ErrorLog::getInstance()->escribirLog("Error al querer asignar posicion a [" + elemento->verNombre() + "]. Posicion " + pos->toStrRound() + " inexistente.", LOG_WARNING);
 		return false;
 	}
 		
@@ -120,12 +119,12 @@ bool Matriz::ubicarEntidad(Entidad* elemento, Posicion* pos){
 		for(int j = 0; j < ancho_y; j++) {
 			Posicion act = Posicion(pos->getX() + i, pos->getRoundY() + j);
 			if ((!posicionPertenece(&act)) || (this->filas == act.getX()) || (this->columnas == act.getY())) {
-				ErrorLog::getInstance()->escribirLog("No se puede agregar entidad [" + elemento->verTipo() +"] en " + pos->toStrRound() + ". Posición no pertenece al mapa.", LOG_WARNING);
+				ErrorLog::getInstance()->escribirLog("No se puede agregar entidad [" + elemento->verNombre() +"] en " + pos->toStrRound() + ". Posición no pertenece al mapa.", LOG_WARNING);
 				return false;
 			}
 			if(casillas[pos->getRoundX() + i][pos->getRoundY() + j] != nullptr) {
 				Posicion tmp = Posicion(pos->getRoundX() + i,pos->getRoundY() + j);
-				ErrorLog::getInstance()->escribirLog("No se puede agregar entidad [" + elemento->verTipo() +"] en " + pos->toStrRound() + ". Colisiona con otra entidad en" + tmp.toStrRound() +".", LOG_WARNING);
+				ErrorLog::getInstance()->escribirLog("No se puede agregar entidad [" + elemento->verNombre() +"] en " + pos->toStrRound() + ". Colisiona con otra entidad en" + tmp.toStrRound() +".", LOG_WARNING);
 				return false;
 			}
 		}

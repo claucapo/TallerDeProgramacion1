@@ -35,6 +35,8 @@ msg_update* TranslatorServer::generarUpdate(CodigoMensaje accion, int idEntidad,
 // Este es el método encargado de tratar un mensaje recibido
 // del cliente y devolver la respuesta asociada
 msg_update* TranslatorServer::traducirMensajeDeCliente(msg_event* msj){
+
+	/*
 	Escenario* scene = this->partida->escenario;
 	CodigoMensaje accion = msj->accion;
 	// Según la acción que sea, hago lo que corresponda
@@ -48,5 +50,6 @@ msg_update* TranslatorServer::traducirMensajeDeCliente(msg_event* msj){
 		// Genero respuesta:
 		return this->generarUpdate(MSJ_MOVER, msj->idEntidad, uni->verPosicion()->getX(), uni->verPosicion()->getX());
 	}
+	*/
 	return NULL;
 }

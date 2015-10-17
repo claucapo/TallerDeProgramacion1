@@ -1,6 +1,7 @@
 #include "Escenario.h"
 #include "Entidad.h"
 #include "Posicion.h"
+#include "Protocolo.h"
 #include <list>
 #pragma once
 
@@ -15,12 +16,16 @@ struct Partida {
 	Partida(void);
 	~Partida(void);
 
-	void agregarJugador(Jugador*);
+	bool agregarJugador(Jugador*);
 	void asignarEscenario(Escenario*);
+
+	Jugador* obtenerJugador(int id);
+	
+	void procesarEvento(msg_event ev);
 
 	// Función que avanza la lógica del modelo
 	// en un frame. Básicamente, llama a la
 	// misma función del Escenario.
-	void avanzarFrame(void);
+	list<msg_update*> avanzarFrame(void);
 };
 

@@ -16,6 +16,9 @@ poseerá una única Entidad móvil, */
 class Jugador {
 private:
 	string nombre;
+	int id;
+	string color;	// Proximamente cambiar por un enum
+
 	Vision* vision;
 	int recurso;
 	bool esta_conectado;
@@ -24,11 +27,13 @@ private:
 
 public:
 	// Constructor y destructor por defecto
-	Jugador(string name);
+	Jugador(string name, int id, string color);
 	~Jugador(void);
 
 	// Getters
 	string verNombre(void) {return this->nombre;}
+	int verID(void) {return this->id;}
+	string verColor(void) {return this->color;}
 	Vision* verVision(void) {return this->vision;}
 	int verRecurso(void) {return this->recurso;}
 

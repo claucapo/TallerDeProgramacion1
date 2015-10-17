@@ -7,6 +7,10 @@ using namespace std;
 // que concidan con las filas de los sprites de movimiento
 enum Direcciones_t {DIR_RIGHT, DIR_TOP_RIGHT, DIR_TOP, DIR_TOP_LEFT, DIR_LEFT, DIR_DOWN_LEFT, DIR_DOWN, DIR_DOWN_RIGHT};
 
+enum entity_type_t {ENT_T_NONE, ENT_T_UNIT, ENT_T_RESOURCE, ENT_T_BUILDING};
+enum af_result_t {AF_NONE, AF_MOVE, AF_KILL};
+
+
 // Estados
 enum Estados_t {EST_QUIETO, EST_CAMINANDO};
 const string estados_extensiones[] = {"", "_move"};

@@ -1,4 +1,4 @@
-#include "Jugador.h"
+/* #include "Jugador.h"
 #include "Vision.h"
 #include "Entidad.h"
 #include "Matriz.h"
@@ -69,4 +69,4 @@ void testVision() {
 	cout << "Jugador1" << endl;
 	imprimirVision(v1);
 	cout << endl << endl;
-}
+}*/

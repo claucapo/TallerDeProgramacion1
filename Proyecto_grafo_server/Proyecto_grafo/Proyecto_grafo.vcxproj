@@ -49,7 +49,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;libyaml-cppmdd.lib;SDL_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;libyaml-cppmdd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -68,17 +68,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Archivo.h" />
-    <ClInclude Include="BibliotecaDeImagenes.h" />
     <ClInclude Include="ConexionCliente.h" />
     <ClInclude Include="ConfigParser.h" />
     <ClInclude Include="ConversorUnidades.h" />
-    <ClInclude Include="DatosImagen.h" />
     <ClInclude Include="Entidad.h" />
     <ClInclude Include="Enumerados.h" />
     <ClInclude Include="ErrorLog.h" />
     <ClInclude Include="Escenario.h" />
     <ClInclude Include="FactoryEntidades.h" />
-    <ClInclude Include="GraficadorPantalla.h" />
     <ClInclude Include="Jugador.h" />
     <ClInclude Include="Matriz.h" />
     <ClInclude Include="Partida.h" />
@@ -87,7 +84,6 @@
     <ClInclude Include="Recurso.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Servidor.h" />
-    <ClInclude Include="Spritesheet.h" />
     <ClInclude Include="Tests.h" />
     <ClInclude Include="TranslatorServer.h" />
     <ClInclude Include="Unidad.h" />
@@ -95,27 +91,22 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Archivo.cpp" />
-    <ClCompile Include="BibliotecaDeImagenes.cpp" />
     <ClCompile Include="ConexionCliente.cpp" />
     <ClCompile Include="ConfigParser.cpp" />
     <ClCompile Include="ConversorUnidades.cpp" />
-    <ClCompile Include="DatosImagen.cpp" />
     <ClCompile Include="Entidad.cpp" />
     <ClCompile Include="ErrorLog.cpp" />
     <ClCompile Include="Escenario.cpp" />
     <ClCompile Include="EscenarioTest.cpp" />
     <ClCompile Include="FactoryEntidades.cpp" />
-    <ClCompile Include="GraficadorPantalla.cpp" />
     <ClCompile Include="Jugador.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="MainOriginal.cpp" />
     <ClCompile Include="Matriz.cpp" />
     <ClCompile Include="Partida.cpp" />
     <ClCompile Include="Posicion.cpp" />
     <ClCompile Include="Recurso.cpp" />
     <ClCompile Include="Servidor.cpp" />
     <ClCompile Include="SocketAux.cpp" />
-    <ClCompile Include="Spritesheet.cpp" />
     <ClCompile Include="TranslatorServer.cpp" />
     <ClCompile Include="Unidad.cpp" />
     <ClCompile Include="Vision.cpp" />

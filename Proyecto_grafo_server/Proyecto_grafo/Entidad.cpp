@@ -26,7 +26,6 @@ Entidad::Entidad(Posicion* p) {
 // El constructor por defecto inicializa la posición en nullptr
 Entidad::Entidad(void) {
 	this->pos = nullptr;
-	this->sprites = nullptr;
 	this->state = EST_QUIETO;
 	this->name = nombre_entidad_def;
 	this->tamX = 1;
@@ -36,9 +35,9 @@ Entidad::Entidad(void) {
 	this->owner = nullptr;
 }
 
-Entidad::Entidad(string name, int tamX, int tamY, int vision) {
+Entidad::Entidad(unsigned int id, string name, int tamX, int tamY, int vision) {
 	this->pos = nullptr;
-	this->sprites = nullptr;
+	this->id = id;
 	this->name = name;
 	this->state = EST_QUIETO;
 	this->tamX = (tamX > 0) ? tamX : 1;
@@ -53,15 +52,12 @@ Entidad::Entidad(string name, int tamX, int tamY, int vision) {
 Entidad::~Entidad(void) {
 	if (this->pos)
 		delete this->pos;
-	if (this->sprites)
-		delete this->sprites;
 }
 
 // Método para avanzar un frame
 // Devuelve true si hay que quitar la entidad del escenario
-bool Entidad::avanzarFrame(Escenario* scene) {
-	this->sprites->siguienteFrame();
-	return false;
+af_result_t Entidad::avanzarFrame(Escenario* scene) {
+	return AF_NONE;
 }
 
 void Entidad::asignarPos(Posicion* pos) {
@@ -71,10 +67,6 @@ void Entidad::asignarPos(Posicion* pos) {
 	}
 	else
 		ErrorLog::getInstance()->escribirLog("Error al querer asignar Posicion a " + this->name + ": Posicion inexistente.", LOG_ERROR);
-}
-
-void Entidad::asignarSprite(Spritesheet* sp){
-	this->sprites = sp;
 }
 
 void Entidad::asignarJugador(Jugador* player) {
@@ -121,8 +113,4 @@ bool Entidad::operator < (const Entidad& other) const {
 	else
 		return false;
 
-}
-
-Spritesheet* Entidad::verSpritesheet(void) {
-	return sprites;
 }

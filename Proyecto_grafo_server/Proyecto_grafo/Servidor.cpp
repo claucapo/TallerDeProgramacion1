@@ -1,5 +1,8 @@
 #include "Servidor.h"
 #include "ConexionCliente.h"
+#include "Partida.h"
+#include "Protocolo.h"
+#include "Jugador.h"
 
 #include <queue>
 #include <list>
@@ -8,9 +11,9 @@ using namespace std;
 // Defino la función de lectura personalizada
 int sRead(SOCKET source, char* buffer, int length);
 
-Servidor::Servidor(SOCKET ls, ConfigParser* parser) {
+Servidor::Servidor(SOCKET ls, Partida* partida) {
 	this->listenSocket = ls;
-	this->parserInicial = parser;
+	this->partida = partida;
 
 	this->eventos = queue<struct msg_event>();
 	this->updates = queue<struct msg_update>();
@@ -22,6 +25,7 @@ Servidor::Servidor(SOCKET ls, ConfigParser* parser) {
 	this->eventos_lock = SDL_CreateSemaphore(1);
 	this->updates_lock = SDL_CreateSemaphore(1);
 	this->clientes_lock = SDL_CreateSemaphore(1);
+	this->partida_lock = SDL_CreateSemaphore(1);
 }
 
 
@@ -30,6 +34,7 @@ Servidor::~Servidor(void) {
 	SDL_DestroySemaphore(this->clientes_lock);
 	SDL_DestroySemaphore(this->eventos_lock);
 	SDL_DestroySemaphore(this->updates_lock);
+	SDL_DestroySemaphore(this->partida_lock);
 
 }
 
@@ -104,6 +109,13 @@ void Servidor::aceptarCliente(SOCKET clientSocket) {
 			return;
 		}
 		
+		msg_update login_update;
+		login_update.accion = MSJ_JUGADOR_LOGIN;
+		login_update.idEntidad = (unsigned int) loginInfo.playerCode;
+		this->agregarUpdate(login_update);
+
+		Jugador* player = this->partida->obtenerJugador(loginInfo.playerCode);
+		player->settearConexion(true);
 
 	} else {
 		// 2.a) Contestar solicitud negativamente
@@ -126,6 +138,10 @@ bool Servidor::validarLogin(struct msg_login msg) {
 	if (msg.playerCode <= 0) {
 		printf("Invalid request login.\n");
 		return false;
+	} else {
+		Jugador* player = this->partida->obtenerJugador(msg.playerCode);
+		if (!player || player->estaConectado() || ( player->verNombre().c_str() == msg.nombre ) )
+			return false;
 	}
 	return true;
 }
@@ -134,8 +150,7 @@ bool Servidor::validarLogin(struct msg_login msg) {
 // TODO: definir protocolo de envio de mapa
 int Servidor::enviarMapa(ConexionCliente *cliente) {
 	struct msg_map msg;
-	msg.coordX = this->parserInicial->verInfoEscenario().size_X;
-	msg.coordY = this->parserInicial->verInfoEscenario().size_Y;
+
 	int result = send(cliente->clientSocket, (char*)&msg, sizeof(msg), 0);
 	return result;
 }
@@ -178,8 +193,6 @@ void Servidor::enviarKeepAlive() {
 	this->updates.push(ka);
 }
 
-
-
 // Bloquea la cola de eventos, y procesa todos ellos hasta dejarla vacía
 void Servidor::procesarEventos(void) {
 	this->enviarKeepAlive();
@@ -189,17 +202,7 @@ void Servidor::procesarEventos(void) {
 		struct msg_event act = this->eventos.front();
 		this->eventos.pop();
 
-		struct msg_update newUpdate;
-		// Quizas sea una buena idea procesar un evento y devolver
-		// un update de la siguiente manera
-		// newUpdate = this->decodificarEvento(act);
-			// Eco:
-			// printf("Recibido un: %d\n", act.something);
-			newUpdate.idEntidad = - act.idEntidad;
-
-		SDL_SemWait(this->updates_lock);
-		this->updates.push(newUpdate);
-		SDL_SemPost(this->updates_lock);
+		this->partida->procesarEvento(act);
 	}
 	SDL_SemPost(this->eventos_lock);
 }
@@ -231,4 +234,25 @@ void Servidor::agregarEvento(struct msg_event msg) {
 	SDL_SemWait(this->eventos_lock);
 	this->eventos.push(msg);
 	SDL_SemPost(this->eventos_lock);
+}
+
+void Servidor::agregarUpdate(struct msg_update msg) {
+	SDL_SemWait(this->updates_lock);
+	this->updates.push(msg);
+	SDL_SemPost(this->updates_lock);
+}
+
+void Servidor::avanzarFrame(void) {
+	SDL_SemWait(partida_lock);
+	list<msg_update*> updates = this->partida->avanzarFrame();
+	while (!updates.empty()) {
+		msg_update* msg = updates.front();
+		updates.pop_front();
+
+		msg_update toSend = *msg;
+		delete msg;
+
+		this->agregarUpdate(toSend);
+	}
+	SDL_SemPost(partida_lock);
 }

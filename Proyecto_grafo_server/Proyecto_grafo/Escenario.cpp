@@ -3,6 +3,7 @@
 #include "Posicion.h"
 #include "Entidad.h"
 #include "Unidad.h"
+#include "Jugador.h"
 #include <list>
 #define TAM_DEFAULT 50
 
@@ -12,7 +13,6 @@ Escenario::Escenario(int casillas_x, int casillas_y) {
 	this->entidades = list<Entidad*>();
 	this->tamX = casillas_x;
 	this->tamY = casillas_y;
-	this->protagonista = nullptr;
 }
 
 // Constructor por defecto
@@ -21,67 +21,49 @@ Escenario::Escenario(void) {
 	this->entidades = list<Entidad*>();
 	this->tamX = TAM_DEFAULT;
 	this->tamY = TAM_DEFAULT;
-	this->protagonista = nullptr;
 }
 
 // Destructor
 Escenario::~Escenario(void) {
 	delete mapa;
-	if (this->protagonista)
-		delete protagonista;
 	while (!this->entidades.empty()) {
 		delete this->entidades.front();
 		this->entidades.pop_front();
 	}
 }
 
-void Escenario::moverProtagonista(void) {
-	Unidad* unit = this->protagonista;
-	Estados_t state = unit->verEstado();
-	Spritesheet* sp = unit->verSpritesheet();
-
-	// Si se esta moviendo
-	if (state == EST_CAMINANDO) {
-		Posicion* act = unit->verPosicion();
-		Posicion* dest = unit->verDestino();
-
-		// Distantcias
-		float distX = dest->getX() - act->getX();
-		float distY = dest->getY() - act->getY();
-		float totalDist = sqrt((distX*distX) + (distY*distY));	
-
-		unit->setDireccion(unit->calcularDirecion(distX, distY));
-		float rapidez = unit->verVelocidad();
-		sp->cambiarImagen(unit->name + "_move");
-		sp->siguienteFrame();
-		sp->cambiarSubImagen(sp->calcularOffsetX()/sp->subImagenWidth(), unit->verDireccion());
-
-		if (totalDist > rapidez) {
-			float nuevoX = act->getX() + (distX*rapidez)/totalDist;
-			float nuevoY = act->getY() + (distY*rapidez)/totalDist;
-			Posicion nuevaPos(nuevoX, nuevoY);
-			unit->asignarPos(&nuevaPos);
-		} else {
-			unit->setEstado(EST_QUIETO);
-			sp->cambiarImagen(unit->name);
-		}
-	}
-	else
-		sp->siguienteFrame();
-}
-
-
 template <typename T> bool compare(const T* const & a, const T* const &b) {
 	return *a < *b;
 };
 
-void Escenario::avanzarFrame(void) {
+list<msg_update*> Escenario::avanzarFrame(void) {
+	list<msg_update*> updates = list<msg_update*>();
 	// Avanzo el frame en cada edificio (por ahora no hace nada)
 	list<Entidad*> toRmv = list<Entidad*>();
 	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
-		if ( (*it)->avanzarFrame(this) ) {
+		af_result_t res = (*it)->avanzarFrame(this);
+		msg_update* upd;
+		switch (res) {
+		case AF_MOVE:
+			upd = new msg_update();
+			upd->idEntidad = (*it)->verID();
+			upd->extra1 = (*it)->verPosicion()->getX();
+			upd->extra2 = (*it)->verPosicion()->getY();
+			upd->accion = MSJ_ELIMINAR;
+			updates.push_back(upd);
+			break;
+		case AF_KILL:
 			toRmv.push_front(*it);
+			upd = new msg_update();
+			upd->idEntidad = (*it)->verID();
+			upd->accion = MSJ_ELIMINAR;
+			updates.push_back(upd);
+			break;
+		case AF_NONE:
+		default:
+			break;
 		}
+		(*it)->verJugador()->agregarPosiciones(this->verMapa()->posicionesVistas(*it));
 	}
 	while(!toRmv.empty()) {
 		Entidad* ent = toRmv.front();
@@ -90,12 +72,7 @@ void Escenario::avanzarFrame(void) {
 		delete ent;
 	}
 
-
-
-	// Modifico la posición del protagonista
-	if (this->protagonista) {
-		moverProtagonista();
-	}
+	return updates;
 }
 
 
@@ -115,29 +92,16 @@ void Escenario::quitarEntidad(Entidad* entidad) {
 }
 
 
-bool Escenario::asignarProtagonista(Unidad* unidad, Posicion* pos) {
-	if (pos && mapa->posicionPertenece(pos)) {
-		unidad->asignarPos(pos);
-		unidad->setEstado(EST_QUIETO);
-		this->protagonista = unidad;
-		return true;
-	}
-	return false;
-}
-
-void Escenario::asignarDestinoProtagonista(Posicion* pos) {
-	if (this->protagonista) {
-		if (this->mapa->posicionPertenece(pos)) {
-			this->protagonista->nuevoDestino(pos);
-			this->protagonista->setEstado(EST_CAMINANDO);
+void Escenario::asignarDestino(unsigned int entID, Posicion pos) {
+	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
+		if ( (*it)->verID() == entID ) {
+			if ( (*it)->tipo == ENT_T_UNIT ) {
+				Unidad* unit = (Unidad*)(*it);
+				unit->nuevoDestino(&pos);
+			}
 		}
 	}
 }
-
-Unidad* Escenario::verProtagonista(void) {
-	return this->protagonista;
-}
-
 
 list<Entidad*> Escenario::verEntidades(void) {
 	return this->entidades;
