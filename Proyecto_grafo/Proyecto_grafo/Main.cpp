@@ -15,7 +15,6 @@
 #include <sstream>
 #include <SDL.h>
 #include <SDL_image.h>
-
 #include "Tests.h"
 
 using namespace std;
@@ -102,6 +101,8 @@ int procesarEventoKeyDown(Escenario* scene, GraficadorPantalla* gp, SDL_Event e)
 	//HARDCODEO
 	case SDL_SCANCODE_S:
 		return 117;
+	case SDL_SCANCODE_I:
+		return 118;
 	}
 }
 
@@ -197,6 +198,7 @@ int wmain(int argc, char** argv) {
 		Jugador* player = new Jugador("gaia");
 		scene->verProtagonista()->asignarJugador(player);
 		gp->asignarJugador(player);
+		player->settearConexion(true);
 
 		player->asignarVision(scene->verTamX(), scene->verTamY());
 
@@ -212,6 +214,7 @@ int wmain(int argc, char** argv) {
 			uniHard->setVelocidad(2);
 			uniHard->asignarPos(&q);
 			int currentPlayer = 1;
+			playerHard->settearConexion(true);
 
 		 int i = 1; float dTot = 0;
 		// Main loop del juego
@@ -251,6 +254,17 @@ int wmain(int argc, char** argv) {
 						}
 						
 					codigo_programa = CODE_CONTINUE;
+					}
+				else if(codigo_programa == 118){
+					bool conAct;
+					if(currentPlayer == 1){
+						conAct = player->estaConectado();
+						player->settearConexion(!conAct);
+						}
+					else{
+						conAct = playerHard->estaConectado();
+						playerHard->settearConexion(!conAct);
+						}
 					}
 
 			//	cout << "Prog code: " << codigo_programa << endl;

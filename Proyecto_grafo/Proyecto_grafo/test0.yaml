@@ -21,6 +21,8 @@ tipo:
     score: 1
   - nombre: "screen_frame"
     ruta: "screenFrame.png"
+  - nombre: "font"
+    ruta: "font.png"
   - nombre: "champion"
     ruta: "championAOE.png"
     tipo: "unit"

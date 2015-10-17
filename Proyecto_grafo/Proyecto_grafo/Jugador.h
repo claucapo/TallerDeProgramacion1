@@ -18,6 +18,7 @@ private:
 	string nombre;
 	Vision* vision;
 	int recurso;
+	bool esta_conectado;
 	
 	Jugador(void) {};
 
@@ -46,6 +47,8 @@ public:
 	// pertenece a este Jugador o false en
 	// caso contrario.
 	bool poseeEntidad(Entidad* entidad);
+	bool estaConectado(void);
+	void settearConexion(bool estadoConexion);
 };
 
 

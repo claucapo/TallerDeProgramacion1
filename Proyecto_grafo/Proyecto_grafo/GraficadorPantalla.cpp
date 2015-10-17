@@ -4,6 +4,7 @@
 #include "ErrorLog.h"
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_ttf.h>
 #include "ConversorUnidades.h"
 #include "BibliotecaDeImagenes.h"
 #include <list>
@@ -29,7 +30,6 @@ GraficadorPantalla::GraficadorPantalla(int pant_width, int pant_height, bool ful
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
 	if(!cargarSDL(full_screen, title))
 		delete this;
-	
 }
 
 void GraficadorPantalla::asignarEscenario(Escenario* scene) {
@@ -61,15 +61,13 @@ void GraficadorPantalla::dibujarPantalla(void) {
 		}
 	// 0) Limpiar pantalla
 	SDL_FillRect(pantalla, NULL, 0x000000);
-//	SDL_PumpEvents(); // Actualiza los eventos de SDL
 
 	// 1) Scroll del mapa (cambiar view_x y view_y)
 	reajustarCamara();
 
-	// 2) Dibujar el Escenario (HARDCODEADO DE MOMENTO)
+	// 2) Dibujar el Escenario
 	renderizarTerreno();
 
-	
 	// 3) Dibujar los edificios
 	renderizarEntidades();
 
@@ -85,39 +83,12 @@ void GraficadorPantalla::dibujarPantalla(void) {
 				
 	// 7) Window_Update
 	SDL_UpdateWindowSurface(ventana);
-
 }
 
 
 // PASO 1: reajustar la cámara de acuerdo a la posición del mouse
-
-#define K_SCREEN 0.2	// Constante mágica???? ------> Explicar... ya se... es la pendiente de la recta?;
+#define K_SCREEN 0.2	// Constante de scroll
 void GraficadorPantalla::reajustarCamara(void) {
-
-/*	int mx = 5 , my = 9;
-	SDL_GetMouseState(&mx, &my);
-	if(screen_width < ancho_borde){
-	if(mx < MARGEN)
-		view_x += -VEL_ZERO + mx * K_SCREEN;
-	else if(mx > screen_width - MARGEN)
-		view_x += VEL_ZERO*(1 - screen_width/MARGEN) + VEL_ZERO*mx/(MARGEN);
-	if(view_x < -MARGEN)
-		view_x = -MARGEN;
-	else if((view_x + screen_width) > (ancho_borde + MARGEN))
-		view_x = ancho_borde + MARGEN - screen_width;
-	}
-	if(screen_height < alto_borde){
-	if(my < MARGEN)
-		view_y += -VEL_ZERO + my * K_SCREEN;
-	else if(my> screen_height - MARGEN)
-		view_y += VEL_ZERO*(1 - screen_height/MARGEN) + VEL_ZERO*my/(MARGEN);
-	
-	if(view_y < -MARGEN)
-		view_y = -MARGEN;
-	else if((view_y + screen_height) > (alto_borde + MARGEN))
-		view_y = alto_borde + MARGEN - screen_height;
-	}
-*/
 	float new_view_x = view_x, new_view_y = view_y;
 
 	int mx = 5 , my = 9;
@@ -127,7 +98,6 @@ void GraficadorPantalla::reajustarCamara(void) {
 		new_view_x += -vel_scroll + mx * K_SCREEN;
 	else if(mx > screen_width - margen_scroll)
 		new_view_x += vel_scroll*(1 - screen_width/margen_scroll) + vel_scroll*mx/(margen_scroll);
-
 
 	if(my < margen_scroll)
 		new_view_y += -vel_scroll + my * K_SCREEN;
@@ -153,53 +123,8 @@ void GraficadorPantalla::reajustarCamara(void) {
 
 
 // PASO 2: renderizar terreno
-#define TRANSPARENCIA_COLOR_MOD 160
-// TODO: Optimizaciones
+#define TRANSPARENCIA_COLOR_MOD 160 
 void GraficadorPantalla::renderizarTerreno(void) {
-	/*
-	SDL_Surface* imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tileHuge");
-	SDL_SetColorKey(imgTile, true, SDL_MapRGB(imgTile->format, 255, 255, 255));
-	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
-	SDL_Rect rectangulo;
-	int i = 0, j = 0;
-	while((escenario->verTamY() - j) >= 10){
-		i = 0;
-		while((escenario->verTamX() - i) >= 10){
-			rectangulo.x = cu->obtenerCoordPantallaX(i, j, view_x, view_y, ancho_borde) -260;
-			rectangulo.y = cu->obtenerCoordPantallaY(i, j, view_x, view_y, ancho_borde);	
-			SDL_BlitSurface( imgTile, NULL, pantalla, &rectangulo );
-			i += 10;
-			}
-		j += 10;
-		}
-
-	imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tile");
-	SDL_SetColorKey(imgTile, true, SDL_MapRGB(imgTile->format, 255, 255, 255));
-
-	for(int k = i; k < escenario->verTamX(); k++) {
-		for(int m = 0; m < escenario->verTamY(); m++){
-			rectangulo.x = cu->obtenerCoordPantallaX(k, m, view_x, view_y, ancho_borde) -26;
-			// Esto chequea si la casilla cae dentro del la pantalla... si no resulta visible, no la grafica
-			if ((rectangulo.x) < (this->screen_width) && (rectangulo.x + imgTile->w) > 0) {
-				rectangulo.y = cu->obtenerCoordPantallaY(k, m, view_x, view_y, ancho_borde);
-				if ((rectangulo.y) < (this->screen_height) && (rectangulo.y + imgTile->h) > 0) 
-					SDL_BlitSurface( imgTile, NULL, pantalla, &rectangulo );
-				}
-			}
-		}
-
-	for(int k = 0; k < i; k++) {
-		for(int m = j; m < escenario->verTamY(); m++){
-			rectangulo.x = cu->obtenerCoordPantallaX(k, m, view_x, view_y, ancho_borde) -26;
-			// Esto chequea si la casilla cae dentro del la pantalla: si no resulta visible, no la grafica
-			if ((rectangulo.x) < (this->screen_width) && (rectangulo.x + imgTile->w) > 0) {
-				rectangulo.y = cu->obtenerCoordPantallaY(k, m, view_x, view_y, ancho_borde);
-				if ((rectangulo.y) < (this->screen_height) && (rectangulo.y + imgTile->h) > 0) 
-					SDL_BlitSurface( imgTile, NULL, pantalla, &rectangulo );
-				}
-			}
-		}
-	*/
 	SDL_Surface* imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tile");
 	SDL_SetColorKey(imgTile, true, SDL_MapRGB(imgTile->format, 255, 255, 255));
 	SDL_Rect rectangulo;
@@ -228,7 +153,6 @@ void GraficadorPantalla::renderizarTerreno(void) {
 
 
 // PASO 3: renderizar protagonista
-
 void GraficadorPantalla::renderizarProtagonista(void) {
 	SDL_Rect recOr, rectangulo;
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
@@ -251,9 +175,15 @@ void GraficadorPantalla::renderizarProtagonista(void) {
 	rectangulo.x = unidad->getCoordX();
 	rectangulo.y = unidad->getCoordY();
 	
+	if(!escenario->verProtagonista()->verJugador()->estaConectado())
+		SDL_SetSurfaceColorMod(spUnidad, TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD );
+	else
+		SDL_SetSurfaceColorMod(spUnidad, 255, 255, 255 );
+		
 	SDL_BlitSurface( spUnidad, &recOr, pantalla, &rectangulo );
-}
 
+
+}
 
 
 // PASO 4: renderizar entidades
@@ -261,36 +191,6 @@ void GraficadorPantalla::renderizarProtagonista(void) {
 // TODO: Optimizar para que no se grafiquen edificios que no aparezcan en pantalla (ver renderizarTerreno)
 
 void GraficadorPantalla::renderizarEntidades(void) {
-/*	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
-	SDL_Rect rectangulo;
-	list<Entidad*> lEnt = escenario->verEntidades();
-	for (list<Entidad*>::iterator it=lEnt.begin(); it != lEnt.end(); ++it){
-		Spritesheet* entAct = (*it)->verSpritesheet();
-	
-			// Esto chequea si la casilla cae dentro del la pantalla: si no resulta visible,no la grafica
-		int newX = (int) cu->obtenerCoordPantallaX((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY(), view_x, view_y, ancho_borde);
-		if ((newX-entAct->subImagenWidth()) < (this->screen_width) && (newX + entAct->subImagenWidth()) > 0) {
-			int newY = (int) cu->obtenerCoordPantallaY((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY(), view_x, view_y, ancho_borde);
-			if (newY < (this->screen_height) && (newY + entAct->subImagenHeight()) > 0){		
-				entAct->cambirCoord(newX, newY);
-				rectangulo.x = entAct->getCoordX();
-				rectangulo.y = entAct->getCoordY();
-	
-				SDL_Rect recOr;
-				recOr.x = entAct->calcularOffsetX();
-				recOr.y = entAct->calcularOffsetY();
-				recOr.w = entAct->subImagenWidth();
-				recOr.h = entAct->subImagenHeight();
-				
-				SDL_Surface* spEnt = entAct->devolverImagenAsociada();
-				SDL_SetColorKey( spEnt, true, SDL_MapRGB(spEnt->format, 255, 0, 255) );
-				SDL_BlitSurface( spEnt, &recOr, pantalla, &rectangulo );
-				}
-			}
-		}
-		*/
-
-
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
 	SDL_Rect rectangulo;
 	list<Entidad*> lEnt = escenario->verEntidades();
@@ -325,17 +225,20 @@ void GraficadorPantalla::renderizarEntidades(void) {
 			recOr.w = entAct->subImagenWidth();
 			recOr.h = entAct->subImagenHeight();
 
+			Jugador* playerOwner = (*it)->verJugador();
+			if(playerOwner != nullptr){
+			if(!playerOwner->estaConectado())
+				SDL_SetSurfaceColorMod(spEnt, TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD );
+			else
+				SDL_SetSurfaceColorMod(spEnt, 255, 255, 255 );
+			}
 			SDL_BlitSurface( spEnt, &recOr, pantalla, &rectangulo );	
-	
-		}
-
-		
+		}		
 	}
 }
 
 
 //	PASO 5: screen frame
-
 #define POS_REL_MINIMAP_X 0.805
 #define POS_REL_MINIMAP_Y 0.775
 #define	HEIGHT_REL_MINIMAP 0.225
@@ -361,10 +264,15 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 	if(minimapW)
 		*minimapW = rectangulo.w * WIDTH_REL_MINIMAP;
 
+	SDL_Surface* texto = this->renderText("HELLO WORLD");
+	rectangulo.x = 200;
+	rectangulo.y = 400;
+	SDL_BlitSurface( texto, NULL, pantalla, &rectangulo );	
+	SDL_FreeSurface(texto);
+	
 }
 
 //	PASO 6: dibujar el minimapa
-
 void GraficadorPantalla::dibujarMinimapa(int minimapX, int minimapY, int minimapW, int minimapH){
 	SDL_Rect pixel;
 	pixel.h = 2;
@@ -441,13 +349,12 @@ SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 255, 255
 }
 
 // METODOS DE INICIALIZACION Y GETTERS
-
 bool GraficadorPantalla::cargarSDL(bool full_screen, string title) {
 	Uint32 flags = SDL_WINDOW_SHOWN;
 	if (full_screen) 
 		flags = flags || SDL_WINDOW_FULLSCREEN;
 
-	if(SDL_Init( SDL_INIT_VIDEO ) < 0)	{
+	if(SDL_Init( SDL_INIT_EVERYTHING ) < 0)	{
 		ErrorLog::getInstance()->escribirLog("CRÍTICO: SDL no pudo inicializarse." , LOG_ERROR);
 		printf( "SDL Error: %s\n", SDL_GetError() );
 		return false;
@@ -470,6 +377,7 @@ bool GraficadorPantalla::cargarSDL(bool full_screen, string title) {
 			}
 		}
 	}
+			
 	return true;
 }
 
@@ -507,4 +415,47 @@ float GraficadorPantalla::getViewY(void){
 
 float GraficadorPantalla::getAnchoBorde(void) {
 	return this->ancho_borde;
+}
+
+
+SDL_Surface* GraficadorPantalla::renderText(char* msj){
+	DatosImagen* fuenteData = BibliotecaDeImagenes::obtenerInstancia()->devolverDatosImagen("font");
+	if(fuenteData->path == "default.png")
+		return NULL;
+	SDL_Surface* font = fuenteData->imagen;
+	int largo = strlen(msj);
+	SDL_Surface* elTexto = SDL_CreateRGBSurface(0, largo*18, 20,32,0,0,0,0); 
+	if(elTexto == NULL)
+		return NULL;
+	// Relleno de blanco
+	SDL_Rect aux;
+	aux.x = 0;
+	aux.y = 0;
+	aux.h = 20;
+	aux.w = largo*18;
+	SDL_FillRect(elTexto, &aux, SDL_MapRGB(elTexto->format, 255, 255, 255));
+	
+	// Convierto caracter por caracter:
+	int i;
+	SDL_Rect rectOrig, rectDest;
+	rectOrig.h = 20;
+	rectOrig.w = 18;
+	rectDest.h = 20;
+	rectDest.w = 18;
+	rectDest.y = 0;
+	for(i = 0; i < largo; i++){
+		bool printIt = false;
+		if((msj[i] >= 'A') && (msj[i] <= 'Z')) {
+			rectOrig.y = 0;
+			rectOrig.x = (msj[i] - 65) * 18;
+			printIt = true;
+		}
+		rectDest.x = i * 18;
+		if(printIt)
+			SDL_BlitSurface(font, &rectOrig, elTexto, &rectDest);
+	}
+	SDL_Surface* texto = SDL_ConvertSurface(elTexto, pantalla->format, NULL);
+	SDL_FreeSurface(elTexto);
+	SDL_SetColorKey(texto, true, SDL_MapRGB(elTexto->format, 255, 255, 255));
+	return texto;
 }

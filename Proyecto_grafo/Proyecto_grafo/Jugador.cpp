@@ -6,6 +6,7 @@ Jugador::Jugador(string name){
 	this->nombre = name;
 	this->vision = nullptr;
 	this->recurso = 0;
+	this->esta_conectado = false;
 }
 
 Jugador::~Jugador(void) {
@@ -41,4 +42,13 @@ void Jugador::agregarPosiciones(list<Posicion> posiciones) {
 
 estado_vision_t Jugador::visionCasilla(Posicion pos) {
 	return this->vision->visibilidadPosicion(pos);
+}
+
+bool Jugador::estaConectado(void){
+	return esta_conectado;
+}
+
+
+void Jugador::settearConexion(bool estadoConexion){
+	this->esta_conectado = estadoConexion;
 }

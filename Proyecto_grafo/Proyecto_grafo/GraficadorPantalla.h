@@ -37,4 +37,6 @@ public:
 	float getViewX(void);
 	float getViewY(void);
 	float getAnchoBorde(void);
+private:
+	SDL_Surface* renderText(char* msj);
 };
