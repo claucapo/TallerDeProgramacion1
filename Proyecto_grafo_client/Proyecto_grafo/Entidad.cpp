@@ -36,8 +36,9 @@ Entidad::Entidad(void) {
 	this->owner = nullptr;
 }
 
-Entidad::Entidad(string name, int tamX, int tamY, int vision) {
+Entidad::Entidad(unsigned int id, string name, int tamX, int tamY, int vision) {
 	this->pos = nullptr;
+	this->id = id;
 	this->sprites = nullptr;
 	this->name = name;
 	this->state = EST_QUIETO;
@@ -59,9 +60,9 @@ Entidad::~Entidad(void) {
 
 // Método para avanzar un frame
 // Devuelve true si hay que quitar la entidad del escenario
-bool Entidad::avanzarFrame(Escenario* scene) {
+af_result_t Entidad::avanzarFrame(Escenario* scene) {
 	this->sprites->siguienteFrame();
-	return false;
+	return AF_NONE;;
 }
 
 void Entidad::asignarPos(Posicion* pos) {

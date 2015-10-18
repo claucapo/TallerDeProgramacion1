@@ -67,12 +67,16 @@ int conexionSender( void* data ) {
 			cliente->updates.pop();
 			result = send(cliente->clientSocket, (char*)(&act), sizeof(act), 0);
 			SDL_SemPost(cliente->updates_lock);
-
+			
 			if (result <= 0) {
 				printf("Error enviando updates. Terminando conexion\n");
 				cliente->shutdown();
 				cliente->server->removerCliente(cliente);
 				printf("Exited Sending for cliente\n");
+
+			
+		
+
 				return result;
 			}
 		}

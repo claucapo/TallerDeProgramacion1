@@ -18,6 +18,7 @@ private:
 	string nombre;
 	int id;
 	string color;	// Proximamente cambiar por un enum
+					// Con un int inclusive ya basta
 
 	Vision* vision;
 	int recurso;

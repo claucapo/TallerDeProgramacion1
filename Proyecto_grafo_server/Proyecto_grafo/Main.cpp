@@ -10,6 +10,7 @@
 #include <SDL_thread.h>
 
 // Entrada y salida... se pueden borrar al reemplazar por log???
+// Informar cosas por la consola no es malo... No quiero que el server sea una pantalla negra xd
 #include <stdlib.h>
 #include <stdio.h>
 #include <conio.h>
@@ -99,7 +100,7 @@ void cargarJugadores(Partida* partida, std::list<jugadorInfo_t*> jInfoL) {
 	}
 }
 
-// Carga los moldes apra las entidades dentro del singleton FactoryEntidades
+// Carga los moldes para las entidades dentro del singleton FactoryEntidades
 void cargarFactoryEntidades(std::list<entidadInfo_t*> eInfoL) {
 	for (std::list<entidadInfo_t*>::const_iterator iter = eInfoL.begin(); iter != eInfoL.end(); ++iter) {
 		entidadInfo_t act = *(*iter);
@@ -141,9 +142,6 @@ void cargarEscenario(Partida* partida, escenarioInfo_t eInfo) {
 			PROGRAMA PRINCIPAL
 
 ********************************************/
-
-#define STEP_DURATION 50 // duración de un paso de la simulación
-
 int main(int argc, char* argv[]) {
 	
 	// Esto tiene que ser la logica y tiene que incluir players

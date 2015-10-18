@@ -100,7 +100,7 @@ void Servidor::aceptarCliente(SOCKET clientSocket) {
 			return;
 		}
 
-		// 2.c) Enviar mapa completo (por ahora no...) I'm trying it
+		// 2.c) Enviar mapa completo
 		result = this->enviarMapa(nuevoCliente);
 		if (result <= 0) {
 			printf("Error respondiendo solicitud de login. Terminando conexión");
@@ -108,12 +108,19 @@ void Servidor::aceptarCliente(SOCKET clientSocket) {
 			closesocket(clientSocket);
 			return;
 		}
-		
+		// Envio todas las Entidades
+		list<Entidad*> listaEnt = this->partida->escenario->verEntidades();
+		list<Entidad*>::iterator i;
+		for (i = listaEnt.begin(); i != listaEnt.end(); i++) {
+			this->enviarEntidad(nuevoCliente, (*i));
+		}
+
+		// Update de login
 		msg_update login_update;
 		login_update.accion = MSJ_JUGADOR_LOGIN;
 		login_update.idEntidad = (unsigned int) loginInfo.playerCode;
 		this->agregarUpdate(login_update);
-
+		
 		Jugador* player = this->partida->obtenerJugador(loginInfo.playerCode);
 		player->settearConexion(true);
 
@@ -150,8 +157,27 @@ bool Servidor::validarLogin(struct msg_login msg) {
 // TODO: definir protocolo de envio de mapa
 int Servidor::enviarMapa(ConexionCliente *cliente) {
 	struct msg_map msg;
+	msg.coordX = this->partida->escenario->verTamX();
+	msg.coordY = this->partida->escenario->verTamY();
+	SDL_SemWait(this->partida_lock);
+	int result = send(cliente->clientSocket, (char*)&msg, sizeof(msg), 0);
+	SDL_SemPost(this->partida_lock);
+	return result;
+}
+
+int Servidor::enviarEntidad(ConexionCliente *cliente, Entidad* ent) {
+	struct msg_entidad msg;
+	SDL_SemWait(this->partida_lock);
+
+	msg.idEntidad = ent->verID();
+	msg.playerCode = ent->verJugador()->verID();
+	msg.coordX = ent->verPosicion()->getX();
+	msg.coordY = ent->verPosicion()->getY();
+	msg.estadoEntidad = ent->verEstado();
 
 	int result = send(cliente->clientSocket, (char*)&msg, sizeof(msg), 0);
+
+	SDL_SemPost(this->partida_lock);
 	return result;
 }
 

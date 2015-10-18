@@ -26,8 +26,6 @@ public:
 	
 	// Devuelve el valor de la velocidad de
 	// la Unidad.
-	// NOTA: Debemos decidir una "unidad" para
-	// medir la velocidad de las cosas.
 	float verVelocidad(void) {return (this->rapidez * VEL_CONST);}
 
 	Direcciones_t verDireccion(void) {return this->direccion;}

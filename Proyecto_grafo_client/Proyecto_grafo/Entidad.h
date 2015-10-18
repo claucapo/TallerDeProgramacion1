@@ -16,6 +16,7 @@ NOTA: Esta clase es una base, y de ella
 deberán heredar los "entes" verdaderos.*/
 class Entidad {
 protected:
+	unsigned int id;
 	Posicion* pos;
 	Spritesheet* sprites;
 
@@ -31,13 +32,14 @@ protected:
 
 public:
 	string name;
+	entity_type_t tipo;
 	// Constructor y destructor por defecto
 	Entidad(void);
 	~Entidad(void);
 
 	// Constructor sobrecargado
 	Entidad(Posicion* p);
-	Entidad(string name, int tamX, int tamY, int vision);
+	Entidad(unsigned int id, string name, int tamX, int tamY, int vision);
 
 	// Devuelve la Posicion sobre la cual
 	// está asociada la Entidad.
@@ -46,11 +48,13 @@ public:
 	// en la que iría el pixel origen.
 	Posicion* verPosicion(void) const {return this->pos;}
 
+	string verNombre() {return this->name;}
 	// Devuelve el estado
 	Estados_t verEstado(void) {return this->state;}
 
 	// Devuelve los dos tamanios
 	int verTamX() {return this->tamX;}
+	unsigned int verID() {return this->id;}
 	int verTamY() {return this->tamY;}
 	int verRango() {return this->rangoVision;}
 	string verTipo() {return this->name;}
@@ -59,7 +63,7 @@ public:
 
 	// Avanza un frame modificando los valores de la entidad
 	// Si devuelve true, significa que hay que remover a la entidad el mapa
-	virtual bool avanzarFrame(Escenario* scene);
+	virtual af_result_t avanzarFrame(Escenario* scene);
 
 	// Metodos para setear los sprites.
 	void asignarSprite(Spritesheet* sp);

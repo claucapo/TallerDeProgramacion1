@@ -32,30 +32,26 @@ GraficadorPantalla::GraficadorPantalla(int pant_width, int pant_height, bool ful
 		delete this;
 }
 
-void GraficadorPantalla::asignarEscenario(Escenario* scene) {
-	if (scene) {
+void GraficadorPantalla::asignarPartida(Partida* partida) {
+	if (partida) {
 		ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
-		this->escenario = scene;
-		this->alto_borde = cu->convertULToPixels(escenario->verTamX());
-		this->ancho_borde = 1.732 * cu->convertULToPixels(escenario->verTamY());
+		this->partida = partida;
+		this->alto_borde = cu->convertULToPixels(partida->escenario->verTamX());
+		this->ancho_borde = 1.732 * cu->convertULToPixels(partida->escenario->verTamY());
 
 		this->view_x = VIEW_X_DEFAULT;
 		this->view_y = VIEW_Y_DEFAULT;
 	}
 }
 
-void GraficadorPantalla::asignarJugador(Jugador* jugador) {
-	if (jugador) 
-		this->player = jugador;
-}
 
 void GraficadorPantalla::dibujarPantalla(void) {
 	// PASOS DEL DIBUJO DE LA PANTALLA
-	if (!this->escenario) {
+	if (!this->partida->escenario) {
 		ErrorLog::getInstance()->escribirLog("FATAL: No hay Escenario que graficar!" , LOG_ERROR);
 		return;
 		}
-	if (!this->player) {
+	if (!this->partida->obtenerJugador(0)) {
 		ErrorLog::getInstance()->escribirLog("FATAL: No hay Jugador al que graficar!" , LOG_ERROR);
 		return;
 		}
@@ -114,7 +110,7 @@ void GraficadorPantalla::reajustarCamara(void) {
 	
 	// Si la posicion central no tiene una casilla en pantalla, return
 	Posicion pos_central = Posicion(x_central, y_central);
-	if(!escenario->verMapa()->posicionPertenece(&pos_central))
+	if(!partida->escenario->verMapa()->posicionPertenece(&pos_central))
 		return;
 
 	view_x = new_view_x;
@@ -129,10 +125,10 @@ void GraficadorPantalla::renderizarTerreno(void) {
 	SDL_SetColorKey(imgTile, true, SDL_MapRGB(imgTile->format, 255, 255, 255));
 	SDL_Rect rectangulo;
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
-	Vision* vis = player->verVision();
+	Vision* vis = partida->obtenerJugador(0)->verVision();
 
-	for(int i = 0; i < escenario->verTamX(); i++) {
-		for(int j = 0; j < escenario->verTamY(); j++){
+	for(int i = 0; i < partida->escenario->verTamX(); i++) {
+		for(int j = 0; j < partida->escenario->verTamY(); j++){
 			if(vis->visibilidadPosicion(Posicion(i,j)) != VIS_NO_EXPLORADA){
 				rectangulo.x = cu->obtenerCoordPantallaX(i, j, view_x, view_y, ancho_borde);
 				// Esto chequea si la casilla cae dentro del la pantalla... si no resulta visible, no la grafica
@@ -157,9 +153,9 @@ void GraficadorPantalla::renderizarProtagonista(void) {
 	SDL_Rect recOr, rectangulo;
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
 
-	float oldX = escenario->verProtagonista()->verPosicion()->getX();
-	float oldY = escenario->verProtagonista()->verPosicion()->getY();
-	Spritesheet* unidad = escenario->verProtagonista()->verSpritesheet();
+	float oldX = partida->escenario->verEntidades() ->verPosicion()->getX();
+	float oldY = partida->escenario->verProtagonista()->verPosicion()->getY();
+	Spritesheet* unidad = partida->escenario->verProtagonista()->verSpritesheet();
 
 	int newX = (int) cu->obtenerCoordPantallaX(oldX, oldY, view_x, view_y, ancho_borde);
 	int newY = (int) cu->obtenerCoordPantallaY(oldX, oldY, view_x, view_y, ancho_borde);
@@ -193,14 +189,14 @@ void GraficadorPantalla::renderizarProtagonista(void) {
 void GraficadorPantalla::renderizarEntidades(void) {
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
 	SDL_Rect rectangulo;
-	list<Entidad*> lEnt = escenario->verEntidades();
+	list<Entidad*> lEnt = partida->escenario->verEntidades();
 	for (list<Entidad*>::iterator it=lEnt.begin(); it != lEnt.end(); ++it){
 		Posicion* posEntAct1 = (*it)->verPosicion();
 		int tx = (*it)->verTamX(); int ty = (*it)->verTamY();
 		Posicion posEntAct2 = Posicion(posEntAct1->getX() + tx - 1, posEntAct1->getY());
 		Posicion posEntAct3 = Posicion(posEntAct1->getX(), posEntAct1->getY() + ty - 1);
 		Posicion posEntAct4 = Posicion(posEntAct1->getX() + tx - 1, posEntAct1->getY() + ty - 1); 
-		Vision* vis = player->verVision();
+		Vision* vis = partida->obtenerJugador(0)->verVision();
 		// Si se ve alguna de las cuatro posiciones del borde, dibujo la entidad
 		bool entEsVisible= false;
 		entEsVisible |= (vis->visibilidadPosicion(*posEntAct1)!=VIS_NO_EXPLORADA);
@@ -281,8 +277,8 @@ void GraficadorPantalla::dibujarMinimapa(int minimapX, int minimapY, int minimap
 	pixel.w = 2;
 	int i, j;
 	
-	for(i = 0; i < this->escenario->verTamX(); i++)
-		for(j = 0; j < this->escenario->verTamX(); j++){
+	for(i = 0; i < this->partida->escenario->verTamX(); i++)
+		for(j = 0; j < this->partida->escenario->verTamX(); j++){
 			Posicion pAct = Posicion(i, j);
 			if(this->player->visionCasilla(pAct) != VIS_NO_EXPLORADA){
 				pixel.x = minimapX - 4;
@@ -291,9 +287,9 @@ void GraficadorPantalla::dibujarMinimapa(int minimapX, int minimapY, int minimap
 				pixel.x += floor(cu->obtenerCoordPantallaX(i, j, 0, 0, minimapW)/LARGO_TILE);
 				pixel.y += floor(cu->obtenerCoordPantallaY(i, j, 0, 0, minimapW)/LARGO_TILE);
 
-				if(this->escenario->verMapa()->posicionEstaVacia(&pAct))
+				if(this->partida->escenario->verMapa()->posicionEstaVacia(&pAct))
 					SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 51, 151, 37));
-				else if(this->escenario->verMapa()->verContenido(&pAct)->verTipo() == "resource")
+				else if(this->partida->escenario->verMapa()->verContenido(&pAct)->verTipo() == "resource")
 					SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 250, 200, 16));
 				else
 					SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 10, 38, 163));

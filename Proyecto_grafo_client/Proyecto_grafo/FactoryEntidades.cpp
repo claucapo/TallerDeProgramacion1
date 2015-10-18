@@ -5,6 +5,7 @@
 
 bool FactoryEntidades::hay_instancia = false;
 FactoryEntidades* FactoryEntidades::singleton = nullptr;
+unsigned int FactoryEntidades::nextID = 0;
 
 // Constructores y destructores para singleton!!!
 
@@ -48,6 +49,11 @@ void FactoryEntidades::limpar(void) {
 }
 
 
+unsigned int FactoryEntidades::obtenerIDValida() {
+	return nextID++;
+}
+
+
 
 // Funciones de factory
 
@@ -87,6 +93,7 @@ void FactoryEntidades::agregarEntidad(entidadInfo_t eInfo) {
 		pType->tamY = eInfo.tamY;
 		pType->vision = eInfo.vision;
 		pType->score = eInfo.score;
+		pType->velocidad = eInfo.velocidad;
 
 		// Harcodeado temporalmente hasta definir como se crearán tipos
 		// de unidades distintos desde yaml.
@@ -94,6 +101,8 @@ void FactoryEntidades::agregarEntidad(entidadInfo_t eInfo) {
 			pType->tipo = ENT_T_RESOURCE;
 		else if (eInfo.tipo == "unit")
 			pType->tipo = ENT_T_UNIT;
+		else if (eInfo.tipo == "building")
+			pType->tipo = ENT_T_BUILDING;
 
 		prototipos[eInfo.nombre] = pType;
 	}
@@ -111,20 +120,23 @@ Entidad* FactoryEntidades::obtenerEntidad(string name){
 		pType = prototipos[name];
 		switch (pType->tipo) {
 		case ENT_T_RESOURCE:
-			ent = new Recurso(name, pType->tamX, pType->tamX, pType->vision, pType->score); break;
+			ent = new Recurso(obtenerIDValida(), name, pType->tamX, pType->tamX, pType->vision, pType->score); break;
 		case ENT_T_UNIT:
-			ent = new Unidad(name, pType->tamX, pType->tamX, pType->vision); break;
+			ent = new Unidad(obtenerIDValida(), name, pType->tamX, pType->tamX, pType->vision, pType->velocidad); break;
 		case ENT_T_NONE:
 		default:
-			ent = new Entidad(name, pType->tamX, pType->tamX, pType->vision);
+			ent = new Entidad(obtenerIDValida(), name, pType->tamX, pType->tamX, pType->vision);
 		}
 	} else {
 		ErrorLog::getInstance()->escribirLog("Entidad [" + name + "] no existe en sistema. Se reemplazará por entidad por defecto.", LOG_WARNING);
 		pType = prototipos[nombre_entidad_def];
-		ent = new Entidad(nombre_entidad_def, pType->tamX, pType->tamX, pType->vision);
+		ent = new Entidad(obtenerIDValida(), nombre_entidad_def, pType->tamX, pType->tamX, pType->vision);
 	} 
 	return ent;
 }
+
+
+/*
 
 Unidad* FactoryEntidades::obtenerUnidad(string name){	
 	if (name.find(estados_extensiones[EST_CAMINANDO]) != string::npos) {
@@ -143,4 +155,6 @@ Unidad* FactoryEntidades::obtenerUnidad(string name){
 	} 
 	return unit;
 }
+
+*/
 

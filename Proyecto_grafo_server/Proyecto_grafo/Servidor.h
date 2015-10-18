@@ -59,6 +59,7 @@ public:
 
 	// Devuelve un código de error <= 0 si no se pudo enviar la información en algún punto
 	int enviarMapa(ConexionCliente* cliente);
+	int enviarEntidad(ConexionCliente *cliente, Entidad* ent);
 	void Servidor::enviarKeepAlive(void);
 
 	// Funciones para modificar la lista de clientes

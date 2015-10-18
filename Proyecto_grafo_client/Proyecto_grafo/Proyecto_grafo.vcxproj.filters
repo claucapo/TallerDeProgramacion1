@@ -43,9 +43,6 @@
     <Filter Include="Archivos de encabezado\Utilidades">
       <UniqueIdentifier>{f5902a49-0dd7-4beb-9bde-8bbe64bfed77}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de código fuente\Tests">
-      <UniqueIdentifier>{1204c63e-1653-49e8-a741-ffade5404d18}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de código fuente\Partida">
       <UniqueIdentifier>{ecb4df0c-72bd-4343-8004-8b09d44c30e2}</UniqueIdentifier>
     </Filter>
@@ -166,9 +163,6 @@
     </ClCompile>
     <ClCompile Include="ConversorUnidades.cpp">
       <Filter>Archivos de código fuente\Utilidades</Filter>
-    </ClCompile>
-    <ClCompile Include="EscenarioTest.cpp">
-      <Filter>Archivos de código fuente\Tests</Filter>
     </ClCompile>
     <ClCompile Include="Jugador.cpp">
       <Filter>Archivos de código fuente\Partida</Filter>

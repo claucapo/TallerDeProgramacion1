@@ -3,7 +3,7 @@
 #include "Matriz.h"
 #include "Posicion.h"
 #include "Entidad.h"
-#include "Unidad.h"
+#include "Protocolo.h"
 #include <list>
 
 /* La clase Escenario representa la cuadricula
@@ -16,8 +16,6 @@ class Escenario {
 private:
 	//Atributos
 	list<Entidad*> entidades;
-	Unidad* protagonista;
-
 	// El grafo siguiente es el mapa
 	Matriz* mapa;
 	int tamX;
@@ -58,18 +56,7 @@ public:
 	// Pre: La entidad estaba en el mapa.
 	void quitarEntidad(Entidad* entidad);
 
-	// Asigna una unidad movil al mapa
-	// Pre: la unidad existe.
-	// Post: se asigno a la unidad en el mapa, en estado estacionario
-	// en la posicion especificada
-	bool asignarProtagonista(Unidad* unidad, Posicion* pos);
-
-	// Le asigna un destino al protagonista
-	void asignarDestinoProtagonista(Posicion* pos);
-
-private:
-	void moverProtagonista(void);
-public:
-	Unidad* verProtagonista(void);
 	list<Entidad*> verEntidades(void);
+	void asignarDestino(unsigned int entID, Posicion pos);
+
 };

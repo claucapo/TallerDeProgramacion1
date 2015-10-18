@@ -1,7 +1,7 @@
 #ifndef MENSAJES_H
 #define MENSAJES_H
 
-// Separar para protocolo de updates y events???
+// Separar para protocolo de updates y events??? Nah
 enum CodigoMensaje {
 	// Mensajes de acciones de juego
 	MSJ_QUIETO,
@@ -11,6 +11,7 @@ enum CodigoMensaje {
 	MSJ_JUGADOR_LOGIN,
 	MSJ_JUGADOR_LOGOUT
 };
+enum Estados_t;
 
 struct msg_login {
 	int playerCode;
@@ -24,6 +25,17 @@ struct msg_login_response {
 struct msg_map {
 	int coordX;
 	int coordY;
+};
+
+struct msg_entidad{
+	unsigned int playerCode;
+	unsigned int idEntidad;
+
+	Estados_t estadoEntidad;
+
+	float coordX;
+	float coordY;
+
 };
 
 /*	

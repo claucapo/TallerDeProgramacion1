@@ -1,15 +1,21 @@
 #ifndef MENSAJES_H
 #define MENSAJES_H
 
+// Separar para protocolo de updates y events??? Nah
 enum CodigoMensaje {
 	// Mensajes de acciones de juego
 	MSJ_QUIETO,
 	MSJ_MOVER,
-	MSJ_RECOLECTAR
+	MSJ_RECOLECTAR,
+	MSJ_ELIMINAR,
+	MSJ_JUGADOR_LOGIN,
+	MSJ_JUGADOR_LOGOUT
 };
+enum Estados_t;
 
 struct msg_login {
 	int playerCode;
+	char nombre[50];
 };
 
 struct msg_login_response {
@@ -19,6 +25,17 @@ struct msg_login_response {
 struct msg_map {
 	int coordX;
 	int coordY;
+};
+
+struct msg_entidad{
+	unsigned int playerCode;
+	unsigned int idEntidad;
+
+	Estados_t estadoEntidad;
+
+	float coordX;
+	float coordY;
+
 };
 
 /*	
@@ -49,14 +66,14 @@ struct msg_map {
 */
 struct msg_event {
 	CodigoMensaje accion;
-	int idEntidad;
+	unsigned int idEntidad;
 	float extra1;
 	float extra2;
 };
 
 struct msg_update {
 	CodigoMensaje accion;
-	int idEntidad;
+	unsigned int idEntidad;
 	float extra1;
 	float extra2;
 };
