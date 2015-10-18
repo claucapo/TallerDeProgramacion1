@@ -12,8 +12,6 @@ DatosImagen::DatosImagen(void) {
 	columnas = 1;
 	origenX = 0;
 	origenY = 0;
-	casillasX = 1;
-	casillasY = 1;
 	fps = 1;
 	delay = 1;
 }

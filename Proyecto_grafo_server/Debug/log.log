@@ -2511,3 +2511,195 @@
 [08/10/2015 11:19:25] - [ERROR] - Error al cargar imágen: champion_moveAOEp2.png.¡Imagen inexistente!
 [08/10/2015 11:19:26] - [ERROR] - SDL_image Error:  con imagenwindmillAOEp2.png
 [08/10/2015 11:19:26] - [ERROR] - Error al cargar imágen: windmillAOEp2.png.¡Imagen inexistente!
+[18/10/2015 01:11:39] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 01:11:39] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 01:11:39] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 01:11:39] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 01:11:39] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 01:11:39] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 01:11:39] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 01:11:39] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 01:11:39] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 01:11:39] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:12:06] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:02] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 01:14:02] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 01:14:02] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 01:14:02] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 01:14:02] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 01:14:02] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 01:14:02] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 01:14:02] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 01:14:02] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 01:14:02] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:14:10] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:10] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 01:15:10] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 01:15:10] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 01:15:10] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 01:15:10] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 01:15:10] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 01:15:10] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 01:15:10] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 01:15:10] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 01:15:10] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:15:40] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:04] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 01:17:04] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 01:17:04] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 01:17:04] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 01:17:04] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 01:17:04] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 01:17:04] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 01:17:04] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 01:17:04] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 01:17:04] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio un tipo de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 01:17:09] - [ALLWAYS] - Se envio una instancia de entidad.
+[18/10/2015 02:42:21] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 02:42:21] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 02:42:21] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 02:42:21] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 02:42:21] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 02:42:21] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 02:42:21] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 02:42:21] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 02:42:21] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 02:42:21] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 02:43:53] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 02:43:53] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 02:43:53] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 02:43:53] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 02:43:53] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 02:43:53] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 02:43:53] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 02:43:53] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 02:43:53] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 02:43:53] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.

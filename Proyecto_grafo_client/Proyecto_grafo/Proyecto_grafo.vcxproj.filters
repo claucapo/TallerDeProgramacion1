@@ -55,6 +55,9 @@
     <Filter Include="Archivos de código fuente\Red">
       <UniqueIdentifier>{3f94b19b-cf46-4256-8e51-8f9437a57874}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\Red">
+      <UniqueIdentifier>{99ffe202-2dd0-4036-9d7b-fcf7566a7f69}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entidad.h">
@@ -121,13 +124,10 @@
       <Filter>Archivos de encabezado\Entidades</Filter>
     </ClInclude>
     <ClInclude Include="Cliente.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\Red</Filter>
     </ClInclude>
     <ClInclude Include="Protocolo.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="TranslatorCliente.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\Red</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -185,9 +185,6 @@
     <ClCompile Include="Recurso.cpp">
       <Filter>Archivos de código fuente\Entidades</Filter>
     </ClCompile>
-    <ClCompile Include="MainOrig.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
@@ -196,9 +193,6 @@
     </ClCompile>
     <ClCompile Include="Cliente.cpp">
       <Filter>Archivos de código fuente\Red</Filter>
-    </ClCompile>
-    <ClCompile Include="TranslatorCliente.cpp">
-      <Filter>Archivos de código fuente</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

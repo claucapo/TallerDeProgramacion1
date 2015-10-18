@@ -4,13 +4,18 @@
 #include <yaml-cpp\yaml.h>
 
 // Definición de las claves para los hashes del YAML
+#define RED_KEY "red"
+	#define PUERTO_KEY "port"
+	#define IP_KEY "ip"
+	#define ID_KEY "ID"
+	#define ALIAS_KEY "alias"
+
 #define PANTALLA_KEY "pantalla"
 	#define ANCHO_KEY "ancho"
 	#define ALTO_KEY "alto"
 	#define FULLSCREEN_KEY "fullscreen"
 
 #define GAMEPLAY_KEY "gameplay"
-	#define VELOCIDAD_KEY "velocidad"
 	#define MARGEN_KEY "scroll_margen"
 	#define SCROLL_KEY "scroll_vel"
 
@@ -24,18 +29,8 @@
 	#define PATH_KEY "ruta"
 	#define SUB_X_KEY "subX"
 	#define SUB_Y_KEY "subY"
-	#define TAMANIO_X_KEY "sizeX"
-	#define TAMANIO_Y_KEY "sizeY"
 	#define ALIGN_X_KEY "pixelX"
 	#define ALIGN_Y_KEY "pixelY"
-	#define VIEW_RANGE_KEY "vision"
-	#define SCORE_KEY "score"
-
-#define ESCENARIO_KEY "escenario"
-	#define INSTANCIAS_KEY "entidades"
-	#define COORD_X_KEY "x"
-	#define COORD_Y_KEY "y"
-	#define PC_KEY "protagonista"
 	#define FPS_KEY "fps"
 	#define DELAY_KEY "delay"
 
@@ -74,7 +69,7 @@ ConfigParser::ConfigParser() {
 	this->lInfo = struct logInfo_t();
 	this->eInfoL = std::list<entidadInfo_t*>();
 	this->path = PATH_DEFAULT;
-	this->sInfo = struct escenarioInfo_t();
+	this->rInfo = struct redInfo_t();
 }
 
 // Constructor y métodos específicos para cargar directorio arbitrario
@@ -83,7 +78,7 @@ ConfigParser::ConfigParser(std::string path) {
 	this->gInfo = struct gameplayInfo_t();
 	this->lInfo = struct logInfo_t();
 	this->eInfoL = std::list<entidadInfo_t*>();
-	this->sInfo = struct escenarioInfo_t();
+	this->rInfo = struct redInfo_t();
 	
 	if (!path.empty())
 		this->path = path;
@@ -115,10 +110,6 @@ void ConfigParser::limpiar() {
 	while (!this->eInfoL.empty()) {
 		delete this->eInfoL.front();
 		this->eInfoL.pop_front();
-	}
-	while (!this->sInfo.instancias.empty()) {
-		delete this->sInfo.instancias.front();
-		this->sInfo.instancias.pop_front();
 	}
 }
 
@@ -232,7 +223,6 @@ void operator >>(const YAML::Node& node, pantallaInfo_t& pInfo) {
 
 // Informacion de jugabilidad (gameplayInfo_t)
 void operator >>(const YAML::Node& node, gameplayInfo_t& gInfo) {
-	parsearFloat(node, VELOCIDAD_KEY, &gInfo.velocidad, LOG_WARNING, false);
 	parsearEntero(node, MARGEN_KEY, &gInfo.scroll_margen, LOG_INFO, false);
 	parsearEntero(node, SCROLL_KEY, &gInfo.scroll_vel, LOG_INFO, false);
 	
@@ -244,20 +234,15 @@ void operator >>(const YAML::Node& node, gameplayInfo_t& gInfo) {
 void operator >> (const YAML::Node& node, entidadInfo_t& eInfo) {
 	parsearString(node, NOMBRE_KEY, &eInfo.nombre);
 	parsearString(node, PATH_KEY, &eInfo.spritePath);
-	parsearString(node, TIPO_KEY, &eInfo.tipo, LOG_INFO);
 
 	parsearEntero(node, FPS_KEY, &eInfo.fps, LOG_INFO, false);
 	parsearEntero(node, DELAY_KEY, &eInfo.delay, LOG_INFO);
 
 	parsearEntero(node, SUB_X_KEY, &eInfo.subX, LOG_INFO, false);
 	parsearEntero(node, SUB_Y_KEY, &eInfo.subY, LOG_INFO, false);
-	parsearEntero(node, TAMANIO_X_KEY, &eInfo.tamX, LOG_INFO, false);
-	parsearEntero(node, TAMANIO_Y_KEY, &eInfo.tamY, LOG_INFO, false);
 	parsearEntero(node, ALIGN_X_KEY, &eInfo.pixel_align_X, LOG_WARNING);
 	parsearEntero(node, ALIGN_Y_KEY, &eInfo.pixel_align_Y, LOG_WARNING);
 
-	parsearEntero(node, VIEW_RANGE_KEY, &eInfo.vision, LOG_INFO, false);
-	parsearEntero(node, SCORE_KEY, &eInfo.score, LOG_INFO, false);
 }
 
 // Carga una lista de struct entidadInfo_t para poder guardar en simultaneo
@@ -284,50 +269,16 @@ void operator >> (const YAML::Node& node, logInfo_t& lInfo) {
 	parsearBoolean(node, ERRORS_KEY, &lInfo.errors, LOG_INFO);
 }
 
-// Informacion de una instancia particualr (instanciaInfo_t)
-void operator >> (const YAML::Node& node, instanciaInfo_t& iInfo) {
-	parsearString(node, TIPO_KEY, &iInfo.tipo);
 
-	parsearEntero(node, COORD_X_KEY, &iInfo.x, LOG_INFO);
-	parsearEntero(node, COORD_Y_KEY, &iInfo.y, LOG_INFO);
-}
-
-// Coleccion de instancias bajo un TDA de lista
-// IMPORTANTE: la memoria para cada instancia se pide dinamicamente!!!
-//				Liberar con parser.limpiar() o llamando al destructor.
-void operator >> (const YAML::Node& node, std::list<instanciaInfo_t*>& iInfoL) {
-	try {	
-		for (unsigned i = 0; i < node.size(); i++) {
-			// Memoria pedida dinamicamente
-			instanciaInfo_t* iInfo = new instanciaInfo_t();
-			node[i] >> *(iInfo);
-			iInfoL.push_back(iInfo);
-		}
-	} catch (YAML::Exception e) {
-		raiseError(UNKNOWN_ERR, e.what(), LOG_INFO);
-	}
-}
 
 // Informacion del escenario (escenarioInfo_t)
 // Contiene el tamanio del mapa y la lista de entidades que hay en el mismo.
-void operator >> (const YAML::Node& node, escenarioInfo_t& sInfo) {
-	parsearString(node, NOMBRE_KEY, &sInfo.name, LOG_INFO);
-	parsearEntero(node, TAMANIO_X_KEY, &sInfo.size_X, LOG_WARNING, false);
-	parsearEntero(node, TAMANIO_Y_KEY, &sInfo.size_Y, LOG_WARNING, false);
+void operator >> (const YAML::Node& node, redInfo_t& rInfo) {
+	parsearString(node, ALIAS_KEY, &rInfo.name, LOG_WARNING);
+	parsearString(node, IP_KEY, &rInfo.ip, LOG_WARNING);
 
-	// Obtengo lista de entidades.
-	try {
-		node[INSTANCIAS_KEY] >> sInfo.instancias;
-	} catch (YAML::KeyNotFound e) {
-		raiseError(MISSING_SECTION_ERR, e.what(), LOG_INFO);
-	}
-
-	// Obtengo instancia unica del protagonista (por ahora es uno solo)
-	try {
-		node[PC_KEY] >> sInfo.protagonista;
-	} catch (YAML::KeyNotFound e) {
-		raiseError(MISSING_SECTION_ERR, e.what());
-	}
+	parsearEntero(node, PUERTO_KEY, &rInfo.port, LOG_WARNING, false);
+	parsearEntero(node, ID_KEY, &rInfo.ID, LOG_WARNING, false);
 }
 
 
@@ -391,12 +342,10 @@ void parsearInfoEntidades(const YAML::Node& node, std::list<entidadInfo_t*>* eIn
 	}
 }
 
-// Carga la informacion del escenario en el struct sInfo.
-// Pre: los valores estan cargados por defecto, y la lista de instancias esta vacia.
-// Post: se cargo la informacion del escenario y se pusieron en default los valores faltantes o erroneos.
-void parsearInfoEscenario(const YAML::Node& node, escenarioInfo_t* sInfo) {
+
+void parsearInfoRed(const YAML::Node& node, redInfo_t* rInfo) {
 	try {
-		node[ESCENARIO_KEY] >> *sInfo;
+		node[RED_KEY] >> *rInfo;
 	} catch (YAML::KeyNotFound e) {
 		raiseError(MISSING_SECTION_ERR, e.what());
 	} catch (YAML::Exception e) {
@@ -426,7 +375,7 @@ void ConfigParser::parsearTodo() {
 		parsearInfoPantalla(doc, &this->pInfo);
 		parsearInfoGameplay(doc, &this->gInfo);
 		parsearInfoEntidades(doc, &this->eInfoL);
-		parsearInfoEscenario(doc, &this->sInfo);
+		parsearInfoRed(doc, &this->rInfo);
 
 		file.close();
 	} catch (YAML::Exception e) {

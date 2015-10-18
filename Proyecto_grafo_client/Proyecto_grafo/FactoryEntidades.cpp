@@ -2,10 +2,10 @@
 #include "ErrorLog.h"
 #include "Enumerados.h"
 #include "Recurso.h"
+#include "Protocolo.h"
 
 bool FactoryEntidades::hay_instancia = false;
 FactoryEntidades* FactoryEntidades::singleton = nullptr;
-unsigned int FactoryEntidades::nextID = 0;
 
 // Constructores y destructores para singleton!!!
 
@@ -49,43 +49,39 @@ void FactoryEntidades::limpar(void) {
 }
 
 
-unsigned int FactoryEntidades::obtenerIDValida() {
-	return nextID++;
-}
-
-
-
 // Funciones de factory
 
-void FactoryEntidades::agregarEntidad(entidadInfo_t eInfo) {
+void FactoryEntidades::agregarEntidad(msg_tipo_entidad eInfo) {
+	string nombre(eInfo.name);
+
 	// El nombre de la entidad no contiene subcadenas de estados como "_move"
-	if (eInfo.nombre.find(estados_extensiones[EST_CAMINANDO]) != string::npos) {
+	if (nombre.find(estados_extensiones[EST_CAMINANDO]) != string::npos) {
 		return;
 	}
 
 	// El nombre de la entidad no es el valor por defecto
-	if (eInfo.nombre == nombre_entidad_def) {
+	if (nombre == nombre_entidad_def) {
 		ErrorLog::getInstance()->escribirLog("Tipo de instancia [" + nombre_entidad_def + "] reservada. No se reemplazará el tipo por defecto.", LOG_WARNING);
 		return;
 	}
 
 	// Si el nombre ya existía no lo agrego e imprimo un error
-	if (prototipos.count(eInfo.nombre) > 0) {
-		ErrorLog::getInstance()->escribirLog("Definición de entidad [" + eInfo.nombre + "] duplicada. No se sobreescribirán los datos", LOG_WARNING);
+	if (prototipos.count(nombre) > 0) {
+		ErrorLog::getInstance()->escribirLog("Definición de entidad [" + nombre + "] duplicada. No se sobreescribirán los datos", LOG_WARNING);
 	} else {
 		tipoEntidad_t* pType = new tipoEntidad_t();
 
 		// Estos chequeos se pueden sacar... ya que el yaml siempre tira datos válidos
 		if (eInfo.tamX <= 0) {
-			ErrorLog::getInstance()->escribirLog("Tamaño inválido en la entidad [" + eInfo.nombre + "]. Se utiliza valor por defecto.", LOG_WARNING);
+			ErrorLog::getInstance()->escribirLog("Tamaño inválido en la entidad [" + nombre + "]. Se utiliza valor por defecto.", LOG_WARNING);
 			eInfo.tamX = 1;
 		}
 		if (eInfo.tamY <= 0) {
-			ErrorLog::getInstance()->escribirLog("Tamaño inválido en la entidad [" + eInfo.nombre + "]. Se utiliza valor por defecto.", LOG_WARNING);
+			ErrorLog::getInstance()->escribirLog("Tamaño inválido en la entidad [" + nombre + "]. Se utiliza valor por defecto.", LOG_WARNING);
 			eInfo.tamY = 1;
 		}
 		if (eInfo.vision <= 1) {
-			ErrorLog::getInstance()->escribirLog("Rango visión inválido en la entidad [" + eInfo.nombre + "]. Se utiliza valor por defecto.", LOG_WARNING);
+			ErrorLog::getInstance()->escribirLog("Rango visión inválido en la entidad [" + nombre + "]. Se utiliza valor por defecto.", LOG_WARNING);
 			eInfo.vision = 1;
 		}
 
@@ -94,21 +90,13 @@ void FactoryEntidades::agregarEntidad(entidadInfo_t eInfo) {
 		pType->vision = eInfo.vision;
 		pType->score = eInfo.score;
 		pType->velocidad = eInfo.velocidad;
+		pType->tipo = eInfo.tipo;
 
-		// Harcodeado temporalmente hasta definir como se crearán tipos
-		// de unidades distintos desde yaml.
-		if (eInfo.tipo == "resource")
-			pType->tipo = ENT_T_RESOURCE;
-		else if (eInfo.tipo == "unit")
-			pType->tipo = ENT_T_UNIT;
-		else if (eInfo.tipo == "building")
-			pType->tipo = ENT_T_BUILDING;
-
-		prototipos[eInfo.nombre] = pType;
+		prototipos[nombre] = pType;
 	}
 }
 
-Entidad* FactoryEntidades::obtenerEntidad(string name){
+Entidad* FactoryEntidades::obtenerEntidad(string name, unsigned int id){
 	if (name.find(estados_extensiones[EST_CAMINANDO]) != string::npos) {
 		ErrorLog::getInstance()->escribirLog("Extensión [" + estados_extensiones[EST_CAMINANDO] + "] reservada. La instancia se reemplazará por entidad por defecto.", LOG_WARNING);
 		name = nombre_entidad_def;
@@ -120,17 +108,17 @@ Entidad* FactoryEntidades::obtenerEntidad(string name){
 		pType = prototipos[name];
 		switch (pType->tipo) {
 		case ENT_T_RESOURCE:
-			ent = new Recurso(obtenerIDValida(), name, pType->tamX, pType->tamX, pType->vision, pType->score); break;
+			ent = new Recurso(id, name, pType->tamX, pType->tamX, pType->vision, pType->score); break;
 		case ENT_T_UNIT:
-			ent = new Unidad(obtenerIDValida(), name, pType->tamX, pType->tamX, pType->vision, pType->velocidad); break;
+			ent = new Unidad(id, name, pType->tamX, pType->tamX, pType->vision, pType->velocidad); break;
 		case ENT_T_NONE:
 		default:
-			ent = new Entidad(obtenerIDValida(), name, pType->tamX, pType->tamX, pType->vision);
+			ent = new Entidad(id, name, pType->tamX, pType->tamX, pType->vision);
 		}
 	} else {
 		ErrorLog::getInstance()->escribirLog("Entidad [" + name + "] no existe en sistema. Se reemplazará por entidad por defecto.", LOG_WARNING);
 		pType = prototipos[nombre_entidad_def];
-		ent = new Entidad(obtenerIDValida(), nombre_entidad_def, pType->tamX, pType->tamX, pType->vision);
+		ent = new Entidad(id, nombre_entidad_def, pType->tamX, pType->tamX, pType->vision);
 	} 
 	return ent;
 }

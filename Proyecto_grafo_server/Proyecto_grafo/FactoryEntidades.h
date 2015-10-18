@@ -4,6 +4,7 @@
 #include "ConfigParser.h"
 #include "Enumerados.h"
 #include "Unidad.h"
+#include "Protocolo.h"
 
 #include <map>
 
@@ -49,6 +50,8 @@ public:
 	void limpar();
 
 	void agregarEntidad(entidadInfo_t eInfo);
+
+	list<msg_tipo_entidad*> obtenerListaTipos(void);
 
 	Entidad* obtenerEntidad(string name);
 	// Unidad* obtenerUnidad(string name);

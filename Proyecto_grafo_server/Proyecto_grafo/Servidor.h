@@ -29,7 +29,7 @@ private:
 	Partida* partida;
 	
 	Servidor() {};
-
+	msg_instancia enviarEntidad(Entidad* ent);
 
 public:
 	int cantClientes;
@@ -56,10 +56,11 @@ public:
 	// Valida una conexión entrante y la agrega a la lista de clientes
 	void aceptarCliente(SOCKET cs);
 	bool validarLogin(struct msg_login);
+	void desconectarJugador(unsigned int playerID);
 
 	// Devuelve un código de error <= 0 si no se pudo enviar la información en algún punto
 	int enviarMapa(ConexionCliente* cliente);
-	int enviarEntidad(ConexionCliente *cliente, Entidad* ent);
+	// int enviarEntidad(ConexionCliente *cliente, Entidad* ent);
 	void Servidor::enviarKeepAlive(void);
 
 	// Funciones para modificar la lista de clientes

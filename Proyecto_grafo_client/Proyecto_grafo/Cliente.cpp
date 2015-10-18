@@ -1,4 +1,5 @@
 #include "Cliente.h"
+#include "ErrorLog.h"
 
 int sRead(SOCKET source, char* buffer, int length);
 
@@ -68,7 +69,7 @@ int clientSender( void* data ) {
 				printf("Error enviando evento. Terminando conexion\n");
 				cliente->shutdown();
 			} else {
-				printf("Envie un %d\n", ev.idEntidad);
+				// printf("Envie un %d\n", ev.idEntidad);
 			}
 		}
 		SDL_SemPost(cliente->eventos_lock);
@@ -156,13 +157,71 @@ void Cliente::procesarUpdates() {
 		upd = this->updates.front();
 		this->updates.pop();
 
-		printf("Recibi un %d\n", upd.idEntidad);
+		// printf("Recibi un %d\n", upd.idEntidad);
 		// this->partida->decodificarUpdate(upd);
 	}
 	SDL_SemPost(this->updates_lock);
 }
 
 
+struct mapa_inicial Cliente::getEscenario(void) {
+	int result;
+	struct mapa_inicial scene_info;
+	result = sRead(this->clientSocket, (char*)&(scene_info.mInfo), sizeof(scene_info.mInfo));
+	if ( result <= 0 ) {
+		ErrorLog::getInstance()->escribirLog("Error recibiendo mapa.", LOG_ERROR);
+		return scene_info;
+	}
+
+
+	// Se la cantidad de jugadores que voy a recibir, y el tamaño de sus visiones
+	for (int i = 0; i < scene_info.mInfo.cantJugadores; i++) {
+		jugador_info* jugador_act = new jugador_info();
+		result = sRead(this->clientSocket, (char*)&(jugador_act->jInfo), sizeof(jugador_act->jInfo));
+		if ( result <= 0 ) {
+			ErrorLog::getInstance()->escribirLog("Error recibiendo jugador.", LOG_ERROR);
+			return scene_info;
+		}
+		estado_vision_t* varray = new estado_vision_t[scene_info.mInfo.coordX * scene_info.mInfo.coordY];
+		result = sRead(this->clientSocket, (char*)varray, scene_info.mInfo.coordX * scene_info.mInfo.coordY * sizeof(estado_vision_t));
+		if ( result <= 0 ) {
+			ErrorLog::getInstance()->escribirLog("Error recibiendo vision.", LOG_ERROR);
+			return scene_info;
+		}
+		jugador_act->varray = varray;
+		scene_info.jugadores.push_back(jugador_act);
+	}
+
+
+	// Se la cantidad de tipos que voy a recibir
+	for (int i = 0; i < scene_info.mInfo.cantTipos; i++) {
+		msg_tipo_entidad* tipo_act = new msg_tipo_entidad();
+		result = sRead(this->clientSocket, (char*)(tipo_act), sizeof(*tipo_act));
+		if ( result <= 0 ) {
+			ErrorLog::getInstance()->escribirLog("Error recibiendo tipo.", LOG_ERROR);
+			return scene_info;
+		}
+
+		scene_info.tipos.push_back(tipo_act);
+	}
+
+	// Se la cantidad de instancais que voy a recibir
+	for (int i = 0; i < scene_info.mInfo.cantInstancias; i++) {
+		msg_instancia* inst_act = new msg_instancia();
+		result = sRead(this->clientSocket, (char*)(inst_act), sizeof(*inst_act));
+		if ( result <= 0 ) {
+			ErrorLog::getInstance()->escribirLog("Error recibiendo instancia.", LOG_ERROR);
+			return scene_info;
+		}
+
+		scene_info.instancias.push_back(inst_act);
+	}
+
+	return scene_info;
+}
+
+
+/*
 struct msg_map Cliente::getEscenario(void){
 	int result; 
 	char buffer[sizeof(struct msg_map)];
@@ -175,6 +234,7 @@ struct msg_map Cliente::getEscenario(void){
 
 	return mapaRecv;
 }
+*/
 
 // NO USAR
 /*

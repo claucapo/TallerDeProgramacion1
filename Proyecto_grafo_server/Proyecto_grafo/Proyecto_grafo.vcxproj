@@ -85,7 +85,6 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="Servidor.h" />
     <ClInclude Include="Tests.h" />
-    <ClInclude Include="TranslatorServer.h" />
     <ClInclude Include="Unidad.h" />
     <ClInclude Include="Vision.h" />
   </ItemGroup>
@@ -107,7 +106,6 @@
     <ClCompile Include="Recurso.cpp" />
     <ClCompile Include="Servidor.cpp" />
     <ClCompile Include="SocketAux.cpp" />
-    <ClCompile Include="TranslatorServer.cpp" />
     <ClCompile Include="Unidad.cpp" />
     <ClCompile Include="Vision.cpp" />
   </ItemGroup>

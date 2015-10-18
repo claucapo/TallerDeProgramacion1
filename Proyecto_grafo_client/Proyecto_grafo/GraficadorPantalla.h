@@ -11,6 +11,7 @@ private:
 	SDL_Window* ventana;
 	SDL_Surface* pantalla;
 	Partida* partida;
+	Jugador* player;
 	float view_x, view_y;
 	float ancho_borde, alto_borde;
 	float screen_width, screen_height;
@@ -22,6 +23,7 @@ public:
 	SDL_Surface* getPantalla(void);
 	void dibujarPantalla(void);
 	void asignarPartida(Partida* partida);
+	void asignarJugador(Jugador* player) {this->player = player;}
 	void asignarParametrosScroll(int margen, int velocidad);
 private:
 	void reajustarCamara(void);

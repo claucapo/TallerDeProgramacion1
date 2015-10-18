@@ -1,11 +1,14 @@
 #include "Servidor.h"
+#include "ErrorLog.h"
 #include "ConexionCliente.h"
+#include "FactoryEntidades.h"
 #include "Partida.h"
 #include "Protocolo.h"
 #include "Jugador.h"
 
 #include <queue>
 #include <list>
+
 using namespace std;
 
 // Defino la función de lectura personalizada
@@ -86,9 +89,7 @@ void Servidor::aceptarCliente(SOCKET clientSocket) {
 
 	if (aceptado) {		
 		// 2.a) Crear al cliente
-		ConexionCliente* nuevoCliente = new ConexionCliente(clientSocket, this);
-		this->agregarCliente(nuevoCliente);
-		nuevoCliente->start();
+		ConexionCliente* nuevoCliente = new ConexionCliente(clientSocket, this, loginInfo.playerCode);
 
 		// 2.b) Contestar solicitud afirmativamente
 		result = send(clientSocket, (char*)&respuesta, sizeof(respuesta), 0);
@@ -103,16 +104,10 @@ void Servidor::aceptarCliente(SOCKET clientSocket) {
 		// 2.c) Enviar mapa completo
 		result = this->enviarMapa(nuevoCliente);
 		if (result <= 0) {
-			printf("Error respondiendo solicitud de login. Terminando conexión");
+			printf("Error enviando el mapa de login. Terminando conexión\n");
 			this->removerCliente(nuevoCliente);
 			closesocket(clientSocket);
 			return;
-		}
-		// Envio todas las Entidades
-		list<Entidad*> listaEnt = this->partida->escenario->verEntidades();
-		list<Entidad*>::iterator i;
-		for (i = listaEnt.begin(); i != listaEnt.end(); i++) {
-			this->enviarEntidad(nuevoCliente, (*i));
 		}
 
 		// Update de login
@@ -123,6 +118,9 @@ void Servidor::aceptarCliente(SOCKET clientSocket) {
 		
 		Jugador* player = this->partida->obtenerJugador(loginInfo.playerCode);
 		player->settearConexion(true);
+
+		this->agregarCliente(nuevoCliente);
+		nuevoCliente->start();
 
 	} else {
 		// 2.a) Contestar solicitud negativamente
@@ -154,32 +152,110 @@ bool Servidor::validarLogin(struct msg_login msg) {
 }
 
 
-// TODO: definir protocolo de envio de mapa
-int Servidor::enviarMapa(ConexionCliente *cliente) {
-	struct msg_map msg;
-	msg.coordX = this->partida->escenario->verTamX();
-	msg.coordY = this->partida->escenario->verTamY();
-	SDL_SemWait(this->partida_lock);
-	int result = send(cliente->clientSocket, (char*)&msg, sizeof(msg), 0);
-	SDL_SemPost(this->partida_lock);
-	return result;
-}
+// Función auxiliar para convertir entidad en mensaje
+msg_instancia Servidor::enviarEntidad(Entidad* ent) {
+	struct msg_instancia msg;
 
-int Servidor::enviarEntidad(ConexionCliente *cliente, Entidad* ent) {
-	struct msg_entidad msg;
-	SDL_SemWait(this->partida_lock);
+	int last = ent->verNombre().copy(msg.name, 49, 0);
+	msg.name[last] = '\0';
 
 	msg.idEntidad = ent->verID();
 	msg.playerCode = ent->verJugador()->verID();
 	msg.coordX = ent->verPosicion()->getX();
 	msg.coordY = ent->verPosicion()->getY();
 	msg.estadoEntidad = ent->verEstado();
+		
+	return msg;
+}
 
+// -------------------------------------------------
+// ----------Protocolo de envio de partida----------
+// -------------------------------------------------
+// TODO: modularizar
+int Servidor::enviarMapa(ConexionCliente *cliente) {
+	SDL_SemWait(this->partida_lock);
+	
+	struct msg_map msg;
+	msg.coordX = this->partida->escenario->verTamX();
+	msg.coordY = this->partida->escenario->verTamY();
+
+	list<msg_tipo_entidad*> tipos = FactoryEntidades::obtenerInstancia()->obtenerListaTipos();
+	msg.cantTipos = tipos.size();
+	
+	list<Entidad*> instancias = this->partida->escenario->verEntidades();
+	msg.cantInstancias = instancias.size();
+
+	list<Jugador*> jugadores = this->partida->jugadores;
+	msg.cantJugadores = jugadores.size();
+	
+	// Mando el tamaño del mapa y la cantidad de tipos e instancias
 	int result = send(cliente->clientSocket, (char*)&msg, sizeof(msg), 0);
+	if (result <= 0) {
+		while (!tipos.empty()) {
+			delete tipos.front();
+			tipos.pop_front();
+		}
+		tipos.clear();
+		SDL_SemPost(this->partida_lock);
+		return result;
+	}
 
+	// Mando la información de los jugadores
+	list<Jugador*>::iterator it;
+	for (it = jugadores.begin(); it != jugadores.end(); it++) {
+		msg_jugador act;
+		int last = (*it)->verNombre().copy(act.name, 49, 0);
+		act.name[last] = '\0';
+
+		last = (*it)->verColor().copy(act.color, 49, 0);
+		act.color[last] = '\0';
+
+		act.conectado = (*it)->estaConectado();
+		act.id = (*it)->verID();
+		act.recursos = (*it)->verRecurso();
+
+		result = send(cliente->clientSocket, (char*)&act, sizeof(act), 0);
+
+		estado_vision_t* vision = (*it)->verVision()->visibilidadArray();
+		result = send(cliente->clientSocket, (char*)vision, sizeof(estado_vision_t) * msg.coordX * msg.coordY, 0);
+		delete[] vision;
+	}
+
+	// Mando los tipos
+	while (!tipos.empty() && result > 0) {
+		msg_tipo_entidad* act = tipos.front();
+		tipos.pop_front();
+		result = send(cliente->clientSocket, (char*)act, sizeof(*act), 0);
+		ErrorLog::getInstance()->escribirLog("Se envio un tipo de entidad.", LOG_ALLWAYS);
+		delete act;
+	}
+	if (result <= 0) {
+		while (!tipos.empty()) {
+			delete tipos.front();
+			tipos.pop_front();
+		}
+		tipos.clear();
+		SDL_SemPost(this->partida_lock);
+		return result;
+	}
+
+	// Envio todas las Entidades
+	list<Entidad*>::iterator it2;
+	for (it2 = instancias.begin(); it2 != instancias.end(); it2++) {
+		msg_instancia msg = enviarEntidad(*it2);
+		result = send(cliente->clientSocket, (char*)&msg, sizeof(msg), 0);
+		if (result <= 0){
+			SDL_SemPost(this->partida_lock);
+			return result;
+		} else {
+			ErrorLog::getInstance()->escribirLog("Se envio una instancia de entidad.", LOG_ALLWAYS);
+		}
+	}
+	
 	SDL_SemPost(this->partida_lock);
 	return result;
 }
+
 
 
 //----------------------------------------------
@@ -281,4 +357,20 @@ void Servidor::avanzarFrame(void) {
 		this->agregarUpdate(toSend);
 	}
 	SDL_SemPost(partida_lock);
+}
+
+
+void Servidor::desconectarJugador(unsigned int playerID) {
+	SDL_SemWait(this->partida_lock);
+	Jugador* player = this->partida->obtenerJugador(playerID);
+	if (player) {
+		player->settearConexion(false);
+		
+		// Update logout
+		msg_update logout_update;
+		logout_update.accion = MSJ_JUGADOR_LOGOUT;
+		logout_update.idEntidad = (unsigned int) playerID;
+		this->agregarUpdate(logout_update);
+	}
+	SDL_SemPost(this->partida_lock);
 }

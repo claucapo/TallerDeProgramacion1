@@ -7,9 +7,26 @@
 
 #include "Protocolo.h"
 #include <queue>
+#include <list>
 
+enum estado_vision_t;
 
 using namespace std;
+
+// Definición del struct en el que el cliente recibirá el mapa
+struct jugador_info {
+	msg_jugador jInfo;
+	estado_vision_t* varray;
+};
+
+struct mapa_inicial {
+	struct msg_map mInfo;
+	list<msg_tipo_entidad*> tipos;
+	list<msg_instancia*> instancias;
+	list<jugador_info*> jugadores;
+};
+
+
 
 class Cliente {
 private:
@@ -43,7 +60,7 @@ public:
 	void agregarUpdate(struct msg_update);
 	void procesarUpdates();
 
-	struct msg_map getEscenario(void);
+	struct mapa_inicial getEscenario(void);
 	// int enviarEventos(void);
 };
 

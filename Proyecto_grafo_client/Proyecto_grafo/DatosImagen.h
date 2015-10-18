@@ -31,11 +31,7 @@ public:
 	// subimagen, correspondiente al
 	// vértice menor de la imagen.
 	int origenX, origenY;
-
-	// Cantidad de casillas lógicas en 
-	// X e Y que ocupa la imagen
-	int casillasX, casillasY;
-
+	
 	// FPS y delay (este último en ms)
 	float fps, delay;
 

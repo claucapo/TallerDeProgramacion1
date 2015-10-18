@@ -1,6 +1,7 @@
 #include "GraficadorPantalla.h"
 #include "Spritesheet.h"
 #include "Escenario.h"
+#include "Partida.h"
 #include "ErrorLog.h"
 #include <SDL.h>
 #include <SDL_image.h>
@@ -22,7 +23,7 @@ GraficadorPantalla::~GraficadorPantalla(void){}
 #define VEL_ZERO_DEFAULT 19
 #define MARGEN_SCROLL_DEFAULT 66
 GraficadorPantalla::GraficadorPantalla(int pant_width, int pant_height, bool full_screen, string title) {
-	this->escenario = nullptr;
+	this->partida = nullptr;
 	this->screen_height = pant_height;
 	this->screen_width = pant_width;
 	this->vel_scroll = VEL_ZERO_DEFAULT;
@@ -66,10 +67,7 @@ void GraficadorPantalla::dibujarPantalla(void) {
 
 	// 3) Dibujar los edificios
 	renderizarEntidades();
-
-	// 4) Dibujar al protagonista (proximamente las unidades)
-	renderizarProtagonista();
-
+	
 	// 5) Dibujar el screen frame alrededor de la pantalla
 	int minimapX, minimapY, minimapW, minimapH;
 	dibujarMarcoPantalla(&minimapX, &minimapY, &minimapW, &minimapH);
@@ -125,7 +123,7 @@ void GraficadorPantalla::renderizarTerreno(void) {
 	SDL_SetColorKey(imgTile, true, SDL_MapRGB(imgTile->format, 255, 255, 255));
 	SDL_Rect rectangulo;
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
-	Vision* vis = partida->obtenerJugador(0)->verVision();
+	Vision* vis = partida->obtenerJugador(1)->verVision();
 
 	for(int i = 0; i < partida->escenario->verTamX(); i++) {
 		for(int j = 0; j < partida->escenario->verTamY(); j++){
@@ -148,42 +146,7 @@ void GraficadorPantalla::renderizarTerreno(void) {
 }
 
 
-// PASO 3: renderizar protagonista
-void GraficadorPantalla::renderizarProtagonista(void) {
-	SDL_Rect recOr, rectangulo;
-	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
-
-	float oldX = partida->escenario->verEntidades() ->verPosicion()->getX();
-	float oldY = partida->escenario->verProtagonista()->verPosicion()->getY();
-	Spritesheet* unidad = partida->escenario->verProtagonista()->verSpritesheet();
-
-	int newX = (int) cu->obtenerCoordPantallaX(oldX, oldY, view_x, view_y, ancho_borde);
-	int newY = (int) cu->obtenerCoordPantallaY(oldX, oldY, view_x, view_y, ancho_borde);
-	unidad->cambirCoord(newX, newY);
-
-	SDL_Surface* spUnidad = unidad->devolverImagenAsociada();
-	SDL_SetColorKey( spUnidad, true, SDL_MapRGB(spUnidad->format, 255, 0, 255) );
-
-	recOr.x = unidad->calcularOffsetX();
-	recOr.y = unidad->calcularOffsetY();
-	recOr.w = unidad->subImagenWidth();
-	recOr.h = unidad->subImagenHeight();
-	rectangulo.x = unidad->getCoordX();
-	rectangulo.y = unidad->getCoordY();
-	
-	if(!escenario->verProtagonista()->verJugador()->estaConectado())
-		SDL_SetSurfaceColorMod(spUnidad, TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD );
-	else
-		SDL_SetSurfaceColorMod(spUnidad, 255, 255, 255 );
-		
-	SDL_BlitSurface( spUnidad, &recOr, pantalla, &rectangulo );
-
-
-}
-
-
 // PASO 4: renderizar entidades
-
 // TODO: Optimizar para que no se grafiquen edificios que no aparezcan en pantalla (ver renderizarTerreno)
 
 void GraficadorPantalla::renderizarEntidades(void) {
@@ -196,7 +159,7 @@ void GraficadorPantalla::renderizarEntidades(void) {
 		Posicion posEntAct2 = Posicion(posEntAct1->getX() + tx - 1, posEntAct1->getY());
 		Posicion posEntAct3 = Posicion(posEntAct1->getX(), posEntAct1->getY() + ty - 1);
 		Posicion posEntAct4 = Posicion(posEntAct1->getX() + tx - 1, posEntAct1->getY() + ty - 1); 
-		Vision* vis = partida->obtenerJugador(0)->verVision();
+		Vision* vis = partida->obtenerJugador(1)->verVision();
 		// Si se ve alguna de las cuatro posiciones del borde, dibujo la entidad
 		bool entEsVisible= false;
 		entEsVisible |= (vis->visibilidadPosicion(*posEntAct1)!=VIS_NO_EXPLORADA);

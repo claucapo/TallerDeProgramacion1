@@ -52,6 +52,9 @@ public:
 	// Devuelve el estado
 	Estados_t verEstado(void) {return this->state;}
 
+	// OJO con esto!!
+	void settearEstado(Estados_t state) {this->state = state;}
+
 	// Devuelve los dos tamanios
 	int verTamX() {return this->tamX;}
 	unsigned int verID() {return this->id;}

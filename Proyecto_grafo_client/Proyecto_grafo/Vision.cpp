@@ -69,3 +69,26 @@ estado_vision_t Vision::visibilidadPosicion(Posicion pos) {
 	}
 	return this->mapa_de_vision[x][y];
 }
+
+// Funciones utiles para enviar y recibir visibildiad
+
+estado_vision_t* Vision::visibilidadArray(void) {
+	int size = this->filas * this->columnas;
+	estado_vision_t* varray = new estado_vision_t[size];
+	for (int i = 0; i < this->filas; i++)
+		for (int j = 0; j < this->columnas; j++)
+			varray[i * this->columnas + j] = this->mapa_de_vision[i][j];
+
+	return varray;
+}
+
+void Vision::setFromArray(estado_vision_t* varray) {
+	if ( sizeof(*varray) == (this->filas * this->columnas * sizeof(estado_vision_t)) ) {
+		for (int i = 0; i < this->filas; i++)
+			for (int j = 0; j < this->columnas; j++)
+				this->mapa_de_vision[i][j] = varray[i * this->columnas + j];
+		delete[] varray;
+	} else {
+		ErrorLog::getInstance()->escribirLog("Asignación de visión por array invalida.", LOG_ERROR);
+	}
+}

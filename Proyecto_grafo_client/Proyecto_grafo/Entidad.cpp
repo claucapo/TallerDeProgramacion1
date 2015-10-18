@@ -19,7 +19,6 @@ Entidad::Entidad(Posicion* p) {
 	this->tamX = 1;
 	this->tamY = 1;
 	this->rangoVision = 4;
-
 	this->owner = nullptr;
 }
 
@@ -62,7 +61,7 @@ Entidad::~Entidad(void) {
 // Devuelve true si hay que quitar la entidad del escenario
 af_result_t Entidad::avanzarFrame(Escenario* scene) {
 	this->sprites->siguienteFrame();
-	return AF_NONE;;
+	return AF_NONE;
 }
 
 void Entidad::asignarPos(Posicion* pos) {

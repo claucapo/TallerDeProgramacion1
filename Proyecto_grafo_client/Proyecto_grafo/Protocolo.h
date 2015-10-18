@@ -1,6 +1,8 @@
 #ifndef MENSAJES_H
 #define MENSAJES_H
 
+enum entity_type_t;
+
 // Separar para protocolo de updates y events??? Nah
 enum CodigoMensaje {
 	// Mensajes de acciones de juego
@@ -25,17 +27,41 @@ struct msg_login_response {
 struct msg_map {
 	int coordX;
 	int coordY;
+	int cantTipos;
+	int cantInstancias;
+	int cantJugadores;
 };
 
-struct msg_entidad{
-	unsigned int playerCode;
+// La vision del jugador se ha de enviar por separado
+struct msg_jugador {
+	char name[50];
+	char color[50];
+	unsigned int id;
+	int recursos;
+	bool conectado;
+};
+
+struct msg_tipo_entidad {
+	char name[50];
+	int tamX;
+	int tamY;
+	int vision;
+	int velocidad;
+	entity_type_t tipo;
+	int score;
+};
+
+
+struct msg_instancia {
 	unsigned int idEntidad;
+	unsigned int playerCode;
+
+	char name[50];
 
 	Estados_t estadoEntidad;
 
 	float coordX;
 	float coordY;
-
 };
 
 /*	

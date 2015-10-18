@@ -36,6 +36,9 @@ public:
 	// Devuelve el estado de vision de una determinada posicion
 	estado_vision_t visibilidadPosicion(Posicion pos);
 
+	estado_vision_t* visibilidadArray(void);
+	void setFromArray(estado_vision_t*);
+
 };
 
 

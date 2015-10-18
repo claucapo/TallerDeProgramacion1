@@ -112,6 +112,10 @@ void cargarFactoryEntidades(std::list<entidadInfo_t*> eInfoL) {
 void cargarEscenario(Partida* partida, escenarioInfo_t eInfo) {
 	Escenario* scene = new Escenario(eInfo.size_X, eInfo.size_Y);
 
+	for(list<Jugador*>::iterator it = partida->jugadores.begin(); it != partida->jugadores.end(); ++it) {
+		(*it)->asignarVision(eInfo.size_X, eInfo.size_Y);
+	}
+
 	for(list<instanciaInfo_t*>::const_iterator it = eInfo.instancias.begin(); it != eInfo.instancias.end(); ++it) {
 		Entidad* entidad = FactoryEntidades::obtenerInstancia()->obtenerEntidad((*it)->tipo);
 		if (entidad) {

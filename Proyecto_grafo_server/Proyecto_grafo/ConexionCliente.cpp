@@ -4,14 +4,13 @@
 #include <queue>
 
 
-
-
-
 // Función de lectura auxiliar
 int sRead(SOCKET source, char* buffer, int length);
 
-ConexionCliente::ConexionCliente(SOCKET cSocket, Servidor* server) {
+ConexionCliente::ConexionCliente(SOCKET cSocket, Servidor* server, unsigned int id) {
 	this->clientSocket = cSocket;
+
+	this->playerID = id;
 
 	this->updates = queue<struct msg_update>();
 	this->updates_lock = SDL_CreateSemaphore(1);
@@ -48,6 +47,7 @@ int conexionReader( void* data ) {
 			msg = *(struct msg_event*)buffer;
 			cliente->server->agregarEvento(msg);
 		}
+		SDL_Delay(5);
 	} while (result > 0);
 	return result;
 }
@@ -74,11 +74,10 @@ int conexionSender( void* data ) {
 				cliente->server->removerCliente(cliente);
 				printf("Exited Sending for cliente\n");
 
-			
-		
-
 				return result;
 			}
+			
+			SDL_Delay(5);
 		}
 	}
 	return result;
@@ -96,6 +95,8 @@ void ConexionCliente::start() {
 // Desasocia los threads y libera el socket
 void ConexionCliente::shutdown() {
 	closesocket(this->clientSocket);
+
+	this->server->desconectarJugador(this->playerID);
 	
 	SDL_DetachThread(this->myReader);
 	SDL_DetachThread(this->mySender);

@@ -52,6 +52,9 @@
     <Filter Include="Archivos de código fuente\Red">
       <UniqueIdentifier>{673dc4d6-9e86-433b-b4cd-04c6d7cb8a46}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\Red">
+      <UniqueIdentifier>{29c80b87-bc59-459e-a972-6971523f7805}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entidad.h">
@@ -102,20 +105,17 @@
     <ClInclude Include="Recurso.h">
       <Filter>Archivos de encabezado\Entidades</Filter>
     </ClInclude>
-    <ClInclude Include="Protocolo.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="ConexionCliente.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Servidor.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="TranslatorServer.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="ConversorUnidades.h">
       <Filter>Archivos de encabezado\Utilidades</Filter>
+    </ClInclude>
+    <ClInclude Include="ConexionCliente.h">
+      <Filter>Archivos de encabezado\Red</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocolo.h">
+      <Filter>Archivos de encabezado\Red</Filter>
+    </ClInclude>
+    <ClInclude Include="Servidor.h">
+      <Filter>Archivos de encabezado\Red</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -175,9 +175,6 @@
     </ClCompile>
     <ClCompile Include="SocketAux.cpp">
       <Filter>Archivos de código fuente\Red</Filter>
-    </ClCompile>
-    <ClCompile Include="TranslatorServer.cpp">
-      <Filter>Archivos de código fuente</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

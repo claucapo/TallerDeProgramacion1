@@ -3,6 +3,8 @@
 #include "Enumerados.h"
 #include "Recurso.h"
 
+#include "Protocolo.h"
+
 bool FactoryEntidades::hay_instancia = false;
 FactoryEntidades* FactoryEntidades::singleton = nullptr;
 unsigned int FactoryEntidades::nextID = 0;
@@ -48,12 +50,9 @@ void FactoryEntidades::limpar(void) {
 	}
 }
 
-
 unsigned int FactoryEntidades::obtenerIDValida() {
 	return nextID++;
 }
-
-
 
 // Funciones de factory
 
@@ -136,24 +135,23 @@ Entidad* FactoryEntidades::obtenerEntidad(string name){
 }
 
 
-/*
+// Método para poder enviar la lista de clases al cliente
 
-Unidad* FactoryEntidades::obtenerUnidad(string name){	
-	if (name.find(estados_extensiones[EST_CAMINANDO]) != string::npos) {
-		ErrorLog::getInstance()->escribirLog("Extensión [" + estados_extensiones[EST_CAMINANDO] + "] reservada. La instancia se reemplazará por entidad por defecto.", LOG_WARNING);
-		name = nombre_entidad_def;
+list<msg_tipo_entidad*> FactoryEntidades::obtenerListaTipos(void) {
+	list<msg_tipo_entidad*> lista = list<msg_tipo_entidad*>();
+	for (map<string, tipoEntidad_t*>::const_iterator iter = this->prototipos.begin(); iter != this->prototipos.end(); ++iter) {
+		msg_tipo_entidad* msg = new msg_tipo_entidad();
+		
+		int last = iter->first.copy(msg->name, 49, 0);
+		msg->name[last] = '\0';
+				
+		msg->tamX = iter->second->tamX;
+		msg->tamY= iter->second->tamY;
+		msg->tipo = iter->second->tipo;
+		msg->velocidad = iter->second->velocidad;
+		msg->vision = iter->second->vision;
+		msg->score = iter->second->score;
+		lista.push_back(msg);	
 	}
-	Unidad* unit = nullptr;
-	tipoEntidad_t* pType = nullptr;
-	if (prototipos.count(name) > 0) {
-		pType = prototipos[name];
-		unit = new Unidad(name, pType->tamX, pType->tamX, pType->vision);
-	} else {
-		ErrorLog::getInstance()->escribirLog("Entidad [" + name + "] no existe en sistema. Se reemplazará por entidad por defecto.", LOG_WARNING);
-		pType = prototipos[nombre_entidad_def];
-		unit = new Unidad(nombre_entidad_def, pType->tamX, pType->tamX, pType->vision);
-	} 
-	return unit;
+	return lista;
 }
-
-*/

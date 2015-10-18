@@ -4,6 +4,7 @@
 #include "ConfigParser.h"
 #include "Enumerados.h"
 #include "Unidad.h"
+#include "Protocolo.h"
 
 #include <map>
 
@@ -38,19 +39,16 @@ private:
 	map<string, tipoEntidad_t*> prototipos;
 
 	FactoryEntidades();
-
-	static unsigned int obtenerIDValida();
-	static unsigned int nextID;
-
+	
 public:
 	// Destructor por defecto
 	~FactoryEntidades(void);
 	static FactoryEntidades* obtenerInstancia(void);
 	void limpar();
 
-	void agregarEntidad(entidadInfo_t eInfo);
+	void agregarEntidad(msg_tipo_entidad eInfo);
 
-	Entidad* obtenerEntidad(string name);
+	Entidad* obtenerEntidad(string name, unsigned int id);
 	// Unidad* obtenerUnidad(string name);
 };
 
