@@ -102,7 +102,6 @@ Partida* generarPartida(mapa_inicial data) {
 	while(!data.tipos.empty()) {
 		msg_tipo_entidad* act = data.tipos.front();
 		data.tipos.pop_front();
-
 		FactoryEntidades::obtenerInstancia()->agregarEntidad(*act);
 		delete act;
 	}
@@ -144,6 +143,7 @@ Partida* generarPartida(mapa_inicial data) {
 		Entidad* entidad = FactoryEntidades::obtenerInstancia()->obtenerEntidad(inst_act->name, inst_act->idEntidad);
 		entidad->settearEstado(inst_act->estadoEntidad);
 		if (entidad) {
+		//	entidad->asignarSprite(new Spritesheet(entidad->verNombre()));
 			Posicion posicion = Posicion((float)inst_act->coordX, (float)inst_act->coordY);
 			Jugador* owner = game->obtenerJugador(inst_act->playerCode);
 			if (!owner) {
@@ -154,7 +154,7 @@ Partida* generarPartida(mapa_inicial data) {
 				delete entidad;
 			else {
 				entidad->asignarJugador(owner);
-				Spritesheet* cas = new Spritesheet(entidad->verTipo());
+				Spritesheet* cas = new Spritesheet(entidad->verNombre());
 				entidad->asignarSprite(cas);
 			}
 		}
@@ -184,7 +184,6 @@ int wmain(int argc, char* argv[]) {
 	ErrorLog::getInstance()->escribirLog("----INICIANDO----");
 
 
-	// cargarBibliotecaDeImagenes()
 	// Después modificar el método para que tome como parámetro el puerto y la ip del yaml
 	SOCKET connectSocket = inicializarConexion();
 	if (connectSocket == INVALID_SOCKET) {
@@ -196,6 +195,10 @@ int wmain(int argc, char* argv[]) {
 	
 	ErrorLog::getInstance()->escribirLog("Conexion establecida");
 	
+	// Cargar imagenes del YAML
+	cargarBibliotecaImagenes(parser.verInfoEntidades());
+
+
 	// Intento establecer conexión
 	struct mapa_inicial elMapa;
 	Partida* game;
@@ -210,8 +213,7 @@ int wmain(int argc, char* argv[]) {
 		return 1;
 	}
 
-	// Cargar imagenes del YAML
-	cargarBibliotecaImagenes(parser.verInfoEntidades());
+
 
 	// Inicializar pantalla y graficador
 	pantallaInfo_t pInfo = parser.verInfoPantalla();
@@ -224,6 +226,7 @@ int wmain(int argc, char* argv[]) {
 
 	gp->asignarPartida(game);
 	gp->asignarJugador(game->obtenerJugador(1));
+	game->obtenerJugador(1)->settearConexion(true);
 	// En este punto el cliente ya está conectado
 	client.start();
 
@@ -236,13 +239,16 @@ int wmain(int argc, char* argv[]) {
 	
 		gp->dibujarPantalla();
 		// generarKeepAlive();
-		// while ( !SDL_Events.empty() ) { client.agregarEvento() }... o algo así
-		// Debe usarase con la cola el yaml
-		
+
+		SDL_Event evento;
+		while(SDL_PollEvent(&evento) != 0){
+			// Generar msg_evento: Por ahora sólo te deja scrollear
+			}
 
 		float timeB = SDL_GetTicks();
 		if((FRAME_DURATION - timeB + timeA) > 0)
 			SDL_Delay(FRAME_DURATION - timeB + timeA);
+		cout << timeB - timeA<< endl;
 	}
 
 	closesocket(connectSocket);

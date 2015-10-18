@@ -158,3 +158,701 @@
 [18/10/2015 05:00:03] - [ALLWAYS] - ----INICIANDO----
 [18/10/2015 05:01:14] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
 [18/10/2015 05:01:14] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 01:09:39] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 01:09:39] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 01:09:39] - [ALLWAYS] - Conexion establecida
+[18/10/2015 01:09:39] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 01:09:39] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 01:09:39] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 01:09:39] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 01:09:39] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 01:09:39] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 01:09:39] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 01:09:39] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 01:09:39] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 01:09:39] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 01:09:39] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 01:09:39] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 01:09:39] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 01:09:39] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 01:09:39] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 01:46:59] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 01:46:59] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 01:46:59] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 01:46:59] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 01:46:59] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 01:46:59] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 01:46:59] - [ALLWAYS] - Conexion establecida
+[18/10/2015 01:46:59] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 01:46:59] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 01:46:59] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 01:46:59] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 01:46:59] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 01:46:59] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 01:46:59] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 01:46:59] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 01:46:59] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 01:46:59] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 01:46:59] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 01:46:59] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 01:46:59] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 01:46:59] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 01:46:59] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 01:47:19] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 01:47:19] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 01:47:19] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 01:47:19] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 01:47:20] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 01:47:20] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 01:47:20] - [ALLWAYS] - Conexion establecida
+[18/10/2015 01:47:20] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 01:47:20] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 01:47:20] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 01:47:20] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 01:47:20] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 01:47:20] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 01:47:20] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 01:47:20] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 01:47:20] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 01:47:20] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 01:47:20] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 01:47:20] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 01:47:20] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 01:47:20] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 01:47:20] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 01:56:37] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 01:56:37] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 01:56:37] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 01:56:37] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 01:56:37] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 01:56:37] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 01:56:37] - [ALLWAYS] - Conexion establecida
+[18/10/2015 01:56:37] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 01:56:37] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 01:56:37] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 01:56:37] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 01:56:37] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 01:56:37] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 01:56:37] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 01:56:37] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 01:56:37] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 01:56:37] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 01:56:37] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 01:56:37] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 01:56:37] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 01:56:37] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 01:56:37] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 02:00:06] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 02:00:06] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 02:00:06] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 02:00:06] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 02:00:07] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 02:00:07] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 02:00:07] - [ALLWAYS] - Conexion establecida
+[18/10/2015 02:00:07] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 02:00:07] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 02:00:07] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 02:00:07] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 02:00:07] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 02:00:07] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 02:00:07] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 02:00:07] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 02:00:07] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 02:00:07] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 02:00:07] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 02:00:07] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:00:07] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:00:07] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:00:07] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 02:05:34] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 02:05:35] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 02:05:35] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 02:05:35] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 02:05:36] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 02:05:36] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 02:05:36] - [ALLWAYS] - Conexion establecida
+[18/10/2015 02:05:36] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 02:05:36] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 02:05:36] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 02:05:36] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 02:05:36] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 02:05:36] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 02:05:36] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 02:05:36] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 02:05:37] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 02:05:37] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 02:05:37] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 02:05:37] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:05:37] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:05:37] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:05:37] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 02:11:00] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 02:11:00] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 02:11:00] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 02:11:00] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 02:11:00] - [WARNING] - yaml-cpp: error at line 104, column 5: key not found: pixelX
+[18/10/2015 02:11:00] - [WARNING] - yaml-cpp: error at line 104, column 5: key not found: pixelY
+[18/10/2015 02:11:00] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 02:11:00] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 02:11:00] - [ALLWAYS] - Conexion establecida
+[18/10/2015 02:11:00] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 02:11:00] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 02:11:00] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 02:11:00] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 02:11:00] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 02:11:00] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 02:11:00] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 02:11:00] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 02:11:00] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 02:11:00] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 02:11:00] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 02:11:00] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:11:00] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:11:00] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:11:00] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 02:18:37] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 02:18:37] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 02:18:37] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 02:18:37] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 02:18:37] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 02:18:37] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 02:18:37] - [ALLWAYS] - Conexion establecida
+[18/10/2015 02:18:37] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 02:18:37] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 02:18:37] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 02:18:37] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 02:18:37] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 02:18:37] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 02:18:37] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 02:18:37] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 02:18:37] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 02:18:37] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 02:18:37] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 02:18:37] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:18:37] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:18:37] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:18:37] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 02:22:11] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 02:22:11] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 02:22:11] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 02:22:11] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 02:22:11] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 02:22:11] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 02:22:11] - [ALLWAYS] - Conexion establecida
+[18/10/2015 02:22:11] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 02:22:11] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 02:22:11] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 02:22:11] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 02:22:11] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 02:22:11] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 02:22:11] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 02:22:12] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 02:22:12] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 02:22:12] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 02:22:12] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 02:22:12] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:22:12] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:22:12] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:22:12] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 02:24:59] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 02:24:59] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 02:24:59] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 02:24:59] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 02:24:59] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 02:24:59] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 02:24:59] - [ALLWAYS] - Conexion establecida
+[18/10/2015 02:24:59] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 02:24:59] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 02:24:59] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 02:24:59] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 02:24:59] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 02:24:59] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 02:24:59] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 02:24:59] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 02:24:59] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 02:24:59] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 02:24:59] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 02:24:59] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:24:59] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:24:59] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:24:59] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 02:30:32] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 02:30:32] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 02:30:32] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 02:30:32] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 02:30:32] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 02:30:32] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 02:30:32] - [ALLWAYS] - Conexion establecida
+[18/10/2015 02:30:32] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 02:30:32] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 02:30:32] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 02:30:32] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 02:30:32] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 02:30:32] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 02:30:32] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 02:30:32] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 02:30:32] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 02:30:32] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 02:30:32] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 02:30:32] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:30:32] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:30:32] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:30:32] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 02:34:19] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 02:34:19] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 02:34:19] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 02:34:19] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 02:34:19] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 02:34:19] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 02:34:19] - [ALLWAYS] - Conexion establecida
+[18/10/2015 02:34:19] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 02:34:19] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 02:34:19] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 02:34:19] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 02:34:19] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 02:34:19] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 02:34:19] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 02:34:19] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 02:34:19] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 02:34:19] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 02:34:19] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 02:34:19] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:34:19] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:34:19] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:34:19] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 02:37:46] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 02:37:46] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 02:37:46] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 02:37:46] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 02:37:46] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 02:37:46] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 02:37:46] - [ALLWAYS] - Conexion establecida
+[18/10/2015 02:37:46] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 02:37:46] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 02:37:46] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 02:37:46] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 02:37:46] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 02:37:46] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 02:37:46] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 02:37:46] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 02:37:47] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 02:37:47] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 02:37:47] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 02:37:47] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:37:47] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:37:47] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:37:47] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 02:40:16] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 02:40:16] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 02:40:16] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 02:40:16] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 02:40:16] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 02:40:16] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 02:40:16] - [ALLWAYS] - Conexion establecida
+[18/10/2015 02:40:16] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 02:40:16] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 02:40:16] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 02:40:16] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 02:40:16] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 02:40:16] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 02:40:16] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 02:40:16] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 02:40:16] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 02:40:16] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 02:40:16] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 02:40:16] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:40:16] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:40:16] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:40:16] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 02:42:25] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 02:42:25] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 02:42:25] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 02:42:25] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 02:42:25] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 02:42:25] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 02:42:25] - [ALLWAYS] - Conexion establecida
+[18/10/2015 02:42:25] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 02:42:25] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 02:42:25] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 02:42:25] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 02:42:26] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 02:42:26] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 02:42:26] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 02:42:26] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 02:42:26] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 02:42:26] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 02:42:26] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 02:42:26] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:42:26] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:42:26] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:42:26] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 02:45:04] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 02:45:04] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 02:45:04] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 02:45:04] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 02:45:04] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 02:45:04] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 02:45:04] - [ALLWAYS] - Conexion establecida
+[18/10/2015 02:45:04] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 02:45:04] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 02:45:04] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 02:45:04] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 02:45:04] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 02:45:04] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 02:45:04] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 02:45:04] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 02:45:04] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 02:45:04] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 02:45:04] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 02:45:04] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:45:04] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:45:04] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:45:04] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 02:46:37] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 02:46:37] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 02:46:37] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 02:46:37] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 02:46:37] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 02:46:37] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 02:46:37] - [ALLWAYS] - Conexion establecida
+[18/10/2015 02:46:37] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 02:46:37] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 02:46:37] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 02:46:37] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 02:46:37] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 02:46:37] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 02:46:37] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 02:46:37] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 02:46:37] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 02:46:37] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 02:46:37] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 02:46:37] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:46:37] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:46:37] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:46:37] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 02:47:08] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 02:47:08] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 02:47:09] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 02:47:09] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 02:47:09] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 02:47:09] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 02:47:09] - [ALLWAYS] - Conexion establecida
+[18/10/2015 02:47:10] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 02:47:10] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 02:47:10] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 02:47:10] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 02:47:10] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 02:47:10] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 02:47:10] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 02:47:10] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 02:47:10] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 02:47:10] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 02:47:10] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 02:47:10] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:47:10] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:47:10] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:47:10] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 02:53:44] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 02:53:44] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 02:53:44] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 02:53:44] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 02:53:45] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 02:53:45] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 02:53:45] - [ALLWAYS] - Conexion establecida
+[18/10/2015 02:53:45] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 02:53:45] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 02:53:45] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 02:53:45] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 02:53:45] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 02:53:45] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 02:53:45] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 02:53:45] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 02:53:45] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 02:53:45] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 02:53:45] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 02:53:45] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:53:45] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:53:45] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:53:45] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 02:56:46] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 02:56:46] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 02:56:46] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 02:56:46] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 02:56:46] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 02:56:46] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 02:56:46] - [ALLWAYS] - Conexion establecida
+[18/10/2015 02:56:46] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 02:56:46] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 02:56:46] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 02:56:46] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 02:56:46] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 02:56:46] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 02:56:46] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 02:56:46] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 02:56:46] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 02:56:46] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 02:56:46] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 02:56:46] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:56:46] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:56:46] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 02:56:46] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 03:02:11] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 03:02:11] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 03:02:11] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 03:02:11] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 03:02:11] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 03:02:11] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 03:02:21] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 03:02:21] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 03:02:21] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 03:02:21] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 03:02:22] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 03:02:22] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 03:02:22] - [ALLWAYS] - Conexion establecida
+[18/10/2015 03:02:22] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 03:02:22] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 03:02:22] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 03:02:22] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 03:02:22] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 03:02:22] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 03:02:22] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 03:02:22] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 03:02:22] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 03:02:22] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 03:02:22] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 03:02:22] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:02:22] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:02:22] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:02:22] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 03:09:09] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 03:09:09] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 03:09:09] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 03:09:09] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 03:09:09] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 03:09:09] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 03:09:09] - [ALLWAYS] - Conexion establecida
+[18/10/2015 03:09:10] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 03:09:10] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 03:09:10] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 03:09:10] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 03:09:10] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 03:09:10] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 03:09:10] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 03:09:10] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 03:09:10] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 03:09:10] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 03:09:10] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 03:09:10] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:09:10] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:09:10] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:09:10] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 03:10:01] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 03:10:01] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 03:10:01] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 03:10:01] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 03:10:01] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 03:10:01] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 03:10:01] - [ALLWAYS] - Conexion establecida
+[18/10/2015 03:10:01] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 03:10:01] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 03:10:01] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 03:10:01] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 03:10:01] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 03:10:01] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 03:10:01] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 03:10:01] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 03:10:01] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 03:10:01] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 03:10:01] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 03:10:01] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:10:01] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:10:01] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:10:01] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 03:15:09] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 03:15:09] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 03:15:09] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 03:15:09] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 03:15:09] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 03:15:09] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 03:15:09] - [ALLWAYS] - Conexion establecida
+[18/10/2015 03:15:09] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 03:15:09] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 03:15:09] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 03:15:09] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 03:15:09] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 03:15:09] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 03:15:09] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 03:15:09] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 03:15:09] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 03:15:09] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 03:15:09] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 03:15:09] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:15:09] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:15:09] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:15:09] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 03:18:03] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 03:18:03] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 03:18:03] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 03:18:03] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 03:18:04] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 03:18:04] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 03:18:04] - [ALLWAYS] - Conexion establecida
+[18/10/2015 03:18:04] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 03:18:04] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 03:18:04] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 03:18:04] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 03:18:04] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 03:18:04] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 03:18:04] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 03:18:04] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 03:18:04] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 03:18:04] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 03:18:04] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 03:18:04] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:18:04] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:18:04] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:18:04] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 03:24:51] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 03:24:51] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 03:24:51] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 03:24:51] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 03:24:51] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 03:24:51] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 03:24:51] - [ALLWAYS] - Conexion establecida
+[18/10/2015 03:24:51] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 03:24:51] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 03:24:51] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 03:24:51] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 03:24:51] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 03:24:51] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 03:24:51] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 03:24:51] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 03:24:51] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 03:24:51] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 03:24:51] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 03:24:51] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:24:51] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:24:51] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:24:51] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 03:28:15] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 03:28:15] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 03:28:15] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 03:28:15] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 03:28:15] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 03:28:15] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 03:28:15] - [ALLWAYS] - Conexion establecida
+[18/10/2015 03:28:15] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 03:28:15] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 03:28:15] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 03:28:15] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 03:28:15] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 03:28:15] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 03:28:15] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 03:28:15] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 03:28:15] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 03:28:15] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 03:28:15] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 03:28:15] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:28:15] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:28:15] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:28:15] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 03:29:08] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 03:29:08] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 03:29:08] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 03:29:08] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 03:29:08] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 03:29:08] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 03:29:08] - [ALLWAYS] - Conexion establecida
+[18/10/2015 03:29:08] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 03:29:08] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 03:29:08] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 03:29:08] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 03:29:08] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 03:29:08] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 03:29:08] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 03:29:08] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 03:29:08] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 03:29:08] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 03:29:08] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 03:29:08] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:29:08] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:29:08] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:29:08] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 03:30:36] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 03:30:37] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 03:30:37] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 03:30:37] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 03:30:37] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 03:30:37] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 03:30:43] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 03:30:43] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 03:30:43] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 03:30:43] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 03:30:44] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 03:30:44] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 03:30:44] - [ALLWAYS] - Conexion establecida
+[18/10/2015 03:30:44] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 03:30:44] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 03:30:44] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 03:30:44] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 03:30:44] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 03:30:44] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 03:30:44] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 03:30:44] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 03:30:44] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 03:30:44] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 03:30:44] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 03:30:44] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:30:44] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:30:44] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:30:44] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 03:32:08] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 03:32:08] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 03:32:08] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 03:32:08] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 03:32:09] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 03:32:09] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 03:32:09] - [ALLWAYS] - Conexion establecida
+[18/10/2015 03:32:09] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 03:32:09] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 03:32:09] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 03:32:09] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 03:32:09] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 03:32:09] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 03:32:09] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 03:32:09] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 03:32:09] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 03:32:09] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 03:32:09] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 03:32:09] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:32:09] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:32:09] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:32:09] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[18/10/2015 03:33:10] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 03:33:10] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 03:33:10] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 03:33:10] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 03:33:10] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 03:33:10] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 03:33:27] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[18/10/2015 03:33:27] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[18/10/2015 03:33:27] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[18/10/2015 03:33:27] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[18/10/2015 03:33:27] - [WARNING] - yaml-cpp: error at line 2, column 3: key not found: port
+[18/10/2015 03:33:27] - [ALLWAYS] - ----INICIANDO----
+[18/10/2015 03:33:27] - [ALLWAYS] - Conexion establecida
+[18/10/2015 03:33:27] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[18/10/2015 03:33:27] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[18/10/2015 03:33:27] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[18/10/2015 03:33:27] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[18/10/2015 03:33:27] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[18/10/2015 03:33:27] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[18/10/2015 03:33:27] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[18/10/2015 03:33:27] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[18/10/2015 03:33:27] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[18/10/2015 03:33:27] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[18/10/2015 03:33:27] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[18/10/2015 03:33:27] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:33:27] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:33:27] - [ERROR] - Asignación de visión por array invalida.
+[18/10/2015 03:33:27] - [ERROR] - El jugador [gaia] ya existe en la partida.

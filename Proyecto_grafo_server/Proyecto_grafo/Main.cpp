@@ -185,8 +185,8 @@ int main(int argc, char* argv[]) {
 		server.enviarUpdates();
 		
 		float timeB = SDL_GetTicks();
-		if((FRAME_DURATION - timeB + timeA) > 0)
-			SDL_Delay(FRAME_DURATION - timeB + timeA);
+		if((FRAME_DURATION - timeB + timeA - 10) > 0)
+			SDL_Delay(FRAME_DURATION - timeB + timeA - 10);
 	}
 	
 	closesocket(ListenSocket);

@@ -186,6 +186,7 @@ void GraficadorPantalla::renderizarEntidades(void) {
 
 			Jugador* playerOwner = (*it)->verJugador();
 			if(playerOwner != nullptr){
+			//	cout<< "IdPlayer: "<<playerOwner->verID() << endl;;
 			if(!playerOwner->estaConectado())
 				SDL_SetSurfaceColorMod(spEnt, TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD );
 			else
