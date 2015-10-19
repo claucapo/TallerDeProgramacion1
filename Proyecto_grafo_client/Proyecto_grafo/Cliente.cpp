@@ -172,7 +172,7 @@ void Cliente::procesarUpdates(Partida* game) {
 		this->updates.pop();
 		
 		if (upd.accion == MSJ_MOVER)
-			printf("Leego un update!\n");
+			printf("Llego un update!\n");
 		// printf("Recibi un %d\n", upd.idEntidad);
 		game->procesarUpdate(upd);
 	}

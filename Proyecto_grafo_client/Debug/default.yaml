@@ -1,7 +1,7 @@
 red:
   puerto: 27015
   ip: "127.0.0.1"
-  ID: 2
+  ID: 3
   alias: "Juana de Arco"
 pantalla: 
   ancho: 640

@@ -19,6 +19,7 @@ entidades:
   - nombre: "champion"
     tipo: "unit"
     velocidad: 10
+    vision: 4
   - nombre: "castle"
     tipo: "building"
     sizeX: 6
@@ -26,6 +27,7 @@ entidades:
   - nombre: "knight"
     tipo: "unit"
     velocidad: 20
+    vision: 5
   - nombre: "house"
     tipo: "building"
     sizeX: 3
@@ -74,6 +76,6 @@ escenario:
    - {x: 23, y: 21, tipo: "archery", p: 2}
    - {x: 5, y: 18, tipo: "barracks", p: 3}
    - {x: 9, y: 18, tipo: "barracks", p: 1}
-   - {x: 3, y: 30, tipo: "champion", p: 3}
-   - {x: 1, y: 1, tipo: "champion", p: 2}
-   - {x: 0, y: 0, tipo: "knight", p: 1}
+   - {x: 32, y: 36, tipo: "champion", p: 2}
+   - {x: 37, y: 34, tipo: "knight", p: 1}
+   - {x: 37, y: 30, tipo: "champion", p: 3}

@@ -44,6 +44,8 @@ public:
 	
 	virtual af_result_t avanzarFrame(Escenario* scene);
 
+	void asignarPos(Posicion* pos);
+
 	Direcciones_t calcularDirecion(float velocidadX, float velocidadY);
 public:
 	void setDireccion(Direcciones_t);

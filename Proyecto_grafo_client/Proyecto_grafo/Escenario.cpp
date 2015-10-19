@@ -40,7 +40,13 @@ void Escenario::avanzarFrame(void) {
 	// Avanzo el frame en cada edificio (por ahora no hace nada)
 	list<Entidad*> toRmv = list<Entidad*>();
 	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
-		af_result_t res = (*it)->avanzarFrame(this);
+		/*if((*it)->verTipo() == ENT_T_UNIT){
+			af_result_t res = ((Unidad*)(*it))->avanzarFrame(this);
+
+		}
+		else{*/
+			af_result_t res = (*it)->avanzarFrame(this);
+	//	}
 		(*it)->verJugador()->agregarPosiciones(this->verMapa()->posicionesVistas(*it));
 	}
 	while(!toRmv.empty()) {
@@ -84,11 +90,41 @@ list<Entidad*> Escenario::verEntidades(void) {
 	return this->entidades;
 }
 
-
-void Escenario::moverEntidad(unsigned int entID, Posicion* pos) {
+// TODO: Cambiar entidades de list<Entidad*> a un vector?
+void Escenario::moverEntidad(unsigned int entID, Posicion* pos, bool seguirMoviendo) {
+	
 	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
 		if ( (*it)->verID() == entID ) {
-			(*it)->asignarPos(pos);
+			float xOld = (*it)->verPosicion()->getX();
+			float yOld = (*it)->verPosicion()->getY();
+
+			if(this->mapa->quitarEntidad(*it)){
+				//this->mapa->ubicarEntidad(*it, pos);
+				/*
+				Entidad pepe = *(*it);
+				Unidad* posta = (Unidad*) &pepe;
+				posta->setDireccion(DIR_DOWN_LEFT);*/
+				((Unidad*)(*it))->asignarPos(pos);
+				this->mapa->ubicarEntidad(*it, pos);
+			
+			}
+				Spritesheet* spEnt = (*it)->verSpritesheet();
+				string nombreEnt = (*it)->verNombre();
+				if(seguirMoviendo){
+					(*it)->settearEstado(EST_CAMINANDO);
+					nombreEnt += "_move";
+					}
+				else
+					(*it)->settearEstado(EST_QUIETO);
+
+				if((*it)->verJugador()->verID() == 2)
+					nombreEnt = nombreEnt + '2';
+				if((*it)->verJugador()->verID() == 3)
+					nombreEnt = nombreEnt + '3';
+				spEnt->cambiarImagen(nombreEnt);
+
 		}
 	}
+	
+	
 }

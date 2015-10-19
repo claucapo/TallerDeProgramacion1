@@ -68,7 +68,8 @@ af_result_t Entidad::avanzarFrame(Escenario* scene) {
 void Entidad::asignarPos(Posicion* pos) {
 	if(pos) {
 		delete this->pos;
-		this->pos = new Posicion(*pos);		
+		this->pos = new Posicion(*pos);
+		cout<<"imposible!"<<endl;
 	}
 	else
 		ErrorLog::getInstance()->escribirLog("Error al querer asignar Posicion a " + this->name + ": Posicion inexistente.", LOG_ERROR);

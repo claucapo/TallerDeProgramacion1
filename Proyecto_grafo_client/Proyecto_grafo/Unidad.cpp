@@ -139,3 +139,21 @@ Direcciones_t Unidad::calcularDirecion(float velocidadX, float velocidadY) {
 void Unidad::setDireccion(Direcciones_t dir) {
 	direccion = dir;
 }
+
+void Unidad::asignarPos(Posicion* pos){
+	if(pos) {
+		float xViejo = this->pos->getX();
+		float yViejo = this->pos->getY();
+		delete this->pos;
+		this->pos = new Posicion(*pos);
+		Direcciones_t dirAnt = this->direccion;
+		this->direccion = this->calcularDirecion(pos->getX() - xViejo,pos->getY() - yViejo); 
+		cout << "Direc: " << this->direccion << endl;
+		if(this->direccion != dirAnt)
+			if(this->sprites)
+				sprites->cambiarSubImagen(0, this->direccion);
+		//cout<<"Dir:" << pos->getX() - xViejo <<"-"<<pos->getY() - yViejo<<endl;
+	}
+	else
+		ErrorLog::getInstance()->escribirLog("Error al querer asignar Posicion a " + this->name + ": Posicion inexistente.", LOG_ERROR);
+}

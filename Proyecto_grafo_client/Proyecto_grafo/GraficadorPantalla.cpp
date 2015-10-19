@@ -263,7 +263,9 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 	if(!selct.empty()){
 		SDL_Surface* texto;
 		Posicion* unaPos = selct.front();
-		Jugador* playerOwner = partida->escenario->verMapa()->verContenido(unaPos)->verJugador();
+		Entidad* entSlct = partida->escenario->verMapa()->verContenido(unaPos);
+		if(entSlct != nullptr){
+		Jugador* playerOwner = entSlct->verJugador();
 		if(playerOwner->verID() != 0){// Si el jugador no es gaia
 			texto = this->renderText(playerOwner->verNombre());
 			rectangulo.x = 210;
@@ -282,6 +284,7 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 		rectangulo.w = entName.length()* 14;
 		SDL_BlitScaled( texto, NULL, pantalla, &rectangulo );
 		SDL_FreeSurface(texto);
+		}
 
 	}
 	

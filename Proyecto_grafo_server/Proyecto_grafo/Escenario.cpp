@@ -47,9 +47,12 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 		case AF_MOVE:
 			upd = new msg_update();
 			upd->idEntidad = (*it)->verID();
+			if(((Unidad*)(*it))->verEstado() == EST_QUIETO)
+				upd->accion = MSJ_QUIETO;
+			else
+				upd->accion = MSJ_MOVER;
 			upd->extra1 = (*it)->verPosicion()->getX();
 			upd->extra2 = (*it)->verPosicion()->getY();
-			upd->accion = MSJ_MOVER;
 			updates.push_back(upd);
 			break;
 		case AF_KILL:

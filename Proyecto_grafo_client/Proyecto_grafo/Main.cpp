@@ -189,8 +189,7 @@ void procesarSeleccion(Partida* game, GraficadorPantalla* gp){
 			
 }
 
-void procesarAccion(Partida* game, GraficadorPantalla* gp, Cliente* client) {
-	cout << "Hice un click!!" << endl;
+void procesarMover(Partida* game, GraficadorPantalla* gp, Cliente* client) {
 	Entidad* ent = game->verEntidadSeleccionada();
 	if (ent == NULL)
 		return;
@@ -212,8 +211,8 @@ void procesarAccion(Partida* game, GraficadorPantalla* gp, Cliente* client) {
 		msg_event newEvent;
 		newEvent.idEntidad = game->verEntidadSeleccionada()->verID();
 		newEvent.accion = MSJ_MOVER;
-		newEvent.extra1 = pX;
-		newEvent.extra2 = pY;
+		newEvent.extra1 = dest.getRoundX() +0.5;
+		newEvent.extra2 = dest.getRoundY() +0.5;
 		client->agregarEvento(newEvent);
 	}
 }
@@ -227,7 +226,7 @@ int procesarEvento(Partida* game, GraficadorPantalla* gp, SDL_Event evento, Clie
 			return CODE_CONTINUE;
 			}
 		else if( evento.button.button == SDL_BUTTON_RIGHT){
-			procesarAccion(game, gp, client);
+			procesarMover(game, gp, client);
 			return CODE_CONTINUE;
 			}
 	case SDL_QUIT:

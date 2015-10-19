@@ -75,12 +75,19 @@ void Partida::procesarUpdate(msg_update msj) {
 	// Según la acción que sea, hago lo que corresponda
 	switch(accion){
 	case MSJ_MOVER:
+	case MSJ_QUIETO:
 		Posicion destino = Posicion(msj.extra1, msj.extra2);
-		scene->moverEntidad(msj.idEntidad, &destino);
+	//	Entidad* entMovida = this->verEntidadSeleccionada();
+		if(accion == MSJ_QUIETO)
+			scene->moverEntidad(msj.idEntidad, &destino, false);
+		else
+			scene->moverEntidad(msj.idEntidad, &destino, true);
+		this->seleccionarEntidad(this->ent_seleccionada);
 	}
 }
 
 void Partida::seleccionarEntidad(Entidad* ent){
+	this->deseleccionarEntidades();
 	int coordX = ent->verPosicion()->getRoundX();
 	int coordY = ent->verPosicion()->getRoundY();
 	for(int i = 0; i < ent->verTamX(); i++) {
@@ -89,6 +96,7 @@ void Partida::seleccionarEntidad(Entidad* ent){
 			this->seleccionados.push_front(pos);
 		}
 	}
+	cout<< "seleccionado: " << ent->verNombre() << endl;
 	this->ent_seleccionada = ent;
 }
 
