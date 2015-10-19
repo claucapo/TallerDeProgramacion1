@@ -60,7 +60,7 @@ public:
 	unsigned int verID() {return this->id;}
 	int verTamY() {return this->tamY;}
 	int verRango() {return this->rangoVision;}
-	string verTipo() {return this->name;}
+	entity_type_t verTipo() {return this->tipo;}
 
 	Jugador* verJugador() {return this->owner;}
 

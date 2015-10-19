@@ -48,6 +48,9 @@ int clientReader( void* data ) {
 			cliente->agregarUpdate(upd);
 		}
 	} while (result > 0);
+
+					SDL_Delay(10);
+
 	return result;
 }
 
@@ -75,6 +78,9 @@ int clientSender( void* data ) {
 		SDL_SemPost(cliente->eventos_lock);
 	}
 	printf("Salgo del loop envio\n");
+				
+		SDL_Delay(10);
+
 	return result;
 }
 

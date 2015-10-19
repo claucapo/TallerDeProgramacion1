@@ -120,41 +120,70 @@ void GraficadorPantalla::reajustarCamara(void) {
 #define TRANSPARENCIA_COLOR_MOD 160 
 void GraficadorPantalla::renderizarTerreno(void) {
 	SDL_Surface* imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tile");
-	SDL_SetColorKey(imgTile, true, SDL_MapRGB(imgTile->format, 255, 255, 255));
 	SDL_Rect rectangulo;
+	SDL_SetColorKey(imgTile, true, SDL_MapRGB(imgTile->format, 255, 255, 255));
+
+	SDL_Surface* imgAux = SDL_CreateRGBSurface(0, imgTile->w, imgTile->h,32,0,0,0,0); 
+
+	SDL_SetSurfaceColorMod(imgTile, TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD );
+	SDL_BlitSurface( imgTile, NULL, imgAux, NULL );
+	SDL_Surface* imgTileFog = SDL_ConvertSurface(imgAux, pantalla->format, NULL);
+	SDL_FreeSurface(imgAux);
+	SDL_SetSurfaceColorMod(imgTile, 255 , 255 , 255);
+	SDL_SetColorKey(imgTileFog, true, SDL_MapRGB(imgTileFog->format, 0, 0, 0));
+
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
 	Vision* vis = partida->obtenerJugador(1)->verVision();
 
 	for(int i = 0; i < partida->escenario->verTamX(); i++) {
 		for(int j = 0; j < partida->escenario->verTamY(); j++){
-			if(vis->visibilidadPosicion(Posicion(i,j)) != VIS_NO_EXPLORADA){
-				rectangulo.x = cu->obtenerCoordPantallaX(i, j, view_x, view_y, ancho_borde);
+			Posicion pAct = Posicion(i,j);
+			if(vis->visibilidadPosicion(pAct) != VIS_NO_EXPLORADA){
+				rectangulo.x = cu->obtenerCoordPantallaX(i, j, view_x, view_y, ancho_borde) - 26;
 				// Esto chequea si la casilla cae dentro del la pantalla... si no resulta visible, no la grafica
 				if ((rectangulo.x) < (this->screen_width) && (rectangulo.x + imgTile->w) > 0) {
 					rectangulo.y = cu->obtenerCoordPantallaY(i, j, view_x, view_y, ancho_borde);
 					if ((rectangulo.y) < (this->screen_height) && (rectangulo.y + imgTile->h) > 0) {
 						if(vis->visibilidadPosicion(Posicion(i,j)) == VIS_VISITADA)
-							SDL_SetSurfaceColorMod(imgTile, TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD );
+							SDL_BlitSurface( imgTileFog, NULL, pantalla, &rectangulo );	
 						else
-							SDL_SetSurfaceColorMod(imgTile, 255, 255, 255 );
-						SDL_BlitSurface( imgTile, NULL, pantalla, &rectangulo );
+							SDL_BlitSurface( imgTile, NULL, pantalla, &rectangulo );
 					}
 				}
 			}
 		}
 	}
+
+	SDL_FreeSurface(imgTileFog);
+
+	// Muestro las posiciones de la entidad seleccionada
+	SDL_SetSurfaceColorMod(imgTile, 110 , 255 , 110 );
+
+
+			
+	list<Posicion*> selec = this->partida->verSeleccionados();
+	if(!selec.empty()){
+
+		for(list<Posicion*>::iterator it=selec.begin(); it != selec.end(); it++){
+			Posicion* pAct = (*it);
+			rectangulo.x = cu->obtenerCoordPantallaX(pAct->getRoundX(), pAct->getRoundY(), view_x, view_y, ancho_borde) - 26;
+			rectangulo.y = cu->obtenerCoordPantallaY(pAct->getRoundX(), pAct->getRoundY(), view_x, view_y, ancho_borde);
+			SDL_BlitSurface( imgTile, NULL, pantalla, &rectangulo );	
+		}
+	}
+
+						
 }
 
 
 // PASO 4: renderizar entidades
-// TODO: Optimizar para que no se grafiquen edificios que no aparezcan en pantalla (ver renderizarTerreno)
-
 void GraficadorPantalla::renderizarEntidades(void) {
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
 	SDL_Rect rectangulo;
 	list<Entidad*> lEnt = partida->escenario->verEntidades();
 	for (list<Entidad*>::iterator it=lEnt.begin(); it != lEnt.end(); ++it){
-		Posicion* posEntAct1 = (*it)->verPosicion();
+		Posicion* posEntAct1 = (*it)->verPosicion();		
+
 		int tx = (*it)->verTamX(); int ty = (*it)->verTamY();
 		Posicion posEntAct2 = Posicion(posEntAct1->getX() + tx - 1, posEntAct1->getY());
 		Posicion posEntAct3 = Posicion(posEntAct1->getX(), posEntAct1->getY() + ty - 1);
@@ -168,8 +197,11 @@ void GraficadorPantalla::renderizarEntidades(void) {
 		entEsVisible |= (vis->visibilidadPosicion(posEntAct4)!=VIS_NO_EXPLORADA);
 		
 		if(entEsVisible){
+			
 			Spritesheet* entAct = (*it)->verSpritesheet();
 			SDL_Surface* spEnt = entAct->devolverImagenAsociada();
+
+
 			SDL_SetColorKey( spEnt, true, SDL_MapRGB(spEnt->format, 255, 0, 255) );
 	
 			int newX = (int) cu->obtenerCoordPantallaX((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY(), view_x, view_y, ancho_borde);
@@ -177,6 +209,8 @@ void GraficadorPantalla::renderizarEntidades(void) {
 			entAct->cambirCoord(newX, newY);
 			rectangulo.x = entAct->getCoordX();
 			rectangulo.y = entAct->getCoordY();
+			if(((*it)->verTipo() == ENT_T_RESOURCE)||((*it)->verTipo() == ENT_T_UNIT))
+				rectangulo.y += 12;
 
 			SDL_Rect recOr;
 			recOr.x = entAct->calcularOffsetX();
@@ -188,7 +222,7 @@ void GraficadorPantalla::renderizarEntidades(void) {
 			if(playerOwner != nullptr){
 			//	cout<< "IdPlayer: "<<playerOwner->verID() << endl;;
 			if(!playerOwner->estaConectado())
-				SDL_SetSurfaceColorMod(spEnt, TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD );
+				SDL_SetSurfaceColorMod(spEnt, 240 , TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD );
 			else
 				SDL_SetSurfaceColorMod(spEnt, 255, 255, 255 );
 			}
@@ -223,14 +257,32 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 		*minimapH = rectangulo.h * HEIGHT_REL_MINIMAP;
 	if(minimapW)
 		*minimapW = rectangulo.w * WIDTH_REL_MINIMAP;
-	SDL_Surface* texto = this->renderText(player->verNombre());
-	rectangulo.x = 210;
-	rectangulo.y = 400;
-	rectangulo.h = 18;
-	rectangulo.w = player->verNombre().length()* 14;
-//	SDL_BlitSurface( texto, NULL, pantalla, &rectangulo );
-	SDL_BlitScaled( texto, NULL, pantalla, &rectangulo );
-	SDL_FreeSurface(texto);
+
+	list<Posicion*> selct = this->partida->verSeleccionados();
+	if(!selct.empty()){
+		SDL_Surface* texto;
+		Posicion* unaPos = selct.front();
+		Jugador* playerOwner = partida->escenario->verMapa()->verContenido(unaPos)->verJugador();
+		if(playerOwner->verID() != 0){// Si el jugador no es gaia
+			texto = this->renderText(playerOwner->verNombre());
+			rectangulo.x = 210;
+			rectangulo.y = 400;
+			rectangulo.h = 18;
+			rectangulo.w = playerOwner->verNombre().length()* 14;
+			SDL_BlitScaled( texto, NULL, pantalla, &rectangulo );
+			SDL_FreeSurface(texto);
+		}
+		string entName = partida->escenario->verMapa()->verContenido(unaPos)->verNombre();
+		entName[0] = toupper(entName[0]);
+		texto = this->renderText(entName);
+		rectangulo.x = 210;
+		rectangulo.y = 440;
+		rectangulo.h = 18;
+		rectangulo.w = entName.length()* 14;
+		SDL_BlitScaled( texto, NULL, pantalla, &rectangulo );
+		SDL_FreeSurface(texto);
+
+	}
 	
 }
 
@@ -253,10 +305,16 @@ void GraficadorPantalla::dibujarMinimapa(int minimapX, int minimapY, int minimap
 
 				if(this->partida->escenario->verMapa()->posicionEstaVacia(&pAct))
 					SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 51, 151, 37));
-				else if(this->partida->escenario->verMapa()->verContenido(&pAct)->verTipo() == "resource")
-					SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 250, 200, 16));
-				else
+				else if(this->partida->escenario->verMapa()->verContenido(&pAct)->verJugador()->verID() == 0) // gaia
+					SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 155, 236, 191));
+				else if(this->partida->escenario->verMapa()->verContenido(&pAct)->verJugador()->verID() == 1) // player1: blue
 					SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 10, 38, 163));
+				else if(this->partida->escenario->verMapa()->verContenido(&pAct)->verJugador()->verID() == 2) // player2: red
+					SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 255, 71, 2));
+				else if(this->partida->escenario->verMapa()->verContenido(&pAct)->verJugador()->verID() == 3) // player3: yellow
+					SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 255, 250, 10));
+				else 
+					SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 250, 200, 16));
 			}
 		}
 	// LA CAMARA	

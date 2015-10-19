@@ -28,6 +28,8 @@ entidades:
     velocidad: 20
   - nombre: "house"
     tipo: "building"
+    sizeX: 3
+    sizeY: 3
   - nombre: "windmill"
     tipo: "building"
     sizeX: 3
@@ -56,22 +58,22 @@ escenario:
    - {x: 4, y: 12, tipo: "house", p: 1}
    - {x: 4, y: 3, tipo: "windmill", p: 1}
    - {x: 1, y: 6, tipo: "castle", p: 2}
-   - {x: 1, y: 12, tipo: "house", p: 2}
+   - {x: 1, y: 12, tipo: "house", p: 3}
    - {x: 18, y: 25, tipo: "house", p: 2}
-   - {x: 18, y: 21, tipo: "house", p: 2}
+   - {x: 18, y: 21, tipo: "house", p: 3}
    - {x: 5, y: 23, tipo: "windmill", p: 2}
-   - {x: 5, y: 31, tipo: "windmill", p: 2}
+   - {x: 5, y: 31, tipo: "windmill", p: 1}
    - {x: 13, y: 9, tipo: "castle", p: 2}
-   - {x: 10, y: 11, tipo: "house", p: 2}
-   - {x: 16, y: 6, tipo: "house", p: 2}
+   - {x: 10, y: 11, tipo: "house", p: 3}
+   - {x: 16, y: 6, tipo: "house", p: 3}
    - {x: 35, y: 35, tipo: "moneda"}
    - {x: 36, y: 35, tipo: "moneda", p: 0}
    - {x: 25, y: 25, tipo: "stable", p: 2}
-   - {x: 5, y: 0, tipo: "windmill", p: 2}
+   - {x: 5, y: 0, tipo: "windmill", p: 1}
    - {x: 22, y: 15, tipo: "barracks", p: 2}
    - {x: 23, y: 21, tipo: "archery", p: 2}
-   - {x: 5, y: 18, tipo: "barracks", p: 2}
-   - {x: 9, y: 18, tipo: "barracks", p: 2}
+   - {x: 5, y: 18, tipo: "barracks", p: 3}
+   - {x: 9, y: 18, tipo: "barracks", p: 1}
    - {x: 3, y: 30, tipo: "champion", p: 3}
    - {x: 1, y: 1, tipo: "champion", p: 2}
    - {x: 0, y: 0, tipo: "knight", p: 1}

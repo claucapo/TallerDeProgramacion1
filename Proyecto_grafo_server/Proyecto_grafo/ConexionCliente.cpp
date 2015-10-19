@@ -47,7 +47,7 @@ int conexionReader( void* data ) {
 			msg = *(struct msg_event*)buffer;
 			cliente->server->agregarEvento(msg);
 		}
-		SDL_Delay(15);
+		SDL_Delay(10);
 	} while (result > 0);
 	return result;
 }
@@ -77,7 +77,7 @@ int conexionSender( void* data ) {
 				return result;
 			}
 			
-			SDL_Delay(15);
+			SDL_Delay(10);
 		}
 	}
 	return result;

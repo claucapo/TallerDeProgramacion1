@@ -11,7 +11,7 @@ del juego. */
 struct Partida {
 	list<Jugador*> jugadores;
 	Escenario* escenario;
-	list<Entidad*> seleccionados;
+	list<Posicion*> seleccionados;
 
 	// Constructor y destructor por defecto
 	Partida(void);
@@ -28,5 +28,8 @@ struct Partida {
 	// en un frame. Básicamente, llama a la
 	// misma función del Escenario.
 	void avanzarFrame(void);
+	void seleccionarEntidad(Entidad* ent);
+	void deseleccionarEntidades(void);
+	list<Posicion*> verSeleccionados(void);
 };
 

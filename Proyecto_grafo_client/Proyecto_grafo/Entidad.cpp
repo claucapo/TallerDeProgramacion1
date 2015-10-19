@@ -20,6 +20,7 @@ Entidad::Entidad(Posicion* p) {
 	this->tamY = 1;
 	this->rangoVision = 4;
 	this->owner = nullptr;
+	this->tipo = ENT_T_NONE;
 }
 
 // El constructor por defecto inicializa la posición en nullptr

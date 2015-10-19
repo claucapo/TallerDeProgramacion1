@@ -89,6 +89,7 @@ void cargarBibliotecaImagenes(std::list<entidadInfo_t*> eInfoL) {
 		data->path = act.spritePath;
 		data->origenX = act.pixel_align_X;
 		data->origenY = act.pixel_align_Y;
+		cout<< act.spritePath << " offset xy: " << data->origenX <<"." << data->origenY <<endl;
 		data->columnas = act.subX;
 		data->filas = act.subY;
 		data->fps = act.fps;
@@ -154,7 +155,12 @@ Partida* generarPartida(mapa_inicial data) {
 				delete entidad;
 			else {
 				entidad->asignarJugador(owner);
-				Spritesheet* cas = new Spritesheet(entidad->verNombre());
+				string nombreEnt = entidad->verNombre();
+				if(owner->verID() == 2)
+					nombreEnt = nombreEnt + '2';
+				if(owner->verID() == 3)
+					nombreEnt = nombreEnt + '3';
+				Spritesheet* cas = new Spritesheet(nombreEnt);
 				entidad->asignarSprite(cas);
 			}
 		}
@@ -165,13 +171,45 @@ Partida* generarPartida(mapa_inicial data) {
 }
 
 
+#define CODE_CONTINUE 1
+#define CODE_RESET -2
+#define CODE_EXIT -1
+
+void procesarSeleccion(Partida* game, GraficadorPantalla* gp){
+	int mx, my;
+	SDL_GetMouseState(&mx, &my);
+	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
+	float pX = cu->obtenerCoordLogicaX(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
+	float pY = cu->obtenerCoordLogicaY(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
+	Posicion slct = Posicion(pX, pY);
+	game->deseleccionarEntidades();
+	if(game->escenario->verMapa()->posicionPertenece(&slct))
+		if(!game->escenario->verMapa()->posicionEstaVacia(&slct))
+			game->seleccionarEntidad(game->escenario->verMapa()->verContenido(&slct));
+			
+}
+
+int procesarEvento(Partida* game, GraficadorPantalla* gp, SDL_Event evento){
+	switch (evento.type) {
+	case SDL_MOUSEBUTTONDOWN:	
+		if( evento.button.button == SDL_BUTTON_LEFT){
+			procesarSeleccion(game, gp);
+			return CODE_CONTINUE;
+			}
+		else if( evento.button.button == SDL_BUTTON_RIGHT){
+			// msg_evento de mover
+			return CODE_CONTINUE;
+			}
+	case SDL_QUIT:
+		// enviar a proposito msg de log out?
+		return CODE_EXIT; 
+	}
+}
+
 //------------------------------------
 //------------- MAIN -----------------
 //------------------------------------
 
-#define CODE_CONTINUE 1
-#define CODE_RESET -2
-#define CODE_EXIT -1
 
 
 int wmain(int argc, char* argv[]) {
@@ -230,6 +268,14 @@ int wmain(int argc, char* argv[]) {
 	// En este punto el cliente ya está conectado
 	client.start();
 
+/*	list<Posicion> visionHard;
+	for(int i = 0; i < game->escenario->verTamX(); i++)
+		for(int j = 0; j < game->escenario->verTamY(); j++){
+			Posicion aux(i, j);
+			visionHard.push_back(aux);
+		}
+	game->obtenerJugador(1)->agregarPosiciones(visionHard);
+	*/
 	int codigo_programa = CODE_CONTINUE;
 	while (codigo_programa != CODE_EXIT) {
 		float timeA = SDL_GetTicks();
@@ -243,7 +289,10 @@ int wmain(int argc, char* argv[]) {
 		SDL_Event evento;
 		while(SDL_PollEvent(&evento) != 0){
 			// Generar msg_evento: Por ahora sólo te deja scrollear
-			}
+			codigo_programa = procesarEvento(game, gp, evento);
+			if(codigo_programa == CODE_EXIT)
+				break;
+		}
 
 		float timeB = SDL_GetTicks();
 		if((FRAME_DURATION - timeB + timeA) > 0)

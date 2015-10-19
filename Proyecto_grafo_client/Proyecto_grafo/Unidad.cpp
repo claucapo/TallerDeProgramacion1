@@ -10,12 +10,14 @@ Unidad::Unidad() : Entidad() {
 	this->rapidez = 0;
 	this->direccion = DIR_DOWN;
 	this->destino = nullptr;
+	this->tipo = ENT_T_UNIT;
 }
 
 Unidad::Unidad(unsigned int id, string name, int tamX, int tamY, int vision, int velocidad) : Entidad(id, name, tamX, tamY, vision) {
 	this->rapidez = velocidad;
 	this->direccion = DIR_DOWN;
 	this->destino = nullptr;
+	this->tipo = ENT_T_UNIT;
 }
 
 Unidad::Unidad(Posicion* p) : Entidad() {
@@ -28,6 +30,7 @@ Unidad::Unidad(Posicion* p) : Entidad() {
 	}
 	this->rapidez = 0;
 	this->direccion = DIR_DOWN;
+	this->tipo = ENT_T_UNIT;
 	}
 
 Unidad::~Unidad() {
@@ -63,7 +66,7 @@ void Unidad::setEstado(Estados_t state) {
 
 af_result_t Unidad::avanzarFrame(Escenario* scene) {
 	// Aca habría que chequear si la entidad cambió de posición
-
+	/*
 	Estados_t state = this->state;
 
 	// Si se esta moviendo
@@ -88,7 +91,7 @@ af_result_t Unidad::avanzarFrame(Escenario* scene) {
 		}
 		return AF_MOVE;
 	}
-
+	*/
 	return AF_NONE;
 }
 

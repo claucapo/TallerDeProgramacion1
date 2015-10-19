@@ -64,12 +64,10 @@ tipo:
     delay: 0
   - nombre: "house"
     ruta: "houseAOE.png"
-    sizeX: 3
-    sizeY: 3
     pixelX: 76
     pixelY: 42
   - nombre: "tile"
-    ruta: "tileG.png"
+    ruta: "tile.png"
     pixelX: 26
     pixelY: 0
   - nombre: "tileHuge"
@@ -82,7 +80,7 @@ tipo:
     subX: 8
     subY: 1
     pixelX: 84
-    pixelY: 53
+    pixelY: 57
     fps: 10
     delay: 0
   - nombre: "town_center"
@@ -92,12 +90,140 @@ tipo:
   - nombre: "barracks"
     ruta: "barracksAOE.png"
     pixelX: 101
-    pixelY: 41
+    pixelY: 53
   - nombre: "archery"
     ruta: "archeryAOE.png"
     pixelX: 101
     pixelY: 47
   - nombre: "stable"
     ruta: "stableAOE.png"
+    pixelX: 101
+    pixelY: 12
+  - nombre: "champion2"
+    ruta: "championAOEp2.png"
+    subX: 10
+    subY: 8
+    pixelX: 21
+    pixelY: 38
+    fps: 10
+    delay: 15
+  - nombre: "champion_move2"
+    ruta: "champion_moveAOEp2.png"
+    subX: 10
+    subY: 8
+    pixelX: 21
+    pixelY: 38
+    delay: 0
+    fps: 20
+  - nombre: "castle2"
+    ruta: "castleAOEp2.png"
+    pixelX: 148
+    pixelY: 177
+  - nombre: "knight2"
+    ruta: "knightAOEp2.png"
+    subX: 10
+    subY: 8
+    pixelX: 34
+    pixelY: 41
+    fps: 8
+    delay: 3
+  - nombre: "knight_move2"
+    ruta: "knight_moveAOEp2.png"
+    subX: 10
+    subY: 8
+    pixelX: 26
+    pixelY: 49
+    fps: 18
+    delay: 0
+  - nombre: "house2"
+    ruta: "houseAOEp2.png"
+    pixelX: 76
+    pixelY: 42
+  - nombre: "windmill2"
+    ruta: "windmillAOEp2.png"
+    subX: 8
+    subY: 1
+    pixelX: 84
+    pixelY: 57
+    fps: 10
+    delay: 0
+  - nombre: "town_center2"
+    ruta: "townCenterAOEp2.png"
+    pixelX: 56
+    pixelY: 159
+  - nombre: "barracks2"
+    ruta: "barracksAOEp2.png"
+    pixelX: 101
+    pixelY: 53
+  - nombre: "archery2"
+    ruta: "archeryAOEp2.png"
+    pixelX: 101
+    pixelY: 47
+  - nombre: "stable2"
+    ruta: "stableAOEp2.png"
+    pixelX: 101
+    pixelY: 12
+  - nombre: "champion3"
+    ruta: "championAOEp3.png"
+    subX: 10
+    subY: 8
+    pixelX: 21
+    pixelY: 38
+    fps: 10
+    delay: 15
+  - nombre: "champion_move3"
+    ruta: "champion_moveAOEp3.png"
+    subX: 10
+    subY: 8
+    pixelX: 21
+    pixelY: 38
+    delay: 0
+    fps: 20
+  - nombre: "castle3"
+    ruta: "castleAOEp3.png"
+    pixelX: 148
+    pixelY: 177
+  - nombre: "knight3"
+    ruta: "knightAOEp3.png"
+    subX: 10
+    subY: 8
+    pixelX: 34
+    pixelY: 41
+    fps: 8
+    delay: 3
+  - nombre: "knight_move3"
+    ruta: "knight_moveAOEp3.png"
+    subX: 10
+    subY: 8
+    pixelX: 26
+    pixelY: 49
+    fps: 18
+    delay: 0
+  - nombre: "house3"
+    ruta: "houseAOEp3.png"
+    pixelX: 76
+    pixelY: 42
+  - nombre: "windmill3"
+    ruta: "windmillAOEp3.png"
+    subX: 8
+    subY: 1
+    pixelX: 84
+    pixelY: 57
+    fps: 10
+    delay: 0
+  - nombre: "town_center3"
+    ruta: "townCenterAOEp3.png"
+    pixelX: 56
+    pixelY: 159
+  - nombre: "barracks3"
+    ruta: "barracksAOEp3.png"
+    pixelX: 101
+    pixelY: 53
+  - nombre: "archery3"
+    ruta: "archeryAOEp3.png"
+    pixelX: 101
+    pixelY: 47
+  - nombre: "stable3"
+    ruta: "stableAOEp3.png"
     pixelX: 101
     pixelY: 12

@@ -7,6 +7,7 @@ using namespace std;
 
 Recurso::Recurso(void) : Entidad() {
 	this->amount = 1;
+	this->tipo = ENT_T_RESOURCE;
 }
 
 Recurso::Recurso(int amount) : Entidad() {
@@ -14,6 +15,7 @@ Recurso::Recurso(int amount) : Entidad() {
 		this->amount = amount;
 	else
 		this->amount = 1;
+	this->tipo = ENT_T_RESOURCE;
 }
 
 Recurso::Recurso(unsigned int id, string name, int tamX, int tamY, int vision, int amount) : Entidad(id, name, tamX, tamY, vision) {
@@ -21,6 +23,7 @@ Recurso::Recurso(unsigned int id, string name, int tamX, int tamY, int vision, i
 		this->amount = amount;
 	else
 		this->amount = 1;
+	this->tipo = ENT_T_RESOURCE;
 }
 
 af_result_t Recurso::avanzarFrame(Escenario* scene) {
