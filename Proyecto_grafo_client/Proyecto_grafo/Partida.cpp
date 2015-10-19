@@ -9,6 +9,7 @@ Partida::Partida(void) {
 	this->jugadores = list<Jugador*>();
 	this->seleccionados = list<Posicion*>();
 	this->escenario = nullptr;
+	this->ent_seleccionada = nullptr;
 	Jugador* gaia = new Jugador("gaia", 0, "green");
 	gaia->settearConexion(true);
 	this->jugadores.push_front(gaia);
@@ -75,20 +76,20 @@ void Partida::procesarUpdate(msg_update msj) {
 	switch(accion){
 	case MSJ_MOVER:
 		Posicion destino = Posicion(msj.extra1, msj.extra2);
-		scene->asignarDestino(msj.idEntidad, destino);
+		scene->moverEntidad(msj.idEntidad, &destino);
 	}
 }
 
 void Partida::seleccionarEntidad(Entidad* ent){
 	int coordX = ent->verPosicion()->getRoundX();
 	int coordY = ent->verPosicion()->getRoundY();
-	for(int i = 0; i < ent->verTamX(); i++)
+	for(int i = 0; i < ent->verTamX(); i++) {
 		for(int j = 0; j < ent->verTamY(); j++){
 			Posicion* pos= new Posicion(coordX + i, coordY + j);
 			this->seleccionados.push_front(pos);
 		}
-	 
-
+	}
+	this->ent_seleccionada = ent;
 }
 
 
@@ -98,9 +99,14 @@ void Partida::deseleccionarEntidades(void){
 		this->seleccionados.pop_front();
 		delete pAct;
 		}
+	this->ent_seleccionada = nullptr;
 }
 
 
 list<Posicion*> Partida::verSeleccionados(void){
 	return this->seleccionados;
+}
+
+Entidad* Partida::verEntidadSeleccionada(void) {
+	return this->ent_seleccionada;
 }

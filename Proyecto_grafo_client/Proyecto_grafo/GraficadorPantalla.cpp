@@ -133,13 +133,14 @@ void GraficadorPantalla::renderizarTerreno(void) {
 	SDL_SetColorKey(imgTileFog, true, SDL_MapRGB(imgTileFog->format, 0, 0, 0));
 
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
-	Vision* vis = partida->obtenerJugador(1)->verVision();
+	Vision* vis = this->player->verVision();
 
 	for(int i = 0; i < partida->escenario->verTamX(); i++) {
 		for(int j = 0; j < partida->escenario->verTamY(); j++){
 			Posicion pAct = Posicion(i,j);
 			if(vis->visibilidadPosicion(pAct) != VIS_NO_EXPLORADA){
 				rectangulo.x = cu->obtenerCoordPantallaX(i, j, view_x, view_y, ancho_borde) - 26;
+
 				// Esto chequea si la casilla cae dentro del la pantalla... si no resulta visible, no la grafica
 				if ((rectangulo.x) < (this->screen_width) && (rectangulo.x + imgTile->w) > 0) {
 					rectangulo.y = cu->obtenerCoordPantallaY(i, j, view_x, view_y, ancho_borde);
@@ -188,7 +189,7 @@ void GraficadorPantalla::renderizarEntidades(void) {
 		Posicion posEntAct2 = Posicion(posEntAct1->getX() + tx - 1, posEntAct1->getY());
 		Posicion posEntAct3 = Posicion(posEntAct1->getX(), posEntAct1->getY() + ty - 1);
 		Posicion posEntAct4 = Posicion(posEntAct1->getX() + tx - 1, posEntAct1->getY() + ty - 1); 
-		Vision* vis = partida->obtenerJugador(1)->verVision();
+		Vision* vis = this->player->verVision();
 		// Si se ve alguna de las cuatro posiciones del borde, dibujo la entidad
 		bool entEsVisible= false;
 		entEsVisible |= (vis->visibilidadPosicion(*posEntAct1)!=VIS_NO_EXPLORADA);

@@ -34,7 +34,7 @@
 #define DEFAULT_PORT "27015"
 #define DEFAULT_IP "127.0.0.1"
 
-SOCKET inicializarConexion(void) {
+SOCKET inicializarConexion(redInfo_t rInfo) {
 	WSADATA wsaData;
 	struct addrinfo *result = NULL, *ptr = NULL, hints;
 
@@ -189,7 +189,37 @@ void procesarSeleccion(Partida* game, GraficadorPantalla* gp){
 			
 }
 
-int procesarEvento(Partida* game, GraficadorPantalla* gp, SDL_Event evento){
+void procesarAccion(Partida* game, GraficadorPantalla* gp, Cliente* client) {
+	cout << "Hice un click!!" << endl;
+	Entidad* ent = game->verEntidadSeleccionada();
+	if (ent == NULL)
+		return;
+	
+	if (ent->verJugador()->verID() != client->playerID)
+		return;
+
+	cout << "La selección es mia!!" << endl;
+	// Obtengo la posición del click (quizás convertir en una función ya que se repite en varios lados...
+	int mx, my;
+	SDL_GetMouseState(&mx, &my);
+	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
+	float pX = cu->obtenerCoordLogicaX(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
+	float pY = cu->obtenerCoordLogicaY(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
+	Posicion dest = Posicion(pX, pY);
+	
+	if (game->escenario->verMapa()->posicionPertenece(&dest)) {
+		cout << "Se generó un mover!!" << endl;
+		msg_event newEvent;
+		newEvent.idEntidad = game->verEntidadSeleccionada()->verID();
+		newEvent.accion = MSJ_MOVER;
+		newEvent.extra1 = pX;
+		newEvent.extra2 = pY;
+		client->agregarEvento(newEvent);
+	}
+}
+
+
+int procesarEvento(Partida* game, GraficadorPantalla* gp, SDL_Event evento, Cliente* client){
 	switch (evento.type) {
 	case SDL_MOUSEBUTTONDOWN:	
 		if( evento.button.button == SDL_BUTTON_LEFT){
@@ -197,7 +227,7 @@ int procesarEvento(Partida* game, GraficadorPantalla* gp, SDL_Event evento){
 			return CODE_CONTINUE;
 			}
 		else if( evento.button.button == SDL_BUTTON_RIGHT){
-			// msg_evento de mover
+			procesarAccion(game, gp, client);
 			return CODE_CONTINUE;
 			}
 	case SDL_QUIT:
@@ -223,7 +253,7 @@ int wmain(int argc, char* argv[]) {
 
 
 	// Después modificar el método para que tome como parámetro el puerto y la ip del yaml
-	SOCKET connectSocket = inicializarConexion();
+	SOCKET connectSocket = inicializarConexion(parser.verInfoRed());
 	if (connectSocket == INVALID_SOCKET) {
 		printf("Unable to connect to server!\n");
 		// Salir elegantemente;
@@ -241,7 +271,7 @@ int wmain(int argc, char* argv[]) {
 	struct mapa_inicial elMapa;
 	Partida* game;
 	Cliente client = Cliente(connectSocket);
-	if ( client.login() ) {
+	if ( client.login(parser.verInfoRed()) ) {
 		elMapa = client.getEscenario();
 		printf("Tam mapa recibido: %d - %d\n", elMapa.mInfo.coordX, elMapa.mInfo.coordY);
 		game = generarPartida(elMapa);
@@ -250,9 +280,7 @@ int wmain(int argc, char* argv[]) {
 		closesocket(connectSocket);
 		return 1;
 	}
-
-
-
+	
 	// Inicializar pantalla y graficador
 	pantallaInfo_t pInfo = parser.verInfoPantalla();
 	GraficadorPantalla* gp = new GraficadorPantalla(pInfo.screenW, pInfo.screenH, pInfo.fullscreen, "DEFAULT");
@@ -263,8 +291,8 @@ int wmain(int argc, char* argv[]) {
 	BibliotecaDeImagenes::obtenerInstancia()->asignarPantalla(gameScreen);
 
 	gp->asignarPartida(game);
-	gp->asignarJugador(game->obtenerJugador(1));
-	game->obtenerJugador(1)->settearConexion(true);
+	gp->asignarJugador(game->obtenerJugador(parser.verInfoRed().ID));
+	game->obtenerJugador(parser.verInfoRed().ID)->settearConexion(true);
 	// En este punto el cliente ya está conectado
 	client.start();
 
@@ -279,7 +307,7 @@ int wmain(int argc, char* argv[]) {
 	int codigo_programa = CODE_CONTINUE;
 	while (codigo_programa != CODE_EXIT) {
 		float timeA = SDL_GetTicks();
-		client.procesarUpdates();
+		client.procesarUpdates(game);
 
 		game->avanzarFrame();
 	
@@ -289,7 +317,7 @@ int wmain(int argc, char* argv[]) {
 		SDL_Event evento;
 		while(SDL_PollEvent(&evento) != 0){
 			// Generar msg_evento: Por ahora sólo te deja scrollear
-			codigo_programa = procesarEvento(game, gp, evento);
+			codigo_programa = procesarEvento(game, gp, evento, &client);
 			if(codigo_programa == CODE_EXIT)
 				break;
 		}
@@ -297,7 +325,7 @@ int wmain(int argc, char* argv[]) {
 		float timeB = SDL_GetTicks();
 		if((FRAME_DURATION - timeB + timeA) > 0)
 			SDL_Delay(FRAME_DURATION - timeB + timeA);
-		cout << timeB - timeA<< endl;
+		cout << timeB - timeA << endl;
 	}
 
 	closesocket(connectSocket);

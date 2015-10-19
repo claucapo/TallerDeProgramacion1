@@ -120,12 +120,15 @@ Entidad* FactoryEntidades::obtenerEntidad(string name){
 		switch (pType->tipo) {
 		case ENT_T_RESOURCE:
 			ent = new Recurso(obtenerIDValida(), name, pType->tamX, pType->tamX, pType->vision, pType->score); break;
-		case ENT_T_UNIT:
-			ent = new Unidad(obtenerIDValida(), name, pType->tamX, pType->tamX, pType->vision, pType->velocidad); break;
+		case ENT_T_UNIT: {
+			ent = new Unidad(obtenerIDValida(), name, pType->tamX, pType->tamX, pType->vision, pType->velocidad);
+			break;
+			 }
 		case ENT_T_NONE:
 		default:
-			ent = new Entidad(obtenerIDValida(), name, pType->tamX, pType->tamX, pType->vision);
+			ent = new Entidad(obtenerIDValida(), name, pType->tamX, pType->tamX, pType->vision); break;
 		}
+		ent->tipo = pType->tipo;
 	} else {
 		ErrorLog::getInstance()->escribirLog("Entidad [" + name + "] no existe en sistema. Se reemplazará por entidad por defecto.", LOG_WARNING);
 		pType = prototipos[nombre_entidad_def];

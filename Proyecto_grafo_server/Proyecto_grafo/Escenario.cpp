@@ -49,7 +49,7 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 			upd->idEntidad = (*it)->verID();
 			upd->extra1 = (*it)->verPosicion()->getX();
 			upd->extra2 = (*it)->verPosicion()->getY();
-			upd->accion = MSJ_ELIMINAR;
+			upd->accion = MSJ_MOVER;
 			updates.push_back(upd);
 			break;
 		case AF_KILL:

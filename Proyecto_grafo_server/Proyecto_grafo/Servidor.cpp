@@ -352,9 +352,11 @@ void Servidor::avanzarFrame(void) {
 		updates.pop_front();
 
 		msg_update toSend = *msg;
-		delete msg;
-
 		this->agregarUpdate(toSend);
+		if (msg->accion == MSJ_MOVER)
+			printf("Encole un update de movimiento! (%f - %f)\n", msg->extra1, msg->extra2);
+
+		delete msg;
 	}
 	SDL_SemPost(partida_lock);
 }

@@ -1,5 +1,6 @@
 #include "Cliente.h"
 #include "ErrorLog.h"
+#include "ConfigParser.h"
 
 int sRead(SOCKET source, char* buffer, int length);
 
@@ -11,6 +12,7 @@ using namespace std;
 
 Cliente::Cliente(SOCKET sock) {
 	this->clientSocket = sock;
+	this->playerID = 0;
 
 	this->eventos = queue<struct msg_event>();
 	this->updates = queue<struct msg_update>();
@@ -79,7 +81,7 @@ int clientSender( void* data ) {
 	}
 	printf("Salgo del loop envio\n");
 				
-		SDL_Delay(10);
+	SDL_Delay(10);
 
 	return result;
 }
@@ -107,10 +109,14 @@ void Cliente::shutdown() {
 
 // Envía la solicitud de logueo (con la información del jugador con el que se está 
 // tratando de entrar a la partida), y espera una respuesta.
-bool Cliente::login() {
+bool Cliente::login(redInfo_t rInfo) {
 	// 1) Enviar información de logueo
 	struct msg_login solicitud;
-	solicitud.playerCode = 1;
+	solicitud.playerCode = rInfo.ID;
+
+	int last = rInfo.name.copy(solicitud.nombre, 49, 0);
+	solicitud.nombre[last] = '\0';
+
 	int result = send(clientSocket, (char*)&solicitud, sizeof(solicitud), 0);
 	if (result <= 0) {
 		printf("Error enviando solicitud de login. Terminando conexión");
@@ -127,8 +133,10 @@ bool Cliente::login() {
 		return false;
 	}
 	struct msg_login_response rsp = *(struct msg_login_response*)buffer;
-	if(rsp.ok)
+	if(rsp.ok) {
 		printf( "Solicitud OK\n");
+		this->playerID = solicitud.playerCode;
+	}
 	return rsp.ok;
 }
 
@@ -155,16 +163,18 @@ void Cliente::agregarUpdate(struct msg_update upd) {
 
 // Proces todos los updates que estan en el momento de la invoación
 // en la cola. La estructura se bloquea hasta que se acaben los updates.
-void Cliente::procesarUpdates() {
+void Cliente::procesarUpdates(Partida* game) {
 	SDL_SemWait(this->updates_lock);
 	// printf("Hay %d updates\n", this->updates.size());
 	while( !this->updates.empty() ) {
 		struct msg_update upd;
 		upd = this->updates.front();
 		this->updates.pop();
-
+		
+		if (upd.accion == MSJ_MOVER)
+			printf("Leego un update!\n");
 		// printf("Recibi un %d\n", upd.idEntidad);
-		// this->partida->decodificarUpdate(upd);
+		game->procesarUpdate(upd);
 	}
 	SDL_SemPost(this->updates_lock);
 }

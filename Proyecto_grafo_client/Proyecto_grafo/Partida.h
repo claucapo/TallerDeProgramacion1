@@ -12,6 +12,7 @@ struct Partida {
 	list<Jugador*> jugadores;
 	Escenario* escenario;
 	list<Posicion*> seleccionados;
+	Entidad* ent_seleccionada;
 
 	// Constructor y destructor por defecto
 	Partida(void);
@@ -24,6 +25,7 @@ struct Partida {
 	
 	void procesarUpdate(msg_update msj);
 
+
 	// Función que avanza la lógica del modelo
 	// en un frame. Básicamente, llama a la
 	// misma función del Escenario.
@@ -31,5 +33,6 @@ struct Partida {
 	void seleccionarEntidad(Entidad* ent);
 	void deseleccionarEntidades(void);
 	list<Posicion*> verSeleccionados(void);
+	Entidad* verEntidadSeleccionada(void);
 };
 

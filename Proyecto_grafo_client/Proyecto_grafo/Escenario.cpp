@@ -41,18 +41,6 @@ void Escenario::avanzarFrame(void) {
 	list<Entidad*> toRmv = list<Entidad*>();
 	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
 		af_result_t res = (*it)->avanzarFrame(this);
-		msg_update* upd;
-		switch (res) {
-		case AF_MOVE:
-			
-			break;
-		case AF_KILL:
-			
-			break;
-		case AF_NONE:
-		default:
-			break;
-		}
 		(*it)->verJugador()->agregarPosiciones(this->verMapa()->posicionesVistas(*it));
 	}
 	while(!toRmv.empty()) {
@@ -94,4 +82,13 @@ void Escenario::asignarDestino(unsigned int entID, Posicion pos) {
 
 list<Entidad*> Escenario::verEntidades(void) {
 	return this->entidades;
+}
+
+
+void Escenario::moverEntidad(unsigned int entID, Posicion* pos) {
+	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
+		if ( (*it)->verID() == entID ) {
+			(*it)->asignarPos(pos);
+		}
+	}
 }

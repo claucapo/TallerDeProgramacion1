@@ -119,6 +119,7 @@ void cargarEscenario(Partida* partida, escenarioInfo_t eInfo) {
 	for(list<instanciaInfo_t*>::const_iterator it = eInfo.instancias.begin(); it != eInfo.instancias.end(); ++it) {
 		Entidad* entidad = FactoryEntidades::obtenerInstancia()->obtenerEntidad((*it)->tipo);
 		if (entidad) {
+
 			Posicion posicion = Posicion((float)(*it)->x, (float)(*it)->y);
 			Jugador* owner = partida->obtenerJugador((*it)->player);
 			if (!owner) {

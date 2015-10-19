@@ -6,6 +6,8 @@
 #include <SDL_mutex.h>
 
 #include "Protocolo.h"
+#include "Partida.h"
+#include "ConfigParser.h"
 #include <queue>
 #include <list>
 
@@ -40,6 +42,7 @@ private:
 
 public:
 	SOCKET clientSocket;
+	unsigned int playerID;
 
 	SDL_sem* eventos_lock;
 	queue<struct msg_event> eventos;
@@ -49,7 +52,7 @@ public:
 	~Cliente();
 	// Método inicial para enviar solicitud de login
 	// Devuelve true si la solicitud es aceptada por el servidor
-	bool login();
+	bool login(redInfo_t rInfo);
 
 	// Metodo que inicializa los threads de lectura y escritura para que comiencen a leer
 	void start();
@@ -58,7 +61,7 @@ public:
 	// Métodos que operan con las colas de updates y eventos
 	void agregarEvento(struct msg_event);
 	void agregarUpdate(struct msg_update);
-	void procesarUpdates();
+	void procesarUpdates(Partida* game);
 
 	struct mapa_inicial getEscenario(void);
 	// int enviarEventos(void);

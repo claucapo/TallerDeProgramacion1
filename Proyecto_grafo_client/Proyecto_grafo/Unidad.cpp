@@ -65,6 +65,7 @@ void Unidad::setEstado(Estados_t state) {
 }
 
 af_result_t Unidad::avanzarFrame(Escenario* scene) {
+	this->sprites->siguienteFrame();
 	// Aca habría que chequear si la entidad cambió de posición
 	/*
 	Estados_t state = this->state;

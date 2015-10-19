@@ -12,8 +12,18 @@ Unidad::Unidad() : Entidad() {
 	this->destino = nullptr;
 }
 
-Unidad::Unidad(unsigned int id, string name, int tamX, int tamY, int vision, int velocidad) : Entidad(id, name, tamX, tamY, vision) {
-	this->rapidez = velocidad;
+Unidad::Unidad(unsigned int id, string name, int tamX, int tamY, int vision, int velocidad) {
+	this->pos = nullptr;
+	this->id = id;
+	this->name = name;
+	this->state = EST_QUIETO;
+	this->tamX = (tamX > 0) ? tamX : 1;
+	this->tamY = (tamY > 0) ? tamY : 1;
+	this->rangoVision = vision;
+
+	this->owner = nullptr;
+
+	this->rapidez = (float)velocidad/100;
 	this->direccion = DIR_DOWN;
 	this->destino = nullptr;
 }

@@ -2,6 +2,7 @@
 #include "Servidor.h"
 
 #include <queue>
+#include <time.h>
 
 
 // Función de lectura auxiliar
@@ -88,6 +89,11 @@ int conexionSender( void* data ) {
 // Lanza los dos threads correspondientes a la
 // lectura y la escritura
 void ConexionCliente::start() {
+	struct timeval timeout;
+	timeout.tv_sec = 3;
+	timeout.tv_usec = 0;
+	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout, sizeof(timeout)))
+		printf("Error on setting timeout");
 	this->myReader = SDL_CreateThread(conexionReader, "A client reader", this);
 	this->mySender = SDL_CreateThread(conexionSender, "A client sender", this);
 }
