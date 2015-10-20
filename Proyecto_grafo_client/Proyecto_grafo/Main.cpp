@@ -295,14 +295,14 @@ int wmain(int argc, char* argv[]) {
 	// En este punto el cliente ya está conectado
 	client.start();
 
-/*	list<Posicion> visionHard;
+	list<Posicion> visionHard;
 	for(int i = 0; i < game->escenario->verTamX(); i++)
 		for(int j = 0; j < game->escenario->verTamY(); j++){
 			Posicion aux(i, j);
 			visionHard.push_back(aux);
 		}
-	game->obtenerJugador(1)->agregarPosiciones(visionHard);
-	*/
+	game->obtenerJugador(parser.verInfoRed().ID)->agregarPosiciones(visionHard);
+	
 	int codigo_programa = CODE_CONTINUE;
 	while (codigo_programa != CODE_EXIT) {
 		float timeA = SDL_GetTicks();

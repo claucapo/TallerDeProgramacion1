@@ -176,6 +176,8 @@ int main(int argc, char* argv[]) {
 	// Cambiar por alguna condición de corte en los mensajes??
 	// No creo, el server siempre vive, no?
 	bool exit = false;
+	cout<< game->escenario->verMapa()->caminoMinimo(Posicion(5,15), Posicion(7,11)) <<endl;
+
 	while ( !exit ) {
 		float timeA = SDL_GetTicks();
 

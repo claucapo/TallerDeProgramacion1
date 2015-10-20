@@ -1,6 +1,7 @@
 #include <list>
 #include "Matriz.h"
 #include "ErrorLog.h"
+#include "CalculadorCaminoMinimo.h"
 
 using namespace std;
 
@@ -20,8 +21,17 @@ Matriz::Matriz(void) {
 	for(int i = 0; i < TAM_DEFAULT; i++)
 		casillas[i] = new Entidad*[TAM_DEFAULT];
 
+
+	//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	this->calculadorCamino = new CalculadorCaminoMinimo(TAM_DEFAULT,TAM_DEFAULT);
+	mapDeOcupaciones = new int*[TAM_DEFAULT];
+	for(int j = 0; j < TAM_DEFAULT; j++)
+		mapDeOcupaciones[j] = new int[TAM_DEFAULT];
+
 	generarMatrizVacia();
+
 }
+
 
 // Mismo constructor, pero especificando la cantidad de filas y columnas
 //
@@ -35,23 +45,35 @@ Matriz::Matriz(int casillas_x, int casillas_y) {
 	for(int i = 0; i < casillas_x; i++)
 		casillas[i] = new Entidad*[casillas_y];
 
+	//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	this->calculadorCamino = new CalculadorCaminoMinimo(casillas_x,casillas_y);
+	mapDeOcupaciones = new int*[casillas_x];
+	for(int j = 0; j < casillas_x; j++)
+		mapDeOcupaciones[j] = new int[casillas_y];
+
 	generarMatrizVacia();
 }
 
+//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 // Destructor que libera los arrays pedidos dinamicamente
 Matriz::~Matriz(void) {
-	for(int i = 0; i < this->filas; i++)
+	for(int i = 0; i < this->filas; i++){
 		delete[] casillas[i];
+		delete[] mapDeOcupaciones[i];
+	}
 	delete[] casillas;
+	delete[] mapDeOcupaciones;
 } 
 
 
+//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 void Matriz::generarMatrizVacia(){
 	for(int i = 0; i < this->filas; i++){
-		for(int j = 0; j < this->columnas; j++)
+		for(int j = 0; j < this->columnas; j++){
 		 casillas[i][j] = nullptr;
+		 mapDeOcupaciones[i][j] = 0;
+		}
 	}
-	
 } 
 
 bool Matriz::posicionPertenece(Posicion* pos){
@@ -192,4 +214,27 @@ list<Posicion> Matriz::posicionesVistas(Entidad* elemento) {
 		}
 	}
 	return posEnRango;
+}
+
+//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+void Matriz::actualizarMapDeOcupaciones(){
+
+	for(int i = 0; i < this->filas; i++){
+		for(int j = 0; j < this->columnas; j++){
+		 if (casillas[i][j] != nullptr)
+			 mapDeOcupaciones[i][j]= 1;
+		}
+	}
+}
+//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+string Matriz::caminoMinimo(Posicion posAct, Posicion posDest){
+
+	int actX = posAct.getRoundX();
+	int actY = posAct.getRoundY();
+	int destX = posDest.getRoundX();
+	int destY = posDest.getRoundY();
+	this->actualizarMapDeOcupaciones();
+	string dir = this->calculadorCamino->calcularCaminoMinimo(actX,actY,destX,destY,this->mapDeOcupaciones);
+
+	return dir;
 }

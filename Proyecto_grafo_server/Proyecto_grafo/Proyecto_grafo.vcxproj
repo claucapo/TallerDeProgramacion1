@@ -68,6 +68,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Archivo.h" />
+    <ClInclude Include="CalculadorCaminoMinimo.h" />
     <ClInclude Include="ConexionCliente.h" />
     <ClInclude Include="ConfigParser.h" />
     <ClInclude Include="ConversorUnidades.h" />
@@ -78,6 +79,7 @@
     <ClInclude Include="FactoryEntidades.h" />
     <ClInclude Include="Jugador.h" />
     <ClInclude Include="Matriz.h" />
+    <ClInclude Include="Nodo.h" />
     <ClInclude Include="Partida.h" />
     <ClInclude Include="Posicion.h" />
     <ClInclude Include="Protocolo.h" />
@@ -90,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Archivo.cpp" />
+    <ClCompile Include="CalculadorCaminoMinimo.cpp" />
     <ClCompile Include="ConexionCliente.cpp" />
     <ClCompile Include="ConfigParser.cpp" />
     <ClCompile Include="ConversorUnidades.cpp" />
@@ -101,6 +104,7 @@
     <ClCompile Include="Jugador.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Matriz.cpp" />
+    <ClCompile Include="Nodo.cpp" />
     <ClCompile Include="Partida.cpp" />
     <ClCompile Include="Posicion.cpp" />
     <ClCompile Include="Recurso.cpp" />

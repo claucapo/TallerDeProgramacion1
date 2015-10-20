@@ -3,6 +3,7 @@
 
 #include "Entidad.h"
 #include "Posicion.h"
+#include "CalculadorCaminoMinimo.h"
 #include <list>
 using namespace std;
 
@@ -16,6 +17,10 @@ private:
 	int cantidad_entidades;
 	int columnas;
 	int filas;
+
+	int** mapDeOcupaciones;
+	CalculadorCaminoMinimo* calculadorCamino;
+
 
 	// Metodo que crea una matriz vacia.
 	void generarMatrizVacia();
@@ -65,6 +70,9 @@ public:
 
 	// Devuelve la lista de posiciones que caen dentro del rango de vision de una entidad
 	list<Posicion> posicionesVistas(Entidad* elemento);
+	void actualizarMapDeOcupaciones();
+	string Matriz::caminoMinimo(Posicion posAct, Posicion posDest);
+
 };
 
 

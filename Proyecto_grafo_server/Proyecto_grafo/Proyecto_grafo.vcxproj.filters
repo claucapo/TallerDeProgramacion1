@@ -117,6 +117,12 @@
     <ClInclude Include="Servidor.h">
       <Filter>Archivos de encabezado\Red</Filter>
     </ClInclude>
+    <ClInclude Include="CalculadorCaminoMinimo.h">
+      <Filter>Archivos de código fuente</Filter>
+    </ClInclude>
+    <ClInclude Include="Nodo.h">
+      <Filter>Archivos de código fuente</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entidad.cpp">
@@ -175,6 +181,12 @@
     </ClCompile>
     <ClCompile Include="SocketAux.cpp">
       <Filter>Archivos de código fuente\Red</Filter>
+    </ClCompile>
+    <ClCompile Include="CalculadorCaminoMinimo.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodo.cpp">
+      <Filter>Archivos de código fuente</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
