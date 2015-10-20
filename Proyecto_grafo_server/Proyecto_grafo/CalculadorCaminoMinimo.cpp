@@ -5,6 +5,8 @@
 #include <queue>
 #include <string>
 #include <math.h>
+#include "Posicion.h"
+#include <list>
 #include <ctime>
 using namespace std;
 
@@ -56,7 +58,7 @@ public:
   }
 };
 
-string CalculadorCaminoMinimo::calcularCaminoMinimo( int xAct, int yAct, int xDest, int yDest, int** mapDeOcupaciones)
+list<Posicion*> CalculadorCaminoMinimo::calcularCaminoMinimo( int xAct, int yAct, int xDest, int yDest, int** mapDeOcupaciones)
 {
 
 	//diferenciales segun el movimiento
@@ -102,25 +104,29 @@ string CalculadorCaminoMinimo::calcularCaminoMinimo( int xAct, int yAct, int xDe
 
         if( x == xDest && y == yDest) 
         {
-            string path="";
+         //   string path="Ponele: ";
+			list<Posicion*> camino = list<Posicion*>();
 
-            while(!(x == xAct && y == yAct))
-            {
+            while(!(x == xAct && y == yAct)){
                 j = listaDirecciones[x][y];
-                c = '0' + (j+8/2)%8;
-				if((c == '1') || (c == '2') || (c == '0'))
-					c += 5;
-				else
-					c -= 3;
-                path += c;
-				path += '-';
+           //     c = '0' + (j+8/2)%8;
+
+           //     path += c;
+
                 x+= dx[j];
                 y+= dy[j];
+				Posicion* pNew = new Posicion(x, y);
+				camino.push_front(pNew);
+			//	cout << x << "," << y << endl;
+
             }
 
             delete n0;
-            while(!pN[pNi].empty()) pN[pNi].pop();           
-            return path;
+            while(!pN[pNi].empty()) pN[pNi].pop(); 
+
+
+
+            return camino;
         }
 
         for(int i = 0; i < 8; i++)
@@ -129,21 +135,23 @@ string CalculadorCaminoMinimo::calcularCaminoMinimo( int xAct, int yAct, int xDe
 			ydy = y + dy[i];
 
 			// cout << "Pos" << xdx <<"," << ydy <<" ocupada?" << mapDeOcupaciones[xdx][ydy] << endl;
-			if(mapDeOcupaciones[xdx][ydy] == 0)
             if(!( xdx < 0 || xdx > filas-1 || ydy < 0 || ydy > columnas-1 || listaCerrada[xdx][ydy] == 1))
-            {
+            if(mapDeOcupaciones[xdx][ydy] ==0)
+			{
+				
                 m0 = new Nodo( xdx, ydy, n0->obtenerNivel(), n0->obtenerPrioridad());
                 m0->siguienteNivel(i);
                 m0->actualizarPrioridad(xDest, yDest);
 
                 if(listaAbierta[xdx][ydy] == 0)
                 {
-                    listaAbierta[xdx][ydy] = m0->obtenerPrioridad();
+					listaAbierta[xdx][ydy] = m0->obtenerPrioridad();
                     pN[pNi].push(*m0);
                     listaDirecciones[xdx][ydy] = (i+8/2)%8;
                 }
                 else if(listaAbierta[xdx][ydy] > m0->obtenerPrioridad())
                 {
+
                     listaAbierta[xdx][ydy] = m0->obtenerPrioridad();
                     listaDirecciones[xdx][ydy] = (i+8/2)%8;
 
@@ -165,10 +173,12 @@ string CalculadorCaminoMinimo::calcularCaminoMinimo( int xAct, int yAct, int xDe
                     pNi = 1-pNi;
                     pN[pNi].push(*m0);
                 }
+
                 else delete m0;
             }
         }
+
         delete n0;
     }
-    return "";
+    return list<Posicion*>();
 }

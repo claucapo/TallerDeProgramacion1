@@ -303,6 +303,8 @@ int wmain(int argc, char* argv[]) {
 		}
 	game->obtenerJugador(parser.verInfoRed().ID)->agregarPosiciones(visionHard);
 	
+
+
 	int codigo_programa = CODE_CONTINUE;
 	while (codigo_programa != CODE_EXIT) {
 		float timeA = SDL_GetTicks();

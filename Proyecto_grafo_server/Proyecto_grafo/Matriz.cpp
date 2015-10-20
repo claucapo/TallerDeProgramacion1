@@ -227,14 +227,13 @@ void Matriz::actualizarMapDeOcupaciones(){
 	}
 }
 //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-string Matriz::caminoMinimo(Posicion posAct, Posicion posDest){
+list<Posicion*> Matriz::caminoMinimo(Posicion posAct, Posicion posDest){
 
 	int actX = posAct.getRoundX();
 	int actY = posAct.getRoundY();
 	int destX = posDest.getRoundX();
 	int destY = posDest.getRoundY();
 	this->actualizarMapDeOcupaciones();
-	string dir = this->calculadorCamino->calcularCaminoMinimo(actX,actY,destX,destY,this->mapDeOcupaciones);
+	return this->calculadorCamino->calcularCaminoMinimo(actX,actY,destX,destY,this->mapDeOcupaciones);
 
-	return dir;
 }

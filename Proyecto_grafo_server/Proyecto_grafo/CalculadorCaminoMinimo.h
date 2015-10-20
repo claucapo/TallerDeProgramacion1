@@ -1,5 +1,7 @@
 #include "Nodo.h"
 #include <string>
+#include "Posicion.h"
+#include <list>
 
 #pragma once
 
@@ -17,5 +19,5 @@ public:
 	CalculadorCaminoMinimo(void);
 	CalculadorCaminoMinimo(int filas,int columnas);
 	~CalculadorCaminoMinimo(void);
-	string CalculadorCaminoMinimo::calcularCaminoMinimo( int xAct, int yAct, int xDest, int yDest, int** mapDeOcupaciones);
+	list<Posicion*> CalculadorCaminoMinimo::calcularCaminoMinimo( int xAct, int yAct, int xDest, int yDest, int** mapDeOcupaciones);
 };

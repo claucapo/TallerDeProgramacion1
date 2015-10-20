@@ -182,7 +182,10 @@ int main(int argc, char* argv[]) {
 	bool exit = false;
 
 	// TESTEANDO CAMINOS MINIMOS
-	int destX = 7, destY = 11, oriX = 5, oriY = 15;
+	int destX = 36, destY = 36, oriX = 30, oriY = 30;
+
+
+
 	for (int i = 0; i < parser.verInfoEscenario().size_X; i++) {
 		for (int j = 0; j < parser.verInfoEscenario().size_Y; j++) {
 			if (!game->escenario->verMapa()->posicionEstaVacia(&Posicion(i,j)))
@@ -198,8 +201,14 @@ int main(int argc, char* argv[]) {
 	}
 	cout <<endl;
 	
-	cout<< game->escenario->verMapa()->caminoMinimo(Posicion(oriX,oriY), Posicion(destX,destY)) <<endl;
-	
+	list<Posicion*> path = game->escenario->verMapa()->caminoMinimo(Posicion(oriX,oriY), Posicion(destX,destY));
+	cout<<"CAMINO MINIMO ENTRE (" << oriX << "," << oriY << ") y (" << destX << "," << destY  << ")" << endl;
+	while(!path.empty()){
+		Posicion* pAct = path.front();
+		cout << "(" << pAct->getX() << "," << pAct->getY() << ")" <<endl;
+		path.pop_front();
+		delete pAct;
+	}
 
 	while ( !exit ) {
 		float timeA = SDL_GetTicks();

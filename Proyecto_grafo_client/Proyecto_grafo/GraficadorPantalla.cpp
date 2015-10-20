@@ -158,10 +158,9 @@ void GraficadorPantalla::renderizarTerreno(void) {
 	SDL_FreeSurface(imgTileFog);
 
 	// Muestro las posiciones de la entidad seleccionada
-	SDL_SetSurfaceColorMod(imgTile, 110 , 255 , 110 );
+	//SDL_SetSurfaceColorMod(imgTile, 110 , 255 , 110 );
 
 
-			
 	list<Posicion*> selec = this->partida->verSeleccionados();
 	if(!selec.empty()){
 
@@ -219,14 +218,27 @@ void GraficadorPantalla::renderizarEntidades(void) {
 			recOr.w = entAct->subImagenWidth();
 			recOr.h = entAct->subImagenHeight();
 
-			Jugador* playerOwner = (*it)->verJugador();
+		/*	Jugador* playerOwner = (*it)->verJugador();
 			if(playerOwner != nullptr){
-			//	cout<< "IdPlayer: "<<playerOwner->verID() << endl;;
-			if(!playerOwner->estaConectado())
-				SDL_SetSurfaceColorMod(spEnt, 240 , TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD );
-			else
-				SDL_SetSurfaceColorMod(spEnt, 255, 255, 255 );
+				if(!playerOwner->estaConectado())
+					SDL_SetSurfaceColorMod(spEnt, 240 , TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD );
+				else
+					SDL_SetSurfaceColorMod(spEnt, 255, 255, 255 );
+				}*/
+		/*	Jugador* playerOwner = (*it)->verJugador();
+			if(playerOwner != nullptr){
+				string nombreEnt = (*it)->verNombre();
+				if(playerOwner->verID() == 2)
+					nombreEnt = nombreEnt + '2';
+				if(playerOwner->verID() == 3)
+					nombreEnt = nombreEnt + '3';
+				// La G final es de grisada
+				nombreEnt = nombreEnt + 'G';
+				DatosImagen* dataImg = BibliotecaDeImagenes::obtenerInstancia()->devolverDatosImagen(nombreEnt);
+				if(dataImg->path == "default.png"){ //La imagen no estaba en la biblioteca
+					}
 			}
+			*/
 			SDL_BlitSurface( spEnt, &recOr, pantalla, &rectangulo );	
 		}		
 	}
