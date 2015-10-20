@@ -10,7 +10,7 @@ int sRead(SOCKET source, char* buffer, int length);
 
 ConexionCliente::ConexionCliente(SOCKET cSocket, Servidor* server, unsigned int id) {
 	this->clientSocket = cSocket;
-
+	
 	this->playerID = id;
 
 	this->updates = queue<struct msg_update>();
@@ -23,6 +23,7 @@ ConexionCliente::ConexionCliente(SOCKET cSocket, Servidor* server, unsigned int 
 }
 
 ConexionCliente::~ConexionCliente() {
+	closesocket(this->clientSocket);
 	SDL_DestroySemaphore(this->updates_lock);
 }
 
@@ -39,8 +40,8 @@ int conexionReader( void* data ) {
 	do {
 		result = sRead(cliente->clientSocket, buffer, sizeof(struct msg_event));
 		if (result <= 0) {
-			printf("Error de recepcion. Terminando conexion\n");
-			cliente->shutdown();
+			printf("Error de recepcion. Terminando conexion %d\n", WSAGetLastError());
+			cliente->stop();
 			cliente->server->removerCliente(cliente);
 			printf("Exited Reading for cliente\n");
 			return result;
@@ -49,7 +50,7 @@ int conexionReader( void* data ) {
 			cliente->server->agregarEvento(msg);
 		}
 		SDL_Delay(10);
-	} while (result > 0);
+	} while (result > 0 && !cliente->must_close);
 	return result;
 }
 
@@ -61,7 +62,7 @@ int conexionReader( void* data ) {
 int conexionSender( void* data ) {
 	ConexionCliente* cliente = (ConexionCliente*)data;
 	int result = 1;
-	while (result > 0) {
+	while (result > 0 && !cliente->must_close) {
 		while ( !cliente->updates.empty() ) {
 			SDL_SemWait(cliente->updates_lock);
 			struct msg_update act = cliente->updates.front();
@@ -71,9 +72,10 @@ int conexionSender( void* data ) {
 			
 			if (result <= 0) {
 				printf("Error enviando updates. Terminando conexion\n");
-				cliente->shutdown();
-				cliente->server->removerCliente(cliente);
+				cliente->stop();
+				
 				printf("Exited Sending for cliente\n");
+				cliente->server->removerCliente(cliente);
 
 				return result;
 			}
@@ -81,6 +83,7 @@ int conexionSender( void* data ) {
 			SDL_Delay(10);
 		}
 	}
+	printf("Exited Sending for cliente\n");
 	return result;
 }
 
@@ -89,21 +92,25 @@ int conexionSender( void* data ) {
 // Lanza los dos threads correspondientes a la
 // lectura y la escritura
 void ConexionCliente::start() {
-	struct timeval timeout;
-	timeout.tv_sec = 3;
-	timeout.tv_usec = 0;
+	DWORD timeout =  3000;
 	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout, sizeof(timeout)))
 		printf("Error on setting timeout");
+
+	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout, sizeof(timeout)))
+		printf("Error on setting timeout");
+
+	this->must_close = false;
+
 	this->myReader = SDL_CreateThread(conexionReader, "A client reader", this);
 	this->mySender = SDL_CreateThread(conexionSender, "A client sender", this);
 }
 
 // Desasocia los threads y libera el socket
-void ConexionCliente::shutdown() {
-	closesocket(this->clientSocket);
-
-	this->server->desconectarJugador(this->playerID);
+void ConexionCliente::stop() {
+	this->must_close = true;
 	
+	this->server->desconectarJugador(this->playerID);
+			
 	SDL_DetachThread(this->myReader);
 	SDL_DetachThread(this->mySender);
 }

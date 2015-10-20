@@ -5,6 +5,7 @@ enum entity_type_t;
 
 // Separar para protocolo de updates y events??? Nah
 enum CodigoMensaje {
+	MSJ_KEEP_ALIVE,
 	// Mensajes de acciones de juego
 	MSJ_QUIETO,
 	MSJ_MOVER,

@@ -49,10 +49,8 @@ int clientReader( void* data ) {
 			upd = *(struct msg_update*)buffer;
 			cliente->agregarUpdate(upd);
 		}
-	} while (result > 0);
-
-					SDL_Delay(10);
-
+	} while (result > 0 && !cliente->must_close);
+	printf("Se ciera thread de lectura\n");
 	return result;
 }
 
@@ -62,7 +60,7 @@ int clientSender( void* data ) {
 	printf("Se lanza thread envio\n");
 	Cliente* cliente = (Cliente*)data;
 	int result = 1;
-	while (result > 0) {
+	while (result > 0 && !cliente->must_close) {
 		SDL_SemWait(cliente->eventos_lock);
 		// Si hay un evento, lo envio
 		if ( !cliente->eventos.empty() ) {
@@ -73,14 +71,11 @@ int clientSender( void* data ) {
 			if (result <= 0) {
 				printf("Error enviando evento. Terminando conexion\n");
 				cliente->shutdown();
-			} else {
-				// printf("Envie un %d\n", ev.idEntidad);
 			}
 		}
 		SDL_SemPost(cliente->eventos_lock);
 	}
 	printf("Salgo del loop envio\n");
-				
 	SDL_Delay(10);
 
 	return result;
@@ -89,12 +84,23 @@ int clientSender( void* data ) {
 
 // Método que dispara los threads
 void Cliente::start() {
+	this->must_close = false;
+
+	DWORD timeout =  3000;
+	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout, sizeof(timeout)))
+		printf("Error on setting timeout");
+
+	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout, sizeof(timeout)))
+		printf("Error on setting timeout");
+
 	this->myReader = SDL_CreateThread(clientReader, "A client reader", this);
 	this->mySender = SDL_CreateThread(clientSender, "A client sender", this);
 }
 
 
 void Cliente::shutdown() {
+	this->must_close = true;
+
 	closesocket(this->clientSocket);
 
 	SDL_DetachThread(this->myReader);
@@ -188,8 +194,7 @@ struct mapa_inicial Cliente::getEscenario(void) {
 		ErrorLog::getInstance()->escribirLog("Error recibiendo mapa.", LOG_ERROR);
 		return scene_info;
 	}
-
-
+	
 	// Se la cantidad de jugadores que voy a recibir, y el tamaño de sus visiones
 	for (int i = 0; i < scene_info.mInfo.cantJugadores; i++) {
 		jugador_info* jugador_act = new jugador_info();
@@ -237,26 +242,8 @@ struct mapa_inicial Cliente::getEscenario(void) {
 }
 
 
-/*
-struct msg_map Cliente::getEscenario(void){
-	int result; 
-	char buffer[sizeof(struct msg_map)];
-	result = sRead(this->clientSocket, buffer, sizeof(struct msg_map));
-	if (result <= 0) {
-		printf("Error recibiendo mapa. Terminando conexion\n");
-		closesocket(this->clientSocket);
-	}
-	struct msg_map mapaRecv = *(struct msg_map*)buffer;
-
-	return mapaRecv;
+void Cliente::generarKeepAlive(void) {
+	msg_event msg;
+	msg.accion = MSJ_KEEP_ALIVE;
+	this->agregarEvento(msg);
 }
-*/
-
-// NO USAR
-/*
-int Cliente::enviarEventos(void) {
-	SDL_SemWait(this->eventos_lock);
-	msg_event msjAct = this->eventos.front();
-	SDL_SemPost(this->eventos_lock);
-	return 0;
-}*/

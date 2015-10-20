@@ -66,7 +66,9 @@ SOCKET inicializarConexion(void) {
 		return ListenSocket;
 	}
 
-
+	DWORD timeout = 3000;
+	setsockopt(ListenSocket, SOL_SOCKET, SO_RCVTIMEO, (char*)&timeout, sizeof(timeout));
+	
 	iResult = bind (ListenSocket, result->ai_addr, (int)result->ai_addrlen);
 	if (iResult == SOCKET_ERROR) {
 		printf("bind failed with error: %d\n", WSAGetLastError());
@@ -173,10 +175,31 @@ int main(int argc, char* argv[]) {
 	Servidor server = Servidor(ListenSocket, game);
 	server.start();
 
+
+	cout <<endl<<endl;
 	// Cambiar por alguna condición de corte en los mensajes??
 	// No creo, el server siempre vive, no?
 	bool exit = false;
-	cout<< game->escenario->verMapa()->caminoMinimo(Posicion(5,15), Posicion(7,11)) <<endl;
+
+	// TESTEANDO CAMINOS MINIMOS
+	int destX = 7, destY = 11, oriX = 5, oriY = 15;
+	for (int i = 0; i < parser.verInfoEscenario().size_X; i++) {
+		for (int j = 0; j < parser.verInfoEscenario().size_Y; j++) {
+			if (!game->escenario->verMapa()->posicionEstaVacia(&Posicion(i,j)))
+				cout<< "X";
+			else if (i == oriX && j == 15)
+				cout<<"I";
+			else if (i == destX && j==destY)
+				cout<<"D";
+			else
+				cout << "_";
+		}
+		cout<<endl;
+	}
+	cout <<endl;
+	
+	cout<< game->escenario->verMapa()->caminoMinimo(Posicion(oriX,oriY), Posicion(destX,destY)) <<endl;
+	
 
 	while ( !exit ) {
 		float timeA = SDL_GetTicks();

@@ -311,7 +311,7 @@ int wmain(int argc, char* argv[]) {
 		game->avanzarFrame();
 	
 		gp->dibujarPantalla();
-		// generarKeepAlive();
+		client.generarKeepAlive();
 
 		SDL_Event evento;
 		while(SDL_PollEvent(&evento) != 0){

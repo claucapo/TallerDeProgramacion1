@@ -101,6 +101,7 @@ void Escenario::asignarDestino(unsigned int entID, Posicion pos) {
 			if ( (*it)->tipo == ENT_T_UNIT ) {
 				Unidad* unit = (Unidad*)(*it);
 				unit->nuevoDestino(&pos);
+				printf("seleccionado nuevo destino\n");
 			}
 		}
 	}

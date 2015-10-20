@@ -35,6 +35,7 @@ private:
 	SDL_sem* updates_lock;
 	queue<struct msg_update> updates;
 
+
 	SDL_Thread* myReader;
 	SDL_Thread* mySender;
 
@@ -43,6 +44,7 @@ private:
 public:
 	SOCKET clientSocket;
 	unsigned int playerID;
+	bool must_close;
 
 	SDL_sem* eventos_lock;
 	queue<struct msg_event> eventos;
@@ -62,7 +64,7 @@ public:
 	void agregarEvento(struct msg_event);
 	void agregarUpdate(struct msg_update);
 	void procesarUpdates(Partida* game);
-
+	void generarKeepAlive();
 	struct mapa_inicial getEscenario(void);
 	// int enviarEventos(void);
 };

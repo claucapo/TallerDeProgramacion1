@@ -128,7 +128,7 @@ string CalculadorCaminoMinimo::calcularCaminoMinimo( int xAct, int yAct, int xDe
             xdx = x + dx[i];
 			ydy = y + dy[i];
 
-			cout << "Pos" << xdx <<"," << ydy <<" ocupada?" << mapDeOcupaciones[xdx][ydy] << endl;
+			// cout << "Pos" << xdx <<"," << ydy <<" ocupada?" << mapDeOcupaciones[xdx][ydy] << endl;
 			if(mapDeOcupaciones[xdx][ydy] == 0)
             if(!( xdx < 0 || xdx > filas-1 || ydy < 0 || ydy > columnas-1 || listaCerrada[xdx][ydy] == 1))
             {

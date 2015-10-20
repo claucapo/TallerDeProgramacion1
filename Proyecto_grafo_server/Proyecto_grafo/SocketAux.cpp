@@ -14,6 +14,8 @@ int sRead(SOCKET source, char* buffer, int length) {
 			offset += lastRead;
 		else if (lastRead == 0)
 			return lastRead;
+		else if (lastRead <= 0)
+			return lastRead;
 	} while (offset < length);
 }
 

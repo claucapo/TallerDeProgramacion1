@@ -15,6 +15,7 @@ class Servidor;
 class ConexionCliente {
 private:
 	unsigned int playerID;
+
 	// Threads de lectura y escritura
 	SDL_Thread* myReader;
 	SDL_Thread* mySender;
@@ -24,6 +25,7 @@ private:
 public:
 	SOCKET clientSocket;
 	Servidor* server;
+	bool must_close;
 
 	SDL_semaphore* updates_lock;
 	queue<struct msg_update> updates;
@@ -33,7 +35,7 @@ public:
 
 	// Lanzará los threads de lectura y escritura
 	void start();
-	void shutdown();
+	void stop();
 
 	void agregarUpdate(struct msg_update);
 };
