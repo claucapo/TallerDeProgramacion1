@@ -1,6 +1,7 @@
 #include "Posicion.h"
 #include "Entidad.h"
 #include "Enumerados.h"
+#include <list>
 #pragma once
 
 /* La clase Unidad (derivada de Entidad)
@@ -16,6 +17,7 @@ protected:
 
 	Unidad(void);
 	Unidad(Posicion* p);
+	list<Posicion*> camino;
 
 public:
 	// Constructor y destructor por defecto
@@ -30,6 +32,7 @@ public:
 
 	Direcciones_t verDireccion(void) {return this->direccion;}
 	Posicion* verDestino(void) {return this->destino;}
+	Posicion* verPosicion(void) {return this->pos;}
 
 	// Si entendì bien a Juanma, con esto se
 	// asigna una dirección respecto del sistema
@@ -41,6 +44,7 @@ public:
 	// a partir de la aceleracion recibida.
 	virtual void setVelocidad(float nuevaVelocidad);
 	virtual void setEstado(Estados_t nuevoEstado);
+	virtual void marcarCamino(list<Posicion*> camino);
 	
 	virtual af_result_t avanzarFrame(Escenario* scene);
 

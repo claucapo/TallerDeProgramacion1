@@ -5,6 +5,7 @@
 #include "ConversorUnidades.h"
 #include <cmath>
 #include <iostream>
+#include <list>
 
 Unidad::Unidad() : Entidad() {
 	this->rapidez = 0;
@@ -71,15 +72,30 @@ void Unidad::setEstado(Estados_t state) {
 	this->state = state;
 }
 
+void Unidad::marcarCamino(list<Posicion*> camino) {
+	this->camino = camino;
+	this->camino.push_back(this->destino);
+}
+
 af_result_t Unidad::avanzarFrame(Escenario* scene) {
 	// Aca habría que chequear si la entidad cambió de posición
 
 	Estados_t state = this->state;
 
-	// Si se esta moviendo
-	if (state == EST_CAMINANDO) {
+	//el ultimo elemento es el destino original
+	if (camino.size() == 1){
+		this->setEstado(EST_QUIETO);
+	}
+
+	if (!camino.empty() && state == EST_CAMINANDO) {
 		Posicion* act = this->pos;
-		Posicion* dest = this->destino;
+		Posicion* dest = this->camino.front();
+
+		//agrego recalculo si hay una posicion ocupada hay que agregar atributo matriz
+		//if (!this->mapa->posicionEstaVacia(dest)){
+			//this->camino = this->mapa->caminoMinimo(this->pos,this->destino);
+			//dest = this->camino.front();
+		//}
 
 		// Distantcias
 		float distX = dest->getX() - act->getX();
@@ -94,11 +110,10 @@ af_result_t Unidad::avanzarFrame(Escenario* scene) {
 			Posicion nuevaPos(nuevoX, nuevoY);
 			this->asignarPos(&nuevaPos);
 		} else {
-			this->setEstado(EST_QUIETO);
+			this->camino.pop_front();
 		}
 		return AF_MOVE;
 	}
-
 	return AF_NONE;
 }
 

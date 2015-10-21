@@ -2,11 +2,6 @@
 #include <math.h>
 #include <sstream>
 
-
-/* La clase Nodo representa cada uno de los elementos. 
-Esta clase es una base abstracta de la cual derivaran las
-unidades genuinas del juego.*/
-
 Nodo::Nodo() {
 		this-> xPos = 0;
 		this-> yPos = 0;
@@ -43,15 +38,3 @@ const int &Nodo::estimar(const int &xDest, const int &yDest){
 
             return(d);
 }
-/*
-bool Nodo::operator<(const Nodo& other) {  
-	return this->obtenerPrioridad() > other.obtenerPrioridad();
-}
-
-bool Nodo::operator>(const Nodo& other){  
-	return this->obtenerPrioridad() < other.obtenerPrioridad();
-}
-
-bool Nodo::operator==(const Nodo& other){  
-	return this->obtenerPrioridad() == other.obtenerPrioridad();
-}*/
