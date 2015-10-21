@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <conio.h>
+#include <sstream>
 
 #include <SDL.h>
 #include "Cliente.h"
@@ -49,7 +50,11 @@ SOCKET inicializarConexion(redInfo_t rInfo) {
 	hints.ai_socktype = SOCK_STREAM;
 	hints.ai_protocol = IPPROTO_TCP;
 
-	iResult = GetAddrInfo(DEFAULT_IP, DEFAULT_PORT, &hints, &result);
+	PCSTR ip = rInfo.ip.c_str();
+	
+	PCSTR port = rInfo.port.c_str();
+
+	iResult = GetAddrInfo(ip, port, &hints, &result);
 	if (iResult != 0) {
 		printf("getaddrinfo failed with error: %d\n", iResult);
 		WSACleanup();
@@ -131,6 +136,7 @@ Partida* generarPartida(mapa_inicial data) {
 				nuevo->asignarVision(data.mInfo.coordX, data.mInfo.coordY);
 				nuevo->modificarRecurso(jugador_act->jInfo.recursos);
 				nuevo->verVision()->setFromArray(jugador_act->varray);
+				nuevo->settearConexion(jugador_act->jInfo.conectado);
 				delete jugador_act;
 			}
 		}
@@ -295,6 +301,7 @@ int wmain(int argc, char* argv[]) {
 	// En este punto el cliente ya está conectado
 	client.start();
 
+	/*
 	list<Posicion> visionHard;
 	for(int i = 0; i < game->escenario->verTamX(); i++)
 		for(int j = 0; j < game->escenario->verTamY(); j++){
@@ -302,11 +309,10 @@ int wmain(int argc, char* argv[]) {
 			visionHard.push_back(aux);
 		}
 	game->obtenerJugador(parser.verInfoRed().ID)->agregarPosiciones(visionHard);
-	
-
+	*/
 
 	int codigo_programa = CODE_CONTINUE;
-	while (codigo_programa != CODE_EXIT) {
+	while (codigo_programa != CODE_EXIT && !client.must_close) {
 		float timeA = SDL_GetTicks();
 		client.procesarUpdates(game);
 
@@ -326,7 +332,7 @@ int wmain(int argc, char* argv[]) {
 		float timeB = SDL_GetTicks();
 		if((FRAME_DURATION - timeB + timeA) > 0)
 			SDL_Delay(FRAME_DURATION - timeB + timeA);
-		cout << timeB - timeA << endl;
+		// cout << timeB - timeA << endl;
 	}
 
 	closesocket(connectSocket);

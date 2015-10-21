@@ -70,6 +70,7 @@ public:
 
 	// Devuelve la lista de posiciones que caen dentro del rango de vision de una entidad
 	list<Posicion> posicionesVistas(Entidad* elemento);
+	list<Posicion> posicionesOcupadas(Entidad* elemento);
 	void actualizarMapDeOcupaciones();
 	list<Posicion*> Matriz::caminoMinimo(Posicion posAct, Posicion posDest);
 

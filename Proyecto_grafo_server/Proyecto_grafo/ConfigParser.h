@@ -71,6 +71,8 @@ int main (int argc, char** argv) {
 #define ENT_TYPE_DEFAULT "none"
 #define VISION_DEFAULT 2
 
+#define PORT_DEFAULT "27011"
+
 #define SCENARY_NAME_DEAFAULT "Orleans"
 
 
@@ -83,6 +85,13 @@ struct logInfo_t {
 	bool errors;
 
 	logInfo_t(): warnings(true), info(false), errors(true) {};
+};
+
+// Struct de la información de red
+struct redInfo_t {
+	std::string port;
+
+	redInfo_t(): port(PORT_DEFAULT) {};
 };
 
 
@@ -137,7 +146,8 @@ struct escenarioInfo_t {
 class ConfigParser {
 private:
 	std::string path;
-
+	
+	redInfo_t rInfo;
 	logInfo_t lInfo;
 	std::list<entidadInfo_t*> eInfoL;
 	escenarioInfo_t sInfo;
@@ -158,6 +168,7 @@ public:
 	std::list<jugadorInfo_t*> verInfoJugadores() {return this->jInfoL;}
 	std::list<entidadInfo_t*> verInfoEntidades() {return this->eInfoL;}	// CUIDADO: Memoria dinamica en los elementos de eInfoL
 	escenarioInfo_t verInfoEscenario() {return this->sInfo;}				// CUIDADO: Memoria dinamica en los elementos de sInfo.instancias
+	redInfo_t verInfoRed() {return this->rInfo;}
 };
 
 #endif

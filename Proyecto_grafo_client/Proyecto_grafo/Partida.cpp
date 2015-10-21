@@ -65,7 +65,6 @@ void Partida::avanzarFrame(void){
 	}
 	// Acá adentro se asignan las casillas vistas de cada jugador
 	this->escenario->avanzarFrame();
-
 }
 
 
@@ -73,16 +72,19 @@ void Partida::procesarUpdate(msg_update msj) {
 	Escenario* scene = this->escenario;
 	CodigoMensaje accion = msj.accion;
 	// Según la acción que sea, hago lo que corresponda
-	switch(accion){
-	case MSJ_MOVER:
-	case MSJ_QUIETO:
-		Posicion destino = Posicion(msj.extra1, msj.extra2);
-	//	Entidad* entMovida = this->verEntidadSeleccionada();
-		if(accion == MSJ_QUIETO)
-			scene->moverEntidad(msj.idEntidad, &destino, false);
-		else
-			scene->moverEntidad(msj.idEntidad, &destino, true);
-		this->seleccionarEntidad(this->ent_seleccionada);
+	switch (accion) {
+		case MSJ_ELIMINAR:
+			this->escenario->quitarEntidad(msj.idEntidad); break;
+
+		case MSJ_QUIETO:
+		case MSJ_MOVER:
+			Posicion destino = Posicion(msj.extra1, msj.extra2);
+		//	Entidad* entMovida = this->verEntidadSeleccionada();
+			if(accion == MSJ_QUIETO)
+				scene->moverEntidad(msj.idEntidad, &destino, false);
+			else
+				scene->moverEntidad(msj.idEntidad, &destino, true);
+			this->seleccionarEntidad(this->ent_seleccionada);
 	}
 }
 

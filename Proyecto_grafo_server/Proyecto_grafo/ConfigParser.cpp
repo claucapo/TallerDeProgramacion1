@@ -4,6 +4,10 @@
 #include <yaml-cpp\yaml.h>
 
 // Definición de las claves para los hashes del YAML
+
+#define RED_KEY "red"
+	#define PUERTO_KEY "puerto"
+
 #define LOG_KEY "log"
 	#define WARNINGS_KEY "warnings"
 	#define INFO_KEY "info"
@@ -297,6 +301,10 @@ void operator >> (const YAML::Node& node, escenarioInfo_t& sInfo) {
 	}
 }
 
+// Informacion de red
+void operator >> (const YAML::Node& node, redInfo_t& rInfo) {
+	parsearString(node, PUERTO_KEY, &rInfo.port, LOG_WARNING);
+}
 
 
 //******************************************************//
@@ -355,6 +363,15 @@ void parsearInfoEscenario(const YAML::Node& node, escenarioInfo_t* sInfo) {
 	}
 }
 
+void parsearInfoRed(const YAML::Node& node, redInfo_t* rInfo) {
+	try {
+		node[RED_KEY] >> *rInfo;
+	} catch (YAML::KeyNotFound e) {
+		raiseError(MISSING_SECTION_ERR, e.what());
+	} catch (YAML::Exception e) {
+		raiseError(UNKNOWN_ERR, e.what());
+	}
+}
 
 // Parsea el archivo y almacena los resultados parciales en las variables del parser.
 void ConfigParser::parsearTodo() {
@@ -377,6 +394,7 @@ void ConfigParser::parsearTodo() {
 		parsearInfoJugadores(doc, &this->jInfoL);
 		parsearInfoEntidades(doc, &this->eInfoL);
 		parsearInfoEscenario(doc, &this->sInfo);
+		parsearInfoRed(doc, &this->rInfo);
 
 		file.close();
 	} catch (YAML::Exception e) {

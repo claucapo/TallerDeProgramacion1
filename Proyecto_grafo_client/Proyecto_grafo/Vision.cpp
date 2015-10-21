@@ -83,12 +83,25 @@ estado_vision_t* Vision::visibilidadArray(void) {
 }
 
 void Vision::setFromArray(estado_vision_t* varray) {
-	if ( sizeof(*varray) == (this->filas * this->columnas * sizeof(estado_vision_t)) ) {
-		for (int i = 0; i < this->filas; i++)
-			for (int j = 0; j < this->columnas; j++)
-				this->mapa_de_vision[i][j] = varray[i * this->columnas + j];
-		delete[] varray;
-	} else {
-		ErrorLog::getInstance()->escribirLog("Asignación de visión por array invalida.", LOG_ERROR);
+/*	for (int i = 0; i < this->filas; i++) {
+		for (int j = 0; j < this->columnas; j++) {
+			switch (varray[i * this->columnas + j]) {
+			case VIS_NO_EXPLORADA:
+				cout << "-"; break;
+			case VIS_VISITADA:
+				cout << "X"; break;
+			case VIS_OBSERVADA:
+				cout << "0"; break;
+			}
+		}
+		cout << endl;
 	}
+	int a = sizeof(varray);
+	int b = this->filas * this->columnas * sizeof(estado_vision_t);
+	*/
+	for (int i = 0; i < this->filas; i++)
+		for (int j = 0; j < this->columnas; j++)
+			this->mapa_de_vision[i][j] = varray[i * this->columnas + j];
+	delete[] varray;
+	//ErrorLog::getInstance()->escribirLog("Asignación de visión por array invalida.", LOG_ERROR);
 }

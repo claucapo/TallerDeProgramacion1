@@ -5,7 +5,7 @@
 
 // Definición de las claves para los hashes del YAML
 #define RED_KEY "red"
-	#define PUERTO_KEY "port"
+	#define PUERTO_KEY "puerto"
 	#define IP_KEY "ip"
 	#define ID_KEY "ID"
 	#define ALIAS_KEY "alias"
@@ -271,13 +271,12 @@ void operator >> (const YAML::Node& node, logInfo_t& lInfo) {
 
 
 
-// Informacion del escenario (escenarioInfo_t)
-// Contiene el tamanio del mapa y la lista de entidades que hay en el mismo.
+// Informacion de red (redInfo_t)
 void operator >> (const YAML::Node& node, redInfo_t& rInfo) {
 	parsearString(node, ALIAS_KEY, &rInfo.name, LOG_WARNING);
 	parsearString(node, IP_KEY, &rInfo.ip, LOG_WARNING);
 
-	parsearEntero(node, PUERTO_KEY, &rInfo.port, LOG_WARNING, false);
+	parsearString(node, PUERTO_KEY, &rInfo.port, LOG_WARNING);
 	parsearEntero(node, ID_KEY, &rInfo.ID, LOG_WARNING, false);
 }
 

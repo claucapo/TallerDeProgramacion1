@@ -24,7 +24,6 @@ Recurso::Recurso(unsigned int id, string name, int tamX, int tamY, int vision, i
 }
 
 af_result_t Recurso::avanzarFrame(Escenario* scene) {
-	if (this->pos) {
 		/*
 		Entidad* ent = scene->verProtagonista();
 		Jugador* player = ent->verJugador();
@@ -56,6 +55,5 @@ af_result_t Recurso::avanzarFrame(Escenario* scene) {
 			}
 		}
 
-	}
 	return AF_NONE;
 }

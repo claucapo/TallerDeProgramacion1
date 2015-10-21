@@ -1,5 +1,6 @@
 #include "Cliente.h"
 #include "ErrorLog.h"
+#include "Jugador.h"
 #include "ConfigParser.h"
 
 int sRead(SOCKET source, char* buffer, int length);
@@ -76,8 +77,6 @@ int clientSender( void* data ) {
 		SDL_SemPost(cliente->eventos_lock);
 	}
 	printf("Salgo del loop envio\n");
-	SDL_Delay(10);
-
 	return result;
 }
 
@@ -90,7 +89,7 @@ void Cliente::start() {
 	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout, sizeof(timeout)))
 		printf("Error on setting timeout");
 
-	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout, sizeof(timeout)))
+	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_SNDTIMEO,(char*)&timeout, sizeof(timeout)))
 		printf("Error on setting timeout");
 
 	this->myReader = SDL_CreateThread(clientReader, "A client reader", this);
@@ -177,10 +176,16 @@ void Cliente::procesarUpdates(Partida* game) {
 		upd = this->updates.front();
 		this->updates.pop();
 		
-		if (upd.accion == MSJ_MOVER)
-			printf("Llego un update!\n");
-		// printf("Recibi un %d\n", upd.idEntidad);
-		game->procesarUpdate(upd);
+		switch (upd.accion) {
+		case MSJ_MOVER:
+			game->procesarUpdate(upd); break;
+		case MSJ_JUGADOR_LOGIN:
+			game->obtenerJugador(upd.idEntidad)->settearConexion(true); break;
+		case MSJ_JUGADOR_LOGOUT:
+			game->obtenerJugador(upd.idEntidad)->settearConexion(false); break;
+
+		}
+
 	}
 	SDL_SemPost(this->updates_lock);
 }

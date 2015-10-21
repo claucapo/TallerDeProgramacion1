@@ -210,6 +210,14 @@ list<Posicion> Matriz::posicionesVistas(Entidad* elemento) {
 			Posicion act = Posicion(i + origenX, j + origenY);
 			if (this->posicionPertenece(&act) && distanciaEntre(act, elemento) <= rango) {
 				posEnRango.push_back(act);
+				/*if (!this->posicionEstaVacia(&act)) {
+					list<Posicion> posOcupadas = this->posicionesOcupadas(this->verContenido(&act));
+					while (!posOcupadas.empty()) {
+						Posicion pos = posOcupadas.front();
+						posOcupadas.pop_front();
+						posEnRango.push_back(pos);
+					}
+				}*/
 			}
 		}
 	}
@@ -236,4 +244,21 @@ list<Posicion*> Matriz::caminoMinimo(Posicion posAct, Posicion posDest){
 	this->actualizarMapDeOcupaciones();
 	return this->calculadorCamino->calcularCaminoMinimo(actX,actY,destX,destY,this->mapDeOcupaciones);
 
+}
+
+
+// Devuelve la lista de posiciones que estan dentro del rango de vision de la entidad
+list<Posicion> Matriz::posicionesOcupadas(Entidad* elemento) {
+	list<Posicion> posEnRango;
+	int origenX = elemento->verPosicion()->getRoundX();
+	int origenY = elemento->verPosicion()->getRoundY();
+	for (int i = 0; i < elemento->verTamX(); i++) {
+		for (int j = 0; j < elemento->verTamY(); j++) {
+			Posicion act = Posicion(i + origenX, j + origenY);
+			if (this->posicionPertenece(&act)) {
+				posEnRango.push_back(act);
+			}
+		}
+	}
+	return posEnRango;
 }

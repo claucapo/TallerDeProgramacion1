@@ -218,6 +218,7 @@ int Servidor::enviarMapa(ConexionCliente *cliente) {
 
 		estado_vision_t* vision = (*it)->verVision()->visibilidadArray();
 		result = send(cliente->clientSocket, (char*)vision, sizeof(estado_vision_t) * msg.coordX * msg.coordY, 0);
+		cout << "Sent " << result << " bytes." << endl;
 		delete[] vision;
 	}
 

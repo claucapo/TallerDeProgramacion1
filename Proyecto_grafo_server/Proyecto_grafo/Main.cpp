@@ -28,12 +28,11 @@ using namespace std;
 #pragma comment (lib, "Ws2_32.lib")
 // #pragma comment (lib, "Mswsock.lib")
 
-#define DEFAULT_PORT "27015"
 #define TESTING_ENABLED false
 #define ARCHIVO_YAML "default.yaml"
 
 
-SOCKET inicializarConexion(void) {
+SOCKET inicializarConexion(redInfo_t rInfo) {
 	WSADATA wsaData;
 	struct addrinfo* result = NULL;
 	struct addrinfo hints;
@@ -51,7 +50,9 @@ SOCKET inicializarConexion(void) {
 	hints.ai_protocol = IPPROTO_TCP;
 	hints.ai_flags = AI_PASSIVE;
 
-	iResult = getaddrinfo(NULL, DEFAULT_PORT, &hints, &result);
+	PCSTR port = rInfo.port.c_str();
+
+	iResult = getaddrinfo(NULL, port, &hints, &result);
 	if ( iResult != 0 ) {
 		printf("getaddrinfo failed with error: %d\n", iResult);
 		WSACleanup();
@@ -157,7 +158,7 @@ int main(int argc, char* argv[]) {
 			
 	parser.parsearTodo();
 	
-	SOCKET ListenSocket = inicializarConexion();
+	SOCKET ListenSocket = inicializarConexion(parser.verInfoRed());
 	if (ListenSocket == INVALID_SOCKET) {
 		// limpiarPartida();
 		// cerrar();
@@ -216,7 +217,7 @@ int main(int argc, char* argv[]) {
 		server.procesarEventos();
 
 		server.avanzarFrame();
-
+	
 		server.enviarUpdates();
 		
 		float timeB = SDL_GetTicks();

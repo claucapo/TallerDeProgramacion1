@@ -90,6 +90,15 @@ list<Entidad*> Escenario::verEntidades(void) {
 	return this->entidades;
 }
 
+void Escenario::quitarEntidad(unsigned int entID) {
+	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
+		if ( (*it)->verID() == entID ) {
+			this->quitarEntidad(*it);
+		}
+	}
+}
+
+
 // TODO: Cambiar entidades de list<Entidad*> a un vector?
 void Escenario::moverEntidad(unsigned int entID, Posicion* pos, bool seguirMoviendo) {
 	

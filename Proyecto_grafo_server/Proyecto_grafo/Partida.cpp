@@ -61,6 +61,17 @@ list<msg_update*> Partida::avanzarFrame(void){
 		Jugador* act = (*iter);
 		act->reiniciarVision();
 	}
+
+	// Algo explota acá
+/*	list<Entidad*>::const_iterator it;
+	list<Entidad*> entidades = this->escenario->verEntidades();
+	int i = 0;
+	for ( it = entidades.begin(); it != entidades.end(); ++it) {
+		Entidad* ent = (*it);
+		list<Posicion> posVistas = this->escenario->verMapa()->posicionesVistas(ent);
+		(ent)->verJugador()->agregarPosiciones(posVistas);
+	}
+	*/
 	// Acá adentro se asignan las casillas vistas de cada jugador
 	list<msg_update*> updates = this->escenario->avanzarFrame();
 	return updates;

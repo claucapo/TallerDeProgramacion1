@@ -1,6 +1,7 @@
 #include "Unidad.h"
 #include "Posicion.h"
 #include "Enumerados.h"
+#include "Escenario.h"
 #include "ErrorLog.h"
 #include "ConversorUnidades.h"
 #include <cmath>

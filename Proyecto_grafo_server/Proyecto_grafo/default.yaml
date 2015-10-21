@@ -1,3 +1,5 @@
+red:
+  puerto: "27015"
 log:
   warnings: 1
   info: 0

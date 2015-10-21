@@ -49,7 +49,7 @@ int conexionReader( void* data ) {
 			msg = *(struct msg_event*)buffer;
 			cliente->server->agregarEvento(msg);
 		}
-		SDL_Delay(10);
+		SDL_Delay(5);
 	} while (result > 0 && !cliente->must_close);
 	return result;
 }
@@ -80,7 +80,7 @@ int conexionSender( void* data ) {
 				return result;
 			}
 			
-			SDL_Delay(10);
+			SDL_Delay(5);
 		}
 	}
 	printf("Exited Sending for cliente\n");
@@ -96,7 +96,7 @@ void ConexionCliente::start() {
 	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout, sizeof(timeout)))
 		printf("Error on setting timeout");
 
-	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout, sizeof(timeout)))
+	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_SNDTIMEO,(char*)&timeout, sizeof(timeout)))
 		printf("Error on setting timeout");
 
 	this->must_close = false;

@@ -68,7 +68,7 @@ int main (int argc, char** argv) {
 #define PATH_DEFAULT "default.yaml"
 
 #define IP_DEFAULT "127.0.0.1"
-#define PORT_DEFAULT 27015
+#define PORT_DEFAULT "27015"
 
 #define PANTALLA_W_DEFAULT 800
 #define PANTALLA_H_DEFAULT 600
@@ -90,7 +90,7 @@ int main (int argc, char** argv) {
 // Struct de la información de red
 struct redInfo_t {
 	std::string ip;
-	int port;
+	std::string port;
 	std::string name;
 	int ID;
 
