@@ -2,9 +2,12 @@
 #include "Posicion.h"
 #include "Enumerados.h"
 #include "ErrorLog.h"
+#include "Jugador.h"
 #include "ConversorUnidades.h"
 #include <cmath>
 #include <iostream>
+
+using namespace std;
 
 Unidad::Unidad() : Entidad() {
 	this->rapidez = 0;
@@ -61,6 +64,9 @@ void Unidad::nuevoDestino(Posicion* pos){
 }
 
 void Unidad::setEstado(Estados_t state) {
+	if((this->state == EST_CAMINANDO)&&(state == EST_QUIETO)){
+		cout << "TENGO QUE FRENAR!!!!!!!!!!!!!!!!!!!!" << endl;
+	}
 	this->state = state;
 }
 

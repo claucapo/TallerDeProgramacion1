@@ -159,7 +159,7 @@ void GraficadorPantalla::renderizarTerreno(void) {
 
 	// Muestro las posiciones de la entidad seleccionada
 	//SDL_SetSurfaceColorMod(imgTile, 110 , 255 , 110 );
-
+	imgAux = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tileSlct");
 
 	list<Posicion*> selec = this->partida->verSeleccionados();
 	if(!selec.empty()){
@@ -168,7 +168,7 @@ void GraficadorPantalla::renderizarTerreno(void) {
 			Posicion* pAct = (*it);
 			rectangulo.x = cu->obtenerCoordPantallaX(pAct->getRoundX(), pAct->getRoundY(), view_x, view_y, ancho_borde) - 26;
 			rectangulo.y = cu->obtenerCoordPantallaY(pAct->getRoundX(), pAct->getRoundY(), view_x, view_y, ancho_borde);
-			SDL_BlitSurface( imgTile, NULL, pantalla, &rectangulo );	
+			SDL_BlitSurface( imgAux, NULL, pantalla, &rectangulo );	
 		}
 	}
 
@@ -218,13 +218,13 @@ void GraficadorPantalla::renderizarEntidades(void) {
 			recOr.w = entAct->subImagenWidth();
 			recOr.h = entAct->subImagenHeight();
 
-		/*	Jugador* playerOwner = (*it)->verJugador();
-			if(playerOwner != nullptr){
-				if(!playerOwner->estaConectado())
-					SDL_SetSurfaceColorMod(spEnt, 240 , TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD );
-				else
-					SDL_SetSurfaceColorMod(spEnt, 255, 255, 255 );
-				}*/
+			Jugador* playerOwner = (*it)->verJugador();
+			if(playerOwner != nullptr)
+				if(!playerOwner->estaConectado()){
+					string nameGris = "G" + (*it)->verNombre();
+					spEnt = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(nameGris);
+					SDL_SetColorKey( spEnt, true, SDL_MapRGB(spEnt->format, 255, 0, 255) );
+				}
 		/*	Jugador* playerOwner = (*it)->verJugador();
 			if(playerOwner != nullptr){
 				string nombreEnt = (*it)->verNombre();

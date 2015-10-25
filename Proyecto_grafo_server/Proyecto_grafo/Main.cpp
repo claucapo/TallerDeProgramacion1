@@ -29,7 +29,7 @@ using namespace std;
 // #pragma comment (lib, "Mswsock.lib")
 
 #define TESTING_ENABLED false
-#define ARCHIVO_YAML "default.yaml"
+#define ARCHIVO_YAML "laberinto.yaml"
 
 
 SOCKET inicializarConexion(redInfo_t rInfo) {
@@ -198,7 +198,7 @@ int main(int argc, char* argv[]) {
 			else
 				cout << "_";
 		}
-		cout<<endl;
+		cout<< i<<endl;
 	}
 	cout <<endl;
 	

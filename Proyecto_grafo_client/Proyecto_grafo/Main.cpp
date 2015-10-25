@@ -203,7 +203,6 @@ void procesarMover(Partida* game, GraficadorPantalla* gp, Cliente* client) {
 	if (ent->verJugador()->verID() != client->playerID)
 		return;
 
-	cout << "La selección es mia!!" << endl;
 	// Obtengo la posición del click (quizás convertir en una función ya que se repite en varios lados...
 	int mx, my;
 	SDL_GetMouseState(&mx, &my);
@@ -212,13 +211,17 @@ void procesarMover(Partida* game, GraficadorPantalla* gp, Cliente* client) {
 	float pY = cu->obtenerCoordLogicaY(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
 	Posicion dest = Posicion(pX, pY);
 	
-	if (game->escenario->verMapa()->posicionPertenece(&dest)) {
+	if (game->escenario->verMapa()->posicionPertenece(&dest)) 
+		if(game->escenario->verMapa()->posicionEstaVacia(&dest)){
 		cout << "Se generó un mover!!" << endl;
 		msg_event newEvent;
 		newEvent.idEntidad = game->verEntidadSeleccionada()->verID();
 		newEvent.accion = MSJ_MOVER;
 		newEvent.extra1 = dest.getRoundX() +0.5;
 		newEvent.extra2 = dest.getRoundY() +0.5;
+	//	newEvent.extra1 = dest.getRoundX() + 0.8;
+	//	newEvent.extra2 = dest.getRoundY() + 0.8;
+
 		client->agregarEvento(newEvent);
 	}
 }
@@ -237,6 +240,7 @@ int procesarEvento(Partida* game, GraficadorPantalla* gp, SDL_Event evento, Clie
 			}
 	case SDL_QUIT:
 		// enviar a proposito msg de log out?
+
 		return CODE_EXIT; 
 	}
 }

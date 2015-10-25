@@ -4,9 +4,11 @@
 #include "Entidad.h"
 #include "Unidad.h"
 #include "Jugador.h"
+#include <iostream>
 #include <list>
 #define TAM_DEFAULT 50
 
+using namespace std;
 // Constructor especificando tamanio
 Escenario::Escenario(int casillas_x, int casillas_y) {
 	mapa = new Matriz(casillas_x, casillas_y);
@@ -47,13 +49,19 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 		case AF_MOVE:
 			upd = new msg_update();
 			upd->idEntidad = (*it)->verID();
-			if(((Unidad*)(*it))->verEstado() == EST_QUIETO)
+			if(((Unidad*)(*it))->verEstado() == EST_QUIETO){
 				upd->accion = MSJ_QUIETO;
-			else
+				}
+			else{
 				upd->accion = MSJ_MOVER;
+			}
 			upd->extra1 = (*it)->verPosicion()->getX();
 			upd->extra2 = (*it)->verPosicion()->getY();
 			updates.push_back(upd);
+		/*	if(upd->accion == MSJ_QUIETO)
+				cout <<"MSJ_QUIETO"<< endl;
+			else
+				 cout << "MSJ_MOVER" << endl; */
 			break;
 		case AF_KILL:
 			toRmv.push_front(*it);
@@ -95,18 +103,21 @@ void Escenario::quitarEntidad(Entidad* entidad) {
 }
 
 
-void Escenario::asignarDestino(unsigned int entID, Posicion pos) {
-	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
-		if ( (*it)->verID() == entID ) {
-			if ( (*it)->tipo == ENT_T_UNIT ) {
-				Unidad* unit = (Unidad*)(*it);
-				unit->nuevoDestino(&pos);
-				unit->marcarCamino(mapa->caminoMinimo(*unit->verPosicion(),*unit->verDestino()));
-				printf("seleccionado nuevo destino\n");
-			}
-		}
-	}
-}
+ void Escenario::asignarDestino(unsigned int entID, Posicion pos) {
+ 	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
+ 		if ( (*it)->verID() == entID ) {
+ 			if ( (*it)->tipo == ENT_T_UNIT ) {
+ 				Unidad* unit = (Unidad*)(*it);
+ 				unit->nuevoDestino(&pos);
+				list<Posicion*> camino = mapa->caminoMinimo(*unit->verPosicion(),*unit->verDestino());
+				camino.pop_front();
+				unit->marcarCamino(camino);
+ 				printf("seleccionado nuevo destino\n");
+ 			}
+ 		}
+ 	}
+ }
+ 
 
 list<Entidad*> Escenario::verEntidades(void) {
 	return this->entidades;

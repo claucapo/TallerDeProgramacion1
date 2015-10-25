@@ -72,19 +72,34 @@ void Partida::procesarUpdate(msg_update msj) {
 	Escenario* scene = this->escenario;
 	CodigoMensaje accion = msj.accion;
 	// Según la acción que sea, hago lo que corresponda
+	Posicion destino;
 	switch (accion) {
 		case MSJ_ELIMINAR:
 			this->escenario->quitarEntidad(msj.idEntidad); break;
 
 		case MSJ_QUIETO:
+			cout << "LLEGUE ACA" << endl;
+			destino = Posicion(msj.extra1, msj.extra2);
+			scene->moverEntidad(msj.idEntidad, &destino, false);
+			if(this->ent_seleccionada != nullptr)
+				this->seleccionarEntidad(this->ent_seleccionada);
+			break;
 		case MSJ_MOVER:
-			Posicion destino = Posicion(msj.extra1, msj.extra2);
+			cout << accion << endl;
+			destino = Posicion(msj.extra1, msj.extra2);
 		//	Entidad* entMovida = this->verEntidadSeleccionada();
-			if(accion == MSJ_QUIETO)
+			if(accion == MSJ_QUIETO){
 				scene->moverEntidad(msj.idEntidad, &destino, false);
-			else
+				cout << "ESTADO QUIETO" << endl;
+			}
+			else{
 				scene->moverEntidad(msj.idEntidad, &destino, true);
-			this->seleccionarEntidad(this->ent_seleccionada);
+				cout << "ESTADO MOVER" << endl;
+			
+			}
+			if(this->ent_seleccionada != nullptr)
+				this->seleccionarEntidad(this->ent_seleccionada);
+			break;
 	}
 }
 

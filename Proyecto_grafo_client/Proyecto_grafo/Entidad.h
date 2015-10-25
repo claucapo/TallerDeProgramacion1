@@ -53,7 +53,7 @@ public:
 	Estados_t verEstado(void) {return this->state;}
 
 	// OJO con esto!!
-	void settearEstado(Estados_t state) {this->state = state;}
+	void settearEstado(Estados_t state);
 
 	// Devuelve los dos tamanios
 	int verTamX() {return this->tamX;}

@@ -1,6 +1,7 @@
 #include "Entidad.h"
 #include "Posicion.h"
 #include "Enumerados.h"
+#include "Jugador.h"
 #include "ErrorLog.h"
 #include <iostream>
 
@@ -127,4 +128,9 @@ bool Entidad::operator < (const Entidad& other) const {
 
 Spritesheet* Entidad::verSpritesheet(void) {
 	return sprites;
+}
+
+void Entidad::settearEstado(Estados_t state) {
+	this->state = state;
+	
 }

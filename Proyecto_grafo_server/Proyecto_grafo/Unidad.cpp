@@ -78,45 +78,89 @@ void Unidad::marcarCamino(list<Posicion*> camino) {
 	this->camino.push_back(this->destino);
 }
 
+bool estaEnCasilla(Posicion* punto, Posicion* contenedor){
+	int cX = contenedor->getRoundX();
+	int cY = contenedor->getRoundY();
+	if((punto->getX() >= cX) && (punto->getX() <= (cX+1)))
+		if((punto->getY() >= cY) && (punto->getY() <= (cY+1)))
+			return true;
+	return false;
+}
+
+
 af_result_t Unidad::avanzarFrame(Escenario* scene) {
 	// Aca habría que chequear si la entidad cambió de posición
 
 	Estados_t state = this->state;
 
 	//el ultimo elemento es el destino original
-	if (camino.size() == 1){
+	if (camino.size() == 0){
 		this->setEstado(EST_QUIETO);
+		
 	}
 
-	if (!camino.empty() && state == EST_CAMINANDO) {
+	if ((!camino.empty()) && (state == EST_CAMINANDO)) {
 		Posicion* act = this->pos;
 		Posicion* dest = this->camino.front();
-
-		//agrego recalculo si hay una posicion ocupada hay que agregar atributo matriz
-		//if (!this->mapa->posicionEstaVacia(dest)){
-			//this->camino = this->mapa->caminoMinimo(this->pos,this->destino);
-			//dest = this->camino.front();
-		//}
-
+		
 		// Distantcias
-		float distX = dest->getX() - act->getX();
-		float distY = dest->getY() - act->getY();
+		float distX = dest->getX() - act->getX() ;
+		float distY = dest->getY() - act->getY() ;
 		float totalDist = sqrt((distX*distX) + (distY*distY));	
 
 		this->setDireccion(this->calcularDirecion(distX, distY));
 		
-		if (totalDist > this->rapidez) {
-			float nuevoX = act->getX() + (distX*rapidez)/totalDist;
-			float nuevoY = act->getY() + (distY*rapidez)/totalDist;
-			Posicion nuevaPos(nuevoX, nuevoY);
-			this->asignarPos(&nuevaPos);
-		} else {
+		if ((totalDist > this->rapidez) || (dest->getX() > act->getX())) {
+ 			float nuevoX = act->getX() + (distX*rapidez)/totalDist;
+ 			float nuevoY = act->getY() + (distY*rapidez)/totalDist;
+ 			Posicion nuevaPos(nuevoX, nuevoY);
+			if(estaEnCasilla(&nuevaPos, act) || estaEnCasilla(&nuevaPos, dest))
+				this->asignarPos(&nuevaPos);
+ 			else {
+				if(scene->verMapa()->posicionEstaVacia(&nuevaPos))
+					this->asignarPos(&nuevaPos);
+				else{
+					// Si la posicion que atravieso no está vacía...
+				/*	while(!this->camino.empty())
+						this->camino.pop_front();
+					this->asignarPos(new Posicion(act->getRoundX() + 0.5, act->getRoundY() + 0.5));
+					this->setEstado(EST_QUIETO);*/
+					Posicion aux(nuevaPos.getX(), nuevaPos.getY());
+					if((this->direccion == DIR_RIGHT)){
+						do
+						aux = Posicion(aux.getX() +0.35, aux.getY() +0.45);
+						while(aux == nuevaPos);
+						}
+					else if((this->direccion == DIR_LEFT)){
+						do
+						aux = Posicion(aux.getX() +0.45, aux.getY() +0.35);
+						while(aux == nuevaPos);
+						}
+					else if((this->direccion == DIR_DOWN_LEFT)){
+						do
+						aux = Posicion(aux.getX() +0.1, aux.getY() +0.35);
+						while(aux == nuevaPos);
+						}
+					else if((this->direccion == DIR_DOWN_LEFT)){
+						do
+						aux = Posicion(aux.getX() +0.35, aux.getY() +0.1);
+						while(aux == nuevaPos);
+						}
+					nuevaPos = Posicion(aux.getX(), aux.getY());
+					this->asignarPos(&nuevaPos);
+					}
+				}
+ 		} else {
 			this->camino.pop_front();
-		}
-		return AF_MOVE;
-	}
+			if (camino.size() == 0){
+				this->setEstado(EST_QUIETO);
+				this->asignarPos(new Posicion(act->getRoundX()+0.44,act->getRoundY()+0.44));
+				}
+ 		}
+ 		return AF_MOVE;
+ 	}
 	return AF_NONE;
-}
+ }
 
 
 // Calcula la dirección del movimiento de acuerdo a las velocidades en X e Y

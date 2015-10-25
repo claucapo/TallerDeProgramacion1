@@ -5,6 +5,7 @@
 #include "Unidad.h"
 #include "Jugador.h"
 #include <list>
+#include <iostream>
 #define TAM_DEFAULT 50
 
 // Constructor especificando tamanio
@@ -115,6 +116,7 @@ void Escenario::moverEntidad(unsigned int entID, Posicion* pos, bool seguirMovie
 				posta->setDireccion(DIR_DOWN_LEFT);*/
 				((Unidad*)(*it))->asignarPos(pos);
 				this->mapa->ubicarEntidad(*it, pos);
+				entidades.sort(compare<Entidad>);
 			
 			}
 				Spritesheet* spEnt = (*it)->verSpritesheet();
@@ -122,14 +124,17 @@ void Escenario::moverEntidad(unsigned int entID, Posicion* pos, bool seguirMovie
 				if(seguirMoviendo){
 					(*it)->settearEstado(EST_CAMINANDO);
 					nombreEnt += "_move";
+
 					}
-				else
+				else{
 					(*it)->settearEstado(EST_QUIETO);
+				}
 
 				if((*it)->verJugador()->verID() == 2)
 					nombreEnt = nombreEnt + '2';
 				if((*it)->verJugador()->verID() == 3)
 					nombreEnt = nombreEnt + '3';
+				cout << "Ent. name: " << nombreEnt << endl;
 				spEnt->cambiarImagen(nombreEnt);
 
 		}

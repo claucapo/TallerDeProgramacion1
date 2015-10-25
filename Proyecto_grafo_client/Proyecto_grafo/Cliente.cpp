@@ -177,6 +177,7 @@ void Cliente::procesarUpdates(Partida* game) {
 		this->updates.pop();
 		
 		switch (upd.accion) {
+		case MSJ_QUIETO:
 		case MSJ_MOVER:
 			game->procesarUpdate(upd); break;
 		case MSJ_JUGADOR_LOGIN:

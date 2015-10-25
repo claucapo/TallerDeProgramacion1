@@ -354,9 +354,11 @@ void Servidor::avanzarFrame(void) {
 
 		msg_update toSend = *msg;
 		this->agregarUpdate(toSend);
-		if (msg->accion == MSJ_MOVER)
+/*		if (msg->accion == MSJ_MOVER)
 			printf("Encole un update de movimiento! (%f - %f)\n", msg->extra1, msg->extra2);
-
+		else if(msg->accion == MSJ_QUIETO)
+			printf("Encole un update de quieto! (%f - %f)\n", msg->extra1, msg->extra2);
+		*/	
 		delete msg;
 	}
 	SDL_SemPost(partida_lock);
