@@ -103,6 +103,14 @@ void Escenario::quitarEntidad(Entidad* entidad) {
 }
 
 
+void Escenario::moverEntidad(Entidad* entidad, Posicion* destino) {
+	if (this->mapa->posicionPertenece(destino)) {
+		this->mapa->quitarEntidad(entidad);
+		this->mapa->ubicarEntidad(entidad, destino);
+		entidad->asignarPos(destino);
+	}
+}
+
  void Escenario::asignarDestino(unsigned int entID, Posicion pos) {
  	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
  		if ( (*it)->verID() == entID ) {
@@ -110,9 +118,13 @@ void Escenario::quitarEntidad(Entidad* entidad) {
  				Unidad* unit = (Unidad*)(*it);
  				unit->nuevoDestino(&pos);
 				list<Posicion*> camino = mapa->caminoMinimo(*unit->verPosicion(),*unit->verDestino());
-				camino.pop_front();
-				unit->marcarCamino(camino);
- 				printf("seleccionado nuevo destino\n");
+				if (!camino.empty()) {
+					camino.pop_front();
+					unit->marcarCamino(camino);
+ 					printf("seleccionado nuevo destino\n");
+				} else {
+					printf("no valid path\n");
+				}
  			}
  		}
  	}

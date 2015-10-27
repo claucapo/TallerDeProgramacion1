@@ -56,6 +56,8 @@ public:
 	// Pre: La entidad estaba en el mapa.
 	void quitarEntidad(Entidad* entidad);
 
+	void moverEntidad(Entidad* entidad, Posicion* destino);
+
 	list<Entidad*> verEntidades(void);
 	void asignarDestino(unsigned int entID, Posicion pos);
 

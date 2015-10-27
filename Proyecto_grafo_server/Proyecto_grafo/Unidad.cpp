@@ -96,7 +96,6 @@ af_result_t Unidad::avanzarFrame(Escenario* scene) {
 	//el ultimo elemento es el destino original
 	if (camino.size() == 0){
 		this->setEstado(EST_QUIETO);
-		
 	}
 
 	if ((!camino.empty()) && (state == EST_CAMINANDO)) {
@@ -115,10 +114,10 @@ af_result_t Unidad::avanzarFrame(Escenario* scene) {
  			float nuevoY = act->getY() + (distY*rapidez)/totalDist;
  			Posicion nuevaPos(nuevoX, nuevoY);
 			if(estaEnCasilla(&nuevaPos, act) || estaEnCasilla(&nuevaPos, dest))
-				this->asignarPos(&nuevaPos);
+				scene->moverEntidad(this, &nuevaPos);
  			else {
 				if(scene->verMapa()->posicionEstaVacia(&nuevaPos))
-					this->asignarPos(&nuevaPos);
+					scene->moverEntidad(this, &nuevaPos);
 				else{
 					// Si la posicion que atravieso no está vacía...
 				/*	while(!this->camino.empty())
@@ -130,32 +129,32 @@ af_result_t Unidad::avanzarFrame(Escenario* scene) {
 						do
 						aux = Posicion(aux.getX() +0.35, aux.getY() +0.45);
 						while(aux == nuevaPos);
-						}
+					}
 					else if((this->direccion == DIR_LEFT)){
 						do
 						aux = Posicion(aux.getX() +0.45, aux.getY() +0.35);
 						while(aux == nuevaPos);
-						}
+					}
 					else if((this->direccion == DIR_DOWN_LEFT)){
 						do
 						aux = Posicion(aux.getX() +0.1, aux.getY() +0.35);
 						while(aux == nuevaPos);
-						}
+					}
 					else if((this->direccion == DIR_DOWN_LEFT)){
 						do
 						aux = Posicion(aux.getX() +0.35, aux.getY() +0.1);
 						while(aux == nuevaPos);
-						}
-					nuevaPos = Posicion(aux.getX(), aux.getY());
-					this->asignarPos(&nuevaPos);
 					}
+					nuevaPos = Posicion(aux.getX(), aux.getY());
+					scene->moverEntidad(this, &nuevaPos);
 				}
+			}
  		} else {
 			this->camino.pop_front();
 			if (camino.size() == 0){
 				this->setEstado(EST_QUIETO);
-				this->asignarPos(new Posicion(act->getRoundX()+0.44,act->getRoundY()+0.44));
-				}
+				scene->moverEntidad(this, new Posicion(act->getRoundX()+0.44,act->getRoundY()+0.44));
+			}
  		}
  		return AF_MOVE;
  	}

@@ -65,7 +65,7 @@ void Unidad::nuevoDestino(Posicion* pos){
 
 void Unidad::setEstado(Estados_t state) {
 	if((this->state == EST_CAMINANDO)&&(state == EST_QUIETO)){
-		cout << "TENGO QUE FRENAR!!!!!!!!!!!!!!!!!!!!" << endl;
+		// cout << "TENGO QUE FRENAR!!!!!!!!!!!!!!!!!!!!" << endl;
 	}
 	this->state = state;
 }
@@ -154,7 +154,7 @@ void Unidad::asignarPos(Posicion* pos){
 		this->pos = new Posicion(*pos);
 		Direcciones_t dirAnt = this->direccion;
 		this->direccion = this->calcularDirecion(pos->getX() - xViejo,pos->getY() - yViejo); 
-		cout << "Direc: " << this->direccion << endl;
+		// cout << "Direc: " << this->direccion << endl;
 		if(this->direccion != dirAnt)
 			if(this->sprites)
 				sprites->cambiarSubImagen(0, this->direccion);

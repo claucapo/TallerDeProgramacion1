@@ -59,7 +59,7 @@ public:
 	void quitarEntidad(unsigned int entID);
 
 	void moverEntidad(unsigned int entID, Posicion* pos, bool seguirMoviendo);
-
+	
 	list<Entidad*> verEntidades(void);
 	void asignarDestino(unsigned int entID, Posicion pos);
 

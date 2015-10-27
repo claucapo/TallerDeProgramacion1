@@ -92,53 +92,56 @@ list<Entidad*> Escenario::verEntidades(void) {
 }
 
 void Escenario::quitarEntidad(unsigned int entID) {
+	Entidad* ent;
 	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
 		if ( (*it)->verID() == entID ) {
-			this->quitarEntidad(*it);
+			ent = (*it);
 		}
 	}
+	mapa->quitarEntidad(ent);
+	entidades.remove(ent);
 }
 
 
 // TODO: Cambiar entidades de list<Entidad*> a un vector?
 void Escenario::moverEntidad(unsigned int entID, Posicion* pos, bool seguirMoviendo) {
-	
+	Entidad* ent = NULL;
 	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
 		if ( (*it)->verID() == entID ) {
-			float xOld = (*it)->verPosicion()->getX();
-			float yOld = (*it)->verPosicion()->getY();
-
-			if(this->mapa->quitarEntidad(*it)){
-				//this->mapa->ubicarEntidad(*it, pos);
-				/*
-				Entidad pepe = *(*it);
-				Unidad* posta = (Unidad*) &pepe;
-				posta->setDireccion(DIR_DOWN_LEFT);*/
-				((Unidad*)(*it))->asignarPos(pos);
-				this->mapa->ubicarEntidad(*it, pos);
-				entidades.sort(compare<Entidad>);
-			
-			}
-				Spritesheet* spEnt = (*it)->verSpritesheet();
-				string nombreEnt = (*it)->verNombre();
-				if(seguirMoviendo){
-					(*it)->settearEstado(EST_CAMINANDO);
-					nombreEnt += "_move";
-
-					}
-				else{
-					(*it)->settearEstado(EST_QUIETO);
-				}
-
-				if((*it)->verJugador()->verID() == 2)
-					nombreEnt = nombreEnt + '2';
-				if((*it)->verJugador()->verID() == 3)
-					nombreEnt = nombreEnt + '3';
-				cout << "Ent. name: " << nombreEnt << endl;
-				spEnt->cambiarImagen(nombreEnt);
-
+			ent = (*it);
 		}
 	}
-	
+	if (!ent) return;
+				
+	float xOld = ent->verPosicion()->getX();
+	float yOld = ent->verPosicion()->getY();
+
+	if(this->mapa->quitarEntidad(ent)){
+		//this->mapa->ubicarEntidad(*it, pos);
+		/*
+		Entidad pepe = *(*it);
+		Unidad* posta = (Unidad*) &pepe;
+		posta->setDireccion(DIR_DOWN_LEFT);*/
+		((Unidad*)(ent))->asignarPos(pos);
+		this->mapa->ubicarEntidad(ent, pos);
+		entidades.sort(compare<Entidad>);
+			
+	}
+	Spritesheet* spEnt = (ent)->verSpritesheet();
+	string nombreEnt = (ent)->verNombre();
+	if(seguirMoviendo){
+		(ent)->settearEstado(EST_CAMINANDO);
+		nombreEnt += "_move";
+	}
+	else{
+		(ent)->settearEstado(EST_QUIETO);
+	}
+
+	if((ent)->verJugador()->verID() == 2)
+		nombreEnt = nombreEnt + '2';
+	if((ent)->verJugador()->verID() == 3)
+		nombreEnt = nombreEnt + '3';
+	// cout << "Ent. name: " << nombreEnt << endl;
+	spEnt->cambiarImagen(nombreEnt);
 	
 }

@@ -85,16 +85,16 @@ void Partida::procesarUpdate(msg_update msj) {
 				this->seleccionarEntidad(this->ent_seleccionada);
 			break;
 		case MSJ_MOVER:
-			cout << accion << endl;
+			// cout << accion << endl;
 			destino = Posicion(msj.extra1, msj.extra2);
 		//	Entidad* entMovida = this->verEntidadSeleccionada();
 			if(accion == MSJ_QUIETO){
 				scene->moverEntidad(msj.idEntidad, &destino, false);
-				cout << "ESTADO QUIETO" << endl;
+				// cout << "ESTADO QUIETO" << endl;
 			}
 			else{
 				scene->moverEntidad(msj.idEntidad, &destino, true);
-				cout << "ESTADO MOVER" << endl;
+				// cout << "ESTADO MOVER" << endl;
 			
 			}
 			if(this->ent_seleccionada != nullptr)
@@ -113,7 +113,7 @@ void Partida::seleccionarEntidad(Entidad* ent){
 			this->seleccionados.push_front(pos);
 		}
 	}
-	cout<< "seleccionado: " << ent->verNombre() << endl;
+	// cout<< "seleccionado: " << ent->verNombre() << endl;
 	this->ent_seleccionada = ent;
 }
 

@@ -70,6 +70,10 @@ tipo:
     ruta: "tile.png"
     pixelX: 26
     pixelY: 0
+  - nombre: "tileSlct"
+    ruta: "tileSelec.png"
+    pixelX: 26
+    pixelY: 0
   - nombre: "tileHuge"
     ruta: "tileHuge.png"
     tipo: "none"
@@ -93,12 +97,12 @@ tipo:
     pixelY: 53
   - nombre: "archery"
     ruta: "archeryAOE.png"
-    pixelX: 101
-    pixelY: 47
+    pixelX: 103
+    pixelY: 49
   - nombre: "stable"
     ruta: "stableAOE.png"
-    pixelX: 101
-    pixelY: 12
+    pixelX: 102
+    pixelY: 15
   - nombre: "champion2"
     ruta: "championAOEp2.png"
     subX: 10
@@ -157,12 +161,12 @@ tipo:
     pixelY: 53
   - nombre: "archery2"
     ruta: "archeryAOEp2.png"
-    pixelX: 101
-    pixelY: 47
+    pixelX: 103
+    pixelY: 49
   - nombre: "stable2"
     ruta: "stableAOEp2.png"
-    pixelX: 101
-    pixelY: 12
+    pixelX: 102
+    pixelY: 15
   - nombre: "champion3"
     ruta: "championAOEp3.png"
     subX: 10
@@ -221,9 +225,73 @@ tipo:
     pixelY: 53
   - nombre: "archery3"
     ruta: "archeryAOEp3.png"
-    pixelX: 101
-    pixelY: 47
+    pixelX: 103
+    pixelY: 49
   - nombre: "stable3"
     ruta: "stableAOEp3.png"
+    pixelX: 102
+    pixelY: 15
+  - nombre: "Gchampion"
+    ruta: "GchampionAOE.png"
+    subX: 10
+    subY: 8
+    pixelX: 21
+    pixelY: 38
+    fps: 10
+    delay: 15
+  - nombre: "Gchampion_move"
+    ruta: "Gchampion_moveAO.png"
+    subX: 10
+    subY: 8
+    pixelX: 21
+    pixelY: 38
+    delay: 0
+    fps: 20
+  - nombre: "Gcastle"
+    ruta: "GcastleAOE.png"
+    pixelX: 148
+    pixelY: 177
+  - nombre: "Gknight"
+    ruta: "GknightAOE.png"
+    subX: 10
+    subY: 8
+    pixelX: 34
+    pixelY: 41
+    fps: 8
+    delay: 3
+  - nombre: "Gknight_move"
+    ruta: "Gknight_moveAOE.png"
+    subX: 10
+    subY: 8
+    pixelX: 26
+    pixelY: 49
+    fps: 18
+    delay: 0
+  - nombre: "Ghouse"
+    ruta: "GhouseAOE.png"
+    pixelX: 76
+    pixelY: 42
+  - nombre: "Gwindmill"
+    ruta: "GwindmillAOE.png"
+    subX: 8
+    subY: 1
+    pixelX: 84
+    pixelY: 57
+    fps: 10
+    delay: 0
+  - nombre: "Gtown_center"
+    ruta: "GtownCenterAOE.png"
+    pixelX: 56
+    pixelY: 159
+  - nombre: "Gbarracks"
+    ruta: "GbarracksAOE.png"
     pixelX: 101
-    pixelY: 12
+    pixelY: 53
+  - nombre: "Garchery"
+    ruta: "GarcheryAOE.png"
+    pixelX: 103
+    pixelY: 49
+  - nombre: "Gstable"
+    ruta: "GstableAOE.png"
+    pixelX: 102
+    pixelY: 15

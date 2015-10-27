@@ -184,7 +184,8 @@ void Cliente::procesarUpdates(Partida* game) {
 			game->obtenerJugador(upd.idEntidad)->settearConexion(true); break;
 		case MSJ_JUGADOR_LOGOUT:
 			game->obtenerJugador(upd.idEntidad)->settearConexion(false); break;
-
+		case MSJ_ELIMINAR:
+			game->escenario->quitarEntidad(upd.idEntidad); break;
 		}
 
 	}

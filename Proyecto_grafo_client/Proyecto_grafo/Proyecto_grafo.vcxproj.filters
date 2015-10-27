@@ -195,9 +195,4 @@
       <Filter>Archivos de código fuente\Red</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Proyecto_grafo.rc">
-      <Filter>Archivos de recursos</Filter>
-    </ResourceCompile>
-  </ItemGroup>
 </Project>

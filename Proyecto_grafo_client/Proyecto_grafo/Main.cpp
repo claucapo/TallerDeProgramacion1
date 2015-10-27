@@ -94,7 +94,7 @@ void cargarBibliotecaImagenes(std::list<entidadInfo_t*> eInfoL) {
 		data->path = act.spritePath;
 		data->origenX = act.pixel_align_X;
 		data->origenY = act.pixel_align_Y;
-		cout<< act.spritePath << " offset xy: " << data->origenX <<"." << data->origenY <<endl;
+		// cout<< act.spritePath << " offset xy: " << data->origenX <<"." << data->origenY <<endl;
 		data->columnas = act.subX;
 		data->filas = act.subY;
 		data->fps = act.fps;
@@ -316,6 +316,7 @@ int wmain(int argc, char* argv[]) {
 	*/
 
 	int codigo_programa = CODE_CONTINUE;
+
 	while (codigo_programa != CODE_EXIT && !client.must_close) {
 		float timeA = SDL_GetTicks();
 		client.procesarUpdates(game);
