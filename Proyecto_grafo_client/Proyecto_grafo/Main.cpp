@@ -181,7 +181,7 @@ Partida* generarPartida(mapa_inicial data) {
 #define CODE_RESET -2
 #define CODE_EXIT -1
 
-void procesarSeleccion(Partida* game, GraficadorPantalla* gp){
+void procesarSeleccion(Partida* game, GraficadorPantalla* gp, Jugador* player){
 	int mx, my;
 	SDL_GetMouseState(&mx, &my);
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
@@ -190,8 +190,9 @@ void procesarSeleccion(Partida* game, GraficadorPantalla* gp){
 	Posicion slct = Posicion(pX, pY);
 	game->deseleccionarEntidades();
 	if(game->escenario->verMapa()->posicionPertenece(&slct))
-		if(!game->escenario->verMapa()->posicionEstaVacia(&slct))
-			game->seleccionarEntidad(game->escenario->verMapa()->verContenido(&slct));
+		if(player->visionCasilla(slct) != VIS_NO_EXPLORADA)
+			if(!game->escenario->verMapa()->posicionEstaVacia(&slct))
+				game->seleccionarEntidad(game->escenario->verMapa()->verContenido(&slct));
 			
 }
 
@@ -227,11 +228,11 @@ void procesarMover(Partida* game, GraficadorPantalla* gp, Cliente* client) {
 }
 
 
-int procesarEvento(Partida* game, GraficadorPantalla* gp, SDL_Event evento, Cliente* client){
+int procesarEvento(Partida* game, GraficadorPantalla* gp, SDL_Event evento, Cliente* client, Jugador* player){
 	switch (evento.type) {
 	case SDL_MOUSEBUTTONDOWN:	
 		if( evento.button.button == SDL_BUTTON_LEFT){
-			procesarSeleccion(game, gp);
+			procesarSeleccion(game, gp, player);
 			return CODE_CONTINUE;
 			}
 		else if( evento.button.button == SDL_BUTTON_RIGHT){
@@ -300,11 +301,12 @@ int wmain(int argc, char* argv[]) {
 	BibliotecaDeImagenes::obtenerInstancia()->asignarPantalla(gameScreen);
 
 	gp->asignarPartida(game);
-	gp->asignarJugador(game->obtenerJugador(parser.verInfoRed().ID));
-	game->obtenerJugador(parser.verInfoRed().ID)->settearConexion(true);
+	Jugador* playerActual = game->obtenerJugador(parser.verInfoRed().ID);
+	gp->asignarJugador(playerActual);
+	playerActual->settearConexion(true);
 	// En este punto el cliente ya está conectado
 	client.start();
-
+	
 	/*
 	list<Posicion> visionHard;
 	for(int i = 0; i < game->escenario->verTamX(); i++)
@@ -329,7 +331,7 @@ int wmain(int argc, char* argv[]) {
 		SDL_Event evento;
 		while(SDL_PollEvent(&evento) != 0){
 			// Generar msg_evento: Por ahora sólo te deja scrollear
-			codigo_programa = procesarEvento(game, gp, evento, &client);
+			codigo_programa = procesarEvento(game, gp, evento, &client, playerActual);
 			if(codigo_programa == CODE_EXIT)
 				break;
 		}

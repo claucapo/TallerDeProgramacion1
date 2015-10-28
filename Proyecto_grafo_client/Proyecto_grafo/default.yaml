@@ -1,7 +1,7 @@
 red:
   puerto: 27015
   ip: "127.0.0.1"
-  ID: 3
+  ID: 1
   alias: "Juana de Arco"
 pantalla: 
   ancho: 640
@@ -50,7 +50,7 @@ tipo:
     ruta: "knightAOE.png"
     subX: 10
     subY: 8
-    pixelX: 34
+    pixelX: 22
     pixelY: 41
     fps: 8
     delay: 3
@@ -58,8 +58,8 @@ tipo:
     ruta: "knight_moveAOE.png"
     subX: 10
     subY: 8
-    pixelX: 26
-    pixelY: 49
+    pixelX: 29
+    pixelY: 52
     fps: 18
     delay: 0
   - nombre: "house"

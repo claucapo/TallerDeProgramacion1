@@ -110,6 +110,7 @@ void Partida::seleccionarEntidad(Entidad* ent){
 	for(int i = 0; i < ent->verTamX(); i++) {
 		for(int j = 0; j < ent->verTamY(); j++){
 			Posicion* pos= new Posicion(coordX + i, coordY + j);
+			
 			this->seleccionados.push_front(pos);
 		}
 	}

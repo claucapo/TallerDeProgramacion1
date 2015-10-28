@@ -113,11 +113,25 @@ af_result_t Unidad::avanzarFrame(Escenario* scene) {
  			float nuevoX = act->getX() + (distX*rapidez)/totalDist;
  			float nuevoY = act->getY() + (distY*rapidez)/totalDist;
  			Posicion nuevaPos(nuevoX, nuevoY);
-			if(estaEnCasilla(&nuevaPos, act) || estaEnCasilla(&nuevaPos, dest))
-				scene->moverEntidad(this, &nuevaPos);
+			if(estaEnCasilla(&nuevaPos, act) || estaEnCasilla(&nuevaPos, dest)){
+			//	scene->verMapa()->quitarEntidad(this);
+			//	scene->verMapa()->vaciarPosicionSinChequeo(act);
+				
+				this->asignarPos( &nuevaPos);
+			//	scene->verMapa()->ubicarEntidad(this, &nuevaPos);
+			//	scene->verMapa()->ocuparPosicionSinChequeo(&nuevaPos, this);
+			
+				}
  			else {
-				if(scene->verMapa()->posicionEstaVacia(&nuevaPos))
-					scene->moverEntidad(this, &nuevaPos);
+				if(scene->verMapa()->posicionEstaVacia(&nuevaPos)){
+				//	scene->verMapa()->vaciarPosicionSinChequeo(act);
+				
+				//	scene->verMapa()->quitarEntidad(this);
+					this->asignarPos( &nuevaPos);
+				//	scene->verMapa()->ubicarEntidad(this, &nuevaPos);
+				//	scene->verMapa()->ocuparPosicionSinChequeo(&nuevaPos, this);
+			
+					}
 				else{
 					// Si la posicion que atravieso no está vacía...
 				/*	while(!this->camino.empty())
@@ -145,16 +159,34 @@ af_result_t Unidad::avanzarFrame(Escenario* scene) {
 						aux = Posicion(aux.getX() +0.35, aux.getY() +0.1);
 						while(aux == nuevaPos);
 					}
+			/*		
+					else{
+							RECALCULAR A* ???
+						while(!camino.empty())
+							this->camino.pop_front();
+						this->setEstado(EST_QUIETO);
+						aux= Posicion(act->getRoundX()+0.44,act->getRoundY()+0.44);
+						}*/
+					
+				//	scene->verMapa()->quitarEntidad(this);
+				
 					nuevaPos = Posicion(aux.getX(), aux.getY());
 					scene->moverEntidad(this, &nuevaPos);
+				//	scene->verMapa()->ubicarEntidad(this, new Posicion(act->getRoundX()+0.44,act->getRoundY()+0.44));
+			
 				}
 			}
  		} else {
 			this->camino.pop_front();
 			if (camino.size() == 0){
 				this->setEstado(EST_QUIETO);
-				scene->moverEntidad(this, new Posicion(act->getRoundX()+0.44,act->getRoundY()+0.44));
+			//	scene->verMapa()->quitarEntidad(this);
+			//	scene->verMapa()->vaciarPosicionSinChequeo(act);
+				this->asignarPos( new Posicion(act->getRoundX()+0.44,act->getRoundY()+0.44));
+			//	scene->verMapa()->ubicarEntidad(this, new Posicion(act->getRoundX()+0.44,act->getRoundY()+0.44));
+			//	scene->verMapa()->ocuparPosicionSinChequeo( new Posicion(act->getRoundX()+0.44,act->getRoundY()+0.44), this);
 			}
+
  		}
  		return AF_MOVE;
  	}

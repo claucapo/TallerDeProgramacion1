@@ -116,6 +116,7 @@ bool Matriz::quitarEntidad(Entidad* elemento){
 	for(int i = 0; i < altura_x; i++){
 		for(int j = 0; j < ancho_y; j++) {
 			casillas[pos->getRoundX() + i][pos->getRoundY() + j] = nullptr;
+			mapDeOcupaciones[pos->getRoundX() + i][pos->getRoundY() + j]= 0;
 			cout << "Se vació la posicion: " << pos->toStrRound() << endl;
 		}
 	}
@@ -156,8 +157,10 @@ bool Matriz::ubicarEntidad(Entidad* elemento, Posicion* pos){
 
 	// Si llego acá es porque todas las posiciones están libres
 	for(int i = 0; i < altura_x; i++)
-		for(int j = 0; j < ancho_y; j++)
+		for(int j = 0; j < ancho_y; j++){
 			casillas[pos->getRoundX() + i][pos->getRoundY() + j] = elemento;
+			mapDeOcupaciones[pos->getRoundX() + i][pos->getRoundY() + j]= 1;
+			}
 		
 	this->cantidad_entidades++;
 	return true;
@@ -263,4 +266,14 @@ list<Posicion> Matriz::posicionesOcupadas(Entidad* elemento) {
 		}
 	}
 	return posEnRango;
+}
+
+void Matriz::vaciarPosicionSinChequeo(Posicion* pos) {
+	this->casillas[pos->getRoundX()][pos->getRoundY()] = nullptr;
+	mapDeOcupaciones[pos->getRoundX()][pos->getRoundY()]= 0;
+}
+
+void Matriz::ocuparPosicionSinChequeo(Posicion* pos, Entidad* ent) {
+	this->casillas[pos->getRoundX()][pos->getRoundY()] = ent;
+	mapDeOcupaciones[pos->getRoundX()][pos->getRoundY()]= 1;
 }

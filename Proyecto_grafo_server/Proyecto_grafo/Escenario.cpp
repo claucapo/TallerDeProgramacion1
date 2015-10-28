@@ -43,6 +43,7 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 	// Avanzo el frame en cada edificio (por ahora no hace nada)
 	list<Entidad*> toRmv = list<Entidad*>();
 	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
+		Posicion* posAux = new Posicion((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY());
 		af_result_t res = (*it)->avanzarFrame(this);
 		msg_update* upd;
 		switch (res) {
@@ -58,6 +59,10 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 			upd->extra1 = (*it)->verPosicion()->getX();
 			upd->extra2 = (*it)->verPosicion()->getY();
 			updates.push_back(upd);
+
+			this->mapa->vaciarPosicionSinChequeo(posAux);
+			delete posAux;
+			this->mapa->ocuparPosicionSinChequeo((*it)->verPosicion(), (*it));
 		/*	if(upd->accion == MSJ_QUIETO)
 				cout <<"MSJ_QUIETO"<< endl;
 			else
@@ -69,9 +74,18 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 			upd->idEntidad = (*it)->verID();
 			upd->accion = MSJ_ELIMINAR;
 			updates.push_back(upd);
+
+			this->mapa->vaciarPosicionSinChequeo(posAux);
+			delete posAux;
 			break;
 		case AF_NONE:
+			delete posAux;
+			this->mapa->ocuparPosicionSinChequeo((*it)->verPosicion(), (*it));
+			break;
 		default:
+			delete posAux;
+			this->mapa->ocuparPosicionSinChequeo((*it)->verPosicion(), (*it));
+
 			break;
 		}
 		(*it)->verJugador()->agregarPosiciones(this->verMapa()->posicionesVistas(*it));

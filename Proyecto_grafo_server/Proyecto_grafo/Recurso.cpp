@@ -46,7 +46,7 @@ af_result_t Recurso::avanzarFrame(Escenario* scene) {
 				// Si la posición no es la del recurso original
 				if ( ent && (i != 0 || j != 0) ) {
 					Jugador* player = ent->verJugador();
-					if (player && player->verID() != 0 && ent->tipo == ENT_T_UNIT) {
+					if ((player && player->verID() != 0) && (ent->tipo == ENT_T_UNIT)) {
 						player->modificarRecurso(this->amount);
 						cout << player->verNombre() << " tiene " << player->verRecurso() << " recurso/s." << endl;
 						return AF_KILL;

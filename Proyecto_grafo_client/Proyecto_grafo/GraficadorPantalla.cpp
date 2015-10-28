@@ -191,11 +191,19 @@ void GraficadorPantalla::renderizarEntidades(void) {
 		Vision* vis = this->player->verVision();
 		// Si se ve alguna de las cuatro posiciones del borde, dibujo la entidad
 		bool entEsVisible= false;
-		entEsVisible |= (vis->visibilidadPosicion(*posEntAct1)!=VIS_NO_EXPLORADA);
-		entEsVisible |= (vis->visibilidadPosicion(posEntAct2)!=VIS_NO_EXPLORADA);
-		entEsVisible |= (vis->visibilidadPosicion(posEntAct3)!=VIS_NO_EXPLORADA);
-		entEsVisible |= (vis->visibilidadPosicion(posEntAct4)!=VIS_NO_EXPLORADA);
+		if((*it)->verTipo() == ENT_T_UNIT){
+			entEsVisible |= (vis->visibilidadPosicion(*posEntAct1)== VIS_OBSERVADA);
+			entEsVisible |= (vis->visibilidadPosicion(posEntAct2)== VIS_OBSERVADA);
+			entEsVisible |= (vis->visibilidadPosicion(posEntAct3)== VIS_OBSERVADA);
+			entEsVisible |= (vis->visibilidadPosicion(posEntAct4)== VIS_OBSERVADA);
 		
+		}
+		else{
+			entEsVisible |= (vis->visibilidadPosicion(*posEntAct1)!=VIS_NO_EXPLORADA);
+			entEsVisible |= (vis->visibilidadPosicion(posEntAct2)!=VIS_NO_EXPLORADA);
+			entEsVisible |= (vis->visibilidadPosicion(posEntAct3)!=VIS_NO_EXPLORADA);
+			entEsVisible |= (vis->visibilidadPosicion(posEntAct4)!=VIS_NO_EXPLORADA);
+		}
 		if(entEsVisible){
 			
 			Spritesheet* entAct = (*it)->verSpritesheet();
