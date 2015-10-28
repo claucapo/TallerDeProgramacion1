@@ -73,8 +73,8 @@ void Jugador::settearRecurso(resource_type_t tipoR, int cant) {
 		this->recursos.piedra = cant; break;
 	}
 
-	cout << this->verNombre() << " tiene " << this->verRecurso().oro << " oro, ";
+/*	cout << this->verNombre() << " tiene " << this->verRecurso().oro << " oro, ";
 	cout << this->verRecurso().comida << " comida, ";
 	cout << this->verRecurso().madera << " madera y ";
-	cout << this->verRecurso().piedra << " piedra." << endl;
+	cout << this->verRecurso().piedra << " piedra." << endl;*/
 }

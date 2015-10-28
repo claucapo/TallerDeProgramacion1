@@ -11,6 +11,7 @@
 #include <list>
 #include <iostream>
 #include <conio.h>
+#include <sstream>
 
 using namespace std;
 
@@ -307,6 +308,54 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 		}
 
 	}
+
+	// Muestro los recursos
+	SDL_Surface* surfRes;
+	ostringstream recursito;
+
+	// Madera
+	recursito << this->player->verRecurso().madera;
+	string recurso = recursito.str();
+	surfRes = this->renderText(recurso);
+	rectangulo.x = 29;
+	rectangulo.y = 1;
+	rectangulo.h = 17;
+	rectangulo.w = recurso.length()* 11;
+	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
+	SDL_FreeSurface(surfRes);
+	recursito.seekp(0);
+	// Comida
+	recursito << this->player->verRecurso().comida;
+	recurso = recursito.str();
+	surfRes = this->renderText(recurso);
+	rectangulo.x = 92;
+	rectangulo.y = 1;
+	rectangulo.h = 17;
+	rectangulo.w = recurso.length()* 11;
+	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
+	SDL_FreeSurface(surfRes);
+	recursito.seekp(0);
+	// Oro
+	recursito << this->player->verRecurso().oro;
+	recurso = recursito.str();
+	surfRes = this->renderText(recurso);
+	rectangulo.x = 157;
+	rectangulo.y = 1;
+	rectangulo.h = 17;
+	rectangulo.w = recurso.length()* 11;
+	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
+	SDL_FreeSurface(surfRes);
+	recursito.seekp(0);
+	// Roca
+	recursito << this->player->verRecurso().piedra;
+	recurso = recursito.str();
+	surfRes = this->renderText(recurso);
+	rectangulo.x = 216;
+	rectangulo.y = 1;
+	rectangulo.h = 17;
+	rectangulo.w = recurso.length()* 11;
+	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
+	SDL_FreeSurface(surfRes);
 	
 }
 
@@ -502,12 +551,18 @@ SDL_Surface* GraficadorPantalla::renderText(string msj){
 			rectOrig.w = 12;
 			printIt = true;
 		}
+		else if((msj[i] >= '0') && (msj[i] <= '9')) {
+			rectOrig.y = 39;
+			rectOrig.x = (msj[i] - '0') * 12 + 2;
+			rectOrig.w = 12;
+			printIt = true;
+		}
 		if(printIt)
 			SDL_BlitSurface(font, &rectOrig, elTexto, &rectDest);
 		rectDest.x += rectOrig.w;
 	}
 	SDL_Surface* texto = SDL_ConvertSurface(elTexto, pantalla->format, NULL);
 	SDL_FreeSurface(elTexto);
-	SDL_SetColorKey(texto, true, SDL_MapRGB(elTexto->format, 255, 255, 255));
+	SDL_SetColorKey(texto, true, SDL_MapRGB(texto->format, 255, 255, 255));
 	return texto;
 }
