@@ -13,8 +13,9 @@ Jugador::Jugador(string name, int id, string color){
 	
 	this->color = color;
 	this->vision = nullptr;
-	this->recurso = 0;
+	this->recursos = recursos_jugador_t();
 	this->esta_conectado = false;
+	this->resources_dirty = false;
 }
 
 Jugador::~Jugador(void) {
@@ -56,7 +57,22 @@ bool Jugador::estaConectado(void){
 	return esta_conectado;
 }
 
-
 void Jugador::settearConexion(bool estadoConexion){
 	this->esta_conectado = estadoConexion;
+}
+
+void Jugador::modificarRecurso(resource_type_t tipoR, int cant) {
+	this->resources_dirty = true;
+	switch (tipoR) {
+	case RES_T_GOLD:
+		this->recursos.oro += cant; break;
+	case RES_T_WOOD:
+		this->recursos.madera += cant; break;
+	case RES_T_FOOD:
+		this->recursos.comida += cant; break;
+	case RES_T_STONE:
+		this->recursos.piedra += cant; break;
+	default:
+		this->resources_dirty = false;
+	}
 }

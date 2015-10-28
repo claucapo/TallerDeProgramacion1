@@ -134,7 +134,15 @@ Partida* generarPartida(mapa_inicial data) {
 				delete jugador_act;
 			} else {
 				nuevo->asignarVision(data.mInfo.coordX, data.mInfo.coordY);
-				nuevo->modificarRecurso(jugador_act->jInfo.recursos);
+
+				// Hacer esto de manera más elegante... mediante una función
+				recursos_jugador_t rj = nuevo->verRecurso();
+				rj.comida = jugador_act->jInfo.recursos.comida;
+				rj.oro = jugador_act->jInfo.recursos.oro;
+				rj.madera = jugador_act->jInfo.recursos.madera;
+				rj.piedra = jugador_act->jInfo.recursos.piedra;
+
+				
 				nuevo->verVision()->setFromArray(jugador_act->varray);
 				nuevo->settearConexion(jugador_act->jInfo.conectado);
 				delete jugador_act;

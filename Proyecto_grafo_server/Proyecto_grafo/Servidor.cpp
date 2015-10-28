@@ -212,7 +212,11 @@ int Servidor::enviarMapa(ConexionCliente *cliente) {
 
 		act.conectado = (*it)->estaConectado();
 		act.id = (*it)->verID();
-		act.recursos = (*it)->verRecurso();
+		struct recursos_jugador_t rj = (*it)->verRecurso();
+		act.recursos.comida = rj.comida;
+		act.recursos.madera = rj.madera;
+		act.recursos.oro = rj.oro;
+		act.recursos.piedra = rj.piedra;
 
 		result = send(cliente->clientSocket, (char*)&act, sizeof(act), 0);
 
@@ -227,7 +231,7 @@ int Servidor::enviarMapa(ConexionCliente *cliente) {
 		msg_tipo_entidad* act = tipos.front();
 		tipos.pop_front();
 		result = send(cliente->clientSocket, (char*)act, sizeof(*act), 0);
-		ErrorLog::getInstance()->escribirLog("Se envio un tipo de entidad.", LOG_ALLWAYS);
+		// ErrorLog::getInstance()->escribirLog("Se envio un tipo de entidad.", LOG_ALLWAYS);
 		delete act;
 	}
 	if (result <= 0) {
@@ -249,7 +253,7 @@ int Servidor::enviarMapa(ConexionCliente *cliente) {
 			SDL_SemPost(this->partida_lock);
 			return result;
 		} else {
-			ErrorLog::getInstance()->escribirLog("Se envio una instancia de entidad.", LOG_ALLWAYS);
+			// ErrorLog::getInstance()->escribirLog("Se envio una instancia de entidad.", LOG_ALLWAYS);
 		}
 	}
 	
@@ -280,8 +284,7 @@ void Servidor::removerCliente(ConexionCliente* client) {
 	SDL_SemWait(this->clientes_lock);
 	this->clientes.remove(client);
 	this->cantClientes--;
-	printf("Se elimina a un nuevo cliente\n");
-	printf("Clientes activos: %d\n", this->cantClientes);
+	printf("Se elimina a un cliente. Clientes activos: %d\n", this->cantClientes);
 	SDL_SemPost(this->clientes_lock);
 }
 

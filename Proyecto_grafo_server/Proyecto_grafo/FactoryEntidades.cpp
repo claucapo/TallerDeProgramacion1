@@ -94,6 +94,16 @@ void FactoryEntidades::agregarEntidad(entidadInfo_t eInfo) {
 		pType->score = eInfo.score;
 		pType->velocidad = eInfo.velocidad;
 
+		// Mapeo provisorio, hasta redefinir yaml para tercer entrega
+		switch (eInfo.tipoR) {
+		case 0: pType->tipoR = RES_T_GOLD; break;
+		case 1: pType->tipoR = RES_T_WOOD; break;
+		case 2: pType->tipoR = RES_T_FOOD; break;
+		case 3: pType->tipoR = RES_T_STONE; break;
+		default:
+			pType->tipoR = RES_T_NONE;
+		}
+
 		// Harcodeado temporalmente hasta definir como se crearán tipos
 		// de unidades distintos desde yaml.
 		if (eInfo.tipo == "resource")
@@ -119,7 +129,7 @@ Entidad* FactoryEntidades::obtenerEntidad(string name){
 		pType = prototipos[name];
 		switch (pType->tipo) {
 		case ENT_T_RESOURCE:
-			ent = new Recurso(obtenerIDValida(), name, pType->tamX, pType->tamX, pType->vision, pType->score); break;
+			ent = new Recurso(obtenerIDValida(), name, pType->tamX, pType->tamX, pType->vision, pType->score, pType->tipoR); break;
 		case ENT_T_UNIT: {
 			ent = new Unidad(obtenerIDValida(), name, pType->tamX, pType->tamX, pType->vision, pType->velocidad);
 			break;
@@ -154,6 +164,7 @@ list<msg_tipo_entidad*> FactoryEntidades::obtenerListaTipos(void) {
 		msg->velocidad = iter->second->velocidad;
 		msg->vision = iter->second->vision;
 		msg->score = iter->second->score;
+		msg->tipoR = iter->second->tipoR;
 		lista.push_back(msg);	
 	}
 	return lista;

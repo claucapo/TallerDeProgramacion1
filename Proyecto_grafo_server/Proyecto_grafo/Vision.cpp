@@ -54,7 +54,7 @@ void Vision::agregarPosicionObservada(Posicion pos) {
 	int x = pos.getRoundX();
 	int y = pos.getRoundY();
 	if ( x >= this->filas || y >= this->columnas ) {
-		ErrorLog::getInstance()->escribirLog("Posicion " + pos.toStrRound() + " excede matriz de vision.", LOG_ERROR);
+		// ErrorLog::getInstance()->escribirLog("Posicion " + pos.toStrRound() + " excede matriz de vision.", LOG_ERROR);
 		return;
 	}
 	this->mapa_de_vision[x][y] = VIS_OBSERVADA;
@@ -64,7 +64,7 @@ estado_vision_t Vision::visibilidadPosicion(Posicion pos) {
 	int x = pos.getRoundX();
 	int y = pos.getRoundY();
 	if ( x >= this->filas || y >= this->columnas ) {
-		ErrorLog::getInstance()->escribirLog("Posicion " + pos.toStrRound() + " excede matriz de vision.", LOG_ERROR);
+		// ErrorLog::getInstance()->escribirLog("Posicion " + pos.toStrRound() + " excede matriz de vision.", LOG_ERROR);
 		return VIS_NO_EXPLORADA;
 	}
 	return this->mapa_de_vision[x][y];

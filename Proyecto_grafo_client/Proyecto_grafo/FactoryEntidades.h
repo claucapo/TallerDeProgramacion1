@@ -18,6 +18,7 @@ struct tipoEntidad_t {
 	int velocidad;
 	entity_type_t tipo;
 	int score;
+	resource_type_t tipoR;
 
 	// Valores por defecto
 	tipoEntidad_t() {
@@ -27,6 +28,7 @@ struct tipoEntidad_t {
 		velocidad = 1;
 		tipo = ENT_T_NONE;
 		score = 1;
+		tipoR = RES_T_NONE;
 	}
 };
 

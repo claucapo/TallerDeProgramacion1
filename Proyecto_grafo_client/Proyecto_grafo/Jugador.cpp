@@ -13,7 +13,7 @@ Jugador::Jugador(string name, int id, string color){
 	
 	this->color = color;
 	this->vision = nullptr;
-	this->recurso = 0;
+	this->recursos = recursos_jugador_t();
 	this->esta_conectado = false;
 }
 
@@ -61,3 +61,20 @@ void Jugador::settearConexion(bool estadoConexion){
 	this->esta_conectado = estadoConexion;
 }
 
+void Jugador::settearRecurso(resource_type_t tipoR, int cant) {
+	switch (tipoR) {
+	case RES_T_GOLD:
+		this->recursos.oro = cant; break;
+	case RES_T_WOOD:
+		this->recursos.madera = cant; break;
+	case RES_T_FOOD:
+		this->recursos.comida = cant; break;
+	case RES_T_STONE:
+		this->recursos.piedra = cant; break;
+	}
+
+	cout << this->verNombre() << " tiene " << this->verRecurso().oro << " oro, ";
+	cout << this->verRecurso().comida << " comida, ";
+	cout << this->verRecurso().madera << " madera y ";
+	cout << this->verRecurso().piedra << " piedra." << endl;
+}

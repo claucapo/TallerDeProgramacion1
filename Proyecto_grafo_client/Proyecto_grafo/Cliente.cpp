@@ -186,6 +186,18 @@ void Cliente::procesarUpdates(Partida* game) {
 			game->obtenerJugador(upd.idEntidad)->settearConexion(false); break;
 		case MSJ_ELIMINAR:
 			game->escenario->quitarEntidad(upd.idEntidad); break;
+		case MSJ_RECURSO_JUGADOR:
+			Jugador* jAct = game->obtenerJugador(upd.idEntidad);
+			if (jAct) {
+				resource_type_t tipoR = RES_T_NONE;
+				switch ((int)upd.extra2) {
+				case 0: tipoR = RES_T_GOLD; break;
+				case 1: tipoR = RES_T_WOOD; break;
+				case 2: tipoR = RES_T_FOOD; break;
+				case 3: tipoR = RES_T_STONE; break;
+				}
+				jAct->settearRecurso(tipoR, (int)upd.extra1);
+			}
 		}
 
 	}

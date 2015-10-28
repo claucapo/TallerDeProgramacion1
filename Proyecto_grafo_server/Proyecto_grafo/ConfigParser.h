@@ -69,6 +69,7 @@ int main (int argc, char** argv) {
 
 #define TYPE_NAME_DEFAULT "unknown"
 #define ENT_TYPE_DEFAULT "none"
+#define RES_TYPE_DEFAULT 0
 #define VISION_DEFAULT 2
 
 #define PORT_DEFAULT "27011"
@@ -106,10 +107,11 @@ struct entidadInfo_t {
 	int vision;
 	int velocidad;
 	int score;
+	int tipoR;
 
 	// Inicializa los valores a cero por defecto
 	entidadInfo_t(): nombre(TYPE_NAME_DEFAULT),	tipo(ENT_TYPE_DEFAULT), tamX(1), tamY(1),
-					score(1), vision(1), velocidad(1) {};
+				score(1), vision(1), velocidad(1), tipoR(RES_TYPE_DEFAULT) {};
 };
 
 

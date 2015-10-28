@@ -18,12 +18,14 @@ Recurso::Recurso(int amount) : Entidad() {
 	this->tipo = ENT_T_RESOURCE;
 }
 
-Recurso::Recurso(unsigned int id, string name, int tamX, int tamY, int vision, int amount) : Entidad(id, name, tamX, tamY, vision) {
+Recurso::Recurso(unsigned int id, string name, int tamX, int tamY, int vision, int amount, resource_type_t tipoR) : Entidad(id, name, tamX, tamY, vision) {
 	if (amount >= 0)
 		this->amount = amount;
 	else
 		this->amount = 1;
+
 	this->tipo = ENT_T_RESOURCE;
+	this->tipoR = tipoR;
 }
 
 af_result_t Recurso::avanzarFrame(Escenario* scene) {

@@ -2,6 +2,9 @@
 #include "Escenario.h"
 #include "Jugador.h"
 #include "ErrorLog.h"
+#include "Protocolo.h"
+#include "Enumerados.h"
+
 
 #include <sstream> // Para convertir int en string
 
@@ -74,6 +77,44 @@ list<msg_update*> Partida::avanzarFrame(void){
 	*/
 	// Acá adentro se asignan las casillas vistas de cada jugador
 	list<msg_update*> updates = this->escenario->avanzarFrame();
+	
+	for (list<Jugador*>::iterator iter = this->jugadores.begin(); iter != this->jugadores.end(); ++iter) {
+		Jugador* act = (*iter);
+		// Si modifiqué los recursos, genero las updates
+		// Hacer lo mismo para el resto de los recursos
+		if (act->resources_dirty) {
+			msg_update* upd = new msg_update();
+			upd->accion = MSJ_RECURSO_JUGADOR;
+			upd->idEntidad = act->verID();
+			upd->extra1 = (float)act->verRecurso().oro;
+			upd->extra2 = (float)RES_T_GOLD;
+			updates.push_back(upd);
+
+			upd = new msg_update();
+			upd->accion = MSJ_RECURSO_JUGADOR;
+			upd->idEntidad = act->verID();
+			upd->extra1 = (float)act->verRecurso().madera;
+			upd->extra2 = (float)RES_T_WOOD;
+			updates.push_back(upd);
+
+			upd = new msg_update();
+			upd->accion = MSJ_RECURSO_JUGADOR;
+			upd->idEntidad = act->verID();
+			upd->extra1 = (float)act->verRecurso().piedra;
+			upd->extra2 = (float)RES_T_STONE;
+			updates.push_back(upd);
+
+			upd = new msg_update();
+			upd->accion = MSJ_RECURSO_JUGADOR;
+			upd->idEntidad = act->verID();
+			upd->extra1 = (float)act->verRecurso().comida;
+			upd->extra2 = (float)RES_T_FOOD;
+			updates.push_back(upd);
+
+			act->resources_dirty = false;
+		}
+	}
+
 	return updates;
 }
 

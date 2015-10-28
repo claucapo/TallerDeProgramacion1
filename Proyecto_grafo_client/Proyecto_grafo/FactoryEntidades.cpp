@@ -91,6 +91,7 @@ void FactoryEntidades::agregarEntidad(msg_tipo_entidad eInfo) {
 		pType->score = eInfo.score;
 		pType->velocidad = eInfo.velocidad;
 		pType->tipo = eInfo.tipo;
+		pType->tipoR = eInfo.tipoR;
 
 		prototipos[nombre] = pType;
 	}
@@ -108,7 +109,7 @@ Entidad* FactoryEntidades::obtenerEntidad(string name, unsigned int id){
 		pType = prototipos[name];
 		switch (pType->tipo) {
 		case ENT_T_RESOURCE:
-			ent = new Recurso(id, name, pType->tamX, pType->tamX, pType->vision, pType->score); break;
+			ent = new Recurso(id, name, pType->tamX, pType->tamX, pType->vision, pType->score, pType->tipoR); break;
 		case ENT_T_UNIT:
 			ent = new Unidad(id, name, pType->tamX, pType->tamX, pType->vision, pType->velocidad); break;
 		case ENT_T_NONE:

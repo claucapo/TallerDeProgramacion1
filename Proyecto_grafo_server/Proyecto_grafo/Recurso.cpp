@@ -16,11 +16,13 @@ Recurso::Recurso(int amount) : Entidad() {
 		this->amount = 1;
 }
 
-Recurso::Recurso(unsigned int id, string name, int tamX, int tamY, int vision, int amount) : Entidad(id, name, tamX, tamY, vision) {
+Recurso::Recurso(unsigned int id, string name, int tamX, int tamY, int vision, int amount, resource_type_t tipoR) : Entidad(id, name, tamX, tamY, vision) {
 	if (amount >= 0)
 		this->amount = amount;
 	else
 		this->amount = 1;
+
+	this->tipoR = tipoR;
 }
 
 af_result_t Recurso::avanzarFrame(Escenario* scene) {
@@ -47,8 +49,12 @@ af_result_t Recurso::avanzarFrame(Escenario* scene) {
 				if ( ent && (i != 0 || j != 0) ) {
 					Jugador* player = ent->verJugador();
 					if ((player && player->verID() != 0) && (ent->tipo == ENT_T_UNIT)) {
-						player->modificarRecurso(this->amount);
-						cout << player->verNombre() << " tiene " << player->verRecurso() << " recurso/s." << endl;
+						player->modificarRecurso(this->tipoR, this->amount);
+						// Print temporal de recursos!!
+						cout << player->verNombre() << " tiene " << player->verRecurso().oro << " oro, ";
+						cout << player->verRecurso().comida << " comida, ";
+						cout << player->verRecurso().madera << " madera y ";
+						cout << player->verRecurso().piedra << " piedra." << endl;
 						return AF_KILL;
 					}
 				}

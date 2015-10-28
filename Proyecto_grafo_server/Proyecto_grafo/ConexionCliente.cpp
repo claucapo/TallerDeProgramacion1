@@ -42,7 +42,7 @@ int conexionReader( void* data ) {
 		if (result <= 0) {
 			printf("Error de recepcion. Terminando conexion %d\n", WSAGetLastError());
 			cliente->stop();
-			cliente->server->removerCliente(cliente);
+			// cliente->server->removerCliente(cliente);
 			printf("Exited Reading for cliente\n");
 			return result;
 		} else {
@@ -75,7 +75,7 @@ int conexionSender( void* data ) {
 				cliente->stop();
 				
 				printf("Exited Sending for cliente\n");
-				cliente->server->removerCliente(cliente);
+				// cliente->server->removerCliente(cliente);
 
 				return result;
 			}
@@ -107,12 +107,17 @@ void ConexionCliente::start() {
 
 // Desasocia los threads y libera el socket
 void ConexionCliente::stop() {
+	if (!this->must_close) {
+		this->server->removerCliente(this);
+		this->server->desconectarJugador(this->playerID);
+		SDL_DetachThread(this->myReader);
+		SDL_DetachThread(this->mySender);
+	}
 	this->must_close = true;
 	
-	this->server->desconectarJugador(this->playerID);
+	// this->server->desconectarJugador(this->playerID);
 			
-	SDL_DetachThread(this->myReader);
-	SDL_DetachThread(this->mySender);
+	// Aca estaban los detach antes
 }
 
 

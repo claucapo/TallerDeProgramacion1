@@ -3,8 +3,26 @@
 
 #include "Entidad.h"
 #include "Posicion.h"
+#include "Enumerados.h"
 #include "Vision.h"
 #include <list>
+
+
+
+struct recursos_jugador_t {
+	unsigned int oro;
+	unsigned int madera;
+	unsigned int comida;
+	unsigned int piedra;
+
+	recursos_jugador_t() {
+		oro = 0;
+		madera = 0;
+		comida = 0;
+		piedra = 0;
+	}
+};
+
 
 
 /* La clase Jugador representa a cada uno
@@ -21,8 +39,8 @@ private:
 					// Con un int inclusive ya basta
 
 	Vision* vision;
-	int recurso;
 	bool esta_conectado;
+	recursos_jugador_t recursos;
 	
 	Jugador(void) {};
 
@@ -36,7 +54,6 @@ public:
 	int verID(void) {return this->id;}
 	string verColor(void) {return this->color;}
 	Vision* verVision(void) {return this->vision;}
-	int verRecurso(void) {return this->recurso;}
 
 	// Asigna al jugador una vision de tamaño fxc
 	void asignarVision(int filas, int columnas);
@@ -46,8 +63,9 @@ public:
 
 	estado_vision_t visionCasilla(Posicion pos);
 
-	// Recurso básico para probar
-	void modificarRecurso(int cant) {this->recurso += cant;}
+	// Recursos basicos en un mismo struct (hacer público y eliminar métodos (?))
+	void settearRecurso(resource_type_t tipoR, int cant);
+	recursos_jugador_t verRecurso(void) {return this->recursos;}
 
 	// Devuelve true si la Entidad recibida
 	// pertenece a este Jugador o false en

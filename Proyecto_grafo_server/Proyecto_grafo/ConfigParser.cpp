@@ -26,6 +26,7 @@
 	#define VIEW_RANGE_KEY "vision"
 	#define VELOCIDAD_KEY "velocidad"
 	#define SCORE_KEY "score"
+	#define TIPO_RECURSO_KEY "res"
 
 #define ESCENARIO_KEY "escenario"
 	#define COORD_X_KEY "x"
@@ -234,6 +235,8 @@ void operator >> (const YAML::Node& node, entidadInfo_t& eInfo) {
 	parsearEntero(node, VIEW_RANGE_KEY, &eInfo.vision, LOG_INFO, false);
 	parsearEntero(node, VELOCIDAD_KEY, &eInfo.velocidad, LOG_INFO, true);
 	parsearEntero(node, SCORE_KEY, &eInfo.score, LOG_INFO, false);
+
+	parsearEntero(node, TIPO_RECURSO_KEY, &eInfo.tipoR, LOG_ERROR, true);
 }
 
 // Carga una lista de struct entidadInfo_t para poder guardar en simultaneo

@@ -2,6 +2,7 @@
 #define MENSAJES_H
 
 enum entity_type_t;
+enum resource_type_t;
 
 // Separar para protocolo de updates y events??? Nah
 enum CodigoMensaje {
@@ -10,6 +11,7 @@ enum CodigoMensaje {
 	MSJ_QUIETO,
 	MSJ_MOVER,
 	MSJ_RECOLECTAR,
+	MSJ_RECURSO_JUGADOR,
 	MSJ_ELIMINAR,
 	MSJ_JUGADOR_LOGIN,
 	MSJ_JUGADOR_LOGOUT
@@ -33,14 +35,25 @@ struct msg_map {
 	int cantJugadores;
 };
 
+
+// struct que define los recursos
+struct msg_recursos {
+	unsigned int oro;
+	unsigned int madera;
+	unsigned int comida;
+	unsigned int piedra;
+};
+
 // La vision del jugador se ha de enviar por separado
+// Los recursos se pasan por un struc estático dentro de este propio struct
 struct msg_jugador {
 	char name[50];
 	char color[50];
 	unsigned int id;
-	int recursos;
+	msg_recursos recursos;
 	bool conectado;
 };
+
 
 struct msg_tipo_entidad {
 	char name[50];
@@ -50,6 +63,7 @@ struct msg_tipo_entidad {
 	int velocidad;
 	entity_type_t tipo;
 	int score;
+	resource_type_t tipoR;
 };
 
 struct msg_instancia {

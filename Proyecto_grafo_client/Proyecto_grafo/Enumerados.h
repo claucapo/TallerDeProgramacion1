@@ -9,7 +9,7 @@ enum Direcciones_t {DIR_RIGHT, DIR_TOP_RIGHT, DIR_TOP, DIR_TOP_LEFT, DIR_LEFT, D
 
 enum entity_type_t {ENT_T_NONE, ENT_T_UNIT, ENT_T_RESOURCE, ENT_T_BUILDING};
 enum af_result_t {AF_NONE, AF_MOVE, AF_KILL};
-
+enum resource_type_t {RES_T_NONE = -1, RES_T_GOLD = 0, RES_T_WOOD = 1, RES_T_FOOD = 2, RES_T_STONE = 3};
 
 // Estados
 enum Estados_t {EST_QUIETO, EST_CAMINANDO};

@@ -18,6 +18,7 @@ entidades:
   - nombre: "moneda"
     tipo: "resource"
     score: 1
+    res: 2
   - nombre: "champion"
     tipo: "unit"
     velocidad: 10
