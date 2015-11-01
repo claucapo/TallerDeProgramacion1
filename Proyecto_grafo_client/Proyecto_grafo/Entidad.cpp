@@ -22,6 +22,11 @@ Entidad::Entidad(Posicion* p) {
 	this->rangoVision = 4;
 	this->owner = nullptr;
 	this->tipo = ENT_T_NONE;
+
+	this->vidaAct = 34;
+	this->vidaMax = 40;
+	this->ataque = 0;
+	this->escudo = 0;
 }
 
 // El constructor por defecto inicializa la posición en nullptr
@@ -35,6 +40,11 @@ Entidad::Entidad(void) {
 	this->rangoVision = 4;
 	
 	this->owner = nullptr;
+
+	this->vidaAct = 34;
+	this->vidaMax = 40;
+	this->ataque = 0;
+	this->escudo = 0;
 }
 
 Entidad::Entidad(unsigned int id, string name, int tamX, int tamY, int vision) {
@@ -48,6 +58,11 @@ Entidad::Entidad(unsigned int id, string name, int tamX, int tamY, int vision) {
 	this->rangoVision = vision;
 
 	this->owner = nullptr;
+
+	this->vidaAct = 34;
+	this->vidaMax = 40;
+	this->ataque = 0;
+	this->escudo = 0;
 }
 
 // Llamo al destructor de todos los miembros de la clase (en caso de que alguno

@@ -9,10 +9,12 @@ Partida::Partida(void) {
 	this->jugadores = list<Jugador*>();
 	this->seleccionados = list<Posicion*>();
 	this->escenario = nullptr;
-	this->ent_seleccionada = nullptr;
+	this->ent_seleccionadas = list<Entidad*>();
 	Jugador* gaia = new Jugador("gaia", 0, "green");
 	gaia->settearConexion(true);
 	this->jugadores.push_front(gaia);
+	sx = 0; sy = 0; sx2 = 0; sy2 = 0;
+	algoSeleccionado = false;
 }
 
 Partida::~Partida(void) {
@@ -81,15 +83,15 @@ void Partida::procesarUpdate(msg_update msj) {
 			cout << "LLEGUE ACA" << endl;
 			destino = Posicion(msj.extra1, msj.extra2);
 			scene->moverEntidad(msj.idEntidad, &destino, false);
-			if(this->ent_seleccionada != nullptr)
-				this->seleccionarEntidad(this->ent_seleccionada);
+		//	if(!this->ent_seleccionadas.empty())
+		//		this->seleccionarEntidad(this->ent_seleccionadas.front(), false);
 			break;
 		case MSJ_MOVER:
 			// cout << accion << endl;
 			destino = Posicion(msj.extra1, msj.extra2);
 		//	Entidad* entMovida = this->verEntidadSeleccionada();
 			if(accion == MSJ_QUIETO){
-				scene->moverEntidad(msj.idEntidad, &destino, false);
+				scene->moverEntidad(msj.idEntidad, &destino, true);
 				// cout << "ESTADO QUIETO" << endl;
 			}
 			else{
@@ -97,14 +99,15 @@ void Partida::procesarUpdate(msg_update msj) {
 				// cout << "ESTADO MOVER" << endl;
 			
 			}
-			if(this->ent_seleccionada != nullptr)
-				this->seleccionarEntidad(this->ent_seleccionada);
+			if(this->ent_seleccionadas.size() == 1)
+				this->seleccionarEntidad(this->ent_seleccionadas.front(), true);
 			break;
 	}
 }
 
-void Partida::seleccionarEntidad(Entidad* ent){
-	this->deseleccionarEntidades();
+void Partida::seleccionarEntidad(Entidad* ent, bool emptyFirst){
+	if(emptyFirst)
+		this->deseleccionarEntidades();
 	int coordX = ent->verPosicion()->getRoundX();
 	int coordY = ent->verPosicion()->getRoundY();
 	for(int i = 0; i < ent->verTamX(); i++) {
@@ -115,7 +118,7 @@ void Partida::seleccionarEntidad(Entidad* ent){
 		}
 	}
 	// cout<< "seleccionado: " << ent->verNombre() << endl;
-	this->ent_seleccionada = ent;
+	this->ent_seleccionadas.push_back(ent);
 }
 
 
@@ -125,7 +128,8 @@ void Partida::deseleccionarEntidades(void){
 		this->seleccionados.pop_front();
 		delete pAct;
 		}
-	this->ent_seleccionada = nullptr;
+	while(!this->ent_seleccionadas.empty())
+		this->ent_seleccionadas.pop_front();
 }
 
 
@@ -134,5 +138,9 @@ list<Posicion*> Partida::verSeleccionados(void){
 }
 
 Entidad* Partida::verEntidadSeleccionada(void) {
-	return this->ent_seleccionada;
+	return ent_seleccionadas.front();
+}
+
+list<Entidad*> Partida::verListaEntidadesSeleccionadas(void){
+	return this->ent_seleccionadas;
 }

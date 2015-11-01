@@ -37,6 +37,8 @@ public:
 	string name;
 	entity_type_t tipo;
 
+	int vidaAct, vidaMax, ataque, escudo;
+
 	// Constructor y destructor por defecto
 	~Entidad(void);
 

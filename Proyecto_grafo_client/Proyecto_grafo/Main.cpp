@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <conio.h>
 #include <sstream>
+#include <set>
 
 #include <SDL.h>
 #include "Cliente.h"
@@ -34,6 +35,23 @@
 #define ARCHIVO_YAML "default.yaml"
 #define DEFAULT_PORT "27015"
 #define DEFAULT_IP "127.0.0.1"
+
+
+struct lex_compare {
+    bool operator() (const Posicion& p1, const Posicion& p2) {
+	if ( ((Posicion)(p1)).getX() == ((Posicion)(p2)).getX() )
+		return ((Posicion)(p1)).getY() < ((Posicion)(p2)).getY();
+    return ((Posicion)(p1)).getX() < ((Posicion)(p2)).getX();
+
+		return true;
+	
+	int dist1 = p1.getRoundX() + p1.getRoundY();
+	int dist2 = p2.getRoundX() + p2.getRoundY();
+	if (dist1 < dist2)
+		return true;
+	else
+		return false; }
+};
 
 SOCKET inicializarConexion(redInfo_t rInfo) {
 	WSADATA wsaData;
@@ -189,27 +207,126 @@ Partida* generarPartida(mapa_inicial data) {
 #define CODE_RESET -2
 #define CODE_EXIT -1
 
+
+#define TOL_SEL_MULT 9 // Si solo dibujo para la seleccion un
+// cuadradito de 9x9 no es seleccion multiple sino de una sola unidad
 void procesarSeleccion(Partida* game, GraficadorPantalla* gp, Jugador* player){
 	int mx, my;
 	SDL_GetMouseState(&mx, &my);
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
 	float pX = cu->obtenerCoordLogicaX(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
 	float pY = cu->obtenerCoordLogicaY(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
+	
+	if((game->sx == 0)&&(game->sy == 0)){
+		game->sx = mx;
+		game->sy = my;
+		game->sx2 = mx + TOL_SEL_MULT;
+		game->sy2 = my + TOL_SEL_MULT;
+	}
+
 	Posicion slct = Posicion(pX, pY);
 	game->deseleccionarEntidades();
 	if(game->escenario->verMapa()->posicionPertenece(&slct))
 		if(player->visionCasilla(slct) != VIS_NO_EXPLORADA)
 			if(!game->escenario->verMapa()->posicionEstaVacia(&slct))
-				game->seleccionarEntidad(game->escenario->verMapa()->verContenido(&slct));
+				game->seleccionarEntidad(game->escenario->verMapa()->verContenido(&slct), true);
+//	cout << "(x, y, x2, y2) = (" << game->sx << ","<< game->sy<< "," << game->sx2<< "," << game->sy2<< ")" <<endl;
+}
+
+void procesarSeleccionMultiple(Partida* game, GraficadorPantalla* gp, Jugador* player){
+	int dif1 = game->sx2-game->sx;
+	int dif2 = game->sy2-game->sy;
+	if((dif1>(-TOL_SEL_MULT))&&(dif1<TOL_SEL_MULT)&&(dif2<TOL_SEL_MULT)&&(dif2>(-TOL_SEL_MULT)))
+		return;
+
+	// Reacomodo las coordenadas del rectangulo
+	int ax1 = game->sx, ax2 = game->sx2;
+	int ay1 = game->sy, ay2 = game->sy2;
+
+	if((game->sx2 < game->sx) &&(game->sy2 < game->sy)){
+		ax2 = game->sx;
+		ay2 = game->sy;
+		ax1 = game->sx2;
+		ay1 = game->sy2;
+		}
+	else if(game->sx2 < game->sx){
+		ax2 = game->sx;
+		ax1 = game->sx2;
+		}
+	else if(game->sy2 < game->sy){
+		ay2 = game->sy;
+		ay1 = game->sy2;
+		}
+
+	int i, j;
+	game->deseleccionarEntidades();
+	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
+	set<Posicion, lex_compare> usados;
+	// Bucle mágico que itera dentro de cada casilla del rectangulo
+	for(i = ax1; i < ax2; i+= 26)
+		for(j = ay1; j < ay2; j+= 16){
+			float pX = cu->obtenerCoordLogicaX(i, j, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
+			float pY = cu->obtenerCoordLogicaY(i, j, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
 			
+			Posicion pAct = Posicion(pX, pY);
+		//	cout << "PxPY = " << pX << "," << pY << endl;
+			Posicion pAux = Posicion(pAct.getRoundX(), pAct.getRoundY());
+
+			if(game->escenario->verMapa()->posicionPertenece(&pAct))
+				if(player->visionCasilla(pAct) != VIS_NO_EXPLORADA)
+					if(!game->escenario->verMapa()->posicionEstaVacia(&pAct))
+						if(game->escenario->verMapa()->verContenido(&pAct)->verTipo() == ENT_T_UNIT)
+							if(player->poseeEntidad(game->escenario->verMapa()->verContenido(&pAct)))
+								if(usados.count(pAux) == 0){
+								game->seleccionarEntidad(game->escenario->verMapa()->verContenido(&pAct), false);
+								usados.insert(pAux);
+								}
+			}
+
+}
+
+
+Posicion adyacenteSiguiente(Posicion pos, int i, Escenario* scene){
+	Posicion nueva;
+	switch(i){
+		case 0:
+			nueva = Posicion(pos.getX() -1, pos.getY() +1);
+			break;
+		case 1:
+			nueva = Posicion(pos.getX() -1, pos.getY());
+			break;
+		case 2:
+			nueva = Posicion(pos.getX() -1, pos.getY() -1);
+			break;
+		case 3:
+			nueva = Posicion(pos.getX(), pos.getY() -1);
+			break;
+		case 4:
+			nueva = Posicion(pos.getX() +1, pos.getY() -1);
+			break;
+		case 5:
+			nueva = Posicion(pos.getX() +1, pos.getY());
+			break;
+		case 6:
+			nueva = Posicion(pos.getX() +1, pos.getY() +1);
+			break;
+		case 7:
+			nueva = Posicion(pos.getX() , pos.getY() +1);
+			break;
+		}
+
+	if(!scene->verMapa()->posicionPertenece(&nueva))
+		return pos;
+	else
+		return nueva;
 }
 
 void procesarMover(Partida* game, GraficadorPantalla* gp, Cliente* client) {
-	Entidad* ent = game->verEntidadSeleccionada();
-	if (ent == NULL)
+	list<Entidad*> lasEnt = game->verListaEntidadesSeleccionadas();
+	if (lasEnt.empty())
 		return;
 	
-	if (ent->verJugador()->verID() != client->playerID)
+	if (lasEnt.front()->verJugador()->verID() != client->playerID)
 		return;
 
 	// Obtengo la posición del click (quizás convertir en una función ya que se repite en varios lados...
@@ -220,33 +337,67 @@ void procesarMover(Partida* game, GraficadorPantalla* gp, Cliente* client) {
 	float pY = cu->obtenerCoordLogicaY(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
 	Posicion dest = Posicion(pX, pY);
 	
+	set<Posicion, lex_compare> destinos;
+	set<Posicion, lex_compare> ocupadas;
+
 	if (game->escenario->verMapa()->posicionPertenece(&dest)) 
 		if(game->escenario->verMapa()->posicionEstaVacia(&dest)){
-		cout << "Se generó un mover!!" << endl;
-		msg_event newEvent;
-		newEvent.idEntidad = game->verEntidadSeleccionada()->verID();
-		newEvent.accion = MSJ_MOVER;
-		newEvent.extra1 = dest.getRoundX() +0.5;
-		newEvent.extra2 = dest.getRoundY() +0.5;
-	//	newEvent.extra1 = dest.getRoundX() + 0.8;
-	//	newEvent.extra2 = dest.getRoundY() + 0.8;
+			for (list<Entidad*>::iterator it=lasEnt.begin(); it != lasEnt.end(); ++it){
+				msg_event newEvent;
+				newEvent.idEntidad = (*it)->verID();
+				newEvent.accion = MSJ_MOVER;
+				int i = 0;
+				dest = Posicion(pX, pY);
+				// Carga en dest una posicion cercana y disponible
+				// Revisar? Posible causa del lag misterioso?
+				while(destinos.count(dest)){
+					Posicion p = adyacenteSiguiente(dest, i, game->escenario);
+					if(ocupadas.count(p))
+						i++;
+					else if(!game->escenario->verMapa()->posicionEstaVacia(&p))
+						ocupadas.insert(p);
+					else
+						dest = p;
+					}
 
-		client->agregarEvento(newEvent);
+				destinos.insert(dest);
+				ocupadas.insert(dest);
+
+				newEvent.extra1 = dest.getRoundX() +0.5;
+				newEvent.extra2 = dest.getRoundY() +0.5;
+			//	newEvent.extra1 = dest.getRoundX() + 0.8;
+			//	newEvent.extra2 = dest.getRoundY() + 0.8;
+
+				client->agregarEvento(newEvent);
+			}
+		cout << "Se generó un mover!!" << endl;
+		
 	}
 }
-
 
 int procesarEvento(Partida* game, GraficadorPantalla* gp, SDL_Event evento, Cliente* client, Jugador* player){
 	switch (evento.type) {
 	case SDL_MOUSEBUTTONDOWN:	
 		if( evento.button.button == SDL_BUTTON_LEFT){
+			game->algoSeleccionado = true;
 			procesarSeleccion(game, gp, player);
 			return CODE_CONTINUE;
 			}
 		else if( evento.button.button == SDL_BUTTON_RIGHT){
 			procesarMover(game, gp, client);
+		//	game->deseleccionarEntidades();
 			return CODE_CONTINUE;
 			}
+
+	case SDL_MOUSEBUTTONUP:
+		procesarSeleccionMultiple(game, gp, player);
+		game->algoSeleccionado = false;
+		game->sx = 0;
+		game->sy = 0;
+		game->sx2 = 0;
+		game->sy2 = 0;
+		return CODE_CONTINUE;
+			
 	case SDL_QUIT:
 		// enviar a proposito msg de log out?
 

@@ -19,7 +19,7 @@ GraficadorPantalla::GraficadorPantalla(void): pantalla(NULL) {}
 
 GraficadorPantalla::~GraficadorPantalla(void){}
 
-#define VIEW_X_DEFAULT (ancho_borde - screen_width)/2
+#define VIEW_X_DEFAULT (ancho_borde - screen_width)*0.5
 #define VIEW_Y_DEFAULT 0
 #define VEL_ZERO_DEFAULT 19
 #define MARGEN_SCROLL_DEFAULT 66
@@ -158,18 +158,28 @@ void GraficadorPantalla::renderizarTerreno(void) {
 
 	SDL_FreeSurface(imgTileFog);
 
-	// Muestro las posiciones de la entidad seleccionada
+	// Muestro las posiciones de las entidades seleccionadas
 	//SDL_SetSurfaceColorMod(imgTile, 110 , 255 , 110 );
 	imgAux = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tileSlct");
 
 	list<Posicion*> selec = this->partida->verSeleccionados();
 	if(!selec.empty()){
-
-		for(list<Posicion*>::iterator it=selec.begin(); it != selec.end(); it++){
-			Posicion* pAct = (*it);
-			rectangulo.x = cu->obtenerCoordPantallaX(pAct->getRoundX(), pAct->getRoundY(), view_x, view_y, ancho_borde) - 26;
-			rectangulo.y = cu->obtenerCoordPantallaY(pAct->getRoundX(), pAct->getRoundY(), view_x, view_y, ancho_borde);
-			SDL_BlitSurface( imgAux, NULL, pantalla, &rectangulo );	
+		list<Entidad*> entSel = this->partida->verListaEntidadesSeleccionadas();
+		if(entSel.size() == 1){
+			for(list<Posicion*>::iterator it=selec.begin(); it != selec.end(); it++){
+				Posicion* pAct = (*it);
+				rectangulo.x = cu->obtenerCoordPantallaX(pAct->getRoundX(), pAct->getRoundY(), view_x, view_y, ancho_borde) - 26;
+				rectangulo.y = cu->obtenerCoordPantallaY(pAct->getRoundX(), pAct->getRoundY(), view_x, view_y, ancho_borde);
+				SDL_BlitSurface( imgAux, NULL, pantalla, &rectangulo );	
+			}
+		}
+		else{
+			for(list<Entidad*>::iterator it=entSel.begin(); it != entSel.end(); it++){
+				Posicion* pAct = (*it)->verPosicion();
+				rectangulo.x = cu->obtenerCoordPantallaX(pAct->getRoundX(), pAct->getRoundY(), view_x, view_y, ancho_borde) - 26;
+				rectangulo.y = cu->obtenerCoordPantallaY(pAct->getRoundX(), pAct->getRoundY(), view_x, view_y, ancho_borde);
+				SDL_BlitSurface( imgAux, NULL, pantalla, &rectangulo );	
+			}
 		}
 	}
 
@@ -234,20 +244,7 @@ void GraficadorPantalla::renderizarEntidades(void) {
 					spEnt = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(nameGris);
 					SDL_SetColorKey( spEnt, true, SDL_MapRGB(spEnt->format, 255, 0, 255) );
 				}
-		/*	Jugador* playerOwner = (*it)->verJugador();
-			if(playerOwner != nullptr){
-				string nombreEnt = (*it)->verNombre();
-				if(playerOwner->verID() == 2)
-					nombreEnt = nombreEnt + '2';
-				if(playerOwner->verID() == 3)
-					nombreEnt = nombreEnt + '3';
-				// La G final es de grisada
-				nombreEnt = nombreEnt + 'G';
-				DatosImagen* dataImg = BibliotecaDeImagenes::obtenerInstancia()->devolverDatosImagen(nombreEnt);
-				if(dataImg->path == "default.png"){ //La imagen no estaba en la biblioteca
-					}
-			}
-			*/
+		
 			SDL_BlitSurface( spEnt, &recOr, pantalla, &rectangulo );	
 		}		
 	}
@@ -282,29 +279,154 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 
 	list<Posicion*> selct = this->partida->verSeleccionados();
 	if(!selct.empty()){
-		SDL_Surface* texto;
-		Posicion* unaPos = selct.front();
-		Entidad* entSlct = partida->escenario->verMapa()->verContenido(unaPos);
-		if(entSlct != nullptr){
-		Jugador* playerOwner = entSlct->verJugador();
-		if(playerOwner->verID() != 0){// Si el jugador no es gaia
-			texto = this->renderText(playerOwner->verNombre());
-			rectangulo.x = 210;
-			rectangulo.y = 400;
+		SDL_Rect hb;
+		int vidaMax, vidaAct;
+		int newX, newY;
+		if(this->partida->verListaEntidadesSeleccionadas().size() == 1){
+			SDL_Surface* texto;
+			Posicion* unaPos = selct.front();
+			Entidad* entSlct = partida->escenario->verMapa()->verContenido(unaPos);
+			if(entSlct != nullptr){
+			Jugador* playerOwner = entSlct->verJugador();
+			if(playerOwner->verID() != 0){// Si el jugador no es gaia
+				texto = this->renderText(playerOwner->verNombre());
+				//rectangulo.x = 184 * screen_width/640;
+				rectangulo.x = 184 * screen_width*0.0015625;
+				//rectangulo.y = 429 * screen_height/480;
+				rectangulo.y = 429 * screen_height*0.00208333;
+				rectangulo.h = 18;
+				rectangulo.w = playerOwner->verNombre().length()* 14;
+				SDL_BlitScaled( texto, NULL, pantalla, &rectangulo );
+				SDL_FreeSurface(texto);
+			}
+			string laEnt;
+			string entName = partida->escenario->verMapa()->verContenido(unaPos)->verNombre();
+			laEnt = entName;
+			entName[0] = toupper(entName[0]);
+			texto = this->renderText(entName);
+		//	rectangulo.x = 184 * screen_width/640;
+			rectangulo.x = 184 * screen_width*0.0015625;
+		//	rectangulo.y = 454 * screen_height/480;
+			rectangulo.y = 454 * screen_height*0.00208333;
 			rectangulo.h = 18;
-			rectangulo.w = playerOwner->verNombre().length()* 14;
+			rectangulo.w = entName.length()* 14;
 			SDL_BlitScaled( texto, NULL, pantalla, &rectangulo );
 			SDL_FreeSurface(texto);
-		}
-		string entName = partida->escenario->verMapa()->verContenido(unaPos)->verNombre();
-		entName[0] = toupper(entName[0]);
-		texto = this->renderText(entName);
-		rectangulo.x = 210;
-		rectangulo.y = 440;
-		rectangulo.h = 18;
-		rectangulo.w = entName.length()* 14;
-		SDL_BlitScaled( texto, NULL, pantalla, &rectangulo );
-		SDL_FreeSurface(texto);
+			// Iconos
+		//	rectangulo.x = 190 * screen_width/640;
+			rectangulo.x = 190 * screen_width*0.0015625;
+		//	rectangulo.y = 380 * screen_height/480;
+			rectangulo.y = 380 * screen_height*0.00208333;
+			SDL_Surface* icono = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(laEnt +"_icon");
+			SDL_BlitSurface(icono, NULL, pantalla, &rectangulo);
+
+		//	SDL_Surface* icono = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(laEnt +"_icon");
+		//	SDL_BlitSurface(icono, NULL, pantalla, &rectangulo);
+			
+			// Health bar
+			entity_type_t tipo = partida->escenario->verMapa()->verContenido(unaPos)->verTipo();
+			if((tipo == ENT_T_BUILDING)||(tipo == ENT_T_UNIT)){
+				SDL_Rect hb;
+			//	hb.x = 190 * screen_width/640;
+				hb.x = 190 * screen_width*0.0015625;
+			//	hb.y = 415 * screen_height/480;
+				hb.y = 415 * screen_height*0.00208333;
+				hb.h = 4;
+				vidaMax = partida->escenario->verMapa()->verContenido(unaPos)->vidaMax;
+				vidaAct = partida->escenario->verMapa()->verContenido(unaPos)->vidaAct;
+				hb.w = vidaAct*36/vidaMax;
+		
+				SDL_FillRect(this->pantalla, &hb, SDL_MapRGB(this->pantalla->format, 16, 245, 4));
+				
+				hb.x += hb.w;
+				hb.w = 36 - hb.w;
+				
+				SDL_FillRect(this->pantalla, &hb, SDL_MapRGB(this->pantalla->format, 251, 0, 0));
+
+			/*	rectangulo.x += 50;
+				string hp = "HP: ";
+				ostringstream life;
+				life << vidaAct;
+				hp += life.str();
+				hp += "/";
+				life << vidaMax;
+				hp += life.str();
+				texto = this->renderText(hp);
+				rectangulo.h = 18;
+				rectangulo.w = entName.length()* 14;
+				SDL_BlitScaled( texto, NULL, pantalla, &rectangulo );
+				SDL_FreeSurface(texto);*/
+
+				// Encima del personaje:
+				ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
+				newX = (int) cu->obtenerCoordPantallaX(unaPos->getX(), unaPos->getY(), view_x, view_y, ancho_borde);
+				newY = (int) cu->obtenerCoordPantallaY(unaPos->getX(), unaPos->getY(), view_x, view_y, ancho_borde);
+				hb.x = newX - 10;
+				hb.y = newY - 40;
+				hb.h = 2;
+				hb.w = vidaAct*20/vidaMax;
+				SDL_FillRect(this->pantalla, &hb, SDL_MapRGB(this->pantalla->format, 16, 245, 4));
+				hb.x += hb.w;	
+				hb.w = 19 - hb.w;
+				SDL_FillRect(this->pantalla, &hb, SDL_MapRGB(this->pantalla->format, 251, 0, 0));
+					
+				}
+			}
+		} // Si hay mas de una entidad seleccionada
+		else{
+			list<Entidad*> lEnt = this->partida->verListaEntidadesSeleccionadas();
+			int row = 0, col = 0;
+
+			for (list<Entidad*>::iterator it=lEnt.begin(); it != lEnt.end(); ++it){
+			// Icon
+			//	rectangulo.x = 177 * screen_width/640 + col*28;
+				rectangulo.x = 177 * screen_width*0.0015625 + col*28;
+			//	rectangulo.y = 375 * screen_height/480 + row*28;
+				rectangulo.y = 375 * screen_height*0.00208333 + row*28;
+				rectangulo.w = 28;
+				rectangulo.h = 28;
+				SDL_Surface* icono = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen((*it)->verNombre() +"_icon");
+				SDL_BlitScaled(icono, NULL, pantalla, &rectangulo);
+				// Health bar
+				entity_type_t tipo = (*it)->verTipo();
+				if((tipo == ENT_T_BUILDING)||(tipo == ENT_T_UNIT)){
+				SDL_Rect hb;
+			//	rectangulo.x = 177 * screen_width/640 + col*28;
+				hb.x = 177 * screen_width*0.0015625 + col*28;
+			//	rectangulo.y = 372 * screen_height/480 + (row+1)*28;
+				hb.y = 372 * screen_height*0.00208333 + (row+1)*28;
+					hb.h = 4;
+					vidaMax = (*it)->vidaMax;
+					vidaAct = (*it)->vidaAct;
+					hb.w = vidaAct*28/vidaMax;
+		
+					SDL_FillRect(this->pantalla, &hb, SDL_MapRGB(this->pantalla->format, 16, 245, 4));
+				
+					hb.x += hb.w;
+					hb.w = 28 - hb.w;
+				
+					SDL_FillRect(this->pantalla, &hb, SDL_MapRGB(this->pantalla->format, 251, 0, 0));
+
+					// Encima del personaje:
+					ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
+					newX = (int) cu->obtenerCoordPantallaX((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY(), view_x, view_y, ancho_borde);
+					newY = (int) cu->obtenerCoordPantallaY((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY(), view_x, view_y, ancho_borde);
+					hb.x = newX - 10;
+					hb.y = newY - 40;
+					hb.h = 2;
+					hb.w = vidaAct*20/vidaMax;
+					SDL_FillRect(this->pantalla, &hb, SDL_MapRGB(this->pantalla->format, 16, 245, 4));
+					hb.x += hb.w;	
+					hb.w = 19 - hb.w;
+					SDL_FillRect(this->pantalla, &hb, SDL_MapRGB(this->pantalla->format, 251, 0, 0));
+					
+					}
+				col++;
+				if(col > 7){
+					col = 0;
+					row++;
+					}
+			}
 		}
 
 	}
@@ -357,6 +479,65 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
 	SDL_FreeSurface(surfRes);
 	
+
+	// Rectangulo de selecion
+	if(partida->algoSeleccionado){
+
+		int mx, my;
+		SDL_GetMouseState(&mx, &my);
+		partida->sx2 = mx;
+		partida->sy2 = my;
+
+		int ax1 = partida->sx, ax2 = mx;
+		int ay1 = partida->sy, ay2 = my;
+
+		if((mx < partida->sx) &&(my < partida->sy)){
+			ax2 = partida->sx;
+			ay2 = partida->sy;
+			ax1 = mx;
+			ay1 = my;
+			}
+		else if(mx < partida->sx){
+			ax2 = partida->sx;
+			ax1 = mx;
+			}
+		else if(my < partida->sy){
+			ay2 = partida->sy;
+			ay1 = my;
+			}
+
+		SDL_Rect pixel;
+		pixel.h = 1;
+		pixel.w = 1;
+		int i, j;
+
+		pixel.x = ax1;
+		pixel.y = ay1;
+
+		while(pixel.x <= ax2){
+			SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 255, 255, 164));
+			pixel.x += 1;
+		}
+
+		while(pixel.y <= ay2){
+			SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 255, 255, 164));
+			pixel.y += 1;
+		}
+
+		pixel.x = ax1;
+		pixel.y = ay1;
+
+		while(pixel.y <= ay2){
+			SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 255, 255, 164));
+			pixel.y += 1;
+		}
+
+		while(pixel.x <= ax2){
+			SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 255, 255, 164));
+			pixel.x += 1;
+		}
+	}
+
 }
 
 //	PASO 6: dibujar el minimapa

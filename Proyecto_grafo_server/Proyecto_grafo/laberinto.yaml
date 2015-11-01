@@ -20,16 +20,24 @@ entidades:
     score: 1
   - nombre: "champion"
     tipo: "unit"
+    velocidad: 9
+    vision: 6
+  - nombre: "pikeman"
+    tipo: "unit"
     velocidad: 10
-    vision: 10
+    vision: 5
+  - nombre: "ram"
+    tipo: "unit"
+    velocidad: 3
+    vision: 3
+  - nombre: "knight"
+    tipo: "unit"
+    velocidad: 17
+    vision: 7
   - nombre: "castle"
     tipo: "building"
     sizeX: 6
     sizeY: 6
-  - nombre: "knight"
-    tipo: "unit"
-    velocidad: 20
-    vision: 5
   - nombre: "house"
     tipo: "building"
     sizeX: 3
@@ -92,8 +100,15 @@ escenario:
    - {x: 9, y: 18, tipo: "barracks", p: 1}
    - {x: 38, y: 35, tipo: "champion", p: 2}
    - {x: 37, y: 36, tipo: "knight", p: 1}
-   - {x: 33, y: 28, tipo: "champion", p: 1}
-   - {x: 32, y: 28, tipo: "champion", p: 1}
-   - {x: 31, y: 27, tipo: "champion", p: 1}
+   - {x: 33, y: 28, tipo: "pikeman", p: 1}
+   - {x: 33, y: 26, tipo: "pikeman", p: 1}
+   - {x: 34, y: 26, tipo: "pikeman", p: 1}
+   - {x: 35, y: 26, tipo: "pikeman", p: 1}
+   - {x: 34, y: 25, tipo: "pikeman", p: 1}
+   - {x: 35, y: 25, tipo: "pikeman", p: 1}
+   - {x: 37, y: 25, tipo: "champion", p: 1}
+   - {x: 37, y: 27, tipo: "champion", p: 1}
+   - {x: 37, y: 26, tipo: "champion", p: 1}
+   - {x: 31, y: 27, tipo: "ram", p: 1}
    - {x: 33, y: 27, tipo: "champion", p: 1}
    - {x: 34, y: 30, tipo: "champion", p: 3}

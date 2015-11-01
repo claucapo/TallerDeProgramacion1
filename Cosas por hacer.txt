@@ -1,0 +1,34 @@
+
+	- Revisar el lag en el movimiento con selección múltiple
+	- Hacer que desde el YAML:
+		- se pueda definir vida, escudo y ataque de una entidad
+		- se puedan agregar a los edificios las unidades que cada uno crea
+		- las entidades tengan un tiempo de construccion
+
+		- Hay que poder enviar todos esos datos por red al iniciar!
+
+	- Hacer que las unidades puedan atacar a otras
+		- y que se puedan morir
+	- Cambiar los recursos: que c/u tenga una "cantidad recolectable"
+	- Definir el comportamiento del aldeano:
+		- es el único que puede recolectar recursos
+		- es el único que puede construir edificios
+
+	- Hacer que los edificios puedan efectivamente crear las unidades
+		- y que las unidades cuesten recursos
+		- Modelar la población ??
+
+	- Inventar la <<condición de victoria>>:
+		- matar al rey
+		- destruir el centro urbano
+		- capurar la bandera (wtf?)
+		- Un mapa distinto para cada uno y a la mierda ?
+
+
+	- Inventar las unidades de ataque a distancia!
+
+	- Cambiar las opciones de log in y log out de jugadores
+
+
+	- Poner todo en una pantalla linda al principio
+	

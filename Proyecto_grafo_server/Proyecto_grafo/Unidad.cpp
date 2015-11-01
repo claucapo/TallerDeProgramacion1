@@ -101,7 +101,8 @@ af_result_t Unidad::avanzarFrame(Escenario* scene) {
 	if ((!camino.empty()) && (state == EST_CAMINANDO)) {
 		Posicion* act = this->pos;
 		Posicion* dest = this->camino.front();
-		
+
+
 		// Distantcias
 		float distX = dest->getX() - act->getX() ;
 		float distY = dest->getY() - act->getY() ;
@@ -159,12 +160,14 @@ af_result_t Unidad::avanzarFrame(Escenario* scene) {
 						aux = Posicion(aux.getX() +0.35, aux.getY() +0.1);
 						while(aux == nuevaPos);
 					}
-			/*		
-					else{
-							RECALCULAR A* ???
-						while(!camino.empty())
-							this->camino.pop_front();
-						this->setEstado(EST_QUIETO);
+					
+				/*	else{
+						
+				//		while(!camino.empty())
+				//			this->camino.pop_front();
+				//		this->setEstado(EST_QUIETO);
+						
+						scene->asignarDestino(this->id, *camino.back());
 						aux= Posicion(act->getRoundX()+0.44,act->getRoundY()+0.44);
 						}*/
 					
@@ -188,7 +191,9 @@ af_result_t Unidad::avanzarFrame(Escenario* scene) {
 			}
 
  		}
+		
  		return AF_MOVE;
+
  	}
 	return AF_NONE;
  }

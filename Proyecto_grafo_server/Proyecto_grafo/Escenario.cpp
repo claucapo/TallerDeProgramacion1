@@ -42,6 +42,7 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 	list<msg_update*> updates = list<msg_update*>();
 	// Avanzo el frame en cada edificio (por ahora no hace nada)
 	list<Entidad*> toRmv = list<Entidad*>();
+	list<Entidad*> uniAux = list<Entidad*>();
 	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
 		Posicion* posAux = new Posicion((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY());
 		af_result_t res = (*it)->avanzarFrame(this);
@@ -80,7 +81,9 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 			break;
 		case AF_NONE:
 			delete posAux;
-			this->mapa->ocuparPosicionSinChequeo((*it)->verPosicion(), (*it));
+		//	this->mapa->ocuparPosicionSinChequeo((*it)->verPosicion(), (*it));
+			if((*it)->tipo == ENT_T_UNIT)
+				uniAux.push_back(*it);
 			break;
 		default:
 			delete posAux;
@@ -90,12 +93,21 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 		}
 		(*it)->verJugador()->agregarPosiciones(this->verMapa()->posicionesVistas(*it));
 	}
+
+	while(!uniAux.empty()) {
+		Entidad* uniAct = uniAux.front();
+		uniAux.pop_front();
+		this->mapa->ocuparPosicionSinChequeo(uniAct->verPosicion(), uniAct);
+	}
+
 	while(!toRmv.empty()) {
 		Entidad* ent = toRmv.front();
 		toRmv.pop_front();
 		this->quitarEntidad(ent);
 		delete ent;
 	}
+
+
 
 	return updates;
 }

@@ -65,6 +65,9 @@ public:
 
 	// Devuelve la lista de posiciones que caen dentro del rango de vision de una entidad
 	list<Posicion> posicionesVistas(Entidad* elemento);
+
+	void vaciarPosicionSinChequeo(Posicion* pos);
+	void ocuparPosicionSinChequeo(Posicion* pos, Entidad* ent);
 };
 
 

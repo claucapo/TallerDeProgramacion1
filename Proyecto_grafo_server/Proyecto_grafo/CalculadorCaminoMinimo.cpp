@@ -147,13 +147,13 @@ list<Posicion*> CalculadorCaminoMinimo::calcularCaminoMinimo( int xAct, int yAct
                 {
 					listaAbierta[xdx][ydy] = m0->obtenerPrioridad();
                     pN[pNi].push(*m0);
-                    listaDirecciones[xdx][ydy] = (i+8/2)%8;
+                    listaDirecciones[xdx][ydy] = (i+4)%8;
                 }
                 else if(listaAbierta[xdx][ydy] > m0->obtenerPrioridad())
                 {
 
                     listaAbierta[xdx][ydy] = m0->obtenerPrioridad();
-                    listaDirecciones[xdx][ydy] = (i+8/2)%8;
+                    listaDirecciones[xdx][ydy] = (i+4)%8;
 
                     while(!(pN[pNi].top().obtenerPosX() == xdx && pN[pNi].top().obtenerPosY() == ydy))
                     {                

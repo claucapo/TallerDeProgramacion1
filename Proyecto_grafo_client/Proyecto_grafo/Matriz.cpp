@@ -193,3 +193,12 @@ list<Posicion> Matriz::posicionesVistas(Entidad* elemento) {
 	}
 	return posEnRango;
 }
+
+
+void Matriz::vaciarPosicionSinChequeo(Posicion* pos) {
+	this->casillas[pos->getRoundX()][pos->getRoundY()] = nullptr;
+}
+
+void Matriz::ocuparPosicionSinChequeo(Posicion* pos, Entidad* ent) {
+	this->casillas[pos->getRoundX()][pos->getRoundY()] = ent;
+}

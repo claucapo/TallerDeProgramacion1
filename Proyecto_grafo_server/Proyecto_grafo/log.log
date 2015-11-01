@@ -1,0 +1,20 @@
+[01/11/2015 01:39:42] - [ERROR] - yaml-cpp: error at line 18, column 5: key not found: res
+[01/11/2015 01:39:42] - [ERROR] - yaml-cpp: error at line 21, column 5: key not found: res
+[01/11/2015 01:39:42] - [ERROR] - yaml-cpp: error at line 25, column 5: key not found: res
+[01/11/2015 01:39:42] - [ERROR] - yaml-cpp: error at line 29, column 5: key not found: res
+[01/11/2015 01:39:42] - [ERROR] - yaml-cpp: error at line 33, column 5: key not found: res
+[01/11/2015 01:39:42] - [ERROR] - yaml-cpp: error at line 37, column 5: key not found: res
+[01/11/2015 01:39:42] - [ERROR] - yaml-cpp: error at line 41, column 5: key not found: res
+[01/11/2015 01:39:42] - [ERROR] - yaml-cpp: error at line 45, column 5: key not found: res
+[01/11/2015 01:39:42] - [ERROR] - yaml-cpp: error at line 49, column 5: key not found: res
+[01/11/2015 01:39:42] - [ERROR] - yaml-cpp: error at line 53, column 5: key not found: res
+[01/11/2015 01:39:42] - [ERROR] - yaml-cpp: error at line 57, column 5: key not found: res
+[01/11/2015 01:39:42] - [ERROR] - yaml-cpp: error at line 61, column 5: key not found: res
+[01/11/2015 01:39:43] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[01/11/2015 01:39:43] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[01/11/2015 01:39:43] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[01/11/2015 01:39:43] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[01/11/2015 01:39:43] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[01/11/2015 01:39:43] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[01/11/2015 01:39:43] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[01/11/2015 01:39:43] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.

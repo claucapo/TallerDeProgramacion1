@@ -26,6 +26,32 @@ tipo:
     ruta: "screenFrame.png"
   - nombre: "font"
     ruta: "font.png"
+  - nombre: "champion_icon"
+    ruta: "champion_icon.png"
+  - nombre: "knight_icon"
+    ruta: "knight_icon.png"
+  - nombre: "pikeman_icon"
+    ruta: "pikeman_icon.png"
+  - nombre: "ram_icon"
+    ruta: "ram_icon.png"
+  - nombre: "castle_icon"
+    ruta: "castle_icon.png"
+  - nombre: "archery_icon"
+    ruta: "archery_icon.png"
+  - nombre: "barracks_icon"
+    ruta: "barracks_icon.png"
+  - nombre: "stable_icon"
+    ruta: "stable_icon.png"
+  - nombre: "windmill_icon"
+    ruta: "windmill_icon.png"
+  - nombre: "house_icon"
+    ruta: "house_icon.png"
+  - nombre: "attack_icon"
+    ruta: "attack_icon.png"
+  - nombre: "range_icon"
+    ruta: "range_icon.png"
+  - nombre: "armor_icon"
+    ruta: "armor_icon.png"
   - nombre: "champion"
     ruta: "championAOE.png"
     subX: 10
@@ -67,7 +93,7 @@ tipo:
     pixelX: 76
     pixelY: 42
   - nombre: "tile"
-    ruta: "tile.png"
+    ruta: "tileG.png"
     pixelX: 26
     pixelY: 0
   - nombre: "tileSlct"
@@ -295,3 +321,115 @@ tipo:
     ruta: "GstableAOE.png"
     pixelX: 102
     pixelY: 15
+  - nombre: "ram"
+    ruta: "ramAOE.png"
+    pixelX: 36
+    pixelY: 47
+    subX: 1
+    subY: 8
+  - nombre: "ram2"
+    ruta: "ramAOEp2.png"
+    pixelX: 36
+    pixelY: 47
+    subX: 1
+    subY: 8
+  - nombre: "ram3"
+    ruta: "ramAOEp3.png"
+    pixelX: 36
+    pixelY: 47
+    subX: 1
+    subY: 8
+  - nombre: "Gram"
+    ruta: "GramAOE.png"
+    pixelX: 36
+    pixelY: 47
+    subX: 1
+    subY: 8
+  - nombre: "ram_move"
+    ruta: "ram_moveAOE.png"
+    pixelX: 36
+    pixelY: 51
+    subX: 15
+    subY: 8
+    fps: 6
+  - nombre: "ram_move2"
+    ruta: "ram_moveAOEp2.png"
+    pixelX: 36
+    pixelY: 51
+    subX: 15
+    subY: 8
+    fps: 6
+  - nombre: "ram_move3"
+    ruta: "ram_moveAOEp3.png"
+    pixelX: 36
+    pixelY: 51
+    subX: 15
+    subY: 8
+    fps: 6
+  - nombre: "Gram_move"
+    ruta: "Gram_moveAOE.png"
+    pixelX: 36
+    pixelY: 51
+    subX: 15
+    subY: 8
+    fps: 6
+  - nombre: "pikeman"
+    ruta: "pikemanAOE.png"
+    pixelX: 30
+    pixelY: 42
+    subX: 8
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "pikeman2"
+    ruta: "pikemanAOEp2.png"
+    pixelX: 30
+    pixelY: 42
+    subX: 8
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "pikeman3"
+    ruta: "pikemanAOEp3.png"
+    pixelX: 30
+    pixelY: 42
+    subX: 8
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "Gpikeman"
+    ruta: "GpikemanAOE.png"
+    pixelX: 30
+    pixelY: 42
+    subX: 8
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "pikeman_move"
+    ruta: "pikeman_moveAOE.png"
+    pixelX: 24
+    pixelY: 41
+    subX: 10
+    subY: 8
+    fps: 7
+  - nombre: "pikeman_move2"
+    ruta: "pikeman_moveAOEp2.png"
+    pixelX: 24
+    pixelY: 41
+    subX: 10
+    subY: 8
+    fps: 7
+  - nombre: "pikeman_move3"
+    ruta: "pikeman_moveAOEp3.png"
+    pixelX: 24
+    pixelY: 41
+    subX: 10
+    subY: 8
+    fps: 7
+  - nombre: "Gpikeman_move"
+    ruta: "Gpikeman_moveAOE.png"
+    pixelX: 24
+    pixelY: 41
+    subX: 10
+    subY: 8
+    fps: 7

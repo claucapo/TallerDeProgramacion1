@@ -12,7 +12,9 @@ struct Partida {
 	list<Jugador*> jugadores;
 	Escenario* escenario;
 	list<Posicion*> seleccionados;
-	Entidad* ent_seleccionada;
+	list<Entidad*> ent_seleccionadas;
+	int sx, sy, sx2, sy2;
+	bool algoSeleccionado;
 
 	// Constructor y destructor por defecto
 	Partida(void);
@@ -30,9 +32,10 @@ struct Partida {
 	// en un frame. Básicamente, llama a la
 	// misma función del Escenario.
 	void avanzarFrame(void);
-	void seleccionarEntidad(Entidad* ent);
+	void seleccionarEntidad(Entidad* ent, bool emptyFirst);
 	void deseleccionarEntidades(void);
 	list<Posicion*> verSeleccionados(void);
 	Entidad* verEntidadSeleccionada(void);
+	list<Entidad*> verListaEntidadesSeleccionadas(void);
 };
 
