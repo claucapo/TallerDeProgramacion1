@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Archivos de código fuente">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Archivos de encabezado">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Archivos de recursos">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Archivos de código fuente\Archivos">
+      <UniqueIdentifier>{29c6294a-52a0-4507-a9bb-d2ab90c29972}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\Entidades">
+      <UniqueIdentifier>{fa2745f2-c871-4469-b44a-594f9aa751f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\Escenario">
+      <UniqueIdentifier>{4b4fb357-f1d4-4645-8c6d-3baf1ccfee44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\Partida">
+      <UniqueIdentifier>{884c3b4e-fd89-40d2-94ca-2944db31f3f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\Red">
+      <UniqueIdentifier>{775c972b-01ea-4c62-9f3f-c2815f76f690}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\SDL">
+      <UniqueIdentifier>{73426344-968d-4be9-af72-566e659efbdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\Utilidades">
+      <UniqueIdentifier>{a7a5aeed-1516-4d59-9b00-2a52d19e4d9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Utilidades">
+      <UniqueIdentifier>{761db314-cb21-42b2-ae8a-d8b2eacbf01e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\SDL">
+      <UniqueIdentifier>{b6fba4fe-12dc-4f9c-985a-4570c3baad3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Red">
+      <UniqueIdentifier>{18c0d177-6c80-416f-9732-55cfe53230e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Partida">
+      <UniqueIdentifier>{12ceb7af-e2fe-40e4-a62a-6c0d4301f740}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Entidades">
+      <UniqueIdentifier>{332c91ca-0181-407e-8999-c177e0bb2577}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Escenario">
+      <UniqueIdentifier>{09e592f9-27da-49c6-83f4-d98ef8c7f982}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Archivos">
+      <UniqueIdentifier>{1b980d8d-27a4-42ca-b41c-439db1a6f349}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\Archivo.h">
+      <Filter>Archivos de encabezado\Archivos</Filter>
+    </ClInclude>
+    <ClInclude Include="source\BibliotecaDeImagenes.h">
+      <Filter>Archivos de encabezado\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Matriz.h">
+      <Filter>Archivos de encabezado\Escenario</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Posicion.h">
+      <Filter>Archivos de encabezado\Escenario</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Escenario.h">
+      <Filter>Archivos de encabezado\Escenario</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Cliente.h">
+      <Filter>Archivos de encabezado\Red</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ConfigParser.h">
+      <Filter>Archivos de encabezado\Archivos</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ConversorUnidades.h">
+      <Filter>Archivos de encabezado\Utilidades</Filter>
+    </ClInclude>
+    <ClInclude Include="source\DatosImagen.h">
+      <Filter>Archivos de encabezado\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Entidad.h">
+      <Filter>Archivos de encabezado\Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Enumerados.h">
+      <Filter>Archivos de encabezado\Utilidades</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ErrorLog.h">
+      <Filter>Archivos de encabezado\Archivos</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Jugador.h">
+      <Filter>Archivos de encabezado\Partida</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Partida.h">
+      <Filter>Archivos de encabezado\Partida</Filter>
+    </ClInclude>
+    <ClInclude Include="source\GraficadorPantalla.h">
+      <Filter>Archivos de encabezado\Utilidades</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Protocolo.h">
+      <Filter>Archivos de encabezado\Red</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Vision.h">
+      <Filter>Archivos de encabezado\Partida</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Unidad.h">
+      <Filter>Archivos de encabezado\Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Recurso.h">
+      <Filter>Archivos de encabezado\Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="source\FactoryEntidades.h">
+      <Filter>Archivos de encabezado\Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Spritesheet.h">
+      <Filter>Archivos de encabezado\SDL</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\Main.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Archivo.cpp">
+      <Filter>Archivos de código fuente\Archivos</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ConfigParser.cpp">
+      <Filter>Archivos de código fuente\Archivos</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ErrorLog.cpp">
+      <Filter>Archivos de código fuente\Archivos</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Entidad.cpp">
+      <Filter>Archivos de código fuente\Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Unidad.cpp">
+      <Filter>Archivos de código fuente\Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Recurso.cpp">
+      <Filter>Archivos de código fuente\Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Posicion.cpp">
+      <Filter>Archivos de código fuente\Escenario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Escenario.cpp">
+      <Filter>Archivos de código fuente\Escenario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Matriz.cpp">
+      <Filter>Archivos de código fuente\Escenario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Jugador.cpp">
+      <Filter>Archivos de código fuente\Partida</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Vision.cpp">
+      <Filter>Archivos de código fuente\Partida</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Partida.cpp">
+      <Filter>Archivos de código fuente\Partida</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Cliente.cpp">
+      <Filter>Archivos de código fuente\Red</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SocketAux.cpp">
+      <Filter>Archivos de código fuente\Red</Filter>
+    </ClCompile>
+    <ClCompile Include="source\BibliotecaDeImagenes.cpp">
+      <Filter>Archivos de código fuente\SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="source\DatosImagen.cpp">
+      <Filter>Archivos de código fuente\SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Spritesheet.cpp">
+      <Filter>Archivos de código fuente\SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="source\FactoryEntidades.cpp">
+      <Filter>Archivos de código fuente\Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ConversorUnidades.cpp">
+      <Filter>Archivos de código fuente\Utilidades</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GraficadorPantalla.cpp">
+      <Filter>Archivos de código fuente\Utilidades</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

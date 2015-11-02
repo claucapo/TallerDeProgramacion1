@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Archivos de código fuente">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Archivos de encabezado">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Archivos de recursos">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Archivos de código fuente\Utilidades">
+      <UniqueIdentifier>{44efc3d3-c376-492f-b5ed-664938075cb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\Red">
+      <UniqueIdentifier>{ca4169b9-3dc0-42bc-b095-1db2e9874478}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\Partida">
+      <UniqueIdentifier>{bab97039-152a-4426-9f24-ca96647fdd19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\Escenario">
+      <UniqueIdentifier>{52cf1017-c425-4bdc-a60a-9b7d111befda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\Entidades">
+      <UniqueIdentifier>{c91b9c31-09d9-4e0e-82c5-d3723d4f9169}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\Archivos">
+      <UniqueIdentifier>{94e3cf00-c7cf-46c4-8aa4-d92ffa95b93c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Archivos">
+      <UniqueIdentifier>{e4339e39-b960-4e5e-9b01-c98d1f6cae79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Entidades">
+      <UniqueIdentifier>{a78b3d76-18a8-4e2d-bda0-4919e4537560}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Escenario">
+      <UniqueIdentifier>{25c0d777-9174-484a-a24b-b957810b1953}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Utilidades">
+      <UniqueIdentifier>{f82cdab9-8932-454c-9c6a-13a87244b65f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Red">
+      <UniqueIdentifier>{a0780d46-dfee-4931-b6ea-5c3e04f352c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Partida">
+      <UniqueIdentifier>{3582d4d7-74d0-4e71-9a5d-53e52d88238a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\Archivo.h">
+      <Filter>Archivos de encabezado\Archivos</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CalculadorCaminoMinimo.h">
+      <Filter>Archivos de encabezado\Escenario</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ConexionCliente.h">
+      <Filter>Archivos de encabezado\Red</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ConfigParser.h">
+      <Filter>Archivos de encabezado\Archivos</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ConversorUnidades.h">
+      <Filter>Archivos de encabezado\Utilidades</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Entidad.h">
+      <Filter>Archivos de encabezado\Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Enumerados.h">
+      <Filter>Archivos de encabezado\Utilidades</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ErrorLog.h">
+      <Filter>Archivos de encabezado\Archivos</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Escenario.h">
+      <Filter>Archivos de encabezado\Escenario</Filter>
+    </ClInclude>
+    <ClInclude Include="source\FactoryEntidades.h">
+      <Filter>Archivos de encabezado\Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Jugador.h">
+      <Filter>Archivos de encabezado\Partida</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Matriz.h">
+      <Filter>Archivos de encabezado\Escenario</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Nodo.h">
+      <Filter>Archivos de encabezado\Escenario</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Partida.h">
+      <Filter>Archivos de encabezado\Partida</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Posicion.h">
+      <Filter>Archivos de encabezado\Escenario</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Protocolo.h">
+      <Filter>Archivos de encabezado\Red</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Recurso.h">
+      <Filter>Archivos de encabezado\Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Servidor.h">
+      <Filter>Archivos de encabezado\Red</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Unidad.h">
+      <Filter>Archivos de encabezado\Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Vision.h">
+      <Filter>Archivos de encabezado\Partida</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\Main.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Archivo.cpp">
+      <Filter>Archivos de código fuente\Archivos</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ConexionCliente.cpp">
+      <Filter>Archivos de código fuente\Red</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ConfigParser.cpp">
+      <Filter>Archivos de código fuente\Archivos</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ConversorUnidades.cpp">
+      <Filter>Archivos de código fuente\Utilidades</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Entidad.cpp">
+      <Filter>Archivos de código fuente\Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ErrorLog.cpp">
+      <Filter>Archivos de código fuente\Archivos</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Escenario.cpp">
+      <Filter>Archivos de código fuente\Escenario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CalculadorCaminoMinimo.cpp">
+      <Filter>Archivos de código fuente\Escenario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\FactoryEntidades.cpp">
+      <Filter>Archivos de código fuente\Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Jugador.cpp">
+      <Filter>Archivos de código fuente\Partida</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Matriz.cpp">
+      <Filter>Archivos de código fuente\Escenario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Nodo.cpp">
+      <Filter>Archivos de código fuente\Escenario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Partida.cpp">
+      <Filter>Archivos de código fuente\Partida</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Posicion.cpp">
+      <Filter>Archivos de código fuente\Escenario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Recurso.cpp">
+      <Filter>Archivos de código fuente\Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Servidor.cpp">
+      <Filter>Archivos de código fuente\Red</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SocketAux.cpp">
+      <Filter>Archivos de código fuente\Red</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Unidad.cpp">
+      <Filter>Archivos de código fuente\Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Vision.cpp">
+      <Filter>Archivos de código fuente\Partida</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
