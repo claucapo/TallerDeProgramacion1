@@ -93,6 +93,17 @@ void FactoryEntidades::agregarEntidad(msg_tipo_entidad eInfo) {
 		pType->tipo = eInfo.tipo;
 		pType->tipoR = eInfo.tipoR;
 
+		pType->ataque = eInfo.ataque;
+		pType->defensa = eInfo.defensa;
+		pType->vidaMax = eInfo.vidaMax;
+
+		if (pType->tipo = ENT_T_BUILDING) {
+			for (unsigned int i = 0; i < eInfo.cant_entrenables; i++) {
+				std::string nuevoEntrenable(&eInfo.entrenables[i * 50], 50);
+				pType->entrenables.push_front(nuevoEntrenable);
+			}
+		}
+
 		prototipos[nombre] = pType;
 	}
 }

@@ -29,7 +29,7 @@ using namespace std;
 // #pragma comment (lib, "Mswsock.lib")
 
 #define TESTING_ENABLED false
-#define ARCHIVO_YAML "laberinto.yaml"
+#define ARCHIVO_YAML "default.yaml"
 
 
 SOCKET inicializarConexion(redInfo_t rInfo) {
@@ -136,11 +136,11 @@ void cargarEscenario(Partida* partida, escenarioInfo_t eInfo) {
 		}
 	}
 
-		list<Entidad*> lEnt = scene->verEntidades();
-		for(list<Entidad*>::iterator it = lEnt.begin(); it != lEnt.end(); ++it) {
-			cout << (*it)->verPosicion()->toStrRound()<< "-" << (*it)->name << "-" << (*it)->verID() << endl;
-		}
-		cout << endl;
+	list<Entidad*> lEnt = scene->verEntidades();
+	for(list<Entidad*>::iterator it = lEnt.begin(); it != lEnt.end(); ++it) {
+		cout << (*it)->verPosicion()->toStrRound()<< "-" << (*it)->name << "-" << (*it)->verID() << endl;
+	}
+	cout << endl;
 
 	partida->asignarEscenario(scene);
 }

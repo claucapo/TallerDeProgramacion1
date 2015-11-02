@@ -20,6 +20,12 @@ struct tipoEntidad_t {
 	int score;
 	resource_type_t tipoR;
 
+	int ataque;
+	int defensa;
+	int vidaMax;
+
+	std::list<std::string> entrenables;
+
 	// Valores por defecto
 	tipoEntidad_t() {
 		tamX = 1;
@@ -29,6 +35,11 @@ struct tipoEntidad_t {
 		tipo = ENT_T_NONE;
 		score = 1;
 		tipoR = RES_T_NONE;
+
+		ataque = 0;
+		defensa = 0;
+		vidaMax = 1;
+		entrenables = std::list<std::string>();
 	}
 };
 

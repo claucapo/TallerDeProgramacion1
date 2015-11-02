@@ -28572,3 +28572,497 @@
 [02/11/2015 01:55:38] - [ERROR] - Posicion (40,37) excede matriz de vision.
 [02/11/2015 01:55:38] - [ERROR] - Posicion (40,38) excede matriz de vision.
 [02/11/2015 01:55:38] - [ERROR] - Posicion (40,39) excede matriz de vision.
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelX
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelY
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelX
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelY
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelX
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelY
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelX
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelY
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelX
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelY
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelX
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelY
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelX
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelY
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelX
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelY
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelX
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelY
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelX
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelY
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelX
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelY
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelX
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelY
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelX
+[02/11/2015 03:26:39] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelY
+[02/11/2015 03:26:40] - [ALLWAYS] - ----INICIANDO----
+[02/11/2015 03:26:40] - [ALLWAYS] - Conexion establecida
+[02/11/2015 03:26:40] - [ERROR] - SDL_image Error:  con imagenrecursosdefault.png
+[02/11/2015 03:26:40] - [ERROR] - Error al cargar imágen: recursosdefault.png.¡Imagen inexistente!
+[02/11/2015 03:26:40] - [ERROR] - No se encuentra imagen por defecto!!
+[02/11/2015 03:26:41] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp2.png
+[02/11/2015 03:26:41] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp2.png.¡Imagen inexistente!
+[02/11/2015 03:26:41] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp3.png
+[02/11/2015 03:26:41] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp3.png.¡Imagen inexistente!
+[02/11/2015 03:26:41] - [ERROR] - SDL_image Error:  con imagenrecursos\Gchampion_moveAO.png
+[02/11/2015 03:26:41] - [ERROR] - Error al cargar imágen: recursos\Gchampion_moveAO.png.¡Imagen inexistente!
+[02/11/2015 03:26:41] - [ERROR] - SDL_image Error:  con imagenrecursos\GtownCenterAOE.png
+[02/11/2015 03:26:41] - [ERROR] - Error al cargar imágen: recursos\GtownCenterAOE.png.¡Imagen inexistente!
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelX
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelY
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelX
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelY
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelX
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelY
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelX
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelY
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelX
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelY
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelX
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelY
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelX
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelY
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelX
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelY
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelX
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelY
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelX
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelY
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelX
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelY
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelX
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelY
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelX
+[02/11/2015 03:28:16] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelY
+[02/11/2015 03:28:17] - [ALLWAYS] - ----INICIANDO----
+[02/11/2015 03:28:17] - [ALLWAYS] - Conexion establecida
+[02/11/2015 03:28:17] - [ERROR] - SDL_image Error:  con imagenrecursosdefault.png
+[02/11/2015 03:28:17] - [ERROR] - Error al cargar imágen: recursosdefault.png.¡Imagen inexistente!
+[02/11/2015 03:28:17] - [ERROR] - No se encuentra imagen por defecto!!
+[02/11/2015 03:28:17] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp2.png
+[02/11/2015 03:28:17] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp2.png.¡Imagen inexistente!
+[02/11/2015 03:28:17] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp3.png
+[02/11/2015 03:28:17] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp3.png.¡Imagen inexistente!
+[02/11/2015 03:28:17] - [ERROR] - SDL_image Error:  con imagenrecursos\Gchampion_moveAO.png
+[02/11/2015 03:28:17] - [ERROR] - Error al cargar imágen: recursos\Gchampion_moveAO.png.¡Imagen inexistente!
+[02/11/2015 03:28:17] - [ERROR] - SDL_image Error:  con imagenrecursos\GtownCenterAOE.png
+[02/11/2015 03:28:17] - [ERROR] - Error al cargar imágen: recursos\GtownCenterAOE.png.¡Imagen inexistente!
+[02/11/2015 03:29:02] - [ERROR] - Error recibiendo mapa.
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelX
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelY
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelX
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelY
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelX
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelY
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelX
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelY
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelX
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelY
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelX
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelY
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelX
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelY
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelX
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelY
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelX
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelY
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelX
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelY
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelX
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelY
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelX
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelY
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelX
+[02/11/2015 03:30:12] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelY
+[02/11/2015 03:30:12] - [ALLWAYS] - ----INICIANDO----
+[02/11/2015 03:30:12] - [ALLWAYS] - Conexion establecida
+[02/11/2015 03:30:12] - [ERROR] - SDL_image Error:  con imagenrecursosdefault.png
+[02/11/2015 03:30:12] - [ERROR] - Error al cargar imágen: recursosdefault.png.¡Imagen inexistente!
+[02/11/2015 03:30:12] - [ERROR] - No se encuentra imagen por defecto!!
+[02/11/2015 03:30:12] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp2.png
+[02/11/2015 03:30:12] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp2.png.¡Imagen inexistente!
+[02/11/2015 03:30:13] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp3.png
+[02/11/2015 03:30:13] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp3.png.¡Imagen inexistente!
+[02/11/2015 03:30:13] - [ERROR] - SDL_image Error:  con imagenrecursos\Gchampion_moveAO.png
+[02/11/2015 03:30:13] - [ERROR] - Error al cargar imágen: recursos\Gchampion_moveAO.png.¡Imagen inexistente!
+[02/11/2015 03:30:13] - [ERROR] - SDL_image Error:  con imagenrecursos\GtownCenterAOE.png
+[02/11/2015 03:30:13] - [ERROR] - Error al cargar imágen: recursos\GtownCenterAOE.png.¡Imagen inexistente!
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelX
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelY
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelX
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelY
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelX
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelY
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelX
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelY
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelX
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelY
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelX
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelY
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelX
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelY
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelX
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelY
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelX
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelY
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelX
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelY
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelX
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelY
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelX
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelY
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelX
+[02/11/2015 03:30:55] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelY
+[02/11/2015 03:30:55] - [ALLWAYS] - ----INICIANDO----
+[02/11/2015 03:30:55] - [ALLWAYS] - Conexion establecida
+[02/11/2015 03:30:55] - [ERROR] - SDL_image Error:  con imagenrecursosdefault.png
+[02/11/2015 03:30:55] - [ERROR] - Error al cargar imágen: recursosdefault.png.¡Imagen inexistente!
+[02/11/2015 03:30:55] - [ERROR] - No se encuentra imagen por defecto!!
+[02/11/2015 03:30:56] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp2.png
+[02/11/2015 03:30:56] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp2.png.¡Imagen inexistente!
+[02/11/2015 03:30:56] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp3.png
+[02/11/2015 03:30:56] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp3.png.¡Imagen inexistente!
+[02/11/2015 03:30:56] - [ERROR] - SDL_image Error:  con imagenrecursos\Gchampion_moveAO.png
+[02/11/2015 03:30:56] - [ERROR] - Error al cargar imágen: recursos\Gchampion_moveAO.png.¡Imagen inexistente!
+[02/11/2015 03:30:56] - [ERROR] - SDL_image Error:  con imagenrecursos\GtownCenterAOE.png
+[02/11/2015 03:30:56] - [ERROR] - Error al cargar imágen: recursos\GtownCenterAOE.png.¡Imagen inexistente!
+[02/11/2015 03:35:29] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[02/11/2015 03:35:29] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelX
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelY
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelX
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelY
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelX
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelY
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelX
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelY
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelX
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelY
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelX
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelY
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelX
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelY
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelX
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelY
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelX
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelY
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelX
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelY
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelX
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelY
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelX
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelY
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelX
+[02/11/2015 03:35:30] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelY
+[02/11/2015 03:35:30] - [ALLWAYS] - ----INICIANDO----
+[02/11/2015 03:35:30] - [ALLWAYS] - Conexion establecida
+[02/11/2015 03:35:30] - [ERROR] - SDL_image Error:  con imagenrecursosdefault.png
+[02/11/2015 03:35:30] - [ERROR] - Error al cargar imágen: recursosdefault.png.¡Imagen inexistente!
+[02/11/2015 03:35:30] - [ERROR] - No se encuentra imagen por defecto!!
+[02/11/2015 03:35:30] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp2.png
+[02/11/2015 03:35:30] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp2.png.¡Imagen inexistente!
+[02/11/2015 03:35:30] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp3.png
+[02/11/2015 03:35:30] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp3.png.¡Imagen inexistente!
+[02/11/2015 03:35:30] - [ERROR] - SDL_image Error:  con imagenrecursos\Gchampion_moveAO.png
+[02/11/2015 03:35:30] - [ERROR] - Error al cargar imágen: recursos\Gchampion_moveAO.png.¡Imagen inexistente!
+[02/11/2015 03:35:31] - [ERROR] - SDL_image Error:  con imagenrecursos\GtownCenterAOE.png
+[02/11/2015 03:35:31] - [ERROR] - Error al cargar imágen: recursos\GtownCenterAOE.png.¡Imagen inexistente!
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelX
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelY
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelX
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelY
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelX
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelY
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelX
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelY
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelX
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelY
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelX
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelY
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelX
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelY
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelX
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelY
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelX
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelY
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelX
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelY
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelX
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelY
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelX
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelY
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelX
+[02/11/2015 03:37:44] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelY
+[02/11/2015 03:37:44] - [ALLWAYS] - ----INICIANDO----
+[02/11/2015 03:37:44] - [ALLWAYS] - Conexion establecida
+[02/11/2015 03:37:44] - [ERROR] - SDL_image Error:  con imagenrecursosdefault.png
+[02/11/2015 03:37:44] - [ERROR] - Error al cargar imágen: recursosdefault.png.¡Imagen inexistente!
+[02/11/2015 03:37:44] - [ERROR] - No se encuentra imagen por defecto!!
+[02/11/2015 03:37:44] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp2.png
+[02/11/2015 03:37:44] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp2.png.¡Imagen inexistente!
+[02/11/2015 03:37:44] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp3.png
+[02/11/2015 03:37:44] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp3.png.¡Imagen inexistente!
+[02/11/2015 03:37:44] - [ERROR] - SDL_image Error:  con imagenrecursos\Gchampion_moveAO.png
+[02/11/2015 03:37:44] - [ERROR] - Error al cargar imágen: recursos\Gchampion_moveAO.png.¡Imagen inexistente!
+[02/11/2015 03:37:45] - [ERROR] - SDL_image Error:  con imagenrecursos\GtownCenterAOE.png
+[02/11/2015 03:37:45] - [ERROR] - Error al cargar imágen: recursos\GtownCenterAOE.png.¡Imagen inexistente!
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelX
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelY
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelX
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelY
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelX
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelY
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelX
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelY
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelX
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelY
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelX
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelY
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelX
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelY
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelX
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelY
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelX
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelY
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelX
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelY
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelX
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelY
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelX
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelY
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelX
+[02/11/2015 03:38:13] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelY
+[02/11/2015 03:38:14] - [ALLWAYS] - ----INICIANDO----
+[02/11/2015 03:38:14] - [ALLWAYS] - Conexion establecida
+[02/11/2015 03:38:14] - [ERROR] - SDL_image Error:  con imagenrecursosdefault.png
+[02/11/2015 03:38:14] - [ERROR] - Error al cargar imágen: recursosdefault.png.¡Imagen inexistente!
+[02/11/2015 03:38:14] - [ERROR] - No se encuentra imagen por defecto!!
+[02/11/2015 03:38:14] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp2.png
+[02/11/2015 03:38:14] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp2.png.¡Imagen inexistente!
+[02/11/2015 03:38:14] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp3.png
+[02/11/2015 03:38:14] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp3.png.¡Imagen inexistente!
+[02/11/2015 03:38:14] - [ERROR] - SDL_image Error:  con imagenrecursos\Gchampion_moveAO.png
+[02/11/2015 03:38:14] - [ERROR] - Error al cargar imágen: recursos\Gchampion_moveAO.png.¡Imagen inexistente!
+[02/11/2015 03:38:14] - [ERROR] - SDL_image Error:  con imagenrecursos\GtownCenterAOE.png
+[02/11/2015 03:38:14] - [ERROR] - Error al cargar imágen: recursos\GtownCenterAOE.png.¡Imagen inexistente!
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelX
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelY
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelX
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelY
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelX
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelY
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelX
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelY
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelX
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelY
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelX
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelY
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelX
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelY
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelX
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelY
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelX
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelY
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelX
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelY
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelX
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelY
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelX
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelY
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelX
+[02/11/2015 03:40:00] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelY
+[02/11/2015 03:40:01] - [ALLWAYS] - ----INICIANDO----
+[02/11/2015 03:40:01] - [ALLWAYS] - Conexion establecida
+[02/11/2015 03:40:01] - [ERROR] - SDL_image Error:  con imagenrecursosdefault.png
+[02/11/2015 03:40:01] - [ERROR] - Error al cargar imágen: recursosdefault.png.¡Imagen inexistente!
+[02/11/2015 03:40:01] - [ERROR] - No se encuentra imagen por defecto!!
+[02/11/2015 03:40:01] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp2.png
+[02/11/2015 03:40:01] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp2.png.¡Imagen inexistente!
+[02/11/2015 03:40:01] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp3.png
+[02/11/2015 03:40:01] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp3.png.¡Imagen inexistente!
+[02/11/2015 03:40:01] - [ERROR] - SDL_image Error:  con imagenrecursos\Gchampion_moveAO.png
+[02/11/2015 03:40:01] - [ERROR] - Error al cargar imágen: recursos\Gchampion_moveAO.png.¡Imagen inexistente!
+[02/11/2015 03:40:01] - [ERROR] - SDL_image Error:  con imagenrecursos\GtownCenterAOE.png
+[02/11/2015 03:40:01] - [ERROR] - Error al cargar imágen: recursos\GtownCenterAOE.png.¡Imagen inexistente!
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelX
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelY
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelX
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelY
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelX
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelY
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelX
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelY
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelX
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelY
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelX
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelY
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelX
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelY
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelX
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelY
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelX
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelY
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelX
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelY
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelX
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelY
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelX
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelY
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelX
+[02/11/2015 03:41:18] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelY
+[02/11/2015 03:41:19] - [ALLWAYS] - ----INICIANDO----
+[02/11/2015 03:41:19] - [ALLWAYS] - Conexion establecida
+[02/11/2015 03:41:19] - [ERROR] - SDL_image Error:  con imagenrecursosdefault.png
+[02/11/2015 03:41:19] - [ERROR] - Error al cargar imágen: recursosdefault.png.¡Imagen inexistente!
+[02/11/2015 03:41:19] - [ERROR] - No se encuentra imagen por defecto!!
+[02/11/2015 03:41:19] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp2.png
+[02/11/2015 03:41:19] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp2.png.¡Imagen inexistente!
+[02/11/2015 03:41:19] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp3.png
+[02/11/2015 03:41:19] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp3.png.¡Imagen inexistente!
+[02/11/2015 03:41:19] - [ERROR] - SDL_image Error:  con imagenrecursos\Gchampion_moveAO.png
+[02/11/2015 03:41:19] - [ERROR] - Error al cargar imágen: recursos\Gchampion_moveAO.png.¡Imagen inexistente!
+[02/11/2015 03:41:19] - [ERROR] - SDL_image Error:  con imagenrecursos\GtownCenterAOE.png
+[02/11/2015 03:41:19] - [ERROR] - Error al cargar imágen: recursos\GtownCenterAOE.png.¡Imagen inexistente!
+[02/11/2015 03:46:55] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[02/11/2015 03:46:55] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[02/11/2015 03:46:55] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[02/11/2015 03:46:55] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[02/11/2015 03:46:55] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelX
+[02/11/2015 03:46:55] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelY
+[02/11/2015 03:46:55] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelX
+[02/11/2015 03:46:55] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelY
+[02/11/2015 03:46:55] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelX
+[02/11/2015 03:46:55] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelY
+[02/11/2015 03:46:55] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelX
+[02/11/2015 03:46:55] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelY
+[02/11/2015 03:46:55] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelX
+[02/11/2015 03:46:55] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelY
+[02/11/2015 03:46:55] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelX
+[02/11/2015 03:46:55] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelY
+[02/11/2015 03:46:55] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelX
+[02/11/2015 03:46:55] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelY
+[02/11/2015 03:46:55] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelX
+[02/11/2015 03:46:56] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelY
+[02/11/2015 03:46:56] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelX
+[02/11/2015 03:46:56] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelY
+[02/11/2015 03:46:56] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelX
+[02/11/2015 03:46:56] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelY
+[02/11/2015 03:46:56] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelX
+[02/11/2015 03:46:56] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelY
+[02/11/2015 03:46:56] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelX
+[02/11/2015 03:46:56] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelY
+[02/11/2015 03:46:56] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelX
+[02/11/2015 03:46:56] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelY
+[02/11/2015 03:46:56] - [ALLWAYS] - ----INICIANDO----
+[02/11/2015 03:46:56] - [ALLWAYS] - Conexion establecida
+[02/11/2015 03:46:56] - [ERROR] - SDL_image Error:  con imagenrecursosdefault.png
+[02/11/2015 03:46:56] - [ERROR] - Error al cargar imágen: recursosdefault.png.¡Imagen inexistente!
+[02/11/2015 03:46:56] - [ERROR] - No se encuentra imagen por defecto!!
+[02/11/2015 03:46:57] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp2.png
+[02/11/2015 03:46:57] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp2.png.¡Imagen inexistente!
+[02/11/2015 03:46:57] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp3.png
+[02/11/2015 03:46:57] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp3.png.¡Imagen inexistente!
+[02/11/2015 03:46:57] - [ERROR] - SDL_image Error:  con imagenrecursos\Gchampion_moveAO.png
+[02/11/2015 03:46:57] - [ERROR] - Error al cargar imágen: recursos\Gchampion_moveAO.png.¡Imagen inexistente!
+[02/11/2015 03:46:57] - [ERROR] - SDL_image Error:  con imagenrecursos\GtownCenterAOE.png
+[02/11/2015 03:46:57] - [ERROR] - Error al cargar imágen: recursos\GtownCenterAOE.png.¡Imagen inexistente!
+[02/11/2015 03:46:57] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[02/11/2015 03:46:57] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[02/11/2015 03:46:57] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[02/11/2015 03:46:57] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[02/11/2015 03:46:57] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[02/11/2015 03:46:57] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[02/11/2015 03:46:57] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[02/11/2015 03:46:57] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[02/11/2015 03:46:57] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[02/11/2015 03:46:57] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelX
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 25, column 5: key not found: pixelY
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelX
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 27, column 5: key not found: pixelY
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelX
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 29, column 5: key not found: pixelY
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelX
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 31, column 5: key not found: pixelY
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelX
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 33, column 5: key not found: pixelY
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelX
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 35, column 5: key not found: pixelY
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelX
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 37, column 5: key not found: pixelY
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelX
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 39, column 5: key not found: pixelY
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelX
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 41, column 5: key not found: pixelY
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelX
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 43, column 5: key not found: pixelY
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelX
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 45, column 5: key not found: pixelY
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelX
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 47, column 5: key not found: pixelY
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelX
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelY
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelX
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelY
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelX
+[02/11/2015 03:48:55] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelY
+[02/11/2015 03:48:55] - [ALLWAYS] - ----INICIANDO----
+[02/11/2015 03:48:55] - [ALLWAYS] - Conexion establecida
+[02/11/2015 03:48:55] - [ERROR] - SDL_image Error:  con imagenrecursosdefault.png
+[02/11/2015 03:48:55] - [ERROR] - Error al cargar imágen: recursosdefault.png.¡Imagen inexistente!
+[02/11/2015 03:48:55] - [ERROR] - No se encuentra imagen por defecto!!
+[02/11/2015 03:48:55] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp2.png
+[02/11/2015 03:48:55] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp2.png.¡Imagen inexistente!
+[02/11/2015 03:48:55] - [ERROR] - SDL_image Error:  con imagenrecursos\townCenterAOEp3.png
+[02/11/2015 03:48:55] - [ERROR] - Error al cargar imágen: recursos\townCenterAOEp3.png.¡Imagen inexistente!
+[02/11/2015 03:48:55] - [ERROR] - SDL_image Error:  con imagenrecursos\Gchampion_moveAO.png
+[02/11/2015 03:48:55] - [ERROR] - Error al cargar imágen: recursos\Gchampion_moveAO.png.¡Imagen inexistente!
+[02/11/2015 03:48:55] - [ERROR] - SDL_image Error:  con imagenrecursos\GtownCenterAOE.png
+[02/11/2015 03:48:55] - [ERROR] - Error al cargar imágen: recursos\GtownCenterAOE.png.¡Imagen inexistente!
+[02/11/2015 03:48:56] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[02/11/2015 03:48:56] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[02/11/2015 03:48:56] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[02/11/2015 03:48:56] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[02/11/2015 03:48:56] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[02/11/2015 03:48:56] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[02/11/2015 03:48:56] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[02/11/2015 03:48:56] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[02/11/2015 03:48:56] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[02/11/2015 03:48:56] - [ERROR] - El jugador [gaia] ya existe en la partida.

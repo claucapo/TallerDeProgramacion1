@@ -72,6 +72,10 @@ int main (int argc, char** argv) {
 #define RES_TYPE_DEFAULT 0
 #define VISION_DEFAULT 2
 
+#define VIDA_MAX_DEFAULT 100
+#define ATK_BASE_DEFAULT 10
+#define DEF_BASE_DEFAULT 10
+
 #define PORT_DEFAULT "27011"
 
 #define SCENARY_NAME_DEAFAULT "Orleans"
@@ -108,10 +112,17 @@ struct entidadInfo_t {
 	int velocidad;
 	int score;
 	int tipoR;
+	
+	int vidaMaxima;
+	int ataqueBase;
+	int defensaBase;
+
+	std::list<std::string> entrenables;
 
 	// Inicializa los valores a cero por defecto
 	entidadInfo_t(): nombre(TYPE_NAME_DEFAULT),	tipo(ENT_TYPE_DEFAULT), tamX(1), tamY(1),
-				score(1), vision(1), velocidad(1), tipoR(RES_TYPE_DEFAULT) {};
+				score(1), vision(1), velocidad(1), tipoR(RES_TYPE_DEFAULT),
+				vidaMaxima(VIDA_MAX_DEFAULT), ataqueBase(ATK_BASE_DEFAULT), defensaBase(DEF_BASE_DEFAULT), entrenables() {};
 };
 
 

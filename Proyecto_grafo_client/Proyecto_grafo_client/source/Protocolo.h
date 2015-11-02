@@ -62,6 +62,12 @@ struct msg_tipo_entidad {
 	entity_type_t tipo;
 	int score;
 	resource_type_t tipoR;
+	int vidaMax;
+	int ataque;
+	int defensa;
+
+	unsigned int cant_entrenables;
+	char* entrenables;
 };
 
 

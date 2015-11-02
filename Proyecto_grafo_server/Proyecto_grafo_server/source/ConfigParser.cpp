@@ -28,6 +28,11 @@
 	#define SCORE_KEY "score"
 	#define TIPO_RECURSO_KEY "res"
 
+	#define VIDA_KEY "vidaMax"
+	#define ATK_KEY "ataque"
+	#define DEF_KEY "defensa"
+	#define TRAINING_KEY "entrenables"
+
 #define ESCENARIO_KEY "escenario"
 	#define COORD_X_KEY "x"
 	#define COORD_Y_KEY "y"
@@ -207,7 +212,6 @@ void operator >> (const YAML::Node& node, jugadorInfo_t& jInfo) {
 }
 
 
-
 // Informacion de la lista de jugadores (std::list<jugadorInfo_t*>)
 void operator >>(const YAML::Node& node, std::list<jugadorInfo_t*>& jInfoL) {
 	try {	
@@ -221,6 +225,21 @@ void operator >>(const YAML::Node& node, std::list<jugadorInfo_t*>& jInfoL) {
 		raiseError(UNKNOWN_ERR, e.what(), LOG_INFO);
 	}
 }
+
+// Parsea una lista de strings, usada para obtener la lista de nombres
+// de unidades entrenables
+void operator >>(const YAML::Node& node, std::list<string>& aList) {
+	try {
+		for (unsigned i = 0; i < node.size(); i++) {
+			std::string nElem;
+			node[i] >> nElem;
+			aList.push_back(nElem);
+		}
+	} catch (YAML::Exception e) {
+		raiseError(UNKNOWN_ERR, e.what(), LOG_INFO);
+	}
+}
+
 
 // Informacion de una clase (entidad) dentro del juego (entidadInfo_t)
 // Dentro de esta categoria se incluye la informacion comun a todas las instancias
@@ -236,7 +255,17 @@ void operator >> (const YAML::Node& node, entidadInfo_t& eInfo) {
 	parsearEntero(node, VELOCIDAD_KEY, &eInfo.velocidad, LOG_INFO, true);
 	parsearEntero(node, SCORE_KEY, &eInfo.score, LOG_INFO, false);
 
-	parsearEntero(node, TIPO_RECURSO_KEY, &eInfo.tipoR, LOG_ERROR, true);
+	parsearEntero(node, TIPO_RECURSO_KEY, &eInfo.tipoR, LOG_INFO, true);
+
+	parsearEntero(node, VIDA_KEY, &eInfo.vidaMaxima, LOG_INFO, false);
+	parsearEntero(node, ATK_KEY, &eInfo.ataqueBase, LOG_INFO, true);
+	parsearEntero(node, DEF_KEY, &eInfo.defensaBase, LOG_INFO, true);
+
+	try {	
+		node[TRAINING_KEY] >> eInfo.entrenables;
+	} catch (YAML::KeyNotFound e) {
+		raiseError(MISSING_SECTION_ERR, e.what(), LOG_INFO);
+	}
 }
 
 // Carga una lista de struct entidadInfo_t para poder guardar en simultaneo

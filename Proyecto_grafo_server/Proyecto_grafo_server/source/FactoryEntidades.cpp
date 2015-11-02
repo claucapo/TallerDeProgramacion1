@@ -88,12 +88,32 @@ void FactoryEntidades::agregarEntidad(entidadInfo_t eInfo) {
 			eInfo.vision = 1;
 		}
 
+
+		// Harcodeado temporalmente hasta definir como se crearán tipos
+		// de unidades distintos desde yaml.
+		if (eInfo.tipo == "resource")
+			pType->tipo = ENT_T_RESOURCE;
+		else if (eInfo.tipo == "unit")
+			pType->tipo = ENT_T_UNIT;
+		else if (eInfo.tipo == "building") {
+			pType->tipo = ENT_T_BUILDING;
+			for (list<string>::iterator it = eInfo.entrenables.begin(); it != eInfo.entrenables.end(); it++) {
+				std::string act = (*it);
+				pType->entrenables.push_back(act);
+			}
+		}
+
+
 		pType->tamX = eInfo.tamX;
 		pType->tamY = eInfo.tamY;
 		pType->vision = eInfo.vision;
 		pType->score = eInfo.score;
 		pType->velocidad = eInfo.velocidad;
 
+		pType->ataque = eInfo.ataqueBase;
+		pType->defensa = eInfo.defensaBase;
+		pType->vidaMax = eInfo.vidaMaxima;
+		
 		// Mapeo provisorio, hasta redefinir yaml para tercer entrega
 		switch (eInfo.tipoR) {
 		case 0: pType->tipoR = RES_T_GOLD; break;
@@ -104,18 +124,12 @@ void FactoryEntidades::agregarEntidad(entidadInfo_t eInfo) {
 			pType->tipoR = RES_T_NONE;
 		}
 
-		// Harcodeado temporalmente hasta definir como se crearán tipos
-		// de unidades distintos desde yaml.
-		if (eInfo.tipo == "resource")
-			pType->tipo = ENT_T_RESOURCE;
-		else if (eInfo.tipo == "unit")
-			pType->tipo = ENT_T_UNIT;
-		else if (eInfo.tipo == "building")
-			pType->tipo = ENT_T_BUILDING;
+
 
 		prototipos[eInfo.nombre] = pType;
 	}
 }
+
 
 Entidad* FactoryEntidades::obtenerEntidad(string name){
 	if (name.find(estados_extensiones[EST_CAMINANDO]) != string::npos) {
@@ -133,7 +147,7 @@ Entidad* FactoryEntidades::obtenerEntidad(string name){
 		case ENT_T_UNIT: {
 			ent = new Unidad(obtenerIDValida(), name, pType->tamX, pType->tamX, pType->vision, pType->velocidad);
 			break;
-			 }
+			}
 		case ENT_T_NONE:
 		default:
 			ent = new Entidad(obtenerIDValida(), name, pType->tamX, pType->tamX, pType->vision); break;
@@ -165,7 +179,32 @@ list<msg_tipo_entidad*> FactoryEntidades::obtenerListaTipos(void) {
 		msg->vision = iter->second->vision;
 		msg->score = iter->second->score;
 		msg->tipoR = iter->second->tipoR;
-		lista.push_back(msg);	
+
+
+		msg->ataque = iter->second->ataque;
+		msg->defensa = iter->second->defensa;
+		msg->vidaMax = iter->second->vidaMax;
+
+		// Serialización de las entidades entrenables
+		msg->cant_entrenables = iter->second->entrenables.size();
+		if (msg->cant_entrenables > 0) {
+			char* tmp = new char[msg->cant_entrenables * 50];
+			// Para cada entrenable, inserto la cadena en el arreglo dinámico
+			list<string> entrenables = iter->second->entrenables;
+			list<string>::iterator it;
+			unsigned int i = 0;
+			for (it = entrenables.begin(), i = 0; it != entrenables.end(); it++, i++) {
+				// Esto copia hasta 49 caracteres en el arreglo, a partir de un offset determinado
+				// por la posición actual de la entidad en la lista de entrenables
+				int last = (*it).copy(&(tmp[i * 50]), 49, 0);
+				tmp[i * 50 + last] = '\0';
+			}
+			msg->entrenables = tmp;
+		} else {
+			msg->entrenables = NULL;
+		}
+
+		lista.push_back(msg);
 	}
 	return lista;
 }

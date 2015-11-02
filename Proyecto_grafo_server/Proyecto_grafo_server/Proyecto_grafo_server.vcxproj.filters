@@ -72,9 +72,6 @@
     <ClInclude Include="source\Enumerados.h">
       <Filter>Archivos de encabezado\Utilidades</Filter>
     </ClInclude>
-    <ClInclude Include="source\ErrorLog.h">
-      <Filter>Archivos de encabezado\Archivos</Filter>
-    </ClInclude>
     <ClInclude Include="source\Escenario.h">
       <Filter>Archivos de encabezado\Escenario</Filter>
     </ClInclude>
@@ -110,6 +107,9 @@
     </ClInclude>
     <ClInclude Include="source\Vision.h">
       <Filter>Archivos de encabezado\Partida</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ErrorLog.h">
+      <Filter>Archivos de encabezado\Entidades</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

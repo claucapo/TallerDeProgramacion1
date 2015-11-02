@@ -237,6 +237,22 @@ struct mapa_inicial Cliente::getEscenario(void) {
 	for (int i = 0; i < scene_info.mInfo.cantTipos; i++) {
 		msg_tipo_entidad* tipo_act = new msg_tipo_entidad();
 		result = sRead(this->clientSocket, (char*)(tipo_act), sizeof(*tipo_act));
+
+
+		// Acá verifico si hay lista de entrenables
+		// En caso positivo el protocolo indica que lo que se mande a continuación
+		// tendrá un tamaño de 50 * cant_entrenables * sizeof(char); y que corresponderá
+		// a un arreglo de char[50] donde cada elemento es el nombre de la entidad que se puede entrenar.
+		if (tipo_act->cant_entrenables > 0) {
+			cout << "Voy a recibir una lista de entrenables para: " << tipo_act->name << " - " << tipo_act->cant_entrenables << endl;
+			char* entrenables_act = new char[50 * tipo_act->cant_entrenables];
+			result = sRead(this->clientSocket, (char*)(entrenables_act), sizeof(char) * 50 * tipo_act->cant_entrenables);
+			tipo_act->entrenables = entrenables_act;
+		} else {
+			tipo_act->entrenables = NULL;
+		}
+
+
 		if ( result <= 0 ) {
 			ErrorLog::getInstance()->escribirLog("Error recibiendo tipo.", LOG_ERROR);
 			return scene_info;

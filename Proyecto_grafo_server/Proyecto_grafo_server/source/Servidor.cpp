@@ -222,7 +222,7 @@ int Servidor::enviarMapa(ConexionCliente *cliente) {
 
 		estado_vision_t* vision = (*it)->verVision()->visibilidadArray();
 		result = send(cliente->clientSocket, (char*)vision, sizeof(estado_vision_t) * msg.coordX * msg.coordY, 0);
-		cout << "Sent " << result << " bytes." << endl;
+
 		delete[] vision;
 	}
 
@@ -231,7 +231,18 @@ int Servidor::enviarMapa(ConexionCliente *cliente) {
 		msg_tipo_entidad* act = tipos.front();
 		tipos.pop_front();
 		result = send(cliente->clientSocket, (char*)act, sizeof(*act), 0);
-		// ErrorLog::getInstance()->escribirLog("Se envio un tipo de entidad.", LOG_ALLWAYS);
+		
+		// Acá verifico si hay lista de entrenables
+		// En caso positivo el protocolo indica que lo que se mande a continuación
+		// tendrá un tamaño de 50 * cant_entrenables * sizeof(char); y que corresponderá
+		// a un arreglo de char[50] donde cada elemento es el nombre de la entidad que se puede entrenar.
+		if (act->cant_entrenables > 0) {
+			cout << "Voy a madnar una lista de entrenables para: " << act->name << " - " << act->cant_entrenables << endl;
+			char* entrenables = act->entrenables;
+			result = send(cliente->clientSocket, (char*)entrenables, sizeof(char) * 50 * act->cant_entrenables, 0);
+			delete[] entrenables;
+		}
+
 		delete act;
 	}
 	if (result <= 0) {
