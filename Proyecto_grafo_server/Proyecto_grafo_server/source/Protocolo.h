@@ -1,6 +1,7 @@
 #ifndef MENSAJES_H
 #define MENSAJES_H
 
+#include "Enumerados.h"
 enum entity_type_t;
 enum resource_type_t;
 
@@ -8,7 +9,7 @@ enum resource_type_t;
 enum CodigoMensaje {
 	MSJ_KEEP_ALIVE,
 	// Mensajes de acciones de juego
-	MSJ_QUIETO,
+	MSJ_STATE_CHANGE,
 	MSJ_MOVER,
 	MSJ_RECOLECTAR,
 	MSJ_RECURSO_JUGADOR,
@@ -57,16 +58,17 @@ struct msg_jugador {
 
 struct msg_tipo_entidad {
 	char name[50];
-	int tamX;
-	int tamY;
-	int vision;
-	int velocidad;
+	int tamX, tamY;
 	entity_type_t tipo;
-	int score;
+
+	int rangoV, rangoA;
+	bool habilidades[CANT_ACCIONES];
+
+	int recursoMax;
 	resource_type_t tipoR;
-	int vidaMax;
-	int ataque;
-	int defensa;
+
+	int velocidad, ataque, defensa, vidaMax;
+	int cooldown, collectRate, buildRate;
 
 	unsigned int cant_entrenables;
 	char* entrenables;

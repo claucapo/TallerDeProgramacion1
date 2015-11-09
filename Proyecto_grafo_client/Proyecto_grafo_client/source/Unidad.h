@@ -13,16 +13,15 @@ protected:
 	Posicion* destino;
 	float rapidez;
 	Direcciones_t direccion;
-
-	Unidad(void);
-	Unidad(Posicion* p);
+	
+	int collectRate, buildRate;
 
 public:
 	// Constructor y destructor por defecto
 
 	~Unidad(void);
 	
-	Unidad(unsigned int id, string name, int tamX, int tamY, int vision, int velocidad);
+	Unidad(unsigned int id, string name, tipoEntidad_t pType);
 	
 	// Devuelve el valor de la velocidad de
 	// la Unidad.

@@ -102,7 +102,7 @@ bool Matriz::quitarEntidad(Entidad* elemento){
 	if (!elemento || !elemento->verPosicion()) {
 		// ErrorLog::getInstance()->escribirLog("Error al querer remover [" + elemento->name + "]: No se encuentra en el mapa.", LOG_ERROR);
 		return false;
-		}
+	}
 
 	Posicion* pos = elemento->verPosicion();
 	if (! posicionPertenece(pos))
@@ -115,9 +115,10 @@ bool Matriz::quitarEntidad(Entidad* elemento){
 	// Por ahora solo desreferencio a la entidad en las posiciones en que estaba ubicada
 	for(int i = 0; i < altura_x; i++){
 		for(int j = 0; j < ancho_y; j++) {
+
 			casillas[pos->getRoundX() + i][pos->getRoundY() + j] = nullptr;
-			mapDeOcupaciones[pos->getRoundX() + i][pos->getRoundY() + j]= 0;
-			cout << "Se vació la posicion: " << pos->toStrRound() << endl;
+			mapDeOcupaciones[pos->getRoundX() + i][pos->getRoundY() + j] = 0;
+			// cout << "Se vació la posicion: " << pos->toStrRound() << endl;
 		}
 	}
 	this->cantidad_entidades--;
@@ -231,7 +232,6 @@ list<Posicion> Matriz::posicionesVistas(Entidad* elemento) {
 
 //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 void Matriz::actualizarMapDeOcupaciones(){
-
 	for(int i = 0; i < this->filas; i++){
 		for(int j = 0; j < this->columnas; j++){
 		 if (casillas[i][j] != nullptr)
@@ -266,14 +266,4 @@ list<Posicion> Matriz::posicionesOcupadas(Entidad* elemento) {
 		}
 	}
 	return posEnRango;
-}
-
-void Matriz::vaciarPosicionSinChequeo(Posicion* pos) {
-	this->casillas[pos->getRoundX()][pos->getRoundY()] = nullptr;
-	mapDeOcupaciones[pos->getRoundX()][pos->getRoundY()]= 0;
-}
-
-void Matriz::ocuparPosicionSinChequeo(Posicion* pos, Entidad* ent) {
-	this->casillas[pos->getRoundX()][pos->getRoundY()] = ent;
-	mapDeOcupaciones[pos->getRoundX()][pos->getRoundY()]= 1;
 }

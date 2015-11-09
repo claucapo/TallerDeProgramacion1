@@ -5,27 +5,20 @@
 
 using namespace std;
 
-Recurso::Recurso(void) : Entidad() {
-	this->amount = 1;
-}
+Recurso::Recurso(unsigned int id, string name, tipoEntidad_t pType) : Entidad(id, name, pType) {
+	this->recursoMax = pType.recursoMax;
+	this->recursoAct = pType.recursoMax;
 
-Recurso::Recurso(int amount) : Entidad() {
-	if (amount >= 0)
-		this->amount = amount;
-	else
-		this->amount = 1;
-}
-
-Recurso::Recurso(unsigned int id, string name, int tamX, int tamY, int vision, int amount, resource_type_t tipoR) : Entidad(id, name, tamX, tamY, vision) {
-	if (amount >= 0)
-		this->amount = amount;
-	else
-		this->amount = 1;
-
-	this->tipoR = tipoR;
+	this->tipoR = pType.tipoR;
 }
 
 af_result_t Recurso::avanzarFrame(Escenario* scene) {
+	if (this->state == EST_MUERTO || this->recursoAct == 0) {
+		return AF_KILL;
+	}	
+	return AF_NONE;
+}
+
 		/*
 		Entidad* ent = scene->verProtagonista();
 		Jugador* player = ent->verJugador();
@@ -41,7 +34,7 @@ af_result_t Recurso::avanzarFrame(Escenario* scene) {
 		*/
 
 		// Cambiar por un algoritmo de devolver adyacentes?
-		for (int i = -1; i <= 1; i++) {
+		/* for (int i = -1; i <= 1; i++) {
 			for (int j = -1; j <= 1; j++) {
 				Posicion act = Posicion(this->pos->getRoundX() + i, this->pos->getRoundY() + j);
 				Entidad* ent = scene->verMapa()->verContenido(&act);
@@ -49,7 +42,7 @@ af_result_t Recurso::avanzarFrame(Escenario* scene) {
 				if ( ent && (i != 0 || j != 0) ) {
 					Jugador* player = ent->verJugador();
 					if ((player && player->verID() != 0) && (ent->tipo == ENT_T_UNIT)) {
-						player->modificarRecurso(this->tipoR, this->amount);
+						player->modificarRecurso(this->tipoR, this->recursoAct);
 						// Print temporal de recursos!!
 						cout << player->verNombre() << " tiene " << player->verRecurso().oro << " oro, ";
 						cout << player->verRecurso().comida << " comida, ";
@@ -60,6 +53,4 @@ af_result_t Recurso::avanzarFrame(Escenario* scene) {
 				}
 			}
 		}
-
-	return AF_NONE;
-}
+		*/

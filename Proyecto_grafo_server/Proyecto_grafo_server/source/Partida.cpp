@@ -76,6 +76,7 @@ list<msg_update*> Partida::avanzarFrame(void){
 	}
 	*/
 	// Acá adentro se asignan las casillas vistas de cada jugador
+
 	list<msg_update*> updates = this->escenario->avanzarFrame();
 	
 	for (list<Jugador*>::iterator iter = this->jugadores.begin(); iter != this->jugadores.end(); ++iter) {

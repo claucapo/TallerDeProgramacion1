@@ -15,6 +15,8 @@ Escenario::Escenario(int casillas_x, int casillas_y) {
 	this->entidades = list<Entidad*>();
 	this->tamX = casillas_x;
 	this->tamY = casillas_y;
+	
+	this->updatesAux = list<msg_update*>();
 }
 
 // Constructor por defecto
@@ -23,6 +25,8 @@ Escenario::Escenario(void) {
 	this->entidades = list<Entidad*>();
 	this->tamX = TAM_DEFAULT;
 	this->tamY = TAM_DEFAULT;
+
+	this->updatesAux = list<msg_update*>();
 }
 
 // Destructor
@@ -34,72 +38,55 @@ Escenario::~Escenario(void) {
 	}
 }
 
+
+msg_update* Escenario::generarUpdate(CodigoMensaje accion, unsigned int id, float extra1, float extra2) {
+	msg_update* upd = new msg_update();
+	upd->accion = accion;
+	upd->idEntidad = id;
+	upd->extra1 = extra1;
+	upd->extra2 = extra2;
+	
+	return upd;
+}
+
 template <typename T> bool compare(const T* const & a, const T* const &b) {
 	return *a < *b;
 };
 
 list<msg_update*> Escenario::avanzarFrame(void) {
-	list<msg_update*> updates = list<msg_update*>();
 	// Avanzo el frame en cada edificio (por ahora no hace nada)
 	list<Entidad*> toRmv = list<Entidad*>();
-	list<Entidad*> uniAux = list<Entidad*>();
+	list<msg_update*> updates = list<msg_update*>();
+
 	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
 		Posicion* posAux = new Posicion((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY());
 		af_result_t res = (*it)->avanzarFrame(this);
-		msg_update* upd;
-		switch (res) {
+		msg_update* upd = nullptr;
+		switch(res) {
 		case AF_MOVE:
-			upd = new msg_update();
-			upd->idEntidad = (*it)->verID();
-			if(((Unidad*)(*it))->verEstado() == EST_QUIETO){
-				upd->accion = MSJ_QUIETO;
-				}
-			else{
-				upd->accion = MSJ_MOVER;
-			}
-			upd->extra1 = (*it)->verPosicion()->getX();
-			upd->extra2 = (*it)->verPosicion()->getY();
-			updates.push_back(upd);
-
-			this->mapa->vaciarPosicionSinChequeo(posAux);
-			delete posAux;
-			this->mapa->ocuparPosicionSinChequeo((*it)->verPosicion(), (*it));
-		/*	if(upd->accion == MSJ_QUIETO)
-				cout <<"MSJ_QUIETO"<< endl;
-			else
-				 cout << "MSJ_MOVER" << endl; */
-			break;
+			upd = generarUpdate(MSJ_MOVER, (*it)->verID(), posAux->getX(), posAux->getY()); break;
+		case AF_STATE_CHANGE:
+			// Cambiar esto en el futuro
+			upd = generarUpdate(MSJ_STATE_CHANGE, (*it)->verID(), (float)(*it)->verEstado(), 0); break;
+		
 		case AF_KILL:
-			toRmv.push_front(*it);
-			upd = new msg_update();
-			upd->idEntidad = (*it)->verID();
-			upd->accion = MSJ_ELIMINAR;
-			updates.push_back(upd);
-
-			this->mapa->vaciarPosicionSinChequeo(posAux);
-			delete posAux;
-			break;
-		case AF_NONE:
-			delete posAux;
-		//	this->mapa->ocuparPosicionSinChequeo((*it)->verPosicion(), (*it));
-			if((*it)->tipo == ENT_T_UNIT)
-				uniAux.push_back(*it);
-			break;
-		default:
-			delete posAux;
-			this->mapa->ocuparPosicionSinChequeo((*it)->verPosicion(), (*it));
-
+			upd = generarUpdate(MSJ_ELIMINAR, (*it)->verID(), 0, 0);
+			toRmv.push_back(*it);			
 			break;
 		}
+
+		if (upd) {
+			updates.push_back(upd);
+		}
+		delete posAux;
 		(*it)->verJugador()->agregarPosiciones(this->verMapa()->posicionesVistas(*it));
 	}
-
-	while(!uniAux.empty()) {
-		Entidad* uniAct = uniAux.front();
-		uniAux.pop_front();
-		this->mapa->ocuparPosicionSinChequeo(uniAct->verPosicion(), uniAct);
+	
+	while (!this->updatesAux.empty()) {
+		msg_update* upd = this->updatesAux.front();
+		this->updatesAux.pop_front();
+		updates.push_front(upd);
 	}
-
 	while(!toRmv.empty()) {
 		Entidad* ent = toRmv.front();
 		toRmv.pop_front();
@@ -107,9 +94,16 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 		delete ent;
 	}
 
-
-
 	return updates;
+}
+
+Entidad* Escenario::obtenerEntidad(unsigned int entID) {
+ 	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
+ 		if ( (*it)->verID() == entID ) {
+			return (*it);
+		}
+	}
+	return nullptr;
 }
 
 
@@ -130,9 +124,17 @@ void Escenario::quitarEntidad(Entidad* entidad) {
 
 
 void Escenario::moverEntidad(Entidad* entidad, Posicion* destino) {
-	if (this->mapa->posicionPertenece(destino)) {
-		this->mapa->quitarEntidad(entidad);
-		this->mapa->ubicarEntidad(entidad, destino);
+	Posicion* aux = entidad->verPosicion();
+
+	Entidad* ocupante = this->mapa->verContenido(destino);
+	bool valida = ocupante == nullptr || ocupante == entidad;
+	bool distinta = aux->getRoundX() != destino->getRoundX();
+	distinta = distinta || ( aux ->getRoundY() != destino->getRoundY() );
+	if (valida) {
+		if (distinta) {
+			this->mapa->quitarEntidad(entidad);
+			this->mapa->ubicarEntidad(entidad, destino);
+		}
 		entidad->asignarPos(destino);
 	}
 }

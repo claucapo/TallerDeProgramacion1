@@ -1,6 +1,7 @@
 #include "Partida.h"
 #include "Escenario.h"
 #include "Jugador.h"
+#include "Enumerados.h"
 #include "ErrorLog.h"
 
 #include <sstream> // Para convertir int en string
@@ -75,30 +76,29 @@ void Partida::procesarUpdate(msg_update msj) {
 	CodigoMensaje accion = msj.accion;
 	// Según la acción que sea, hago lo que corresponda
 	Posicion destino;
+	Entidad* ent;
+	Estados_t nState;
 	switch (accion) {
 		case MSJ_ELIMINAR:
 			this->escenario->quitarEntidad(msj.idEntidad); break;
 
-		case MSJ_QUIETO:
-			cout << "LLEGUE ACA" << endl;
-			destino = Posicion(msj.extra1, msj.extra2);
-			scene->moverEntidad(msj.idEntidad, &destino, false);
+		case MSJ_STATE_CHANGE:
+			ent = this->escenario->obtenerEntidad(msj.idEntidad);
+			nState = ent->verEstado();
+			switch ((int)msj.extra1) {
+			case 0: nState = EST_QUIETO; break;
+			case 1: nState = EST_CAMINANDO; break;
+			case 2: nState = EST_ATACANDO; break;
+			case 3: nState = EST_RECOLECTANDO; break;
+			case 4: nState = EST_CONSTRUYENDO; break;
+			}
+			ent->settearEstado(nState);
 		//	if(!this->ent_seleccionadas.empty())
 		//		this->seleccionarEntidad(this->ent_seleccionadas.front(), false);
 			break;
 		case MSJ_MOVER:
-			// cout << accion << endl;
 			destino = Posicion(msj.extra1, msj.extra2);
-		//	Entidad* entMovida = this->verEntidadSeleccionada();
-			if(accion == MSJ_QUIETO){
-				scene->moverEntidad(msj.idEntidad, &destino, true);
-				// cout << "ESTADO QUIETO" << endl;
-			}
-			else{
-				scene->moverEntidad(msj.idEntidad, &destino, true);
-				// cout << "ESTADO MOVER" << endl;
-			
-			}
+			scene->moverEntidad(msj.idEntidad, &destino, true);
 			if(this->ent_seleccionadas.size() == 1)
 				this->seleccionarEntidad(this->ent_seleccionadas.front(), true);
 			break;

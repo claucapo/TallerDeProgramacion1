@@ -1,0 +1,93 @@
+red:
+  puerto: "27015"
+log:
+  warnings: 1
+  info: 0
+  errors: 1
+jugadores:
+  - nombre: "Juana de Arco"
+    id: 1
+    color: "azul"
+  - nombre: "Genghis Khan"
+    id: 2
+    color: "rojo"
+  - nombre: "Saladino"
+    id: 3
+    color: "amarillo"
+entidades:
+  - nombre: "settler"
+    sizeX: 1
+    sizeY: 1
+    tipo: "unit"
+    rangoV: 5
+    rangoA: 1
+    tipoR: -1   # Tipo de recurso: -1 = none
+    maxR: 0
+    velocidad: 10
+    atk: 5
+    def: 1
+    vidaMax: 100
+    cooldown: 20
+    collectR: 5
+    buildR: 50
+    entrenables: []
+    habilidades: ["attack", "build", "collect"]
+  - nombre: "moneda"
+    tipo: "resource"
+    maxR: 5000
+    tipoR: 2
+  - nombre: "champion"
+    tipo: "unit"
+    velocidad: 10
+    rangoV: 10
+    atk: 20
+    def: 5
+    vidaMax: 150
+    habilidades: ["attack"]
+  - nombre: "castle"
+    tipo: "building"
+    sizeX: 6
+    sizeY: 6
+    vidaMax: 1000
+    entrenables: ["champion", "knight"]
+  - nombre: "knight"
+    tipo: "unit"
+    velocidad: 20
+    rangoV: 5
+    collectR: 10
+    habilidades: ["attack", "collect"]
+  - nombre: "house"
+    tipo: "building"
+    sizeX: 3
+    sizeY: 3
+  - nombre: "windmill"
+    tipo: "building"
+    sizeX: 3
+    sizeY: 3
+  - nombre: "town_center"
+    tipo: "building"
+    sizeX: 2
+    sizeY: 2
+  - nombre: "barracks"
+    tipo: "building"
+    sizeX: 4
+    sizeY: 4
+  - nombre: "archery"
+    tipo: "building"
+    sizeX: 4
+    sizeY: 4
+  - nombre: "stable"
+    tipo: "building"
+    sizeX: 4
+    sizeY: 4
+escenario:
+  nombre: DEFAULT_MAP
+  sizeX: 40
+  sizeY: 40
+  entidades:
+   - {x: 1, y: 1, tipo: "knight", p: 1}
+   - {x: 15, y: 15, tipo: "champion", p: 3}
+   - {x: 2, y: 1, tipo: "knight", p: 1}
+   - {x: 1, y: 2, tipo: "knight", p: 1}
+   - {x: 10, y: 2, tipo: "moneda", p: 0}
+   - {x: 11, y: 2, tipo: "moneda"}

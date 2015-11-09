@@ -83,9 +83,9 @@ void FactoryEntidades::agregarEntidad(entidadInfo_t eInfo) {
 			ErrorLog::getInstance()->escribirLog("Tamaño inválido en la entidad [" + eInfo.nombre + "]. Se utiliza valor por defecto.", LOG_WARNING);
 			eInfo.tamY = 1;
 		}
-		if (eInfo.vision <= 1) {
+		if (eInfo.rangoV <= 1) {
 			ErrorLog::getInstance()->escribirLog("Rango visión inválido en la entidad [" + eInfo.nombre + "]. Se utiliza valor por defecto.", LOG_WARNING);
-			eInfo.vision = 1;
+			eInfo.rangoV = 1;
 		}
 
 
@@ -93,28 +93,46 @@ void FactoryEntidades::agregarEntidad(entidadInfo_t eInfo) {
 		// de unidades distintos desde yaml.
 		if (eInfo.tipo == "resource")
 			pType->tipo = ENT_T_RESOURCE;
-		else if (eInfo.tipo == "unit")
+		else if (eInfo.tipo == "unit") {
+			// Solo las unidades pueden tener interacciones
 			pType->tipo = ENT_T_UNIT;
-		else if (eInfo.tipo == "building") {
+			for (list<string>::iterator it = eInfo.habilidades.begin(); it != eInfo.habilidades.end(); it++) {
+				std::string act = (*it);
+				if (act == "attack") {
+					pType->habilidades[ACT_ATACK] = true;
+				} else if (act == "build") {
+					pType->habilidades[ACT_BUILD] = true;
+				} else if (act == "collect") {
+					pType->habilidades[ACT_COLLECT] = true;
+				} else {
+					cout << "Habilidad: [" << act.c_str() << "] no reconocida." << endl;
+				}
+			}
+		} else if (eInfo.tipo == "building") {
+			// Solo los edificios (TBI) puede tener listas de entrenables
 			pType->tipo = ENT_T_BUILDING;
 			for (list<string>::iterator it = eInfo.entrenables.begin(); it != eInfo.entrenables.end(); it++) {
 				std::string act = (*it);
 				pType->entrenables.push_back(act);
 			}
 		}
-
-
+		
 		pType->tamX = eInfo.tamX;
 		pType->tamY = eInfo.tamY;
-		pType->vision = eInfo.vision;
-		pType->score = eInfo.score;
+		pType->rangoV = eInfo.rangoV;
+		pType->recursoMax = eInfo.recursoMax;
 		pType->velocidad = eInfo.velocidad;
 
-		pType->ataque = eInfo.ataqueBase;
-		pType->defensa = eInfo.defensaBase;
-		pType->vidaMax = eInfo.vidaMaxima;
+		pType->ataque = eInfo.ataque;
+		pType->defensa = eInfo.defensa;
+		pType->vidaMax = eInfo.vidaMax;
+
+		pType->collectRate = eInfo.collectRate;
+		pType->buildRate = eInfo.buildRate;
+		pType->cooldown = eInfo.cooldown;
 		
-		// Mapeo provisorio, hasta redefinir yaml para tercer entrega
+		
+		// Mapeo provisorio, hasta redefinir yaml para tercer entrega?
 		switch (eInfo.tipoR) {
 		case 0: pType->tipoR = RES_T_GOLD; break;
 		case 1: pType->tipoR = RES_T_WOOD; break;
@@ -123,9 +141,7 @@ void FactoryEntidades::agregarEntidad(entidadInfo_t eInfo) {
 		default:
 			pType->tipoR = RES_T_NONE;
 		}
-
-
-
+		
 		prototipos[eInfo.nombre] = pType;
 	}
 }
@@ -143,20 +159,20 @@ Entidad* FactoryEntidades::obtenerEntidad(string name){
 		pType = prototipos[name];
 		switch (pType->tipo) {
 		case ENT_T_RESOURCE:
-			ent = new Recurso(obtenerIDValida(), name, pType->tamX, pType->tamX, pType->vision, pType->score, pType->tipoR); break;
+			ent = new Recurso(obtenerIDValida(), name, *pType); break;
 		case ENT_T_UNIT: {
-			ent = new Unidad(obtenerIDValida(), name, pType->tamX, pType->tamX, pType->vision, pType->velocidad);
+			ent = new Unidad(obtenerIDValida(), name, *pType);
 			break;
 			}
 		case ENT_T_NONE:
 		default:
-			ent = new Entidad(obtenerIDValida(), name, pType->tamX, pType->tamX, pType->vision); break;
+			ent = new Entidad(obtenerIDValida(), name, *pType); break;
 		}
 		ent->tipo = pType->tipo;
 	} else {
 		ErrorLog::getInstance()->escribirLog("Entidad [" + name + "] no existe en sistema. Se reemplazará por entidad por defecto.", LOG_WARNING);
 		pType = prototipos[nombre_entidad_def];
-		ent = new Entidad(obtenerIDValida(), nombre_entidad_def, pType->tamX, pType->tamX, pType->vision);
+		ent = new Entidad(obtenerIDValida(), nombre_entidad_def, *pType);
 	} 
 	return ent;
 }
@@ -175,15 +191,24 @@ list<msg_tipo_entidad*> FactoryEntidades::obtenerListaTipos(void) {
 		msg->tamX = iter->second->tamX;
 		msg->tamY= iter->second->tamY;
 		msg->tipo = iter->second->tipo;
+
 		msg->velocidad = iter->second->velocidad;
-		msg->vision = iter->second->vision;
-		msg->score = iter->second->score;
-		msg->tipoR = iter->second->tipoR;
-
-
+		msg->rangoV = iter->second->rangoV;
+		msg->rangoA = iter->second->recursoMax;
 		msg->ataque = iter->second->ataque;
 		msg->defensa = iter->second->defensa;
 		msg->vidaMax = iter->second->vidaMax;
+
+		msg->tipoR = iter->second->tipoR;
+		msg->recursoMax = iter->second->recursoMax;
+
+		msg->collectRate = iter->second->collectRate;
+		msg->buildRate = iter->second->buildRate;
+		msg->cooldown = iter->second->cooldown;
+
+		for (int i = 0; i < CANT_ACCIONES; i++) {
+			msg->habilidades[i] = iter->second->habilidades[i];
+		}		
 
 		// Serialización de las entidades entrenables
 		msg->cant_entrenables = iter->second->entrenables.size();

@@ -15,16 +15,25 @@ protected:
 	float rapidez;
 	Direcciones_t direccion;
 
-	Unidad(void);
-	Unidad(Posicion* p);
 	list<Posicion*> camino;
 
+	int collectRate, buildRate;
+
+private:
+	void mover(Escenario* scene);
+	bool realizarAccion(Accion_t acc, Entidad* target, Escenario* scene);
+
+	
+	bool resolverAtaque(Entidad* target, Escenario* scene);
+	bool resolverRecoleccion(Entidad* target, Escenario* scene);
+	bool resolverConstruccion(Entidad* target, Escenario* scene);
+	
 public:
 	// Constructor y destructor por defecto
 
 	~Unidad(void);
 	
-	Unidad(unsigned int id, string name, int tamX, int tamY, int vision, int velocidad);
+	Unidad(unsigned int id, string name, tipoEntidad_t pType);
 	
 	// Devuelve el valor de la velocidad de
 	// la Unidad.
@@ -43,12 +52,16 @@ public:
 	// Aumenta la velocidad de la Unidad
 	// a partir de la aceleracion recibida.
 	virtual void setVelocidad(float nuevaVelocidad);
-	virtual void setEstado(Estados_t nuevoEstado);
 	virtual void marcarCamino(list<Posicion*> camino);
+
+	virtual bool objetivoEnRango(Entidad* target, Escenario* scene);
+
+	virtual bool puedeRealizarAccion(Accion_t acc);
+	virtual void asignarAccion(Accion_t acc, unsigned int targetID);
 	
 	virtual af_result_t avanzarFrame(Escenario* scene);
 
 	Direcciones_t calcularDirecion(float velocidadX, float velocidadY);
-public:
+
 	void setDireccion(Direcciones_t);
 };

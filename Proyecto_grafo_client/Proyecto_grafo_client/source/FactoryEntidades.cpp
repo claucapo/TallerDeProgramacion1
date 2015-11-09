@@ -80,22 +80,27 @@ void FactoryEntidades::agregarEntidad(msg_tipo_entidad eInfo) {
 			ErrorLog::getInstance()->escribirLog("Tamaño inválido en la entidad [" + nombre + "]. Se utiliza valor por defecto.", LOG_WARNING);
 			eInfo.tamY = 1;
 		}
-		if (eInfo.vision <= 1) {
+		if (eInfo.rangoV <= 1) {
 			ErrorLog::getInstance()->escribirLog("Rango visión inválido en la entidad [" + nombre + "]. Se utiliza valor por defecto.", LOG_WARNING);
-			eInfo.vision = 1;
+			eInfo.rangoV = 1;
 		}
+
+		pType->tipo = eInfo.tipo;
+		pType->tipoR = eInfo.tipoR;
 
 		pType->tamX = eInfo.tamX;
 		pType->tamY = eInfo.tamY;
-		pType->vision = eInfo.vision;
-		pType->score = eInfo.score;
+		pType->rangoV = eInfo.rangoV;
+		pType->recursoMax = eInfo.recursoMax;
 		pType->velocidad = eInfo.velocidad;
-		pType->tipo = eInfo.tipo;
-		pType->tipoR = eInfo.tipoR;
 
 		pType->ataque = eInfo.ataque;
 		pType->defensa = eInfo.defensa;
 		pType->vidaMax = eInfo.vidaMax;
+
+		pType->collectRate = eInfo.collectRate;
+		pType->buildRate = eInfo.buildRate;
+		pType->cooldown = eInfo.cooldown;
 
 		if (pType->tipo = ENT_T_BUILDING) {
 			for (unsigned int i = 0; i < eInfo.cant_entrenables; i++) {
@@ -120,41 +125,19 @@ Entidad* FactoryEntidades::obtenerEntidad(string name, unsigned int id){
 		pType = prototipos[name];
 		switch (pType->tipo) {
 		case ENT_T_RESOURCE:
-			ent = new Recurso(id, name, pType->tamX, pType->tamX, pType->vision, pType->score, pType->tipoR); break;
+			ent = new Recurso(id, name, *pType); break;
 		case ENT_T_UNIT:
-			ent = new Unidad(id, name, pType->tamX, pType->tamX, pType->vision, pType->velocidad); break;
+			ent = new Unidad(id, name, *pType); break;
 		case ENT_T_NONE:
 		default:
-			ent = new Entidad(id, name, pType->tamX, pType->tamX, pType->vision);
+			ent = new Entidad(id, name, *pType);
 		}
 	} else {
 		ErrorLog::getInstance()->escribirLog("Entidad [" + name + "] no existe en sistema. Se reemplazará por entidad por defecto.", LOG_WARNING);
 		pType = prototipos[nombre_entidad_def];
-		ent = new Entidad(id, nombre_entidad_def, pType->tamX, pType->tamX, pType->vision);
+		ent = new Entidad(id, nombre_entidad_def, *pType);
 	} 
 	return ent;
 }
 
-
-/*
-
-Unidad* FactoryEntidades::obtenerUnidad(string name){	
-	if (name.find(estados_extensiones[EST_CAMINANDO]) != string::npos) {
-		ErrorLog::getInstance()->escribirLog("Extensión [" + estados_extensiones[EST_CAMINANDO] + "] reservada. La instancia se reemplazará por entidad por defecto.", LOG_WARNING);
-		name = nombre_entidad_def;
-	}
-	Unidad* unit = nullptr;
-	tipoEntidad_t* pType = nullptr;
-	if (prototipos.count(name) > 0) {
-		pType = prototipos[name];
-		unit = new Unidad(name, pType->tamX, pType->tamX, pType->vision);
-	} else {
-		ErrorLog::getInstance()->escribirLog("Entidad [" + name + "] no existe en sistema. Se reemplazará por entidad por defecto.", LOG_WARNING);
-		pType = prototipos[nombre_entidad_def];
-		unit = new Unidad(nombre_entidad_def, pType->tamX, pType->tamX, pType->vision);
-	} 
-	return unit;
-}
-
-*/
 

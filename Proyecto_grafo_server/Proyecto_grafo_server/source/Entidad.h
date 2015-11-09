@@ -21,6 +21,10 @@ protected:
 	
 	Estados_t state;
 
+	// Interaccion
+	Accion_t accion;
+	unsigned int targetID;
+
 	int tamX;
 	int tamY;
 
@@ -29,21 +33,19 @@ protected:
 
 	Jugador* owner;
 
-	// Proximamente borrar (?
-	Entidad(void);
-	Entidad(Posicion* p);
-
 public:
 	string name;
 	entity_type_t tipo;
 
-	int vidaAct, vidaMax, ataque, escudo;
+	int vidaAct, vidaMax, ataque, defensa;
+	int cooldownMax, cooldownAct;
+	bool habilidades[CANT_ACCIONES];
 
 	// Constructor y destructor por defecto
 	~Entidad(void);
 
 	// Constructor sobrecargado
-	Entidad(unsigned int id, string name, int tamX, int tamY, int vision);
+	Entidad(unsigned int id, string name, tipoEntidad_t pType);
 
 	// Devuelve la Posicion sobre la cual
 	// está asociada la Entidad.
@@ -69,6 +71,12 @@ public:
 	virtual af_result_t avanzarFrame(Escenario* scene);
 	
 	void asignarJugador(Jugador* player);
+
+	virtual void asignarEstado(Estados_t state);
+	virtual void asignarAccion(Accion_t accion, unsigned int targetID);
+	Accion_t verAccion() {return this->accion;}
+	unsigned int verTargetID() {return this->targetID;}
+		
 
 	// NOTA: Sobrescribir los operadores
 	// ==, < y >.

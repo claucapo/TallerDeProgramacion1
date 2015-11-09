@@ -9,32 +9,15 @@
 
 using namespace std;
 
-Unidad::Unidad() : Entidad() {
-	this->rapidez = 0;
+Unidad::Unidad(unsigned int id, string name, tipoEntidad_t pType) : Entidad(id, name, pType) {
+	this->rapidez = pType.velocidad;
 	this->direccion = DIR_DOWN;
 	this->destino = nullptr;
-	this->tipo = ENT_T_UNIT;
+
+	this->collectRate = pType.collectRate;
+	this->buildRate = pType.buildRate;
 }
 
-Unidad::Unidad(unsigned int id, string name, int tamX, int tamY, int vision, int velocidad) : Entidad(id, name, tamX, tamY, vision) {
-	this->rapidez = velocidad;
-	this->direccion = DIR_DOWN;
-	this->destino = nullptr;
-	this->tipo = ENT_T_UNIT;
-}
-
-Unidad::Unidad(Posicion* p) : Entidad() {
-	if (p) {
-		this->pos = p;
-		this->destino = new Posicion(this->pos->getX(), this->pos->getY());
-	} else {
-		ErrorLog::getInstance()->escribirLog("Error al querer asignar Posicion a " + this->name + ": Posicion inexistente.", LOG_ERROR);
-		this->destino = nullptr;
-	}
-	this->rapidez = 0;
-	this->direccion = DIR_DOWN;
-	this->tipo = ENT_T_UNIT;
-	}
 
 Unidad::~Unidad() {
 	delete this->destino;

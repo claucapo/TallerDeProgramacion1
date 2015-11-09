@@ -147,3 +147,13 @@ void Escenario::moverEntidad(unsigned int entID, Posicion* pos, bool seguirMovie
 	spEnt->cambiarImagen(nombreEnt);
 	
 }
+
+
+Entidad* Escenario::obtenerEntidad(unsigned int entID) {
+ 	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
+ 		if ( (*it)->verID() == entID ) {
+			return (*it);
+		}
+	}
+	return nullptr;
+}

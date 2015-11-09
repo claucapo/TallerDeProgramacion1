@@ -22,6 +22,10 @@ protected:
 
 	Estados_t state;
 
+	// Interaccion
+	Accion_t accion;
+	unsigned int targetID;
+
 	int tamX;
 	int tamY;
 
@@ -34,14 +38,15 @@ public:
 	string name;
 	entity_type_t tipo;
 
-	int vidaAct, vidaMax, ataque, escudo;
-	// Constructor y destructor por defecto
-	Entidad(void);
+	int vidaAct, vidaMax, ataque, defensa;
+	int cooldownMax, cooldownAct;
+	bool habilidades[CANT_ACCIONES];
+
+	// Destructor por defecto
 	~Entidad(void);
 
 	// Constructor sobrecargado
-	Entidad(Posicion* p);
-	Entidad(unsigned int id, string name, int tamX, int tamY, int vision);
+	Entidad(unsigned int id, string name, tipoEntidad_t pType);
 
 	// Devuelve la Posicion sobre la cual
 	// está asociada la Entidad.
@@ -80,7 +85,7 @@ public:
 	// "Dos Entidad son iguales si ocupan
 	// las mismas casillas y tienen los
 	// mismos estados".
-
+	
 	// Asigna una Posicion de prepo
 	void asignarPos(Posicion* pos);
 

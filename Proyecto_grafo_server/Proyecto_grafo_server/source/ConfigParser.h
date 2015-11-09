@@ -105,24 +105,26 @@ struct entidadInfo_t {
 	std::string nombre;
 	std::string tipo;
 	
-	int tamX;
-	int tamY;
-
-	int vision;
+	int tamX, tamY;
+	int rangoV, rangoA;
 	int velocidad;
-	int score;
+
 	int tipoR;
-	
-	int vidaMaxima;
-	int ataqueBase;
-	int defensaBase;
+	int recursoMax;
+
+	int ataque, defensa, vidaMax;
+	int cooldown;
+	int collectRate, buildRate;
 
 	std::list<std::string> entrenables;
+	std::list<std::string> habilidades;
 
 	// Inicializa los valores a cero por defecto
 	entidadInfo_t(): nombre(TYPE_NAME_DEFAULT),	tipo(ENT_TYPE_DEFAULT), tamX(1), tamY(1),
-				score(1), vision(1), velocidad(1), tipoR(RES_TYPE_DEFAULT),
-				vidaMaxima(VIDA_MAX_DEFAULT), ataqueBase(ATK_BASE_DEFAULT), defensaBase(DEF_BASE_DEFAULT), entrenables() {};
+				recursoMax(1), rangoV(1), rangoA(1), velocidad(1), tipoR(RES_TYPE_DEFAULT),
+				vidaMax(VIDA_MAX_DEFAULT), ataque(ATK_BASE_DEFAULT), defensa(DEF_BASE_DEFAULT),
+				entrenables(), habilidades(),
+				cooldown(0), collectRate(0), buildRate(0) {};
 };
 
 

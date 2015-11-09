@@ -6,63 +6,30 @@
 #include <iostream>
 
 
-// El constructor sobrecargado inicializa la entidad en una posición determinada
-// por la referencia del parámetro
-Entidad::Entidad(Posicion* p) {
-	if (!p) {
-		this->pos = nullptr;
-		ErrorLog::getInstance()->escribirLog("Error al querer asignar Posicion a " + this->name + ": Posicion inexistente.", LOG_ERROR);
-		}
-	 else 
-		this->pos = new Posicion(*p);
-	this->state = EST_QUIETO;
-	this->name = nombre_entidad_def;
-	this->tamX = 1;
-	this->tamY = 1;
-	this->rangoVision = 4;
-	this->owner = nullptr;
-	this->tipo = ENT_T_NONE;
-
-	this->vidaAct = 34;
-	this->vidaMax = 40;
-	this->ataque = 0;
-	this->escudo = 0;
-}
-
-// El constructor por defecto inicializa la posición en nullptr
-Entidad::Entidad(void) {
-	this->pos = nullptr;
-	this->sprites = nullptr;
-	this->state = EST_QUIETO;
-	this->name = nombre_entidad_def;
-	this->tamX = 1;
-	this->tamY = 1;
-	this->rangoVision = 4;
-	
-	this->owner = nullptr;
-
-	this->vidaAct = 34;
-	this->vidaMax = 40;
-	this->ataque = 0;
-	this->escudo = 0;
-}
-
-Entidad::Entidad(unsigned int id, string name, int tamX, int tamY, int vision) {
-	this->pos = nullptr;
+Entidad::Entidad(unsigned int id, string name, tipoEntidad_t pType) {
 	this->id = id;
-	this->sprites = nullptr;
 	this->name = name;
-	this->state = EST_QUIETO;
-	this->tamX = (tamX > 0) ? tamX : 1;
-	this->tamY = (tamY > 0) ? tamY : 1;
-	this->rangoVision = vision;
-
+	this->pos = nullptr;
 	this->owner = nullptr;
+	this->state = EST_QUIETO;
 
-	this->vidaAct = 34;
-	this->vidaMax = 40;
-	this->ataque = 0;
-	this->escudo = 0;
+	this->accion = ACT_NONE;
+	this->targetID = this->id;
+
+	this->tamX = (pType.tamX > 0) ? pType.tamX : 1;
+	this->tamY = (pType.tamY > 0) ? pType.tamY : 1;
+	this->rangoVision = pType.rangoV;
+
+	this->vidaAct = pType.vidaMax;
+	this->vidaMax = pType.vidaMax;
+	this->ataque = pType.ataque;
+	this->defensa = pType.defensa;
+
+	this->cooldownMax = pType.cooldown;
+	this->cooldownAct = 0;
+	for (int i = 0; i < CANT_ACCIONES; i++) {
+		this->habilidades[i] = pType.habilidades[i];		
+	}
 }
 
 // Llamo al destructor de todos los miembros de la clase (en caso de que alguno

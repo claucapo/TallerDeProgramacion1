@@ -21,17 +21,26 @@
 #define ENTIDADES_KEY "entidades"
 	#define TIPO_KEY "tipo"
 	#define NOMBRE_KEY "nombre"
-	#define TAMANIO_X_KEY "sizeX"
-	#define TAMANIO_Y_KEY "sizeY"
-	#define VIEW_RANGE_KEY "vision"
-	#define VELOCIDAD_KEY "velocidad"
-	#define SCORE_KEY "score"
-	#define TIPO_RECURSO_KEY "res"
+	#define TAM_X_KEY "sizeX"
+	#define TAM_Y_KEY "sizeY"
 
-	#define VIDA_KEY "vidaMax"
-	#define ATK_KEY "ataque"
-	#define DEF_KEY "defensa"
+	#define RANGE_VIEW_KEY "rangoV"
+	#define RANGE_ATK_KEY "rangoA"
+
+	#define RECURSO_TIPO_KEY "tipoR"
+	#define RECURSO_MAX_KEY "maxR"
+
+	#define VELOCIDAD_KEY "velocidad"
+	#define ATTACK_KEY "atk"
+	#define DEFENSE_KEY "def"
+	#define HP_MAX_KEY "vidaMax"
+
+	#define COOLDOWN_KEY "cooldown"
+	#define RATE_COLLECT_KEY "collectR"
+	#define RATE_BUILD_KEY "buildR"	
+
 	#define TRAINING_KEY "entrenables"
+	#define HABLIDADES_KEY "habilidades"
 
 #define ESCENARIO_KEY "escenario"
 	#define COORD_X_KEY "x"
@@ -248,21 +257,32 @@ void operator >> (const YAML::Node& node, entidadInfo_t& eInfo) {
 	parsearString(node, NOMBRE_KEY, &eInfo.nombre);
 	parsearString(node, TIPO_KEY, &eInfo.tipo, LOG_INFO);
 
-	parsearEntero(node, TAMANIO_X_KEY, &eInfo.tamX, LOG_INFO, false);
-	parsearEntero(node, TAMANIO_Y_KEY, &eInfo.tamY, LOG_INFO, false);
+	parsearEntero(node, TAM_X_KEY, &eInfo.tamX, LOG_INFO, false);
+	parsearEntero(node, TAM_Y_KEY, &eInfo.tamY, LOG_INFO, false);
 
-	parsearEntero(node, VIEW_RANGE_KEY, &eInfo.vision, LOG_INFO, false);
+	parsearEntero(node, RANGE_VIEW_KEY, &eInfo.rangoV, LOG_INFO, false);
+	parsearEntero(node, RANGE_ATK_KEY, &eInfo.rangoA, LOG_INFO, false);
+
+	parsearEntero(node, RECURSO_TIPO_KEY, &eInfo.tipoR, LOG_INFO, true);
+	parsearEntero(node, RECURSO_MAX_KEY, &eInfo.recursoMax, LOG_INFO, true);
+
 	parsearEntero(node, VELOCIDAD_KEY, &eInfo.velocidad, LOG_INFO, true);
-	parsearEntero(node, SCORE_KEY, &eInfo.score, LOG_INFO, false);
+	parsearEntero(node, HP_MAX_KEY, &eInfo.vidaMax, LOG_INFO, false);
+	parsearEntero(node, ATTACK_KEY, &eInfo.ataque, LOG_INFO, true);
+	parsearEntero(node, DEFENSE_KEY, &eInfo.defensa, LOG_INFO, true);
 
-	parsearEntero(node, TIPO_RECURSO_KEY, &eInfo.tipoR, LOG_INFO, true);
-
-	parsearEntero(node, VIDA_KEY, &eInfo.vidaMaxima, LOG_INFO, false);
-	parsearEntero(node, ATK_KEY, &eInfo.ataqueBase, LOG_INFO, true);
-	parsearEntero(node, DEF_KEY, &eInfo.defensaBase, LOG_INFO, true);
+	parsearEntero(node, COOLDOWN_KEY, &eInfo.cooldown, LOG_INFO, true);
+	parsearEntero(node, RATE_BUILD_KEY, &eInfo.buildRate, LOG_INFO, true);
+	parsearEntero(node, RATE_COLLECT_KEY, &eInfo.collectRate, LOG_INFO, true);
 
 	try {	
 		node[TRAINING_KEY] >> eInfo.entrenables;
+	} catch (YAML::KeyNotFound e) {
+		raiseError(MISSING_SECTION_ERR, e.what(), LOG_INFO);
+	}
+	
+	try {	
+		node[HABLIDADES_KEY] >> eInfo.habilidades;
 	} catch (YAML::KeyNotFound e) {
 		raiseError(MISSING_SECTION_ERR, e.what(), LOG_INFO);
 	}
@@ -322,8 +342,8 @@ void operator >> (const YAML::Node& node, std::list<instanciaInfo_t*>& iInfoL) {
 // Contiene el tamanio del mapa y la lista de entidades que hay en el mismo.
 void operator >> (const YAML::Node& node, escenarioInfo_t& sInfo) {
 	parsearString(node, NOMBRE_KEY, &sInfo.name, LOG_INFO);
-	parsearEntero(node, TAMANIO_X_KEY, &sInfo.size_X, LOG_WARNING, false);
-	parsearEntero(node, TAMANIO_Y_KEY, &sInfo.size_Y, LOG_WARNING, false);
+	parsearEntero(node, TAM_X_KEY, &sInfo.size_X, LOG_WARNING, false);
+	parsearEntero(node, TAM_Y_KEY, &sInfo.size_Y, LOG_WARNING, false);
 
 	// Obtengo lista de entidades.
 	try {

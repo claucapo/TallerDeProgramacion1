@@ -109,7 +109,7 @@
       <Filter>Archivos de encabezado\Partida</Filter>
     </ClInclude>
     <ClInclude Include="source\ErrorLog.h">
-      <Filter>Archivos de encabezado\Entidades</Filter>
+      <Filter>Archivos de encabezado\Archivos</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

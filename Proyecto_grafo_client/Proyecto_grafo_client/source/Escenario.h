@@ -60,6 +60,8 @@ public:
 
 	void moverEntidad(unsigned int entID, Posicion* pos, bool seguirMoviendo);
 	
+	Entidad* obtenerEntidad(unsigned int entID);
+
 	list<Entidad*> verEntidades(void);
 	void asignarDestino(unsigned int entID, Posicion pos);
 

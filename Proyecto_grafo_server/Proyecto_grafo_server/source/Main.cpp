@@ -29,7 +29,7 @@ using namespace std;
 // #pragma comment (lib, "Mswsock.lib")
 
 #define TESTING_ENABLED false
-#define ARCHIVO_YAML "default.yaml"
+#define ARCHIVO_YAML "test4.yaml"
 
 
 SOCKET inicializarConexion(redInfo_t rInfo) {
@@ -178,23 +178,12 @@ int main(int argc, char* argv[]) {
 
 
 	cout <<endl<<endl;
-	// Cambiar por alguna condición de corte en los mensajes??
-	// No creo, el server siempre vive, no?
+
 	bool exit = false;
-
-	// TESTEANDO CAMINOS MINIMOS
-	int destX = 36, destY = 36, oriX = 30, oriY = 30;
-
-
-
 	for (int i = 0; i < parser.verInfoEscenario().size_X; i++) {
 		for (int j = 0; j < parser.verInfoEscenario().size_Y; j++) {
 			if (!game->escenario->verMapa()->posicionEstaVacia(&Posicion(i,j)))
 				cout<< "X";
-			else if (i == oriX && j == 15)
-				cout<<"I";
-			else if (i == destX && j==destY)
-				cout<<"D";
 			else
 				cout << "_";
 		}
@@ -202,7 +191,7 @@ int main(int argc, char* argv[]) {
 	}
 	cout <<endl;
 	
-	list<Posicion*> path = game->escenario->verMapa()->caminoMinimo(Posicion(oriX,oriY), Posicion(destX,destY));
+	/*list<Posicion*> path = game->escenario->verMapa()->caminoMinimo(Posicion(oriX,oriY), Posicion(destX,destY));
 	cout<<"CAMINO MINIMO ENTRE (" << oriX << "," << oriY << ") y (" << destX << "," << destY  << ")" << endl;
 	while(!path.empty()){
 		Posicion* pAct = path.front();
@@ -210,6 +199,13 @@ int main(int argc, char* argv[]) {
 		path.pop_front();
 		delete pAct;
 	}
+	*/
+
+	//cout << "Voy a hacer que el champion (1) ataque al knight (0)" << endl;
+	//game->escenario->obtenerEntidad(1)->asignarAccion(ACT_ATACK, 0);
+	
+	cout << "Voy a hacer que el knight (2) recolecte la moneda (5)" << endl;
+	game->escenario->obtenerEntidad(2)->asignarAccion(ACT_COLLECT, 5);
 
 	while ( !exit ) {
 		float timeA = SDL_GetTicks();
@@ -222,7 +218,8 @@ int main(int argc, char* argv[]) {
 		
 		float timeB = SDL_GetTicks();
 		if((FRAME_DURATION - timeB + timeA -16) > 0)
-			SDL_Delay(FRAME_DURATION - timeB + timeA -16);
+			SDL_Delay(FRAME_DURATION - timeB + timeA -16); // -16????
+
 	}
 	
 	closesocket(ListenSocket);

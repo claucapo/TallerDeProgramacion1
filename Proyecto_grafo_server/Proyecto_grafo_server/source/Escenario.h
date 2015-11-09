@@ -21,11 +21,14 @@ private:
 	int tamX;
 	int tamY;
 
+
 public:
 	// Constructor y destructor por defecto
 	Escenario(void);
 	~Escenario(void);
 	
+	list<msg_update*> updatesAux;
+
 	// Crea un Escenario asociando un mapa
 	// Grafo de tamaño casillas_x x casillas_y.
 	Escenario(int casillas_x, int casillas_y);
@@ -41,8 +44,11 @@ public:
 	// Avanza un frame para cada Entidad sobre
 	// el mapa, ejecutando sus acciones.
 	list<msg_update*> avanzarFrame(void);
+	msg_update* generarUpdate(CodigoMensaje accion, unsigned int id, float extra1, float extra2);
+
 
 	bool casillaEstaVacia(Posicion* pos) {return this->mapa->posicionEstaVacia(pos);}
+	Entidad* obtenerEntidad(unsigned int entID);
 
 	// Posiciona una Entidad en el mapa en la
 	// Posicion pos. Si la Posicion ya estaba

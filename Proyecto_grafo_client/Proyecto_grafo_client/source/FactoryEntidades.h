@@ -11,38 +11,6 @@
 
 #pragma once
 
-// Definición del struct que contendrá información particular de cada clase.
-struct tipoEntidad_t {
-	int tamX;
-	int tamY;
-	int vision;
-	int velocidad;
-	entity_type_t tipo;
-	int score;
-	resource_type_t tipoR;
-
-	int ataque;
-	int defensa;
-	int vidaMax;
-
-	std::list<std::string> entrenables;
-
-	// Valores por defecto
-	tipoEntidad_t() {
-		tamX = 1;
-		tamY = 1;
-		vision = 1;
-		velocidad = 1;
-		tipo = ENT_T_NONE;
-		score = 1;
-		tipoR = RES_T_NONE;
-
-		ataque = 0;
-		defensa = 0;
-		vidaMax = 1;
-		entrenables = std::list<std::string>();
-	}
-};
 
 
 // Implementada como singleton

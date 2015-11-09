@@ -73,9 +73,6 @@ public:
 	list<Posicion> posicionesOcupadas(Entidad* elemento);
 	void actualizarMapDeOcupaciones();
 	list<Posicion*> Matriz::caminoMinimo(Posicion posAct, Posicion posDest);
-
-	void ocuparPosicionSinChequeo(Posicion* pos, Entidad* ent);
-	void vaciarPosicionSinChequeo(Posicion* pos);
 };
 
 

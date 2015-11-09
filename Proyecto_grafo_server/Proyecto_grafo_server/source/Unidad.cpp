@@ -2,45 +2,23 @@
 #include "Posicion.h"
 #include "Enumerados.h"
 #include "Escenario.h"
+#include "Jugador.h"
 #include "ErrorLog.h"
+#include "Recurso.h"
 #include "ConversorUnidades.h"
 #include <cmath>
 #include <iostream>
 #include <list>
 
-Unidad::Unidad() : Entidad() {
-	this->rapidez = 0;
+
+Unidad::Unidad(unsigned int id, string name, tipoEntidad_t pType) : Entidad(id, name, pType) {
+	this->rapidez = (float)pType.velocidad/100;
 	this->direccion = DIR_DOWN;
 	this->destino = nullptr;
+
+	this->collectRate = pType.collectRate;
+	this->buildRate = pType.buildRate;
 }
-
-Unidad::Unidad(unsigned int id, string name, int tamX, int tamY, int vision, int velocidad) {
-	this->pos = nullptr;
-	this->id = id;
-	this->name = name;
-	this->state = EST_QUIETO;
-	this->tamX = (tamX > 0) ? tamX : 1;
-	this->tamY = (tamY > 0) ? tamY : 1;
-	this->rangoVision = vision;
-
-	this->owner = nullptr;
-
-	this->rapidez = (float)velocidad/100;
-	this->direccion = DIR_DOWN;
-	this->destino = nullptr;
-}
-
-Unidad::Unidad(Posicion* p) : Entidad() {
-	if (p) {
-		this->pos = p;
-		this->destino = new Posicion(this->pos->getX(), this->pos->getY());
-	} else {
-		ErrorLog::getInstance()->escribirLog("Error al querer asignar Posicion a " + this->name + ": Posicion inexistente.", LOG_ERROR);
-		this->destino = nullptr;
-	}
-	this->rapidez = 0;
-	this->direccion = DIR_DOWN;
-	}
 
 Unidad::~Unidad() {
 	delete this->destino;
@@ -69,10 +47,6 @@ void Unidad::nuevoDestino(Posicion* pos){
 	}
 }
 
-void Unidad::setEstado(Estados_t state) {
-	this->state = state;
-}
-
 void Unidad::marcarCamino(list<Posicion*> camino) {
 	this->camino = camino;
 	this->camino.push_back(this->destino);
@@ -88,120 +62,253 @@ bool estaEnCasilla(Posicion* punto, Posicion* contenedor){
 }
 
 
-af_result_t Unidad::avanzarFrame(Escenario* scene) {
-	// Aca habría que chequear si la entidad cambió de posición
 
-	Estados_t state = this->state;
 
-	//el ultimo elemento es el destino original
-	if (camino.size() == 0){
-		this->setEstado(EST_QUIETO);
+bool Unidad::puedeRealizarAccion(Accion_t acc) {
+	// Insertar la lógica que decida si se puede o no realizar la accion
+	return this->habilidades[acc];
+}
+
+void Unidad::asignarAccion(Accion_t acc, unsigned int targetID) {
+	if (this->puedeRealizarAccion(acc)) {
+		this->accion = acc;
+		this->targetID = targetID;
+	} else {
+		cout << this->name << " cannot perform " << acc << endl;
+	}
+}
+
+bool Unidad::objetivoEnRango(Entidad* target, Escenario* scene) {
+	Posicion* targetPos = target->verPosicion();
+	int distX = targetPos->getRoundX() - this->pos->getRoundX();
+	int distY = targetPos->getRoundY() - this->pos->getRoundY();
+
+	if ( distX >= -1 && distX <= 1 )
+		if ( distY >= -1 && distY <= 1 )
+			return true;
+
+	return false;
+}
+
+
+
+
+void Unidad::mover(Escenario* scene) {
+	Posicion* act = this->pos;
+	Posicion* dest = this->camino.front();
+
+	if (scene->verMapa()->verContenido(dest) != this && this->camino.size() > 1) {
+		if (!scene->casillaEstaVacia(dest)) {
+			cout << "Hmmm... algo no me deja pasar" << endl;
+			scene->asignarDestino(this->verID(), *this->verDestino());
+			return;
+		}
 	}
 
-	if ((!camino.empty()) && (state == EST_CAMINANDO)) {
-		Posicion* act = this->pos;
-		Posicion* dest = this->camino.front();
+	// Distantcias
+	float distX = dest->getX() - act->getX() ;
+	float distY = dest->getY() - act->getY() ;
+	float totalDist = sqrt((distX*distX) + (distY*distY));	
 
-
-		// Distantcias
-		float distX = dest->getX() - act->getX() ;
-		float distY = dest->getY() - act->getY() ;
-		float totalDist = sqrt((distX*distX) + (distY*distY));	
-
-		this->setDireccion(this->calcularDirecion(distX, distY));
+	this->setDireccion(this->calcularDirecion(distX, distY));
 		
-		if ((totalDist > this->rapidez) || (dest->getX() > act->getX())) {
- 			float nuevoX = act->getX() + (distX*rapidez)/totalDist;
- 			float nuevoY = act->getY() + (distY*rapidez)/totalDist;
- 			Posicion nuevaPos(nuevoX, nuevoY);
-			if(estaEnCasilla(&nuevaPos, act) || estaEnCasilla(&nuevaPos, dest)){
-			//	scene->verMapa()->quitarEntidad(this);
-			//	scene->verMapa()->vaciarPosicionSinChequeo(act);
-				
-				this->asignarPos( &nuevaPos);
-			//	scene->verMapa()->ubicarEntidad(this, &nuevaPos);
-			//	scene->verMapa()->ocuparPosicionSinChequeo(&nuevaPos, this);
-			
+	if ((totalDist > this->rapidez) || (dest->getX() > act->getX())) {
+ 		float nuevoX = act->getX() + (distX*rapidez)/totalDist;
+ 		float nuevoY = act->getY() + (distY*rapidez)/totalDist;
+ 		Posicion nuevaPos(nuevoX, nuevoY);
+		if( !(estaEnCasilla(&nuevaPos, act) || estaEnCasilla(&nuevaPos, dest)) ) {
+			if ( !(scene->verMapa()->posicionEstaVacia(&nuevaPos)) ) {
+				Posicion aux(nuevaPos.getX(), nuevaPos.getY());
+				if((this->direccion == DIR_RIGHT)){
+					do
+					aux = Posicion(aux.getX() +0.35, aux.getY() +0.45);
+					while(aux == nuevaPos);
 				}
- 			else {
-				if(scene->verMapa()->posicionEstaVacia(&nuevaPos)){
-				//	scene->verMapa()->vaciarPosicionSinChequeo(act);
-				
-				//	scene->verMapa()->quitarEntidad(this);
-					this->asignarPos( &nuevaPos);
-				//	scene->verMapa()->ubicarEntidad(this, &nuevaPos);
-				//	scene->verMapa()->ocuparPosicionSinChequeo(&nuevaPos, this);
-			
-					}
-				else{
-					// Si la posicion que atravieso no está vacía...
-				/*	while(!this->camino.empty())
-						this->camino.pop_front();
-					this->asignarPos(new Posicion(act->getRoundX() + 0.5, act->getRoundY() + 0.5));
-					this->setEstado(EST_QUIETO);*/
-					Posicion aux(nuevaPos.getX(), nuevaPos.getY());
-					if((this->direccion == DIR_RIGHT)){
-						do
-						aux = Posicion(aux.getX() +0.35, aux.getY() +0.45);
-						while(aux == nuevaPos);
-					}
-					else if((this->direccion == DIR_LEFT)){
-						do
-						aux = Posicion(aux.getX() +0.45, aux.getY() +0.35);
-						while(aux == nuevaPos);
-					}
-					else if((this->direccion == DIR_DOWN_LEFT)){
-						do
-						aux = Posicion(aux.getX() +0.1, aux.getY() +0.35);
-						while(aux == nuevaPos);
-					}
-					else if((this->direccion == DIR_DOWN_LEFT)){
-						do
-						aux = Posicion(aux.getX() +0.35, aux.getY() +0.1);
-						while(aux == nuevaPos);
-					}
-					
-				/*	else{
-						
-				//		while(!camino.empty())
-				//			this->camino.pop_front();
-				//		this->setEstado(EST_QUIETO);
-						
-						scene->asignarDestino(this->id, *camino.back());
-						aux= Posicion(act->getRoundX()+0.44,act->getRoundY()+0.44);
-						}*/
-					
-				//	scene->verMapa()->quitarEntidad(this);
-				
-					nuevaPos = Posicion(aux.getX(), aux.getY());
-					scene->moverEntidad(this, &nuevaPos);
-				//	scene->verMapa()->ubicarEntidad(this, new Posicion(act->getRoundX()+0.44,act->getRoundY()+0.44));
-			
+				else if((this->direccion == DIR_LEFT)){
+					do
+					aux = Posicion(aux.getX() +0.45, aux.getY() +0.35);
+					while(aux == nuevaPos);
 				}
+				else if((this->direccion == DIR_DOWN_LEFT)){
+					do
+					aux = Posicion(aux.getX() +0.1, aux.getY() +0.35);
+					while(aux == nuevaPos);
+				}
+				else if((this->direccion == DIR_DOWN_LEFT)){
+					do
+					aux = Posicion(aux.getX() +0.35, aux.getY() +0.1);
+					while(aux == nuevaPos);
+				}
+				nuevaPos = Posicion(aux.getX(), aux.getY());
 			}
- 		} else {
-			this->camino.pop_front();
-			if (camino.size() == 0){
-				this->setEstado(EST_QUIETO);
-			//	scene->verMapa()->quitarEntidad(this);
-			//	scene->verMapa()->vaciarPosicionSinChequeo(act);
-				this->asignarPos( new Posicion(act->getRoundX()+0.44,act->getRoundY()+0.44));
-			//	scene->verMapa()->ubicarEntidad(this, new Posicion(act->getRoundX()+0.44,act->getRoundY()+0.44));
-			//	scene->verMapa()->ocuparPosicionSinChequeo( new Posicion(act->getRoundX()+0.44,act->getRoundY()+0.44), this);
-			}
-
- 		}
-		
- 		return AF_MOVE;
-
+		}
+		scene->moverEntidad(this, &nuevaPos);
+ 	} else {
+		this->camino.pop_front();
+		if (camino.size() == 0){
+			// this->setEstado(EST_QUIETO);
+			// this->asignarPos( new Posicion(act->getRoundX()+0.44,act->getRoundY()+0.44));
+			Posicion aux(act->getRoundX()+0.44,act->getRoundY()+0.44);
+			scene->moverEntidad(this, &aux);
+		}
  	}
+}
+
+bool Unidad::resolverAtaque(Entidad* target, Escenario* scene) {
+	target->vidaAct -= this->ataque;
+	cout << this->verID() << " ataca a " << target->verID() << " y lo deja en " << target->vidaAct << " de vida." << endl;
+	if (target->vidaAct <= 0) {
+		target->asignarEstado(EST_MUERTO);
+		cout << target->verID() << " debe morir!!" << endl;
+		return false;
+	}
+	return true;
+}
+
+bool Unidad::resolverRecoleccion(Entidad* target, Escenario* scene) {
+	if (target->tipo != ENT_T_RESOURCE)
+		return false;
+	Recurso* res = (Recurso*)target;
+	int recolectado = 0;
+	if (res->recursoAct > this->collectRate) {
+		recolectado = this->collectRate;
+	} else {
+		recolectado = res->recursoAct;
+	}
+	res->recursoAct -= recolectado;
+	
+	this->verJugador()->modificarRecurso(res->tipoR, recolectado);
+
+	Jugador* player = this->verJugador();
+	cout << player->verNombre() << " tiene " << player->verRecurso().oro << " oro, ";
+	cout << player->verRecurso().comida << " comida, ";
+	cout << player->verRecurso().madera << " madera y ";
+	cout << player->verRecurso().piedra << " piedra." << endl;
+
+	if (res->recursoAct == 0) {
+		res->asignarEstado(EST_MUERTO);
+		return false;
+	} else {
+		return true;
+	}
+	return true;
+}
+
+bool Unidad::resolverConstruccion(Entidad* target, Escenario* scene) {
+	return false;
+}
+
+bool Unidad::realizarAccion(Accion_t acc, Entidad* target, Escenario* scene) {
+	if (this->cooldownAct != 0) return true;
+	
+	bool ret_val = false;
+	switch (acc) {
+	case ACT_ATACK:
+		ret_val = resolverAtaque(target, scene); break;
+	case ACT_COLLECT:
+		ret_val = resolverRecoleccion(target, scene); break;
+	case ACT_BUILD:
+		ret_val = resolverConstruccion(target, scene); break;
+	}
+	this->cooldownAct = this->cooldownMax;
+	return ret_val;
+}
+
+
+/* Tabla de estados y acciones:
+	EST_QUIETO + ACT_NONE --> nop
+	EST_MOVER  + ACT_NONE --> llegué_a_destino ? (state <- EST_QUIETO) : mover
+	EST_XXXX   + ACT_NONE --> (state <- EST_QUIETO)
+
+	EST_QUIETO + ACT_XXXX --> objetivo_en_rango ? (state <- EST_XXXX) : (state <- EST_MOVER)
+	EST_MOVER  + ACT_XXXX --> objetivo_en_rango ? (state <- EST_XXXX) : mover
+	EST_XXXX   + ACT_XXXX --> objetivo_en_rango ? (realizar_accion) : (state <- EST_MOVER)
+	EST_YYYY   + ACT_XXXX --> objetivo_en_rango ? (state <- EST_XXXX) : (state <- EST_MOVER)
+
+	IMPORTANTE: tener en cuenta que el estado es lo que la unidad está haciendo en el momento,
+				mientras que la acción es la tarea que tiene asignada la unidad.
+*/
+af_result_t Unidad::avanzarFrame(Escenario* scene) {
+	Estados_t state = this->state;
+	Accion_t accion = this->accion;
+	if (this->cooldownAct > 0) this->cooldownAct--;
+
+	if (state == EST_MUERTO)
+		return AF_KILL;
+
+	if (accion == ACT_NONE) {
+		if (state == EST_CAMINANDO) {
+			// Si la unidad esta caminado, primero pregunto si llegué al destino
+			if (camino.size() == 0) {
+				this->asignarEstado(EST_QUIETO);
+				return AF_STATE_CHANGE;
+			} else {
+				this->mover(scene);
+ 				return AF_MOVE;
+			}
+		} else {
+			// Si la unidad estaba haciendo cualquier otra cosa, altero el estado para que se detenga
+			if(this->verEstado() != EST_QUIETO) {
+				this->asignarEstado(EST_QUIETO);
+				return AF_STATE_CHANGE;
+			} else {
+				return AF_NONE;
+			}
+		}
+
+	} else {
+		Entidad* target = scene->obtenerEntidad(this->targetID);
+		if (!target) {
+			this->asignarAccion(ACT_NONE, 0);
+			this->asignarEstado(EST_QUIETO);
+			return AF_STATE_CHANGE;
+		}
+		bool enRango = this->objetivoEnRango(target, scene);
+		if (!enRango) {
+			if (state == EST_CAMINANDO) {
+				this->mover(scene);
+ 				return AF_MOVE;
+			} else {
+				this->asignarEstado(EST_CAMINANDO);
+
+				// WARNING: hardcodeo...
+				// Aca se tendria que mandar a la entidad a una posición adyacente, y no a la hardcodeada
+				Posicion pos(target->verPosicion()->getRoundX()-1, target->verPosicion()->getRoundY()-1);
+
+				scene->asignarDestino(this->verID(), pos);
+				return AF_STATE_CHANGE;
+			}
+		} else {
+			if (state == accionAEstado[accion]) {
+				bool continuar = this->realizarAccion(accion, target, scene);
+				if (!continuar) {
+					this->asignarAccion(ACT_NONE, 0);
+					this->asignarEstado(EST_QUIETO);
+					return AF_STATE_CHANGE;
+				} else {
+					return AF_NONE;
+				}
+			} else {
+				// enRango && !(state == accion)
+				this->asignarEstado(accionAEstado[accion]);
+				return AF_STATE_CHANGE;
+			}
+		}
+	}
 	return AF_NONE;
  }
 
 
+
+
+
+
+
+
+
+
 // Calcula la dirección del movimiento de acuerdo a las velocidades en X e Y
 Direcciones_t Unidad::calcularDirecion(float velocidadX, float velocidadY) {
-	
 	// Transformo a cartesianas comunes
 	float vX = velocidadY * 0.866 - velocidadX * 0.866;
 	float vY = velocidadY * (-0.5) - velocidadX * 0.5;
@@ -235,9 +342,68 @@ Direcciones_t Unidad::calcularDirecion(float velocidadX, float velocidadY) {
 	if(vY > 0)
 		return DIR_TOP;
 	return DIR_DOWN;
-	}
-
+}
 
 void Unidad::setDireccion(Direcciones_t dir) {
 	direccion = dir;
 }
+
+
+
+
+
+
+/* void Unidad::mover(Escenario* scene) {
+	Posicion* act = this->pos;
+	Posicion* dest = this->camino.front();
+
+	// Distantcias
+	float distX = dest->getX() - act->getX() ;
+	float distY = dest->getY() - act->getY() ;
+	float totalDist = sqrt((distX*distX) + (distY*distY));	
+
+	this->setDireccion(this->calcularDirecion(distX, distY));
+		
+	if ((totalDist > this->rapidez) || (dest->getX() > act->getX())) {
+ 		float nuevoX = act->getX() + (distX*rapidez)/totalDist;
+ 		float nuevoY = act->getY() + (distY*rapidez)/totalDist;
+ 		Posicion nuevaPos(nuevoX, nuevoY);
+		if(estaEnCasilla(&nuevaPos, act) || estaEnCasilla(&nuevaPos, dest)){				
+			this->asignarPos(&nuevaPos);
+		} else {
+			if(scene->verMapa()->posicionEstaVacia(&nuevaPos)){
+				this->asignarPos(&nuevaPos);
+			} else {
+				Posicion aux(nuevaPos.getX(), nuevaPos.getY());
+				if((this->direccion == DIR_RIGHT)){
+					do
+					aux = Posicion(aux.getX() +0.35, aux.getY() +0.45);
+					while(aux == nuevaPos);
+				}
+				else if((this->direccion == DIR_LEFT)){
+					do
+					aux = Posicion(aux.getX() +0.45, aux.getY() +0.35);
+					while(aux == nuevaPos);
+				}
+				else if((this->direccion == DIR_DOWN_LEFT)){
+					do
+					aux = Posicion(aux.getX() +0.1, aux.getY() +0.35);
+					while(aux == nuevaPos);
+				}
+				else if((this->direccion == DIR_DOWN_LEFT)){
+					do
+					aux = Posicion(aux.getX() +0.35, aux.getY() +0.1);
+					while(aux == nuevaPos);
+				}
+				nuevaPos = Posicion(aux.getX(), aux.getY());
+				scene->moverEntidad(this, &nuevaPos);
+			}
+		}
+ 	} else {
+		this->camino.pop_front();
+		if (camino.size() == 0){
+			this->setEstado(EST_QUIETO);
+			this->asignarPos( new Posicion(act->getRoundX()+0.44,act->getRoundY()+0.44));
+		}
+ 	}
+} */
