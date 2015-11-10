@@ -68,6 +68,8 @@ tipo:
     ruta: "recursos\\pikeman_icon.png"
   - nombre: "ram_icon"
     ruta: "recursos\\ram_icon.png"
+  - nombre: "king_icon"
+    ruta: "recursos\\king_icon.png"
   - nombre: "castle_icon"
     ruta: "recursos\\castle_icon.png"
   - nombre: "archery_icon"
@@ -471,6 +473,110 @@ tipo:
     subX: 10
     subY: 8
     fps: 7
+  - nombre: "king"
+    ruta: "recursos\\kingAOE.png"
+    pixelX: 14
+    pixelY: 29
+    subX: 6
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "king2"
+    ruta: "recursos\\kingAOEp2.png"
+    pixelX: 14
+    pixelY: 29
+    subX: 6
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "king3"
+    ruta: "recursos\\kingAOEp3.png"
+    pixelX: 14
+    pixelY: 29
+    subX: 6
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "Gking"
+    ruta: "recursos\\GkingAOE.png"
+    pixelX: 14
+    pixelY: 29
+    subX: 6
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "villager_collect"
+    ruta: "recursos\\villager_collectAOE.png"
+    pixelX: 11
+    pixelY: 13
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_collect2"
+    ruta: "recursos\\villager_collectAOEp2.png"
+    pixelX: 11
+    pixelY: 13
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_collect3"
+    ruta: "recursos\\villager_collectAOEp3.png"
+    pixelX: 11
+    pixelY: 13
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_chop"
+    ruta: "recursos\\villager_chopAOE.png"
+    pixelX: 24
+    pixelY: 30
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_chop2"
+    ruta: "recursos\\villager_chopAOEp2.png"
+    pixelX: 24
+    pixelY: 30
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_chop3"
+    ruta: "recursos\\villager_chopAOEp3.png"
+    pixelX: 24
+    pixelY: 30
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_mine"
+    ruta: "recursos\\villager_mineAOE.png"
+    pixelX: 16
+    pixelY: 33
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_mine2"
+    ruta: "recursos\\villager_mineAOEp2.png"
+    pixelX: 20
+    pixelY: 33
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_mine3"
+    ruta: "recursos\\villager_mineAOEp3.png"
+    pixelX: 20
+    pixelY: 33
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
   - nombre: "villager"
     ruta: "recursos\\villagerAOE.png"
     pixelX: 11
@@ -510,3 +616,32 @@ tipo:
     subX: 15
     subY: 8
     fps: 8
+  - nombre: "villager_move2"
+    ruta: "recursos\\villager_moveAOEp2.png"
+    pixelX: 18
+    pixelY: 28
+    subX: 15
+    subY: 8
+    fps: 8
+  - nombre: "villager_move3"
+    ruta: "recursos\\villager_moveAOEp3.png"
+    pixelX: 18
+    pixelY: 28
+    subX: 15
+    subY: 8
+    fps: 8
+  - nombre: "Gvillager_move"
+    ruta: "recursos\\Gvillager_moveAOE.png"
+    pixelX: 18
+    pixelY: 28
+    subX: 15
+    subY: 8
+    fps: 8
+  - nombre: "knight_atk"
+    ruta: "recursos\\knight_atkAOE.png"
+    pixelX: 26
+    pixelY: 56
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0

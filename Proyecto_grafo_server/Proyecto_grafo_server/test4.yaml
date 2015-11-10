@@ -73,6 +73,17 @@ entidades:
     def: 5
     vidaMax: 220
     habilidades: ["attack"]
+  - nombre: "king"
+    sizeX: 1
+    sizeY: 1
+    tipo: "unit"
+    tipoR: -1
+    velocidad: 10
+    rangoV: 5
+    atk: 0
+    def: 6
+    vidaMax: 10000
+    habilidades: []
   - nombre: "house"
     tipo: "building"
     sizeX: 3
@@ -107,9 +118,13 @@ escenario:
   entidades:
    - {x: 1, y: 1, tipo: "knight", p: 1}
    - {x: 15, y: 15, tipo: "champion", p: 3}
+   - {x: 16, y: 10, tipo: "king", p: 3}
    - {x: 13, y: 11, tipo: "champion", p: 2}
    - {x: 2, y: 1, tipo: "knight", p: 1}
    - {x: 3, y: 3, tipo: "villager", p: 1}
+   - {x: 13, y: 4, tipo: "villager", p: 1}
+   - {x: 13, y: 5, tipo: "villager", p: 1}
+   - {x: 13, y: 6, tipo: "villager", p: 1}
    - {x: 1, y: 2, tipo: "knight", p: 1}
    - {x: 8, y: 6, tipo: "house", p: 1}
    - {x: 12, y: 4, tipo: "house", p: 3}

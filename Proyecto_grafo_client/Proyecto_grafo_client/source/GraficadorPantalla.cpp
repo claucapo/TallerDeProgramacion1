@@ -504,6 +504,7 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 	rectangulo.w = recurso.length()* 11;
 	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
 	SDL_FreeSurface(surfRes);
+	recursito.seekp(0);
 	
 
 	// Rectangulo de selecion

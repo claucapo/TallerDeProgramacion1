@@ -24,7 +24,7 @@ protected:
 
 	// Interaccion
 	Accion_t accion;
-	unsigned int targetID;
+
 
 	int tamX;
 	int tamY;
@@ -35,6 +35,7 @@ protected:
 	Jugador* owner;
 
 public:
+	unsigned int targetID;
 	string name;
 	entity_type_t tipo;
 

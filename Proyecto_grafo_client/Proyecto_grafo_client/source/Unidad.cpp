@@ -1,6 +1,7 @@
 #include "Unidad.h"
 #include "Posicion.h"
 #include "Enumerados.h"
+#include "Escenario.h"
 #include "ErrorLog.h"
 #include "Jugador.h"
 #include "ConversorUnidades.h"
@@ -56,6 +57,10 @@ void Unidad::setEstado(Estados_t state) {
 
 af_result_t Unidad::avanzarFrame(Escenario* scene) {
 	this->sprites->siguienteFrame();
+	
+
+	
+
 	// Aca habría que chequear si la entidad cambió de posición
 	/*
 	Estados_t state = this->state;

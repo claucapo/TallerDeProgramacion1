@@ -4,6 +4,7 @@
 #include "Enumerados.h"
 #include "ErrorLog.h"
 #include "Recurso.h"
+#include "Unidad.h"
 
 #include <sstream> // Para convertir int en string
 
@@ -105,6 +106,55 @@ void Partida::procesarUpdate(msg_update msj) {
 					nombreEnt = nombreEnt + '3';
 				spEnt->cambiarImagen(nombreEnt);
 			}
+			else if(nState == EST_ATACANDO){
+				Spritesheet* spEnt = (ent)->verSpritesheet();
+				string nombreEnt = (ent)->verNombre() + "_atk";
+				if((ent)->verJugador()->verID() == 2)
+					nombreEnt = nombreEnt + '2';
+				if((ent)->verJugador()->verID() == 3)
+					nombreEnt = nombreEnt + '3';
+				spEnt->cambiarImagen(nombreEnt);
+				ent->targetID = (int) msj.extra2;
+
+				Posicion* act = ent->verPosicion();
+				Posicion* tPos = scene->obtenerEntidad(ent->targetID)->verPosicion();
+				float distX = tPos->getX() - act->getX() ;
+				float distY = tPos->getY() - act->getY() ;
+				Direcciones_t dir = ((Unidad*)ent)->calcularDirecion(distX, distY);
+				((Unidad*)ent)->setDireccion(dir);
+		
+				ent->verSpritesheet()->cambiarSubImagen(0, dir);
+			}
+			else if(nState == EST_RECOLECTANDO){
+				string nombreEnt;
+				Spritesheet* spEnt = (ent)->verSpritesheet();
+				Recurso* rec =(Recurso*) this->escenario->obtenerEntidad((int) msj.extra2);
+				if(rec->tipoR == RES_T_FOOD)
+					nombreEnt = (ent)->verNombre() + "_collect";
+				else if(rec->tipoR == RES_T_WOOD)
+					nombreEnt = (ent)->verNombre() + "_chop";
+				else
+					nombreEnt = (ent)->verNombre() + "_mine";
+				
+				if((ent)->verJugador()->verID() == 2)
+					nombreEnt = nombreEnt + '2';
+				if((ent)->verJugador()->verID() == 3)
+					nombreEnt = nombreEnt + '3';
+				spEnt->cambiarImagen(nombreEnt);
+				ent->targetID = (int) msj.extra2;
+
+				Posicion* act = ent->verPosicion();
+				Posicion* tPos = scene->obtenerEntidad(ent->targetID)->verPosicion();
+				float distX = tPos->getX() - act->getX() ;
+				float distY = tPos->getY() - act->getY() ;
+				Direcciones_t dir = ((Unidad*)ent)->calcularDirecion(distX, distY);
+				((Unidad*)ent)->setDireccion(dir);
+		
+				ent->verSpritesheet()->cambiarSubImagen(0, dir);
+			}
+
+
+		
 		//	if(!this->ent_seleccionadas.empty())
 		//		this->seleccionarEntidad(this->ent_seleccionadas.front(), false);
 			break;
