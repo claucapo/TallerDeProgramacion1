@@ -85,6 +85,7 @@ void FactoryEntidades::agregarEntidad(msg_tipo_entidad eInfo) {
 			eInfo.rangoV = 1;
 		}
 
+
 		pType->tipo = eInfo.tipo;
 		pType->tipoR = eInfo.tipoR;
 
@@ -102,12 +103,15 @@ void FactoryEntidades::agregarEntidad(msg_tipo_entidad eInfo) {
 		pType->buildRate = eInfo.buildRate;
 		pType->cooldown = eInfo.cooldown;
 
-		if (pType->tipo = ENT_T_BUILDING) {
+		if (pType->tipo == ENT_T_BUILDING) {
 			for (unsigned int i = 0; i < eInfo.cant_entrenables; i++) {
 				std::string nuevoEntrenable(&eInfo.entrenables[i * 50], 50);
 				pType->entrenables.push_front(nuevoEntrenable);
 			}
 		}
+
+		for (unsigned int i = 0; i < CANT_ACCIONES; i++)
+			pType->habilidades[i] = eInfo.habilidades[i];
 
 		prototipos[nombre] = pType;
 	}
@@ -131,7 +135,9 @@ Entidad* FactoryEntidades::obtenerEntidad(string name, unsigned int id){
 		case ENT_T_NONE:
 		default:
 			ent = new Entidad(id, name, *pType);
+			
 		}
+	//	ent->tipo = pType->tipo;
 	} else {
 		ErrorLog::getInstance()->escribirLog("Entidad [" + name + "] no existe en sistema. Se reemplazará por entidad por defecto.", LOG_WARNING);
 		pType = prototipos[nombre_entidad_def];

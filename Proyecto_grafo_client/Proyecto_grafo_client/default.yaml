@@ -22,14 +22,48 @@ tipo:
     pixelY: 10
     fps: 10
     score: 1
+  - nombre: "gold mine"
+    ruta: "recursos\\goldMineAOE.png"
+    subY: 8
+    pixelX: 27
+    pixelY: 18
+    score: 1
+  - nombre: "tree"
+    ruta: "recursos\\treeAOE.png"
+    subY: 8
+    pixelX: 57
+    pixelY: 115
+    score: 1
+  - nombre: "stone mine"
+    ruta: "recursos\\stoneMineAOE.png"
+    subY: 8
+    pixelX: 27
+    pixelY: 18
+    score: 1
+  - nombre: "forage bush"
+    ruta: "recursos\\forageBushAOE.png"
+    subY: 8
+    pixelX: 27
+    pixelY: 18
+    score: 1
   - nombre: "screen_frame"
     ruta: "recursos\\screenFrame.png"
+  - nombre: "gold mine_icon"
+    ruta: "recursos\\goldMine_icon.png"
+  - nombre: "stone mine_icon"
+    ruta: "recursos\\stoneMine_icon.png"
+  - nombre: "forage bush_icon"
+    ruta: "recursos\\forageBush_icon.png"
   - nombre: "font"
     ruta: "recursos\\font.png"
   - nombre: "champion_icon"
     ruta: "recursos\\champion_icon.png"
   - nombre: "knight_icon"
     ruta: "recursos\\knight_icon.png"
+  - nombre: "villager_icon"
+    ruta: "recursos\\villager_icon.png"
+  - nombre: "tree_icon"
+    ruta: "recursos\\tree_icon.png"
   - nombre: "pikeman_icon"
     ruta: "recursos\\pikeman_icon.png"
   - nombre: "ram_icon"
@@ -98,6 +132,10 @@ tipo:
     pixelY: 0
   - nombre: "tileSlct"
     ruta: "recursos\\tileSelec.png"
+    pixelX: 26
+    pixelY: 0
+  - nombre: "tileSlct2"
+    ruta: "recursos\\tileSelec2.png"
     pixelX: 26
     pixelY: 0
   - nombre: "tileHuge"
@@ -266,7 +304,7 @@ tipo:
     fps: 10
     delay: 15
   - nombre: "Gchampion_move"
-    ruta: "recursos\\Gchampion_moveAO.png"
+    ruta: "recursos\\Gchampion_moveAOE.png"
     subX: 10
     subY: 8
     pixelX: 21
@@ -433,3 +471,42 @@ tipo:
     subX: 10
     subY: 8
     fps: 7
+  - nombre: "villager"
+    ruta: "recursos\\villagerAOE.png"
+    pixelX: 11
+    pixelY: 36
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "villager2"
+    ruta: "recursos\\villagerAOEp2.png"
+    pixelX: 11
+    pixelY: 36
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "villager3"
+    ruta: "recursos\\villagerAOEp3.png"
+    pixelX: 11
+    pixelY: 36
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "Gvillager"
+    ruta: "recursos\\GvillagerAOE.png"
+    pixelX: 11
+    pixelY: 36
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "villager_move"
+    ruta: "recursos\\villager_moveAOE.png"
+    pixelX: 18
+    pixelY: 28
+    subX: 15
+    subY: 8
+    fps: 8

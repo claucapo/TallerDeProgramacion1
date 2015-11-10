@@ -1,5 +1,5 @@
 
-	- Revisar el lag en el movimiento con selección múltiple
+	- Revisar el lag en el movimiento con selección múltiple			[DONE?]
 	- Hacer que desde el YAML:
 		- se pueda definir vida, escudo y ataque de una entidad			[DONE!]
 		- se puedan agregar a los edificios las unidades que cada uno crea	[DONE!]
@@ -8,12 +8,12 @@
 		- Hay que poder enviar todos esos datos por red al iniciar!		[DONE!]
 
 		- Hacer que los datos nuevos se asignen a las instancias de Entidad creadas
-		  (métodos obtenerEntidad en las clases FactoryEntidades)
+		  (métodos obtenerEntidad en las clases FactoryEntidades)		[WIP]
 	
-	- Hacer que las unidades puedan atacar a otras
+	- Hacer que las unidades puedan atacar a otras					[WIP]
 		- y que se puedan morir
-	- Cambiar los recursos: que c/u tenga una "cantidad recolectable"
-	- Definir el comportamiento del aldeano:
+	- Cambiar los recursos: que c/u tenga una "cantidad recolectable"		[DONE!]
+	- Definir el comportamiento del aldeano:					[WIP]
 		- es el único que puede recolectar recursos
 		- es el único que puede construir edificios
 

@@ -15,6 +15,7 @@ struct Partida {
 	list<Entidad*> ent_seleccionadas;
 	int sx, sy, sx2, sy2;
 	bool algoSeleccionado;
+	Posicion* seleccionSecundaria;
 
 	// Constructor y destructor por defecto
 	Partida(void);

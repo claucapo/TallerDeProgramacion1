@@ -16,6 +16,7 @@ Partida::Partida(void) {
 	this->jugadores.push_front(gaia);
 	sx = 0; sy = 0; sx2 = 0; sy2 = 0;
 	algoSeleccionado = false;
+	this->seleccionSecundaria = nullptr;
 }
 
 Partida::~Partida(void) {
@@ -93,6 +94,16 @@ void Partida::procesarUpdate(msg_update msj) {
 			case 4: nState = EST_CONSTRUYENDO; break;
 			}
 			ent->settearEstado(nState);
+
+				if(nState == EST_QUIETO){
+						Spritesheet* spEnt = (ent)->verSpritesheet();
+						string nombreEnt = (ent)->verNombre();
+						if((ent)->verJugador()->verID() == 2)
+							nombreEnt = nombreEnt + '2';
+						if((ent)->verJugador()->verID() == 3)
+							nombreEnt = nombreEnt + '3';
+						spEnt->cambiarImagen(nombreEnt);
+					}
 		//	if(!this->ent_seleccionadas.empty())
 		//		this->seleccionarEntidad(this->ent_seleccionadas.front(), false);
 			break;

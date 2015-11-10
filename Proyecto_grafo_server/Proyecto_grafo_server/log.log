@@ -115,3 +115,846 @@
 [08/11/2015 09:29:46] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
 [08/11/2015 09:29:46] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
 [08/11/2015 09:29:46] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 01:48:06] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:48:06] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 01:48:06] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 01:48:06] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 01:48:06] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 01:48:06] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 01:48:06] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 01:48:06] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 01:48:06] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 01:52:10] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 01:52:10] - [WARNING] - Rango visión inválido en la entidad [champion]. Se utiliza valor por defecto.
+[09/11/2015 01:52:10] - [WARNING] - Rango visión inválido en la entidad [pikeman]. Se utiliza valor por defecto.
+[09/11/2015 01:52:10] - [WARNING] - Rango visión inválido en la entidad [ram]. Se utiliza valor por defecto.
+[09/11/2015 01:52:10] - [WARNING] - Rango visión inválido en la entidad [knight]. Se utiliza valor por defecto.
+[09/11/2015 01:52:10] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 01:52:10] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 01:52:10] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 01:52:10] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 01:52:10] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 01:52:10] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 01:52:10] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 01:56:34] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:56:34] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 01:56:34] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 01:56:34] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 01:56:34] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 01:56:34] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 01:56:34] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 01:56:34] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 01:56:34] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 01:57:55] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:57:55] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 01:57:55] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 01:57:55] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 01:57:55] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 01:57:55] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 01:57:55] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 01:57:55] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 01:57:55] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 02:00:04] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:00:05] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 02:00:05] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 02:00:05] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 02:00:05] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 02:00:05] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 02:00:05] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 02:00:05] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 02:00:05] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 02:09:39] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:09:39] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 02:09:39] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 02:09:39] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 02:09:39] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 02:09:39] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 02:09:39] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 02:09:39] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 02:09:39] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 02:21:00] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:21:00] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 02:21:00] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 02:21:00] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 02:21:00] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 02:21:00] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 02:21:00] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 02:21:00] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 02:21:00] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 02:31:04] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:31:04] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:31:04] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 02:31:04] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 02:31:04] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 02:31:04] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 02:31:04] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 02:31:04] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 02:31:04] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 02:31:04] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 02:34:44] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:34:44] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:34:44] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 02:34:44] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 02:34:44] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 02:34:44] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 02:34:44] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 02:34:44] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 02:34:44] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 02:34:44] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 02:47:35] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:47:35] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:47:35] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 02:47:35] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 02:47:35] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 02:47:35] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 02:47:35] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 02:47:35] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 02:47:35] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 02:47:35] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 02:48:42] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:48:42] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:48:42] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 02:48:42] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 02:48:42] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 02:48:42] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 02:48:42] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 02:48:42] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 02:48:42] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 02:48:42] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 02:53:00] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:53:00] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:53:00] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 02:53:00] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 02:53:00] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 02:53:00] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 02:53:00] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 02:53:00] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 02:53:00] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 02:53:00] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 03:23:56] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:23:56] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:23:56] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 03:23:56] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 03:23:56] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 03:23:56] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 03:23:56] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 03:23:56] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 03:23:56] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 03:23:56] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 03:32:25] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:32:25] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:32:26] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 03:32:26] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 03:32:26] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 03:32:26] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 03:32:26] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 03:32:26] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 03:32:26] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 03:32:26] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 03:36:00] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:36:00] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:36:00] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 03:36:00] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 03:36:00] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 03:36:00] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 03:36:00] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 03:36:00] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 03:36:00] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 03:36:00] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 03:47:09] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:47:09] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:47:09] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 03:47:09] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 03:47:09] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 03:47:09] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 03:47:09] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 03:47:09] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 03:47:09] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 03:47:09] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 03:48:20] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:48:20] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:48:20] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 03:48:20] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 03:48:20] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 03:48:20] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 03:48:20] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 03:48:20] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 03:48:20] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 03:48:20] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 03:50:06] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:50:06] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:50:07] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 03:50:07] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 03:50:07] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 03:50:07] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 03:50:07] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 03:50:07] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 03:50:07] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 03:50:07] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 03:52:22] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:52:23] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:52:23] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 03:52:23] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 03:52:23] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 03:52:23] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 03:52:23] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 03:52:23] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 03:52:23] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 03:52:23] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 03:53:45] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:53:45] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:53:45] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 03:53:45] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 03:53:45] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 03:53:45] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 03:53:45] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 03:53:45] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 03:53:45] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 03:53:45] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 03:56:02] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:56:02] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:56:02] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 03:56:02] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 03:56:02] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 03:56:02] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 03:56:02] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 03:56:02] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 03:56:02] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 03:56:02] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 04:01:17] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 04:01:17] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 04:01:18] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 04:01:18] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 04:01:18] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 04:01:18] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 04:01:18] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 04:01:18] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 04:01:18] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 04:01:18] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 12:13:30] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:13:30] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:13:30] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 12:13:30] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 12:13:30] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 12:13:30] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 12:13:30] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 12:13:30] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 12:13:30] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 12:13:30] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 12:14:20] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:14:20] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:14:20] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 12:14:20] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 12:14:20] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 12:14:20] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 12:14:20] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 12:14:20] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 12:14:20] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 12:14:20] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 12:20:23] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:20:23] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:20:23] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 12:20:23] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 12:20:23] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 12:20:23] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 12:20:23] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 12:20:23] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 12:20:23] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 12:20:23] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 12:21:11] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:21:11] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:21:11] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 12:21:11] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 12:21:11] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 12:21:11] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 12:21:11] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 12:21:11] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 12:21:11] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 12:21:11] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 12:23:43] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:23:43] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:23:44] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 12:23:44] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 12:23:44] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 12:23:44] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 12:23:44] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 12:23:44] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 12:23:44] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 12:23:44] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 12:24:10] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:24:10] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:24:11] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 12:24:11] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 12:24:11] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 12:24:11] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 12:24:11] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 12:24:11] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 12:24:11] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 12:24:11] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 12:30:24] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:30:24] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:30:24] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 12:30:24] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 12:30:24] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 12:30:24] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 12:30:24] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 12:30:24] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 12:30:24] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 12:30:24] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 12:32:37] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:32:37] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:32:37] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 12:32:37] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 12:32:37] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 12:32:37] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 12:32:37] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 12:32:37] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 12:32:37] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 12:32:37] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 12:33:34] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:33:34] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:33:34] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 12:33:34] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 12:33:34] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 12:33:34] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 12:33:34] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 12:33:34] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 12:33:34] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 12:33:34] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 12:38:11] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:38:11] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:38:11] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 12:38:11] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 12:38:11] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 12:38:11] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 12:38:11] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 12:38:11] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 12:38:11] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 12:38:11] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 12:38:46] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:38:46] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:38:47] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 12:38:47] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 12:38:47] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 12:38:47] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 12:38:47] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 12:38:47] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 12:38:47] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 12:38:47] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 12:40:58] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:40:58] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:40:58] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 12:40:58] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 12:40:58] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 12:40:58] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 12:40:58] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 12:40:58] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 12:40:58] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 12:40:58] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 12:41:57] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:41:57] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:41:57] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 12:41:57] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 12:41:57] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 12:41:57] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 12:41:57] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 12:41:57] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 12:41:57] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 12:41:57] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 12:42:55] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:42:55] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:42:55] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 12:42:55] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 12:42:55] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 12:42:55] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 12:42:55] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 12:42:55] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 12:42:55] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 12:42:55] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 12:50:52] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:50:52] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:50:52] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 12:50:52] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 12:50:52] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 12:50:52] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 12:50:52] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 12:50:52] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 12:50:52] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 12:50:52] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 12:53:10] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:53:11] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:53:11] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 12:53:11] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 12:53:11] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 12:53:11] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 12:53:11] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 12:53:11] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 12:53:11] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 12:53:11] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 12:54:42] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:54:42] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:54:43] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 12:54:43] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 12:54:43] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 12:54:43] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 12:54:43] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 12:54:43] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 12:54:43] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 12:54:43] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 12:59:49] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:59:49] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 12:59:49] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 12:59:49] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 12:59:49] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 12:59:49] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 12:59:49] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 12:59:49] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 12:59:49] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 12:59:49] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 01:01:18] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:01:18] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:01:18] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 01:01:18] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 01:01:18] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 01:01:18] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 01:01:18] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 01:01:18] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 01:01:18] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 01:01:18] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 01:06:44] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:06:44] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:06:45] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 01:06:45] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 01:06:45] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 01:06:45] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 01:06:45] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 01:06:45] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 01:06:45] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 01:06:45] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 01:15:15] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:15:16] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:15:16] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 01:15:16] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 01:15:16] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 01:15:16] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 01:15:16] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 01:15:16] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 01:15:16] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 01:15:16] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 01:18:39] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:18:39] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:18:39] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 01:18:39] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 01:18:39] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 01:18:39] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 01:18:39] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 01:18:39] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 01:18:39] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 01:18:39] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 01:20:45] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:20:45] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:20:45] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 01:20:45] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 01:20:45] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 01:20:45] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 01:20:45] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 01:20:45] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 01:20:45] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 01:20:45] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 01:36:13] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:36:13] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:36:13] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 01:36:13] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 01:36:13] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 01:36:13] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 01:36:13] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 01:36:13] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 01:36:13] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 01:36:13] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 01:47:56] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:47:56] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:47:56] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 01:47:56] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 01:47:56] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 01:47:57] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 01:47:57] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 01:47:57] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 01:47:57] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 01:47:57] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 01:50:27] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:50:27] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:50:27] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 01:50:27] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 01:50:27] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 01:50:27] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 01:50:27] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 01:50:27] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 01:50:27] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 01:50:27] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 01:52:11] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:52:11] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:52:11] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 01:52:11] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 01:52:11] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 01:52:11] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 01:52:11] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 01:52:11] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 01:52:11] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 01:52:11] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 01:53:22] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:53:22] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:53:22] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 01:53:22] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 01:53:22] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 01:53:22] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 01:53:22] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 01:53:22] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 01:53:22] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 01:53:22] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 01:56:32] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:56:32] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:56:33] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 01:56:33] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 01:56:33] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 01:56:33] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 01:56:33] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 01:56:33] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 01:56:33] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 01:56:33] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 01:58:21] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:58:21] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:58:21] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 01:58:21] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 01:58:21] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 01:58:21] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 01:58:21] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 01:58:21] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 01:58:21] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 01:58:21] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 01:59:15] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:59:15] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 01:59:15] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 01:59:15] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 01:59:15] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 01:59:15] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 01:59:15] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 01:59:15] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 01:59:15] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 01:59:15] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 02:20:17] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:20:17] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:20:17] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 02:20:17] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 02:20:17] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 02:20:17] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 02:20:17] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 02:20:17] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 02:20:17] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 02:20:17] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 02:23:11] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:23:11] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:23:11] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 02:23:11] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 02:23:11] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 02:23:11] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 02:23:11] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 02:23:11] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 02:23:11] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 02:23:11] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 02:44:32] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:44:32] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:44:32] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 02:44:32] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 02:44:32] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 02:44:32] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 02:44:32] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 02:44:32] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 02:44:32] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 02:44:32] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 02:47:21] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:47:21] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:47:21] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 02:47:21] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 02:47:21] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 02:47:21] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 02:47:21] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 02:47:21] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 02:47:21] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 02:47:21] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 02:48:32] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:48:33] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:48:33] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 02:48:33] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 02:48:33] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 02:48:33] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 02:48:33] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 02:48:33] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 02:48:33] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 02:48:33] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 02:51:40] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:51:40] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:51:40] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 02:51:40] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 02:51:40] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 02:51:40] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 02:51:40] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 02:51:40] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 02:51:40] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 02:51:40] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 02:55:05] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:55:05] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:55:05] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 02:55:05] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 02:55:05] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 02:55:05] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 02:55:05] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 02:55:05] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 02:55:05] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 02:55:05] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 02:58:22] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:58:22] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 02:58:22] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 02:58:22] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 02:58:22] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 02:58:22] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 02:58:22] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 02:58:22] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 02:58:22] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 02:58:22] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 03:42:18] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:42:18] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 03:42:18] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 03:42:18] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[09/11/2015 03:42:18] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 03:42:18] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 03:42:18] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 03:42:18] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 03:42:18] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 03:42:18] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 03:42:18] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 05:17:04] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 05:17:04] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 05:17:04] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 05:17:04] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[09/11/2015 05:17:04] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 05:17:04] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 05:17:04] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 05:17:04] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 05:17:04] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 05:17:04] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 05:17:04] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 05:18:16] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 05:18:16] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 05:18:16] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 05:18:16] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[09/11/2015 05:18:16] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 05:18:16] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 05:18:16] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 05:18:16] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 05:18:16] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 05:18:16] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 05:18:16] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[09/11/2015 05:21:39] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 05:21:39] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[09/11/2015 05:21:40] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[09/11/2015 05:21:40] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[09/11/2015 05:21:40] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[09/11/2015 05:21:40] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[09/11/2015 05:21:40] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[09/11/2015 05:21:40] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[09/11/2015 05:21:40] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[09/11/2015 05:21:40] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[09/11/2015 05:21:40] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[10/11/2015 12:48:16] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 12:48:16] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 12:48:16] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[10/11/2015 12:48:16] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[10/11/2015 12:48:16] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[10/11/2015 12:48:16] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[10/11/2015 12:48:16] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[10/11/2015 12:48:16] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[10/11/2015 12:48:16] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[10/11/2015 12:48:16] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[10/11/2015 12:48:16] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[10/11/2015 01:02:10] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 01:02:10] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 01:02:10] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[10/11/2015 01:02:10] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[10/11/2015 01:02:10] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[10/11/2015 01:02:10] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[10/11/2015 01:02:10] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[10/11/2015 01:02:10] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[10/11/2015 01:02:10] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[10/11/2015 01:02:10] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[10/11/2015 01:02:10] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[10/11/2015 01:22:32] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 01:22:32] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 01:22:32] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[10/11/2015 01:22:32] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[10/11/2015 01:22:32] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[10/11/2015 01:22:32] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[10/11/2015 01:22:32] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[10/11/2015 01:22:32] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[10/11/2015 01:22:32] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[10/11/2015 01:22:32] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[10/11/2015 01:22:32] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[10/11/2015 01:27:20] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 01:27:20] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 01:27:20] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[10/11/2015 01:27:20] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[10/11/2015 01:27:20] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[10/11/2015 01:27:20] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[10/11/2015 01:27:20] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[10/11/2015 01:27:20] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[10/11/2015 01:27:20] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[10/11/2015 01:27:20] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[10/11/2015 01:27:20] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[10/11/2015 01:28:31] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 01:28:31] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 01:28:31] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[10/11/2015 01:28:31] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[10/11/2015 01:28:31] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[10/11/2015 01:28:31] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[10/11/2015 01:28:31] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[10/11/2015 01:28:31] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[10/11/2015 01:28:31] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[10/11/2015 01:28:31] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[10/11/2015 01:28:31] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[10/11/2015 01:32:13] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 01:32:14] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 01:32:14] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[10/11/2015 01:32:14] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[10/11/2015 01:32:14] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[10/11/2015 01:32:14] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[10/11/2015 01:32:14] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[10/11/2015 01:32:14] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[10/11/2015 01:32:14] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[10/11/2015 01:32:14] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[10/11/2015 01:32:14] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[10/11/2015 01:38:41] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 01:38:42] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 01:38:42] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[10/11/2015 01:38:42] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[10/11/2015 01:38:42] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[10/11/2015 01:38:42] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[10/11/2015 01:38:42] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[10/11/2015 01:38:42] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[10/11/2015 01:38:42] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[10/11/2015 01:38:42] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[10/11/2015 01:38:42] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[10/11/2015 01:50:01] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 01:50:01] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 01:50:01] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[10/11/2015 01:50:01] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[10/11/2015 01:50:01] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[10/11/2015 01:50:01] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[10/11/2015 01:50:01] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[10/11/2015 01:50:01] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[10/11/2015 01:50:01] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[10/11/2015 01:50:01] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[10/11/2015 01:50:01] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[10/11/2015 01:55:04] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 01:55:04] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 01:55:04] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[10/11/2015 01:55:04] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[10/11/2015 01:55:04] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[10/11/2015 01:55:04] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[10/11/2015 01:55:04] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[10/11/2015 01:55:04] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[10/11/2015 01:55:04] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[10/11/2015 01:55:04] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[10/11/2015 01:55:04] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[10/11/2015 02:27:16] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 02:27:16] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 02:27:16] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[10/11/2015 02:27:16] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[10/11/2015 02:27:16] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[10/11/2015 02:27:16] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[10/11/2015 02:27:16] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[10/11/2015 02:27:16] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[10/11/2015 02:27:16] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[10/11/2015 02:27:16] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[10/11/2015 02:27:16] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[10/11/2015 02:54:57] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 02:54:57] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 02:54:57] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[10/11/2015 02:54:57] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[10/11/2015 02:54:57] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[10/11/2015 02:54:57] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[10/11/2015 02:54:57] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[10/11/2015 02:54:57] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[10/11/2015 02:54:57] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[10/11/2015 02:54:57] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[10/11/2015 02:54:57] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[10/11/2015 02:58:36] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 02:58:36] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 02:58:36] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[10/11/2015 02:58:36] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[10/11/2015 02:58:36] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[10/11/2015 02:58:36] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[10/11/2015 02:58:36] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[10/11/2015 02:58:36] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[10/11/2015 02:58:36] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[10/11/2015 02:58:36] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[10/11/2015 02:58:36] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[10/11/2015 02:59:42] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 02:59:42] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 02:59:43] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[10/11/2015 02:59:43] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[10/11/2015 02:59:43] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[10/11/2015 02:59:43] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[10/11/2015 02:59:43] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[10/11/2015 02:59:43] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[10/11/2015 02:59:43] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[10/11/2015 02:59:43] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[10/11/2015 02:59:43] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[10/11/2015 03:04:30] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 03:04:30] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 03:04:30] - [WARNING] - Rango visión inválido en la entidad [moneda]. Se utiliza valor por defecto.
+[10/11/2015 03:04:30] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[10/11/2015 03:04:30] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[10/11/2015 03:04:30] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[10/11/2015 03:04:30] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[10/11/2015 03:04:30] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[10/11/2015 03:04:30] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[10/11/2015 03:04:30] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[10/11/2015 03:04:30] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[10/11/2015 03:20:25] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 03:20:25] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 03:20:25] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[10/11/2015 03:20:25] - [WARNING] - Rango visión inválido en la entidad [tree]. Se utiliza valor por defecto.
+[10/11/2015 03:20:25] - [WARNING] - Rango visión inválido en la entidad [forage bush]. Se utiliza valor por defecto.
+[10/11/2015 03:20:25] - [WARNING] - Rango visión inválido en la entidad [stone mine]. Se utiliza valor por defecto.
+[10/11/2015 03:20:25] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[10/11/2015 03:20:25] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[10/11/2015 03:20:25] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[10/11/2015 03:20:25] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[10/11/2015 03:20:25] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[10/11/2015 03:20:25] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[10/11/2015 03:20:25] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[10/11/2015 03:23:47] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 03:23:47] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 03:23:47] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[10/11/2015 03:23:47] - [WARNING] - Rango visión inválido en la entidad [tree]. Se utiliza valor por defecto.
+[10/11/2015 03:23:47] - [WARNING] - Rango visión inválido en la entidad [forage bush]. Se utiliza valor por defecto.
+[10/11/2015 03:23:47] - [WARNING] - Rango visión inválido en la entidad [stone mine]. Se utiliza valor por defecto.
+[10/11/2015 03:23:47] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[10/11/2015 03:23:47] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[10/11/2015 03:23:47] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[10/11/2015 03:23:47] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[10/11/2015 03:23:47] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[10/11/2015 03:23:47] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[10/11/2015 03:23:47] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[10/11/2015 03:25:29] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 03:25:29] - [WARNING] - Se leyó un número negativo al parsear [tipoR]. Se tomará el vlaor por defecto
+[10/11/2015 03:25:29] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[10/11/2015 03:25:29] - [WARNING] - Rango visión inválido en la entidad [tree]. Se utiliza valor por defecto.
+[10/11/2015 03:25:29] - [WARNING] - Rango visión inválido en la entidad [forage bush]. Se utiliza valor por defecto.
+[10/11/2015 03:25:29] - [WARNING] - Rango visión inválido en la entidad [stone mine]. Se utiliza valor por defecto.
+[10/11/2015 03:25:29] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[10/11/2015 03:25:29] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[10/11/2015 03:25:29] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[10/11/2015 03:25:29] - [WARNING] - Rango visión inválido en la entidad [town_center]. Se utiliza valor por defecto.
+[10/11/2015 03:25:29] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[10/11/2015 03:25:29] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[10/11/2015 03:25:29] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.

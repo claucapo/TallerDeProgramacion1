@@ -53,6 +53,8 @@ struct lex_compare {
 		return false; }
 };
 
+void procesarMover(Partida* game, GraficadorPantalla* gp, Cliente* client);
+
 SOCKET inicializarConexion(redInfo_t rInfo) {
 	WSADATA wsaData;
 	struct addrinfo *result = NULL, *ptr = NULL, hints;
@@ -214,6 +216,8 @@ void procesarSeleccion(Partida* game, GraficadorPantalla* gp, Jugador* player){
 	int mx, my;
 	SDL_GetMouseState(&mx, &my);
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
+	
+
 	float pX = cu->obtenerCoordLogicaX(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
 	float pY = cu->obtenerCoordLogicaY(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
 	
@@ -223,6 +227,16 @@ void procesarSeleccion(Partida* game, GraficadorPantalla* gp, Jugador* player){
 		game->sx2 = mx + TOL_SEL_MULT;
 		game->sy2 = my + TOL_SEL_MULT;
 	}
+	
+	// Si me paso del borde del screen_frame, me voy...
+	if(my > (gp->screen_height*360/480)){
+		if(mx < (gp->screen_width*170/640)){ 
+			// ...A menos que haya clickeado un boton
+			cout << "BOTONNN!!!" << endl;
+			}
+		else
+			return;
+		}
 
 	Posicion slct = Posicion(pX, pY);
 	game->deseleccionarEntidades();
@@ -230,6 +244,7 @@ void procesarSeleccion(Partida* game, GraficadorPantalla* gp, Jugador* player){
 		if(player->visionCasilla(slct) != VIS_NO_EXPLORADA)
 			if(!game->escenario->verMapa()->posicionEstaVacia(&slct))
 				game->seleccionarEntidad(game->escenario->verMapa()->verContenido(&slct), true);
+
 //	cout << "(x, y, x2, y2) = (" << game->sx << ","<< game->sy<< "," << game->sx2<< "," << game->sy2<< ")" <<endl;
 }
 
@@ -238,7 +253,7 @@ void procesarSeleccionMultiple(Partida* game, GraficadorPantalla* gp, Jugador* p
 	int dif2 = game->sy2-game->sy;
 	if((dif1>(-TOL_SEL_MULT))&&(dif1<TOL_SEL_MULT)&&(dif2<TOL_SEL_MULT)&&(dif2>(-TOL_SEL_MULT)))
 		return;
-
+	
 	// Reacomodo las coordenadas del rectangulo
 	int ax1 = game->sx, ax2 = game->sx2;
 	int ay1 = game->sy, ay2 = game->sy2;
@@ -262,6 +277,7 @@ void procesarSeleccionMultiple(Partida* game, GraficadorPantalla* gp, Jugador* p
 	game->deseleccionarEntidades();
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
 	set<Posicion, lex_compare> usados;
+
 	// Bucle mágico que itera dentro de cada casilla del rectangulo
 	for(i = ax1; i < ax2; i+= 26)
 		for(j = ay1; j < ay2; j+= 16){
@@ -321,7 +337,70 @@ Posicion adyacenteSiguiente(Posicion pos, int i, Escenario* scene){
 		return nueva;
 }
 
-void procesarMover(Partida* game, GraficadorPantalla* gp, Cliente* client) {
+void procesarRecolectar(Partida* game, GraficadorPantalla* gp, Cliente* client) {
+	list<Entidad*> lasEnt = game->verListaEntidadesSeleccionadas();
+	// Obtengo la posición del click (quizás convertir en una función ya que se repite en varios lados...
+	Posicion dest = *game->seleccionSecundaria;
+	float pX = dest.getX();
+	float pY = dest.getY();
+
+
+//	if (game->escenario->verMapa()->posicionPertenece(&dest)) 
+//		if(game->escenario->verMapa()->posicionEstaVacia(&dest)){
+			for (list<Entidad*>::iterator it=lasEnt.begin(); it != lasEnt.end(); ++it){
+				if((*it)->habilidades[ACT_COLLECT]){
+				msg_event newEvent;
+				newEvent.idEntidad = (*it)->verID();
+				newEvent.accion = MSJ_RECOLECTAR;
+				int i = 0;
+				dest = Posicion(pX, pY);
+
+				newEvent.extra1 = dest.getRoundX() +0.5;
+				newEvent.extra2 = dest.getRoundY() +0.5;
+			//	newEvent.extra1 = dest.getRoundX() + 0.8;
+			//	newEvent.extra2 = dest.getRoundY() + 0.8;
+				cout<<(*it)->name << " debe recolectar (" << dest.getRoundX() << "," << dest.getRoundY() << ")" << endl;
+				
+			//	client->agregarEvento(newEvent);
+		//	}
+				}
+		
+	}
+}
+
+
+void procesarAtacar(Partida* game, GraficadorPantalla* gp, Cliente* client) {
+	list<Entidad*> lasEnt = game->verListaEntidadesSeleccionadas();
+	// Obtengo la posición del click (quizás convertir en una función ya que se repite en varios lados...
+	Posicion dest = *game->seleccionSecundaria;
+	float pX = dest.getX();
+	float pY = dest.getY();
+
+
+//	if (game->escenario->verMapa()->posicionPertenece(&dest)) 
+//		if(game->escenario->verMapa()->posicionEstaVacia(&dest)){
+			for (list<Entidad*>::iterator it=lasEnt.begin(); it != lasEnt.end(); ++it){
+				if((*it)->habilidades[ACT_ATACK]){
+				msg_event newEvent;
+				newEvent.idEntidad = (*it)->verID();
+			//	newEvent.accion = MSJ_ATACAR;
+				int i = 0;
+				dest = Posicion(pX, pY);
+
+				newEvent.extra1 = dest.getRoundX() +0.5;
+				newEvent.extra2 = dest.getRoundY() +0.5;
+			//	newEvent.extra1 = dest.getRoundX() + 0.8;
+			//	newEvent.extra2 = dest.getRoundY() + 0.8;
+				cout<<(*it)->name << " debe atacar (" << dest.getRoundX() << "," << dest.getRoundY() << ")" << endl;
+				
+			//	client->agregarEvento(newEvent);
+		//	}
+				}
+		
+	}
+}
+
+void procesarSeleccionSecundaria(Partida* game, GraficadorPantalla* gp, Cliente* client, Jugador* player) {
 	list<Entidad*> lasEnt = game->verListaEntidadesSeleccionadas();
 	if (lasEnt.empty())
 		return;
@@ -329,19 +408,63 @@ void procesarMover(Partida* game, GraficadorPantalla* gp, Cliente* client) {
 	if (lasEnt.front()->verJugador()->verID() != client->playerID)
 		return;
 
-	// Obtengo la posición del click (quizás convertir en una función ya que se repite en varios lados...
 	int mx, my;
 	SDL_GetMouseState(&mx, &my);
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
 	float pX = cu->obtenerCoordLogicaX(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
 	float pY = cu->obtenerCoordLogicaY(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
-	Posicion dest = Posicion(pX, pY);
+	Posicion* dest = new Posicion(pX, pY);
+	
+	if(game->seleccionSecundaria != nullptr){
+			delete game->seleccionSecundaria;
+			game->seleccionSecundaria = nullptr;
+			}
+	game->seleccionSecundaria = dest;
+
+
+	if (game->escenario->verMapa()->posicionPertenece(dest)){ 
+		if(game->escenario->verMapa()->posicionEstaVacia(dest)){
+			if(game->verEntidadSeleccionada()->verTipo() == ENT_T_UNIT)
+				// Accion de mover seleccionado(s)
+				procesarMover(game, gp, client);
+			else{
+				delete game->seleccionSecundaria;
+				game->seleccionSecundaria = nullptr;				
+				}
+			}
+		else{ // Si la selec. secundaria es una Entidad...
+			Entidad* target = game->escenario->verMapa()->verContenido(dest);
+			Posicion* posTarg = target->verPosicion();
+			entity_type_t tipo = target->verTipo();
+			if(tipo == ENT_T_RESOURCE){
+				// Procesar Recolectar
+				procesarRecolectar(game, gp, client);
+				}
+			else if(!player->poseeEntidad(target)){
+				// Procesar Atacar
+				procesarAtacar(game, gp, client);
+				}
+			else{
+				delete game->seleccionSecundaria;
+				game->seleccionSecundaria = nullptr;				
+				}
+			}
+		}
+
+}
+
+void procesarMover(Partida* game, GraficadorPantalla* gp, Cliente* client) {
+	list<Entidad*> lasEnt = game->verListaEntidadesSeleccionadas();
+	// Obtengo la posición del click (quizás convertir en una función ya que se repite en varios lados...
+	Posicion dest = *game->seleccionSecundaria;
+	float pX = dest.getX();
+	float pY = dest.getY();
 	
 	set<Posicion, lex_compare> destinos;
 	set<Posicion, lex_compare> ocupadas;
 
-	if (game->escenario->verMapa()->posicionPertenece(&dest)) 
-		if(game->escenario->verMapa()->posicionEstaVacia(&dest)){
+//	if (game->escenario->verMapa()->posicionPertenece(&dest)) 
+//		if(game->escenario->verMapa()->posicionEstaVacia(&dest)){
 			for (list<Entidad*>::iterator it=lasEnt.begin(); it != lasEnt.end(); ++it){
 				msg_event newEvent;
 				newEvent.idEntidad = (*it)->verID();
@@ -369,7 +492,7 @@ void procesarMover(Partida* game, GraficadorPantalla* gp, Cliente* client) {
 			//	newEvent.extra2 = dest.getRoundY() + 0.8;
 
 				client->agregarEvento(newEvent);
-			}
+		//	}
 		cout << "Se generó un mover!!" << endl;
 		
 	}
@@ -377,14 +500,20 @@ void procesarMover(Partida* game, GraficadorPantalla* gp, Cliente* client) {
 
 int procesarEvento(Partida* game, GraficadorPantalla* gp, SDL_Event evento, Cliente* client, Jugador* player){
 	switch (evento.type) {
-	case SDL_MOUSEBUTTONDOWN:	
+	case SDL_MOUSEBUTTONDOWN:
+		if(game->seleccionSecundaria != nullptr){
+			delete game->seleccionSecundaria;
+			game->seleccionSecundaria = nullptr;
+			}
+
 		if( evento.button.button == SDL_BUTTON_LEFT){
 			game->algoSeleccionado = true;
 			procesarSeleccion(game, gp, player);
 			return CODE_CONTINUE;
 			}
 		else if( evento.button.button == SDL_BUTTON_RIGHT){
-			procesarMover(game, gp, client);
+			procesarSeleccionSecundaria(game, gp, client, player);
+		//	procesarMover(game, gp, client);
 		//	game->deseleccionarEntidades();
 			return CODE_CONTINUE;
 			}

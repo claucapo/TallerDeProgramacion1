@@ -15,7 +15,7 @@ jugadores:
     id: 3
     color: "amarillo"
 entidades:
-  - nombre: "settler"
+  - nombre: "villager"
     sizeX: 1
     sizeY: 1
     tipo: "unit"
@@ -23,19 +23,31 @@ entidades:
     rangoA: 1
     tipoR: -1   # Tipo de recurso: -1 = none
     maxR: 0
-    velocidad: 10
+    velocidad: 7
     atk: 5
     def: 1
-    vidaMax: 100
+    vidaMax: 20
     cooldown: 20
     collectR: 5
     buildR: 50
     entrenables: []
     habilidades: ["attack", "build", "collect"]
-  - nombre: "moneda"
+  - nombre: "gold mine"
+    tipo: "resource"
+    maxR: 5000
+    tipoR: 0
+  - nombre: "tree"
+    tipo: "resource"
+    maxR: 5000
+    tipoR: 1
+  - nombre: "forage bush"
     tipo: "resource"
     maxR: 5000
     tipoR: 2
+  - nombre: "stone mine"
+    tipo: "resource"
+    maxR: 5000
+    tipoR: 3
   - nombre: "champion"
     tipo: "unit"
     velocidad: 10
@@ -51,15 +63,21 @@ entidades:
     vidaMax: 1000
     entrenables: ["champion", "knight"]
   - nombre: "knight"
+    sizeX: 1
+    sizeY: 1
     tipo: "unit"
+    tipoR: -1
     velocidad: 20
     rangoV: 5
-    collectR: 10
-    habilidades: ["attack", "collect"]
+    atk: 12
+    def: 5
+    vidaMax: 220
+    habilidades: ["attack"]
   - nombre: "house"
     tipo: "building"
     sizeX: 3
     sizeY: 3
+    vidaMax: 200
   - nombre: "windmill"
     tipo: "building"
     sizeX: 3
@@ -72,6 +90,8 @@ entidades:
     tipo: "building"
     sizeX: 4
     sizeY: 4
+    vidaMax: 500
+    entrenables: ["champion"]
   - nombre: "archery"
     tipo: "building"
     sizeX: 4
@@ -87,7 +107,14 @@ escenario:
   entidades:
    - {x: 1, y: 1, tipo: "knight", p: 1}
    - {x: 15, y: 15, tipo: "champion", p: 3}
+   - {x: 13, y: 11, tipo: "champion", p: 2}
    - {x: 2, y: 1, tipo: "knight", p: 1}
+   - {x: 3, y: 3, tipo: "villager", p: 1}
    - {x: 1, y: 2, tipo: "knight", p: 1}
-   - {x: 10, y: 2, tipo: "moneda", p: 0}
-   - {x: 11, y: 2, tipo: "moneda"}
+   - {x: 8, y: 6, tipo: "house", p: 1}
+   - {x: 12, y: 4, tipo: "house", p: 3}
+   - {x: 10, y: 2, tipo: "forage bush", p: 0}
+   - {x: 12, y: 1, tipo: "tree", p: 0}
+   - {x: 11, y: 2, tipo: "stone mine"}
+   - {x: 9, y: 3, tipo: "gold mine"}
+   - {x: 6, y: 1, tipo: "barracks", p: 1}

@@ -11,7 +11,8 @@ using namespace std;
 
 Unidad::Unidad(unsigned int id, string name, tipoEntidad_t pType) : Entidad(id, name, pType) {
 	this->rapidez = pType.velocidad;
-	this->direccion = DIR_DOWN;
+	this->tipo = ENT_T_UNIT;
+	this->direccion = DIR_RIGHT;
 	this->destino = nullptr;
 
 	this->collectRate = pType.collectRate;

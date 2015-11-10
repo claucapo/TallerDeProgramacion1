@@ -30,7 +30,7 @@ DatosImagen* BibliotecaDeImagenes::cargarImagenDefault() {
 	def->filas = 1;
 	def->fps = 1;
 	def->delay = 0;
-	def->path = "recursos\default.png";
+	def->path = "recursos\\default.png";
 	if (!this->cargarImagen(def)) {
 		ErrorLog::getInstance()->escribirLog("No se encuentra imagen por defecto!!", LOG_ERROR);
 	} else {

@@ -14,9 +14,10 @@ private:
 	Jugador* player;
 	float view_x, view_y;
 	float ancho_borde, alto_borde;
-	float screen_width, screen_height;
+
 	int vel_scroll, margen_scroll;
 public:
+		float screen_width, screen_height;
 	GraficadorPantalla(void);
 	~GraficadorPantalla(void);
 	GraficadorPantalla(int pant_width, int pant_height, bool full_screen = false, string title = "AGE OF TALLER DE PROGRAMACION I");

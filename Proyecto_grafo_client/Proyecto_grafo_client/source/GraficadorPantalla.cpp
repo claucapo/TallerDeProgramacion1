@@ -160,10 +160,31 @@ void GraficadorPantalla::renderizarTerreno(void) {
 
 	// Muestro las posiciones de las entidades seleccionadas
 	//SDL_SetSurfaceColorMod(imgTile, 110 , 255 , 110 );
-	imgAux = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tileSlct");
 
 	list<Posicion*> selec = this->partida->verSeleccionados();
 	if(!selec.empty()){
+		imgAux = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tileSlct2");
+		if(this->partida->seleccionSecundaria != nullptr){
+			Posicion pAct = *this->partida->seleccionSecundaria;
+			rectangulo.x = cu->obtenerCoordPantallaX(pAct.getRoundX(), pAct.getRoundY(), view_x, view_y, ancho_borde) - 26;
+			rectangulo.y = cu->obtenerCoordPantallaY(pAct.getRoundX(), pAct.getRoundY(), view_x, view_y, ancho_borde);
+			SDL_BlitSurface( imgAux, NULL, pantalla, &rectangulo );	
+		
+			if(!this->partida->escenario->verMapa()->posicionEstaVacia(&pAct)){
+				Entidad* target = this->partida->escenario->verMapa()->verContenido(&pAct);
+				Posicion* pTar = target->verPosicion();
+				int i, j;
+				for(i = 0; i < target->verTamX();i++)
+					for(j = 0; j < target->verTamY();j++){
+						rectangulo.x = cu->obtenerCoordPantallaX(pTar->getRoundX() +i, pTar->getRoundY() +j, view_x, view_y, ancho_borde) - 26;
+						rectangulo.y = cu->obtenerCoordPantallaY(pTar->getRoundX() +i, pTar->getRoundY() +j, view_x, view_y, ancho_borde);
+						SDL_BlitSurface( imgAux, NULL, pantalla, &rectangulo );	
+						}
+
+				}
+		}
+		imgAux = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tileSlct");
+
 		list<Entidad*> entSel = this->partida->verListaEntidadesSeleccionadas();
 		if(entSel.size() == 1){
 			for(list<Posicion*>::iterator it=selec.begin(); it != selec.end(); it++){
@@ -181,6 +202,7 @@ void GraficadorPantalla::renderizarTerreno(void) {
 				SDL_BlitSurface( imgAux, NULL, pantalla, &rectangulo );	
 			}
 		}
+
 	}
 
 						
@@ -282,6 +304,10 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 		SDL_Rect hb;
 		int vidaMax, vidaAct;
 		int newX, newY;
+
+	//	Entidad* entPri = this->partida->verEntidadSeleccionada();
+		
+
 		if(this->partida->verListaEntidadesSeleccionadas().size() == 1){
 			SDL_Surface* texto;
 			Posicion* unaPos = selct.front();
