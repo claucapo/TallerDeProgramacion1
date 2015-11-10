@@ -77,7 +77,7 @@ entidades:
     tipo: "building"
     sizeX: 3
     sizeY: 3
-    vidaMax: 200
+    vidaMax: 20000
   - nombre: "windmill"
     tipo: "building"
     sizeX: 3

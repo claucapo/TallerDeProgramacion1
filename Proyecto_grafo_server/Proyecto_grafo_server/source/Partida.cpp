@@ -123,10 +123,26 @@ list<msg_update*> Partida::avanzarFrame(void){
 void Partida::procesarEvento(msg_event msj) {
 	Escenario* scene = this->escenario;
 	CodigoMensaje accion = msj.accion;
+	Entidad* ent = nullptr;
+	Posicion destino;
+	ent = scene->obtenerEntidad(msj.idEntidad);
+
 	// Según la acción que sea, hago lo que corresponda
 	switch(accion){
 	case MSJ_MOVER:
-		Posicion destino = Posicion(msj.extra1, msj.extra2);
+		ent->asignarAccion(ACT_NONE, ent->verID());
+		destino = Posicion(msj.extra1, msj.extra2);
 		scene->asignarDestino(msj.idEntidad, destino);
+		break;
+	case MSJ_RECOLECTAR:
+		cout << "Recibi un recolectar" << endl;
+		if (ent)
+			ent->asignarAccion(ACT_COLLECT, (unsigned int)msj.extra1);
+		break;
+	case MSJ_ATACAR:
+		cout << "Recibi un recolectar" << endl;
+		if (ent)
+			ent->asignarAccion(ACT_ATACK, (unsigned int)msj.extra1);
+		break;
 	}
 }

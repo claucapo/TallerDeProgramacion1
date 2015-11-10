@@ -204,8 +204,8 @@ int main(int argc, char* argv[]) {
 	//cout << "Voy a hacer que el champion (1) ataque al knight (0)" << endl;
 	//game->escenario->obtenerEntidad(1)->asignarAccion(ACT_ATACK, 0);
 	
-//	cout << "Voy a hacer que el knight (2) recolecte la moneda (5)" << endl;
-//	game->escenario->obtenerEntidad(2)->asignarAccion(ACT_COLLECT, 5);
+	//cout << "Voy a hacer que el aldeano (4) recolecte el oro (11)" << endl;
+	//game->escenario->obtenerEntidad(4)->asignarAccion(ACT_COLLECT, 11);
 
 	while ( !exit ) {
 		float timeA = SDL_GetTicks();

@@ -3,6 +3,7 @@
 #include "Jugador.h"
 #include "Enumerados.h"
 #include "ErrorLog.h"
+#include "Recurso.h"
 
 #include <sstream> // Para convertir int en string
 
@@ -77,7 +78,7 @@ void Partida::procesarUpdate(msg_update msj) {
 	CodigoMensaje accion = msj.accion;
 	// Según la acción que sea, hago lo que corresponda
 	Posicion destino;
-	Entidad* ent;
+	Entidad* ent = nullptr;
 	Estados_t nState;
 	switch (accion) {
 		case MSJ_ELIMINAR:
@@ -95,24 +96,43 @@ void Partida::procesarUpdate(msg_update msj) {
 			}
 			ent->settearEstado(nState);
 
-				if(nState == EST_QUIETO){
-						Spritesheet* spEnt = (ent)->verSpritesheet();
-						string nombreEnt = (ent)->verNombre();
-						if((ent)->verJugador()->verID() == 2)
-							nombreEnt = nombreEnt + '2';
-						if((ent)->verJugador()->verID() == 3)
-							nombreEnt = nombreEnt + '3';
-						spEnt->cambiarImagen(nombreEnt);
-					}
+			if(nState == EST_QUIETO){
+				Spritesheet* spEnt = (ent)->verSpritesheet();
+				string nombreEnt = (ent)->verNombre();
+				if((ent)->verJugador()->verID() == 2)
+					nombreEnt = nombreEnt + '2';
+				if((ent)->verJugador()->verID() == 3)
+					nombreEnt = nombreEnt + '3';
+				spEnt->cambiarImagen(nombreEnt);
+			}
 		//	if(!this->ent_seleccionadas.empty())
 		//		this->seleccionarEntidad(this->ent_seleccionadas.front(), false);
 			break;
+
 		case MSJ_MOVER:
 			destino = Posicion(msj.extra1, msj.extra2);
 			scene->moverEntidad(msj.idEntidad, &destino, true);
 			if(this->ent_seleccionadas.size() == 1)
 				this->seleccionarEntidad(this->ent_seleccionadas.front(), true);
 			break;
+
+		case MSJ_RES_CHANGE:
+			ent = this->escenario->obtenerEntidad(msj.idEntidad);
+			if (ent && ent->tipo == ENT_T_RESOURCE) {
+				Recurso* res = (Recurso*)ent;
+				res->recursoAct -= msj.extra1;
+			}
+			break;
+
+		case MSJ_VIDA_CHANGE:
+			ent = this->escenario->obtenerEntidad(msj.idEntidad);
+			if (ent) {
+				ent->vidaAct -= msj.extra1;
+				if (ent->vidaAct <= 0)
+					ent->vidaAct = 0;
+			}
+			break;
+			
 	}
 }
 

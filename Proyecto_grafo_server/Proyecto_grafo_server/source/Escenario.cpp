@@ -59,11 +59,13 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 	list<msg_update*> updates = list<msg_update*>();
 
 	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
-		Posicion* posAux = new Posicion((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY());
 		af_result_t res = (*it)->avanzarFrame(this);
 		msg_update* upd = nullptr;
+		// Posicion* posAux = new Posicion((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY());
+		Posicion* posAux = (*it)->verPosicion();
 		switch(res) {
 		case AF_MOVE:
+			// cout << "Voy a generar un upd de movimiento a: " << posAux->toStr() << endl;
 			upd = generarUpdate(MSJ_MOVER, (*it)->verID(), posAux->getX(), posAux->getY()); break;
 		case AF_STATE_CHANGE:
 			// Cambiar esto en el futuro
@@ -78,7 +80,7 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 		if (upd) {
 			updates.push_back(upd);
 		}
-		delete posAux;
+		//delete posAux;
 		(*it)->verJugador()->agregarPosiciones(this->verMapa()->posicionesVistas(*it));
 	}
 	

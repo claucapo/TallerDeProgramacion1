@@ -339,6 +339,7 @@ Posicion adyacenteSiguiente(Posicion pos, int i, Escenario* scene){
 
 void procesarRecolectar(Partida* game, GraficadorPantalla* gp, Cliente* client) {
 	list<Entidad*> lasEnt = game->verListaEntidadesSeleccionadas();
+	
 	// Obtengo la posición del click (quizás convertir en una función ya que se repite en varios lados...
 	Posicion dest = *game->seleccionSecundaria;
 	float pX = dest.getX();
@@ -347,30 +348,35 @@ void procesarRecolectar(Partida* game, GraficadorPantalla* gp, Cliente* client) 
 
 //	if (game->escenario->verMapa()->posicionPertenece(&dest)) 
 //		if(game->escenario->verMapa()->posicionEstaVacia(&dest)){
+
 			for (list<Entidad*>::iterator it=lasEnt.begin(); it != lasEnt.end(); ++it){
 				if((*it)->habilidades[ACT_COLLECT]){
-				msg_event newEvent;
-				newEvent.idEntidad = (*it)->verID();
-				newEvent.accion = MSJ_RECOLECTAR;
-				int i = 0;
-				dest = Posicion(pX, pY);
+					msg_event newEvent;
+					newEvent.idEntidad = (*it)->verID();
+					newEvent.accion = MSJ_RECOLECTAR;
+					int i = 0;
+					dest = Posicion(pX, pY);
 
-				newEvent.extra1 = dest.getRoundX() +0.5;
-				newEvent.extra2 = dest.getRoundY() +0.5;
-			//	newEvent.extra1 = dest.getRoundX() + 0.8;
-			//	newEvent.extra2 = dest.getRoundY() + 0.8;
-				cout<<(*it)->name << " debe recolectar (" << dest.getRoundX() << "," << dest.getRoundY() << ")" << endl;
+					// La posta
+					Entidad* aux = game->escenario->verMapa()->verContenido(&dest);
+					newEvent.extra1 = (float)aux->verID();
+
+				//	newEvent.extra1 = dest.getRoundX() +0.5;
+				//	newEvent.extra2 = dest.getRoundY() +0.5;
+				//	newEvent.extra1 = dest.getRoundX() + 0.8;
+				//	newEvent.extra2 = dest.getRoundY() + 0.8;
+					cout<<(*it)->name << " debe recolectar (" << dest.getRoundX() << "," << dest.getRoundY() << ")" << endl;
 				
-			//	client->agregarEvento(newEvent);
-		//	}
+					client->agregarEvento(newEvent);
 				}
 		
-	}
+			}
 }
 
 
 void procesarAtacar(Partida* game, GraficadorPantalla* gp, Cliente* client) {
 	list<Entidad*> lasEnt = game->verListaEntidadesSeleccionadas();
+	
 	// Obtengo la posición del click (quizás convertir en una función ya que se repite en varios lados...
 	Posicion dest = *game->seleccionSecundaria;
 	float pX = dest.getX();
@@ -381,23 +387,27 @@ void procesarAtacar(Partida* game, GraficadorPantalla* gp, Cliente* client) {
 //		if(game->escenario->verMapa()->posicionEstaVacia(&dest)){
 			for (list<Entidad*>::iterator it=lasEnt.begin(); it != lasEnt.end(); ++it){
 				if((*it)->habilidades[ACT_ATACK]){
-				msg_event newEvent;
-				newEvent.idEntidad = (*it)->verID();
-			//	newEvent.accion = MSJ_ATACAR;
-				int i = 0;
-				dest = Posicion(pX, pY);
+						msg_event newEvent;
+						newEvent.idEntidad = (*it)->verID();
+						newEvent.accion = MSJ_ATACAR;
+						int i = 0;
+						dest = Posicion(pX, pY);
 
-				newEvent.extra1 = dest.getRoundX() +0.5;
-				newEvent.extra2 = dest.getRoundY() +0.5;
-			//	newEvent.extra1 = dest.getRoundX() + 0.8;
-			//	newEvent.extra2 = dest.getRoundY() + 0.8;
-				cout<<(*it)->name << " debe atacar (" << dest.getRoundX() << "," << dest.getRoundY() << ")" << endl;
+						// La posta
+						Entidad* aux = game->escenario->verMapa()->verContenido(&dest);
+						newEvent.extra1 = (float)aux->verID();
+
+					//	newEvent.extra1 = dest.getRoundX() +0.5;
+					//	newEvent.extra2 = dest.getRoundY() +0.5;
+					//	newEvent.extra1 = dest.getRoundX() + 0.8;
+					//	newEvent.extra2 = dest.getRoundY() + 0.8;
+						cout<<(*it)->name << " debe atacar (" << dest.getRoundX() << "," << dest.getRoundY() << ")" << endl;
 				
-			//	client->agregarEvento(newEvent);
-		//	}
+						client->agregarEvento(newEvent);
+				//	}
 				}
 		
-	}
+			}
 }
 
 void procesarSeleccionSecundaria(Partida* game, GraficadorPantalla* gp, Cliente* client, Jugador* player) {

@@ -179,6 +179,8 @@ void Cliente::procesarUpdates(Partida* game) {
 		switch (upd.accion) {
 		case MSJ_STATE_CHANGE:
 		case MSJ_MOVER:
+		case MSJ_RES_CHANGE:
+		case MSJ_VIDA_CHANGE:
 			game->procesarUpdate(upd); break;
 		case MSJ_JUGADOR_LOGIN:
 			game->obtenerJugador(upd.idEntidad)->settearConexion(true); break;

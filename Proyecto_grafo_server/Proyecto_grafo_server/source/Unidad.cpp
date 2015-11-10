@@ -71,6 +71,7 @@ bool Unidad::puedeRealizarAccion(Accion_t acc) {
 
 void Unidad::asignarAccion(Accion_t acc, unsigned int targetID) {
 	if (this->puedeRealizarAccion(acc)) {
+		this->state = EST_QUIETO;
 		this->accion = acc;
 		this->targetID = targetID;
 	} else {
@@ -105,9 +106,9 @@ void Unidad::mover(Escenario* scene) {
 		}
 	}
 
-	// Distantcias
-	float distX = dest->getX() - act->getX() ;
-	float distY = dest->getY() - act->getY() ;
+	// Distantcias ---- le agruegué el +0.5
+	float distX = dest->getX() - act->getX() + 0.5;
+	float distY = dest->getY() - act->getY() + 0.5;
 	float totalDist = sqrt((distX*distX) + (distY*distY));	
 
 	this->setDireccion(this->calcularDirecion(distX, distY));
@@ -157,6 +158,10 @@ void Unidad::mover(Escenario* scene) {
 bool Unidad::resolverAtaque(Entidad* target, Escenario* scene) {
 	target->vidaAct -= this->ataque;
 	cout << this->verID() << " ataca a " << target->verID() << " y lo deja en " << target->vidaAct << " de vida." << endl;
+
+	msg_update* upd = scene->generarUpdate(MSJ_VIDA_CHANGE, target->verID(), this->ataque, 0);
+	scene->updatesAux.push_back(upd);
+
 	if (target->vidaAct <= 0) {
 		target->asignarEstado(EST_MUERTO);
 		cout << target->verID() << " debe morir!!" << endl;
@@ -177,13 +182,18 @@ bool Unidad::resolverRecoleccion(Entidad* target, Escenario* scene) {
 	}
 	res->recursoAct -= recolectado;
 	
+	msg_update* upd = scene->generarUpdate(MSJ_RES_CHANGE, target->verID(), recolectado, 0);
+	scene->updatesAux.push_back(upd);
+
 	this->verJugador()->modificarRecurso(res->tipoR, recolectado);
 
+	/*
 	Jugador* player = this->verJugador();
 	cout << player->verNombre() << " tiene " << player->verRecurso().oro << " oro, ";
 	cout << player->verRecurso().comida << " comida, ";
 	cout << player->verRecurso().madera << " madera y ";
 	cout << player->verRecurso().piedra << " piedra." << endl;
+	*/
 
 	if (res->recursoAct == 0) {
 		res->asignarEstado(EST_MUERTO);
@@ -211,6 +221,10 @@ bool Unidad::realizarAccion(Accion_t acc, Entidad* target, Escenario* scene) {
 		ret_val = resolverConstruccion(target, scene); break;
 	}
 	this->cooldownAct = this->cooldownMax;
+
+//	if (ret_val)
+//		cout << "I am at: " << this->pos->toStr() << endl;
+
 	return ret_val;
 }
 
@@ -229,6 +243,9 @@ bool Unidad::realizarAccion(Accion_t acc, Entidad* target, Escenario* scene) {
 				mientras que la acción es la tarea que tiene asignada la unidad.
 */
 af_result_t Unidad::avanzarFrame(Escenario* scene) {
+	if (this->id == 4 && this->camino.size() <= 1) {
+		int i = 0;
+	}
 	Estados_t state = this->state;
 	Accion_t accion = this->accion;
 	if (this->cooldownAct > 0) this->cooldownAct--;
@@ -269,14 +286,27 @@ af_result_t Unidad::avanzarFrame(Escenario* scene) {
 				this->mover(scene);
  				return AF_MOVE;
 			} else {
-				this->asignarEstado(EST_CAMINANDO);
 
 				// WARNING: hardcodeo...
 				// Aca se tendria que mandar a la entidad a una posición adyacente, y no a la hardcodeada
-				Posicion pos(target->verPosicion()->getRoundX()-1, target->verPosicion()->getRoundY()-1);
-
-				scene->asignarDestino(this->verID(), pos);
+				int x = target->verPosicion()->getRoundX();
+				int y = target->verPosicion()->getRoundY();
+				for (int i = -1; i <= 1; i++) {
+					for (int j = -1; j <= 1; j++) {
+						Posicion pos(target->verPosicion()->getRoundX()+i, target->verPosicion()->getRoundY()+j);
+						if (scene->casillaEstaVacia(&pos)) {
+							this->asignarEstado(EST_CAMINANDO);
+							scene->asignarDestino(this->verID(), pos);
+							// cout << "Asigne un path a: " << pos.toStrRound() << endl;
+							return AF_STATE_CHANGE;
+						}
+					}
+				}
+				
+				this->state = EST_QUIETO;
+				this->accion = ACT_NONE;
 				return AF_STATE_CHANGE;
+
 			}
 		} else {
 			if (state == accionAEstado[accion]) {

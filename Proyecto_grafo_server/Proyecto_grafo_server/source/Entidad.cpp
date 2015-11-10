@@ -40,6 +40,8 @@ Entidad::~Entidad(void) {
 // Método para avanzar un frame
 // Devuelve true si hay que quitar la entidad del escenario
 af_result_t Entidad::avanzarFrame(Escenario* scene) {
+	if (this->vidaAct <= 0 || this->state == EST_MUERTO)
+		return AF_KILL;
 	return AF_NONE;
 }
 

@@ -6,9 +6,9 @@
 class Recurso : public Entidad {
 private:
 	int recursoMax;
-	int recursoAct;
 	
 public:
+	int recursoAct;
 	resource_type_t tipoR;
 	
 	Recurso(unsigned int id, string name, tipoEntidad_t pType);
