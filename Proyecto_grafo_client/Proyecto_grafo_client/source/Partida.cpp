@@ -89,69 +89,79 @@ void Partida::procesarUpdate(msg_update msj) {
 			ent = this->escenario->obtenerEntidad(msj.idEntidad);
 			nState = ent->verEstado();
 			switch ((int)msj.extra1) {
-			case 0: nState = EST_QUIETO; break;
+			case 0: 
+				nState = EST_QUIETO; 
+				if(ent->verEstado() != EST_QUIETO){
+					Spritesheet* spEnt = (ent)->verSpritesheet();
+					string nombreEnt = (ent)->verNombre();
+					if((ent)->verJugador()->verID() == 2)
+						nombreEnt = nombreEnt + '2';
+					if((ent)->verJugador()->verID() == 3)
+						nombreEnt = nombreEnt + '3';
+					spEnt->cambiarImagen(nombreEnt);
+				}	
+				break;
+
 			case 1: nState = EST_CAMINANDO; break;
-			case 2: nState = EST_ATACANDO; break;
-			case 3: nState = EST_RECOLECTANDO; break;
+			case 2: 
+				nState = EST_ATACANDO; 
+				if(ent->verEstado() != EST_ATACANDO){
+					Spritesheet* spEnt = (ent)->verSpritesheet();
+					string nombreEnt = (ent)->verNombre() + "_atk";
+					if((ent)->verJugador()->verID() == 2)
+						nombreEnt = nombreEnt + '2';
+					if((ent)->verJugador()->verID() == 3)
+						nombreEnt = nombreEnt + '3';
+					spEnt->cambiarImagen(nombreEnt);
+					ent->targetID = (int) msj.extra2;
+
+					Posicion* act = ent->verPosicion();
+					Posicion* tPos = scene->obtenerEntidad(ent->targetID)->verPosicion();
+					float distX = tPos->getX() - act->getX() ;
+					float distY = tPos->getY() - act->getY() ;
+					Direcciones_t dir = ((Unidad*)ent)->calcularDirecion(distX, distY);
+					((Unidad*)ent)->setDireccion(dir);
+			
+					ent->verSpritesheet()->cambiarSubImagen(0, dir);
+				}
+				break;
+			case 3: 
+				nState = EST_RECOLECTANDO; 
+				if(ent->verEstado() != EST_RECOLECTANDO){
+					string nombreEnt;
+					Spritesheet* spEnt = (ent)->verSpritesheet();
+					Recurso* rec =(Recurso*) this->escenario->obtenerEntidad((int) msj.extra2);
+					if(rec->tipoR == RES_T_FOOD)
+						nombreEnt = (ent)->verNombre() + "_collect";
+					else if(rec->tipoR == RES_T_WOOD)
+						nombreEnt = (ent)->verNombre() + "_chop";
+					else
+						nombreEnt = (ent)->verNombre() + "_mine";
+				
+					if((ent)->verJugador()->verID() == 2)
+						nombreEnt = nombreEnt + '2';
+					if((ent)->verJugador()->verID() == 3)
+						nombreEnt = nombreEnt + '3';
+					spEnt->cambiarImagen(nombreEnt);
+					ent->targetID = (int) msj.extra2;
+
+					Posicion* act = ent->verPosicion();
+					Posicion* tPos = scene->obtenerEntidad(ent->targetID)->verPosicion();
+					float distX = tPos->getX() - act->getX() ;
+					float distY = tPos->getY() - act->getY() ;
+					Direcciones_t dir = ((Unidad*)ent)->calcularDirecion(distX, distY);
+					((Unidad*)ent)->setDireccion(dir);
+		
+					ent->verSpritesheet()->cambiarSubImagen(0, dir);
+				}
+				break;
 			case 4: nState = EST_CONSTRUYENDO; break;
 			}
 			ent->settearEstado(nState);
 
-			if(nState == EST_QUIETO){
-				Spritesheet* spEnt = (ent)->verSpritesheet();
-				string nombreEnt = (ent)->verNombre();
-				if((ent)->verJugador()->verID() == 2)
-					nombreEnt = nombreEnt + '2';
-				if((ent)->verJugador()->verID() == 3)
-					nombreEnt = nombreEnt + '3';
-				spEnt->cambiarImagen(nombreEnt);
-			}
-			else if(nState == EST_ATACANDO){
-				Spritesheet* spEnt = (ent)->verSpritesheet();
-				string nombreEnt = (ent)->verNombre() + "_atk";
-				if((ent)->verJugador()->verID() == 2)
-					nombreEnt = nombreEnt + '2';
-				if((ent)->verJugador()->verID() == 3)
-					nombreEnt = nombreEnt + '3';
-				spEnt->cambiarImagen(nombreEnt);
-				ent->targetID = (int) msj.extra2;
 
-				Posicion* act = ent->verPosicion();
-				Posicion* tPos = scene->obtenerEntidad(ent->targetID)->verPosicion();
-				float distX = tPos->getX() - act->getX() ;
-				float distY = tPos->getY() - act->getY() ;
-				Direcciones_t dir = ((Unidad*)ent)->calcularDirecion(distX, distY);
-				((Unidad*)ent)->setDireccion(dir);
 		
-				ent->verSpritesheet()->cambiarSubImagen(0, dir);
-			}
-			else if(nState == EST_RECOLECTANDO){
-				string nombreEnt;
-				Spritesheet* spEnt = (ent)->verSpritesheet();
-				Recurso* rec =(Recurso*) this->escenario->obtenerEntidad((int) msj.extra2);
-				if(rec->tipoR == RES_T_FOOD)
-					nombreEnt = (ent)->verNombre() + "_collect";
-				else if(rec->tipoR == RES_T_WOOD)
-					nombreEnt = (ent)->verNombre() + "_chop";
-				else
-					nombreEnt = (ent)->verNombre() + "_mine";
-				
-				if((ent)->verJugador()->verID() == 2)
-					nombreEnt = nombreEnt + '2';
-				if((ent)->verJugador()->verID() == 3)
-					nombreEnt = nombreEnt + '3';
-				spEnt->cambiarImagen(nombreEnt);
-				ent->targetID = (int) msj.extra2;
-
-				Posicion* act = ent->verPosicion();
-				Posicion* tPos = scene->obtenerEntidad(ent->targetID)->verPosicion();
-				float distX = tPos->getX() - act->getX() ;
-				float distY = tPos->getY() - act->getY() ;
-				Direcciones_t dir = ((Unidad*)ent)->calcularDirecion(distX, distY);
-				((Unidad*)ent)->setDireccion(dir);
-		
-				ent->verSpritesheet()->cambiarSubImagen(0, dir);
-			}
+			
 
 
 		
@@ -201,7 +211,6 @@ void Partida::seleccionarEntidad(Entidad* ent, bool emptyFirst){
 	// cout<< "seleccionado: " << ent->verNombre() << endl;
 	this->ent_seleccionadas.push_back(ent);
 }
-
 
 void Partida::deseleccionarEntidades(void){
 	while(!this->seleccionados.empty()){

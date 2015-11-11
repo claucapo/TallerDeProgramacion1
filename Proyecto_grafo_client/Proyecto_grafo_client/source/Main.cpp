@@ -205,6 +205,38 @@ Partida* generarPartida(mapa_inicial data) {
 }
 
 
+void procesarBoton(Partida* game, GraficadorPantalla* gp, Jugador* player){
+	if(game->verListaEntidadesSeleccionadas().empty())
+		return;
+
+	Entidad* entPri = game->verEntidadSeleccionada();
+
+	if(!entPri->habilidades[ACT_BUILD])
+		return;
+
+	list<string> construibles = FactoryEntidades::obtenerInstancia()->verListaEdificios();
+	int mx, my;
+	SDL_GetMouseState(&mx, &my);
+
+	my -= 372;
+	
+	list<string>::iterator it = construibles.begin();
+
+	while(mx >= 40){
+		mx -= 40;
+		it++;
+		}
+	while(my >= 40){
+		my -= 40;
+		it++;
+		it++;
+		it++;
+		it++;
+		}
+
+	cout << "Hay que construir: " << (*it) << endl;
+}
+
 #define CODE_CONTINUE 1
 #define CODE_RESET -2
 #define CODE_EXIT -1
@@ -230,12 +262,11 @@ void procesarSeleccion(Partida* game, GraficadorPantalla* gp, Jugador* player){
 	
 	// Si me paso del borde del screen_frame, me voy...
 	if(my > (gp->screen_height*360/480)){
-		if(mx < (gp->screen_width*170/640)){ 
+		if(mx < (gp->screen_width*165/640)){ 
 			// ...A menos que haya clickeado un boton
-			cout << "BOTONNN!!!" << endl;
+			procesarBoton(game, gp, player);
 			}
-		else
-			return;
+		return;
 		}
 
 	Posicion slct = Posicion(pX, pY);
@@ -515,7 +546,7 @@ int procesarEvento(Partida* game, GraficadorPantalla* gp, SDL_Event evento, Clie
 			delete game->seleccionSecundaria;
 			game->seleccionSecundaria = nullptr;
 			}
-
+		
 		if( evento.button.button == SDL_BUTTON_LEFT){
 			game->algoSeleccionado = true;
 			procesarSeleccion(game, gp, player);

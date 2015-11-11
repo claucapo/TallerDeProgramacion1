@@ -305,7 +305,7 @@ af_result_t Unidad::avanzarFrame(Escenario* scene) {
 				
 				this->state = EST_QUIETO;
 				this->accion = ACT_NONE;
-				return AF_STATE_CHANGE;
+				return AF_NONE;
 
 			}
 		} else {

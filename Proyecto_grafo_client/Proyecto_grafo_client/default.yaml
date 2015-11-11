@@ -80,6 +80,8 @@ tipo:
     ruta: "recursos\\stable_icon.png"
   - nombre: "windmill_icon"
     ruta: "recursos\\windmill_icon.png"
+  - nombre: "town center_icon"
+    ruta: "recursos\\townCenter_icon.png"
   - nombre: "house_icon"
     ruta: "recursos\\house_icon.png"
   - nombre: "attack_icon"
@@ -641,6 +643,70 @@ tipo:
     ruta: "recursos\\knight_atkAOE.png"
     pixelX: 26
     pixelY: 56
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "knight_atk2"
+    ruta: "recursos\\knight_atkAOEp2.png"
+    pixelX: 26
+    pixelY: 56
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "knight_atk3"
+    ruta: "recursos\\knight_atkAOEp3.png"
+    pixelX: 26
+    pixelY: 56
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "champion_atk"
+    ruta: "recursos\\champion_atkAOE.png"
+    pixelX: 32
+    pixelY: 45
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "champion_atk2"
+    ruta: "recursos\\champion_atkAOEp2.png"
+    pixelX: 32
+    pixelY: 45
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "champion_atk3"
+    ruta: "recursos\\champion_atkAOEp3.png"
+    pixelX: 32
+    pixelY: 45
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "pikeman_atk"
+    ruta: "recursos\\pikeman_atkAOE.png"
+    pixelX: 48
+    pixelY: 39
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "pikeman_atk2"
+    ruta: "recursos\\pikeman_atkAOEp2.png"
+    pixelX: 48
+    pixelY: 39
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "pikeman_atk3"
+    ruta: "recursos\\pikeman_atkAOEp3.png"
+    pixelX: 48
+    pixelY: 39
     subX: 10
     subY: 8
     fps: 6

@@ -3,6 +3,9 @@
 #include "Enumerados.h"
 #include "Recurso.h"
 #include "Protocolo.h"
+#include <string>
+
+using namespace std;
 
 bool FactoryEntidades::hay_instancia = false;
 FactoryEntidades* FactoryEntidades::singleton = nullptr;
@@ -12,6 +15,7 @@ FactoryEntidades* FactoryEntidades::singleton = nullptr;
 FactoryEntidades::FactoryEntidades(void) {
 	this->prototipos = map<string, tipoEntidad_t*>();
 	this->prototipos[nombre_entidad_def] = new tipoEntidad_t();
+	this->edificiosConstruibles = list<string>();
 }
 
 FactoryEntidades::~FactoryEntidades(void) {
@@ -108,6 +112,8 @@ void FactoryEntidades::agregarEntidad(msg_tipo_entidad eInfo) {
 				std::string nuevoEntrenable(&eInfo.entrenables[i * 50], 50);
 				pType->entrenables.push_front(nuevoEntrenable);
 			}
+
+			this->edificiosConstruibles.push_back(eInfo.name);
 		}
 
 		for (unsigned int i = 0; i < CANT_ACCIONES; i++)
@@ -147,3 +153,7 @@ Entidad* FactoryEntidades::obtenerEntidad(string name, unsigned int id){
 }
 
 
+
+list<string> FactoryEntidades::verListaEdificios(void){
+	return this->edificiosConstruibles;
+}

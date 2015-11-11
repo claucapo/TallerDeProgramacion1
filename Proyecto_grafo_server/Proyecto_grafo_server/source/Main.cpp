@@ -29,7 +29,7 @@ using namespace std;
 // #pragma comment (lib, "Mswsock.lib")
 
 #define TESTING_ENABLED false
-#define ARCHIVO_YAML "test4.yaml"
+#define ARCHIVO_YAML "desplegadas.yaml"
 
 
 SOCKET inicializarConexion(redInfo_t rInfo) {

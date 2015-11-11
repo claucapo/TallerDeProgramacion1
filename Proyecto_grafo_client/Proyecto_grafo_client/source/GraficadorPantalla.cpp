@@ -8,6 +8,7 @@
 #include <SDL_ttf.h>
 #include "ConversorUnidades.h"
 #include "BibliotecaDeImagenes.h"
+#include "FactoryEntidades.h"
 #include <list>
 #include <iostream>
 #include <conio.h>
@@ -305,8 +306,24 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 		int vidaMax, vidaAct;
 		int newX, newY;
 
-	//	Entidad* entPri = this->partida->verEntidadSeleccionada();
-		
+		Entidad* entPri = this->partida->verEntidadSeleccionada();
+		if(entPri->habilidades[ACT_BUILD]){
+			list<string> edifConst = FactoryEntidades::obtenerInstancia()->verListaEdificios();
+			SDL_Rect button;
+			button.x = 5;
+			button.y = 372;
+			for (list<string>::iterator it=edifConst.begin(); it != edifConst.end(); ++it){
+				string icName = (*it) + "_icon";
+				SDL_Surface* icono = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(icName);
+				SDL_BlitSurface(icono, NULL, pantalla, &button);
+				button.x += 40;
+				if(button.x >= 165){
+					button.x = 5;
+					button.y += 40;
+					}
+				}
+
+			}
 
 		if(this->partida->verListaEntidadesSeleccionadas().size() == 1){
 			SDL_Surface* texto;

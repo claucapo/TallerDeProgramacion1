@@ -66,11 +66,13 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 		switch(res) {
 		case AF_MOVE:
 			// cout << "Voy a generar un upd de movimiento a: " << posAux->toStr() << endl;
-			upd = generarUpdate(MSJ_MOVER, (*it)->verID(), posAux->getX(), posAux->getY()); break;
+			upd = generarUpdate(MSJ_MOVER, (*it)->verID(), posAux->getX(), posAux->getY()); 
+			break;
 		case AF_STATE_CHANGE:
 			
 			// Cambiar esto en el futuro
-			upd = generarUpdate(MSJ_STATE_CHANGE, (*it)->verID(), (float)(*it)->verEstado(), (float)(*it)->targetID); break;
+			upd = generarUpdate(MSJ_STATE_CHANGE, (*it)->verID(), (float)(*it)->verEstado(), (float)(*it)->targetID); 
+			break;
 		
 		case AF_KILL:
 			upd = generarUpdate(MSJ_ELIMINAR, (*it)->verID(), 0, 0);

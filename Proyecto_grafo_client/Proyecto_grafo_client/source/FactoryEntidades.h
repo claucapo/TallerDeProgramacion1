@@ -8,7 +8,9 @@
 
 #include <list>
 #include <map>
+#include <string>
 
+using namespace std;
 #pragma once
 
 
@@ -19,7 +21,7 @@ private:
 	static FactoryEntidades* singleton;
 	static bool hay_instancia;
 	map<string, tipoEntidad_t*> prototipos;
-
+	list<string> edificiosConstruibles;
 	FactoryEntidades();
 	
 public:
@@ -32,6 +34,7 @@ public:
 
 	Entidad* obtenerEntidad(string name, unsigned int id);
 	// Unidad* obtenerUnidad(string name);
+	list<string> verListaEdificios(void);
 };
 
 #endif FACTORY_ENTIDADES_H
