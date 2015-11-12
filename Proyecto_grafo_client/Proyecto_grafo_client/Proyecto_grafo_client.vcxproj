@@ -84,6 +84,7 @@
     <ClInclude Include="source\Matriz.h" />
     <ClInclude Include="source\Partida.h" />
     <ClInclude Include="source\Posicion.h" />
+    <ClInclude Include="source\ProcesadorEventos.h" />
     <ClInclude Include="source\Protocolo.h" />
     <ClInclude Include="source\Recurso.h" />
     <ClInclude Include="source\Spritesheet.h" />
@@ -107,6 +108,7 @@
     <ClCompile Include="source\Matriz.cpp" />
     <ClCompile Include="source\Partida.cpp" />
     <ClCompile Include="source\Posicion.cpp" />
+    <ClCompile Include="source\ProcesadorEventos.cpp" />
     <ClCompile Include="source\Recurso.cpp" />
     <ClCompile Include="source\SocketAux.cpp" />
     <ClCompile Include="source\Spritesheet.cpp" />

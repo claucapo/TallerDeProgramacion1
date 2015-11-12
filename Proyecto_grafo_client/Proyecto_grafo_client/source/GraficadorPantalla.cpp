@@ -316,10 +316,10 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 				string icName = (*it) + "_icon";
 				SDL_Surface* icono = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(icName);
 				SDL_BlitSurface(icono, NULL, pantalla, &button);
-				button.x += 40;
+				button.x += BUTTON_SIZE;
 				if(button.x >= 165){
 					button.x = 5;
-					button.y += 40;
+					button.y += BUTTON_SIZE;
 					}
 				}
 

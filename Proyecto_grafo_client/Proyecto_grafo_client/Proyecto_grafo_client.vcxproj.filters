@@ -120,6 +120,9 @@
     <ClInclude Include="source\Spritesheet.h">
       <Filter>Archivos de encabezado\SDL</Filter>
     </ClInclude>
+    <ClInclude Include="source\ProcesadorEventos.h">
+      <Filter>Archivos de encabezado\Partida</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Main.cpp">
@@ -184,6 +187,9 @@
     </ClCompile>
     <ClCompile Include="source\GraficadorPantalla.cpp">
       <Filter>Archivos de código fuente\Utilidades</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ProcesadorEventos.cpp">
+      <Filter>Archivos de código fuente\Partida</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

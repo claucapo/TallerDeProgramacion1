@@ -19,7 +19,7 @@ entidades:
     sizeX: 1
     sizeY: 1
     tipo: "unit"
-    rangoV: 5
+    rangoV: 3
     rangoA: 1
     tipoR: -1   # Tipo de recurso: -1 = none
     maxR: 0
@@ -51,7 +51,7 @@ entidades:
   - nombre: "champion"
     tipo: "unit"
     velocidad: 10
-    rangoV: 10
+    rangoV: 5
     atk: 20
     def: 7
     vidaMax: 150
@@ -59,7 +59,7 @@ entidades:
   - nombre: "pikeman"
     tipo: "unit"
     velocidad: 8
-    rangoV: 8
+    rangoV: 4
     atk: 16
     def: 5
     vidaMax: 150
@@ -124,20 +124,20 @@ escenario:
   sizeX: 40
   sizeY: 40
   entidades:
-   - {x: 5, y: 5, tipo: "knight", p: 1}
+#   - {x: 5, y: 5, tipo: "knight", p: 1}
    - {x: 4, y: 5, tipo: "knight", p: 1}
-   - {x: 5, y: 4, tipo: "knight", p: 1}
+#   - {x: 5, y: 4, tipo: "knight", p: 1}
    - {x: 4, y: 3, tipo: "champion", p: 1}
    - {x: 4, y: 2, tipo: "champion", p: 1}
-   - {x: 4, y: 1, tipo: "champion", p: 1}
+#   - {x: 4, y: 1, tipo: "champion", p: 1}
    - {x: 3, y: 4, tipo: "champion", p: 1}
-   - {x: 2, y: 4, tipo: "champion", p: 1}
-   - {x: 1, y: 4, tipo: "champion", p: 1}
+#   - {x: 2, y: 4, tipo: "champion", p: 1}
+#   - {x: 1, y: 4, tipo: "champion", p: 1}
    - {x: 1, y: 3, tipo: "pikeman", p: 1}
-   - {x: 2, y: 3, tipo: "pikeman", p: 1}
+#   - {x: 2, y: 3, tipo: "pikeman", p: 1}
    - {x: 3, y: 3, tipo: "pikeman", p: 1}
-   - {x: 3, y: 2, tipo: "pikeman", p: 1}
-   - {x: 3, y: 1, tipo: "pikeman", p: 1}
+#   - {x: 3, y: 2, tipo: "pikeman", p: 1}
+#   - {x: 3, y: 1, tipo: "pikeman", p: 1}
    - {x: 7, y: 3, tipo: "villager", p: 1}
    - {x: 7, y: 2, tipo: "villager", p: 1}
    - {x: 7, y: 1, tipo: "villager", p: 1}

@@ -34,6 +34,7 @@ const float FRAME_DURATION = 59;
 // Constante de velocidad
 const float VEL_CONST = 0.2;
 
+#define BUTTON_SIZE 40
 
 // Definición del struct que contendrá información particular de cada clase.
 struct tipoEntidad_t {
