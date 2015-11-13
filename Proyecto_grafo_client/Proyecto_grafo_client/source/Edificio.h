@@ -11,7 +11,6 @@ using namespace std;
 class Edificio : public Entidad {
 private:
 	int cant_entrenables;
-	std::string entrenables[MAX_ENTRENABLES];
 
 	// Cantidad de unidades en produccion en un momento dado
 	// No puede exceder a la constante MAX_PRODUCCION
@@ -27,6 +26,9 @@ private:
 	void recalcularTicks(void);
 
 public:
+
+	std::string entrenables[MAX_ENTRENABLES];
+
 
 	Edificio(unsigned int id, string name, tipoEntidad_t pType);
 	~Edificio();

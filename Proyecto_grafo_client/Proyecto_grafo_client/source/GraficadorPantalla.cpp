@@ -2,6 +2,7 @@
 #include "Spritesheet.h"
 #include "Escenario.h"
 #include "Partida.h"
+#include "Edificio.h"
 #include "ErrorLog.h"
 #include <SDL.h>
 #include <SDL_image.h>
@@ -307,23 +308,52 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 		int newX, newY;
 
 		Entidad* entPri = this->partida->verEntidadSeleccionada();
-		if(entPri->habilidades[ACT_BUILD]){
-			list<string> edifConst = FactoryEntidades::obtenerInstancia()->verListaEdificios();
-			SDL_Rect button;
-			button.x = 5;
-			button.y = 372;
-			for (list<string>::iterator it=edifConst.begin(); it != edifConst.end(); ++it){
-				string icName = (*it) + "_icon";
-				SDL_Surface* icono = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(icName);
-				SDL_BlitSurface(icono, NULL, pantalla, &button);
-				button.x += BUTTON_SIZE;
-				if(button.x >= 165){
-					button.x = 5;
-					button.y += BUTTON_SIZE;
+		if(this->player->poseeEntidad(entPri)){
+			if(entPri->habilidades[ACT_BUILD]){
+				list<string> edifConst = FactoryEntidades::obtenerInstancia()->verListaEdificios();
+				SDL_Rect button;
+				button.x = 5;
+				button.y = 372;
+				for (list<string>::iterator it=edifConst.begin(); it != edifConst.end(); ++it){
+					string icName = (*it) + "_icon";
+					SDL_Surface* icono = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(icName);
+					SDL_BlitSurface(icono, NULL, pantalla, &button);
+					button.x += BUTTON_SIZE;
+					if(button.x >= 165){
+						button.x = 5;
+						button.y += BUTTON_SIZE;
+						}
 					}
-				}
 
+				}
+			else if(entPri->verTipo() == ENT_T_BUILDING){
+				Edificio* edif = (Edificio*) entPri;
+				list<string> entL;
+				for(int i = 0; i < MAX_ENTRENABLES; i++){
+					cout << "Este edif. entrena: " << edif->entrenables[i] << endl;
+					if(edif->entrenables[i] != "unknown" )
+						entL.push_front(edif->entrenables[i]);
+				}
+				
+				if(entL.size()){ // Si el edificio entrena...
+					SDL_Rect button;
+					button.x = 5;
+					button.y = 372;
+					for (list<string>::iterator it=entL.begin(); it != entL.end(); ++it){
+						string icName = (*it) + "_icon";
+					//	cout << icName << " sdfalj" << endl;
+						SDL_Surface* icono = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(icName);
+						SDL_BlitSurface(icono, NULL, pantalla, &button);
+						button.x += BUTTON_SIZE;
+						if(button.x >= 165){
+							button.x = 5;
+							button.y += BUTTON_SIZE;
+							}
+						}
+
+				}
 			}
+		}
 
 		if(this->partida->verListaEntidadesSeleccionadas().size() == 1){
 			SDL_Surface* texto;

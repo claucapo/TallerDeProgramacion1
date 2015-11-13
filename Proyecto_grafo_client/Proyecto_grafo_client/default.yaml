@@ -66,6 +66,10 @@ tipo:
     ruta: "recursos\\tree_icon.png"
   - nombre: "pikeman_icon"
     ruta: "recursos\\pikeman_icon.png"
+  - nombre: "colosus_icon"
+    ruta: "recursos\\colosus_icon.png"
+  - nombre: "paladin_icon"
+    ruta: "recursos\\paladin_icon.png"
   - nombre: "ram_icon"
     ruta: "recursos\\ram_icon.png"
   - nombre: "king_icon"
@@ -475,6 +479,30 @@ tipo:
     subX: 10
     subY: 8
     fps: 7
+  - nombre: "pikeman_atk"
+    ruta: "recursos\\pikeman_atkAOE.png"
+    pixelX: 48
+    pixelY: 39
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "pikeman_atk2"
+    ruta: "recursos\\pikeman_atkAOEp2.png"
+    pixelX: 48
+    pixelY: 39
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "pikeman_atk3"
+    ruta: "recursos\\pikeman_atkAOEp3.png"
+    pixelX: 48
+    pixelY: 39
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
   - nombre: "king"
     ruta: "recursos\\kingAOE.png"
     pixelX: 14
@@ -687,27 +715,172 @@ tipo:
     subY: 8
     fps: 6
     delay: 0
-  - nombre: "pikeman_atk"
-    ruta: "recursos\\pikeman_atkAOE.png"
-    pixelX: 48
-    pixelY: 39
+  - nombre: "paladin_atk"
+    ruta: "recursos\\paladin_atkAOE.png"
+    pixelX: 26
+    pixelY: 52
     subX: 10
     subY: 8
     fps: 6
     delay: 0
-  - nombre: "pikeman_atk2"
-    ruta: "recursos\\pikeman_atkAOEp2.png"
-    pixelX: 48
-    pixelY: 39
+  - nombre: "paladin_atk2"
+    ruta: "recursos\\paladin_atkAOEp2.png"
+    pixelX: 26
+    pixelY: 52
     subX: 10
     subY: 8
     fps: 6
     delay: 0
-  - nombre: "pikeman_atk3"
-    ruta: "recursos\\pikeman_atkAOEp3.png"
-    pixelX: 48
-    pixelY: 39
+  - nombre: "paladin_atk3"
+    ruta: "recursos\\paladin_atkAOEp3.png"
+    pixelX: 26
+    pixelY: 52
     subX: 10
     subY: 8
     fps: 6
     delay: 0
+  - nombre: "paladin"
+    ruta: "recursos\\paladinAOE.png"
+    pixelX: 33
+    pixelY: 51
+    subX: 10
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "paladin2"
+    ruta: "recursos\\paladinAOEp2.png"
+    pixelX: 33
+    pixelY: 51
+    subX: 10
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "paladin3"
+    ruta: "recursos\\paladinAOEp3.png"
+    pixelX: 33
+    pixelY: 51
+    subX: 10
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "Gpaladin"
+    ruta: "recursos\\GpaladinAOE.png"
+    pixelX: 33
+    pixelY: 51
+    subX: 10
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "paladin_move"
+    ruta: "recursos\\paladin_moveAOE.png"
+    pixelX: 27
+    pixelY: 48
+    subX: 10
+    subY: 8
+    fps: 7
+  - nombre: "paladin_move2"
+    ruta: "recursos\\paladin_moveAOEp2.png"
+    pixelX: 27
+    pixelY: 48
+    subX: 10
+    subY: 8
+    fps: 7
+  - nombre: "paladin_move3"
+    ruta: "recursos\\paladin_moveAOEp3.png"
+    pixelX: 27
+    pixelY: 48
+    subX: 10
+    subY: 8
+    fps: 7
+  - nombre: "Gpaladin_move"
+    ruta: "recursos\\Gpaladin_moveAOE.png"
+    pixelX: 27
+    pixelY: 48
+    subX: 10
+    subY: 8
+    fps: 7
+
+  - nombre: "colosus_atk"
+    ruta: "recursos\\colosus_atkAOE.png"
+    pixelX: 15
+    pixelY: 37
+    subX: 15
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "colosus_atk2"
+    ruta: "recursos\\colosus_atkAOEp2.png"
+    pixelX: 15
+    pixelY: 37
+    subX: 15
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "colosus_atk3"
+    ruta: "recursos\\colosus_atkAOEp3.png"
+    pixelX: 15
+    pixelY: 37
+    subX: 15
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "colosus"
+    ruta: "recursos\\colosusAOE.png"
+    pixelX: 48
+    pixelY: 42
+    subX: 1
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "colosus2"
+    ruta: "recursos\\colosusAOEp2.png"
+    pixelX: 48
+    pixelY: 42
+    subX: 1
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "colosus3"
+    ruta: "recursos\\colosusAOEp3.png"
+    pixelX: 48
+    pixelY: 42
+    subX: 1
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "Gcolosus"
+    ruta: "recursos\\GcolosusAOE.png"
+    pixelX: 48
+    pixelY: 42
+    subX: 1
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "colosus_move"
+    ruta: "recursos\\colosus_moveAOE.png"
+    pixelX: 23
+    pixelY: 39
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "colosus_move2"
+    ruta: "recursos\\colosus_moveAOEp2.png"
+    pixelX: 23
+    pixelY: 39
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "colosus_move3"
+    ruta: "recursos\\colosus_moveAOEp3.png"
+    pixelX: 23
+    pixelY: 39
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "Gcolosus_move"
+    ruta: "recursos\\Gcolosus_moveAOE.png"
+    pixelX: 23
+    pixelY: 39
+    subX: 10
+    subY: 8
+    fps: 5

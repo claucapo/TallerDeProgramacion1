@@ -207,7 +207,7 @@ int main(int argc, char* argv[]) {
 	
 	//cout << "Voy a hacer que el aldeano (4) recolecte el oro (11)" << endl;
 	//game->escenario->obtenerEntidad(4)->asignarAccion(ACT_COLLECT, 11);
-
+/*
 	cout << "Voy a hacer que el castillo (53) entrene 5 champions" << endl;
 	Edificio* ed = (Edificio*)game->escenario->obtenerEntidad(53);
 	ed->entrenarUnidad("champion");
@@ -217,7 +217,7 @@ int main(int argc, char* argv[]) {
 	ed->entrenarUnidad("champion");
 	ed->entrenarUnidad("champion");
 	ed->entrenarUnidad("champion");
-
+	*/
 	while ( !exit ) {
 		float timeA = SDL_GetTicks();
 

@@ -59,7 +59,7 @@ entidades:
     rangoV: 5
     atk: 20
     def: 7
-    vidaMax: 150
+    vidaMax: 250
     habilidades: ["attack"]
   - nombre: "pikeman"
     tipo: "unit"
@@ -67,7 +67,15 @@ entidades:
     rangoV: 4
     atk: 16
     def: 5
-    vidaMax: 150
+    vidaMax: 160
+    habilidades: ["attack"]
+  - nombre: "colosus"
+    tipo: "unit"
+    velocidad: 3
+    rangoV: 5
+    atk: 34
+    def: 14
+    vidaMax: 410
     habilidades: ["attack"]
   - nombre: "castle"
     tipo: "building"
@@ -82,9 +90,20 @@ entidades:
     tipoR: -1
     velocidad: 20
     rangoV: 5
-    atk: 12
+    atk: 16
     def: 5
     vidaMax: 220
+    habilidades: ["attack"]
+  - nombre: "paladin"
+    sizeX: 1
+    sizeY: 1
+    tipo: "unit"
+    tipoR: -1
+    velocidad: 24
+    rangoV: 6
+    atk: 21
+    def: 8
+    vidaMax: 340
     habilidades: ["attack"]
   - nombre: "king"
     sizeX: 1
@@ -129,20 +148,23 @@ escenario:
   sizeX: 40
   sizeY: 40
   entidades:
-#   - {x: 5, y: 5, tipo: "knight", p: 1}
+   - {x: 6, y: 4, tipo: "paladin", p: 1}
+   - {x: 4, y: 6, tipo: "paladin", p: 1}
+   - {x: 6, y: 6, tipo: "colosus", p: 1}
+   - {x: 5, y: 5, tipo: "knight", p: 1}
    - {x: 4, y: 5, tipo: "knight", p: 1}
-#   - {x: 5, y: 4, tipo: "knight", p: 1}
+   - {x: 5, y: 4, tipo: "knight", p: 1}
    - {x: 4, y: 3, tipo: "champion", p: 1}
    - {x: 4, y: 2, tipo: "champion", p: 1}
-#   - {x: 4, y: 1, tipo: "champion", p: 1}
+   - {x: 4, y: 1, tipo: "champion", p: 1}
    - {x: 3, y: 4, tipo: "champion", p: 1}
-#   - {x: 2, y: 4, tipo: "champion", p: 1}
-#   - {x: 1, y: 4, tipo: "champion", p: 1}
+   - {x: 2, y: 4, tipo: "champion", p: 1}
+   - {x: 1, y: 4, tipo: "champion", p: 1}
    - {x: 1, y: 3, tipo: "pikeman", p: 1}
-#   - {x: 2, y: 3, tipo: "pikeman", p: 1}
+   - {x: 2, y: 3, tipo: "pikeman", p: 1}
    - {x: 3, y: 3, tipo: "pikeman", p: 1}
-#   - {x: 3, y: 2, tipo: "pikeman", p: 1}
-#   - {x: 3, y: 1, tipo: "pikeman", p: 1}
+   - {x: 3, y: 2, tipo: "pikeman", p: 1}
+   - {x: 3, y: 1, tipo: "pikeman", p: 1}
    - {x: 7, y: 3, tipo: "villager", p: 1}
    - {x: 7, y: 2, tipo: "villager", p: 1}
    - {x: 7, y: 1, tipo: "villager", p: 1}
@@ -191,4 +213,8 @@ escenario:
    - {x: 32, y: 31, tipo: "tree", p: 0}
    - {x: 31, y: 32, tipo: "stone mine"}
    - {x: 29, y: 33, tipo: "gold mine"}
-   - {x: 9, y:29, tipo: "castle"}
+
+
+   - {x: 20, y: 10, tipo: "villager", p: 2}
+   - {x: 11, y:5, tipo: "castle", p: 1}
+   - {x: 20, y:4, tipo: "archery", p: 1}
