@@ -4,6 +4,7 @@
 #include "ConfigParser.h"
 #include "Enumerados.h"
 #include "Unidad.h"
+#include "Edificio.h"
 #include "Protocolo.h"
 
 #include <list>

@@ -26,6 +26,9 @@ Entidad::Entidad(unsigned int id, string name, tipoEntidad_t pType) {
 	this->ataque = pType.ataque;
 	this->defensa = pType.defensa;
 
+	this->costo = pType.costo;
+	this->trainRate = pType.trainRate;
+
 	this->cooldownMax = pType.cooldown;
 	this->cooldownAct = 0;
 	for (int i = 0; i < CANT_ACCIONES; i++) {

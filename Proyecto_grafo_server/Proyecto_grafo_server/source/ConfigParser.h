@@ -109,12 +109,15 @@ struct entidadInfo_t {
 	int rangoV, rangoA;
 	int velocidad;
 
+	int costoOro, costoMadera, costoComida, costoPiedra;
+
+
 	int tipoR;
 	int recursoMax;
 
 	int ataque, defensa, vidaMax;
 	int cooldown;
-	int collectRate, buildRate;
+	int collectRate, buildRate, trainRate;
 
 	std::list<std::string> entrenables;
 	std::list<std::string> habilidades;
@@ -124,7 +127,8 @@ struct entidadInfo_t {
 				recursoMax(1), rangoV(1), rangoA(1), velocidad(1), tipoR(RES_TYPE_DEFAULT),
 				vidaMax(VIDA_MAX_DEFAULT), ataque(ATK_BASE_DEFAULT), defensa(DEF_BASE_DEFAULT),
 				entrenables(), habilidades(),
-				cooldown(0), collectRate(0), buildRate(0) {};
+				cooldown(0), collectRate(0), buildRate(0), trainRate(0),
+				costoOro(0), costoMadera(0), costoPiedra(0), costoComida(0) {};
 };
 
 

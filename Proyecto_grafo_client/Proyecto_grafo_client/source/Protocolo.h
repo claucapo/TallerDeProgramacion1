@@ -64,6 +64,8 @@ struct msg_tipo_entidad {
 	int tamX, tamY;
 	entity_type_t tipo;
 
+	costo_t costo;
+
 	int rangoV, rangoA;
 	bool habilidades[CANT_ACCIONES];
 
@@ -71,7 +73,7 @@ struct msg_tipo_entidad {
 	resource_type_t tipoR;
 
 	int velocidad, ataque, defensa, vidaMax;
-	int cooldown, collectRate, buildRate;
+	int cooldown, collectRate, buildRate, trainRate;
 
 	unsigned int cant_entrenables;
 	char* entrenables;

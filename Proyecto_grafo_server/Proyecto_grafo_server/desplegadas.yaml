@@ -30,6 +30,11 @@ entidades:
     cooldown: 20
     collectR: 5
     buildR: 50
+    trainR: 50
+    costFood: 50
+    costGold: 100
+    costWood: 10
+    costStone: 55
     entrenables: []
     habilidades: ["attack", "build", "collect"]
   - nombre: "gold mine"
@@ -186,3 +191,4 @@ escenario:
    - {x: 32, y: 31, tipo: "tree", p: 0}
    - {x: 31, y: 32, tipo: "stone mine"}
    - {x: 29, y: 33, tipo: "gold mine"}
+   - {x: 9, y:29, tipo: "castle"}

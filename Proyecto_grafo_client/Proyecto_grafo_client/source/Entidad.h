@@ -24,7 +24,9 @@ protected:
 
 	// Interaccion
 	Accion_t accion;
-
+	
+	costo_t costo;
+	int trainRate;
 
 	int tamX;
 	int tamY;

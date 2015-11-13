@@ -123,6 +123,12 @@
     <ClInclude Include="source\ProcesadorEventos.h">
       <Filter>Archivos de encabezado\Partida</Filter>
     </ClInclude>
+    <ClInclude Include="source\Construccion.h">
+      <Filter>Archivos de encabezado\Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Edificio.h">
+      <Filter>Archivos de encabezado\Entidades</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Main.cpp">
@@ -190,6 +196,12 @@
     </ClCompile>
     <ClCompile Include="source\ProcesadorEventos.cpp">
       <Filter>Archivos de código fuente\Partida</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Edificio.cpp">
+      <Filter>Archivos de código fuente\Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Construccion.cpp">
+      <Filter>Archivos de código fuente\Entidades</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

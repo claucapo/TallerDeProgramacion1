@@ -99,20 +99,24 @@ void FactoryEntidades::agregarEntidad(msg_tipo_entidad eInfo) {
 		pType->recursoMax = eInfo.recursoMax;
 		pType->velocidad = eInfo.velocidad;
 
+		pType->costo = eInfo.costo;
+
 		pType->ataque = eInfo.ataque;
 		pType->defensa = eInfo.defensa;
 		pType->vidaMax = eInfo.vidaMax;
 
 		pType->collectRate = eInfo.collectRate;
 		pType->buildRate = eInfo.buildRate;
+		pType->trainRate = eInfo.trainRate;
 		pType->cooldown = eInfo.cooldown;
+
 
 		if (pType->tipo == ENT_T_BUILDING) {
 			for (unsigned int i = 0; i < eInfo.cant_entrenables; i++) {
 				std::string nuevoEntrenable(&eInfo.entrenables[i * 50], 50);
-				pType->entrenables.push_front(nuevoEntrenable);
+				pType->entrenables[i] = nuevoEntrenable;
 			}
-
+			pType->cantidad_entrenables = eInfo.cant_entrenables;
 			this->edificiosConstruibles.push_back(eInfo.name);
 		}
 
@@ -138,6 +142,8 @@ Entidad* FactoryEntidades::obtenerEntidad(string name, unsigned int id){
 			ent = new Recurso(id, name, *pType); break;
 		case ENT_T_UNIT:
 			ent = new Unidad(id, name, *pType); break;
+		case ENT_T_BUILDING:
+			ent = new Edificio(id, name, *pType); break;
 		case ENT_T_NONE:
 		default:
 			ent = new Entidad(id, name, *pType);

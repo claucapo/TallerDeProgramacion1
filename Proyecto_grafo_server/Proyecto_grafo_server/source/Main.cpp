@@ -22,6 +22,7 @@
 #include "Partida.h"
 #include "Jugador.h"
 #include "Servidor.h"
+#include "Edificio.h"
 
 using namespace std;
 
@@ -206,6 +207,16 @@ int main(int argc, char* argv[]) {
 	
 	//cout << "Voy a hacer que el aldeano (4) recolecte el oro (11)" << endl;
 	//game->escenario->obtenerEntidad(4)->asignarAccion(ACT_COLLECT, 11);
+
+	cout << "Voy a hacer que el castillo (53) entrene 5 champions" << endl;
+	Edificio* ed = (Edificio*)game->escenario->obtenerEntidad(53);
+	ed->entrenarUnidad("champion");
+	ed->entrenarUnidad("champion");
+	ed->entrenarUnidad("knight");
+	ed->entrenarUnidad("champion");
+	ed->entrenarUnidad("champion");
+	ed->entrenarUnidad("champion");
+	ed->entrenarUnidad("champion");
 
 	while ( !exit ) {
 		float timeA = SDL_GetTicks();

@@ -3,6 +3,7 @@
 #include "Posicion.h"
 #include "Entidad.h"
 #include "Unidad.h"
+#include "Edificio.h"
 #include "Jugador.h"
 #include <iostream>
 #include <list>
@@ -54,23 +55,26 @@ template <typename T> bool compare(const T* const & a, const T* const &b) {
 };
 
 list<msg_update*> Escenario::avanzarFrame(void) {
-	// Avanzo el frame en cada edificio (por ahora no hace nada)
+
+	// Lista de las entidades que murieron durante el frame
 	list<Entidad*> toRmv = list<Entidad*>();
+
+	// Lista de las entidades que deben spawnear en el frame
+	list<Entidad*> toAdd = list<Entidad*>();
+
 	list<msg_update*> updates = list<msg_update*>();
 
 	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
 		af_result_t res = (*it)->avanzarFrame(this);
 		msg_update* upd = nullptr;
-		// Posicion* posAux = new Posicion((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY());
 		Posicion* posAux = (*it)->verPosicion();
+		Entidad* entAux; Edificio* edAux;
 		switch(res) {
 		case AF_MOVE:
-			// cout << "Voy a generar un upd de movimiento a: " << posAux->toStr() << endl;
 			upd = generarUpdate(MSJ_MOVER, (*it)->verID(), posAux->getX(), posAux->getY()); 
 			break;
+		
 		case AF_STATE_CHANGE:
-			
-			// Cambiar esto en el futuro
 			upd = generarUpdate(MSJ_STATE_CHANGE, (*it)->verID(), (float)(*it)->verEstado(), (float)(*it)->targetID); 
 			break;
 		
@@ -78,13 +82,20 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 			upd = generarUpdate(MSJ_ELIMINAR, (*it)->verID(), 0, 0);
 			toRmv.push_back(*it);			
 			break;
+
+		case AF_SPAWN:
+			edAux = (Edificio*)(*it);
+			entAux = edAux->obtenerUnidadEntrenada();
+			if (entAux)
+				toAdd.push_back(entAux);
+			break;
 		}
 
 		if (upd) {
 			updates.push_back(upd);
 		}
-		//delete posAux;
-		(*it)->verJugador()->agregarPosiciones(this->verMapa()->posicionesVistas(*it));
+
+		// (*it)->verJugador()->agregarPosiciones(this->verMapa()->posicionesVistas(*it));
 	}
 	
 	while (!this->updatesAux.empty()) {
@@ -92,11 +103,28 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 		this->updatesAux.pop_front();
 		updates.push_front(upd);
 	}
+
 	while(!toRmv.empty()) {
 		Entidad* ent = toRmv.front();
 		toRmv.pop_front();
 		this->quitarEntidad(ent);
 		delete ent;
+	}
+
+	while(!toAdd.empty()) {
+		Entidad* ent = toAdd.front();
+		toAdd.pop_front();
+
+		// Acá va la lógica de spawn... hay que encontrar la posición vacía más cenrcana
+		// a la que tiene cargada la entidad, y hacer que aparezca ahí.
+
+		// Posicion* pos = this->obtenerPosicionSpawn(ent->verPosicion());
+		// this->ubicarEntidad(ent, pos);
+
+		cout << "Debo spawnear un nuevo [" << ent->name << "]" << endl;
+
+		// Después hay que generar update de unidad spawneada... o unidad creada (a definir)
+		// upd = generarUpdate();
 	}
 
 	return updates;

@@ -37,7 +37,13 @@
 
 	#define COOLDOWN_KEY "cooldown"
 	#define RATE_COLLECT_KEY "collectR"
-	#define RATE_BUILD_KEY "buildR"	
+	#define RATE_BUILD_KEY "buildR"
+	#define RATE_TRAIN_KEY "trainR"
+
+	#define COST_GOLD_KEY "costGold"
+	#define COST_FOOD_KEY "costFood"
+	#define COST_STONE_KEY "costStone"
+	#define COST_WOOD_KEY "costWood"
 
 	#define TRAINING_KEY "entrenables"
 	#define HABLIDADES_KEY "habilidades"
@@ -274,6 +280,13 @@ void operator >> (const YAML::Node& node, entidadInfo_t& eInfo) {
 	parsearEntero(node, COOLDOWN_KEY, &eInfo.cooldown, LOG_INFO, true);
 	parsearEntero(node, RATE_BUILD_KEY, &eInfo.buildRate, LOG_INFO, true);
 	parsearEntero(node, RATE_COLLECT_KEY, &eInfo.collectRate, LOG_INFO, true);
+	parsearEntero(node, RATE_TRAIN_KEY, &eInfo.trainRate, LOG_INFO, true);
+
+	parsearEntero(node, COST_FOOD_KEY, &eInfo.costoComida, LOG_INFO, true);	
+	parsearEntero(node, COST_GOLD_KEY, &eInfo.costoOro, LOG_INFO, true);
+	parsearEntero(node, COST_WOOD_KEY, &eInfo.costoMadera, LOG_INFO, true);
+	parsearEntero(node, COST_STONE_KEY, &eInfo.costoPiedra, LOG_INFO, true);
+
 
 	try {	
 		node[TRAINING_KEY] >> eInfo.entrenables;

@@ -2,7 +2,7 @@
 #include "ErrorLog.h"
 #include "Enumerados.h"
 #include "Recurso.h"
-
+#include "Edificio.h"
 #include "Protocolo.h"
 
 bool FactoryEntidades::hay_instancia = false;
@@ -111,9 +111,14 @@ void FactoryEntidades::agregarEntidad(entidadInfo_t eInfo) {
 		} else if (eInfo.tipo == "building") {
 			// Solo los edificios (TBI) puede tener listas de entrenables
 			pType->tipo = ENT_T_BUILDING;
+			pType->cantidad_entrenables = eInfo.entrenables.size();
+			if (pType->cantidad_entrenables > MAX_ENTRENABLES)
+				ErrorLog::getInstance()->escribirLog("Edificio [" + eInfo.nombre +"] supera cantidad maxima de entrenables. Solo se toman los primeros valores.", LOG_WARNING);
+			int i = 0;
 			for (list<string>::iterator it = eInfo.entrenables.begin(); it != eInfo.entrenables.end(); it++) {
 				std::string act = (*it);
-				pType->entrenables.push_back(act);
+				pType->entrenables[i] = act;
+				i++;
 			}
 		}
 		
@@ -123,12 +128,19 @@ void FactoryEntidades::agregarEntidad(entidadInfo_t eInfo) {
 		pType->recursoMax = eInfo.recursoMax;
 		pType->velocidad = eInfo.velocidad;
 
+		pType->costo.comida = eInfo.costoComida;
+		pType->costo.oro = eInfo.costoOro;
+		pType->costo.madera = eInfo.costoMadera;
+		pType->costo.piedra = eInfo.costoPiedra;
+
+
 		pType->ataque = eInfo.ataque;
 		pType->defensa = eInfo.defensa;
 		pType->vidaMax = eInfo.vidaMax;
 
 		pType->collectRate = eInfo.collectRate;
 		pType->buildRate = eInfo.buildRate;
+		pType->trainRate = eInfo.trainRate;
 		pType->cooldown = eInfo.cooldown;
 		
 		
@@ -160,10 +172,12 @@ Entidad* FactoryEntidades::obtenerEntidad(string name){
 		switch (pType->tipo) {
 		case ENT_T_RESOURCE:
 			ent = new Recurso(obtenerIDValida(), name, *pType); break;
-		case ENT_T_UNIT: {
+		case ENT_T_UNIT:
 			ent = new Unidad(obtenerIDValida(), name, *pType);
 			break;
-			}
+		case ENT_T_BUILDING:
+			ent = new Edificio(obtenerIDValida(), name, *pType);
+			break;
 		case ENT_T_NONE:
 		default:
 			ent = new Entidad(obtenerIDValida(), name, *pType); break;
@@ -202,8 +216,11 @@ list<msg_tipo_entidad*> FactoryEntidades::obtenerListaTipos(void) {
 		msg->tipoR = iter->second->tipoR;
 		msg->recursoMax = iter->second->recursoMax;
 
+		msg->costo = iter->second->costo;
+
 		msg->collectRate = iter->second->collectRate;
 		msg->buildRate = iter->second->buildRate;
+		msg->trainRate = iter->second->trainRate;
 		msg->cooldown = iter->second->cooldown;
 
 		for (int i = 0; i < CANT_ACCIONES; i++) {
@@ -211,17 +228,16 @@ list<msg_tipo_entidad*> FactoryEntidades::obtenerListaTipos(void) {
 		}		
 
 		// Serialización de las entidades entrenables
-		msg->cant_entrenables = iter->second->entrenables.size();
+		msg->cant_entrenables = iter->second->cantidad_entrenables;
 		if (msg->cant_entrenables > 0) {
 			char* tmp = new char[msg->cant_entrenables * 50];
+
 			// Para cada entrenable, inserto la cadena en el arreglo dinámico
-			list<string> entrenables = iter->second->entrenables;
-			list<string>::iterator it;
 			unsigned int i = 0;
-			for (it = entrenables.begin(), i = 0; it != entrenables.end(); it++, i++) {
+			for (i = 0; i < msg->cant_entrenables; i++) {
 				// Esto copia hasta 49 caracteres en el arreglo, a partir de un offset determinado
 				// por la posición actual de la entidad en la lista de entrenables
-				int last = (*it).copy(&(tmp[i * 50]), 49, 0);
+				int last = (iter->second->entrenables[i]).copy(&(tmp[i * 50]), 49, 0);
 				tmp[i * 50 + last] = '\0';
 			}
 			msg->entrenables = tmp;

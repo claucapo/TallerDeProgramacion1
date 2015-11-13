@@ -23,10 +23,12 @@ protected:
 
 	// Interaccion
 	Accion_t accion;
-
+	
+	costo_t costo;
 
 	int tamX;
 	int tamY;
+	int trainRate;
 
 	// Quizas agregar un struct con la informacion?;
 	int rangoVision;

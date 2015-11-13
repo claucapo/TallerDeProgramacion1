@@ -72,8 +72,10 @@
     <ClInclude Include="source\BibliotecaDeImagenes.h" />
     <ClInclude Include="source\Cliente.h" />
     <ClInclude Include="source\ConfigParser.h" />
+    <ClInclude Include="source\Construccion.h" />
     <ClInclude Include="source\ConversorUnidades.h" />
     <ClInclude Include="source\DatosImagen.h" />
+    <ClInclude Include="source\Edificio.h" />
     <ClInclude Include="source\Entidad.h" />
     <ClInclude Include="source\Enumerados.h" />
     <ClInclude Include="source\ErrorLog.h" />
@@ -96,8 +98,10 @@
     <ClCompile Include="source\BibliotecaDeImagenes.cpp" />
     <ClCompile Include="source\Cliente.cpp" />
     <ClCompile Include="source\ConfigParser.cpp" />
+    <ClCompile Include="source\Construccion.cpp" />
     <ClCompile Include="source\ConversorUnidades.cpp" />
     <ClCompile Include="source\DatosImagen.cpp" />
+    <ClCompile Include="source\Edificio.cpp" />
     <ClCompile Include="source\Entidad.cpp" />
     <ClCompile Include="source\ErrorLog.cpp" />
     <ClCompile Include="source\Escenario.cpp" />
