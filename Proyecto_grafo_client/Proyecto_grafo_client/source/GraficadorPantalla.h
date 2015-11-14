@@ -31,6 +31,7 @@ private:
 	void renderizarTerreno(void);
 	void renderizarProtagonista(void);
 	void renderizarEntidades(void);
+	void dibujarEdificioUbicandose();
 	void dibujarMarcoPantalla(int* minimapX, int* minimapY, int* minimapW, int* minimapH);
 	void dibujarMinimapa(int minimapX, int minimapY, int minimapW, int minimapH);
 public:

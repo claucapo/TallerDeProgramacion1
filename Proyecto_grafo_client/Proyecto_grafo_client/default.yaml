@@ -537,55 +537,55 @@ tipo:
     delay: 11
   - nombre: "villager_collect"
     ruta: "recursos\\villager_collectAOE.png"
-    pixelX: 11
-    pixelY: 13
+    pixelX: 13
+    pixelY: 15
     subX: 15
     subY: 8
     fps: 7
     delay: 0
   - nombre: "villager_collect2"
     ruta: "recursos\\villager_collectAOEp2.png"
-    pixelX: 11
-    pixelY: 13
+    pixelX: 13
+    pixelY: 15
     subX: 15
     subY: 8
     fps: 7
     delay: 0
   - nombre: "villager_collect3"
     ruta: "recursos\\villager_collectAOEp3.png"
-    pixelX: 11
-    pixelY: 13
+    pixelX: 13
+    pixelY: 15
     subX: 15
     subY: 8
     fps: 7
     delay: 0
   - nombre: "villager_chop"
     ruta: "recursos\\villager_chopAOE.png"
-    pixelX: 24
-    pixelY: 30
+    pixelX: 16
+    pixelY: 35
     subX: 15
     subY: 8
     fps: 7
     delay: 0
   - nombre: "villager_chop2"
     ruta: "recursos\\villager_chopAOEp2.png"
-    pixelX: 24
-    pixelY: 30
+    pixelX: 16
+    pixelY: 35
     subX: 15
     subY: 8
     fps: 7
     delay: 0
   - nombre: "villager_chop3"
     ruta: "recursos\\villager_chopAOEp3.png"
-    pixelX: 24
-    pixelY: 30
+    pixelX: 16
+    pixelY: 35
     subX: 15
     subY: 8
     fps: 7
     delay: 0
   - nombre: "villager_mine"
     ruta: "recursos\\villager_mineAOE.png"
-    pixelX: 16
+    pixelX: 15
     pixelY: 33
     subX: 15
     subY: 8
@@ -593,7 +593,7 @@ tipo:
     delay: 0
   - nombre: "villager_mine2"
     ruta: "recursos\\villager_mineAOEp2.png"
-    pixelX: 20
+    pixelX: 15
     pixelY: 33
     subX: 15
     subY: 8
@@ -601,7 +601,7 @@ tipo:
     delay: 0
   - nombre: "villager_mine3"
     ruta: "recursos\\villager_mineAOEp3.png"
-    pixelX: 20
+    pixelX: 15
     pixelY: 33
     subX: 15
     subY: 8

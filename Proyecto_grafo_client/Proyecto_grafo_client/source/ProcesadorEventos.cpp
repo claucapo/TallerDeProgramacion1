@@ -32,6 +32,7 @@ ProcesadorEventos::~ProcesadorEventos(void){
 ProcesadorEventos::ProcesadorEventos(Partida* partida, GraficadorPantalla* grafP){
 	this->game = partida;
 	this->gp = grafP;
+
 }
 
 
@@ -105,6 +106,7 @@ void ProcesadorEventos::procesarBoton(Jugador* player){
 	}
 
 	cout << "Hay que construir: " << (*it) << endl;
+	game->edificioAubicar = (*it);
 }
 
 void ProcesadorEventos::procesarSeleccionMultiple(Jugador* player){
@@ -286,6 +288,87 @@ void ProcesadorEventos::procesarRecolectar(Cliente* client) {
 }
 
 
+void ProcesadorEventos::procesarConstruir(Cliente* client) {
+	list<Entidad*> lasEnt = game->verListaEntidadesSeleccionadas();
+	
+	// Obtengo la posición del click (quizás convertir en una función ya que se repite en varios lados...
+	int mx, my;
+	SDL_GetMouseState(&mx, &my);
+	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
+	float pX = cu->obtenerCoordLogicaX(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
+	float pY = cu->obtenerCoordLogicaY(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
+	Posicion dest = Posicion(pX, pY);
+
+	if(!game->edificioUbicablePuedeConstruirse(dest))
+		return;
+
+	for (list<Entidad*>::iterator it=lasEnt.begin(); it != lasEnt.end(); ++it){
+		if((*it)->habilidades[ACT_BUILD]){
+//			msg_event newEvent;
+//			newEvent.idEntidad = (*it)->verID();
+//			newEvent.accion = MSJ_ATACAR;
+			int i = 0;
+			//dest = Posicion(pX, pY);
+
+			// La posta
+//			Entidad* aux = game->escenario->verMapa()->verContenido(&dest);
+//			newEvent.extra1 = (float)aux->verID();
+			cout<<(*it)->name << " debe construir " << game->edificioAubicar << " en (" << dest.getRoundX() << "," << dest.getRoundY() << ")" << endl;
+				
+//			client->agregarEvento(newEvent);
+
+		}
+		
+	}
+	game->modoUbicarEdificio = false;
+}
+
+void ProcesadorEventos::procesarSeleccion(Jugador* player){
+	int mx, my;
+	SDL_GetMouseState(&mx, &my);
+	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
+	
+
+	float pX = cu->obtenerCoordLogicaX(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
+	float pY = cu->obtenerCoordLogicaY(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
+	
+	if((game->sx == 0)&&(game->sy == 0)){
+		game->sx = mx;
+		game->sy = my;
+		game->sx2 = mx + TOL_SEL_MULT;
+		game->sy2 = my + TOL_SEL_MULT;
+	}
+	
+	// Si me paso del borde del screen_frame, me voy...
+	if(my > (gp->screen_height*360/480)){
+		if(mx < (gp->screen_width*165/640)){ 
+			// ...A menos que haya clickeado un boton
+			try{
+				this->procesarBoton(player);
+				game->modoUbicarEdificio = true;
+
+				game->sx = 0;
+				game->sy = 0;
+				game->sx2 = 0;
+				game->sy2 = 0;
+
+			} catch (const std::out_of_range& oor){
+				cout << "Baboso!"<< endl;
+				return;
+				}
+			}
+		return;
+		}
+
+	Posicion slct = Posicion(pX, pY);
+	game->deseleccionarEntidades();
+	if(game->escenario->verMapa()->posicionPertenece(&slct))
+		if(player->visionCasilla(slct) != VIS_NO_EXPLORADA)
+			if(!game->escenario->verMapa()->posicionEstaVacia(&slct))
+				game->seleccionarEntidad(game->escenario->verMapa()->verContenido(&slct), true);
+}
+
+
 void ProcesadorEventos::procesarAtacar(Cliente* client) {
 	list<Entidad*> lasEnt = game->verListaEntidadesSeleccionadas();
 	
@@ -314,40 +397,60 @@ void ProcesadorEventos::procesarAtacar(Cliente* client) {
 	}
 }
 
-void ProcesadorEventos::procesarSeleccion(Jugador* player){
-	int mx, my;
-	SDL_GetMouseState(&mx, &my);
-	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
-	
+#define CODE_CONTINUE 1
+#define CODE_RESET -2
+#define CODE_EXIT -1
 
-	float pX = cu->obtenerCoordLogicaX(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
-	float pY = cu->obtenerCoordLogicaY(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
-	
-	if((game->sx == 0)&&(game->sy == 0)){
-		game->sx = mx;
-		game->sy = my;
-		game->sx2 = mx + TOL_SEL_MULT;
-		game->sy2 = my + TOL_SEL_MULT;
-	}
-	
-	// Si me paso del borde del screen_frame, me voy...
-	if(my > (gp->screen_height*360/480)){
-		if(mx < (gp->screen_width*165/640)){ 
-			// ...A menos que haya clickeado un boton
-			try{
-				this->procesarBoton(player);
-			} catch (const std::out_of_range& oor){
-				cout << "Baboso!"<< endl;
-				return;
+int ProcesadorEventos::procesarEvento(SDL_Event evento, Cliente* client, Jugador* player){
+	switch (evento.type) {
+	case SDL_MOUSEBUTTONDOWN:
+		if(!game->modoUbicarEdificio){
+			if(game->seleccionSecundaria != nullptr){
+				delete game->seleccionSecundaria;
+				game->seleccionSecundaria = nullptr;
 				}
-			}
-		return;
+		
+			if( evento.button.button == SDL_BUTTON_LEFT){
+				game->algoSeleccionado = true;
+				this->procesarSeleccion(player);
+				return CODE_CONTINUE;
+				}
+			else if( evento.button.button == SDL_BUTTON_RIGHT){
+				this->procesarSeleccionSecundaria(client, player);
+				return CODE_CONTINUE;
+				}
+		}
+		else{
+			// Aca hay que chequear para crear el edificio
+			if(evento.button.button == SDL_BUTTON_LEFT)
+				this->procesarConstruir(client);
+			return CODE_CONTINUE;
 		}
 
-	Posicion slct = Posicion(pX, pY);
-	game->deseleccionarEntidades();
-	if(game->escenario->verMapa()->posicionPertenece(&slct))
-		if(player->visionCasilla(slct) != VIS_NO_EXPLORADA)
-			if(!game->escenario->verMapa()->posicionEstaVacia(&slct))
-				game->seleccionarEntidad(game->escenario->verMapa()->verContenido(&slct), true);
+	case SDL_MOUSEBUTTONUP:
+		if(!game->modoUbicarEdificio){
+			this->procesarSeleccionMultiple(player);
+			game->algoSeleccionado = false;
+			game->sx = 0;
+			game->sy = 0;
+			game->sx2 = 0;
+			game->sy2 = 0;
+			return CODE_CONTINUE;
+		}
+		else{
+			game->algoSeleccionado = false;
+			game->sx = 0;
+			game->sy = 0;
+			game->sx2 = 0;
+			game->sy2 = 0;
+			if(evento.button.button == SDL_BUTTON_RIGHT){
+				game->modoUbicarEdificio = false;
+				}
+			return CODE_CONTINUE;
+		}
+			
+	case SDL_QUIT:
+		// enviar a proposito msg de log out?
+		return CODE_EXIT; 
+	}
 }

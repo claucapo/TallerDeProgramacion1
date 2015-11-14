@@ -17,12 +17,16 @@ struct Partida {
 	bool algoSeleccionado;
 	Posicion* seleccionSecundaria;
 
+		string edificioAubicar;
+		bool modoUbicarEdificio;
 	// Constructor y destructor por defecto
 	Partida(void);
 	~Partida(void);
 
 	bool agregarJugador(Jugador*);
 	void asignarEscenario(Escenario*);
+
+	bool edificioUbicablePuedeConstruirse(Posicion pos);
 
 	Jugador* obtenerJugador(int id);
 	

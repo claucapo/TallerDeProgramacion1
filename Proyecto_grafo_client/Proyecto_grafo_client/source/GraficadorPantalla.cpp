@@ -48,7 +48,6 @@ void GraficadorPantalla::asignarPartida(Partida* partida) {
 	}
 }
 
-
 void GraficadorPantalla::dibujarPantalla(void) {
 	// PASOS DEL DIBUJO DE LA PANTALLA
 	if (!this->partida->escenario) {
@@ -74,6 +73,9 @@ void GraficadorPantalla::dibujarPantalla(void) {
 	// 5) Dibujar el screen frame alrededor de la pantalla
 	int minimapX, minimapY, minimapW, minimapH;
 	dibujarMarcoPantalla(&minimapX, &minimapY, &minimapW, &minimapH);
+
+	if(this->partida->modoUbicarEdificio)
+		dibujarEdificioUbicandose();
 
 	// 6) Dibujar el minimapa
 	dibujarMinimapa(minimapX, minimapY, minimapW, minimapH);
@@ -613,6 +615,54 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 	}
 
 }
+
+void GraficadorPantalla::dibujarEdificioUbicandose(){
+	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
+	int mx, my;
+	SDL_GetMouseState(&mx, &my);
+
+	if(my > (screen_height*300/480))
+		return;
+
+	float px = cu->obtenerCoordLogicaX(mx, my, view_x, view_y, ancho_borde);
+	float py = cu->obtenerCoordLogicaY(mx, my, view_x, view_y, ancho_borde);
+	Posicion pos(px, py);
+
+	if(!this->partida->escenario->verMapa()->posicionPertenece(&pos))
+		return;
+
+	SDL_Rect rectangulo;
+	rectangulo.x = cu->obtenerCoordPantallaX(pos.getRoundX(), pos.getRoundY(), view_x, view_y, ancho_borde);
+	rectangulo.y = cu->obtenerCoordPantallaY(pos.getRoundX(), pos.getRoundY(), view_x, view_y, ancho_borde);
+
+	DatosImagen* data = BibliotecaDeImagenes::obtenerInstancia()->devolverDatosImagen(partida->edificioAubicar);
+
+	rectangulo.x -= data->origenX;
+	rectangulo.y -= data->origenY;
+
+	SDL_Surface* edif = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(partida->edificioAubicar);
+		
+	SDL_Surface* aux = SDL_CreateRGBSurface(0,edif->w,edif->h,32,0,0,0,0);
+
+	SDL_SetColorKey(edif, true, SDL_MapRGB(edif->format, 255, 0, 255) );
+	SDL_SetColorKey(aux, true, SDL_MapRGB(aux->format, 255, 0, 255) );
+
+
+	SDL_BlitSurface(edif, NULL, aux, NULL);
+	
+	SDL_SetColorKey(aux, true, SDL_MapRGB(aux->format, 0, 0, 0) );
+
+
+	if(this->partida->edificioUbicablePuedeConstruirse(pos))
+			SDL_SetSurfaceColorMod(aux, 40, 200, 40);
+	else
+			SDL_SetSurfaceColorMod(aux, 200, 40, 40);
+
+	SDL_BlitSurface(aux, NULL, pantalla, &rectangulo);
+
+	SDL_FreeSurface( aux);
+}
+
 
 //	PASO 6: dibujar el minimapa
 void GraficadorPantalla::dibujarMinimapa(int minimapX, int minimapY, int minimapW, int minimapH){

@@ -13,7 +13,9 @@ class ProcesadorEventos
 {
 public:
 	Partida* game;
+	
 	GraficadorPantalla* gp;
+
 	ProcesadorEventos(void);
 	ProcesadorEventos(Partida* partida, GraficadorPantalla* grafP);
 	~ProcesadorEventos(void);
@@ -25,6 +27,9 @@ public:
 	void procesarRecolectar(Cliente* client);
 	void procesarAtacar(Cliente* client);
 	void procesarSeleccion(Jugador* player);
+	void procesarConstruir(Cliente* client);
+
+	int procesarEvento(SDL_Event evento, Cliente* client, Jugador* player);
 
 	Posicion adyacenteSiguiente(Posicion pos, int i, Escenario* scene);
 

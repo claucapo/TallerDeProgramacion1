@@ -194,41 +194,6 @@ Partida* generarPartida(mapa_inicial data) {
 #define CODE_EXIT -1
 
 
-int procesarEvento(Partida* game, GraficadorPantalla* gp, SDL_Event evento, Cliente* client, Jugador* player){
-	ProcesadorEventos pE(game, gp);
-	switch (evento.type) {
-	case SDL_MOUSEBUTTONDOWN:
-		if(game->seleccionSecundaria != nullptr){
-			delete game->seleccionSecundaria;
-			game->seleccionSecundaria = nullptr;
-			}
-		
-		if( evento.button.button == SDL_BUTTON_LEFT){
-			game->algoSeleccionado = true;
-			pE.procesarSeleccion(player);
-			return CODE_CONTINUE;
-			}
-		else if( evento.button.button == SDL_BUTTON_RIGHT){
-			pE.procesarSeleccionSecundaria(client, player);
-			return CODE_CONTINUE;
-			}
-
-	case SDL_MOUSEBUTTONUP:
-		pE.procesarSeleccionMultiple(player);
-		game->algoSeleccionado = false;
-		game->sx = 0;
-		game->sy = 0;
-		game->sx2 = 0;
-		game->sy2 = 0;
-		return CODE_CONTINUE;
-			
-	case SDL_QUIT:
-		// enviar a proposito msg de log out?
-
-		return CODE_EXIT; 
-	}
-}
-
 //------------------------------------
 //------------- MAIN -----------------
 //------------------------------------
@@ -291,6 +256,8 @@ int wmain(int argc, char* argv[]) {
 
 	int codigo_programa = CODE_CONTINUE;
 
+	ProcesadorEventos pE(game, gp);
+
 	while (codigo_programa != CODE_EXIT && !client.must_close) {
 		float timeA = SDL_GetTicks();
 		client.procesarUpdates(game);
@@ -303,7 +270,7 @@ int wmain(int argc, char* argv[]) {
 		SDL_Event evento;
 		while(SDL_PollEvent(&evento) != 0){
 			// Generar msg_evento: Por ahora sólo te deja scrollear
-			codigo_programa = procesarEvento(game, gp, evento, &client, playerActual);
+			codigo_programa = pE.procesarEvento(evento, &client, playerActual);
 			if(codigo_programa == CODE_EXIT)
 				break;
 		}

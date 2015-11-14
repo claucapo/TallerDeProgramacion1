@@ -5,6 +5,7 @@
 #include "ErrorLog.h"
 #include "Recurso.h"
 #include "Unidad.h"
+#include "FactoryEntidades.h"
 
 #include <sstream> // Para convertir int en string
 
@@ -19,6 +20,7 @@ Partida::Partida(void) {
 	sx = 0; sy = 0; sx2 = 0; sy2 = 0;
 	algoSeleccionado = false;
 	this->seleccionSecundaria = nullptr;
+	this->modoUbicarEdificio = false;
 }
 
 Partida::~Partida(void) {
@@ -233,4 +235,28 @@ Entidad* Partida::verEntidadSeleccionada(void) {
 
 list<Entidad*> Partida::verListaEntidadesSeleccionadas(void){
 	return this->ent_seleccionadas;
+}
+
+bool Partida::edificioUbicablePuedeConstruirse(Posicion pos){
+	if(!this->modoUbicarEdificio)
+		return false;
+
+	if(!this->escenario->verMapa()->posicionPertenece(&pos))
+		return false;
+
+	Entidad* edif = FactoryEntidades::obtenerInstancia()->obtenerEntidad(this->edificioAubicar, 65500);
+
+	for(int i = 0; i < edif->verTamX(); i++){
+		for(int j = 0; j < edif->verTamY(); j++){
+				Posicion pAct(pos.getRoundX() + i, pos.getRoundY() + j);
+				if(!this->escenario->casillaEstaVacia(&pAct)){
+	//				delete edif;
+					return false;
+					}
+			}
+		}
+
+//	delete edif;
+	return true;
+
 }
