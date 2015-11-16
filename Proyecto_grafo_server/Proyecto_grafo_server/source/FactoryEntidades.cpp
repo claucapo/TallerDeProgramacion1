@@ -8,12 +8,15 @@
 bool FactoryEntidades::hay_instancia = false;
 FactoryEntidades* FactoryEntidades::singleton = nullptr;
 unsigned int FactoryEntidades::nextID = 0;
+unsigned int FactoryEntidades::nextTypeID = 0;
 
 // Constructores y destructores para singleton!!!
 
 FactoryEntidades::FactoryEntidades(void) {
 	this->prototipos = map<string, tipoEntidad_t*>();
-	this->prototipos[nombre_entidad_def] = new tipoEntidad_t();
+	tipoEntidad_t* def = new tipoEntidad_t();
+	def->typeID = this->obtenerTypeIDValida();
+	this->prototipos[nombre_entidad_def] = def;
 }
 
 FactoryEntidades::~FactoryEntidades(void) {
@@ -46,12 +49,19 @@ void FactoryEntidades::limpar(void) {
 		singleton->prototipos.clear();
 
 		this->prototipos = map<string, tipoEntidad_t*>();
-		this->prototipos[nombre_entidad_def] = new tipoEntidad_t();
+		tipoEntidad_t* def = new tipoEntidad_t();
+		nextTypeID = 0;
+		def->typeID = this->obtenerTypeIDValida();
+		this->prototipos[nombre_entidad_def] = def;
 	}
 }
 
 unsigned int FactoryEntidades::obtenerIDValida() {
 	return nextID++;
+}
+
+unsigned int FactoryEntidades::obtenerTypeIDValida() {
+	return nextTypeID++;
 }
 
 // Funciones de factory
@@ -121,7 +131,8 @@ void FactoryEntidades::agregarEntidad(entidadInfo_t eInfo) {
 				i++;
 			}
 		}
-		
+
+		pType->typeID = this->obtenerTypeIDValida();
 		pType->tamX = eInfo.tamX;
 		pType->tamY = eInfo.tamY;
 		pType->rangoV = eInfo.rangoV;
@@ -205,6 +216,7 @@ list<msg_tipo_entidad*> FactoryEntidades::obtenerListaTipos(void) {
 		msg->tamX = iter->second->tamX;
 		msg->tamY= iter->second->tamY;
 		msg->tipo = iter->second->tipo;
+		msg->typeID = iter->second->typeID;
 
 		msg->velocidad = iter->second->velocidad;
 		msg->rangoV = iter->second->rangoV;
@@ -248,4 +260,50 @@ list<msg_tipo_entidad*> FactoryEntidades::obtenerListaTipos(void) {
 		lista.push_back(msg);
 	}
 	return lista;
+}
+
+
+
+Entidad* FactoryEntidades::obtenerEntidad(unsigned int id) {
+	Entidad* ent = nullptr;
+	tipoEntidad_t* pType = nullptr;
+	std::string name = nombre_entidad_def;
+
+	for (map<string, tipoEntidad_t*>::const_iterator iter = this->prototipos.begin(); iter != this->prototipos.end(); ++iter) {
+		if ((*iter).second->typeID == id) {
+			pType = (*iter).second;
+			name = (*iter).first;
+		}
+	}
+
+	if (pType != nullptr) {
+		switch (pType->tipo) {
+		case ENT_T_RESOURCE:
+			ent = new Recurso(obtenerIDValida(), name, *pType); break;
+		case ENT_T_UNIT:
+			ent = new Unidad(obtenerIDValida(), name, *pType);
+			break;
+		case ENT_T_BUILDING:
+			ent = new Edificio(obtenerIDValida(), name, *pType);
+			break;
+		case ENT_T_NONE:
+		default:
+			ent = new Entidad(obtenerIDValida(), name, *pType); break;
+		}
+		ent->tipo = pType->tipo;
+	} else {
+		ErrorLog::getInstance()->escribirLog("Entidad no existe en sistema. Se reemplazará por entidad por defecto.", LOG_WARNING);
+		pType = prototipos[nombre_entidad_def];
+		ent = new Entidad(obtenerIDValida(), nombre_entidad_def, *pType);
+	} 
+	return ent;
+}
+
+
+
+unsigned int FactoryEntidades::obtenerTypeID(string name) {
+	if (prototipos.count(name) > 0) {
+		return prototipos[name]->typeID;
+	}
+	return 0;
 }

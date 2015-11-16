@@ -9,7 +9,7 @@ using namespace std;
 // que concidan con las filas de los sprites de movimiento
 enum Direcciones_t {DIR_RIGHT, DIR_TOP_RIGHT, DIR_TOP, DIR_TOP_LEFT, DIR_LEFT, DIR_DOWN_LEFT, DIR_DOWN, DIR_DOWN_RIGHT};
 
-enum entity_type_t {ENT_T_NONE, ENT_T_UNIT, ENT_T_RESOURCE, ENT_T_BUILDING};
+enum entity_type_t {ENT_T_NONE, ENT_T_UNIT, ENT_T_RESOURCE, ENT_T_BUILDING, ENT_T_CONSTRUCTION};
 enum af_result_t {AF_NONE, AF_STATE_CHANGE, AF_MOVE, AF_KILL, AF_SPAWN};
 enum resource_type_t {RES_T_NONE = -1, RES_T_GOLD = 0, RES_T_WOOD = 1, RES_T_FOOD = 2, RES_T_STONE = 3};
 
@@ -57,6 +57,7 @@ struct costo_t {
 
 // Definición del struct que contendrá información particular de cada clase.
 struct tipoEntidad_t {
+	unsigned int typeID;
 	int tamX;
 	int tamY;
 	entity_type_t tipo;

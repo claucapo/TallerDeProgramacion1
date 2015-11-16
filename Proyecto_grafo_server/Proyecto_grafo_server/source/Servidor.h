@@ -14,10 +14,16 @@ class ConexionCliente;
 
 using namespace std;
 
+struct msg_event_ext {
+	unsigned int source;
+	struct msg_event msg;
+};
+
+
 class Servidor {
 private:
 	SDL_sem* eventos_lock;
-	queue<struct msg_event> eventos;
+	queue<struct msg_event_ext> eventos;
 
 	SDL_sem* updates_lock;
 	queue<struct msg_update> updates;
@@ -50,7 +56,7 @@ public:
 	void enviarUpdates(void);
 
 	// Permite a los clientes agregar un nuevo evento
-	void agregarEvento(struct msg_event);
+	void agregarEvento(struct msg_event_ext);
 	void agregarUpdate(struct msg_update);
 
 	// Valida una conexión entrante y la agrega a la lista de clientes

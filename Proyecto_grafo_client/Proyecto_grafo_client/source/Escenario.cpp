@@ -119,11 +119,6 @@ void Escenario::moverEntidad(unsigned int entID, Posicion* pos, bool seguirMovie
 	float yOld = ent->verPosicion()->getY();
 
 	if(this->mapa->quitarEntidad(ent)){
-		//this->mapa->ubicarEntidad(*it, pos);
-		/*
-		Entidad pepe = *(*it);
-		Unidad* posta = (Unidad*) &pepe;
-		posta->setDireccion(DIR_DOWN_LEFT);*/
 		((Unidad*)(ent))->asignarPos(pos);
 		this->mapa->ubicarEntidad(ent, pos);
 		entidades.sort(compare<Entidad>);
@@ -141,9 +136,9 @@ void Escenario::moverEntidad(unsigned int entID, Posicion* pos, bool seguirMovie
 
 	if((ent)->verJugador()->verID() == 2)
 		nombreEnt = nombreEnt + '2';
+
 	if((ent)->verJugador()->verID() == 3)
 		nombreEnt = nombreEnt + '3';
-	// cout << "Ent. name: " << nombreEnt << endl;
 	spEnt->cambiarImagen(nombreEnt);
 	
 }

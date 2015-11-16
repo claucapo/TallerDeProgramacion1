@@ -89,7 +89,7 @@ void FactoryEntidades::agregarEntidad(msg_tipo_entidad eInfo) {
 			eInfo.rangoV = 1;
 		}
 
-
+		pType->typeID = eInfo.typeID;
 		pType->tipo = eInfo.tipo;
 		pType->tipoR = eInfo.tipoR;
 
@@ -113,7 +113,7 @@ void FactoryEntidades::agregarEntidad(msg_tipo_entidad eInfo) {
 
 		if (pType->tipo == ENT_T_BUILDING) {
 			for (unsigned int i = 0; i < eInfo.cant_entrenables; i++) {
-				std::string nuevoEntrenable(&eInfo.entrenables[i * 50], 50);
+				std::string nuevoEntrenable(&eInfo.entrenables[i * 50]);
 				pType->entrenables[i] = nuevoEntrenable;
 			}
 			pType->cantidad_entrenables = eInfo.cant_entrenables;
@@ -150,6 +150,7 @@ Entidad* FactoryEntidades::obtenerEntidad(string name, unsigned int id){
 			
 		}
 	//	ent->tipo = pType->tipo;
+
 	} else {
 		ErrorLog::getInstance()->escribirLog("Entidad [" + name + "] no existe en sistema. Se reemplazará por entidad por defecto.", LOG_WARNING);
 		pType = prototipos[nombre_entidad_def];
@@ -162,4 +163,50 @@ Entidad* FactoryEntidades::obtenerEntidad(string name, unsigned int id){
 
 list<string> FactoryEntidades::verListaEdificios(void){
 	return this->edificiosConstruibles;
+}
+
+
+
+Entidad* FactoryEntidades::obtenerEntidad(unsigned int typeID, unsigned int id) {
+	Entidad* ent = nullptr;
+	tipoEntidad_t* pType = nullptr;
+	std::string name = nombre_entidad_def;
+
+	for (map<string, tipoEntidad_t*>::const_iterator iter = this->prototipos.begin(); iter != this->prototipos.end(); ++iter) {
+		if ((*iter).second->typeID == typeID) {
+			pType = (*iter).second;
+			name = (*iter).first;
+		}
+	}
+
+	if (pType != nullptr) {
+		switch (pType->tipo) {
+		case ENT_T_RESOURCE:
+			ent = new Recurso(id, name, *pType); break;
+		case ENT_T_UNIT:
+			ent = new Unidad(id, name, *pType);
+			break;
+		case ENT_T_BUILDING:
+			ent = new Edificio(id, name, *pType);
+			break;
+		case ENT_T_NONE:
+		default:
+			ent = new Entidad(id, name, *pType); break;
+		}
+		ent->tipo = pType->tipo;
+	} else {
+		ErrorLog::getInstance()->escribirLog("Entidad no existe en sistema. Se reemplazará por entidad por defecto.", LOG_WARNING);
+		pType = prototipos[nombre_entidad_def];
+		ent = new Entidad(id, nombre_entidad_def, *pType);
+	} 
+	return ent;
+}
+
+
+
+unsigned int FactoryEntidades::obtenerTypeID(string name) {
+	if (prototipos.count(name) > 0) {
+		return prototipos[name]->typeID;
+	}
+	return 0;
 }

@@ -4,7 +4,8 @@
 #include "ErrorLog.h"
 #include "Protocolo.h"
 #include "Enumerados.h"
-
+#include "FactoryEntidades.h"
+#include "Edificio.h"
 
 #include <sstream> // Para convertir int en string
 
@@ -120,10 +121,11 @@ list<msg_update*> Partida::avanzarFrame(void){
 }
 
 
-void Partida::procesarEvento(msg_event msj) {
+void Partida::procesarEvento(msg_event msj, unsigned int source) {
 	Escenario* scene = this->escenario;
 	CodigoMensaje accion = msj.accion;
 	Entidad* ent = nullptr;
+	Entidad* aux = nullptr;
 	Posicion destino;
 	ent = scene->obtenerEntidad(msj.idEntidad);
 
@@ -143,6 +145,27 @@ void Partida::procesarEvento(msg_event msj) {
 		cout << "Recibi un recolectar" << endl;
 		if (ent)
 			ent->asignarAccion(ACT_ATACK, (unsigned int)msj.extra1);
+		break;
+	case MSJ_CONSTRUIR:
+		cout << "Recibi un construir" << endl;
+		destino = Posicion(msj.extra1, msj.extra2);
+		aux = this->escenario->obtenerEntidad(destino);
+		if (ent && aux)
+			ent->asignarAccion(ACT_BUILD, aux->verID());
+		break;
+	case MSJ_NUEVO_EDIFICIO:
+		cout << "Recibi un construir edificio" << endl;
+		ent = FactoryEntidades::obtenerInstancia()->obtenerEntidad(msj.idEntidad);
+		destino = Posicion(msj.extra1, msj.extra2);
+		ent->asignarJugador(this->obtenerJugador(source));
+		((Edificio*)ent)->setEnConstruccion(true);
+		this->escenario->ubicarEntidad(ent, &destino);
+		
+		msg_update* upd = this->escenario->generarUpdate(CodigoMensaje(MSJ_SPAWN + ent->typeID), ent->verID(), destino.getX(), destino.getY());
+		this->escenario->updatesAux.push_back(upd);
+
+		upd = this->escenario->generarUpdate(MSJ_ASIGNAR_JUGADOR, ent->verID(), ent->verJugador()->verID(), 0);
+		this->escenario->updatesAux.push_back(upd);
 		break;
 	}
 }

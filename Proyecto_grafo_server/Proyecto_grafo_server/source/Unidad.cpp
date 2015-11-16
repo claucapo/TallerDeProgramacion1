@@ -5,6 +5,7 @@
 #include "Jugador.h"
 #include "ErrorLog.h"
 #include "Recurso.h"
+#include "Edificio.h"
 #include "ConversorUnidades.h"
 #include <cmath>
 #include <iostream>
@@ -79,6 +80,7 @@ void Unidad::asignarAccion(Accion_t acc, unsigned int targetID) {
 	}
 }
 
+// Modificar para unidades con rango > 1
 bool Unidad::objetivoEnRango(Entidad* target, Escenario* scene) {
 	Posicion* targetPos = target->verPosicion();
 	int distX = targetPos->getRoundX() - this->pos->getRoundX();
@@ -90,7 +92,6 @@ bool Unidad::objetivoEnRango(Entidad* target, Escenario* scene) {
 
 	return false;
 }
-
 
 
 
@@ -147,8 +148,6 @@ void Unidad::mover(Escenario* scene) {
  	} else {
 		this->camino.pop_front();
 		if (camino.size() == 0){
-			// this->setEstado(EST_QUIETO);
-			// this->asignarPos( new Posicion(act->getRoundX()+0.44,act->getRoundY()+0.44));
 			Posicion aux(act->getRoundX()+0.44,act->getRoundY()+0.44);
 			scene->moverEntidad(this, &aux);
 		}
@@ -157,9 +156,9 @@ void Unidad::mover(Escenario* scene) {
 
 bool Unidad::resolverAtaque(Entidad* target, Escenario* scene) {
 	target->vidaAct -= this->ataque;
-	cout << this->verID() << " ataca a " << target->verID() << " y lo deja en " << target->vidaAct << " de vida." << endl;
+	// cout << this->verID() << " ataca a " << target->verID() << " y lo deja en " << target->vidaAct << " de vida." << endl;
 
-	msg_update* upd = scene->generarUpdate(MSJ_VIDA_CHANGE, target->verID(), this->ataque, 0);
+	msg_update* upd = scene->generarUpdate(MSJ_VIDA_CHANGE, target->verID(), -this->ataque, 0);
 	scene->updatesAux.push_back(upd);
 
 	if (target->vidaAct <= 0) {
@@ -182,18 +181,11 @@ bool Unidad::resolverRecoleccion(Entidad* target, Escenario* scene) {
 	}
 	res->recursoAct -= recolectado;
 	
-	msg_update* upd = scene->generarUpdate(MSJ_RES_CHANGE, target->verID(), recolectado, 0);
+	msg_update* upd = scene->generarUpdate(MSJ_RES_CHANGE, target->verID(), -recolectado, 0);
 	scene->updatesAux.push_back(upd);
 
 	this->verJugador()->modificarRecurso(res->tipoR, recolectado);
-
-	/*
-	Jugador* player = this->verJugador();
-	cout << player->verNombre() << " tiene " << player->verRecurso().oro << " oro, ";
-	cout << player->verRecurso().comida << " comida, ";
-	cout << player->verRecurso().madera << " madera y ";
-	cout << player->verRecurso().piedra << " piedra." << endl;
-	*/
+	
 
 	if (res->recursoAct == 0) {
 		res->asignarEstado(EST_MUERTO);
@@ -205,6 +197,33 @@ bool Unidad::resolverRecoleccion(Entidad* target, Escenario* scene) {
 }
 
 bool Unidad::resolverConstruccion(Entidad* target, Escenario* scene) {
+	if (target->tipo == ENT_T_CONSTRUCTION) {
+		target->vidaAct += this->buildRate;
+		if (target->vidaAct >= target->vidaMax) {
+			// El edificio se termino
+			target->vidaAct = target->vidaMax;
+			((Edificio*)target)->setEnConstruccion(false);
+			
+			msg_update* upd = scene->generarUpdate(MSJ_FINALIZAR_EDIFICIO, target->verID(), 0, 0);
+			scene->updatesAux.push_back(upd);
+
+			return false;
+		}
+		msg_update* upd = scene->generarUpdate(MSJ_VIDA_CHANGE, target->verID(), this->buildRate, 0);
+		scene->updatesAux.push_back(upd);
+		return true;
+
+	} else if (target->tipo == ENT_T_BUILDING && target->vidaAct < target->vidaMax) {
+		// Reparar
+		target->vidaAct += this->buildRate;
+		if (target->vidaAct >= target->vidaMax) {	
+			target->vidaAct = target->vidaMax;
+			return false;
+		}
+		msg_update* upd = scene->generarUpdate(MSJ_VIDA_CHANGE, target->verID(), this->buildRate, 0);
+		scene->updatesAux.push_back(upd);
+		return true;
+	}
 	return false;
 }
 
@@ -222,8 +241,6 @@ bool Unidad::realizarAccion(Accion_t acc, Entidad* target, Escenario* scene) {
 	}
 	this->cooldownAct = this->cooldownMax;
 
-//	if (ret_val)
-//		cout << "I am at: " << this->pos->toStr() << endl;
 
 	return ret_val;
 }

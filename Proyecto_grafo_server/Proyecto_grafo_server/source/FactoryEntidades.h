@@ -22,6 +22,9 @@ private:
 	static unsigned int obtenerIDValida();
 	static unsigned int nextID;
 
+	static unsigned int nextTypeID;
+	static unsigned int obtenerTypeIDValida();
+
 public:
 	// Destructor por defecto
 	~FactoryEntidades(void);
@@ -33,6 +36,8 @@ public:
 	list<msg_tipo_entidad*> obtenerListaTipos(void);
 
 	Entidad* obtenerEntidad(string name);
+	Entidad* obtenerEntidad(unsigned int id);
+	unsigned int obtenerTypeID(string name);
 	// Unidad* obtenerUnidad(string name);
 };
 

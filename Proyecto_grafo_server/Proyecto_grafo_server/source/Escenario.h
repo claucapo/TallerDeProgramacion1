@@ -49,6 +49,7 @@ public:
 
 	bool casillaEstaVacia(Posicion* pos) {return this->mapa->posicionEstaVacia(pos);}
 	Entidad* obtenerEntidad(unsigned int entID);
+	Entidad* obtenerEntidad(Posicion pos);
 
 	// Posiciona una Entidad en el mapa en la
 	// Posicion pos. Si la Posicion ya estaba
@@ -63,6 +64,10 @@ public:
 	void quitarEntidad(Entidad* entidad);
 
 	void moverEntidad(Entidad* entidad, Posicion* destino);
+
+	// Busca y devuelve la primer casilla de las más cercanas a lo que haya
+	// en origen, que se encuentre libre. Si el mapa está lleno, devuelve null.
+	Posicion* obtenerPosicionSpawn(Posicion* origen);
 
 	list<Entidad*> verEntidades(void);
 	void asignarDestino(unsigned int entID, Posicion pos);

@@ -1,5 +1,6 @@
 #include "Edificio.h"
 #include "FactoryEntidades.h"
+#include "Escenario.h"
 
 #include <iostream>
 
@@ -48,6 +49,9 @@ af_result_t Edificio::avanzarFrame(Escenario* scene) {
 		this->ticks_restantes--;
 		cout << this->ticks_restantes << " ticks para crear [" << this->cola_produccion.front()->name << "]" << endl;
 
+		msg_update* upd = scene->generarUpdate(MSJ_AVANZAR_PRODUCCION, this->verID(), -1, 0);
+		scene->updatesAux.push_back(upd);
+
 		// Si ya termine la unidad, devuelvo un mensaje especial
 		if (this->ticks_restantes <= 0) {
 			return AF_SPAWN;
@@ -58,6 +62,9 @@ af_result_t Edificio::avanzarFrame(Escenario* scene) {
 
 
 Entidad* Edificio::obtenerUnidadEntrenada(void) {
+	if (this->tipo == ENT_T_CONSTRUCTION)
+		return nullptr;
+
 	// Si no hay nada en produccion, devuelvo null
 	if (this->cant_en_produccion <= 0)
 		return nullptr;
@@ -66,6 +73,9 @@ Entidad* Edificio::obtenerUnidadEntrenada(void) {
 	if (this->ticks_restantes <= 0) {
 		Entidad* ent = this->cola_produccion.front();
 		this->cola_produccion.pop();
+
+		ent->asignarPos(new Posicion(this->verPosicion()->getX(), this->verPosicion()->getY()));
+		ent->asignarJugador(this->verJugador());
 
 		// Como cambio la unidad en produccion, llamo a recalcular ticks
 		this->recalcularTicks();
@@ -77,6 +87,9 @@ Entidad* Edificio::obtenerUnidadEntrenada(void) {
 
 
 bool Edificio::entrenarUnidad(string name) {
+	if (this->tipo == ENT_T_CONSTRUCTION)
+		return false;
+
 	// No puedo entrenar a la unidad si no está en mi lista de entrenables o si el edificio está saturado
 	if (!this->puedeEntrenar(name) || (this->cant_en_produccion == MAX_PRODUCCION)) {
 		cout << "No se puede entrenar [" << name << "]" << endl;
@@ -96,3 +109,12 @@ bool Edificio::entrenarUnidad(string name) {
 	return true;
 }
 
+
+void Edificio::setEnConstruccion(bool construyendo) {
+	if (construyendo) {
+		this->tipo = ENT_T_CONSTRUCTION;
+		this->vidaAct = 1;
+	} else {
+		this->tipo = ENT_T_BUILDING;
+	}
+}

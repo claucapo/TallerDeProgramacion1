@@ -38,6 +38,7 @@ protected:
 
 public:
 	unsigned int targetID;
+	unsigned int typeID;
 	string name;
 	entity_type_t tipo;
 

@@ -81,6 +81,7 @@ void Partida::procesarUpdate(msg_update msj) {
 	CodigoMensaje accion = msj.accion;
 	// Según la acción que sea, hago lo que corresponda
 	Posicion destino;
+	Jugador* owner;
 	Entidad* ent = nullptr;
 	Estados_t nState;
 	switch (accion) {
@@ -182,19 +183,67 @@ void Partida::procesarUpdate(msg_update msj) {
 			ent = this->escenario->obtenerEntidad(msj.idEntidad);
 			if (ent && ent->tipo == ENT_T_RESOURCE) {
 				Recurso* res = (Recurso*)ent;
-				res->recursoAct -= msj.extra1;
+				res->recursoAct += msj.extra1;
 			}
 			break;
 
 		case MSJ_VIDA_CHANGE:
 			ent = this->escenario->obtenerEntidad(msj.idEntidad);
 			if (ent) {
-				ent->vidaAct -= msj.extra1;
+				ent->vidaAct += msj.extra1;
 				if (ent->vidaAct <= 0)
 					ent->vidaAct = 0;
+				if (ent->vidaAct >= ent->vidaMax)
+					ent->vidaAct = ent->vidaMax;
 			}
 			break;
 			
+		case MSJ_ASIGNAR_JUGADOR:
+			ent = this->escenario->obtenerEntidad(msj.idEntidad);
+			owner = this->obtenerJugador((int)msj.extra1);
+			if (owner) {
+				ent->asignarJugador(owner);
+			}
+			break;
+
+		case MSJ_AVANZAR_PRODUCCION:
+			ent = this->escenario->obtenerEntidad(msj.idEntidad);
+			if (ent->tipo == ENT_T_BUILDING) {
+				((Edificio*)ent)->ticks_restantes -= msj.extra1;
+				if (((Edificio*)ent)->ticks_restantes <= 0)
+					((Edificio*)ent)->ticks_restantes = 0;
+			}
+			break;
+
+		case MSJ_FINALIZAR_EDIFICIO:
+			ent = this->escenario->obtenerEntidad(msj.idEntidad);
+			if (ent->tipo == ENT_T_CONSTRUCTION)
+				((Edificio*)ent)->setEnConstruccion(false);
+			break;
+
+		default:
+			if (accion >= MSJ_SPAWN) {
+				ent = FactoryEntidades::obtenerInstancia()->obtenerEntidad(accion - MSJ_SPAWN, msj.idEntidad);
+				if (ent->tipo == ENT_T_BUILDING) {
+					((Edificio*)ent)->setEnConstruccion(true);
+				}
+				destino = Posicion(msj.extra1, msj.extra2);
+				if (!scene->ubicarEntidad(ent, &destino)) {
+					delete ent;
+				} else {
+					owner = this->obtenerJugador(0);
+					ent->asignarJugador(owner);
+					string nombreEnt = ent->verNombre();
+					if(owner->verID() == 2)
+						nombreEnt = nombreEnt + '2';
+					if(owner->verID() == 3)
+						nombreEnt = nombreEnt + '3';
+					Spritesheet* cas = new Spritesheet(nombreEnt);
+					ent->asignarSprite(cas);
+
+				}
+			}
+
 	}
 }
 

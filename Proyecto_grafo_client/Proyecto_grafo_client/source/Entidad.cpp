@@ -8,6 +8,7 @@
 
 Entidad::Entidad(unsigned int id, string name, tipoEntidad_t pType) {
 	this->id = id;
+	this->typeID = pType.typeID;
 	this->name = name;
 	this->tipo = pType.tipo;
 	this->pos = nullptr;

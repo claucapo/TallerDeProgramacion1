@@ -1,5 +1,8 @@
 #include "ConexionCliente.h"
 #include "Servidor.h"
+#include "ErrorLog.h"
+
+#include <sstream>
 
 #include <queue>
 #include <time.h>
@@ -42,12 +45,14 @@ int conexionReader( void* data ) {
 		if (result <= 0) {
 			printf("Error de recepcion. Terminando conexion %d\n", WSAGetLastError());
 			cliente->stop();
-			// cliente->server->removerCliente(cliente);
 			printf("Exited Reading for cliente\n");
 			return result;
 		} else {
 			msg = *(struct msg_event*)buffer;
-			cliente->server->agregarEvento(msg);
+			struct msg_event_ext msg_ext;
+			msg_ext.msg = msg;
+			msg_ext.source = cliente->getPlayerID();
+			cliente->server->agregarEvento(msg_ext);
 		}
 		SDL_Delay(5);
 	} while (result > 0 && !cliente->must_close);
@@ -69,7 +74,6 @@ int conexionSender( void* data ) {
 			cliente->updates.pop();
 			result = send(cliente->clientSocket, (char*)(&act), sizeof(act), 0);
 			SDL_SemPost(cliente->updates_lock);
-			
 			if (result <= 0) {
 				printf("Error enviando updates. Terminando conexion\n");
 				cliente->stop();

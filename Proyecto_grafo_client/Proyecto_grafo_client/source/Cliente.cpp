@@ -171,6 +171,8 @@ void Cliente::agregarUpdate(struct msg_update upd) {
 void Cliente::procesarUpdates(Partida* game) {
 	SDL_SemWait(this->updates_lock);
 	// printf("Hay %d updates\n", this->updates.size());
+
+	Jugador* jAct;
 	while( !this->updates.empty() ) {
 		struct msg_update upd;
 		upd = this->updates.front();
@@ -181,6 +183,10 @@ void Cliente::procesarUpdates(Partida* game) {
 		case MSJ_MOVER:
 		case MSJ_RES_CHANGE:
 		case MSJ_VIDA_CHANGE:
+		case MSJ_ASIGNAR_JUGADOR:
+		case MSJ_AVANZAR_PRODUCCION:
+		case MSJ_PRODUCIR_UNIDAD:
+		case MSJ_FINALIZAR_EDIFICIO:
 			game->procesarUpdate(upd); break;
 		case MSJ_JUGADOR_LOGIN:
 			game->obtenerJugador(upd.idEntidad)->settearConexion(true); break;
@@ -189,7 +195,7 @@ void Cliente::procesarUpdates(Partida* game) {
 		case MSJ_ELIMINAR:
 			game->escenario->quitarEntidad(upd.idEntidad); break;
 		case MSJ_RECURSO_JUGADOR:
-			Jugador* jAct = game->obtenerJugador(upd.idEntidad);
+			jAct = game->obtenerJugador(upd.idEntidad);
 			if (jAct) {
 				resource_type_t tipoR = RES_T_NONE;
 				switch ((int)upd.extra2) {
@@ -200,6 +206,10 @@ void Cliente::procesarUpdates(Partida* game) {
 				}
 				jAct->settearRecurso(tipoR, (int)upd.extra1);
 			}
+			break;
+		default:
+			if (upd.accion >= MSJ_SPAWN)
+				game->procesarUpdate(upd);
 		}
 
 	}

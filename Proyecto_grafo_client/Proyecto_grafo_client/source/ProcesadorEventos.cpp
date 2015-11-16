@@ -302,20 +302,25 @@ void ProcesadorEventos::procesarConstruir(Cliente* client) {
 	if(!game->edificioUbicablePuedeConstruirse(dest))
 		return;
 
+	msg_event newEvent;
+	newEvent.accion = MSJ_NUEVO_EDIFICIO;
+	newEvent.idEntidad = FactoryEntidades::obtenerInstancia()->obtenerTypeID(game->edificioAubicar);
+	newEvent.extra1 = pX;
+	newEvent.extra2 = pY;
+	client->agregarEvento(newEvent);
+
 	for (list<Entidad*>::iterator it=lasEnt.begin(); it != lasEnt.end(); ++it){
 		if((*it)->habilidades[ACT_BUILD]){
-//			msg_event newEvent;
-//			newEvent.idEntidad = (*it)->verID();
-//			newEvent.accion = MSJ_ATACAR;
-			int i = 0;
-			//dest = Posicion(pX, pY);
+			msg_event newEvent;
+			newEvent.accion = MSJ_CONSTRUIR;
+			newEvent.idEntidad = (*it)->verID();
+			// dest = Posicion(pX, pY);
+			newEvent.extra1 = pX;
+			newEvent.extra2 = pY;
 
-			// La posta
-//			Entidad* aux = game->escenario->verMapa()->verContenido(&dest);
-//			newEvent.extra1 = (float)aux->verID();
 			cout<<(*it)->name << " debe construir " << game->edificioAubicar << " en (" << dest.getRoundX() << "," << dest.getRoundY() << ")" << endl;
 				
-//			client->agregarEvento(newEvent);
+			client->agregarEvento(newEvent);
 
 		}
 		

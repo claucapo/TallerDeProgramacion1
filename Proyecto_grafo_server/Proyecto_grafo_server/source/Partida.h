@@ -21,7 +21,7 @@ struct Partida {
 
 	Jugador* obtenerJugador(int id);
 	
-	void procesarEvento(msg_event ev);
+	void procesarEvento(msg_event ev, unsigned int source);
 
 	// Función que avanza la lógica del modelo
 	// en un frame. Básicamente, llama a la

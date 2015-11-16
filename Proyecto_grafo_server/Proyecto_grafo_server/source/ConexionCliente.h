@@ -33,6 +33,8 @@ public:
 	ConexionCliente(SOCKET cSocket, Servidor* server, unsigned int ID);
 	~ConexionCliente();
 
+	unsigned int getPlayerID() {return this->playerID;}
+
 	// Lanzará los threads de lectura y escritura
 	void start();
 	void stop();

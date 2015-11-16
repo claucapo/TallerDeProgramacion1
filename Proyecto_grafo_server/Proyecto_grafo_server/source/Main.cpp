@@ -159,6 +159,8 @@ int main(int argc, char* argv[]) {
 			
 	parser.parsearTodo();
 	
+	ErrorLog::getInstance()->escribirLog("----INICIANDO----");
+
 	SOCKET ListenSocket = inicializarConexion(parser.verInfoRed());
 	if (ListenSocket == INVALID_SOCKET) {
 		// limpiarPartida();
@@ -177,8 +179,7 @@ int main(int argc, char* argv[]) {
 	Servidor server = Servidor(ListenSocket, game);
 	server.start();
 
-
-	cout <<endl<<endl;
+		cout <<endl<<endl;
 
 	bool exit = false;
 	for (int i = 0; i < parser.verInfoEscenario().size_X; i++) {
@@ -192,24 +193,10 @@ int main(int argc, char* argv[]) {
 	}
 	cout <<endl;
 	
-	/*list<Posicion*> path = game->escenario->verMapa()->caminoMinimo(Posicion(oriX,oriY), Posicion(destX,destY));
-	cout<<"CAMINO MINIMO ENTRE (" << oriX << "," << oriY << ") y (" << destX << "," << destY  << ")" << endl;
-	while(!path.empty()){
-		Posicion* pAct = path.front();
-		cout << "(" << pAct->getX() << "," << pAct->getY() << ")" <<endl;
-		path.pop_front();
-		delete pAct;
-	}
-	*/
+	/*
 
-	//cout << "Voy a hacer que el champion (1) ataque al knight (0)" << endl;
-	//game->escenario->obtenerEntidad(1)->asignarAccion(ACT_ATACK, 0);
-	
-	//cout << "Voy a hacer que el aldeano (4) recolecte el oro (11)" << endl;
-	//game->escenario->obtenerEntidad(4)->asignarAccion(ACT_COLLECT, 11);
-/*
-	cout << "Voy a hacer que el castillo (53) entrene 5 champions" << endl;
-	Edificio* ed = (Edificio*)game->escenario->obtenerEntidad(53);
+	cout << "Voy a hacer que el castillo (65) entrene 5 champions" << endl;
+	Edificio* ed = (Edificio*)game->escenario->obtenerEntidad(65);
 	ed->entrenarUnidad("champion");
 	ed->entrenarUnidad("champion");
 	ed->entrenarUnidad("knight");
@@ -217,6 +204,7 @@ int main(int argc, char* argv[]) {
 	ed->entrenarUnidad("champion");
 	ed->entrenarUnidad("champion");
 	ed->entrenarUnidad("champion");
+
 	*/
 	while ( !exit ) {
 		float timeA = SDL_GetTicks();

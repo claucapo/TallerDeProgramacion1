@@ -18,7 +18,7 @@ Servidor::Servidor(SOCKET ls, Partida* partida) {
 	this->listenSocket = ls;
 	this->partida = partida;
 
-	this->eventos = queue<struct msg_event>();
+	this->eventos = queue<struct msg_event_ext>();
 	this->updates = queue<struct msg_update>();
 
 	this->cantClientes = 0;
@@ -306,6 +306,7 @@ void Servidor::removerCliente(ConexionCliente* client) {
 
 void Servidor::enviarKeepAlive() {
 	struct msg_update ka;
+	ka.accion = MSJ_KEEP_ALIVE;
 	ka.idEntidad = 0;
 	this->updates.push(ka);
 }
@@ -316,10 +317,10 @@ void Servidor::procesarEventos(void) {
 	SDL_SemWait(this->eventos_lock);
 	// Voy a vaciar la cola de eventos
 	while ( !this->eventos.empty() ) {
-		struct msg_event act = this->eventos.front();
+		struct msg_event_ext act = this->eventos.front();
 		this->eventos.pop();
 
-		this->partida->procesarEvento(act);
+		this->partida->procesarEvento(act.msg, act.source);
 	}
 	SDL_SemPost(this->eventos_lock);
 }
@@ -347,7 +348,7 @@ void Servidor::enviarUpdates(void) {
 
 
 // Permite a los clientes agregar un nuevo evento
-void Servidor::agregarEvento(struct msg_event msg) {
+void Servidor::agregarEvento(struct msg_event_ext msg) {
 	SDL_SemWait(this->eventos_lock);
 	this->eventos.push(msg);
 	SDL_SemPost(this->eventos_lock);
@@ -368,11 +369,6 @@ void Servidor::avanzarFrame(void) {
 
 		msg_update toSend = *msg;
 		this->agregarUpdate(toSend);
-/*		if (msg->accion == MSJ_MOVER)
-			printf("Encole un update de movimiento! (%f - %f)\n", msg->extra1, msg->extra2);
-		else if(msg->accion == MSJ_QUIETO)
-			printf("Encole un update de quieto! (%f - %f)\n", msg->extra1, msg->extra2);
-		*/	
 		delete msg;
 	}
 	SDL_SemPost(partida_lock);

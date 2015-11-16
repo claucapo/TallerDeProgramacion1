@@ -101,7 +101,7 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 	while (!this->updatesAux.empty()) {
 		msg_update* upd = this->updatesAux.front();
 		this->updatesAux.pop_front();
-		updates.push_front(upd);
+		updates.push_back(upd);
 	}
 
 	while(!toRmv.empty()) {
@@ -117,14 +117,19 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 
 		// Acá va la lógica de spawn... hay que encontrar la posición vacía más cenrcana
 		// a la que tiene cargada la entidad, y hacer que aparezca ahí.
+		// Este método es muy ineficiente
+		Posicion* pos = this->obtenerPosicionSpawn(ent->verPosicion());
+		if (pos) {
+			this->ubicarEntidad(ent, pos);
+			msg_update* upd = generarUpdate(CodigoMensaje(MSJ_SPAWN + ent->typeID), ent->verID(), pos->getX(), pos->getY());
+			updates.push_back(upd);
 
-		// Posicion* pos = this->obtenerPosicionSpawn(ent->verPosicion());
-		// this->ubicarEntidad(ent, pos);
+			upd = generarUpdate(MSJ_ASIGNAR_JUGADOR, ent->verID(), ent->verJugador()->verID(), 0);
+			updates.push_back(upd);
 
-		cout << "Debo spawnear un nuevo [" << ent->name << "]" << endl;
+			cout << "Debo spawnear un nuevo [" << ent->name << "] en " << pos->toStrRound() << endl;
+		}
 
-		// Después hay que generar update de unidad spawneada... o unidad creada (a definir)
-		// upd = generarUpdate();
 	}
 
 	return updates;
@@ -139,6 +144,10 @@ Entidad* Escenario::obtenerEntidad(unsigned int entID) {
 	return nullptr;
 }
 
+Entidad* Escenario::obtenerEntidad(Posicion pos) {
+	Entidad* ent = this->mapa->verContenido(&pos);
+	return ent;
+}
 
 bool Escenario::ubicarEntidad(Entidad* entidad, Posicion* pos) {
 	if (mapa->ubicarEntidad(entidad, pos)) {
@@ -190,8 +199,32 @@ void Escenario::moverEntidad(Entidad* entidad, Posicion* destino) {
  		}
  	}
  }
+
  
+Posicion* Escenario::obtenerPosicionSpawn(Posicion* origen) {
+	if (this->casillaEstaVacia(origen)) {
+		return origen;
+	}
+	Posicion* pos = nullptr;
+	Entidad* ent = this->mapa->verContenido(origen);
+	for (int i = 1; i <= ent->verRango(); i++) {
+		list<Posicion> vistas = this->mapa->posicionesVistas(ent, i);
+		while (!vistas.empty()) {
+			Posicion act = vistas.front();
+			vistas.pop_front();
+
+			if (this->casillaEstaVacia(&act)) {
+				return new Posicion(act.getX(), act.getY());
+			}
+		}
+	}
+	return pos;
+}
+
+
 
 list<Entidad*> Escenario::verEntidades(void) {
 	return this->entidades;
 }
+
+

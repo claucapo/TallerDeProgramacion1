@@ -34,6 +34,9 @@ public:
 	void agregarEntidad(msg_tipo_entidad eInfo);
 
 	Entidad* obtenerEntidad(string name, unsigned int id);
+
+	Entidad* obtenerEntidad(unsigned int typeID, unsigned int id);
+	unsigned int obtenerTypeID(string name);
 	// Unidad* obtenerUnidad(string name);
 	list<string> verListaEdificios(void);
 };

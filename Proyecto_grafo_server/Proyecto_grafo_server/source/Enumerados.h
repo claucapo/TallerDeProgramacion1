@@ -9,7 +9,7 @@ using namespace std;
 enum Direcciones_t {DIR_RIGHT, DIR_TOP_RIGHT, DIR_TOP, DIR_TOP_LEFT, DIR_LEFT, DIR_DOWN_LEFT, DIR_DOWN, DIR_DOWN_RIGHT};
 
 // Tipos de entidades y recursos
-enum entity_type_t {ENT_T_NONE, ENT_T_UNIT, ENT_T_RESOURCE, ENT_T_BUILDING};
+enum entity_type_t {ENT_T_NONE, ENT_T_UNIT, ENT_T_RESOURCE, ENT_T_BUILDING, ENT_T_CONSTRUCTION};
 enum resource_type_t {RES_T_NONE = -1, RES_T_GOLD = 0, RES_T_WOOD = 1, RES_T_FOOD = 2, RES_T_STONE = 3};
 
 // Resultados de un avanzarFrame
@@ -59,6 +59,7 @@ struct costo_t {
 
 // Definición del struct que contendrá información particular de cada clase.
 struct tipoEntidad_t {
+	unsigned int typeID;
 	int tamX;
 	int tamY;
 	entity_type_t tipo;

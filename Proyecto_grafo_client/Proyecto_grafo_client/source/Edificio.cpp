@@ -44,7 +44,7 @@ void Edificio::recalcularTicks(void) {
 
 
 af_result_t Edificio::avanzarFrame(Escenario* scene) {
-	if (this->cant_en_produccion > 0) {
+	/* if (this->cant_en_produccion > 0) {
 		this->ticks_restantes--;
 		cout << this->ticks_restantes << " ticks para crear [" << this->cola_produccion.front()->name << "]" << endl;
 
@@ -52,7 +52,7 @@ af_result_t Edificio::avanzarFrame(Escenario* scene) {
 		if (this->ticks_restantes <= 0) {
 			return AF_SPAWN;
 		}
-	}
+	}*/
 	return AF_NONE;
 }
 
@@ -80,3 +80,12 @@ bool Edificio::entrenarUnidad(string name) {
 	return false;
 }
 
+
+void Edificio::setEnConstruccion(bool construyendo) {
+	if (construyendo) {
+		this->tipo = ENT_T_CONSTRUCTION;
+		this->vidaAct = 1;
+	} else {
+		this->tipo = ENT_T_BUILDING;
+	}
+}
