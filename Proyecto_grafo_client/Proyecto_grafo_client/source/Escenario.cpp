@@ -48,6 +48,7 @@ void Escenario::avanzarFrame(void) {
 		else{*/
 			af_result_t res = (*it)->avanzarFrame(this);
 	//	}
+			
 		(*it)->verJugador()->agregarPosiciones(this->verMapa()->posicionesVistas(*it));
 		if((*it)->verTipo() == ENT_T_UNIT)
 			this->mapa->ocuparPosicionSinChequeo((*it)->verPosicion(), (*it));

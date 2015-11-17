@@ -6,6 +6,11 @@
 #include "Recurso.h"
 #include "Unidad.h"
 #include "FactoryEntidades.h"
+#include "BibliotecaDeImagenes.h"
+
+#include <SDL.h>
+#include <SDL_mixer.h>
+#include <iostream>
 
 #include <sstream> // Para convertir int en string
 
@@ -84,9 +89,17 @@ void Partida::procesarUpdate(msg_update msj) {
 	Jugador* owner;
 	Entidad* ent = nullptr;
 	Estados_t nState;
+	Mix_Chunk* snd = NULL;
 	switch (accion) {
 		case MSJ_ELIMINAR:
-			this->escenario->quitarEntidad(msj.idEntidad); break;
+			ent = escenario->obtenerEntidad(msj.idEntidad);
+			ent->settearEstado(EST_MUERTO);
+ 
+			snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido(ent->verNombre() + "_die");
+			Mix_PlayChannel( -1, snd, 0 );
+
+			this->escenario->quitarEntidad(msj.idEntidad);
+			break;
 
 		case MSJ_STATE_CHANGE:
 			ent = this->escenario->obtenerEntidad(msj.idEntidad);
@@ -158,7 +171,30 @@ void Partida::procesarUpdate(msg_update msj) {
 					ent->verSpritesheet()->cambiarSubImagen(0, dir);
 				}
 				break;
-			case 4: nState = EST_CONSTRUYENDO; break;
+			case 4: 
+				nState = EST_CONSTRUYENDO; 
+				if(ent->verEstado() != EST_CONSTRUYENDO){
+					string nombreEnt;
+					Spritesheet* spEnt = (ent)->verSpritesheet();
+					nombreEnt = (ent)->verNombre() + "_build";
+				
+					if((ent)->verJugador()->verID() == 2)
+						nombreEnt = nombreEnt + '2';
+					if((ent)->verJugador()->verID() == 3)
+						nombreEnt = nombreEnt + '3';
+					spEnt->cambiarImagen(nombreEnt);
+					ent->targetID = (int) msj.extra2;
+
+					Posicion* act = ent->verPosicion();
+					Posicion* tPos = scene->obtenerEntidad(ent->targetID)->verPosicion();
+					float distX = tPos->getX() - act->getX() ;
+					float distY = tPos->getY() - act->getY() ;
+					Direcciones_t dir = ((Unidad*)ent)->calcularDirecion(distX, distY);
+					((Unidad*)ent)->setDireccion(dir);
+		
+					ent->verSpritesheet()->cambiarSubImagen(0, dir);
+				}				
+				break;
 			}
 			ent->settearEstado(nState);
 
@@ -191,8 +227,9 @@ void Partida::procesarUpdate(msg_update msj) {
 			ent = this->escenario->obtenerEntidad(msj.idEntidad);
 			if (ent) {
 				ent->vidaAct += msj.extra1;
-				if (ent->vidaAct <= 0)
-					ent->vidaAct = 0;
+				if (ent->vidaAct <= 0){
+					ent->vidaAct = 0;			
+					}
 				if (ent->vidaAct >= ent->vidaMax)
 					ent->vidaAct = ent->vidaMax;
 			}
@@ -217,8 +254,15 @@ void Partida::procesarUpdate(msg_update msj) {
 
 		case MSJ_FINALIZAR_EDIFICIO:
 			ent = this->escenario->obtenerEntidad(msj.idEntidad);
-			if (ent->tipo == ENT_T_CONSTRUCTION)
+			if (ent->tipo == ENT_T_CONSTRUCTION){
 				((Edificio*)ent)->setEnConstruccion(false);
+				string newImg = ent->verNombre();
+				if(ent->verJugador()->verID() == 2)
+					newImg = newImg + '2';
+				if(ent->verJugador()->verID() == 3)
+					newImg = newImg + '3';
+				ent->verSpritesheet()->cambiarImagen(newImg);
+				}
 			break;
 
 		default:
@@ -227,17 +271,30 @@ void Partida::procesarUpdate(msg_update msj) {
 				if (ent->tipo == ENT_T_BUILDING) {
 					((Edificio*)ent)->setEnConstruccion(true);
 				}
-				destino = Posicion(msj.extra1, msj.extra2);
+				destino = Posicion((float)msj.extra1, (float)msj.extra2);
 				if (!scene->ubicarEntidad(ent, &destino)) {
 					delete ent;
 				} else {
 					owner = this->obtenerJugador(0);
 					ent->asignarJugador(owner);
 					string nombreEnt = ent->verNombre();
+
+					if(ent->verTipo() == ENT_T_CONSTRUCTION){
+					nombreEnt = "building";
+					switch(ent->verTamX()){
+						case 2: nombreEnt += "2x2"; break;
+						case 3: nombreEnt += "3x3"; break;
+						case 4: nombreEnt += "4x4"; break;
+						case 5: nombreEnt += "5x5"; break;
+						case 6: nombreEnt += "6x6"; break;
+						}
+					}
+
 					if(owner->verID() == 2)
 						nombreEnt = nombreEnt + '2';
 					if(owner->verID() == 3)
 						nombreEnt = nombreEnt + '3';
+
 					Spritesheet* cas = new Spritesheet(nombreEnt);
 					ent->asignarSprite(cas);
 

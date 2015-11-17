@@ -13,6 +13,7 @@
 #include <set>
 
 #include <SDL.h>
+#include <SDL_mixer.h>
 #include "Cliente.h"
 #include "ConfigParser.h"
 #include "BibliotecaDeImagenes.h"
@@ -108,11 +109,56 @@ void cargarBibliotecaImagenes(std::list<entidadInfo_t*> eInfoL) {
 	}
 }
 
+void cargarSonidosEntidad(msg_tipo_entidad* act){
+	BibliotecaDeImagenes* bi = BibliotecaDeImagenes::obtenerInstancia();
+	bi->cargarEfectoSonido(act->name);
+	
+	if(act->tipo == ENT_T_UNIT){
+		string n = act->name; string p = n + "_move";
+		char* movName = &p[0u];
+		bi->cargarEfectoSonido(movName);
+		p = n + "_die";
+		cout << p << endl;
+		movName = &p[0u];
+		bi->cargarEfectoSonido(movName);
+		if(act->habilidades[ACT_ATACK]){
+			p = n + "_atk";
+			cout << p << endl;
+			movName = &p[0u];
+			bi->cargarEfectoSonido(movName);
+			p = n + "_atk2";
+			cout << p << endl;
+			movName = &p[0u];
+			bi->cargarEfectoSonido(movName);
+			}
+		if(act->habilidades[ACT_BUILD]){
+			p = n + "_build";
+			movName = &p[0u];
+			bi->cargarEfectoSonido(movName);
+			}
+		if(act->habilidades[ACT_COLLECT]){
+			p = n + "_collect";
+			movName = &p[0u];
+			bi->cargarEfectoSonido(movName);
+			p = n + "_mine";
+			movName = &p[0u];
+			bi->cargarEfectoSonido(movName);
+			p = n + "_chop";
+			movName = &p[0u];
+			bi->cargarEfectoSonido(movName);
+			}
+		}
+}
+
 Partida* generarPartida(mapa_inicial data) {
+
 	while(!data.tipos.empty()) {
 		msg_tipo_entidad* act = data.tipos.front();
 		data.tipos.pop_front();
 		FactoryEntidades::obtenerInstancia()->agregarEntidad(*act);
+		
+		cargarSonidosEntidad(act);
+
 		delete act;
 	}
 
@@ -182,10 +228,46 @@ Partida* generarPartida(mapa_inicial data) {
 				entidad->asignarSprite(cas);
 			}
 		}
+
 	}
 
 	game->asignarEscenario(scene);
 	return game;
+}
+
+Mix_Music* reproducirMusicaFondo(char* path){
+	Mix_Music *music = NULL;
+	Mix_VolumeMusic(MIX_MAX_VOLUME * 0.3);
+	music = Mix_LoadMUS(path);
+	if(music != NULL){
+		Mix_PlayMusic( music, -1 );
+	}
+	return music;
+}
+
+void pantallaMenu(GraficadorPantalla* gp){
+
+	gp->mostrarPantallaInicio();
+
+	
+	Mix_Music *music = reproducirMusicaFondo("recursos\\main_menu.wav");
+
+	SDL_Event evento;
+	bool loopear = true;
+	do{
+		while((SDL_PollEvent(&evento) != 0)){
+			if(evento.type == SDL_KEYDOWN)
+				if(evento.key.keysym.scancode == SDL_SCANCODE_SPACE)
+					loopear = false;
+				else{
+				Mix_Chunk *high = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido("sdajkfksaldfhask");
+				Mix_PlayChannel( -1, high, 0 );
+				}
+		}
+	}while(loopear);
+
+	Mix_FreeMusic( music );
+	Mix_HaltMusic();
 }
 
 
@@ -207,6 +289,19 @@ int wmain(int argc, char* argv[]) {
 	parser.parsearTodo();
 
 	ErrorLog::getInstance()->escribirLog("----INICIANDO----");
+		
+	// Cargar imagenes del YAML
+	cargarBibliotecaImagenes(parser.verInfoEntidades());
+
+	// Graficos lindos xd
+	pantallaInfo_t pInfo = parser.verInfoPantalla();
+	GraficadorPantalla* gp = new GraficadorPantalla(pInfo.screenW, pInfo.screenH, pInfo.fullscreen, "DEFAULT");
+
+	SDL_Window* gameWindow = gp->getVentana();
+	SDL_Surface* gameScreen = gp->getPantalla();
+
+
+	pantallaMenu(gp);
 
 
 	// Después modificar el método para que tome como parámetro el puerto y la ip del yaml
@@ -219,9 +314,7 @@ int wmain(int argc, char* argv[]) {
 	}
 	
 	ErrorLog::getInstance()->escribirLog("Conexion establecida");
-	
-	// Cargar imagenes del YAML
-	cargarBibliotecaImagenes(parser.verInfoEntidades());
+
 
 
 	// Intento establecer conexión
@@ -239,11 +332,6 @@ int wmain(int argc, char* argv[]) {
 	}
 	
 	// Inicializar pantalla y graficador
-	pantallaInfo_t pInfo = parser.verInfoPantalla();
-	GraficadorPantalla* gp = new GraficadorPantalla(pInfo.screenW, pInfo.screenH, pInfo.fullscreen, "DEFAULT");
-
-	SDL_Window* gameWindow = gp->getVentana();
-	SDL_Surface* gameScreen = gp->getPantalla();
 	gp->asignarParametrosScroll(parser.verInfoGameplay().scroll_margen, parser.verInfoGameplay().scroll_vel);	
 	BibliotecaDeImagenes::obtenerInstancia()->asignarPantalla(gameScreen);
 
@@ -257,6 +345,9 @@ int wmain(int argc, char* argv[]) {
 	int codigo_programa = CODE_CONTINUE;
 
 	ProcesadorEventos pE(game, gp);
+
+	Mix_Music *music = reproducirMusicaFondo("recursos\\bck_snd1.wav");
+
 
 	while (codigo_programa != CODE_EXIT && !client.must_close) {
 		float timeA = SDL_GetTicks();
@@ -281,8 +372,17 @@ int wmain(int argc, char* argv[]) {
 		// cout << timeB - timeA << endl;
 	}
 
+
+	Mix_HaltMusic();
+
 	closesocket(connectSocket);
 	WSACleanup();
+
+	Mix_FreeMusic( music );
+	Mix_CloseAudio();
+	SDL_Quit();
+	 
+
 	return 0;
 
 }

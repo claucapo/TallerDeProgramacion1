@@ -17,7 +17,9 @@ private:
 
 	int vel_scroll, margen_scroll;
 public:
-		float screen_width, screen_height;
+	float screen_width, screen_height;
+	void mostrarPantallaInicio();
+	bool puntoEstaEnPantalla(int xPant, int yPant);
 	GraficadorPantalla(void);
 	~GraficadorPantalla(void);
 	GraficadorPantalla(int pant_width, int pant_height, bool full_screen = false, string title = "AGE OF TALLER DE PROGRAMACION I");

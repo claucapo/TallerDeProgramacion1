@@ -120,7 +120,7 @@ entidades:
     tipo: "building"
     sizeX: 3
     sizeY: 3
-    vidaMax: 20000
+    vidaMax: 200
   - nombre: "windmill"
     tipo: "building"
     sizeX: 3
@@ -213,6 +213,15 @@ escenario:
    - {x: 32, y: 31, tipo: "tree", p: 0}
    - {x: 31, y: 32, tipo: "stone mine"}
    - {x: 29, y: 33, tipo: "gold mine"}
+
+   - {x: 4, y: 36, tipo: "champion", p: 1}
+   - {x: 6, y: 36, tipo: "knight", p: 1}
+   - {x: 4, y: 34, tipo: "pikeman", p: 1}
+   - {x: 4, y: 38, tipo: "paladin", p: 1}
+
+   - {x: 5, y: 39, tipo: "king", p: 3}
+   - {x: 5, y: 38, tipo: "king", p: 3}
+   - {x: 6, y: 39, tipo: "king", p: 3}
 
 
    - {x: 20, y: 10, tipo: "villager", p: 2}

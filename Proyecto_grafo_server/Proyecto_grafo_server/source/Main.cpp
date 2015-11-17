@@ -146,6 +146,8 @@ void cargarEscenario(Partida* partida, escenarioInfo_t eInfo) {
 	partida->asignarEscenario(scene);
 }
 
+
+
 /*******************************************
 
 			PROGRAMA PRINCIPAL
@@ -160,6 +162,9 @@ int main(int argc, char* argv[]) {
 	parser.parsearTodo();
 	
 	ErrorLog::getInstance()->escribirLog("----INICIANDO----");
+
+
+	// Graficos lindos xd
 
 	SOCKET ListenSocket = inicializarConexion(parser.verInfoRed());
 	if (ListenSocket == INVALID_SOCKET) {

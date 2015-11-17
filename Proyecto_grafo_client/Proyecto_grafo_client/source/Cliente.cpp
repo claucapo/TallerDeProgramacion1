@@ -187,13 +187,14 @@ void Cliente::procesarUpdates(Partida* game) {
 		case MSJ_AVANZAR_PRODUCCION:
 		case MSJ_PRODUCIR_UNIDAD:
 		case MSJ_FINALIZAR_EDIFICIO:
+		case MSJ_ELIMINAR:
 			game->procesarUpdate(upd); break;
 		case MSJ_JUGADOR_LOGIN:
 			game->obtenerJugador(upd.idEntidad)->settearConexion(true); break;
 		case MSJ_JUGADOR_LOGOUT:
 			game->obtenerJugador(upd.idEntidad)->settearConexion(false); break;
-		case MSJ_ELIMINAR:
-			game->escenario->quitarEntidad(upd.idEntidad); break;
+
+		//	game->escenario->quitarEntidad(upd.idEntidad); break;
 		case MSJ_RECURSO_JUGADOR:
 			jAct = game->obtenerJugador(upd.idEntidad);
 			if (jAct) {

@@ -48,6 +48,11 @@ tipo:
     score: 1
   - nombre: "screen_frame"
     ruta: "recursos\\screenFrame.png"
+  - nombre: "menu_bck"
+    ruta: "recursos\\main_title.png"
+  - nombre: "sign_menu"
+    ruta: "recursos\\sign_main_menu.png"
+    pixelX: 138
   - nombre: "gold mine_icon"
     ruta: "recursos\\goldMine_icon.png"
   - nombre: "stone mine_icon"
@@ -607,6 +612,30 @@ tipo:
     subY: 8
     fps: 7
     delay: 0
+  - nombre: "villager_build"
+    ruta: "recursos\\villager_buildAOE.png"
+    pixelX: 10
+    pixelY: 23
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_build2"
+    ruta: "recursos\\villager_buildAOEp2.png"
+    pixelX: 10
+    pixelY: 23
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_build3"
+    ruta: "recursos\\villager_buildAOEp3.png"
+    pixelX: 10
+    pixelY: 23
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
   - nombre: "villager"
     ruta: "recursos\\villagerAOE.png"
     pixelX: 11
@@ -880,7 +909,79 @@ tipo:
   - nombre: "Gcolosus_move"
     ruta: "recursos\\Gcolosus_moveAOE.png"
     pixelX: 23
-    pixelY: 39
+    pixelY: 23
     subX: 10
     subY: 8
     fps: 5
+  - nombre: "building2x2"
+    ruta: "recursos\\building_2x2AOE.png"
+    pixelX: 54
+    pixelY: 25
+    subX: 3
+    subY: 1
+  - nombre: "building3x3"
+    ruta: "recursos\\building_3x3AOE.png"
+    pixelX: 87
+    pixelY: 23
+    subX: 3
+    subY: 1
+  - nombre: "building4x4"
+    ruta: "recursos\\building_4x4AOE.png"
+    pixelX: 110
+    pixelY: 19
+    subX: 3
+    subY: 1
+  - nombre: "building5x5"
+    ruta: "recursos\\building_5x5AOE.png"
+    pixelX: 142
+    pixelY: 18
+    subX: 3
+    subY: 1
+  - nombre: "building2x22"
+    ruta: "recursos\\building_2x2AOEp2.png"
+    pixelX: 54
+    pixelY: 25
+    subX: 3
+    subY: 1
+  - nombre: "building3x32"
+    ruta: "recursos\\building_3x3AOEp2.png"
+    pixelX: 87
+    pixelY: 23
+    subX: 3
+    subY: 1
+  - nombre: "building4x42"
+    ruta: "recursos\\building_4x4AOEp2.png"
+    pixelX: 110
+    pixelY: 19
+    subX: 3
+    subY: 1
+  - nombre: "building5x52"
+    ruta: "recursos\\building_5x5AOEp2.png"
+    pixelX: 142
+    pixelY: 18
+    subX: 3
+    subY: 1
+  - nombre: "building2x23"
+    ruta: "recursos\\building_2x2AOEp3.png"
+    pixelX: 54
+    pixelY: 25
+    subX: 3
+    subY: 1
+  - nombre: "building3x33"
+    ruta: "recursos\\building_3x3AOEp3.png"
+    pixelX: 87
+    pixelY: 23
+    subX: 3
+    subY: 1
+  - nombre: "building4x43"
+    ruta: "recursos\\building_4x4AOEp3.png"
+    pixelX: 110
+    pixelY: 19
+    subX: 3
+    subY: 1
+  - nombre: "building5x53"
+    ruta: "recursos\\building_5x5AOEp3.png"
+    pixelX: 142
+    pixelY: 18
+    subX: 3
+    subY: 1

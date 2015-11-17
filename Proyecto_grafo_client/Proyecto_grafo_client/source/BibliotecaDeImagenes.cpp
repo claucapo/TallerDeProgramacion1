@@ -1,5 +1,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_mixer.h>
 #include "BibliotecaDeImagenes.h"
 #include "DatosImagen.h"
 #include "ErrorLog.h"
@@ -10,6 +11,7 @@
 using namespace std;
 
 #define DEFAULT_IMAGE_LABEL "default.png"
+#define DEFAULT_SND "def_snd"
 
 bool BibliotecaDeImagenes::hay_instancia = false;
 SDL_Surface* BibliotecaDeImagenes::pantalla = NULL;
@@ -19,6 +21,7 @@ BibliotecaDeImagenes* BibliotecaDeImagenes::singleton = NULL;
 // Si se busca una imagen y no se encuentra, se redirigirá a este valor.
 BibliotecaDeImagenes::BibliotecaDeImagenes(void) {
 	DatosImagen* def = cargarImagenDefault();
+	this->sonidos[DEFAULT_SND] = Mix_LoadWAV("recursos\\default.wav");
 	this->imagenes[DEFAULT_IMAGE_LABEL] = def;
 }
 
@@ -53,6 +56,13 @@ void BibliotecaDeImagenes::clear(void) {
 
 	DatosImagen* def = cargarImagenDefault();
 	imagenes[DEFAULT_IMAGE_LABEL] = def;
+
+	map<string, Mix_Chunk*>::const_iterator it2 = sonidos.begin();
+	while (it2 != sonidos.end()) {
+		Mix_FreeChunk( it2->second ) ;
+		it2++;
+	}
+
 }
 
 
@@ -123,6 +133,25 @@ bool BibliotecaDeImagenes::cargarImagen(DatosImagen* data) {
 	return true;
 }
 
+void BibliotecaDeImagenes::cargarEfectoSonido(string name) {
+	string p = "recursos\\snd\\" + name + ".wav";
+	char* filName = &p[0u];
+	Mix_Chunk *efectoSonido = Mix_LoadWAV(filName);
+	if(efectoSonido == NULL){
+		ErrorLog::getInstance()->escribirLog("Error al cargar sonido: " + name, LOG_ERROR);
+		return;
+	}
+
+	this->sonidos[name] = efectoSonido;
+	
+}
+
+Mix_Chunk* BibliotecaDeImagenes::devolverSonido(string snd_name) {
+	if(sonidos.count(snd_name) > 0)
+		return sonidos[snd_name];
+
+	return sonidos[DEFAULT_SND];
+}
 
 // Este método es el público que se llamará cada vez que se quiera obtener una instancia
 // de la imágen asociada a un nombre particular. Si la imágen no se encuentra devuelve la

@@ -1,4 +1,5 @@
 #include <SDL.h>
+#include <SDL_mixer.h>
 #include <SDL_image.h>
 #include "DatosImagen.h"
 #include <map>
@@ -39,6 +40,10 @@ private:
 	// con sus determinados punteros a imagen según SDL
 	map<string, DatosImagen*> imagenes;
 
+	// Este mapa relaciona los nombres de los efectos
+	// de sonido con sus determinados Mix_Chunk
+	map<string, Mix_Chunk*> sonidos;
+
 	// Pantalla asociada a la BibliotecaDeImagenes sobre
 	// la cual optimizar las imagenes.
 	static SDL_Surface* pantalla;
@@ -71,6 +76,10 @@ public:
 	// a dicha imagen no fue creada, la crea y la
 	// agrega al mapa de imagenes.
 	SDL_Surface* devolverImagen(string img_name);
+
+	Mix_Chunk* devolverSonido(string snd_name);
+	void cargarEfectoSonido(string name);
+	
 
 	// Asigna la pantalla screen
 	void asignarPantalla(SDL_Surface* screen);

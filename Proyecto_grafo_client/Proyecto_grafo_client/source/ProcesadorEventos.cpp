@@ -6,11 +6,14 @@
 #include "Escenario.h"
 #include "Posicion.h"
 #include "ProcesadorEventos.h"
+#include "BibliotecaDeImagenes.h"
 #include "FactoryEntidades.h"
 #include "Enumerados.h"
+#include "Recurso.h"
 
 #include<iostream>
 #include <SDL.h>
+#include <SDL_mixer.h>
 #include <set>
 
 #pragma once
@@ -160,6 +163,12 @@ void ProcesadorEventos::procesarSeleccionMultiple(Jugador* player){
 								}
 			}
 
+		if(game->verListaEntidadesSeleccionadas().size()){
+			Mix_Chunk* snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido(game->verEntidadSeleccionada()->verNombre());
+			Mix_PlayChannel( -1, snd, 0 );
+			}
+			
+
 }
 
 
@@ -229,9 +238,13 @@ void ProcesadorEventos::procesarSeleccionSecundaria(Cliente* client, Jugador* pl
 
 	if (game->escenario->verMapa()->posicionPertenece(dest)){ 
 		if(game->escenario->verMapa()->posicionEstaVacia(dest)){
-			if(game->verEntidadSeleccionada()->verTipo() == ENT_T_UNIT)
+			if(game->verEntidadSeleccionada()->verTipo() == ENT_T_UNIT){
 				// Accion de mover seleccionado(s)
 				this->procesarMover(client);
+				Mix_Chunk* snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido(game->verEntidadSeleccionada()->verNombre() + "_move");
+				Mix_PlayChannel( -1, snd, 0 );
+				
+				}
 			else{
 				delete game->seleccionSecundaria;
 				game->seleccionSecundaria = nullptr;				
@@ -244,10 +257,25 @@ void ProcesadorEventos::procesarSeleccionSecundaria(Cliente* client, Jugador* pl
 			if(tipo == ENT_T_RESOURCE){
 				// Procesar Recolectar
 				this->procesarRecolectar(client);
+				string tg;
+				if(((Recurso*)target)->tipoR == RES_T_FOOD){
+					Mix_Chunk* snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido(game->verEntidadSeleccionada()->verNombre() + "_collect");
+					Mix_PlayChannel( -1, snd, 0 );
+					}
+				else if(((Recurso*)target)->tipoR == RES_T_WOOD){
+					Mix_Chunk* snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido(game->verEntidadSeleccionada()->verNombre() + "_chop");
+					Mix_PlayChannel( -1, snd, 0 );
+					}
+				else {
+					Mix_Chunk* snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido(game->verEntidadSeleccionada()->verNombre() + "_mine");
+					Mix_PlayChannel( -1, snd, 0 );
+					}
 				}
 			else if(!player->poseeEntidad(target)){
 				// Procesar Atacar
 				this->procesarAtacar(client);
+				Mix_Chunk* snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido(game->verEntidadSeleccionada()->verNombre() + "_atk");
+				Mix_PlayChannel( -1, snd, 0 );
 				}
 			else{
 				delete game->seleccionSecundaria;
@@ -305,8 +333,8 @@ void ProcesadorEventos::procesarConstruir(Cliente* client) {
 	msg_event newEvent;
 	newEvent.accion = MSJ_NUEVO_EDIFICIO;
 	newEvent.idEntidad = FactoryEntidades::obtenerInstancia()->obtenerTypeID(game->edificioAubicar);
-	newEvent.extra1 = pX;
-	newEvent.extra2 = pY;
+	newEvent.extra1 = dest.getRoundX();
+	newEvent.extra2 = dest.getRoundY();
 	client->agregarEvento(newEvent);
 
 	for (list<Entidad*>::iterator it=lasEnt.begin(); it != lasEnt.end(); ++it){
@@ -315,8 +343,8 @@ void ProcesadorEventos::procesarConstruir(Cliente* client) {
 			newEvent.accion = MSJ_CONSTRUIR;
 			newEvent.idEntidad = (*it)->verID();
 			// dest = Posicion(pX, pY);
-			newEvent.extra1 = pX;
-			newEvent.extra2 = pY;
+			newEvent.extra1 = dest.getRoundX();
+			newEvent.extra2 = dest.getRoundY();
 
 			cout<<(*it)->name << " debe construir " << game->edificioAubicar << " en (" << dest.getRoundX() << "," << dest.getRoundY() << ")" << endl;
 				
@@ -346,6 +374,9 @@ void ProcesadorEventos::procesarSeleccion(Jugador* player){
 	
 	// Si me paso del borde del screen_frame, me voy...
 	if(my > (gp->screen_height*360/480)){
+		if(!game->verEntidadSeleccionada()->habilidades[ACT_BUILD])
+			return;
+
 		if(mx < (gp->screen_width*165/640)){ 
 			// ...A menos que haya clickeado un boton
 			try{
@@ -369,8 +400,11 @@ void ProcesadorEventos::procesarSeleccion(Jugador* player){
 	game->deseleccionarEntidades();
 	if(game->escenario->verMapa()->posicionPertenece(&slct))
 		if(player->visionCasilla(slct) != VIS_NO_EXPLORADA)
-			if(!game->escenario->verMapa()->posicionEstaVacia(&slct))
+			if(!game->escenario->verMapa()->posicionEstaVacia(&slct)){
 				game->seleccionarEntidad(game->escenario->verMapa()->verContenido(&slct), true);
+				Mix_Chunk* snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido(game->verEntidadSeleccionada()->verNombre());
+				Mix_PlayChannel( -1, snd, 0 );
+				}
 }
 
 

@@ -14,6 +14,8 @@
 #include <iostream>
 #include <conio.h>
 #include <sstream>
+#include <SDL_mixer.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -219,7 +221,7 @@ void GraficadorPantalla::renderizarEntidades(void) {
 	SDL_Rect rectangulo;
 	list<Entidad*> lEnt = partida->escenario->verEntidades();
 	for (list<Entidad*>::iterator it=lEnt.begin(); it != lEnt.end(); ++it){
-		Posicion* posEntAct1 = (*it)->verPosicion();		
+		Posicion* posEntAct1 = (*it)->verPosicion();	
 
 		int tx = (*it)->verTamX(); int ty = (*it)->verTamY();
 		Posicion posEntAct2 = Posicion(posEntAct1->getX() + tx - 1, posEntAct1->getY());
@@ -242,10 +244,18 @@ void GraficadorPantalla::renderizarEntidades(void) {
 			entEsVisible |= (vis->visibilidadPosicion(posEntAct4)!=VIS_NO_EXPLORADA);
 		}
 		if(entEsVisible){
-			
+
+
 			Spritesheet* entAct = (*it)->verSpritesheet();
 			SDL_Surface* spEnt = entAct->devolverImagenAsociada();
 
+			if(this->puntoEstaEnPantalla(entAct->getCoordX(), entAct->getCoordY()))
+				if((*it)->verEstado() == EST_ATACANDO)
+					if(!Mix_Playing(1))
+						if((rand() % 14)==1){
+					Mix_Chunk* snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido((*it)->verNombre() + "_atk2");
+					Mix_PlayChannel( 1, snd, 0 );
+					}
 
 			SDL_SetColorKey( spEnt, true, SDL_MapRGB(spEnt->format, 255, 0, 255) );
 	
@@ -270,6 +280,7 @@ void GraficadorPantalla::renderizarEntidades(void) {
 					spEnt = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(nameGris);
 					SDL_SetColorKey( spEnt, true, SDL_MapRGB(spEnt->format, 255, 0, 255) );
 				}
+
 		
 			SDL_BlitSurface( spEnt, &recOr, pantalla, &rectangulo );	
 		}		
@@ -400,7 +411,7 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 			
 			// Health bar
 			entity_type_t tipo = partida->escenario->verMapa()->verContenido(unaPos)->verTipo();
-			if((tipo == ENT_T_BUILDING)||(tipo == ENT_T_UNIT)){
+			if((tipo == ENT_T_BUILDING)||(tipo == ENT_T_UNIT) || (tipo == ENT_T_CONSTRUCTION)){
 				SDL_Rect hb;
 			//	hb.x = 190 * screen_width/640;
 				hb.x = 190 * screen_width*0.0015625;
@@ -772,6 +783,11 @@ bool GraficadorPantalla::cargarSDL(bool full_screen, string title) {
 				return false;
 			} else {
 				pantalla = SDL_GetWindowSurface(ventana);
+
+				//Initialize SDL_mixer
+				if( Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) == -1 ){
+					return false;    
+				}
 			}
 		}
 	}
@@ -870,4 +886,24 @@ SDL_Surface* GraficadorPantalla::renderText(string msj){
 	SDL_FreeSurface(elTexto);
 	SDL_SetColorKey(texto, true, SDL_MapRGB(texto->format, 255, 255, 255));
 	return texto;
+}
+
+void GraficadorPantalla::mostrarPantallaInicio(){
+	SDL_Surface* img = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("menu_bck");
+	SDL_BlitSurface(img, NULL, pantalla, NULL);
+	DatosImagen* data = BibliotecaDeImagenes::obtenerInstancia()->devolverDatosImagen("sign_menu");
+	SDL_Rect dest;
+	dest.y = 400;
+	dest.x = 320 - data->origenX;
+	SDL_BlitSurface(data->imagen, NULL, pantalla, &dest);
+
+	SDL_UpdateWindowSurface(ventana);
+}
+
+bool GraficadorPantalla::puntoEstaEnPantalla(int xPant, int yPant){
+	bool enPant = xPant > 0;
+	enPant &= yPant > 0;
+	enPant &= xPant < this->screen_width;
+	enPant &= yPant < this->screen_height;
+	return enPant;
 }
