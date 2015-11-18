@@ -10,7 +10,10 @@
 #include <cmath>
 #include <iostream>
 #include <list>
+#include <cstdlib>
+#include <time.h>
 
+using namespace std;
 
 Unidad::Unidad(unsigned int id, string name, tipoEntidad_t pType) : Entidad(id, name, pType) {
 	this->rapidez = (float)pType.velocidad/100;
@@ -154,11 +157,42 @@ void Unidad::mover(Escenario* scene) {
  	}
 }
 
+
+int Unidad::calcularDamage(Entidad* target) {
+	srand(time(NULL));
+	
+	int damage = this->ataque;
+	damage -= target->defensa;
+
+	// Puedo obtener desde un -90% a un +90%
+	int luckFactor = rand() % 20;
+	luckFactor -= 10;
+	damage += damage*luckFactor/100;
+		
+	if (this->habilidades[ACT_BONUS_ARCHERY] && target->habilidades[ACT_ARCHERY]) {
+		damage += damage;
+	} else if (this->habilidades[ACT_BONUS_INFANTRY] && target->habilidades[ACT_INFANTRY]) {
+		damage += damage;
+	} else if (this->habilidades[ACT_BONUS_CAVALRY] && target->habilidades[ACT_CAVALRY]) {
+		damage += damage;
+	} else if (this->habilidades[ACT_BONUS_SIEGE] && target->habilidades[ACT_SIEGE]) {
+		damage += damage;
+	} else if (this->habilidades[ACT_BONUS_BUILDING] && ( (target->tipo == ENT_T_BUILDING) || (target->tipo == ENT_T_CONSTRUCTION) ) ) {
+		damage += damage;
+	}
+
+	if (damage <= 0)
+		return 1;
+
+	return damage;
+}
+
 bool Unidad::resolverAtaque(Entidad* target, Escenario* scene) {
-	target->vidaAct -= this->ataque;
+	int damage = this->calcularDamage(target);
+	target->vidaAct -= damage;
 	// cout << this->verID() << " ataca a " << target->verID() << " y lo deja en " << target->vidaAct << " de vida." << endl;
 
-	msg_update* upd = scene->generarUpdate(MSJ_VIDA_CHANGE, target->verID(), -this->ataque, 0);
+	msg_update* upd = scene->generarUpdate(MSJ_VIDA_CHANGE, target->verID(), -damage, 0);
 	scene->updatesAux.push_back(upd);
 
 	if (target->vidaAct <= 0) {
@@ -304,22 +338,17 @@ af_result_t Unidad::avanzarFrame(Escenario* scene) {
  				return AF_MOVE;
 			} else {
 
-				// WARNING: hardcodeo...
-				// Aca se tendria que mandar a la entidad a una posición adyacente, y no a la hardcodeada
-				int x = target->verPosicion()->getRoundX();
-				int y = target->verPosicion()->getRoundY();
-				for (int i = -1; i <= 1; i++) {
-					for (int j = -1; j <= 1; j++) {
-						Posicion pos(target->verPosicion()->getRoundX()+i, target->verPosicion()->getRoundY()+j);
-						if (scene->casillaEstaVacia(&pos)) {
-							this->asignarEstado(EST_CAMINANDO);
-							scene->asignarDestino(this->verID(), pos);
-							// cout << "Asigne un path a: " << pos.toStrRound() << endl;
-							return AF_STATE_CHANGE;
-						}
-					}
+
+				Posicion* pos = scene->verMapa()->adyacenteCercana(target, this);
+				if (pos) {
+					this->asignarEstado(EST_CAMINANDO);
+					scene->asignarDestino(this->verID(), *pos);
+					// cout << "Asigne un path a: " << pos.toStrRound() << endl;
+					delete pos;
+					return AF_STATE_CHANGE;
 				}
-				
+
+				delete pos;
 				this->state = EST_QUIETO;
 				this->accion = ACT_NONE;
 				return AF_NONE;

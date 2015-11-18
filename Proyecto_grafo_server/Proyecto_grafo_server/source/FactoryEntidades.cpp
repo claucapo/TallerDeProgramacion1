@@ -114,6 +114,24 @@ void FactoryEntidades::agregarEntidad(entidadInfo_t eInfo) {
 					pType->habilidades[ACT_BUILD] = true;
 				} else if (act == "collect") {
 					pType->habilidades[ACT_COLLECT] = true;
+				} else if (act == "infantry") {
+					pType->habilidades[ACT_INFANTRY] = true;
+				} else if (act == "cavalry") {
+					pType->habilidades[ACT_CAVALRY] = true;
+				} else if (act == "archery") {
+					pType->habilidades[ACT_ARCHERY] = true;
+				} else if (act == "siege") {
+					pType->habilidades[ACT_SIEGE] = true;
+				} else if (act == "bonus_vs_infantry") {
+					pType->habilidades[ACT_BONUS_INFANTRY] = true;
+				} else if (act == "bonus_vs_cavalry") {
+					pType->habilidades[ACT_BONUS_CAVALRY] = true;
+				} else if (act == "bonus_vs_siege") {
+					pType->habilidades[ACT_BONUS_SIEGE] = true;
+				} else if (act == "bonus_vs_archery") {
+					pType->habilidades[ACT_BONUS_ARCHERY] = true;
+				} else if (act == "bonus_vs_buildings") {
+					pType->habilidades[ACT_BONUS_BUILDING] = true;
 				} else {
 					cout << "Habilidad: [" << act.c_str() << "] no reconocida." << endl;
 				}

@@ -33,8 +33,42 @@ Entidad::Entidad(unsigned int id, string name, tipoEntidad_t pType) {
 	this->cooldownMax = pType.cooldown;
 	this->cooldownAct = 0;
 	for (int i = 0; i < CANT_ACCIONES; i++) {
-		this->habilidades[i] = pType.habilidades[i];		
+		this->habilidades[i] = pType.habilidades[i];	
 	}
+
+
+	this->casillasVistas = list<Posicion>();
+	Posicion pos = Posicion(-this->rangoVision, 0);
+	int diagonales = 1 + this->tamX + this->tamY - 2 + 2*(this->rangoVision);
+	int diagX = -this->rangoVision;
+	int diagY = 0;
+	int diagSize = this->rangoVision + 1;
+	int actX, actY;
+	bool nextDown = false;
+	for (int i = 0; i < diagonales; i++) {
+		for (int j = 0; j < diagSize; j++) {
+			actX = diagX + j;
+			actY = diagY - j;
+			pos = Posicion(actX, actY);
+			this->casillasVistas.push_back(pos);
+		}
+		if (diagY < (this->tamY - 1)) {
+			diagY++;
+			diagSize++;
+		} else {
+			if (nextDown) {
+				diagY++;
+				diagSize++;
+				nextDown = false;
+			} else {
+				diagX++;
+				diagSize--;
+				if (!(diagY == this->tamY + this->rangoVision - 1))
+					nextDown = true;
+			}
+		}
+	}
+
 }
 
 // Llamo al destructor de todos los miembros de la clase (en caso de que alguno

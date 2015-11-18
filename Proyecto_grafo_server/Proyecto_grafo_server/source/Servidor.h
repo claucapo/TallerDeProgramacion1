@@ -25,8 +25,8 @@ private:
 	SDL_sem* eventos_lock;
 	queue<struct msg_event_ext> eventos;
 
-	SDL_sem* updates_lock;
-	queue<struct msg_update> updates;
+	//SDL_sem* updates_lock;
+	//queue<struct msg_update> updates;
 
 	SDL_sem* clientes_lock;
 	list<ConexionCliente*> clientes;
@@ -49,15 +49,15 @@ public:
 	// Inicializa el thread que quedará a la espera de nuevos clientes
 	void start(void);
 
-	void avanzarFrame(void);
+	list<msg_update*> avanzarFrame(void);
 
 	// Lockea la cola de eventos y los procesa
 	void procesarEventos(void);
-	void enviarUpdates(void);
+	void enviarUpdates(list<msg_update*> updates);
 
 	// Permite a los clientes agregar un nuevo evento
 	void agregarEvento(struct msg_event_ext);
-	void agregarUpdate(struct msg_update);
+	//void agregarUpdate(struct msg_update);
 
 	// Valida una conexión entrante y la agrega a la lista de clientes
 	void aceptarCliente(SOCKET cs);
@@ -67,7 +67,7 @@ public:
 	// Devuelve un código de error <= 0 si no se pudo enviar la información en algún punto
 	int enviarMapa(ConexionCliente* cliente);
 	// int enviarEntidad(ConexionCliente *cliente, Entidad* ent);
-	void Servidor::enviarKeepAlive(void);
+	void Servidor::enviarKeepAlive(list<msg_update*> updates);
 
 	// Funciones para modificar la lista de clientes
 	void agregarCliente(ConexionCliente* cliente);

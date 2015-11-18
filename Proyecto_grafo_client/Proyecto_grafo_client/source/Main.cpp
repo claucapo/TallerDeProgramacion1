@@ -352,11 +352,15 @@ int wmain(int argc, char* argv[]) {
 	while (codigo_programa != CODE_EXIT && !client.must_close) {
 		float timeA = SDL_GetTicks();
 		client.procesarUpdates(game);
+		
+		float timeC = SDL_GetTicks();
 
 		game->avanzarFrame();
-	
+
 		gp->dibujarPantalla();
 		client.generarKeepAlive();
+		
+		float timeD = SDL_GetTicks();
 
 		SDL_Event evento;
 		while(SDL_PollEvent(&evento) != 0){
@@ -369,6 +373,10 @@ int wmain(int argc, char* argv[]) {
 		float timeB = SDL_GetTicks();
 		if((FRAME_DURATION - timeB + timeA) > 0)
 			SDL_Delay(FRAME_DURATION - timeB + timeA);
+
+		std::stringstream s;
+		s << "U: " << timeC- timeA << " - AF: " << timeD - timeC << " - E: "<< timeB-timeD << " - T:" << timeB-timeA;
+		ErrorLog::getInstance()->escribirLog(s.str());
 		// cout << timeB - timeA << endl;
 	}
 

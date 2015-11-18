@@ -27,6 +27,8 @@ private:
 	bool resolverAtaque(Entidad* target, Escenario* scene);
 	bool resolverRecoleccion(Entidad* target, Escenario* scene);
 	bool resolverConstruccion(Entidad* target, Escenario* scene);
+
+	int calcularDamage(Entidad* target);
 	
 public:
 	// Constructor y destructor por defecto

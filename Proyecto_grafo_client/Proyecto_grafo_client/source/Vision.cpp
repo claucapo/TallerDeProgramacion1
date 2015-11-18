@@ -11,7 +11,6 @@ Vision::Vision(void) {
 
 Vision::Vision(int filas, int columnas) {
 	if (filas <= 0 || columnas <= 0) {
-		ErrorLog::getInstance()->escribirLog("Error matriz visión con dimensiones inválidas.", LOG_ERROR);
 		this->filas = VIS_TAM_DEFAULT;
 		this->columnas = VIS_TAM_DEFAULT;
 	} else {
@@ -54,7 +53,6 @@ void Vision::agregarPosicionObservada(Posicion pos) {
 	int x = pos.getRoundX();
 	int y = pos.getRoundY();
 	if ( x >= this->filas || y >= this->columnas ) {
-		ErrorLog::getInstance()->escribirLog("Posicion " + pos.toStrRound() + " excede matriz de vision.", LOG_ERROR);
 		return;
 	}
 	this->mapa_de_vision[x][y] = VIS_OBSERVADA;
@@ -64,7 +62,6 @@ estado_vision_t Vision::visibilidadPosicion(Posicion pos) {
 	int x = pos.getRoundX();
 	int y = pos.getRoundY();
 	if ( x >= this->filas || y >= this->columnas ) {
-		ErrorLog::getInstance()->escribirLog("Posicion " + pos.toStrRound() + " excede matriz de vision.", LOG_ERROR);
 		return VIS_NO_EXPLORADA;
 	}
 	return this->mapa_de_vision[x][y];

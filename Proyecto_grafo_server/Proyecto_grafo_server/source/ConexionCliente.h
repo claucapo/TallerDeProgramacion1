@@ -26,6 +26,7 @@ public:
 	SOCKET clientSocket;
 	Servidor* server;
 	bool must_close;
+	bool must_send;
 
 	SDL_semaphore* updates_lock;
 	queue<struct msg_update> updates;
@@ -40,6 +41,8 @@ public:
 	void stop();
 
 	void agregarUpdate(struct msg_update);
+
+	void enviarTodo(void);
 };
 
 

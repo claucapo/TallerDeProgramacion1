@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <conio.h>
+#include <sstream>
 
 #include "ErrorLog.h"
 
@@ -197,32 +198,27 @@ int main(int argc, char* argv[]) {
 		cout<< i<<endl;
 	}
 	cout <<endl;
-	
-	/*
 
-	cout << "Voy a hacer que el castillo (65) entrene 5 champions" << endl;
-	Edificio* ed = (Edificio*)game->escenario->obtenerEntidad(65);
-	ed->entrenarUnidad("champion");
-	ed->entrenarUnidad("champion");
-	ed->entrenarUnidad("knight");
-	ed->entrenarUnidad("champion");
-	ed->entrenarUnidad("champion");
-	ed->entrenarUnidad("champion");
-	ed->entrenarUnidad("champion");
-
-	*/
+	list<msg_update*> updates;
 	while ( !exit ) {
 		float timeA = SDL_GetTicks();
 
 		server.procesarEventos();
-
-		server.avanzarFrame();
+		
+		float timeC = SDL_GetTicks();
+		updates = server.avanzarFrame();
 	
-		server.enviarUpdates();
+		float timeD = SDL_GetTicks();
+		server.enviarUpdates(updates);
 		
 		float timeB = SDL_GetTicks();
 		if((FRAME_DURATION - timeB + timeA -16) > 0)
 			SDL_Delay(FRAME_DURATION - timeB + timeA -16); // -16????
+
+		std::stringstream s;
+		s << "E: " << timeC- timeA << " - AF: " << timeD - timeC << " - U: "<< timeB-timeD << " - T:" << timeB-timeA;
+		ErrorLog::getInstance()->escribirLog(s.str());
+	
 
 	}
 	

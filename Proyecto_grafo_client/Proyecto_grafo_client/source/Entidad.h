@@ -42,6 +42,8 @@ public:
 	string name;
 	entity_type_t tipo;
 
+	list<Posicion> casillasVistas;
+
 	int vidaAct, vidaMax, ataque, defensa;
 	int cooldownMax, cooldownAct;
 	bool habilidades[CANT_ACCIONES];

@@ -60,7 +60,7 @@ entidades:
     atk: 20
     def: 7
     vidaMax: 250
-    habilidades: ["attack"]
+    habilidades: ["attack", "infantry", "bonus_vs_infantry"]
   - nombre: "pikeman"
     tipo: "unit"
     velocidad: 8
@@ -68,7 +68,7 @@ entidades:
     atk: 16
     def: 5
     vidaMax: 160
-    habilidades: ["attack"]
+    habilidades: ["attack", "infantry", "bonus_vs_cavalry"]
   - nombre: "colosus"
     tipo: "unit"
     velocidad: 3
@@ -76,7 +76,7 @@ entidades:
     atk: 34
     def: 14
     vidaMax: 410
-    habilidades: ["attack"]
+    habilidades: ["attack", "infantry", "bonus_vs_buildings"]
   - nombre: "castle"
     tipo: "building"
     sizeX: 6
@@ -93,7 +93,7 @@ entidades:
     atk: 16
     def: 5
     vidaMax: 220
-    habilidades: ["attack"]
+    habilidades: ["attack", "cavalry", "bonus_vs_archery"]
   - nombre: "paladin"
     sizeX: 1
     sizeY: 1
@@ -104,7 +104,7 @@ entidades:
     atk: 21
     def: 8
     vidaMax: 340
-    habilidades: ["attack"]
+    habilidades: ["attack", "cavalry", "bonus_vs_cavalry"]
   - nombre: "king"
     sizeX: 1
     sizeY: 1

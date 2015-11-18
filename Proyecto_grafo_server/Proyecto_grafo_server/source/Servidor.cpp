@@ -8,6 +8,7 @@
 
 #include <queue>
 #include <list>
+#include <sstream>
 
 using namespace std;
 
@@ -19,24 +20,23 @@ Servidor::Servidor(SOCKET ls, Partida* partida) {
 	this->partida = partida;
 
 	this->eventos = queue<struct msg_event_ext>();
-	this->updates = queue<struct msg_update>();
+//	this->updates = queue<struct msg_update>();
 
 	this->cantClientes = 0;
 	this->clientes = list<ConexionCliente*>();
 	
 	// Creo los semáforos, que sólo permiten el acceso a las colas de a un thread por vez
 	this->eventos_lock = SDL_CreateSemaphore(1);
-	this->updates_lock = SDL_CreateSemaphore(1);
+//	this->updates_lock = SDL_CreateSemaphore(1);
 	this->clientes_lock = SDL_CreateSemaphore(1);
 	this->partida_lock = SDL_CreateSemaphore(1);
 }
-
 
 // Destructor
 Servidor::~Servidor(void) {
 	SDL_DestroySemaphore(this->clientes_lock);
 	SDL_DestroySemaphore(this->eventos_lock);
-	SDL_DestroySemaphore(this->updates_lock);
+//	SDL_DestroySemaphore(this->updates_lock);
 	SDL_DestroySemaphore(this->partida_lock);
 
 }
@@ -114,7 +114,7 @@ void Servidor::aceptarCliente(SOCKET clientSocket) {
 		msg_update login_update;
 		login_update.accion = MSJ_JUGADOR_LOGIN;
 		login_update.idEntidad = (unsigned int) loginInfo.playerCode;
-		this->agregarUpdate(login_update);
+//		this->agregarUpdate(login_update);
 		
 		Jugador* player = this->partida->obtenerJugador(loginInfo.playerCode);
 		player->settearConexion(true);
@@ -304,16 +304,12 @@ void Servidor::removerCliente(ConexionCliente* client) {
 //----------Funciones de la simulación------------
 //------------------------------------------------
 
-void Servidor::enviarKeepAlive() {
-	struct msg_update ka;
-	ka.accion = MSJ_KEEP_ALIVE;
-	ka.idEntidad = 0;
-	this->updates.push(ka);
+void Servidor::enviarKeepAlive(list<msg_update*> updates) {
+	return;
 }
 
 // Bloquea la cola de eventos, y procesa todos ellos hasta dejarla vacía
 void Servidor::procesarEventos(void) {
-	this->enviarKeepAlive();
 	SDL_SemWait(this->eventos_lock);
 	// Voy a vaciar la cola de eventos
 	while ( !this->eventos.empty() ) {
@@ -328,22 +324,33 @@ void Servidor::procesarEventos(void) {
 // Encola en la cola de mensajes a enviar de cada cliente
 // todos los updates que haya en la cola de updates principal
 // Bloquea la lista de updates
-void Servidor::enviarUpdates(void) {
-	SDL_SemWait(this->updates_lock);
-	while ( !this->updates.empty() ) {
-		struct msg_update act = this->updates.front();
-		this->updates.pop();
+void Servidor::enviarUpdates(list<msg_update*> updates) {
+
+	struct msg_update* ka = new msg_update();
+	ka->accion = MSJ_KEEP_ALIVE;
+	ka->idEntidad = 0;
+	updates.push_back(ka);
+
+	while ( !updates.empty() ) {
+		struct msg_update* act = updates.front();
+		updates.pop_front();
 
 		// Bloqueo la lista de clientes para que nadie la modifico mientras
 		// se reparten los mensajes
 		SDL_SemWait(this->clientes_lock);
 		list<ConexionCliente*>::iterator iter;
 		for (iter = this->clientes.begin(); iter != this->clientes.end(); iter++) {
-			(*iter)->agregarUpdate(act);
+			(*iter)->agregarUpdate(*act);
 		}
 		SDL_SemPost(this->clientes_lock);
+
+		delete act;
 	}
-	SDL_SemPost(this->updates_lock);
+
+	list<ConexionCliente*>::iterator iter;
+	for (iter = this->clientes.begin(); iter != this->clientes.end(); iter++) {
+		(*iter)->must_send = true;
+	}
 }
 
 
@@ -354,24 +361,12 @@ void Servidor::agregarEvento(struct msg_event_ext msg) {
 	SDL_SemPost(this->eventos_lock);
 }
 
-void Servidor::agregarUpdate(struct msg_update msg) {
-	SDL_SemWait(this->updates_lock);
-	this->updates.push(msg);
-	SDL_SemPost(this->updates_lock);
-}
 
-void Servidor::avanzarFrame(void) {
+list<msg_update*> Servidor::avanzarFrame(void) {
 	SDL_SemWait(partida_lock);
 	list<msg_update*> updates = this->partida->avanzarFrame();
-	while (!updates.empty()) {
-		msg_update* msg = updates.front();
-		updates.pop_front();
-
-		msg_update toSend = *msg;
-		this->agregarUpdate(toSend);
-		delete msg;
-	}
 	SDL_SemPost(partida_lock);
+	return updates;
 }
 
 
@@ -385,7 +380,7 @@ void Servidor::desconectarJugador(unsigned int playerID) {
 		msg_update logout_update;
 		logout_update.accion = MSJ_JUGADOR_LOGOUT;
 		logout_update.idEntidad = (unsigned int) playerID;
-		this->agregarUpdate(logout_update);
+//		this->agregarUpdate(logout_update);
 	}
 	SDL_SemPost(this->partida_lock);
 }

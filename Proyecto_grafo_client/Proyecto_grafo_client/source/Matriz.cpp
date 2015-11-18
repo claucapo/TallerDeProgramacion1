@@ -180,8 +180,16 @@ int Matriz::distanciaEntre(Posicion pos, Entidad* ent) {
 // Devuelve la lista de posiciones que estan dentro del rango de vision de la entidad
 list<Posicion> Matriz::posicionesVistas(Entidad* elemento) {
 	int rango = elemento->verRango();
+	Posicion act = *elemento->verPosicion();
 	list<Posicion> posEnRango;
-	int origenX = elemento->verPosicion()->getRoundX();
+	list<Posicion>::const_iterator iter;
+	for (iter = elemento->casillasVistas.begin(); iter != elemento->casillasVistas.end(); iter++) {
+		Posicion aux = Posicion(act.getRoundX() + (*iter).getRoundX(), act.getRoundY() + (*iter).getRoundY());
+		if (this->posicionPertenece(&aux))
+			posEnRango.push_back(aux);
+	}
+
+	/*int origenX = elemento->verPosicion()->getRoundX();
 	int origenY = elemento->verPosicion()->getRoundY();
 	for (int i = -rango; i <= rango + elemento->verTamX(); i++) {
 		for (int j = -rango; j <= rango + elemento->verTamY(); j++) {
@@ -190,7 +198,8 @@ list<Posicion> Matriz::posicionesVistas(Entidad* elemento) {
 				posEnRango.push_back(act);
 			}
 		}
-	}
+	}*/
+
 	return posEnRango;
 }
 

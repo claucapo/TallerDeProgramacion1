@@ -20,6 +20,8 @@ ConexionCliente::ConexionCliente(SOCKET cSocket, Servidor* server, unsigned int 
 	this->updates_lock = SDL_CreateSemaphore(1);
 
 	this->server = server;
+	this->must_send = false;
+
 
 	this->myReader = NULL;
 	this->mySender = NULL;
@@ -68,12 +70,14 @@ int conexionSender( void* data ) {
 	ConexionCliente* cliente = (ConexionCliente*)data;
 	int result = 1;
 	while (result > 0 && !cliente->must_close) {
-		while ( !cliente->updates.empty() ) {
+		while ( cliente->must_send && !cliente->updates.empty() ) {
+			
 			SDL_SemWait(cliente->updates_lock);
 			struct msg_update act = cliente->updates.front();
 			cliente->updates.pop();
-			result = send(cliente->clientSocket, (char*)(&act), sizeof(act), 0);
 			SDL_SemPost(cliente->updates_lock);
+
+			result = send(cliente->clientSocket, (char*)(&act), sizeof(act), 0);
 			if (result <= 0) {
 				printf("Error enviando updates. Terminando conexion\n");
 				cliente->stop();
@@ -83,15 +87,35 @@ int conexionSender( void* data ) {
 
 				return result;
 			}
-			
-			SDL_Delay(5);
 		}
+		cliente->must_send = false;
 	}
 	printf("Exited Sending for cliente\n");
 	return result;
 }
 
+void ConexionCliente::enviarTodo(void) {
+	if (this->must_close)
+		return;
+	int result = 1;
+	while ( !this->updates.empty() ) {	
+		SDL_SemWait(this->updates_lock);
+		struct msg_update act = this->updates.front();
+		this->updates.pop();
+		SDL_SemPost(this->updates_lock);
 
+		result = send(this->clientSocket, (char*)(&act), sizeof(act), 0);
+		if (result <= 0) {
+			printf("Error enviando updates. Terminando conexion\n");
+			this->stop();
+				
+			printf("Exited Sending for cliente\n");
+			// cliente->server->removerCliente(cliente);
+
+			return;
+		}
+	}
+}
 
 // Lanza los dos threads correspondientes a la
 // lectura y la escritura

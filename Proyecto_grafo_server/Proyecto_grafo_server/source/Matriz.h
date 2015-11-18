@@ -68,6 +68,9 @@ public:
 	// Distancia entre una posición y una entidad
 	int distanciaEntre(Posicion pos, Entidad* ent);
 
+	list<Posicion> adyacentesVacias(Entidad* elemento);
+	Posicion* adyacenteCercana(Entidad* destino, Entidad* origen);
+
 	// Devuelve la lista de posiciones que caen dentro del rango de vision de una entidad
 	list<Posicion> posicionesVistas(Entidad* elemento, int rangoV = 0);
 	list<Posicion> posicionesOcupadas(Entidad* elemento);

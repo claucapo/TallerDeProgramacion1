@@ -272,3 +272,54 @@ list<Posicion> Matriz::posicionesOcupadas(Entidad* elemento) {
 	}
 	return posEnRango;
 }
+
+
+// Devuelve la lista de posiciones adyacentes
+list<Posicion> Matriz::adyacentesVacias(Entidad* elemento) {
+	list<Posicion> posAdyacentes;
+	Posicion pos;
+	int origenX = elemento->verPosicion()->getRoundX();
+	int origenY = elemento->verPosicion()->getRoundY();
+	for (int i = -1; i <= elemento->verTamX(); i++) {
+		pos = Posicion(origenX + i, origenY-1);
+		if (this->posicionEstaVacia(&pos))
+			posAdyacentes.push_back(pos);
+
+		pos = Posicion(origenX + i, origenY + elemento->verTamY());
+		if (this->posicionEstaVacia(&pos))
+			posAdyacentes.push_back(pos);
+	}
+
+	for (int i = 0; i < elemento->verTamY(); i++) {
+		pos = Posicion(origenX - 1, origenY + i);
+		if (this->posicionEstaVacia(&pos))
+			posAdyacentes.push_back(pos);
+
+		pos = Posicion(origenX + elemento->verTamX(), origenY + i);
+		if (this->posicionEstaVacia(&pos))
+			posAdyacentes.push_back(pos);
+	}
+	return posAdyacentes;
+}
+
+
+Posicion* Matriz::adyacenteCercana(Entidad* destino, Entidad* origen) {
+	list<Posicion> adyacentes = this->adyacentesVacias(destino);
+	Posicion pos;
+	if (adyacentes.empty())
+		return nullptr;
+	pos = adyacentes.front();
+	adyacentes.pop_front();
+	int dist = this->distanciaEntre(pos, origen);
+	while (!adyacentes.empty()) {
+		Posicion aux = adyacentes.front();
+		adyacentes.pop_front();
+		int distTmp = this->distanciaEntre(aux, origen);
+		if (distTmp < dist) {
+			pos = aux;
+			dist = distTmp;
+		}
+
+	}
+	return new Posicion(pos.getX(), pos.getY());
+}
