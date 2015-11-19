@@ -28,10 +28,12 @@ public:
 	void procesarAtacar(Cliente* client);
 	void procesarSeleccion(Jugador* player);
 	void procesarConstruir(Cliente* client);
-
 	int procesarEvento(SDL_Event evento, Cliente* client, Jugador* player);
 
 	Posicion adyacenteSiguiente(Posicion pos, int i, Escenario* scene);
+private:
+	void enviarEntidadesConstruir(Cliente* client, Posicion dest);
+
 
 };
 

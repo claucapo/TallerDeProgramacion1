@@ -2,6 +2,7 @@
 #include "Escenario.h"
 #include "Jugador.h"
 #include <iostream>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -10,6 +11,7 @@ Recurso::Recurso(unsigned int id, string name, tipoEntidad_t pType) : Entidad(id
 	this->tipoR = pType.tipoR;
 	this->recursoMax = pType.recursoMax;
 	this->recursoAct = this->recursoMax;
+
 }
 
 

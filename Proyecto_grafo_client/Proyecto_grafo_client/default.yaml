@@ -744,6 +744,14 @@ tipo:
     subY: 8
     fps: 6
     delay: 0
+  - nombre: "champion_die2"
+    ruta: "recursos\\champion_dieAOEp2.png"
+    pixelX: 37
+    pixelY: 32
+    subX: 10
+    subY: 8
+    fps: 1
+    delay: 0
   - nombre: "paladin_atk"
     ruta: "recursos\\paladin_atkAOE.png"
     pixelX: 26

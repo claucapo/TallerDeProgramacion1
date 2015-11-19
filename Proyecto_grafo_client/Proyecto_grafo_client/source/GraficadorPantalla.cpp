@@ -252,7 +252,7 @@ void GraficadorPantalla::renderizarEntidades(void) {
 			if(this->puntoEstaEnPantalla(entAct->getCoordX(), entAct->getCoordY()))
 				if((*it)->verEstado() == EST_ATACANDO)
 					if(!Mix_Playing(1))
-						if((rand() % 14)==1){
+						if((rand() % 14)==1){ // El 14 es un numero magico para que todo quede bien!!
 					Mix_Chunk* snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido((*it)->verNombre() + "_atk2");
 					Mix_PlayChannel( 1, snd, 0 );
 					}
@@ -343,7 +343,7 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 				Edificio* edif = (Edificio*) entPri;
 				list<string> entL;
 				for(int i = 0; i < MAX_ENTRENABLES; i++){
-					cout << "Este edif. entrena: " << edif->entrenables[i] << endl;
+				//	cout << "Este edif. entrena: " << edif->entrenables[i] << endl;
 					if(edif->entrenables[i] != "unknown" )
 						entL.push_front(edif->entrenables[i]);
 				}

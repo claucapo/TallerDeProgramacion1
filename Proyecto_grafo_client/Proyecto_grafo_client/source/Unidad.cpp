@@ -59,7 +59,9 @@ af_result_t Unidad::avanzarFrame(Escenario* scene) {
 	this->sprites->siguienteFrame();
 	
 
-	
+	if(this->state == EST_MUERTO)
+		return AF_KILL;
+
 
 	// Aca habría que chequear si la entidad cambió de posición
 	/*

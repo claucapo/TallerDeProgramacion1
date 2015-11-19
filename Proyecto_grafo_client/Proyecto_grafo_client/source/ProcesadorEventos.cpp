@@ -79,37 +79,72 @@ void ProcesadorEventos::procesarBoton(Jugador* player){
 		return;
 
 	Entidad* entPri = game->verEntidadSeleccionada();
-
-	if(!entPri->habilidades[ACT_BUILD])
-		return;
-
-	list<string> construibles = FactoryEntidades::obtenerInstancia()->verListaEdificios();
 	int mx, my;
-	SDL_GetMouseState(&mx, &my);
-
-	my -= 372;
+	if(entPri->habilidades[ACT_BUILD]){
+		// Construir edificio
+		list<string> construibles = FactoryEntidades::obtenerInstancia()->verListaEdificios();
+		
+		SDL_GetMouseState(&mx, &my);
+		my -= 372;
 	
-	list<string>::iterator it = construibles.begin();
-	int i = 0;
+		list<string>::iterator it = construibles.begin();
+		int i = 0;
 
-	while(mx >= BUTTON_SIZE){
-		mx -= BUTTON_SIZE;
-		i++;
-		}
-	while(my >= BUTTON_SIZE){
-		my -= BUTTON_SIZE;
-		i += 4;
-		}
-	if(i >= construibles.size())
-		return;
+		while(mx >= BUTTON_SIZE){
+			mx -= BUTTON_SIZE;
+			i++;
+			}
+		while(my >= BUTTON_SIZE){
+			my -= BUTTON_SIZE;
+			i += 4;
+			}
+		if(i >= construibles.size())
+			return;
 
-	while(i){
-		it++;
-		i--;
+		while(i){
+			it++;
+			i--;
+		}
+
+		cout << "Hay que construir: " << (*it) << endl;
+		game->edificioAubicar = (*it);
+		game->modoUbicarEdificio = true;
+
 	}
+	else if(entPri->verTipo() == ENT_T_BUILDING){
+		Edificio* edif = (Edificio*) entPri;
+		list<string> entL;
+		for(int i = 0; i < MAX_ENTRENABLES; i++){
+			if(edif->entrenables[i] != "unknown" )
+				entL.push_front(edif->entrenables[i]);
+				}
+				
+		if(entL.size()){
+			SDL_GetMouseState(&mx, &my);
+			my -= 372;
+	
+			list<string>::iterator it = entL.begin();
+			int i = 0;
 
-	cout << "Hay que construir: " << (*it) << endl;
-	game->edificioAubicar = (*it);
+			while(mx >= BUTTON_SIZE){
+				mx -= BUTTON_SIZE;
+				i++;
+				}
+			while(my >= BUTTON_SIZE){
+				my -= BUTTON_SIZE;
+				i += 4;
+				}
+			if(i >= entL.size())
+				return;
+
+			while(i){
+				it++;
+				i--;
+			}
+			// Crear unidad *it en edificio entPri
+			cout << "Hay que crear: " << (*it) << endl;
+			}
+		}
 }
 
 void ProcesadorEventos::procesarSeleccionMultiple(Jugador* player){
@@ -229,14 +264,13 @@ void ProcesadorEventos::procesarSeleccionSecundaria(Cliente* client, Jugador* pl
 	float pY = cu->obtenerCoordLogicaY(mx, my, gp->getViewX(), gp->getViewY(), gp->getAnchoBorde());
 	Posicion* dest = new Posicion(pX, pY);
 	
-	if(game->seleccionSecundaria != nullptr){
+
+	if (game->escenario->verMapa()->posicionPertenece(dest)){
+		if(game->seleccionSecundaria != nullptr){
 			delete game->seleccionSecundaria;
 			game->seleccionSecundaria = nullptr;
 			}
-	game->seleccionSecundaria = dest;
-
-
-	if (game->escenario->verMapa()->posicionPertenece(dest)){ 
+		game->seleccionSecundaria = dest;
 		if(game->escenario->verMapa()->posicionEstaVacia(dest)){
 			if(game->verEntidadSeleccionada()->verTipo() == ENT_T_UNIT){
 				// Accion de mover seleccionado(s)
@@ -278,8 +312,13 @@ void ProcesadorEventos::procesarSeleccionSecundaria(Cliente* client, Jugador* pl
 				Mix_PlayChannel( -1, snd, 0 );
 				}
 			else{
-				delete game->seleccionSecundaria;
-				game->seleccionSecundaria = nullptr;				
+				cout << "Pochoclos!" << endl;
+				if(target->verTipo() == ENT_T_CONSTRUCTION){	
+						enviarEntidadesConstruir(client, *posTarg);
+				} else{
+					delete game->seleccionSecundaria;
+					game->seleccionSecundaria = nullptr;				
+					}
 				}
 			}
 		}
@@ -317,7 +356,6 @@ void ProcesadorEventos::procesarRecolectar(Cliente* client) {
 
 
 void ProcesadorEventos::procesarConstruir(Cliente* client) {
-	list<Entidad*> lasEnt = game->verListaEntidadesSeleccionadas();
 	
 	// Obtengo la posición del click (quizás convertir en una función ya que se repite en varios lados...
 	int mx, my;
@@ -337,23 +375,16 @@ void ProcesadorEventos::procesarConstruir(Cliente* client) {
 	newEvent.extra2 = dest.getRoundY();
 	client->agregarEvento(newEvent);
 
-	for (list<Entidad*>::iterator it=lasEnt.begin(); it != lasEnt.end(); ++it){
-		if((*it)->habilidades[ACT_BUILD]){
-			msg_event newEvent;
-			newEvent.accion = MSJ_CONSTRUIR;
-			newEvent.idEntidad = (*it)->verID();
-			// dest = Posicion(pX, pY);
-			newEvent.extra1 = dest.getRoundX();
-			newEvent.extra2 = dest.getRoundY();
 
-			cout<<(*it)->name << " debe construir " << game->edificioAubicar << " en (" << dest.getRoundX() << "," << dest.getRoundY() << ")" << endl;
-				
-			client->agregarEvento(newEvent);
-
-		}
+	enviarEntidadesConstruir(client, dest);
 		
-	}
+	
 	game->modoUbicarEdificio = false;
+
+	if(game->verListaEntidadesSeleccionadas().size()){
+		Mix_Chunk* snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido(game->verEntidadSeleccionada()->verNombre() + "_build");
+		Mix_PlayChannel( -1, snd, 0 );
+		}
 }
 
 void ProcesadorEventos::procesarSeleccion(Jugador* player){
@@ -374,22 +405,17 @@ void ProcesadorEventos::procesarSeleccion(Jugador* player){
 	
 	// Si me paso del borde del screen_frame, me voy...
 	if(my > (gp->screen_height*360/480)){
-		if(!game->verEntidadSeleccionada()->habilidades[ACT_BUILD])
-			return;
-
 		if(mx < (gp->screen_width*165/640)){ 
 			// ...A menos que haya clickeado un boton
 			try{
 				this->procesarBoton(player);
-				game->modoUbicarEdificio = true;
-
+				
 				game->sx = 0;
 				game->sy = 0;
 				game->sx2 = 0;
 				game->sy2 = 0;
 
 			} catch (const std::out_of_range& oor){
-				cout << "Baboso!"<< endl;
 				return;
 				}
 			}
@@ -491,5 +517,23 @@ int ProcesadorEventos::procesarEvento(SDL_Event evento, Cliente* client, Jugador
 	case SDL_QUIT:
 		// enviar a proposito msg de log out?
 		return CODE_EXIT; 
+	}
+}
+
+void ProcesadorEventos::enviarEntidadesConstruir(Cliente* client, Posicion dest){
+	list<Entidad*> lasEnt = game->verListaEntidadesSeleccionadas();
+	
+	for (list<Entidad*>::iterator it=lasEnt.begin(); it != lasEnt.end(); ++it)
+		if((*it)->habilidades[ACT_BUILD]){
+		msg_event newEvent;
+		newEvent.accion = MSJ_CONSTRUIR;
+		newEvent.idEntidad = (*it)->verID();
+		// dest = Posicion(pX, pY);
+		newEvent.extra1 = dest.getRoundX();
+		newEvent.extra2 = dest.getRoundY();
+
+		cout<<(*it)->name << " debe construir " << game->edificioAubicar << " en (" << dest.getRoundX() << "," << dest.getRoundY() << ")" << endl;
+				
+		client->agregarEvento(newEvent);
 	}
 }

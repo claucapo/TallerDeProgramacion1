@@ -52,6 +52,8 @@ void Escenario::avanzarFrame(void) {
 		(*it)->verJugador()->agregarPosiciones(this->verMapa()->posicionesVistas(*it));
 		if((*it)->verTipo() == ENT_T_UNIT)
 			this->mapa->ocuparPosicionSinChequeo((*it)->verPosicion(), (*it));
+
+			
 	}
 	while(!toRmv.empty()) {
 		Entidad* ent = toRmv.front();

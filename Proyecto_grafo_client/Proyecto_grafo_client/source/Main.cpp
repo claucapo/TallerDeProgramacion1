@@ -226,6 +226,9 @@ Partida* generarPartida(mapa_inicial data) {
 					nombreEnt = nombreEnt + '3';
 				Spritesheet* cas = new Spritesheet(nombreEnt);
 				entidad->asignarSprite(cas);
+				// Inicializo spritesheet random
+				if(entidad->verTipo() == ENT_T_RESOURCE)
+					cas->cambiarSubImagen(0,(rand() % 8));
 			}
 		}
 

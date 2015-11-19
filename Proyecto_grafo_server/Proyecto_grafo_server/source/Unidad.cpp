@@ -110,7 +110,7 @@ void Unidad::mover(Escenario* scene) {
 		}
 	}
 
-	// Distantcias ---- le agruegué el +0.5
+	// Distantcias ---- le agruegué el +0.5   Like it!
 	float distX = dest->getX() - act->getX() + 0.5;
 	float distY = dest->getY() - act->getY() + 0.5;
 	float totalDist = sqrt((distX*distX) + (distY*distY));	
@@ -198,6 +198,7 @@ bool Unidad::resolverAtaque(Entidad* target, Escenario* scene) {
 	if (target->vidaAct <= 0) {
 		target->asignarEstado(EST_MUERTO);
 		cout << target->verID() << " debe morir!!" << endl;
+		
 		return false;
 	}
 	return true;

@@ -1,37 +1,21 @@
-
-	- Revisar el lag en el movimiento con selección múltiple			[DONE?]
-	- Hacer que desde el YAML:
-		- se pueda definir vida, escudo y ataque de una entidad			[DONE!]
-		- se puedan agregar a los edificios las unidades que cada uno crea	[DONE!]
-		- las entidades tengan un tiempo de construccion			[WIP]
-
-		- Hay que poder enviar todos esos datos por red al iniciar!		[DONE!]
-
-		- Hacer que los datos nuevos se asignen a las instancias de Entidad creadas
-		  (métodos obtenerEntidad en las clases FactoryEntidades)		[WIP]
+	- Hacer que un aldeano pueda continuar construyendo un edificio		[DONE!]
+	- Hacer que los edificios creen unidades (reconocer boton)		[WIP]
+	- Modelar la población ???
 	
-	- Hacer que las unidades puedan atacar a otras					[WIP]
-		- y que se puedan morir
-	- Cambiar los recursos: que c/u tenga una "cantidad recolectable"		[DONE!]
-	- Definir el comportamiento del aldeano:					[WIP]
-		- es el único que puede recolectar recursos
-		- es el único que puede construir edificios
+	- IMPORTANTE: Corregir el lag
+		- Hipótesis: cambiar listas por vectores
 
-	- Hacer que los edificios puedan efectivamente crear las unidades
-		- y que las unidades cuesten recursos
-		- Modelar la población ??
+	- Que hayan animaciones de las entidades al morir
+	- Agregar parámetro de LUCK en las unidades
+	
+	- Modelar los tipos de partida y sus "reglas":
+		- Y qué pasa cuando un player pierde en cada caso
 
-	- Inventar la <<condición de victoria>>:
-		- matar al rey
-		- destruir el centro urbano
-		- capurar la bandera (wtf?)
-		- Un mapa distinto para cada uno y a la mierda ?
-
+	- "Desjarcodear" A*
 
 	- Inventar las unidades de ataque a distancia!
 
 	- Cambiar las opciones de log in y log out de jugadores
-
-
-	- Poner todo en una pantalla linda al principio
+		- Y poner todo en una pantalla linda al principio
 	
+	- Unidades nuevas para sumar puntillos ?

@@ -72,10 +72,12 @@ Jugador* Partida::obtenerJugador(int id) {
 }
 
 void Partida::avanzarFrame(void){
+
 	for (list<Jugador*>::iterator iter = this->jugadores.begin(); iter != this->jugadores.end(); ++iter) {
 		Jugador* act = (*iter);
 		act->reiniciarVision();
 	}
+
 	// Acá adentro se asignan las casillas vistas de cada jugador
 	this->escenario->avanzarFrame();
 }
@@ -97,7 +99,6 @@ void Partida::procesarUpdate(msg_update msj) {
  
 			snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido(ent->verNombre() + "_die");
 			Mix_PlayChannel( -1, snd, 0 );
-
 			this->escenario->quitarEntidad(msj.idEntidad);
 			break;
 
@@ -262,6 +263,7 @@ void Partida::procesarUpdate(msg_update msj) {
 				if(ent->verJugador()->verID() == 3)
 					newImg = newImg + '3';
 				ent->verSpritesheet()->cambiarImagen(newImg);
+				ent->vidaAct = ent->vidaMax;
 				}
 			break;
 

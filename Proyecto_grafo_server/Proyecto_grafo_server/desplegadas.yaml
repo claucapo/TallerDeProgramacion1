@@ -24,7 +24,7 @@ entidades:
     tipoR: -1   # Tipo de recurso: -1 = none
     maxR: 0
     velocidad: 7
-    atk: 5
+    atk: 3
     def: 1
     vidaMax: 20
     cooldown: 20
@@ -57,26 +57,36 @@ entidades:
     tipo: "unit"
     velocidad: 10
     rangoV: 5
-    atk: 20
-    def: 7
+    atk: 13
+    def: 4
     vidaMax: 250
     habilidades: ["attack", "infantry", "bonus_vs_infantry"]
   - nombre: "pikeman"
     tipo: "unit"
     velocidad: 8
     rangoV: 4
-    atk: 16
-    def: 5
+    atk: 11
+    def: 4
     vidaMax: 160
     habilidades: ["attack", "infantry", "bonus_vs_cavalry"]
+    cooldown: 20
+    costFood: 50
+    costGold: 100
+    costWood: 10
+    costStone: 55
   - nombre: "colosus"
     tipo: "unit"
     velocidad: 3
     rangoV: 5
-    atk: 34
-    def: 14
+    atk: 19
+    def: 11
     vidaMax: 410
     habilidades: ["attack", "infantry", "bonus_vs_buildings"]
+    cooldown: 20
+    costFood: 50
+    costGold: 100
+    costWood: 10
+    costStone: 55
   - nombre: "castle"
     tipo: "building"
     sizeX: 6
@@ -90,10 +100,15 @@ entidades:
     tipoR: -1
     velocidad: 20
     rangoV: 5
-    atk: 16
+    atk: 12
     def: 5
     vidaMax: 220
     habilidades: ["attack", "cavalry", "bonus_vs_archery"]
+    cooldown: 20
+    costFood: 50
+    costGold: 100
+    costWood: 10
+    costStone: 55
   - nombre: "paladin"
     sizeX: 1
     sizeY: 1
@@ -101,10 +116,15 @@ entidades:
     tipoR: -1
     velocidad: 24
     rangoV: 6
-    atk: 21
+    atk: 14
     def: 8
     vidaMax: 340
     habilidades: ["attack", "cavalry", "bonus_vs_cavalry"]
+    cooldown: 20
+    costFood: 50
+    costGold: 100
+    costWood: 10
+    costStone: 55
   - nombre: "king"
     sizeX: 1
     sizeY: 1
@@ -113,7 +133,7 @@ entidades:
     velocidad: 10
     rangoV: 5
     atk: 0
-    def: 6
+    def: 4
     vidaMax: 10000
     habilidades: []
   - nombre: "house"
@@ -194,6 +214,10 @@ escenario:
    - {x: 38, y: 32, tipo: "villager", p: 2}
    - {x: 20, y: 20, tipo: "king", p: 3}
    - {x: 10, y: 10, tipo: "forage bush", p: 0}
+   - {x: 9, y: 9, tipo: "forage bush", p: 0}
+   - {x: 9, y: 10, tipo: "forage bush", p: 0}
+   - {x: 11, y: 10, tipo: "forage bush", p: 0}
+   - {x: 10, y: 11, tipo: "forage bush", p: 0}
    - {x: 11, y: 13, tipo: "tree", p: 0}
    - {x: 11, y: 14, tipo: "stone mine"}
    - {x: 9, y: 12, tipo: "gold mine"}

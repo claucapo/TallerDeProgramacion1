@@ -153,7 +153,7 @@ bool Escenario::ubicarEntidad(Entidad* entidad, Posicion* pos) {
 	if (mapa->ubicarEntidad(entidad, pos)) {
 		entidades.push_back(entidad);
 		entidad->asignarPos(pos);
-		entidades.sort(compare<Entidad>);
+		//entidades.sort(compare<Entidad>);
 		return true;
 	}
 	return false;
