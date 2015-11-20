@@ -5,7 +5,7 @@
 	- IMPORTANTE: Corregir el lag
 		- Hipótesis: cambiar listas por vectores
 
-	- Que hayan animaciones de las entidades al morir
+	- Que hayan animaciones de las entidades al morir			[neh]
 	- Agregar parámetro de LUCK en las unidades
 	
 	- Modelar los tipos de partida y sus "reglas":
