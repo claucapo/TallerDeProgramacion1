@@ -31,7 +31,7 @@ using namespace std;
 // #pragma comment (lib, "Mswsock.lib")
 
 #define TESTING_ENABLED false
-#define ARCHIVO_YAML "EscenarioPrueba.yaml"
+#define ARCHIVO_YAML "desplegadas.yaml"
 
 #define TIMEOUT 10000
 

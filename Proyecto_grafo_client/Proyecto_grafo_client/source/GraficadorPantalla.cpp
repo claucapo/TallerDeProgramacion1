@@ -225,67 +225,74 @@ void GraficadorPantalla::renderizarEntidades(void) {
 		Entidad** it = &lEnt[i];
 		Posicion* posEntAct1 = (*it)->verPosicion();	
 
-		int tx = (*it)->verTamX(); int ty = (*it)->verTamY();
-		Posicion posEntAct2 = Posicion(posEntAct1->getX() + tx - 1, posEntAct1->getY());
-		Posicion posEntAct3 = Posicion(posEntAct1->getX(), posEntAct1->getY() + ty - 1);
-		Posicion posEntAct4 = Posicion(posEntAct1->getX() + tx - 1, posEntAct1->getY() + ty - 1); 
-		Vision* vis = this->player->verVision();
-		// Si se ve alguna de las cuatro posiciones del borde, dibujo la entidad
-		bool entEsVisible= false;
-		if((*it)->verTipo() == ENT_T_UNIT){
-			entEsVisible |= (vis->visibilidadPosicion(*posEntAct1)== VIS_OBSERVADA);
-			entEsVisible |= (vis->visibilidadPosicion(posEntAct2)== VIS_OBSERVADA);
-			entEsVisible |= (vis->visibilidadPosicion(posEntAct3)== VIS_OBSERVADA);
-			entEsVisible |= (vis->visibilidadPosicion(posEntAct4)== VIS_OBSERVADA);
+		bool must_show = !(*it)->habilidades[ACT_INVISIBLE]; // must_show dice si debe mostrarse (caso invisibilidad)
+		must_show |= ((*it)->verEstado() == EST_ATACANDO);
+		must_show |= this->player->poseeEntidad(*it);
+
+		if(must_show){
+
+			int tx = (*it)->verTamX(); int ty = (*it)->verTamY();
+			Posicion posEntAct2 = Posicion(posEntAct1->getX() + tx - 1, posEntAct1->getY());
+			Posicion posEntAct3 = Posicion(posEntAct1->getX(), posEntAct1->getY() + ty - 1);
+			Posicion posEntAct4 = Posicion(posEntAct1->getX() + tx - 1, posEntAct1->getY() + ty - 1); 
+			Vision* vis = this->player->verVision();
+			// Si se ve alguna de las cuatro posiciones del borde, dibujo la entidad
+			bool entEsVisible= false;
+			if((*it)->verTipo() == ENT_T_UNIT){
+				entEsVisible |= (vis->visibilidadPosicion(*posEntAct1)== VIS_OBSERVADA);
+				entEsVisible |= (vis->visibilidadPosicion(posEntAct2)== VIS_OBSERVADA);
+				entEsVisible |= (vis->visibilidadPosicion(posEntAct3)== VIS_OBSERVADA);
+				entEsVisible |= (vis->visibilidadPosicion(posEntAct4)== VIS_OBSERVADA);
 		
-		}
-		else{
-			entEsVisible |= (vis->visibilidadPosicion(*posEntAct1)!=VIS_NO_EXPLORADA);
-			entEsVisible |= (vis->visibilidadPosicion(posEntAct2)!=VIS_NO_EXPLORADA);
-			entEsVisible |= (vis->visibilidadPosicion(posEntAct3)!=VIS_NO_EXPLORADA);
-			entEsVisible |= (vis->visibilidadPosicion(posEntAct4)!=VIS_NO_EXPLORADA);
-		}
-		if(entEsVisible){
+			}
+			else{
+				entEsVisible |= (vis->visibilidadPosicion(*posEntAct1)!=VIS_NO_EXPLORADA);
+				entEsVisible |= (vis->visibilidadPosicion(posEntAct2)!=VIS_NO_EXPLORADA);
+				entEsVisible |= (vis->visibilidadPosicion(posEntAct3)!=VIS_NO_EXPLORADA);
+				entEsVisible |= (vis->visibilidadPosicion(posEntAct4)!=VIS_NO_EXPLORADA);
+			}
+			if(entEsVisible){
 
 
-			Spritesheet* entAct = (*it)->verSpritesheet();
-			SDL_Surface* spEnt = entAct->devolverImagenAsociada();
+				Spritesheet* entAct = (*it)->verSpritesheet();
+				SDL_Surface* spEnt = entAct->devolverImagenAsociada();
 
-			if(this->puntoEstaEnPantalla(entAct->getCoordX(), entAct->getCoordY()))
-				if((*it)->verEstado() == EST_ATACANDO)
-					if(!Mix_Playing(1))
-						if((rand() % 14)==1){ // El 14 es un numero magico para que todo quede bien!!
-					Mix_Chunk* snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido((*it)->verNombre() + "_atk2");
-					Mix_PlayChannel( 1, snd, 0 );
+				if(this->puntoEstaEnPantalla(entAct->getCoordX(), entAct->getCoordY()))
+					if((*it)->verEstado() == EST_ATACANDO)
+						if(!Mix_Playing(1))
+							if((rand() % 14)==1){ // El 14 es un numero magico para que todo quede bien!!
+						Mix_Chunk* snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido((*it)->verNombre() + "_atk2");
+						Mix_PlayChannel( 1, snd, 0 );
+						}
+
+				SDL_SetColorKey( spEnt, true, SDL_MapRGB(spEnt->format, 255, 0, 255) );
+	
+				int newX = (int) cu->obtenerCoordPantallaX((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY(), view_x, view_y, ancho_borde);
+				int newY = (int) cu->obtenerCoordPantallaY((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY(), view_x, view_y, ancho_borde);
+				entAct->cambirCoord(newX, newY);
+				rectangulo.x = entAct->getCoordX();
+				rectangulo.y = entAct->getCoordY();
+				if(((*it)->verTipo() == ENT_T_RESOURCE)||((*it)->verTipo() == ENT_T_UNIT))
+					rectangulo.y += 12;
+
+				SDL_Rect recOr;
+				recOr.x = entAct->calcularOffsetX();
+				recOr.y = entAct->calcularOffsetY();
+				recOr.w = entAct->subImagenWidth();
+				recOr.h = entAct->subImagenHeight();
+
+				Jugador* playerOwner = (*it)->verJugador();
+				if(playerOwner != nullptr)
+					if(!playerOwner->estaConectado()){
+						string nameGris = "G" + (*it)->verNombre();
+						spEnt = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(nameGris);
+						SDL_SetColorKey( spEnt, true, SDL_MapRGB(spEnt->format, 255, 0, 255) );
 					}
 
-			SDL_SetColorKey( spEnt, true, SDL_MapRGB(spEnt->format, 255, 0, 255) );
-	
-			int newX = (int) cu->obtenerCoordPantallaX((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY(), view_x, view_y, ancho_borde);
-			int newY = (int) cu->obtenerCoordPantallaY((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY(), view_x, view_y, ancho_borde);
-			entAct->cambirCoord(newX, newY);
-			rectangulo.x = entAct->getCoordX();
-			rectangulo.y = entAct->getCoordY();
-			if(((*it)->verTipo() == ENT_T_RESOURCE)||((*it)->verTipo() == ENT_T_UNIT))
-				rectangulo.y += 12;
-
-			SDL_Rect recOr;
-			recOr.x = entAct->calcularOffsetX();
-			recOr.y = entAct->calcularOffsetY();
-			recOr.w = entAct->subImagenWidth();
-			recOr.h = entAct->subImagenHeight();
-
-			Jugador* playerOwner = (*it)->verJugador();
-			if(playerOwner != nullptr)
-				if(!playerOwner->estaConectado()){
-					string nameGris = "G" + (*it)->verNombre();
-					spEnt = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(nameGris);
-					SDL_SetColorKey( spEnt, true, SDL_MapRGB(spEnt->format, 255, 0, 255) );
-				}
-
 		
-			SDL_BlitSurface( spEnt, &recOr, pantalla, &rectangulo );	
-		}		
+				SDL_BlitSurface( spEnt, &recOr, pantalla, &rectangulo );	
+			}
+		}
 	}
 }
 

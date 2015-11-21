@@ -162,6 +162,11 @@ Partida* generarPartida(mapa_inicial data) {
 		delete act;
 	}
 
+	BibliotecaDeImagenes::obtenerInstancia()->cargarEfectoSonido("villager_create");
+	BibliotecaDeImagenes::obtenerInstancia()->cargarEfectoSonido("ent_create");
+
+
+
 	Escenario* scene = new Escenario(data.mInfo.coordX, data.mInfo.coordY);
 	Partida* game = new Partida();
 

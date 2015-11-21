@@ -81,7 +81,69 @@ entidades:
     atk: 19
     def: 11
     vidaMax: 410
-    habilidades: ["attack", "infantry", "bonus_vs_buildings"]
+    habilidades: ["attack", "infantry", "bonus_vs_siege"]
+    cooldown: 20
+    costFood: 50
+    costGold: 100
+    costWood: 10
+    costStone: 55
+  - nombre: "ram"
+    tipo: "unit"
+    velocidad: 3
+    rangoV: 4
+    atk: 14
+    def: 10
+    vidaMax: 360
+    habilidades: ["attack", "siege", "bonus_vs_buildings"]
+    cooldown: 20
+    costFood: 50
+    costGold: 100
+    costWood: 10
+    costStone: 55
+  - nombre: "teutonic knight"
+    tipo: "unit"
+    velocidad: 7
+    rangoV: 5
+    atk: 11
+    def: 4
+    vidaMax: 190
+    habilidades: ["attack", "infantry", "bonus_vs_infantry", "invisible"]
+    cooldown: 20
+    costFood: 50
+    costGold: 100
+    costWood: 10
+    costStone: 55
+  - nombre: "arbalest"
+    sizeX: 1
+    sizeY: 1
+    tipo: "unit"
+    tipoR: -1
+    velocidad: 9
+    rangoV: 9
+    rangoA: 8
+    luck: 99 #Luck: 0-Unlucky	50-Normal	100-Lucky
+    atk: 12
+    def: 5
+    vidaMax: 220
+    habilidades: ["attack", "archery", "bonus_vs_infantry"]
+    cooldown: 20
+    costFood: 50
+    costGold: 100
+    costWood: 10
+    costStone: 55
+  - nombre: "mangudai"
+    sizeX: 1
+    sizeY: 1
+    tipo: "unit"
+    tipoR: -1
+    velocidad: 14
+    rangoV: 9
+    rangoA: 8
+    luck: 99 #Luck: 0-Unlucky	50-Normal	100-Lucky
+    atk: 12
+    def: 5
+    vidaMax: 220
+    habilidades: ["attack", "archery", "bonus_vs_infantry"]
     cooldown: 20
     costFood: 50
     costGold: 100
@@ -92,13 +154,13 @@ entidades:
     sizeX: 6
     sizeY: 6
     vidaMax: 1000
-    entrenables: ["champion", "knight"]
+    entrenables: ["teutonic knight", "colosus"]
   - nombre: "knight"
     sizeX: 1
     sizeY: 1
     tipo: "unit"
     tipoR: -1
-    velocidad: 20
+    velocidad: 14
     rangoV: 5
     atk: 12
     def: 5
@@ -114,7 +176,7 @@ entidades:
     sizeY: 1
     tipo: "unit"
     tipoR: -1
-    velocidad: 24
+    velocidad: 15
     rangoV: 6
     atk: 14
     def: 8
@@ -147,22 +209,31 @@ entidades:
     sizeY: 3
   - nombre: "town center"
     tipo: "building"
-    sizeX: 2
-    sizeY: 2
+    sizeX: 5
+    sizeY: 5
+    entrenables: ["villager"]
   - nombre: "barracks"
     tipo: "building"
     sizeX: 4
     sizeY: 4
     vidaMax: 500
-    entrenables: ["champion"]
+    entrenables: ["pikeman", "champion"]
   - nombre: "archery"
     tipo: "building"
     sizeX: 4
     sizeY: 4
+    entrenables: ["arbalest", "mangudai"]
   - nombre: "stable"
     tipo: "building"
     sizeX: 4
     sizeY: 4
+    entrenables: ["knight", "paladin"]
+  - nombre: "siege weapon factory"
+    tipo: "building"
+    sizeX: 4
+    sizeY: 4
+    vidaMax: 500
+    entrenables: ["ram"]
 escenario:
   nombre: DEFAULT_MAP
   sizeX: 40
@@ -251,3 +322,10 @@ escenario:
    - {x: 20, y: 10, tipo: "villager", p: 2}
    - {x: 11, y:5, tipo: "castle", p: 1}
    - {x: 20, y:4, tipo: "archery", p: 1}
+
+   - {x: 4, y: 31, tipo: "teutonic knight", p: 1}
+   - {x: 5, y: 32, tipo: "teutonic knight", p: 1}
+   - {x: 4, y: 33, tipo: "teutonic knight", p: 2}
+   - {x: 3, y: 33, tipo: "teutonic knight", p: 2}
+   - {x: 4, y: 34, tipo: "teutonic knight", p: 3}
+   - {x: 2, y: 31, tipo: "teutonic knight", p: 3}

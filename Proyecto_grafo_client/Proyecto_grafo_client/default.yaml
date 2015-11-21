@@ -67,10 +67,18 @@ tipo:
     ruta: "recursos\\knight_icon.png"
   - nombre: "villager_icon"
     ruta: "recursos\\villager_icon.png"
+  - nombre: "siege weapon factory_icon"
+    ruta: "recursos\\siegeWeaponFactory_icon.png"
   - nombre: "tree_icon"
     ruta: "recursos\\tree_icon.png"
   - nombre: "pikeman_icon"
     ruta: "recursos\\pikeman_icon.png"
+  - nombre: "teutonic knight_icon"
+    ruta: "recursos\\teutonicKnight_icon.png"
+  - nombre: "arbalest_icon"
+    ruta: "recursos\\arbalest_icon.png"
+  - nombre: "mangudai_icon"
+    ruta: "recursos\\mangudai_icon.png"
   - nombre: "colosus_icon"
     ruta: "recursos\\colosus_icon.png"
   - nombre: "paladin_icon"
@@ -164,10 +172,10 @@ tipo:
     pixelY: 57
     fps: 10
     delay: 0
-  - nombre: "town_center"
-    ruta: "recursos\\townCenterAOE.png"
-    pixelX: 56
-    pixelY: 159
+  - nombre: "town center"
+    ruta: "recursos\\urbanCenterAOE.png"
+    pixelX: 130
+    pixelY: 62
   - nombre: "barracks"
     ruta: "recursos\\barracksAOE.png"
     pixelX: 101
@@ -228,10 +236,10 @@ tipo:
     pixelY: 57
     fps: 10
     delay: 0
-  - nombre: "town_center2"
-    ruta: "recursos\\townCenterAOEp2.png"
-    pixelX: 56
-    pixelY: 159
+  - nombre: "town center2"
+    ruta: "recursos\\urbanCenterAOEp2.png"
+    pixelX: 130
+    pixelY: 62
   - nombre: "barracks2"
     ruta: "recursos\\barracksAOEp2.png"
     pixelX: 101
@@ -292,10 +300,10 @@ tipo:
     pixelY: 57
     fps: 10
     delay: 0
-  - nombre: "town_center3"
-    ruta: "recursos\\townCenterAOEp3.png"
-    pixelX: 56
-    pixelY: 159
+  - nombre: "town center3"
+    ruta: "recursos\\urbanCenterAOEp3.png"
+    pixelX: 130
+    pixelY: 62
   - nombre: "barracks3"
     ruta: "recursos\\barracksAOEp3.png"
     pixelX: 101
@@ -372,6 +380,30 @@ tipo:
     ruta: "recursos\\GstableAOE.png"
     pixelX: 102
     pixelY: 15
+  - nombre: "ram_atk"
+    ruta: "recursos\\ram_atkAOE.png"
+    pixelX: 41
+    pixelY: 50
+    subX: 15
+    subY: 8
+    fps: 8
+    delay: 12
+  - nombre: "ram_atk2"
+    ruta: "recursos\\ram_atkAOEp2.png"
+    pixelX: 41
+    pixelY: 50
+    subX: 15
+    subY: 8
+    fps: 8
+    delay: 12
+  - nombre: "ram_atk3"
+    ruta: "recursos\\ram_atkAOEp3.png"
+    pixelX: 41
+    pixelY: 50
+    subX: 15
+    subY: 8
+    fps: 8
+    delay: 12
   - nombre: "ram"
     ruta: "recursos\\ramAOE.png"
     pixelX: 36
@@ -1009,7 +1041,7 @@ tipo:
     subY: 8
     fps: 6
     delay: 0
-  - nombre: "arbalests_atk3"
+  - nombre: "arbalest_atk3"
     ruta: "recursos\\arbalest_atkAOEp3.png"
     pixelX: 28
     pixelY: 34
@@ -1077,3 +1109,183 @@ tipo:
     subX: 11
     subY: 8
     fps: 5
+  - nombre: "mangudai_atk"
+    ruta: "recursos\\mangudai_atkAOE.png"
+    pixelX: 42
+    pixelY: 56
+    subX: 13
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "mangudai_atk2"
+    ruta: "recursos\\mangudai_atkAOEp2.png"
+    pixelX: 42
+    pixelY: 56
+    subX: 13
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "mangudai_atk3"
+    ruta: "recursos\\mangudai_atkAOEp3.png"
+    pixelX: 42
+    pixelY: 56
+    subX: 13
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "mangudai"
+    ruta: "recursos\\mangudaiAOE.png"
+    pixelX: 39
+    pixelY: 103
+    subX: 10
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "mangudai2"
+    ruta: "recursos\\mangudaiAOEp2.png"
+    pixelX: 39
+    pixelY: 103
+    subX: 10
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "mangudai3"
+    ruta: "recursos\\mangudaiAOEp3.png"
+    pixelX: 39
+    pixelY: 103
+    subX: 10
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "Gmangudai"
+    ruta: "recursos\\GmangudaiAOE.png"
+    pixelX: 39
+    pixelY: 103
+    subX: 10
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "mangudai_move"
+    ruta: "recursos\\mangudai_moveAOE.png"
+    pixelX: 36
+    pixelY: 49
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "mangudai_move2"
+    ruta: "recursos\\mangudai_moveAOEp2.png"
+    pixelX: 36
+    pixelY: 49
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "mangudai_move3"
+    ruta: "recursos\\mangudai_moveAOEp3.png"
+    pixelX: 36
+    pixelY: 49
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "Gmangudai_move"
+    ruta: "recursos\\Gmangudai_moveAOE.png"
+    pixelX: 36
+    pixelY: 49
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "teutonic knight_atk"
+    ruta: "recursos\\teutonicKnight_atkAOE.png"
+    pixelX: 30
+    pixelY: 39
+    subX: 15
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "teutonic knight_atk2"
+    ruta: "recursos\\teutonicKnight_atkAOEp2.png"
+    pixelX: 30
+    pixelY: 39
+    subX: 15
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "teutonic knight_atk3"
+    ruta: "recursos\\teutonicKnight_atkAOEp3.png"
+    pixelX: 30
+    pixelY: 39
+    subX: 15
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "teutonic knight"
+    ruta: "recursos\\teutonicKnightAOE.png"
+    pixelX: 11
+    pixelY: 28
+    subX: 10
+    subY: 8
+    fps: 0
+  - nombre: "teutonic knight2"
+    ruta: "recursos\\teutonicKnightAOEp2.png"
+    pixelX: 11
+    pixelY: 28
+    subX: 10
+    subY: 8
+    fps: 0
+  - nombre: "teutonic knight3"
+    ruta: "recursos\\teutonicKnightAOEp3.png"
+    pixelX: 11
+    pixelY: 28
+    subX: 10
+    subY: 8
+    fps: 0
+  - nombre: "Gteutonic knight"
+    ruta: "recursos\\GteutonicKnightAOE.png"
+    pixelX: 11
+    pixelY: 28
+    subX: 10
+    subY: 8
+    fps: 0
+  - nombre: "teutonic knight_move"
+    ruta: "recursos\\teutonicKnight_moveAOE.png"
+    pixelX: 11
+    pixelY: 28
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "teutonic knight_move2"
+    ruta: "recursos\\teutonicKnight_moveAOEp2.png"
+    pixelX: 11
+    pixelY: 28
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "teutonic knight_move3"
+    ruta: "recursos\\teutonicKnight_moveAOEp3.png"
+    pixelX: 11
+    pixelY: 28
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "Gteutonic knight_move"
+    ruta: "recursos\\GteutonicKnight_moveAOE.png"
+    pixelX: 11
+    pixelY: 28
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "siege weapon factory"
+    ruta: "recursos\\blacksmithAOE.png"
+    pixelX: 101
+    pixelY: 29
+  - nombre: "siege weapon factory2"
+    ruta: "recursos\\blacksmithAOEp2.png"
+    pixelX: 101
+    pixelY: 29
+  - nombre: "siege weapon factory3"
+    ruta: "recursos\\blacksmithAOEp3.png"
+    pixelX: 101
+    pixelY: 29
+  - nombre: "Gsiege weapon factory"
+    ruta: "recursos\\GblacksmithAOE.png"
+    pixelX: 101
+    pixelY: 29

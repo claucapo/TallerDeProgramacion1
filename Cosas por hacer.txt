@@ -1,21 +1,20 @@
 	- Hacer que un aldeano pueda continuar construyendo un edificio		[DONE!]
-	- Hacer que los edificios creen unidades (reconocer boton)		[WIP]
+	- Hacer que los edificios creen unidades (reconocer boton)		[DONE!]
 	- Modelar la población ???
 	
-	- IMPORTANTE: Corregir el lag
-		- Hipótesis: cambiar listas por vectores
+	- IMPORTANTE: Corregir el lag						[DONE?]
 
 	- Que hayan animaciones de las entidades al morir			[neh]
-	- Agregar parámetro de LUCK en las unidades
+	- Agregar parámetro de LUCK en las unidades				[DONE!]
 	
 	- Modelar los tipos de partida y sus "reglas":
 		- Y qué pasa cuando un player pierde en cada caso
 
 	- "Desjarcodear" A*
 
-	- Inventar las unidades de ataque a distancia!
+	- Inventar las unidades de ataque a distancia!				[WIP]
 
-	- Cambiar las opciones de log in y log out de jugadores
+	- Cambiar las opciones de log in y log out de jugadores			[WIP]
 		- Y poner todo en una pantalla linda al principio
 	
-	- Unidades nuevas para sumar puntillos ?
+	- Unidades nuevas para sumar puntillos ?				[DONE!]

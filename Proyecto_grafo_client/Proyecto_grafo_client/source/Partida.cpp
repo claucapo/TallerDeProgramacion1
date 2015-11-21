@@ -315,7 +315,15 @@ void Partida::procesarUpdate(msg_update msj) {
 
 					Spritesheet* cas = new Spritesheet(nombreEnt);
 					ent->asignarSprite(cas);
-
+					
+					if(ent->verTipo() == ENT_T_UNIT){
+						if(ent->verNombre() == "villager")
+							snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido("villager_create");
+						else
+							snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido("ent_create");
+						Mix_PlayChannel( -1, snd, 0 );
+						}
+			
 				}
 			}
 
