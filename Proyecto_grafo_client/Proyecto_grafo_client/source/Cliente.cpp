@@ -288,10 +288,22 @@ struct mapa_inicial Cliente::getEscenario(void) {
 
 		scene_info.instancias.push_back(inst_act);
 	}
-
+	
 	return scene_info;
 }
 
+
+bool Cliente::sendReadySignal(bool ready) {
+	struct msg_client_ready msg;
+	msg.ok = ready;
+
+	int result = send(this->clientSocket, (char*)&msg, sizeof(msg), 0);
+	if (result <= 0) {
+		ErrorLog::getInstance()->escribirLog("Error enviando ack cliente.", LOG_ERROR);
+		return false;
+	}
+	return true;
+}
 
 void Cliente::generarKeepAlive(void) {
 	msg_event msg;

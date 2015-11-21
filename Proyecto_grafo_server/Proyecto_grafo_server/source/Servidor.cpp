@@ -119,8 +119,24 @@ void Servidor::aceptarCliente(SOCKET clientSocket) {
 		Jugador* player = this->partida->obtenerJugador(loginInfo.playerCode);
 		player->settearConexion(true);
 
-		this->agregarCliente(nuevoCliente);
-		nuevoCliente->start();
+
+		// 3) Esperar confirmacion
+		char buffer2[sizeof(struct msg_client_ready)];
+		int result = sRead(clientSocket, buffer2, sizeof(struct msg_client_ready));
+		if (result <= 0) {
+			printf("Error leyendo ack del cliente. Terminando conexión");
+			closesocket(clientSocket);
+			return;
+		}
+		struct msg_client_ready client_ready = *(struct msg_client_ready*)buffer2;
+		if (client_ready.ok) {
+			this->agregarCliente(nuevoCliente);
+			nuevoCliente->start();
+		} else {		
+			printf("Error inesperado en el cliente. Terminando conexión");
+			closesocket(clientSocket);
+			return;
+		}
 
 	} else {
 		// 2.a) Contestar solicitud negativamente

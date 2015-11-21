@@ -41,6 +41,10 @@ struct msg_login_response {
 	bool ok;
 };
 
+struct msg_client_ready {
+	bool ok;
+};
+
 struct msg_map {
 	int coordX;
 	int coordY;

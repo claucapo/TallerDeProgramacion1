@@ -31,7 +31,7 @@ using namespace std;
 // #pragma comment (lib, "Mswsock.lib")
 
 #define TESTING_ENABLED false
-#define ARCHIVO_YAML "desplegadas.yaml"
+#define ARCHIVO_YAML "EscenarioPrueba.yaml"
 
 #define TIMEOUT 10000
 
@@ -186,7 +186,7 @@ int main(int argc, char* argv[]) {
 	Servidor server = Servidor(ListenSocket, game);
 	server.start();
 
-		cout <<endl<<endl;
+	cout <<endl<<endl;
 
 	bool exit = false;
 	for (int i = 0; i < parser.verInfoEscenario().size_X; i++) {

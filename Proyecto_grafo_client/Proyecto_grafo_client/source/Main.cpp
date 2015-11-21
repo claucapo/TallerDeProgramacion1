@@ -342,8 +342,11 @@ int wmain(int argc, char* argv[]) {
 	Jugador* playerActual = game->obtenerJugador(parser.verInfoRed().ID);
 	gp->asignarJugador(playerActual);
 	playerActual->settearConexion(true);
-
-
+	
+	if (!client.sendReadySignal(true)){
+		return 1;	
+	}
+	
 	// En este punto el cliente ya está conectado
 	client.start();
 

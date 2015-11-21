@@ -55,6 +55,7 @@ public:
 	// Método inicial para enviar solicitud de login
 	// Devuelve true si la solicitud es aceptada por el servidor
 	bool login(redInfo_t rInfo);
+	bool sendReadySignal(bool ready);
 
 	// Metodo que inicializa los threads de lectura y escritura para que comiencen a leer
 	void start();
