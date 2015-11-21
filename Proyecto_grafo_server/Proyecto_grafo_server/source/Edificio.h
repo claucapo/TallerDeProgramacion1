@@ -34,6 +34,7 @@ public:
 	virtual af_result_t avanzarFrame(Escenario* scene);
 
 	// Dado un identificador de entidad, devuelve true si el edificio puede entrenar entidades de ese tipo.
+	bool puedeEntrenar(unsigned int typeID);
 	bool puedeEntrenar(string name);
 
 	// Obtiene la unidad terminada, en caso de que haya alguno.
@@ -44,6 +45,7 @@ public:
 	// correspondiente al identificador "name". Devuelve true si la operación
 	// fue existosa. Si la cola de produccion ya estaba llena, o el edificio no
 	// puede entrenar ese tipo e entidad, devuelve false.
+	bool entrenarUnidad(unsigned int typeID);
 	bool entrenarUnidad(string name);
 
 	// Cambia el tipo de entidad de acuerdo a si el edificio está terminado o no,

@@ -16,7 +16,6 @@ Edificio::Edificio(unsigned int id, string name, tipoEntidad_t pType) : Entidad(
 	this->ticks_totales = 0;
 }
 
-
 // Destructor
 Edificio::~Edificio() {
 	while (!this->cola_produccion.empty()) {
@@ -25,10 +24,17 @@ Edificio::~Edificio() {
 	}
 }
 
-
 bool Edificio::puedeEntrenar(string name) {
 	for (int i = 0; i < this->cant_entrenables; i++) {
 		if (this->entrenables[i] == name) {
+			return true;
+		}
+	}	
+}
+
+bool Edificio::puedeEntrenar(unsigned int id) {
+	for (int i = 0; i < this->cant_entrenables; i++) {
+		if (this->entrenables[i] == FactoryEntidades::obtenerInstancia()->obtenerName(id)) {
 			return true;
 		}
 	}	
@@ -47,13 +53,14 @@ void Edificio::recalcularTicks(void) {
 af_result_t Edificio::avanzarFrame(Escenario* scene) {
 	if (this->cant_en_produccion > 0) {
 		this->ticks_restantes--;
-		cout << this->ticks_restantes << " ticks para crear [" << this->cola_produccion.front()->name << "]" << endl;
-
+		
 		msg_update* upd = scene->generarUpdate(MSJ_AVANZAR_PRODUCCION, this->verID(), -1, 0);
 		scene->updatesAux.push_back(upd);
 
 		// Si ya termine la unidad, devuelvo un mensaje especial
 		if (this->ticks_restantes <= 0) {
+			msg_update* upd = scene->generarUpdate(MSJ_FINALIZAR_PRODUCCION, this->verID(), 0, 0);
+			scene->updatesAux.push_back(upd);
 			return AF_SPAWN;
 		}
 	}
@@ -87,16 +94,22 @@ Entidad* Edificio::obtenerUnidadEntrenada(void) {
 
 
 bool Edificio::entrenarUnidad(string name) {
+	return this->entrenarUnidad(FactoryEntidades::obtenerInstancia()->obtenerTypeID(name));
+}
+
+
+
+bool Edificio::entrenarUnidad(unsigned int id) {
 	if (this->tipo == ENT_T_CONSTRUCTION)
 		return false;
 
 	// No puedo entrenar a la unidad si no está en mi lista de entrenables o si el edificio está saturado
-	if (!this->puedeEntrenar(name) || (this->cant_en_produccion == MAX_PRODUCCION)) {
-		cout << "No se puede entrenar [" << name << "]" << endl;
+	if (!this->puedeEntrenar(id) || (this->cant_en_produccion == MAX_PRODUCCION)) {
+		cout << "No se puede entrenar [" << id << "]" << endl;
 		return false;
 	}
 
-	Entidad* ent = FactoryEntidades::obtenerInstancia()->obtenerEntidad(name);
+	Entidad* ent = FactoryEntidades::obtenerInstancia()->obtenerEntidad(id);
 	if (!ent)
 		return false;
 

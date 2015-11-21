@@ -31,7 +31,9 @@ using namespace std;
 // #pragma comment (lib, "Mswsock.lib")
 
 #define TESTING_ENABLED false
-#define ARCHIVO_YAML "EscenarioPrueba.yaml"
+#define ARCHIVO_YAML "desplegadas.yaml"
+
+#define TIMEOUT 10000
 
 
 SOCKET inicializarConexion(redInfo_t rInfo) {
@@ -69,7 +71,7 @@ SOCKET inicializarConexion(redInfo_t rInfo) {
 		return ListenSocket;
 	}
 
-	DWORD timeout = 3000;
+	DWORD timeout = TIMEOUT;
 	setsockopt(ListenSocket, SOL_SOCKET, SO_RCVTIMEO, (char*)&timeout, sizeof(timeout));
 	
 	iResult = bind (ListenSocket, result->ai_addr, (int)result->ai_addrlen);
@@ -164,7 +166,6 @@ int main(int argc, char* argv[]) {
 	
 	ErrorLog::getInstance()->escribirLog("----INICIANDO----");
 
-
 	// Graficos lindos xd
 
 	SOCKET ListenSocket = inicializarConexion(parser.verInfoRed());
@@ -202,7 +203,6 @@ int main(int argc, char* argv[]) {
 	list<msg_update*> updates;
 	while ( !exit ) {
 		float timeA = SDL_GetTicks();
-
 		server.procesarEventos();
 		
 		float timeC = SDL_GetTicks();
@@ -212,8 +212,8 @@ int main(int argc, char* argv[]) {
 		server.enviarUpdates(updates);
 		
 		float timeB = SDL_GetTicks();
-		if((FRAME_DURATION - timeB + timeA -16) > 0)
-			SDL_Delay(FRAME_DURATION - timeB + timeA -16); // -16????
+		if((FRAME_DURATION - timeB + timeA) > 0)
+			SDL_Delay(FRAME_DURATION - timeB + timeA); // -16????
 
 		std::stringstream s;
 		s << "E: " << timeC- timeA << " - AF: " << timeD - timeC << " - U: "<< timeB-timeD << " - T:" << timeB-timeA;

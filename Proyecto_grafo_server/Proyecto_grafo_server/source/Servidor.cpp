@@ -220,10 +220,6 @@ int Servidor::enviarMapa(ConexionCliente *cliente) {
 
 		result = send(cliente->clientSocket, (char*)&act, sizeof(act), 0);
 
-		estado_vision_t* vision = (*it)->verVision()->visibilidadArray();
-		result = send(cliente->clientSocket, (char*)vision, sizeof(estado_vision_t) * msg.coordX * msg.coordY, 0);
-
-		delete[] vision;
 	}
 
 	// Mando los tipos

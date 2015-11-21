@@ -210,3 +210,12 @@ unsigned int FactoryEntidades::obtenerTypeID(string name) {
 	}
 	return 0;
 }
+
+
+string FactoryEntidades::obtenerName(unsigned int typeID) {
+	for (map<string, tipoEntidad_t*>::const_iterator iter = this->prototipos.begin(); iter != this->prototipos.end(); ++iter) {
+		if ((*iter).second->typeID == typeID) {
+			return (*iter).first;
+		}
+	}
+}

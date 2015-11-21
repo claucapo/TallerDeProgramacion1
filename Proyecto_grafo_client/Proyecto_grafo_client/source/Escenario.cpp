@@ -5,13 +5,17 @@
 #include "Unidad.h"
 #include "Jugador.h"
 #include <list>
+#include <vector>
+#include <algorithm>
 #include <iostream>
 #define TAM_DEFAULT 50
 
 // Constructor especificando tamanio
 Escenario::Escenario(int casillas_x, int casillas_y) {
 	mapa = new Matriz(casillas_x, casillas_y);
-	this->entidades = list<Entidad*>();
+	this->entidades = vector<Entidad*>(CANT_ENTIDADES_INI);
+	this->cant_entidades = 0;
+	this->max_entidades = CANT_ENTIDADES_INI;
 	this->tamX = casillas_x;
 	this->tamY = casillas_y;
 }
@@ -19,7 +23,9 @@ Escenario::Escenario(int casillas_x, int casillas_y) {
 // Constructor por defecto
 Escenario::Escenario(void) {
 	mapa = new Matriz(TAM_DEFAULT, TAM_DEFAULT);
-	this->entidades = list<Entidad*>();
+	this->entidades = vector<Entidad*>(CANT_ENTIDADES_INI);
+	this->cant_entidades = 0;
+	this->max_entidades = CANT_ENTIDADES_INI;
 	this->tamX = TAM_DEFAULT;
 	this->tamY = TAM_DEFAULT;
 }
@@ -27,49 +33,46 @@ Escenario::Escenario(void) {
 // Destructor
 Escenario::~Escenario(void) {
 	delete mapa;
+	for (int i = 0; i < this->entidades.size(); i++) {
+		delete this->entidades[i];
+	}
+	/*
 	while (!this->entidades.empty()) {
 		delete this->entidades.front();
 		this->entidades.pop_front();
 	}
+	*/
 }
 
 template <typename T> bool compare(const T* const & a, const T* const &b) {
 	return *a < *b;
 };
 
-void Escenario::avanzarFrame(void) {
+void Escenario::avanzarFrame(unsigned int actPlayer) {
 	// Avanzo el frame en cada edificio (por ahora no hace nada)
-	list<Entidad*> toRmv = list<Entidad*>();
-	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
-		/*if((*it)->verTipo() == ENT_T_UNIT){
-			af_result_t res = ((Unidad*)(*it))->avanzarFrame(this);
+	for (int i = 0; i < this->cant_entidades; i++) {
+		Entidad* act = this->entidades[i];
 
-		}
-		else{*/
-			af_result_t res = (*it)->avanzarFrame(this);
-	//	}
-			
-		(*it)->verJugador()->agregarPosiciones(this->verMapa()->posicionesVistas(*it));
-		if((*it)->verTipo() == ENT_T_UNIT)
-			this->mapa->ocuparPosicionSinChequeo((*it)->verPosicion(), (*it));
+		act->avanzarFrame(this);
 
-			
+		if (act->verJugador()->verID() == actPlayer)
+			act->verJugador()->agregarPosiciones(this->verMapa()->posicionesVistas(act));
+		if (act->verTipo() == ENT_T_UNIT)
+			this->mapa->ocuparPosicionSinChequeo(act->verPosicion(), act);
 	}
-	while(!toRmv.empty()) {
-		Entidad* ent = toRmv.front();
-		toRmv.pop_front();
-		this->quitarEntidad(ent);
-		delete ent;
-	}
-
 }
 
 
 bool Escenario::ubicarEntidad(Entidad* entidad, Posicion* pos) {
 	if (mapa->ubicarEntidad(entidad, pos)) {
-		entidades.push_back(entidad);
+		if (cant_entidades > max_entidades - 5) {
+			entidades.resize(max_entidades + RESIZE_AMOUNT);
+			this->max_entidades += RESIZE_AMOUNT;
+		}
+		entidades[cant_entidades] = entidad;
+		this->cant_entidades++;
 		entidad->asignarPos(pos);
-		entidades.sort(compare<Entidad>);
+		sort(entidades.begin(), entidades.begin() + cant_entidades, compare<Entidad>);
 		return true;
 	}
 	return false;
@@ -77,43 +80,48 @@ bool Escenario::ubicarEntidad(Entidad* entidad, Posicion* pos) {
 
 void Escenario::quitarEntidad(Entidad* entidad) {
 	mapa->quitarEntidad(entidad);
-	entidades.remove(entidad);
+	for (int i = 0; i < this->cant_entidades; i++) {
+		if (entidades[i] == entidad) {
+			entidades.erase(entidades.begin()+i);
+			this->cant_entidades--;
+		}
+	}
 }
 
 
 void Escenario::asignarDestino(unsigned int entID, Posicion pos) {
-	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
-		if ( (*it)->verID() == entID ) {
-			if ( (*it)->tipo == ENT_T_UNIT ) {
-				Unidad* unit = (Unidad*)(*it);
+	for (int i = 0; i < this->cant_entidades; i++) {
+		if (entidades[i]->verID() == entID) {
+			if ( entidades[i]->tipo == ENT_T_UNIT ) {
+				Unidad* unit = (Unidad*)(entidades[i]);
 				unit->nuevoDestino(&pos);
 			}
 		}
 	}
 }
 
-list<Entidad*> Escenario::verEntidades(void) {
+vector<Entidad*> Escenario::verEntidades(void) {
 	return this->entidades;
 }
 
 void Escenario::quitarEntidad(unsigned int entID) {
-	Entidad* ent;
-	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
-		if ( (*it)->verID() == entID ) {
-			ent = (*it);
+	for (int i = 0; i < this->cant_entidades; i++) {
+		if (entidades[i]->verID() == entID) {
+			entidades.erase(entidades.begin()+i);
+			mapa->quitarEntidad(entidades[i]);
+			this->cant_entidades--;
 		}
 	}
-	mapa->quitarEntidad(ent);
-	entidades.remove(ent);
 }
 
 
 // TODO: Cambiar entidades de list<Entidad*> a un vector?
 void Escenario::moverEntidad(unsigned int entID, Posicion* pos, bool seguirMoviendo) {
+
 	Entidad* ent = NULL;
-	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
-		if ( (*it)->verID() == entID ) {
-			ent = (*it);
+	for (int i = 0; i < this->cant_entidades; i++) {
+		if (entidades[i]->verID() == entID) {
+			ent = entidades[i];
 		}
 	}
 	if (!ent) return;
@@ -124,9 +132,9 @@ void Escenario::moverEntidad(unsigned int entID, Posicion* pos, bool seguirMovie
 	if(this->mapa->quitarEntidad(ent)){
 		((Unidad*)(ent))->asignarPos(pos);
 		this->mapa->ubicarEntidad(ent, pos);
-		entidades.sort(compare<Entidad>);
-			
+		sort(entidades.begin(), entidades.begin() + cant_entidades, compare<Entidad>);
 	}
+
 	Spritesheet* spEnt = (ent)->verSpritesheet();
 	string nombreEnt = (ent)->verNombre();
 	if(seguirMoviendo){
@@ -148,9 +156,9 @@ void Escenario::moverEntidad(unsigned int entID, Posicion* pos, bool seguirMovie
 
 
 Entidad* Escenario::obtenerEntidad(unsigned int entID) {
- 	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
- 		if ( (*it)->verID() == entID ) {
-			return (*it);
+ 	for (int i = 0; i < this->cant_entidades; i++) {
+		if (entidades[i]->verID() == entID) {
+			return entidades[i];
 		}
 	}
 	return nullptr;

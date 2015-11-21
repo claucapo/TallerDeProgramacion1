@@ -20,13 +20,13 @@ public:
 	ProcesadorEventos(Partida* partida, GraficadorPantalla* grafP);
 	~ProcesadorEventos(void);
 
-	void procesarBoton(Jugador* player);
+	void procesarBoton(Cliente* client, Jugador* player);
 	void procesarSeleccionMultiple(Jugador* player);
 	void procesarMover(Cliente* client);
 	void procesarSeleccionSecundaria(Cliente* client, Jugador* player);
 	void procesarRecolectar(Cliente* client);
 	void procesarAtacar(Cliente* client);
-	void procesarSeleccion(Jugador* player);
+	void procesarSeleccion(Cliente* client, Jugador* player);
 	void procesarConstruir(Cliente* client);
 	int procesarEvento(SDL_Event evento, Cliente* client, Jugador* player);
 

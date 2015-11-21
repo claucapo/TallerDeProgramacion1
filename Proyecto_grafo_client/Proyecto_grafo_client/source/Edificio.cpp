@@ -3,13 +3,17 @@
 
 #include <iostream>
 
+#include "ErrorLog.h"
+#include <sstream>
+
 Edificio::Edificio(unsigned int id, string name, tipoEntidad_t pType) : Entidad(id, name, pType) {
 	this->tipo = ENT_T_BUILDING;
 	this->cant_entrenables = pType.cantidad_entrenables;
 	for (int i = 0; i < MAX_ENTRENABLES; i++) {
 		this->entrenables[i] = pType.entrenables[i];
 	}
-	this->cola_produccion = queue<Entidad*>();
+
+	this->cola_produccion = queue<training_dummy>();
 	this->ticks_restantes = 0;
 	this->cant_en_produccion = 0;
 	this->ticks_totales = 0;
@@ -18,10 +22,6 @@ Edificio::Edificio(unsigned int id, string name, tipoEntidad_t pType) : Entidad(
 
 // Destructor
 Edificio::~Edificio() {
-	while (!this->cola_produccion.empty()) {
-		delete this->cola_produccion.front();
-		this->cola_produccion.pop();
-	}
 }
 
 
@@ -44,40 +44,57 @@ void Edificio::recalcularTicks(void) {
 
 
 af_result_t Edificio::avanzarFrame(Escenario* scene) {
-	/* if (this->cant_en_produccion > 0) {
-		this->ticks_restantes--;
-		cout << this->ticks_restantes << " ticks para crear [" << this->cola_produccion.front()->name << "]" << endl;
-
-		// Si ya termine la unidad, devuelvo un mensaje especial
-		if (this->ticks_restantes <= 0) {
-			return AF_SPAWN;
-		}
-	}*/
+	this->porcentajeEntrenado();
 	return AF_NONE;
 }
 
 
-Entidad* Edificio::obtenerUnidadEntrenada(void) {
-	// Si no hay nada en produccion, devuelvo null
-	if (this->cant_en_produccion <= 0)
-		return nullptr;
+bool Edificio::entrenarUnidad(unsigned int typeID, int totalTicks) {
+	training_dummy td;
+	td.name = FactoryEntidades::obtenerInstancia()->obtenerName(typeID);
+	td.typeID = typeID;
+	td.totalTicks = totalTicks;
+	if (this->cant_en_produccion < MAX_PRODUCCION) {
+		this->cola_produccion.push(td);
+		this->cant_en_produccion++;
 
-	// Chequeo que la entidad esté terminada
-	if (this->ticks_restantes <= 0) {
-		Entidad* ent = this->cola_produccion.front();
-		this->cola_produccion.pop();
-
-		// Como cambio la unidad en produccion, llamo a recalcular ticks
-		this->recalcularTicks();
-		this->cant_en_produccion--;
-		return ent;
+		if (this->cant_en_produccion == 1)
+			this->resetearTicks();
+		return true;
 	}
-	return nullptr;
+	return false;
 }
 
+void Edificio::finalizarEntrenamiento(void) {
+	stringstream s;
+	s << "Ending production of [" << this->cola_produccion.front().name << "].";
+	ErrorLog::getInstance()->escribirLog(s.str());
 
-bool Edificio::entrenarUnidad(string name) {
-	return false;
+	if (this->cant_en_produccion > 0) {
+		this->cola_produccion.pop();
+		this->cant_en_produccion--;
+		this->resetearTicks();
+	
+	}
+}
+
+void Edificio::resetearTicks(void) {
+	if (this->cant_en_produccion > 0) {
+		this->ticks_restantes = this->cola_produccion.front().totalTicks;
+		this->ticks_totales = this->ticks_restantes;
+	}
+}
+
+float Edificio::porcentajeEntrenado(void) {
+	if (this->cant_en_produccion <= 0)
+		return -1;
+
+	
+	stringstream s;
+	s << "Producing [" << this->cola_produccion.front().name << "]. Done " << (float)ticks_restantes/ticks_totales;
+	ErrorLog::getInstance()->escribirLog(s.str());
+
+	return 1 - ticks_restantes/ticks_totales;
 }
 
 

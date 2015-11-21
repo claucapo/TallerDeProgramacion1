@@ -71,15 +71,14 @@ Jugador* Partida::obtenerJugador(int id) {
 	return nullptr;
 }
 
-void Partida::avanzarFrame(void){
-
+void Partida::avanzarFrame(unsigned int actPlayer){
 	for (list<Jugador*>::iterator iter = this->jugadores.begin(); iter != this->jugadores.end(); ++iter) {
 		Jugador* act = (*iter);
-		act->reiniciarVision();
+		if (act->verID() == (*iter)->verID())
+			act->reiniciarVision();
 	}
-
 	// Acá adentro se asignan las casillas vistas de cada jugador
-	this->escenario->avanzarFrame();
+	this->escenario->avanzarFrame(actPlayer);
 }
 
 
@@ -247,10 +246,27 @@ void Partida::procesarUpdate(msg_update msj) {
 		case MSJ_AVANZAR_PRODUCCION:
 			ent = this->escenario->obtenerEntidad(msj.idEntidad);
 			if (ent->tipo == ENT_T_BUILDING) {
-				((Edificio*)ent)->ticks_restantes -= msj.extra1;
+				((Edificio*)ent)->ticks_restantes += msj.extra1;
 				if (((Edificio*)ent)->ticks_restantes <= 0)
 					((Edificio*)ent)->ticks_restantes = 0;
 			}
+			break;
+
+		case MSJ_PRODUCIR_UNIDAD:
+			ent = this->escenario->obtenerEntidad(msj.idEntidad);
+			if (ent->tipo == ENT_T_BUILDING) {
+				Edificio* ed = (Edificio*)ent;
+				ed->entrenarUnidad(msj.extra1, msj.extra2);
+			}
+			break;
+
+		case MSJ_FINALIZAR_PRODUCCION:	
+			ent = this->escenario->obtenerEntidad(msj.idEntidad);
+			if (ent->tipo == ENT_T_BUILDING) {
+				Edificio* ed = (Edificio*)ent;
+				ed->finalizarEntrenamiento();
+			}
+
 			break;
 
 		case MSJ_FINALIZAR_EDIFICIO:

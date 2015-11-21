@@ -8,6 +8,12 @@
 
 using namespace std;
 
+struct training_dummy {
+	string name;
+	unsigned int typeID;
+	int totalTicks;
+};
+
 class Edificio : public Entidad {
 private:
 	int cant_entrenables;
@@ -16,7 +22,7 @@ private:
 	// No puede exceder a la constante MAX_PRODUCCION
 	int cant_en_produccion;
 
-	std::queue<Entidad*> cola_produccion;
+	std::queue<training_dummy> cola_produccion;
 
 	// Metodo que se tiene que llamar cada vez que una unidad nueva
 	// pasa al frente de la cola de produccion. Recalcula los
@@ -38,16 +44,20 @@ public:
 	// Dado un identificador de entidad, devuelve true si el edificio puede entrenar entidades de ese tipo.
 	bool puedeEntrenar(string name);
 
-	// Obtiene la unidad terminada, en caso de que haya alguno.
-	// De lo contrario devuelve null
-	Entidad* obtenerUnidadEntrenada(void);
-
 	// Ordena al edificio a insertar en la cola de produccion una nueva entidad
 	// correspondiente al identificador "name". Devuelve true si la operación
 	// fue existosa. Si la cola de produccion ya estaba llena, o el edificio no
 	// puede entrenar ese tipo e entidad, devuelve false.
-	bool entrenarUnidad(string name);
-	bool entrenarUnidad(unsigned int typeID);	
+	bool entrenarUnidad(unsigned int typeID, int totalTicks);	
+
+	void finalizarEntrenamiento(void);
+	void resetearTicks(void);
+
+	// Devuelve la relación entre el tiempo elapsado en el entrenamiento de una unidad
+	// y el tiempo total necesario para completar el entrenamiento.
+	// Devuelve -1 si no hay unidades en la cola de produccion.
+	float porcentajeEntrenado(void);
+
 
 	// Cambia el tipo de entidad de acuerdo a si el edificio está terminado o no,
 	// para que se lo trate apropiadamente.

@@ -126,6 +126,7 @@ void Partida::procesarEvento(msg_event msj, unsigned int source) {
 	CodigoMensaje accion = msj.accion;
 	Entidad* ent = nullptr;
 	Entidad* aux = nullptr;
+	Edificio* building = nullptr;
 	Posicion destino;
 	ent = scene->obtenerEntidad(msj.idEntidad);
 
@@ -146,6 +147,7 @@ void Partida::procesarEvento(msg_event msj, unsigned int source) {
 		if (ent)
 			ent->asignarAccion(ACT_ATACK, (unsigned int)msj.extra1);
 		break;
+
 	case MSJ_CONSTRUIR:
 		cout << "Recibi un construir" << endl;
 		destino = Posicion(msj.extra1, msj.extra2);
@@ -153,6 +155,18 @@ void Partida::procesarEvento(msg_event msj, unsigned int source) {
 		if (ent && aux)
 			ent->asignarAccion(ACT_BUILD, aux->verID());
 		break;
+
+	case MSJ_PRODUCIR_UNIDAD:
+		if (ent->tipo == ENT_T_BUILDING) {
+			building = (Edificio*)ent;
+			bool success = building->entrenarUnidad(msj.extra1);
+			if (success) {
+				msg_update* upd = this->escenario->generarUpdate(MSJ_PRODUCIR_UNIDAD, ent->verID(), msj.extra1, building->ticks_totales);
+				this->escenario->updatesAux.push_back(upd);
+			}
+		}
+		break;
+
 	case MSJ_NUEVO_EDIFICIO:
 		cout << "Recibi un construir edificio" << endl;
 		ent = FactoryEntidades::obtenerInstancia()->obtenerEntidad(msj.idEntidad);

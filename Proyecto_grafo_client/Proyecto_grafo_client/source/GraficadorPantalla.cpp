@@ -219,8 +219,10 @@ void GraficadorPantalla::renderizarTerreno(void) {
 void GraficadorPantalla::renderizarEntidades(void) {
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
 	SDL_Rect rectangulo;
-	list<Entidad*> lEnt = partida->escenario->verEntidades();
-	for (list<Entidad*>::iterator it=lEnt.begin(); it != lEnt.end(); ++it){
+	vector<Entidad*> lEnt = partida->escenario->verEntidades();
+	int cant_entidades = partida->escenario->verCantEntidades();
+	for (int i = 0; i < cant_entidades; i++){
+		Entidad** it = &lEnt[i];
 		Posicion* posEntAct1 = (*it)->verPosicion();	
 
 		int tx = (*it)->verTamX(); int ty = (*it)->verTamY();

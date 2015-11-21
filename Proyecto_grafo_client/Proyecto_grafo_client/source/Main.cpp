@@ -193,7 +193,7 @@ Partida* generarPartida(mapa_inicial data) {
 				rj.piedra = jugador_act->jInfo.recursos.piedra;
 
 				
-				nuevo->verVision()->setFromArray(jugador_act->varray);
+				//nuevo->verVision()->setFromArray(jugador_act->varray);
 				nuevo->settearConexion(jugador_act->jInfo.conectado);
 				delete jugador_act;
 			}
@@ -342,6 +342,8 @@ int wmain(int argc, char* argv[]) {
 	Jugador* playerActual = game->obtenerJugador(parser.verInfoRed().ID);
 	gp->asignarJugador(playerActual);
 	playerActual->settearConexion(true);
+
+
 	// En este punto el cliente ya está conectado
 	client.start();
 
@@ -358,7 +360,7 @@ int wmain(int argc, char* argv[]) {
 		
 		float timeC = SDL_GetTicks();
 
-		game->avanzarFrame();
+		game->avanzarFrame(playerActual->verID());
 
 		gp->dibujarPantalla();
 		client.generarKeepAlive();

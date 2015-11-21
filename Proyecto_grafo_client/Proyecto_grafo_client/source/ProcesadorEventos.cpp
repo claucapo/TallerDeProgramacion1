@@ -74,7 +74,7 @@ Posicion ProcesadorEventos::adyacenteSiguiente(Posicion pos, int i, Escenario* s
 		return nueva;
 }
 
-void ProcesadorEventos::procesarBoton(Jugador* player){
+void ProcesadorEventos::procesarBoton(Cliente* client, Jugador* player){
 	if(game->verListaEntidadesSeleccionadas().empty())
 		return;
 
@@ -141,6 +141,14 @@ void ProcesadorEventos::procesarBoton(Jugador* player){
 				it++;
 				i--;
 			}
+
+			msg_event newEvent;
+			newEvent.accion = MSJ_PRODUCIR_UNIDAD;
+			newEvent.idEntidad = entPri->verID();
+			newEvent.extra1 = (float)(FactoryEntidades::obtenerInstancia()->obtenerTypeID(*it));
+
+			client->agregarEvento(newEvent);
+
 			// Crear unidad *it en edificio entPri
 			cout << "Hay que crear: " << (*it) << endl;
 			}
@@ -201,7 +209,7 @@ void ProcesadorEventos::procesarSeleccionMultiple(Jugador* player){
 		if(game->verListaEntidadesSeleccionadas().size()){
 			Mix_Chunk* snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido(game->verEntidadSeleccionada()->verNombre());
 			Mix_PlayChannel( -1, snd, 0 );
-			}
+		}
 			
 
 }
@@ -387,7 +395,7 @@ void ProcesadorEventos::procesarConstruir(Cliente* client) {
 		}
 }
 
-void ProcesadorEventos::procesarSeleccion(Jugador* player){
+void ProcesadorEventos::procesarSeleccion(Cliente* client, Jugador* player){
 	int mx, my;
 	SDL_GetMouseState(&mx, &my);
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
@@ -408,7 +416,7 @@ void ProcesadorEventos::procesarSeleccion(Jugador* player){
 		if(mx < (gp->screen_width*165/640)){ 
 			// ...A menos que haya clickeado un boton
 			try{
-				this->procesarBoton(player);
+				this->procesarBoton(client, player);
 				
 				game->sx = 0;
 				game->sy = 0;
@@ -477,7 +485,7 @@ int ProcesadorEventos::procesarEvento(SDL_Event evento, Cliente* client, Jugador
 		
 			if( evento.button.button == SDL_BUTTON_LEFT){
 				game->algoSeleccionado = true;
-				this->procesarSeleccion(player);
+				this->procesarSeleccion(client, player);
 				return CODE_CONTINUE;
 				}
 			else if( evento.button.button == SDL_BUTTON_RIGHT){

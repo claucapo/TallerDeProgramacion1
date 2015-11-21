@@ -56,7 +56,6 @@ int conexionReader( void* data ) {
 			msg_ext.source = cliente->getPlayerID();
 			cliente->server->agregarEvento(msg_ext);
 		}
-		SDL_Delay(5);
 	} while (result > 0 && !cliente->must_close);
 	return result;
 }

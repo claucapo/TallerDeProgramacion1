@@ -36,7 +36,7 @@ struct Partida {
 	// Función que avanza la lógica del modelo
 	// en un frame. Básicamente, llama a la
 	// misma función del Escenario.
-	void avanzarFrame(void);
+	void avanzarFrame(unsigned int playerID);
 	void seleccionarEntidad(Entidad* ent, bool emptyFirst);
 	void deseleccionarEntidades(void);
 	list<Posicion*> verSeleccionados(void);

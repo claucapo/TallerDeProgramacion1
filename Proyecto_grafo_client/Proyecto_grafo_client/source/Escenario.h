@@ -5,6 +5,10 @@
 #include "Entidad.h"
 #include "Protocolo.h"
 #include <list>
+#include <vector>
+
+#define CANT_ENTIDADES_INI 100
+#define RESIZE_AMOUNT 100
 
 /* La clase Escenario representa la cuadricula
 de tiles (el mapa) del juego junto con sus
@@ -15,7 +19,9 @@ class Escenario {
 
 private:
 	//Atributos
-	list<Entidad*> entidades;
+	int cant_entidades;
+	int max_entidades;
+	vector<Entidad*> entidades;
 	// El grafo siguiente es el mapa
 	Matriz* mapa;
 	int tamX;
@@ -37,10 +43,11 @@ public:
 	// Metodos que permiten ver el tamanio
 	int verTamX() {return this->tamX;}
 	int verTamY() {return this->tamY;}
+	int verCantEntidades() {return this->cant_entidades;}
 
 	// Avanza un frame para cada Entidad sobre
 	// el mapa, ejecutando sus acciones.
-	void avanzarFrame(void);
+	void avanzarFrame(unsigned int playerID);
 
 	bool casillaEstaVacia(Posicion* pos) {return this->mapa->posicionEstaVacia(pos);}
 
@@ -62,7 +69,7 @@ public:
 	
 	Entidad* obtenerEntidad(unsigned int entID);
 
-	list<Entidad*> verEntidades(void);
+	vector<Entidad*> verEntidades(void);
 	void asignarDestino(unsigned int entID, Posicion pos);
 
 };

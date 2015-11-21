@@ -37,6 +37,7 @@ public:
 
 	Entidad* obtenerEntidad(unsigned int typeID, unsigned int id);
 	unsigned int obtenerTypeID(string name);
+	string obtenerName(unsigned int typeID);
 	// Unidad* obtenerUnidad(string name);
 	list<string> verListaEdificios(void);
 };

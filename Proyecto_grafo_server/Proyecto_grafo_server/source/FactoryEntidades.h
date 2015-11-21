@@ -38,6 +38,8 @@ public:
 	Entidad* obtenerEntidad(string name);
 	Entidad* obtenerEntidad(unsigned int id);
 	unsigned int obtenerTypeID(string name);
+	string obtenerName(unsigned int typeID);
+
 	// Unidad* obtenerUnidad(string name);
 };
 
