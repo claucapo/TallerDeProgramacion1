@@ -14,15 +14,16 @@ protected:
 	Posicion* destino;
 	float rapidez;
 	Direcciones_t direccion;
-
+	
 	list<Posicion*> camino;
 
 	int collectRate, buildRate;
+	
+	int rangoAtaque;
 
 private:
 	void mover(Escenario* scene);
 	bool realizarAccion(Accion_t acc, Entidad* target, Escenario* scene);
-
 	
 	bool resolverAtaque(Entidad* target, Escenario* scene);
 	bool resolverRecoleccion(Entidad* target, Escenario* scene);

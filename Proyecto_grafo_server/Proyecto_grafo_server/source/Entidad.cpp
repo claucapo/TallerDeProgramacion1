@@ -14,7 +14,7 @@ Entidad::Entidad(unsigned int id, string name, tipoEntidad_t pType) {
 
 	this->accion = ACT_NONE;
 	this->targetID = this->id;
-
+	this->luck = pType.luck;
 	this->tamX = (pType.tamX > 0) ? pType.tamX : 1;
 	this->tamY = (pType.tamY > 0) ? pType.tamY : 1;
 	this->rangoVision = pType.rangoV;

@@ -20,6 +20,11 @@ Unidad::Unidad(unsigned int id, string name, tipoEntidad_t pType) : Entidad(id, 
 	this->direccion = DIR_DOWN;
 	this->destino = nullptr;
 
+	if (pType.rangoA > 0)
+		this->rangoAtaque = pType.rangoA;
+	else
+		this->rangoAtaque = 1;
+
 	this->collectRate = pType.collectRate;
 	this->buildRate = pType.buildRate;
 }
@@ -67,7 +72,6 @@ bool estaEnCasilla(Posicion* punto, Posicion* contenedor){
 
 
 
-
 bool Unidad::puedeRealizarAccion(Accion_t acc) {
 	// Insertar la lógica que decida si se puede o no realizar la accion
 	return this->habilidades[acc];
@@ -88,14 +92,21 @@ bool Unidad::objetivoEnRango(Entidad* target, Escenario* scene) {
 	Posicion* targetPos = target->verPosicion();
 	int distX = targetPos->getRoundX() - this->pos->getRoundX();
 	int distY = targetPos->getRoundY() - this->pos->getRoundY();
+	
+	distX = (distX < 0) ? -distX : distX;
+	distY = (distY < 0) ? -distY : distY;
 
-	if ( distX >= -1 && distX <= 1 )
-		if ( distY >= -1 && distY <= 1 )
+	if (this->rangoAtaque > 1) {
+		int totDist = distX + distY;
+		if (totDist <= this->rangoAtaque)
 			return true;
-
+	} else {
+		if ( distX >= -1 && distX <= 1 )
+			if ( distY >= -1 && distY <= 1 )
+				return true;
+	}
 	return false;
 }
-
 
 
 void Unidad::mover(Escenario* scene) {

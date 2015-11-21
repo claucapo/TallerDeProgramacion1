@@ -111,7 +111,7 @@ struct entidadInfo_t {
 
 	int costoOro, costoMadera, costoComida, costoPiedra;
 
-
+	int luck;
 	int tipoR;
 	int recursoMax;
 
@@ -127,7 +127,7 @@ struct entidadInfo_t {
 				recursoMax(1), rangoV(1), rangoA(1), velocidad(1), tipoR(RES_TYPE_DEFAULT),
 				vidaMax(VIDA_MAX_DEFAULT), ataque(ATK_BASE_DEFAULT), defensa(DEF_BASE_DEFAULT),
 				entrenables(), habilidades(),
-				cooldown(0), collectRate(0), buildRate(0), trainRate(0),
+				cooldown(0), collectRate(0), buildRate(0), trainRate(0), luck(50),
 				costoOro(0), costoMadera(0), costoPiedra(0), costoComida(0) {};
 };
 

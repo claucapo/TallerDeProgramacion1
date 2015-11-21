@@ -20,9 +20,8 @@ const string estados_extensiones[] = {"", "_move"};
 const char MAX_ENTRENABLES = 4;	// Cantidad máxima de tipos de entidades distintas que un dado edificio puede entrenar
 const char MAX_PRODUCCION = 5;	// Cantidad máxima de unidades que pueden encolarse para la producción en un edificio
 
-const char CANT_ACCIONES = 13;
-enum Accion_t {ACT_NONE, ACT_ATACK, ACT_COLLECT, ACT_BUILD, ACT_INFANTRY, ACT_CAVALRY, ACT_ARCHERY, ACT_SIEGE, ACT_BONUS_INFANTRY, ACT_BONUS_CAVALRY, ACT_BONUS_ARCHERY, ACT_BONUS_SIEGE, ACT_BONUS_BUILDING};
-
+const char CANT_ACCIONES = 14;
+enum Accion_t {ACT_NONE, ACT_ATACK, ACT_COLLECT, ACT_BUILD, ACT_INFANTRY, ACT_CAVALRY, ACT_ARCHERY, ACT_SIEGE, ACT_BONUS_INFANTRY, ACT_BONUS_CAVALRY, ACT_BONUS_ARCHERY, ACT_BONUS_SIEGE, ACT_BONUS_BUILDING, ACT_INVISIBLE};
 
 const Estados_t accionAEstado[] = {EST_QUIETO, EST_ATACANDO, EST_RECOLECTANDO, EST_CONSTRUYENDO};
 
@@ -65,6 +64,7 @@ struct tipoEntidad_t {
 
 	costo_t costo;
 
+	int luck;
 	int rangoV;	// Rango vision
 	int rangoA;	// Rango ataque
 	// Asumo recoleccion y construccion limitadas a casillas adyacentes

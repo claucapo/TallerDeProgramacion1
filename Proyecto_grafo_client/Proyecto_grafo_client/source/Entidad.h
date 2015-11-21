@@ -27,6 +27,7 @@ protected:
 	
 	costo_t costo;
 	int trainRate;
+	int luck;
 
 	int tamX;
 	int tamY;

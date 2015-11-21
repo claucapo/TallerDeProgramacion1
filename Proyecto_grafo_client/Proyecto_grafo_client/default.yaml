@@ -993,3 +993,87 @@ tipo:
     pixelY: 18
     subX: 3
     subY: 1
+  - nombre: "arbalest_atk"
+    ruta: "recursos\\arbalest_atkAOE.png"
+    pixelX: 28
+    pixelY: 34
+    subX: 11
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "arbalest_atk2"
+    ruta: "recursos\\arbalest_atkAOEp2.png"
+    pixelX: 28
+    pixelY: 34
+    subX: 11
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "arbalests_atk3"
+    ruta: "recursos\\arbalest_atkAOEp3.png"
+    pixelX: 28
+    pixelY: 34
+    subX: 11
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "arbalest"
+    ruta: "recursos\\arbalestAOE.png"
+    pixelX: 16
+    pixelY: 30
+    subX: 11
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "arbalest2"
+    ruta: "recursos\\arbalestAOEp2.png"
+    pixelX: 16
+    pixelY: 30
+    subX: 11
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "arbalest3"
+    ruta: "recursos\\arbalestAOEp3.png"
+    pixelX: 16
+    pixelY: 30
+    subX: 11
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "Garbalest"
+    ruta: "recursos\\GarbalestAOE.png"
+    pixelX: 16
+    pixelY: 30
+    subX: 11
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "arbalest_move"
+    ruta: "recursos\\arbalest_moveAOE.png"
+    pixelX: 18
+    pixelY: 39
+    subX: 11
+    subY: 8
+    fps: 5
+  - nombre: "arbalest_move2"
+    ruta: "recursos\\arbalest_moveAOEp2.png"
+    pixelX: 18
+    pixelY: 39
+    subX: 11
+    subY: 8
+    fps: 5
+  - nombre: "arbalest_move3"
+    ruta: "recursos\\arbalest_moveAOEp3.png"
+    pixelX: 18
+    pixelY: 39
+    subX: 11
+    subY: 8
+    fps: 5
+  - nombre: "Garbalest_move"
+    ruta: "recursos\\Garbalest_moveAOE.png"
+    pixelX: 18
+    pixelY: 39
+    subX: 11
+    subY: 8
+    fps: 5

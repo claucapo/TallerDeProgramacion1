@@ -81,6 +81,7 @@ struct msg_tipo_entidad {
 
 	costo_t costo;
 
+	int luck;
 	int rangoV, rangoA;
 	bool habilidades[CANT_ACCIONES];
 

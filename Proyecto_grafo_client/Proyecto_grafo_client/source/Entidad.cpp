@@ -14,6 +14,7 @@ Entidad::Entidad(unsigned int id, string name, tipoEntidad_t pType) {
 	this->pos = nullptr;
 	this->owner = nullptr;
 	this->state = EST_QUIETO;
+	this->luck = pType.luck;
 
 	this->accion = ACT_NONE;
 	this->targetID = this->id;

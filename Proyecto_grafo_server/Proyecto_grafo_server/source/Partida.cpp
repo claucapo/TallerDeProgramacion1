@@ -137,11 +137,13 @@ void Partida::procesarEvento(msg_event msj, unsigned int source) {
 		destino = Posicion(msj.extra1, msj.extra2);
 		scene->asignarDestino(msj.idEntidad, destino);
 		break;
+
 	case MSJ_RECOLECTAR:
 		cout << "Recibi un recolectar" << endl;
 		if (ent)
 			ent->asignarAccion(ACT_COLLECT, (unsigned int)msj.extra1);
 		break;
+
 	case MSJ_ATACAR:
 		cout << "Recibi un recolectar" << endl;
 		if (ent)

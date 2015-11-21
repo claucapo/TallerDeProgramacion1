@@ -23,8 +23,8 @@ const char MAX_ENTRENABLES = 4;	// Cantidad máxima de tipos de entidades distint
 const char MAX_PRODUCCION = 5;	// Cantidad máxima de unidades que pueden encolarse para la producción en un edificio
 
 // Definición de acciones, y los estados que corresponde a cada uno (en caso de haberlo)
-const char CANT_ACCIONES = 13;
-enum Accion_t {ACT_NONE, ACT_ATACK, ACT_COLLECT, ACT_BUILD, ACT_INFANTRY, ACT_CAVALRY, ACT_ARCHERY, ACT_SIEGE, ACT_BONUS_INFANTRY, ACT_BONUS_CAVALRY, ACT_BONUS_ARCHERY, ACT_BONUS_SIEGE, ACT_BONUS_BUILDING};
+const char CANT_ACCIONES = 14;
+enum Accion_t {ACT_NONE, ACT_ATACK, ACT_COLLECT, ACT_BUILD, ACT_INFANTRY, ACT_CAVALRY, ACT_ARCHERY, ACT_SIEGE, ACT_BONUS_INFANTRY, ACT_BONUS_CAVALRY, ACT_BONUS_ARCHERY, ACT_BONUS_SIEGE, ACT_BONUS_BUILDING, ACT_INVISIBLE};
 const Estados_t accionAEstado[] = {EST_QUIETO, EST_ATACANDO, EST_RECOLECTANDO, EST_CONSTRUYENDO};
 
 
@@ -77,6 +77,7 @@ struct tipoEntidad_t {
 	resource_type_t tipoR;
 
 	// Para unidades
+	int luck;
 	int velocidad;
 	int ataque, defensa, vidaMax;
 	int cooldown;	// Cooldown en ticks entre una interaccion y la siguiente
@@ -99,6 +100,7 @@ struct tipoEntidad_t {
 		rangoV = 1;
 		rangoA = 1;
 		velocidad = 1;
+		luck = 50;
 		tipo = ENT_T_NONE;
 		recursoMax = 0;
 		tipoR = RES_T_NONE;

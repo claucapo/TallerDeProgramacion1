@@ -26,6 +26,7 @@
 
 	#define RANGE_VIEW_KEY "rangoV"
 	#define RANGE_ATK_KEY "rangoA"
+	#define LUCK_KEY "luck"
 
 	#define RECURSO_TIPO_KEY "tipoR"
 	#define RECURSO_MAX_KEY "maxR"
@@ -271,6 +272,8 @@ void operator >> (const YAML::Node& node, entidadInfo_t& eInfo) {
 
 	parsearEntero(node, RECURSO_TIPO_KEY, &eInfo.tipoR, LOG_INFO, true);
 	parsearEntero(node, RECURSO_MAX_KEY, &eInfo.recursoMax, LOG_INFO, true);
+
+	parsearEntero(node, LUCK_KEY, &eInfo.luck, LOG_INFO, true);
 
 	parsearEntero(node, VELOCIDAD_KEY, &eInfo.velocidad, LOG_INFO, true);
 	parsearEntero(node, HP_MAX_KEY, &eInfo.vidaMax, LOG_INFO, false);

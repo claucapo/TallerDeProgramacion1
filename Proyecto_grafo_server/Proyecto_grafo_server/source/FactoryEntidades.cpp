@@ -132,12 +132,13 @@ void FactoryEntidades::agregarEntidad(entidadInfo_t eInfo) {
 					pType->habilidades[ACT_BONUS_ARCHERY] = true;
 				} else if (act == "bonus_vs_buildings") {
 					pType->habilidades[ACT_BONUS_BUILDING] = true;
+				} else if (act == "invisible") {
+					pType->habilidades[ACT_INVISIBLE] = true;
 				} else {
 					cout << "Habilidad: [" << act.c_str() << "] no reconocida." << endl;
 				}
 			}
 		} else if (eInfo.tipo == "building") {
-			// Solo los edificios (TBI) puede tener listas de entrenables
 			pType->tipo = ENT_T_BUILDING;
 			pType->cantidad_entrenables = eInfo.entrenables.size();
 			if (pType->cantidad_entrenables > MAX_ENTRENABLES)
@@ -154,8 +155,14 @@ void FactoryEntidades::agregarEntidad(entidadInfo_t eInfo) {
 		pType->tamX = eInfo.tamX;
 		pType->tamY = eInfo.tamY;
 		pType->rangoV = eInfo.rangoV;
+		pType->rangoA = eInfo.rangoA;
 		pType->recursoMax = eInfo.recursoMax;
 		pType->velocidad = eInfo.velocidad;
+
+		if (eInfo.luck > 100 || eInfo.luck < 0)
+			pType->luck = 50;
+		else
+			pType->luck = eInfo.luck;
 
 		pType->costo.comida = eInfo.costoComida;
 		pType->costo.oro = eInfo.costoOro;
@@ -238,10 +245,11 @@ list<msg_tipo_entidad*> FactoryEntidades::obtenerListaTipos(void) {
 
 		msg->velocidad = iter->second->velocidad;
 		msg->rangoV = iter->second->rangoV;
-		msg->rangoA = iter->second->recursoMax;
+		msg->rangoA = iter->second->rangoA;
 		msg->ataque = iter->second->ataque;
 		msg->defensa = iter->second->defensa;
 		msg->vidaMax = iter->second->vidaMax;
+		msg->luck = iter->second->luck;
 
 		msg->tipoR = iter->second->tipoR;
 		msg->recursoMax = iter->second->recursoMax;

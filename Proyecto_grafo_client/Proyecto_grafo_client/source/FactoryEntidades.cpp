@@ -98,7 +98,7 @@ void FactoryEntidades::agregarEntidad(msg_tipo_entidad eInfo) {
 		pType->rangoV = eInfo.rangoV;
 		pType->recursoMax = eInfo.recursoMax;
 		pType->velocidad = eInfo.velocidad;
-
+		pType->luck = eInfo.luck;
 		pType->costo = eInfo.costo;
 
 		pType->ataque = eInfo.ataque;

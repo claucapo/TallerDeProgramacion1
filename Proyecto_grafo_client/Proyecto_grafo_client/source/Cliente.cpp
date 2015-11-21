@@ -236,15 +236,7 @@ struct mapa_inicial Cliente::getEscenario(void) {
 			ErrorLog::getInstance()->escribirLog("Error recibiendo jugador.", LOG_ERROR);
 			return scene_info;
 		}
-		/*
-		estado_vision_t* varray = new estado_vision_t[scene_info.mInfo.coordX * scene_info.mInfo.coordY];
-		result = sRead(this->clientSocket, (char*)varray, scene_info.mInfo.coordX * scene_info.mInfo.coordY * sizeof(estado_vision_t));
-		if ( result <= 0 ) {
-			ErrorLog::getInstance()->escribirLog("Error recibiendo vision.", LOG_ERROR);
-			return scene_info;
-		}
-		jugador_act->varray = varray;
-		^*/
+
 		scene_info.jugadores.push_back(jugador_act);
 	}
 

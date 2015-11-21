@@ -93,6 +93,24 @@ entidades:
     sizeY: 6
     vidaMax: 1000
     entrenables: ["champion", "knight"]
+  - nombre: "arbalest"
+    sizeX: 1
+    sizeY: 1
+    tipo: "unit"
+    tipoR: -1
+    velocidad: 20
+    rangoV: 9
+    rangoA: 8
+    luck: 99 #Luck: 0-Unlucky	50-Normal	100-Lucky
+    atk: 12
+    def: 5
+    vidaMax: 220
+    habilidades: ["attack", "archery", "bonus_vs_infantry", "invisible"]
+    cooldown: 20
+    costFood: 50
+    costGold: 100
+    costWood: 10
+    costStone: 55
   - nombre: "knight"
     sizeX: 1
     sizeY: 1
@@ -371,4 +389,6 @@ escenario:
    - {x: 33, y: 40, tipo: "gold mine"}
    - {x: 32, y: 40, tipo: "gold mine"}
 
+   - {x: 21, y: 19, tipo: "arbalest", p: 2}
+   - {x: 23, y: 19, tipo: "arbalest", p: 1}
    - {x: 22, y: 19, tipo: "paladin", p: 1}
