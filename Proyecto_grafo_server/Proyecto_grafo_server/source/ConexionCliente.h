@@ -28,7 +28,8 @@ public:
 	bool must_close;
 	bool must_send;
 
-	SDL_semaphore* updates_lock;
+	//SDL_semaphore* updates_lock;
+	SDL_mutex* updates_lock;
 	queue<struct msg_update> updates;
 
 	ConexionCliente(SOCKET cSocket, Servidor* server, unsigned int ID);
@@ -42,7 +43,6 @@ public:
 
 	void agregarUpdate(struct msg_update);
 
-	void enviarTodo(void);
 };
 
 

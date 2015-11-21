@@ -90,19 +90,30 @@ void Unidad::asignarAccion(Accion_t acc, unsigned int targetID) {
 // Modificar para unidades con rango > 1
 bool Unidad::objetivoEnRango(Entidad* target, Escenario* scene) {
 	Posicion* targetPos = target->verPosicion();
+	
 	int distX = targetPos->getRoundX() - this->pos->getRoundX();
 	int distY = targetPos->getRoundY() - this->pos->getRoundY();
 	
-	distX = (distX < 0) ? -distX : distX;
-	distY = (distY < 0) ? -distY : distY;
 
 	if (this->rangoAtaque > 1) {
-		int totDist = distX + distY;
-		if (totDist <= this->rangoAtaque)
-			return true;
+		if (target->verTamX() == 1 && target->verTamY() == 1) {
+			distX = (distX < 0) ? -distX : distX;
+			distY = (distY < 0) ? -distY : distY;
+			int totDist = distX + distY;
+			if (totDist <= this->rangoAtaque)
+				return true;
+		} else {
+			int totDist = scene->verMapa()->distanciaEntre(*this->pos, target);
+			if (totDist <= this->rangoAtaque)
+				return true;
+		}
+
 	} else {
-		if ( distX >= -1 && distX <= 1 )
-			if ( distY >= -1 && distY <= 1 )
+		int targetTamX = target->verTamX();
+		int targetTamY = target->verTamY();
+
+		if ( distX >= -targetTamX && distX <= 1 )
+			if ( distY >= -targetTamY && distY <= 1 )
 				return true;
 	}
 	return false;
@@ -346,10 +357,13 @@ af_result_t Unidad::avanzarFrame(Escenario* scene) {
 		bool enRango = this->objetivoEnRango(target, scene);
 		if (!enRango) {
 			if (state == EST_CAMINANDO) {
+				if (!scene->casillaEstaVacia(this->camino.back())) {
+					this->state = EST_QUIETO;
+					return AF_NONE;
+				}
 				this->mover(scene);
  				return AF_MOVE;
 			} else {
-
 
 				Posicion* pos = scene->verMapa()->adyacenteCercana(target, this);
 				if (pos) {

@@ -20,14 +20,14 @@ Servidor::Servidor(SOCKET ls, Partida* partida) {
 	this->partida = partida;
 
 	this->eventos = queue<struct msg_event_ext>();
-//	this->updates = queue<struct msg_update>();
+
+	this->send_signal = SDL_CreateCond();
 
 	this->cantClientes = 0;
 	this->clientes = list<ConexionCliente*>();
 	
 	// Creo los semáforos, que sólo permiten el acceso a las colas de a un thread por vez
 	this->eventos_lock = SDL_CreateSemaphore(1);
-//	this->updates_lock = SDL_CreateSemaphore(1);
 	this->clientes_lock = SDL_CreateSemaphore(1);
 	this->partida_lock = SDL_CreateSemaphore(1);
 }
@@ -36,7 +36,8 @@ Servidor::Servidor(SOCKET ls, Partida* partida) {
 Servidor::~Servidor(void) {
 	SDL_DestroySemaphore(this->clientes_lock);
 	SDL_DestroySemaphore(this->eventos_lock);
-//	SDL_DestroySemaphore(this->updates_lock);
+	SDL_DestroyCond(this->send_signal);
+
 	SDL_DestroySemaphore(this->partida_lock);
 
 }
@@ -359,10 +360,7 @@ void Servidor::enviarUpdates(list<msg_update*> updates) {
 		delete act;
 	}
 
-	list<ConexionCliente*>::iterator iter;
-	for (iter = this->clientes.begin(); iter != this->clientes.end(); iter++) {
-		(*iter)->must_send = true;
-	}
+	SDL_CondSignal(this->send_signal);
 }
 
 

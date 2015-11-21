@@ -153,7 +153,7 @@ entidades:
     tipo: "building"
     sizeX: 6
     sizeY: 6
-    vidaMax: 1000
+    vidaMax: 10000
     entrenables: ["teutonic knight", "colosus"]
   - nombre: "knight"
     sizeX: 1
@@ -322,6 +322,8 @@ escenario:
    - {x: 20, y: 10, tipo: "villager", p: 2}
    - {x: 11, y:5, tipo: "castle", p: 1}
    - {x: 20, y:4, tipo: "archery", p: 1}
+   - {x: 30, y:2, tipo: "castle", p: 2}
+   - {x: 2, y:30, tipo: "castle", p: 2}
 
    - {x: 4, y: 31, tipo: "teutonic knight", p: 1}
    - {x: 5, y: 32, tipo: "teutonic knight", p: 1}

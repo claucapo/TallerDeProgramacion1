@@ -17,7 +17,7 @@ ConexionCliente::ConexionCliente(SOCKET cSocket, Servidor* server, unsigned int 
 	this->playerID = id;
 
 	this->updates = queue<struct msg_update>();
-	this->updates_lock = SDL_CreateSemaphore(1);
+	this->updates_lock = SDL_CreateMutex();
 
 	this->server = server;
 	this->must_send = false;
@@ -29,7 +29,7 @@ ConexionCliente::ConexionCliente(SOCKET cSocket, Servidor* server, unsigned int 
 
 ConexionCliente::~ConexionCliente() {
 	closesocket(this->clientSocket);
-	SDL_DestroySemaphore(this->updates_lock);
+	SDL_DestroyMutex(this->updates_lock);
 }
 
 
@@ -69,12 +69,15 @@ int conexionSender( void* data ) {
 	ConexionCliente* cliente = (ConexionCliente*)data;
 	int result = 1;
 	while (result > 0 && !cliente->must_close) {
-		while ( cliente->must_send && !cliente->updates.empty() ) {
-			
-			SDL_SemWait(cliente->updates_lock);
+
+		SDL_LockMutex(cliente->updates_lock);
+		if (cliente->updates.empty())
+			SDL_CondWait(cliente->server->send_signal, cliente->updates_lock);
+
+		while ( !cliente->updates.empty() ) {
+
 			struct msg_update act = cliente->updates.front();
 			cliente->updates.pop();
-			SDL_SemPost(cliente->updates_lock);
 
 			result = send(cliente->clientSocket, (char*)(&act), sizeof(act), 0);
 			if (result <= 0) {
@@ -82,38 +85,14 @@ int conexionSender( void* data ) {
 				cliente->stop();
 				
 				printf("Exited Sending for cliente\n");
-				// cliente->server->removerCliente(cliente);
-
 				return result;
 			}
 		}
-		cliente->must_send = false;
+		
+		SDL_UnlockMutex(cliente->updates_lock);
 	}
 	printf("Exited Sending for cliente\n");
 	return result;
-}
-
-void ConexionCliente::enviarTodo(void) {
-	if (this->must_close)
-		return;
-	int result = 1;
-	while ( !this->updates.empty() ) {	
-		SDL_SemWait(this->updates_lock);
-		struct msg_update act = this->updates.front();
-		this->updates.pop();
-		SDL_SemPost(this->updates_lock);
-
-		result = send(this->clientSocket, (char*)(&act), sizeof(act), 0);
-		if (result <= 0) {
-			printf("Error enviando updates. Terminando conexion\n");
-			this->stop();
-				
-			printf("Exited Sending for cliente\n");
-			// cliente->server->removerCliente(cliente);
-
-			return;
-		}
-	}
 }
 
 // Lanza los dos threads correspondientes a la
@@ -151,7 +130,7 @@ void ConexionCliente::stop() {
 // Agrega un update a la cola de updates por mandar
 // Bloquea la cola para que nadie más acceda al mismo tiempo
 void ConexionCliente::agregarUpdate(struct msg_update msg) {
-	SDL_SemWait(this->updates_lock);
+	SDL_LockMutex(this->updates_lock);
 	this->updates.push(msg);
-	SDL_SemPost(this->updates_lock);
+	SDL_UnlockMutex(this->updates_lock);
 }

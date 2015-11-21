@@ -24,10 +24,7 @@ class Servidor {
 private:
 	SDL_sem* eventos_lock;
 	queue<struct msg_event_ext> eventos;
-
-	//SDL_sem* updates_lock;
-	//queue<struct msg_update> updates;
-
+	
 	SDL_sem* clientes_lock;
 	list<ConexionCliente*> clientes;
 	
@@ -38,6 +35,7 @@ private:
 	msg_instancia enviarEntidad(Entidad* ent);
 
 public:
+	SDL_cond* send_signal;
 	int cantClientes;
 	SOCKET listenSocket; // El socket que se quedará loopeado en accept
 
