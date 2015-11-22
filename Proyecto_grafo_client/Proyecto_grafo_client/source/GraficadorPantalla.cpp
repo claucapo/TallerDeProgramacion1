@@ -666,7 +666,7 @@ void GraficadorPantalla::dibujarEdificioUbicandose(){
 
 	SDL_Surface* edif = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(partida->edificioAubicar);
 		
-	SDL_Surface* aux = SDL_CreateRGBSurface(0,edif->w,edif->h,32,0,0,0,0);
+	SDL_Surface* aux = SDL_CreateRGBSurface(0,edif->w/data->columnas,edif->h,32,0,0,0,0);
 
 	SDL_SetColorKey(edif, true, SDL_MapRGB(edif->format, 255, 0, 255) );
 	SDL_SetColorKey(aux, true, SDL_MapRGB(aux->format, 255, 0, 255) );
