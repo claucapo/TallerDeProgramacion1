@@ -17,6 +17,8 @@ struct Partida {
 	bool algoSeleccionado;
 	Posicion* seleccionSecundaria;
 
+	bool hayViolencia;
+
 		string edificioAubicar;
 		bool modoUbicarEdificio;
 	// Constructor y destructor por defecto
@@ -30,7 +32,7 @@ struct Partida {
 
 	Jugador* obtenerJugador(int id);
 	
-	void procesarUpdate(msg_update msj);
+	void procesarUpdate(msg_update msj, unsigned int actPlayer);
 
 
 	// Función que avanza la lógica del modelo

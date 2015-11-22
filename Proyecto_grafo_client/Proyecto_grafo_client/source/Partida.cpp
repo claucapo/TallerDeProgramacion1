@@ -78,11 +78,11 @@ void Partida::avanzarFrame(unsigned int actPlayer){
 			act->reiniciarVision();
 	}
 	// Acá adentro se asignan las casillas vistas de cada jugador
-	this->escenario->avanzarFrame(actPlayer);
+	this->hayViolencia = this->escenario->avanzarFrame(actPlayer);
 }
 
 
-void Partida::procesarUpdate(msg_update msj) {
+void Partida::procesarUpdate(msg_update msj, unsigned int actPlayer) {
 	Escenario* scene = this->escenario;
 	CodigoMensaje accion = msj.accion;
 	// Según la acción que sea, hago lo que corresponda
@@ -199,9 +199,6 @@ void Partida::procesarUpdate(msg_update msj) {
 			ent->settearEstado(nState);
 
 
-		
-			
-
 
 		
 		//	if(!this->ent_seleccionadas.empty())
@@ -232,6 +229,16 @@ void Partida::procesarUpdate(msg_update msj) {
 					}
 				if (ent->vidaAct >= ent->vidaMax)
 					ent->vidaAct = ent->vidaMax;
+			if(msj.extra1 < 0){
+				if(ent->verJugador()->verID() == actPlayer){ // Si era un ataque...
+					if(!this->hayViolencia){
+						cout << "Me atacaron!" << endl;
+						snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido("underAttack");
+						Mix_PlayChannel( -1, snd, 0 );
+						}
+					}
+				this->hayViolencia = true;
+				}
 			}
 			break;
 			
@@ -381,6 +388,8 @@ bool Partida::edificioUbicablePuedeConstruirse(Posicion pos){
 	for(int i = 0; i < edif->verTamX(); i++){
 		for(int j = 0; j < edif->verTamY(); j++){
 				Posicion pAct(pos.getRoundX() + i, pos.getRoundY() + j);
+				if(!this->escenario->verMapa()->posicionPertenece(&pAct))
+					return false;
 				if(!this->escenario->casillaEstaVacia(&pAct)){
 	//				delete edif;
 					return false;

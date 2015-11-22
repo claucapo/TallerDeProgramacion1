@@ -47,7 +47,7 @@ public:
 
 	// Avanza un frame para cada Entidad sobre
 	// el mapa, ejecutando sus acciones.
-	void avanzarFrame(unsigned int playerID);
+	bool avanzarFrame(unsigned int playerID);
 
 	bool casillaEstaVacia(Posicion* pos) {return this->mapa->posicionEstaVacia(pos);}
 

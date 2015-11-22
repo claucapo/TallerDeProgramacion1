@@ -168,7 +168,7 @@ void Cliente::agregarUpdate(struct msg_update upd) {
 
 // Proces todos los updates que estan en el momento de la invoación
 // en la cola. La estructura se bloquea hasta que se acaben los updates.
-void Cliente::procesarUpdates(Partida* game) {
+void Cliente::procesarUpdates(Partida* game, unsigned int actPlayer) {
 	SDL_SemWait(this->updates_lock);
 	// printf("Hay %d updates\n", this->updates.size());
 
@@ -189,7 +189,7 @@ void Cliente::procesarUpdates(Partida* game) {
 		case MSJ_FINALIZAR_EDIFICIO:
 		case MSJ_FINALIZAR_PRODUCCION:
 		case MSJ_ELIMINAR:
-			game->procesarUpdate(upd); break;
+			game->procesarUpdate(upd, actPlayer); break;
 		case MSJ_JUGADOR_LOGIN:
 			game->obtenerJugador(upd.idEntidad)->settearConexion(true); break;
 		case MSJ_JUGADOR_LOGOUT:
@@ -211,7 +211,7 @@ void Cliente::procesarUpdates(Partida* game) {
 			break;
 		default:
 			if (upd.accion >= MSJ_SPAWN)
-				game->procesarUpdate(upd);
+				game->procesarUpdate(upd, actPlayer);
 		}
 
 	}

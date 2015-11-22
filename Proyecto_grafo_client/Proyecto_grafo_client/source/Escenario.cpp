@@ -48,18 +48,26 @@ template <typename T> bool compare(const T* const & a, const T* const &b) {
 	return *a < *b;
 };
 
-void Escenario::avanzarFrame(unsigned int actPlayer) {
+bool Escenario::avanzarFrame(unsigned int actPlayer) {
 	// Avanzo el frame en cada edificio (por ahora no hace nada)
+	bool hayViolencia = false;
 	for (int i = 0; i < this->cant_entidades; i++) {
 		Entidad* act = this->entidades[i];
 
 		act->avanzarFrame(this);
 
-		if (act->verJugador()->verID() == actPlayer)
+		if (act->verJugador()->verID() == actPlayer){
 			act->verJugador()->agregarPosiciones(this->verMapa()->posicionesVistas(act));
-		if (act->verTipo() == ENT_T_UNIT)
+			if(act->verEstado() == EST_ATACANDO)
+				hayViolencia = true;
+		}
+		if (act->verTipo() == ENT_T_UNIT){
 			this->mapa->ocuparPosicionSinChequeo(act->verPosicion(), act);
+		}
+		
 	}
+
+	return hayViolencia;
 }
 
 

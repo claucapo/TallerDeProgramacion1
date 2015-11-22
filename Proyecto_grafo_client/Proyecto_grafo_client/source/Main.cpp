@@ -150,6 +150,14 @@ void cargarSonidosEntidad(msg_tipo_entidad* act){
 		}
 }
 
+void agregarSonidosExtra(){
+	BibliotecaDeImagenes::obtenerInstancia()->cargarEfectoSonido("villager_create");
+	BibliotecaDeImagenes::obtenerInstancia()->cargarEfectoSonido("ent_create");
+
+	BibliotecaDeImagenes::obtenerInstancia()->cargarEfectoSonido("underAttack");
+
+}
+
 Partida* generarPartida(mapa_inicial data) {
 
 	while(!data.tipos.empty()) {
@@ -251,6 +259,14 @@ Mix_Music* reproducirMusicaFondo(char* path){
 		Mix_PlayMusic( music, -1 );
 	}
 	return music;
+}
+
+void actualizarMusicaFondo(Partida* game, bool habiaViolencia){
+	if((!habiaViolencia) && game->hayViolencia)
+		reproducirMusicaFondo("recursos\\bck_snd2.wav");
+	if(habiaViolencia && (!game->hayViolencia))
+		reproducirMusicaFondo("recursos\\bck_snd1.wav");	
+
 }
 
 void pantallaMenu(GraficadorPantalla* gp){
@@ -360,11 +376,13 @@ int wmain(int argc, char* argv[]) {
 	ProcesadorEventos pE(game, gp);
 
 	Mix_Music *music = reproducirMusicaFondo("recursos\\bck_snd1.wav");
-
+	bool habiaViolencia = false;
+	game->hayViolencia = false;
 
 	while (codigo_programa != CODE_EXIT && !client.must_close) {
+		
 		float timeA = SDL_GetTicks();
-		client.procesarUpdates(game);
+		client.procesarUpdates(game, playerActual->verID());
 		
 		float timeC = SDL_GetTicks();
 
@@ -382,6 +400,9 @@ int wmain(int argc, char* argv[]) {
 			if(codigo_programa == CODE_EXIT)
 				break;
 		}
+
+		actualizarMusicaFondo(game, habiaViolencia);
+		habiaViolencia = game->hayViolencia;
 
 		float timeB = SDL_GetTicks();
 		if((FRAME_DURATION - timeB + timeA) > 0)

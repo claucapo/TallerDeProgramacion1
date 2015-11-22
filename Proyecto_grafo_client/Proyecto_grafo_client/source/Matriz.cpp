@@ -59,7 +59,7 @@ bool Matriz::posicionPertenece(Posicion* pos){
 	float pos_y = pos->getY();
 	if((pos_x < 0) || (pos_y < 0))
 		return false;
-	if ((this->filas < pos_x) || (this->columnas < pos_y))
+	if ((this->filas <= pos_x) || (this->columnas <= pos_y))
 		return false;
 	return true;
 }
@@ -83,8 +83,10 @@ bool Matriz::quitarEntidad(Entidad* elemento){
 		}
 
 	Posicion* pos = elemento->verPosicion();
-	if (! posicionPertenece(pos))
+	if (! posicionPertenece(pos)){
+		ErrorLog::getInstance()->escribirLog("Error al querer remover [" + elemento->name + "]: No se encuentra en el mapa.", LOG_ERROR);	
 		return false;
+	}
 
 	// Obtengo el tamanio de la entidad a quitar
 	int altura_x = elemento->verTamX();

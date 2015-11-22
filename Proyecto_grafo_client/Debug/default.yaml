@@ -1,0 +1,1291 @@
+red:
+  puerto: 27015
+  ip: "127.0.0.1"
+  ID: 2
+  alias: "Genghis Khan"
+pantalla: 
+  ancho: 640
+  alto: 480
+  fullscreen: 0 # 1 = true, 0 = false
+gameplay: 
+  scroll_margen: 60
+  scroll_vel: 20
+log:
+  warnings: 1
+  info: 0
+  errors: 1
+tipo:
+  - nombre: "moneda"
+    ruta: "recursos\\coin.png"
+    subX: 10
+    pixelX: 10
+    pixelY: 10
+    fps: 10
+    score: 1
+  - nombre: "gold mine"
+    ruta: "recursos\\goldMineAOE.png"
+    subY: 8
+    pixelX: 27
+    pixelY: 18
+    score: 1
+  - nombre: "tree"
+    ruta: "recursos\\treeAOE.png"
+    subY: 8
+    pixelX: 57
+    pixelY: 115
+    score: 1
+  - nombre: "stone mine"
+    ruta: "recursos\\stoneMineAOE.png"
+    subY: 8
+    pixelX: 27
+    pixelY: 18
+    score: 1
+  - nombre: "forage bush"
+    ruta: "recursos\\forageBushAOE.png"
+    subY: 8
+    pixelX: 27
+    pixelY: 18
+    score: 1
+  - nombre: "screen_frame"
+    ruta: "recursos\\screenFrame.png"
+  - nombre: "menu_bck"
+    ruta: "recursos\\main_title.png"
+  - nombre: "sign_menu"
+    ruta: "recursos\\sign_main_menu.png"
+    pixelX: 138
+  - nombre: "gold mine_icon"
+    ruta: "recursos\\goldMine_icon.png"
+  - nombre: "stone mine_icon"
+    ruta: "recursos\\stoneMine_icon.png"
+  - nombre: "forage bush_icon"
+    ruta: "recursos\\forageBush_icon.png"
+  - nombre: "font"
+    ruta: "recursos\\font.png"
+  - nombre: "champion_icon"
+    ruta: "recursos\\champion_icon.png"
+  - nombre: "knight_icon"
+    ruta: "recursos\\knight_icon.png"
+  - nombre: "villager_icon"
+    ruta: "recursos\\villager_icon.png"
+  - nombre: "siege weapon factory_icon"
+    ruta: "recursos\\siegeWeaponFactory_icon.png"
+  - nombre: "tree_icon"
+    ruta: "recursos\\tree_icon.png"
+  - nombre: "pikeman_icon"
+    ruta: "recursos\\pikeman_icon.png"
+  - nombre: "teutonic knight_icon"
+    ruta: "recursos\\teutonicKnight_icon.png"
+  - nombre: "arbalest_icon"
+    ruta: "recursos\\arbalest_icon.png"
+  - nombre: "mangudai_icon"
+    ruta: "recursos\\mangudai_icon.png"
+  - nombre: "colosus_icon"
+    ruta: "recursos\\colosus_icon.png"
+  - nombre: "paladin_icon"
+    ruta: "recursos\\paladin_icon.png"
+  - nombre: "ram_icon"
+    ruta: "recursos\\ram_icon.png"
+  - nombre: "king_icon"
+    ruta: "recursos\\king_icon.png"
+  - nombre: "castle_icon"
+    ruta: "recursos\\castle_icon.png"
+  - nombre: "archery_icon"
+    ruta: "recursos\\archery_icon.png"
+  - nombre: "barracks_icon"
+    ruta: "recursos\\barracks_icon.png"
+  - nombre: "stable_icon"
+    ruta: "recursos\\stable_icon.png"
+  - nombre: "windmill_icon"
+    ruta: "recursos\\windmill_icon.png"
+  - nombre: "town center_icon"
+    ruta: "recursos\\townCenter_icon.png"
+  - nombre: "house_icon"
+    ruta: "recursos\\house_icon.png"
+  - nombre: "attack_icon"
+    ruta: "recursos\\attack_icon.png"
+  - nombre: "range_icon"
+    ruta: "recursos\\range_icon.png"
+  - nombre: "armor_icon"
+    ruta: "recursos\\armor_icon.png"
+  - nombre: "champion"
+    ruta: "recursos\\championAOE.png"
+    subX: 10
+    subY: 8
+    pixelX: 21
+    pixelY: 38
+    fps: 10
+    delay: 15
+  - nombre: "champion_move"
+    ruta: "recursos\\champion_moveAOE.png"
+    subX: 10
+    subY: 8
+    pixelX: 21
+    pixelY: 38
+    delay: 0
+    fps: 20
+  - nombre: "castle"
+    ruta: "recursos\\castleAOE.png"
+    pixelX: 148
+    pixelY: 177
+  - nombre: "knight"
+    ruta: "recursos\\knightAOE.png"
+    subX: 10
+    subY: 8
+    pixelX: 22
+    pixelY: 41
+    fps: 8
+    delay: 3
+  - nombre: "knight_move"
+    ruta: "recursos\\knight_moveAOE.png"
+    subX: 10
+    subY: 8
+    pixelX: 29
+    pixelY: 52
+    fps: 18
+    delay: 0
+  - nombre: "house"
+    ruta: "recursos\\houseAOE.png"
+    pixelX: 76
+    pixelY: 42
+  - nombre: "tile"
+    ruta: "recursos\\tileG.png"
+    pixelX: 26
+    pixelY: 0
+  - nombre: "tileSlct"
+    ruta: "recursos\\tileSelec.png"
+    pixelX: 26
+    pixelY: 0
+  - nombre: "tileSlct2"
+    ruta: "recursos\\tileSelec2.png"
+    pixelX: 26
+    pixelY: 0
+  - nombre: "tileHuge"
+    ruta: "recursos\\tileHuge.png"
+    tipo: "none"
+    pixelX: 260
+    pixelY: 0
+  - nombre: "windmill"
+    ruta: "recursos\\windmillAOE.png"
+    subX: 8
+    subY: 1
+    pixelX: 84
+    pixelY: 57
+    fps: 10
+    delay: 0
+  - nombre: "town center"
+    ruta: "recursos\\urbanCenterAOE.png"
+    pixelX: 130
+    pixelY: 62
+  - nombre: "barracks"
+    ruta: "recursos\\barracksAOE.png"
+    pixelX: 101
+    pixelY: 53
+  - nombre: "archery"
+    ruta: "recursos\\archeryAOE.png"
+    pixelX: 103
+    pixelY: 49
+  - nombre: "stable"
+    ruta: "recursos\\stableAOE.png"
+    pixelX: 102
+    pixelY: 15
+  - nombre: "champion2"
+    ruta: "recursos\\championAOEp2.png"
+    subX: 10
+    subY: 8
+    pixelX: 21
+    pixelY: 38
+    fps: 10
+    delay: 15
+  - nombre: "champion_move2"
+    ruta: "recursos\\champion_moveAOEp2.png"
+    subX: 10
+    subY: 8
+    pixelX: 21
+    pixelY: 38
+    delay: 0
+    fps: 20
+  - nombre: "castle2"
+    ruta: "recursos\\castleAOEp2.png"
+    pixelX: 148
+    pixelY: 177
+  - nombre: "knight2"
+    ruta: "recursos\\knightAOEp2.png"
+    subX: 10
+    subY: 8
+    pixelX: 34
+    pixelY: 41
+    fps: 8
+    delay: 3
+  - nombre: "knight_move2"
+    ruta: "recursos\\knight_moveAOEp2.png"
+    subX: 10
+    subY: 8
+    pixelX: 26
+    pixelY: 49
+    fps: 18
+    delay: 0
+  - nombre: "house2"
+    ruta: "recursos\\houseAOEp2.png"
+    pixelX: 76
+    pixelY: 42
+  - nombre: "windmill2"
+    ruta: "recursos\\windmillAOEp2.png"
+    subX: 8
+    subY: 1
+    pixelX: 84
+    pixelY: 57
+    fps: 10
+    delay: 0
+  - nombre: "town center2"
+    ruta: "recursos\\urbanCenterAOEp2.png"
+    pixelX: 130
+    pixelY: 62
+  - nombre: "barracks2"
+    ruta: "recursos\\barracksAOEp2.png"
+    pixelX: 101
+    pixelY: 53
+  - nombre: "archery2"
+    ruta: "recursos\\archeryAOEp2.png"
+    pixelX: 103
+    pixelY: 49
+  - nombre: "stable2"
+    ruta: "recursos\\stableAOEp2.png"
+    pixelX: 102
+    pixelY: 15
+  - nombre: "champion3"
+    ruta: "recursos\\championAOEp3.png"
+    subX: 10
+    subY: 8
+    pixelX: 21
+    pixelY: 38
+    fps: 10
+    delay: 15
+  - nombre: "champion_move3"
+    ruta: "recursos\\champion_moveAOEp3.png"
+    subX: 10
+    subY: 8
+    pixelX: 21
+    pixelY: 38
+    delay: 0
+    fps: 20
+  - nombre: "castle3"
+    ruta: "recursos\\castleAOEp3.png"
+    pixelX: 148
+    pixelY: 177
+  - nombre: "knight3"
+    ruta: "recursos\\knightAOEp3.png"
+    subX: 10
+    subY: 8
+    pixelX: 34
+    pixelY: 41
+    fps: 8
+    delay: 3
+  - nombre: "knight_move3"
+    ruta: "recursos\\knight_moveAOEp3.png"
+    subX: 10
+    subY: 8
+    pixelX: 26
+    pixelY: 49
+    fps: 18
+    delay: 0
+  - nombre: "house3"
+    ruta: "recursos\\houseAOEp3.png"
+    pixelX: 76
+    pixelY: 42
+  - nombre: "windmill3"
+    ruta: "recursos\\windmillAOEp3.png"
+    subX: 8
+    subY: 1
+    pixelX: 84
+    pixelY: 57
+    fps: 10
+    delay: 0
+  - nombre: "town center3"
+    ruta: "recursos\\urbanCenterAOEp3.png"
+    pixelX: 130
+    pixelY: 62
+  - nombre: "barracks3"
+    ruta: "recursos\\barracksAOEp3.png"
+    pixelX: 101
+    pixelY: 53
+  - nombre: "archery3"
+    ruta: "recursos\\archeryAOEp3.png"
+    pixelX: 103
+    pixelY: 49
+  - nombre: "stable3"
+    ruta: "recursos\\stableAOEp3.png"
+    pixelX: 102
+    pixelY: 15
+  - nombre: "Gchampion"
+    ruta: "recursos\\GchampionAOE.png"
+    subX: 10
+    subY: 8
+    pixelX: 21
+    pixelY: 38
+    fps: 10
+    delay: 15
+  - nombre: "Gchampion_move"
+    ruta: "recursos\\Gchampion_moveAOE.png"
+    subX: 10
+    subY: 8
+    pixelX: 21
+    pixelY: 38
+    delay: 0
+    fps: 20
+  - nombre: "Gcastle"
+    ruta: "recursos\\GcastleAOE.png"
+    pixelX: 148
+    pixelY: 177
+  - nombre: "Gknight"
+    ruta: "recursos\\GknightAOE.png"
+    subX: 10
+    subY: 8
+    pixelX: 34
+    pixelY: 41
+    fps: 8
+    delay: 3
+  - nombre: "Gknight_move"
+    ruta: "recursos\\Gknight_moveAOE.png"
+    subX: 10
+    subY: 8
+    pixelX: 26
+    pixelY: 49
+    fps: 18
+    delay: 0
+  - nombre: "Ghouse"
+    ruta: "recursos\\GhouseAOE.png"
+    pixelX: 76
+    pixelY: 42
+  - nombre: "Gwindmill"
+    ruta: "recursos\\GwindmillAOE.png"
+    subX: 8
+    subY: 1
+    pixelX: 84
+    pixelY: 57
+    fps: 10
+    delay: 0
+  - nombre: "Gtown_center"
+    ruta: "recursos\\GtownCenterAOE.png"
+    pixelX: 56
+    pixelY: 159
+  - nombre: "Gbarracks"
+    ruta: "recursos\\GbarracksAOE.png"
+    pixelX: 101
+    pixelY: 53
+  - nombre: "Garchery"
+    ruta: "recursos\\GarcheryAOE.png"
+    pixelX: 103
+    pixelY: 49
+  - nombre: "Gstable"
+    ruta: "recursos\\GstableAOE.png"
+    pixelX: 102
+    pixelY: 15
+  - nombre: "ram_atk"
+    ruta: "recursos\\ram_atkAOE.png"
+    pixelX: 41
+    pixelY: 50
+    subX: 15
+    subY: 8
+    fps: 8
+    delay: 12
+  - nombre: "ram_atk2"
+    ruta: "recursos\\ram_atkAOEp2.png"
+    pixelX: 41
+    pixelY: 50
+    subX: 15
+    subY: 8
+    fps: 8
+    delay: 12
+  - nombre: "ram_atk3"
+    ruta: "recursos\\ram_atkAOEp3.png"
+    pixelX: 41
+    pixelY: 50
+    subX: 15
+    subY: 8
+    fps: 8
+    delay: 12
+  - nombre: "ram"
+    ruta: "recursos\\ramAOE.png"
+    pixelX: 36
+    pixelY: 47
+    subX: 1
+    subY: 8
+  - nombre: "ram2"
+    ruta: "recursos\\ramAOEp2.png"
+    pixelX: 36
+    pixelY: 47
+    subX: 1
+    subY: 8
+  - nombre: "ram3"
+    ruta: "recursos\\ramAOEp3.png"
+    pixelX: 36
+    pixelY: 47
+    subX: 1
+    subY: 8
+  - nombre: "Gram"
+    ruta: "recursos\\GramAOE.png"
+    pixelX: 36
+    pixelY: 47
+    subX: 1
+    subY: 8
+  - nombre: "ram_move"
+    ruta: "recursos\\ram_moveAOE.png"
+    pixelX: 36
+    pixelY: 51
+    subX: 15
+    subY: 8
+    fps: 6
+  - nombre: "ram_move2"
+    ruta: "recursos\\ram_moveAOEp2.png"
+    pixelX: 36
+    pixelY: 51
+    subX: 15
+    subY: 8
+    fps: 6
+  - nombre: "ram_move3"
+    ruta: "recursos\\ram_moveAOEp3.png"
+    pixelX: 36
+    pixelY: 51
+    subX: 15
+    subY: 8
+    fps: 6
+  - nombre: "Gram_move"
+    ruta: "recursos\\Gram_moveAOE.png"
+    pixelX: 36
+    pixelY: 51
+    subX: 15
+    subY: 8
+    fps: 6
+  - nombre: "pikeman"
+    ruta: "recursos\\pikemanAOE.png"
+    pixelX: 30
+    pixelY: 42
+    subX: 8
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "pikeman2"
+    ruta: "recursos\\pikemanAOEp2.png"
+    pixelX: 30
+    pixelY: 42
+    subX: 8
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "pikeman3"
+    ruta: "recursos\\pikemanAOEp3.png"
+    pixelX: 30
+    pixelY: 42
+    subX: 8
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "Gpikeman"
+    ruta: "recursos\\GpikemanAOE.png"
+    pixelX: 30
+    pixelY: 42
+    subX: 8
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "pikeman_move"
+    ruta: "recursos\\pikeman_moveAOE.png"
+    pixelX: 24
+    pixelY: 41
+    subX: 10
+    subY: 8
+    fps: 7
+  - nombre: "pikeman_move2"
+    ruta: "recursos\\pikeman_moveAOEp2.png"
+    pixelX: 24
+    pixelY: 41
+    subX: 10
+    subY: 8
+    fps: 7
+  - nombre: "pikeman_move3"
+    ruta: "recursos\\pikeman_moveAOEp3.png"
+    pixelX: 24
+    pixelY: 41
+    subX: 10
+    subY: 8
+    fps: 7
+  - nombre: "Gpikeman_move"
+    ruta: "recursos\\Gpikeman_moveAOE.png"
+    pixelX: 24
+    pixelY: 41
+    subX: 10
+    subY: 8
+    fps: 7
+  - nombre: "pikeman_atk"
+    ruta: "recursos\\pikeman_atkAOE.png"
+    pixelX: 48
+    pixelY: 39
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "pikeman_atk2"
+    ruta: "recursos\\pikeman_atkAOEp2.png"
+    pixelX: 48
+    pixelY: 39
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "pikeman_atk3"
+    ruta: "recursos\\pikeman_atkAOEp3.png"
+    pixelX: 48
+    pixelY: 39
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "king"
+    ruta: "recursos\\kingAOE.png"
+    pixelX: 14
+    pixelY: 29
+    subX: 6
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "king2"
+    ruta: "recursos\\kingAOEp2.png"
+    pixelX: 14
+    pixelY: 29
+    subX: 6
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "king3"
+    ruta: "recursos\\kingAOEp3.png"
+    pixelX: 14
+    pixelY: 29
+    subX: 6
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "Gking"
+    ruta: "recursos\\GkingAOE.png"
+    pixelX: 14
+    pixelY: 29
+    subX: 6
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "villager_collect"
+    ruta: "recursos\\villager_collectAOE.png"
+    pixelX: 13
+    pixelY: 15
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_collect2"
+    ruta: "recursos\\villager_collectAOEp2.png"
+    pixelX: 13
+    pixelY: 15
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_collect3"
+    ruta: "recursos\\villager_collectAOEp3.png"
+    pixelX: 13
+    pixelY: 15
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_chop"
+    ruta: "recursos\\villager_chopAOE.png"
+    pixelX: 16
+    pixelY: 35
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_chop2"
+    ruta: "recursos\\villager_chopAOEp2.png"
+    pixelX: 16
+    pixelY: 35
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_chop3"
+    ruta: "recursos\\villager_chopAOEp3.png"
+    pixelX: 16
+    pixelY: 35
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_mine"
+    ruta: "recursos\\villager_mineAOE.png"
+    pixelX: 15
+    pixelY: 33
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_mine2"
+    ruta: "recursos\\villager_mineAOEp2.png"
+    pixelX: 15
+    pixelY: 33
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_mine3"
+    ruta: "recursos\\villager_mineAOEp3.png"
+    pixelX: 15
+    pixelY: 33
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_build"
+    ruta: "recursos\\villager_buildAOE.png"
+    pixelX: 10
+    pixelY: 23
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_build2"
+    ruta: "recursos\\villager_buildAOEp2.png"
+    pixelX: 10
+    pixelY: 23
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager_build3"
+    ruta: "recursos\\villager_buildAOEp3.png"
+    pixelX: 10
+    pixelY: 23
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "villager"
+    ruta: "recursos\\villagerAOE.png"
+    pixelX: 11
+    pixelY: 36
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "villager2"
+    ruta: "recursos\\villagerAOEp2.png"
+    pixelX: 11
+    pixelY: 36
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "villager3"
+    ruta: "recursos\\villagerAOEp3.png"
+    pixelX: 11
+    pixelY: 36
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "Gvillager"
+    ruta: "recursos\\GvillagerAOE.png"
+    pixelX: 11
+    pixelY: 36
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "villager_move"
+    ruta: "recursos\\villager_moveAOE.png"
+    pixelX: 18
+    pixelY: 28
+    subX: 15
+    subY: 8
+    fps: 8
+  - nombre: "villager_move2"
+    ruta: "recursos\\villager_moveAOEp2.png"
+    pixelX: 18
+    pixelY: 28
+    subX: 15
+    subY: 8
+    fps: 8
+  - nombre: "villager_move3"
+    ruta: "recursos\\villager_moveAOEp3.png"
+    pixelX: 18
+    pixelY: 28
+    subX: 15
+    subY: 8
+    fps: 8
+  - nombre: "Gvillager_move"
+    ruta: "recursos\\Gvillager_moveAOE.png"
+    pixelX: 18
+    pixelY: 28
+    subX: 15
+    subY: 8
+    fps: 8
+  - nombre: "knight_atk"
+    ruta: "recursos\\knight_atkAOE.png"
+    pixelX: 26
+    pixelY: 56
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "knight_atk2"
+    ruta: "recursos\\knight_atkAOEp2.png"
+    pixelX: 26
+    pixelY: 56
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "knight_atk3"
+    ruta: "recursos\\knight_atkAOEp3.png"
+    pixelX: 26
+    pixelY: 56
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "champion_atk"
+    ruta: "recursos\\champion_atkAOE.png"
+    pixelX: 32
+    pixelY: 45
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "champion_atk2"
+    ruta: "recursos\\champion_atkAOEp2.png"
+    pixelX: 32
+    pixelY: 45
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "champion_atk3"
+    ruta: "recursos\\champion_atkAOEp3.png"
+    pixelX: 32
+    pixelY: 45
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "champion_die2"
+    ruta: "recursos\\champion_dieAOEp2.png"
+    pixelX: 37
+    pixelY: 32
+    subX: 10
+    subY: 8
+    fps: 1
+    delay: 0
+  - nombre: "paladin_atk"
+    ruta: "recursos\\paladin_atkAOE.png"
+    pixelX: 26
+    pixelY: 52
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "paladin_atk2"
+    ruta: "recursos\\paladin_atkAOEp2.png"
+    pixelX: 26
+    pixelY: 52
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "paladin_atk3"
+    ruta: "recursos\\paladin_atkAOEp3.png"
+    pixelX: 26
+    pixelY: 52
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "paladin"
+    ruta: "recursos\\paladinAOE.png"
+    pixelX: 33
+    pixelY: 51
+    subX: 10
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "paladin2"
+    ruta: "recursos\\paladinAOEp2.png"
+    pixelX: 33
+    pixelY: 51
+    subX: 10
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "paladin3"
+    ruta: "recursos\\paladinAOEp3.png"
+    pixelX: 33
+    pixelY: 51
+    subX: 10
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "Gpaladin"
+    ruta: "recursos\\GpaladinAOE.png"
+    pixelX: 33
+    pixelY: 51
+    subX: 10
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "paladin_move"
+    ruta: "recursos\\paladin_moveAOE.png"
+    pixelX: 27
+    pixelY: 48
+    subX: 10
+    subY: 8
+    fps: 7
+  - nombre: "paladin_move2"
+    ruta: "recursos\\paladin_moveAOEp2.png"
+    pixelX: 27
+    pixelY: 48
+    subX: 10
+    subY: 8
+    fps: 7
+  - nombre: "paladin_move3"
+    ruta: "recursos\\paladin_moveAOEp3.png"
+    pixelX: 27
+    pixelY: 48
+    subX: 10
+    subY: 8
+    fps: 7
+  - nombre: "Gpaladin_move"
+    ruta: "recursos\\Gpaladin_moveAOE.png"
+    pixelX: 27
+    pixelY: 48
+    subX: 10
+    subY: 8
+    fps: 7
+
+  - nombre: "colosus_atk"
+    ruta: "recursos\\colosus_atkAOE.png"
+    pixelX: 15
+    pixelY: 37
+    subX: 15
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "colosus_atk2"
+    ruta: "recursos\\colosus_atkAOEp2.png"
+    pixelX: 15
+    pixelY: 37
+    subX: 15
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "colosus_atk3"
+    ruta: "recursos\\colosus_atkAOEp3.png"
+    pixelX: 15
+    pixelY: 37
+    subX: 15
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "colosus"
+    ruta: "recursos\\colosusAOE.png"
+    pixelX: 48
+    pixelY: 42
+    subX: 1
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "colosus2"
+    ruta: "recursos\\colosusAOEp2.png"
+    pixelX: 48
+    pixelY: 42
+    subX: 1
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "colosus3"
+    ruta: "recursos\\colosusAOEp3.png"
+    pixelX: 48
+    pixelY: 42
+    subX: 1
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "Gcolosus"
+    ruta: "recursos\\GcolosusAOE.png"
+    pixelX: 48
+    pixelY: 42
+    subX: 1
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "colosus_move"
+    ruta: "recursos\\colosus_moveAOE.png"
+    pixelX: 23
+    pixelY: 39
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "colosus_move2"
+    ruta: "recursos\\colosus_moveAOEp2.png"
+    pixelX: 23
+    pixelY: 39
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "colosus_move3"
+    ruta: "recursos\\colosus_moveAOEp3.png"
+    pixelX: 23
+    pixelY: 39
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "Gcolosus_move"
+    ruta: "recursos\\Gcolosus_moveAOE.png"
+    pixelX: 23
+    pixelY: 23
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "building2x2"
+    ruta: "recursos\\building_2x2AOE.png"
+    pixelX: 54
+    pixelY: 25
+    subX: 3
+    subY: 1
+  - nombre: "building3x3"
+    ruta: "recursos\\building_3x3AOE.png"
+    pixelX: 87
+    pixelY: 23
+    subX: 3
+    subY: 1
+  - nombre: "building4x4"
+    ruta: "recursos\\building_4x4AOE.png"
+    pixelX: 110
+    pixelY: 19
+    subX: 3
+    subY: 1
+  - nombre: "building5x5"
+    ruta: "recursos\\building_5x5AOE.png"
+    pixelX: 142
+    pixelY: 18
+    subX: 3
+    subY: 1
+  - nombre: "building2x22"
+    ruta: "recursos\\building_2x2AOEp2.png"
+    pixelX: 54
+    pixelY: 25
+    subX: 3
+    subY: 1
+  - nombre: "building3x32"
+    ruta: "recursos\\building_3x3AOEp2.png"
+    pixelX: 87
+    pixelY: 23
+    subX: 3
+    subY: 1
+  - nombre: "building4x42"
+    ruta: "recursos\\building_4x4AOEp2.png"
+    pixelX: 110
+    pixelY: 19
+    subX: 3
+    subY: 1
+  - nombre: "building5x52"
+    ruta: "recursos\\building_5x5AOEp2.png"
+    pixelX: 142
+    pixelY: 18
+    subX: 3
+    subY: 1
+  - nombre: "building2x23"
+    ruta: "recursos\\building_2x2AOEp3.png"
+    pixelX: 54
+    pixelY: 25
+    subX: 3
+    subY: 1
+  - nombre: "building3x33"
+    ruta: "recursos\\building_3x3AOEp3.png"
+    pixelX: 87
+    pixelY: 23
+    subX: 3
+    subY: 1
+  - nombre: "building4x43"
+    ruta: "recursos\\building_4x4AOEp3.png"
+    pixelX: 110
+    pixelY: 19
+    subX: 3
+    subY: 1
+  - nombre: "building5x53"
+    ruta: "recursos\\building_5x5AOEp3.png"
+    pixelX: 142
+    pixelY: 18
+    subX: 3
+    subY: 1
+  - nombre: "arbalest_atk"
+    ruta: "recursos\\arbalest_atkAOE.png"
+    pixelX: 28
+    pixelY: 34
+    subX: 11
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "arbalest_atk2"
+    ruta: "recursos\\arbalest_atkAOEp2.png"
+    pixelX: 28
+    pixelY: 34
+    subX: 11
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "arbalest_atk3"
+    ruta: "recursos\\arbalest_atkAOEp3.png"
+    pixelX: 28
+    pixelY: 34
+    subX: 11
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "arbalest"
+    ruta: "recursos\\arbalestAOE.png"
+    pixelX: 16
+    pixelY: 30
+    subX: 11
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "arbalest2"
+    ruta: "recursos\\arbalestAOEp2.png"
+    pixelX: 16
+    pixelY: 30
+    subX: 11
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "arbalest3"
+    ruta: "recursos\\arbalestAOEp3.png"
+    pixelX: 16
+    pixelY: 30
+    subX: 11
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "Garbalest"
+    ruta: "recursos\\GarbalestAOE.png"
+    pixelX: 16
+    pixelY: 30
+    subX: 11
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "arbalest_move"
+    ruta: "recursos\\arbalest_moveAOE.png"
+    pixelX: 18
+    pixelY: 39
+    subX: 11
+    subY: 8
+    fps: 5
+  - nombre: "arbalest_move2"
+    ruta: "recursos\\arbalest_moveAOEp2.png"
+    pixelX: 18
+    pixelY: 39
+    subX: 11
+    subY: 8
+    fps: 5
+  - nombre: "arbalest_move3"
+    ruta: "recursos\\arbalest_moveAOEp3.png"
+    pixelX: 18
+    pixelY: 39
+    subX: 11
+    subY: 8
+    fps: 5
+  - nombre: "Garbalest_move"
+    ruta: "recursos\\Garbalest_moveAOE.png"
+    pixelX: 18
+    pixelY: 39
+    subX: 11
+    subY: 8
+    fps: 5
+  - nombre: "mangudai_atk"
+    ruta: "recursos\\mangudai_atkAOE.png"
+    pixelX: 42
+    pixelY: 56
+    subX: 13
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "mangudai_atk2"
+    ruta: "recursos\\mangudai_atkAOEp2.png"
+    pixelX: 42
+    pixelY: 56
+    subX: 13
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "mangudai_atk3"
+    ruta: "recursos\\mangudai_atkAOEp3.png"
+    pixelX: 42
+    pixelY: 56
+    subX: 13
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "mangudai"
+    ruta: "recursos\\mangudaiAOE.png"
+    pixelX: 39
+    pixelY: 103
+    subX: 10
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "mangudai2"
+    ruta: "recursos\\mangudaiAOEp2.png"
+    pixelX: 39
+    pixelY: 103
+    subX: 10
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "mangudai3"
+    ruta: "recursos\\mangudaiAOEp3.png"
+    pixelX: 39
+    pixelY: 103
+    subX: 10
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "Gmangudai"
+    ruta: "recursos\\GmangudaiAOE.png"
+    pixelX: 39
+    pixelY: 103
+    subX: 10
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "mangudai_move"
+    ruta: "recursos\\mangudai_moveAOE.png"
+    pixelX: 36
+    pixelY: 49
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "mangudai_move2"
+    ruta: "recursos\\mangudai_moveAOEp2.png"
+    pixelX: 36
+    pixelY: 49
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "mangudai_move3"
+    ruta: "recursos\\mangudai_moveAOEp3.png"
+    pixelX: 36
+    pixelY: 49
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "Gmangudai_move"
+    ruta: "recursos\\Gmangudai_moveAOE.png"
+    pixelX: 36
+    pixelY: 49
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "teutonic knight_atk"
+    ruta: "recursos\\teutonicKnight_atkAOE.png"
+    pixelX: 30
+    pixelY: 39
+    subX: 15
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "teutonic knight_atk2"
+    ruta: "recursos\\teutonicKnight_atkAOEp2.png"
+    pixelX: 30
+    pixelY: 39
+    subX: 15
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "teutonic knight_atk3"
+    ruta: "recursos\\teutonicKnight_atkAOEp3.png"
+    pixelX: 30
+    pixelY: 39
+    subX: 15
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "teutonic knight"
+    ruta: "recursos\\teutonicKnightAOE.png"
+    pixelX: 11
+    pixelY: 28
+    subX: 10
+    subY: 8
+    fps: 0
+  - nombre: "teutonic knight2"
+    ruta: "recursos\\teutonicKnightAOEp2.png"
+    pixelX: 11
+    pixelY: 28
+    subX: 10
+    subY: 8
+    fps: 0
+  - nombre: "teutonic knight3"
+    ruta: "recursos\\teutonicKnightAOEp3.png"
+    pixelX: 11
+    pixelY: 28
+    subX: 10
+    subY: 8
+    fps: 0
+  - nombre: "Gteutonic knight"
+    ruta: "recursos\\GteutonicKnightAOE.png"
+    pixelX: 11
+    pixelY: 28
+    subX: 10
+    subY: 8
+    fps: 0
+  - nombre: "teutonic knight_move"
+    ruta: "recursos\\teutonicKnight_moveAOE.png"
+    pixelX: 11
+    pixelY: 28
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "teutonic knight_move2"
+    ruta: "recursos\\teutonicKnight_moveAOEp2.png"
+    pixelX: 11
+    pixelY: 28
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "teutonic knight_move3"
+    ruta: "recursos\\teutonicKnight_moveAOEp3.png"
+    pixelX: 11
+    pixelY: 28
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "Gteutonic knight_move"
+    ruta: "recursos\\GteutonicKnight_moveAOE.png"
+    pixelX: 11
+    pixelY: 28
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "siege weapon factory"
+    ruta: "recursos\\blacksmithAOE.png"
+    pixelX: 101
+    pixelY: 29
+  - nombre: "siege weapon factory2"
+    ruta: "recursos\\blacksmithAOEp2.png"
+    pixelX: 101
+    pixelY: 29
+  - nombre: "siege weapon factory3"
+    ruta: "recursos\\blacksmithAOEp3.png"
+    pixelX: 101
+    pixelY: 29
+  - nombre: "Gsiege weapon factory"
+    ruta: "recursos\\GblacksmithAOE.png"
+    pixelX: 101
+    pixelY: 29

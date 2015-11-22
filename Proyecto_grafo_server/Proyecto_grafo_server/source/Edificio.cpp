@@ -64,6 +64,9 @@ af_result_t Edificio::avanzarFrame(Escenario* scene) {
 			return AF_SPAWN;
 		}
 	}
+	if (this->vidaAct <= 0 || this->state == EST_MUERTO)
+		return AF_KILL;
+
 	return AF_NONE;
 }
 

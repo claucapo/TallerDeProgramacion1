@@ -528,11 +528,11 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 
 	// Muestro los recursos
 	SDL_Surface* surfRes;
-	ostringstream recursito;
+	stringstream recursitoM, recursitoC, recursitoO, recursitoP;
 
 	// Madera
-	recursito << this->player->verRecurso().madera;
-	string recurso = recursito.str();
+	recursitoM << this->player->verRecurso().madera;
+	string recurso = recursitoM.str();
 	surfRes = this->renderText(recurso);
 	rectangulo.x = 29;
 	rectangulo.y = 1;
@@ -540,10 +540,11 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 	rectangulo.w = recurso.length()* 11;
 	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
 	SDL_FreeSurface(surfRes);
-	recursito.seekp(0);
+	recursitoM.seekp(0);
+	recursitoM.clear();
 	// Comida
-	recursito << this->player->verRecurso().comida;
-	recurso = recursito.str();
+	recursitoC << this->player->verRecurso().comida;
+	recurso = recursitoC.str();
 	surfRes = this->renderText(recurso);
 	rectangulo.x = 92;
 	rectangulo.y = 1;
@@ -551,10 +552,11 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 	rectangulo.w = recurso.length()* 11;
 	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
 	SDL_FreeSurface(surfRes);
-	recursito.seekp(0);
+	recursitoC.seekp(0);
+	recursitoC.clear();
 	// Oro
-	recursito << this->player->verRecurso().oro;
-	recurso = recursito.str();
+	recursitoO << this->player->verRecurso().oro;
+	recurso = recursitoO.str();
 	surfRes = this->renderText(recurso);
 	rectangulo.x = 157;
 	rectangulo.y = 1;
@@ -562,10 +564,11 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 	rectangulo.w = recurso.length()* 11;
 	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
 	SDL_FreeSurface(surfRes);
-	recursito.seekp(0);
+	recursitoO.seekp(0);
+	recursitoO.clear();
 	// Roca
-	recursito << this->player->verRecurso().piedra;
-	recurso = recursito.str();
+	recursitoP << this->player->verRecurso().piedra;
+	recurso = recursitoP.str();
 	surfRes = this->renderText(recurso);
 	rectangulo.x = 216;
 	rectangulo.y = 1;
@@ -573,7 +576,8 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 	rectangulo.w = recurso.length()* 11;
 	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
 	SDL_FreeSurface(surfRes);
-	recursito.seekp(0);
+	recursitoP.seekp(0);
+	recursitoP.clear();
 	
 
 	// Rectangulo de selecion

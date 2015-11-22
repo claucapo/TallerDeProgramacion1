@@ -153,7 +153,7 @@ entidades:
     tipo: "building"
     sizeX: 6
     sizeY: 6
-    vidaMax: 10000
+    vidaMax: 1000
     entrenables: ["teutonic knight", "colosus"]
   - nombre: "knight"
     sizeX: 1

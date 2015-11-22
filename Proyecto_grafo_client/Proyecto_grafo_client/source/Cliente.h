@@ -64,7 +64,7 @@ public:
 	// Métodos que operan con las colas de updates y eventos
 	void agregarEvento(struct msg_event);
 	void agregarUpdate(struct msg_update);
-	void procesarUpdates(Partida* game);
+	void procesarUpdates(Partida* game, unsigned int actPlayer);
 	void generarKeepAlive();
 	struct mapa_inicial getEscenario(void);
 	// int enviarEventos(void);
