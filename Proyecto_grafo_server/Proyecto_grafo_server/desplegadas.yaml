@@ -26,17 +26,18 @@ entidades:
     velocidad: 7
     atk: 3
     def: 1
-    vidaMax: 20
-    cooldown: 20
-    collectR: 5
+    vidaMax: 80
+    cooldown: 40
+    collectR: 1
     buildR: 50
     trainR: 50
     costFood: 50
-    costGold: 100
-    costWood: 10
-    costStone: 55
+    costGold: 0
+    costWood: 0
+    costStone: 0
     entrenables: []
     habilidades: ["attack", "build", "collect"]
+    luck: 20
   - nombre: "gold mine"
     tipo: "resource"
     maxR: 5000
@@ -60,7 +61,13 @@ entidades:
     atk: 13
     def: 4
     vidaMax: 250
+    cooldown: 40
+    costFood: 60
+    costGold: 20
+    costWood: 0
+    costStone: 0
     habilidades: ["attack", "infantry", "bonus_vs_infantry"]
+    luck: 40
   - nombre: "pikeman"
     tipo: "unit"
     velocidad: 8
@@ -69,11 +76,12 @@ entidades:
     def: 4
     vidaMax: 160
     habilidades: ["attack", "infantry", "bonus_vs_cavalry"]
-    cooldown: 20
-    costFood: 50
-    costGold: 100
-    costWood: 10
+    cooldown: 40
+    costFood: 35
+    costGold: 0
+    costWood: 0
     costStone: 55
+    luck: 40
   - nombre: "colosus"
     tipo: "unit"
     velocidad: 3
@@ -82,24 +90,26 @@ entidades:
     def: 11
     vidaMax: 410
     habilidades: ["attack", "infantry", "bonus_vs_siege"]
-    cooldown: 20
+    cooldown: 50
     costFood: 50
-    costGold: 100
-    costWood: 10
-    costStone: 55
+    costGold: 80
+    costWood: 0
+    costStone: 0
+    luck: 60
   - nombre: "ram"
     tipo: "unit"
     velocidad: 3
     rangoV: 4
-    atk: 14
+    atk: 16
     def: 10
     vidaMax: 360
     habilidades: ["attack", "siege", "bonus_vs_buildings"]
-    cooldown: 20
-    costFood: 50
-    costGold: 100
-    costWood: 10
+    cooldown: 40
+    costFood: 0
+    costGold: 75
+    costWood: 160
     costStone: 55
+    luck: 40
   - nombre: "teutonic knight"
     tipo: "unit"
     velocidad: 7
@@ -108,11 +118,12 @@ entidades:
     def: 4
     vidaMax: 190
     habilidades: ["attack", "infantry", "bonus_vs_infantry", "invisible"]
-    cooldown: 20
-    costFood: 50
-    costGold: 100
-    costWood: 10
-    costStone: 55
+    cooldown: 40
+    costFood: 85
+    costGold: 40
+    costWood: 0
+    costStone: 0
+    luck: 75
   - nombre: "arbalest"
     sizeX: 1
     sizeY: 1
@@ -121,16 +132,16 @@ entidades:
     velocidad: 9
     rangoV: 9
     rangoA: 8
-    luck: 99 #Luck: 0-Unlucky	50-Normal	100-Lucky
+    luck: 50 #Luck: 0-Unlucky	50-Normal	100-Lucky
     atk: 12
     def: 5
     vidaMax: 220
     habilidades: ["attack", "archery", "bonus_vs_infantry"]
-    cooldown: 20
-    costFood: 50
-    costGold: 100
-    costWood: 10
-    costStone: 55
+    cooldown: 50
+    costFood: 0
+    costGold: 50
+    costWood: 30
+    costStone: 0
   - nombre: "mangudai"
     sizeX: 1
     sizeY: 1
@@ -139,22 +150,26 @@ entidades:
     velocidad: 14
     rangoV: 9
     rangoA: 8
-    luck: 99 #Luck: 0-Unlucky	50-Normal	100-Lucky
+    luck: 60 #Luck: 0-Unlucky	50-Normal	100-Lucky
     atk: 12
     def: 5
     vidaMax: 220
     habilidades: ["attack", "archery", "bonus_vs_infantry"]
-    cooldown: 20
-    costFood: 50
-    costGold: 100
-    costWood: 10
-    costStone: 55
+    cooldown: 40
+    costFood: 0
+    costGold: 65
+    costWood: 60
+    costStone: 0
   - nombre: "castle"
     tipo: "building"
     sizeX: 6
     sizeY: 6
-    vidaMax: 1000
+    vidaMax: 2200
     entrenables: ["teutonic knight", "colosus"]
+    costFood: 0
+    costGold: 100
+    costWood: 0
+    costStone: 600
   - nombre: "knight"
     sizeX: 1
     sizeY: 1
@@ -166,11 +181,12 @@ entidades:
     def: 5
     vidaMax: 220
     habilidades: ["attack", "cavalry", "bonus_vs_archery"]
-    cooldown: 20
+    cooldown: 40
     costFood: 50
-    costGold: 100
-    costWood: 10
-    costStone: 55
+    costGold: 55
+    costWood: 0
+    costStone: 0
+    luck: 40
   - nombre: "paladin"
     sizeX: 1
     sizeY: 1
@@ -182,11 +198,12 @@ entidades:
     def: 8
     vidaMax: 340
     habilidades: ["attack", "cavalry", "bonus_vs_cavalry"]
-    cooldown: 20
-    costFood: 50
-    costGold: 100
-    costWood: 10
-    costStone: 55
+    cooldown: 40
+    costFood: 60
+    costGold: 75
+    costWood: 0
+    costStone: 0
+    luck: 50
   - nombre: "king"
     sizeX: 1
     sizeY: 1
@@ -196,13 +213,18 @@ entidades:
     rangoV: 5
     atk: 0
     def: 4
-    vidaMax: 10000
+    vidaMax: 100
     habilidades: []
+    luck: 60
   - nombre: "house"
     tipo: "building"
     sizeX: 3
     sizeY: 3
-    vidaMax: 200
+    vidaMax: 400
+    costFood: 0
+    costGold: 0
+    costWood: 50
+    costStone: 0
   - nombre: "windmill"
     tipo: "building"
     sizeX: 3
@@ -216,28 +238,52 @@ entidades:
     sizeX: 5
     sizeY: 5
     entrenables: ["villager"]
+    vidaMax: 1100
+    costFood: 0
+    costGold: 0
+    costWood: 275
+    costStone: 100
   - nombre: "barracks"
     tipo: "building"
     sizeX: 4
     sizeY: 4
-    vidaMax: 500
+    vidaMax: 530
     entrenables: ["pikeman", "champion"]
+    costFood: 0
+    costGold: 0
+    costWood: 175
+    costStone: 25
   - nombre: "archery"
     tipo: "building"
     sizeX: 4
     sizeY: 4
     entrenables: ["arbalest", "mangudai"]
+    vidaMax: 700
+    costFood: 0
+    costGold: 0
+    costWood: 175
+    costStone: 25
   - nombre: "stable"
     tipo: "building"
     sizeX: 4
     sizeY: 4
     entrenables: ["knight", "paladin"]
+    vidaMax: 700
+    costFood: 0
+    costGold: 0
+    costWood: 175
+    costStone: 25
   - nombre: "siege weapon factory"
     tipo: "building"
     sizeX: 4
     sizeY: 4
     vidaMax: 500
     entrenables: ["ram"]
+    vidaMax: 960
+    costFood: 00
+    costGold: 30
+    costWood: 205
+    costStone: 30
 escenario:
   nombre: DEFAULT_MAP
   sizeX: 40

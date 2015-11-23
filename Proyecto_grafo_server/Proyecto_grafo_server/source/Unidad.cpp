@@ -186,9 +186,10 @@ int Unidad::calcularDamage(Entidad* target) {
 	int damage = this->ataque;
 	damage -= target->defensa;
 
-	// Puedo obtener desde un -90% a un +90%
-	int luckFactor = rand() % 20;
-	luckFactor -= 10;
+	// Suerte:
+	int luckFactor = rand() % 20; // [0; 20]
+	int daLuck = this->luck - target->luck; // [-100; 100]
+	luckFactor += daLuck; // [-100; 120]
 	damage += damage*luckFactor/100;
 		
 	if (this->habilidades[ACT_BONUS_ARCHERY] && target->habilidades[ACT_ARCHERY]) {
@@ -198,9 +199,9 @@ int Unidad::calcularDamage(Entidad* target) {
 	} else if (this->habilidades[ACT_BONUS_CAVALRY] && target->habilidades[ACT_CAVALRY]) {
 		damage += damage;
 	} else if (this->habilidades[ACT_BONUS_SIEGE] && target->habilidades[ACT_SIEGE]) {
-		damage += damage;
+		damage += 1.2 * damage;
 	} else if (this->habilidades[ACT_BONUS_BUILDING] && ( (target->tipo == ENT_T_BUILDING) || (target->tipo == ENT_T_CONSTRUCTION) ) ) {
-		damage += damage;
+		damage += 1.5 * damage;
 	}
 
 	if (damage <= 0)

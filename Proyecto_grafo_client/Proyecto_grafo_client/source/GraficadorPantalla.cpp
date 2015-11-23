@@ -17,6 +17,7 @@
 #include <sstream>
 #include <SDL_mixer.h>
 #include <stdlib.h>
+#include <queue>
 
 using namespace std;
 
@@ -974,29 +975,29 @@ void GraficadorPantalla::mostrarStatsEntidad(Entidad* ent){
 				strStat.seekp(0);
 				strStat << "      ";
 				strStat.seekp(0);
-				}
+				
+				// Luck
+				stat = bu->devolverImagen("luck_icon");
+				rectangulo.x = 289 * screen_width*0.0015625;
+				rectangulo.y = 380 * screen_height*0.00208333;
+				rectangulo.h = 18;
+				rectangulo.w = 28;	
+				SDL_SetColorKey(stat, true, SDL_MapRGB(stat->format, 255, 255, 255));
+				SDL_BlitScaled( stat, NULL, pantalla, &rectangulo );
 
-			// Luck
-			stat = bu->devolverImagen("luck_icon");
-			rectangulo.x = 289 * screen_width*0.0015625;
-			rectangulo.y = 380 * screen_height*0.00208333;
-			rectangulo.h = 18;
-			rectangulo.w = 28;	
-			SDL_SetColorKey(stat, true, SDL_MapRGB(stat->format, 255, 255, 255));
-			SDL_BlitScaled( stat, NULL, pantalla, &rectangulo );
-
-			strStat << ent->luck;
-			stat = this->renderText(strStat.str());
-			rectangulo.x = 323 * screen_width*0.0015625;
-			rectangulo.y = 382 * screen_height*0.00208333;
-			rectangulo.h = 17;
-			rectangulo.w = strStat.str().length() * 11;	
-			SDL_SetSurfaceColorMod(stat, 38, 37, 32);
-			SDL_BlitScaled( stat, NULL, pantalla, &rectangulo );
+				strStat << ent->luck;
+				stat = this->renderText(strStat.str());
+				rectangulo.x = 323 * screen_width*0.0015625;
+				rectangulo.y = 382 * screen_height*0.00208333;
+				rectangulo.h = 17;
+				rectangulo.w = strStat.str().length() * 11;	
+				SDL_SetSurfaceColorMod(stat, 38, 37, 32);
+				SDL_BlitScaled( stat, NULL, pantalla, &rectangulo );
 		
-			strStat.seekp(0);
-			strStat << "      ";
-			strStat.seekp(0);
+				strStat.seekp(0);
+				strStat << "      ";
+				strStat.seekp(0);
+				}
 
 			// Attack
 			if(ent->habilidades[ACT_ATACK]){
@@ -1039,6 +1040,22 @@ void GraficadorPantalla::mostrarStatsEntidad(Entidad* ent){
 					rectangulo.w = strStat.str().length() * 11;	
 					SDL_SetSurfaceColorMod(stat, 38, 37, 32);
 					SDL_BlitScaled( stat, NULL, pantalla, &rectangulo );
+					strStat.seekp(0);
+					strStat << "      ";
+					strStat.seekp(0);
+				}
+			}
+			// Construccion
+			if(ent->verTipo() == ENT_T_BUILDING){
+				Edificio* edi = (Edificio*) ent;
+				if(edi->porcentajeEntrenado() != -1){
+					stat = bu->devolverImagen(edi->cola_produccion.front().name + "_icon");
+					rectangulo.x = 351 * screen_width*0.0015625;
+					rectangulo.y = 380 * screen_height*0.00208333;
+					rectangulo.h = 18;
+					rectangulo.w = 28;	
+					SDL_BlitScaled( stat, NULL, pantalla, &rectangulo );
+
 				}
 			}
 		}

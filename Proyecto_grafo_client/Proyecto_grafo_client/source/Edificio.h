@@ -22,7 +22,6 @@ private:
 	// No puede exceder a la constante MAX_PRODUCCION
 	int cant_en_produccion;
 
-	std::queue<training_dummy> cola_produccion;
 
 	// Metodo que se tiene que llamar cada vez que una unidad nueva
 	// pasa al frente de la cola de produccion. Recalcula los
@@ -31,6 +30,7 @@ private:
 
 public:
 		
+	std::queue<training_dummy> cola_produccion;
 	int ticks_restantes;
 	int ticks_totales;
 	std::string entrenables[MAX_ENTRENABLES];

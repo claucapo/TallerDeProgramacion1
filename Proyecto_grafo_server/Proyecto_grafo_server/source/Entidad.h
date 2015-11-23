@@ -29,7 +29,6 @@ protected:
 	int tamX;
 	int tamY;
 	int trainRate;
-	int luck;
 
 	// Quizas agregar un struct con la informacion?;
 	int rangoVision;
@@ -37,6 +36,8 @@ protected:
 	Jugador* owner;
 
 public:
+	
+	int luck;
 	unsigned int targetID;
 	unsigned int typeID;
 	string name;

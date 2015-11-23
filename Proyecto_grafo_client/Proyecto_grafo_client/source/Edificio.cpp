@@ -44,7 +44,7 @@ void Edificio::recalcularTicks(void) {
 
 
 af_result_t Edificio::avanzarFrame(Escenario* scene) {
-	this->porcentajeEntrenado();
+	this->ticks_restantes--;
 	return AF_NONE;
 }
 
@@ -59,7 +59,7 @@ bool Edificio::entrenarUnidad(unsigned int typeID, int totalTicks) {
 		this->cant_en_produccion++;
 
 		if (this->cant_en_produccion == 1)
-			this->resetearTicks();
+			this->recalcularTicks();
 		return true;
 	}
 	return false;

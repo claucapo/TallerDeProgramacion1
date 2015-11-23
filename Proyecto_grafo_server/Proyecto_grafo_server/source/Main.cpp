@@ -217,7 +217,6 @@ SDL_Surface* renderNumbers(string msj, SDL_Surface* font, SDL_Surface* pantalla)
 	SDL_Surface* elTexto = SDL_CreateRGBSurface(0, largo*31, 34,32,0,0,0,0); 
 	if(elTexto == NULL)
 		return NULL;
-	// Relleno de blanco
 	SDL_Rect aux;
 	aux.x = 0;
 	aux.y = 0;
