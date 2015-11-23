@@ -248,7 +248,7 @@ SDL_Surface* renderNumbers(string msj, SDL_Surface* font, SDL_Surface* pantalla)
 	return texto;
 }
 
-void pantallaInicio(struct datosPantInic datos){
+void pantallaInicio(struct datosPantInic *datos){
 	// Cargar SDL
 	Uint32 flags = SDL_WINDOW_SHOWN;
 	SDL_Window* ventana = NULL;
@@ -333,7 +333,7 @@ void pantallaInicio(struct datosPantInic datos){
 		else if(cont == 1){
 			pos.y = 100;
 			pos.x = 270;
-			imgTexto = renderNumbers(datos.puerto, font, pantalla);
+			imgTexto = renderNumbers(datos->puerto, font, pantalla);
 			SDL_BlitSurface(imgTexto, NULL, pantalla, &pos);
 			SDL_FreeSurface(imgTexto);
 			pos.y = 144;
@@ -345,13 +345,13 @@ void pantallaInicio(struct datosPantInic datos){
 		else{
 			pos.y = 100;
 			pos.x = 270;
-			imgTexto = renderNumbers(datos.puerto, font, pantalla);
+			imgTexto = renderNumbers(datos->puerto, font, pantalla);
 			SDL_BlitSurface(imgTexto, NULL, pantalla, &pos);
 			SDL_FreeSurface(imgTexto);
 			pos.y = 144;
 			pos.x = 490;
 			stringstream convert;
-			convert << datos.cantPlayers;
+			convert << datos->cantPlayers;
 			imgTexto = renderNumbers((convert.str()), font, pantalla);
 			SDL_BlitSurface(imgTexto, NULL, pantalla, &pos);
 			SDL_FreeSurface(imgTexto);
@@ -381,12 +381,12 @@ void pantallaInicio(struct datosPantInic datos){
 			if(q!= "error"){
 				if(q == "finish"){
 					if(cont == 0)
-						datos.puerto = insAux;
+						datos->puerto = insAux;
 					else if(cont == 1){
-						datos.cantPlayers = std::stoi(insAux);
+						datos->cantPlayers = std::stoi(insAux);
 						}
 					else{
-						datos.tipoPartida = std::stoi(insAux);
+						datos->tipoPartida = std::stoi(insAux);
 						}
 					insAux.clear();
 					cont++;
@@ -456,7 +456,7 @@ int main(int argc, char* argv[]) {
 
 	/*
 	struct datosPantInic datos;
-	pantallaInicio(datos);
+	pantallaInicio(&datos);
 
 	cout << "PUERTO: " << datos.puerto << endl;
 	cout << "CANT PLAYERS: " << datos.cantPlayers << endl;
