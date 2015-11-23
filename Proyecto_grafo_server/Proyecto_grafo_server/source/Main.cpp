@@ -32,7 +32,7 @@ using namespace std;
 // #pragma comment (lib, "Mswsock.lib")
 
 #define TESTING_ENABLED false
-#define ARCHIVO_YAML "TestRecursos.yaml"
+#define ARCHIVO_YAML "desplegadas.yaml"
 
 #define TIMEOUT 10000
 
@@ -450,7 +450,7 @@ int main(int argc, char* argv[]) {
 	cargarFactoryEntidades(parser.verInfoEntidades());
 
 	cargarEscenario(game, parser.verInfoEscenario());
-	game->inicializarCondicionVictoria(FactoryEntidades::obtenerInstancia()->obtenerTypeID("king"), TRANSFER_ALL);
+	game->inicializarCondicionVictoria(FactoryEntidades::obtenerInstancia()->obtenerTypeID("flag"), TRANSFER_ALL);
 
 
 	printf("Listo para aceptar clientes\n");

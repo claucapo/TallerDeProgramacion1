@@ -14,6 +14,7 @@ private:
 	Jugador* player;
 	float view_x, view_y;
 	float ancho_borde, alto_borde;
+	void mostrarStatsEntidad(Entidad* ent);
 
 	int vel_scroll, margen_scroll;
 public:

@@ -2,6 +2,7 @@
 #include "Spritesheet.h"
 #include "Escenario.h"
 #include "Partida.h"
+#include "Recurso.h"
 #include "Edificio.h"
 #include "ErrorLog.h"
 #include <SDL.h>
@@ -407,7 +408,9 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 			rectangulo.w = entName.length()* 14;
 			SDL_BlitScaled( texto, NULL, pantalla, &rectangulo );
 			SDL_FreeSurface(texto);
-			// Iconos
+
+			this->mostrarStatsEntidad(partida->escenario->verMapa()->verContenido(unaPos));
+			// Icono
 		//	rectangulo.x = 190 * screen_width/640;
 			rectangulo.x = 190 * screen_width*0.0015625;
 		//	rectangulo.y = 380 * screen_height/480;
@@ -415,9 +418,6 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 			SDL_Surface* icono = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(laEnt +"_icon");
 			SDL_BlitSurface(icono, NULL, pantalla, &rectangulo);
 
-		//	SDL_Surface* icono = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(laEnt +"_icon");
-		//	SDL_BlitSurface(icono, NULL, pantalla, &rectangulo);
-			
 			// Health bar
 			entity_type_t tipo = partida->escenario->verMapa()->verContenido(unaPos)->verTipo();
 			if((tipo == ENT_T_BUILDING)||(tipo == ENT_T_UNIT) || (tipo == ENT_T_CONSTRUCTION)){
@@ -438,33 +438,20 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 				
 				SDL_FillRect(this->pantalla, &hb, SDL_MapRGB(this->pantalla->format, 251, 0, 0));
 
-			/*	rectangulo.x += 50;
-				string hp = "HP: ";
-				ostringstream life;
-				life << vidaAct;
-				hp += life.str();
-				hp += "/";
-				life << vidaMax;
-				hp += life.str();
-				texto = this->renderText(hp);
-				rectangulo.h = 18;
-				rectangulo.w = entName.length()* 14;
-				SDL_BlitScaled( texto, NULL, pantalla, &rectangulo );
-				SDL_FreeSurface(texto);*/
-
 				// Encima del personaje:
 				ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
 				newX = (int) cu->obtenerCoordPantallaX(unaPos->getX(), unaPos->getY(), view_x, view_y, ancho_borde);
 				newY = (int) cu->obtenerCoordPantallaY(unaPos->getX(), unaPos->getY(), view_x, view_y, ancho_borde);
 				hb.x = newX - 10;
 				hb.y = newY - 40;
-				hb.h = 2;
-				hb.w = vidaAct*20/vidaMax;
-				SDL_FillRect(this->pantalla, &hb, SDL_MapRGB(this->pantalla->format, 16, 245, 4));
-				hb.x += hb.w;	
-				hb.w = 19 - hb.w;
-				SDL_FillRect(this->pantalla, &hb, SDL_MapRGB(this->pantalla->format, 251, 0, 0));
-					
+				if((hb.y < 365) && (hb.y > 20)){
+					hb.h = 2;
+					hb.w = vidaAct*20/vidaMax;
+					SDL_FillRect(this->pantalla, &hb, SDL_MapRGB(this->pantalla->format, 16, 245, 4));
+					hb.x += hb.w;	
+					hb.w = 19 - hb.w;
+					SDL_FillRect(this->pantalla, &hb, SDL_MapRGB(this->pantalla->format, 251, 0, 0));
+					}	
 				}
 			}
 		} // Si hay mas de una entidad seleccionada
@@ -508,13 +495,14 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 					newY = (int) cu->obtenerCoordPantallaY((*it)->verPosicion()->getX(), (*it)->verPosicion()->getY(), view_x, view_y, ancho_borde);
 					hb.x = newX - 10;
 					hb.y = newY - 40;
-					hb.h = 2;
-					hb.w = vidaAct*20/vidaMax;
-					SDL_FillRect(this->pantalla, &hb, SDL_MapRGB(this->pantalla->format, 16, 245, 4));
-					hb.x += hb.w;	
-					hb.w = 19 - hb.w;
-					SDL_FillRect(this->pantalla, &hb, SDL_MapRGB(this->pantalla->format, 251, 0, 0));
-					
+					if((hb.y < 365) && (hb.y > 20)){
+						hb.h = 2;
+						hb.w = vidaAct*20/vidaMax;
+						SDL_FillRect(this->pantalla, &hb, SDL_MapRGB(this->pantalla->format, 16, 245, 4));
+						hb.x += hb.w;	
+						hb.w = 19 - hb.w;
+						SDL_FillRect(this->pantalla, &hb, SDL_MapRGB(this->pantalla->format, 251, 0, 0));
+						}
 					}
 				col++;
 				if(col > 7){
@@ -534,8 +522,8 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 	recursitoM << this->player->verRecurso().madera;
 	string recurso = recursitoM.str();
 	surfRes = this->renderText(recurso);
-	rectangulo.x = 29;
-	rectangulo.y = 1;
+	rectangulo.x = 27;
+	rectangulo.y = 2;
 	rectangulo.h = 17;
 	rectangulo.w = recurso.length()* 11;
 	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
@@ -546,8 +534,8 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 	recursitoC << this->player->verRecurso().comida;
 	recurso = recursitoC.str();
 	surfRes = this->renderText(recurso);
-	rectangulo.x = 92;
-	rectangulo.y = 1;
+	rectangulo.x = 90;
+	rectangulo.y = 2;
 	rectangulo.h = 17;
 	rectangulo.w = recurso.length()* 11;
 	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
@@ -558,8 +546,8 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 	recursitoO << this->player->verRecurso().oro;
 	recurso = recursitoO.str();
 	surfRes = this->renderText(recurso);
-	rectangulo.x = 157;
-	rectangulo.y = 1;
+	rectangulo.x = 155;
+	rectangulo.y = 2;
 	rectangulo.h = 17;
 	rectangulo.w = recurso.length()* 11;
 	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
@@ -570,8 +558,8 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 	recursitoP << this->player->verRecurso().piedra;
 	recurso = recursitoP.str();
 	surfRes = this->renderText(recurso);
-	rectangulo.x = 216;
-	rectangulo.y = 1;
+	rectangulo.x = 214;
+	rectangulo.y = 2;
 	rectangulo.h = 17;
 	rectangulo.w = recurso.length()* 11;
 	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
@@ -666,7 +654,7 @@ void GraficadorPantalla::dibujarEdificioUbicandose(){
 
 	SDL_Surface* edif = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(partida->edificioAubicar);
 		
-	SDL_Surface* aux = SDL_CreateRGBSurface(0,edif->w/data->columnas,edif->h,32,0,0,0,0);
+	SDL_Surface* aux = SDL_CreateRGBSurface(0,edif->w,edif->h,32,0,0,0,0);
 
 	SDL_SetColorKey(edif, true, SDL_MapRGB(edif->format, 255, 0, 255) );
 	SDL_SetColorKey(aux, true, SDL_MapRGB(aux->format, 255, 0, 255) );
@@ -707,6 +695,18 @@ void GraficadorPantalla::dibujarMinimapa(int minimapX, int minimapY, int minimap
 
 				if(this->partida->escenario->verMapa()->posicionEstaVacia(&pAct))
 					SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 51, 151, 37));
+				else if(this->partida->escenario->verMapa()->verContenido(&pAct)->verTipo() == ENT_T_RESOURCE){
+					Recurso* recur = (Recurso*) this->partida->escenario->verMapa()->verContenido(&pAct);
+					if(recur->tipoR== RES_T_FOOD)
+						SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 162, 221, 131));
+					else if(recur->tipoR== RES_T_WOOD)
+						SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 64, 98, 38));
+					else if(recur->tipoR== RES_T_GOLD)
+						SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 219, 220, 30));
+					else
+						SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 171, 186, 183));
+				
+				}
 				else if(this->partida->escenario->verMapa()->verContenido(&pAct)->verJugador()->verID() == 0) // gaia
 					SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 155, 236, 191));
 				else if(this->partida->escenario->verMapa()->verContenido(&pAct)->verJugador()->verID() == 1) // player1: blue
@@ -888,7 +888,7 @@ SDL_Surface* GraficadorPantalla::renderText(string msj){
 		else if((msj[i] >= '0') && (msj[i] <= '9')) {
 			rectOrig.y = 39;
 			rectOrig.x = (msj[i] - '0') * 12 + 2;
-			rectOrig.w = 12;
+			rectOrig.w = 11;
 			printIt = true;
 		}
 		if(printIt)
@@ -919,4 +919,159 @@ bool GraficadorPantalla::puntoEstaEnPantalla(int xPant, int yPant){
 	enPant &= xPant < this->screen_width;
 	enPant &= yPant < this->screen_height;
 	return enPant;
+}
+
+void GraficadorPantalla::mostrarStatsEntidad(Entidad* ent){
+		stringstream strStat; 
+		SDL_Rect rectangulo;
+		SDL_Surface* stat = NULL;
+		BibliotecaDeImagenes* bu = BibliotecaDeImagenes::obtenerInstancia();
+ 		
+		if((ent->verTipo() == ENT_T_BUILDING)||(ent->verTipo() == ENT_T_UNIT) || (ent->verTipo() == ENT_T_CONSTRUCTION)){
+			// HP
+			stat = this->renderText("HP");
+			rectangulo.x = 230 * screen_width*0.0015625;
+			rectangulo.y = 380 * screen_height*0.00208333;
+			rectangulo.h = 18;
+			rectangulo.w = 28;	
+			SDL_BlitScaled( stat, NULL, pantalla, &rectangulo );
+			SDL_FreeSurface(stat);
+
+			strStat << ent->vidaAct;
+			stat = this->renderText(strStat.str());
+			rectangulo.x = 257 * screen_width*0.0015625;
+			rectangulo.y = 382 * screen_height*0.00208333;
+			rectangulo.h = 17;
+			rectangulo.w = strStat.str().length() * 11;	
+			SDL_SetSurfaceColorMod(stat, 38, 37, 32);
+			SDL_BlitScaled( stat, NULL, pantalla, &rectangulo );
+			SDL_FreeSurface(stat);
+		
+			strStat.seekp(0);
+			strStat << "      ";
+			strStat.seekp(0);
+
+			// Armor
+			if(ent->verTipo() == ENT_T_UNIT){
+				stat = bu->devolverImagen("armor_icon");
+				rectangulo.x = 227 * screen_width*0.0015625;
+				rectangulo.y = 399 * screen_height*0.00208333;
+				rectangulo.h = 18;
+				rectangulo.w = 28;
+				SDL_SetColorKey(stat, true, SDL_MapRGB(stat->format, 255, 255, 255));
+				SDL_BlitScaled( stat, NULL, pantalla, &rectangulo );
+
+				strStat << ent->defensa;
+				stat = this->renderText(strStat.str());
+				rectangulo.x = 257 * screen_width*0.0015625;
+				rectangulo.y = 401 * screen_height*0.00208333;
+				rectangulo.h = 17;
+				rectangulo.w = strStat.str().length() * 11;	
+				SDL_SetSurfaceColorMod(stat, 38, 37, 32);
+				SDL_BlitScaled( stat, NULL, pantalla, &rectangulo );
+				SDL_FreeSurface(stat);
+
+				strStat.seekp(0);
+				strStat << "      ";
+				strStat.seekp(0);
+				}
+
+			// Luck
+			stat = bu->devolverImagen("luck_icon");
+			rectangulo.x = 289 * screen_width*0.0015625;
+			rectangulo.y = 380 * screen_height*0.00208333;
+			rectangulo.h = 18;
+			rectangulo.w = 28;	
+			SDL_SetColorKey(stat, true, SDL_MapRGB(stat->format, 255, 255, 255));
+			SDL_BlitScaled( stat, NULL, pantalla, &rectangulo );
+
+			strStat << ent->luck;
+			stat = this->renderText(strStat.str());
+			rectangulo.x = 323 * screen_width*0.0015625;
+			rectangulo.y = 382 * screen_height*0.00208333;
+			rectangulo.h = 17;
+			rectangulo.w = strStat.str().length() * 11;	
+			SDL_SetSurfaceColorMod(stat, 38, 37, 32);
+			SDL_BlitScaled( stat, NULL, pantalla, &rectangulo );
+		
+			strStat.seekp(0);
+			strStat << "      ";
+			strStat.seekp(0);
+
+			// Attack
+			if(ent->habilidades[ACT_ATACK]){
+				stat = bu->devolverImagen("attack_icon");
+				rectangulo.x = 289 * screen_width*0.0015625;
+				rectangulo.y = 399 * screen_height*0.00208333;
+				rectangulo.h = 18;
+				rectangulo.w = 28;	
+				SDL_SetColorKey(stat, true, SDL_MapRGB(stat->format, 255, 255, 255));
+				SDL_BlitScaled( stat, NULL, pantalla, &rectangulo );
+
+				strStat << ent->ataque;
+				stat = this->renderText(strStat.str());
+				rectangulo.x = 323 * screen_width*0.0015625;
+				rectangulo.y = 401 * screen_height*0.00208333;
+				rectangulo.h = 17;
+				rectangulo.w = strStat.str().length() * 11;	
+				SDL_SetSurfaceColorMod(stat, 38, 37, 32);
+				SDL_BlitScaled( stat, NULL, pantalla, &rectangulo );
+				SDL_FreeSurface(stat);
+				strStat.seekp(0);
+				strStat << "      ";
+				strStat.seekp(0);
+
+				// Range
+				if(ent->habilidades[ACT_ARCHERY]){
+					stat = bu->devolverImagen("range_icon");
+					rectangulo.x = 351 * screen_width*0.0015625;
+					rectangulo.y = 380 * screen_height*0.00208333;
+					rectangulo.h = 18;
+					rectangulo.w = 28;	
+					SDL_SetColorKey(stat, true, SDL_MapRGB(stat->format, 255, 255, 255));
+					SDL_BlitScaled( stat, NULL, pantalla, &rectangulo );
+
+					strStat << (ent->verRango() - 1);
+					stat = this->renderText(strStat.str());
+					rectangulo.x = 385 * screen_width*0.0015625;
+					rectangulo.y = 382 * screen_height*0.00208333;
+					rectangulo.h = 17;
+					rectangulo.w = strStat.str().length() * 11;	
+					SDL_SetSurfaceColorMod(stat, 38, 37, 32);
+					SDL_BlitScaled( stat, NULL, pantalla, &rectangulo );
+				}
+			}
+		}
+		else if(ent->verTipo() == ENT_T_RESOURCE){
+			switch(((Recurso*)ent)->tipoR){
+			case RES_T_FOOD:
+				stat = bu->devolverImagen("food_icon"); break;
+			case RES_T_GOLD:
+				stat = bu->devolverImagen("gold_icon"); break;
+			case RES_T_STONE:
+				stat = bu->devolverImagen("stone_icon"); break;
+			case RES_T_WOOD:
+				stat = bu->devolverImagen("wood_icon"); break;
+				}
+			rectangulo.x = 184 * screen_width*0.0015625;
+			rectangulo.y = 429 * screen_height*0.00208333;
+			rectangulo.h = 18;
+			rectangulo.w = 28;
+			SDL_SetColorKey(stat, true, SDL_MapRGB(stat->format, 255, 255, 255));
+			SDL_BlitScaled( stat, NULL, pantalla, &rectangulo );
+
+			strStat << ((Recurso*)ent)->recursoAct;
+			stat = this->renderText(strStat.str());
+			rectangulo.x = 217 * screen_width*0.0015625;
+			rectangulo.y = 429 * screen_height*0.00208333;
+			rectangulo.h = 17;
+			rectangulo.w = strStat.str().length() * 11;	
+			SDL_SetSurfaceColorMod(stat, 38, 37, 32);
+			SDL_BlitScaled( stat, NULL, pantalla, &rectangulo );
+			SDL_FreeSurface(stat);
+			strStat.seekp(0);
+			strStat << "      ";
+			strStat.seekp(0);
+
+		}
 }

@@ -27,7 +27,7 @@ protected:
 	
 	costo_t costo;
 	int trainRate;
-	int luck;
+	
 
 	int tamX;
 	int tamY;
@@ -41,6 +41,7 @@ public:
 	unsigned int targetID;
 	unsigned int typeID;
 	string name;
+	int luck;
 	entity_type_t tipo;
 
 	list<Posicion> casillasVistas;
