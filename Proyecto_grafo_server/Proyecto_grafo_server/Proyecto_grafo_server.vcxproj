@@ -70,6 +70,7 @@
   <ItemGroup>
     <ClInclude Include="source\Archivo.h" />
     <ClInclude Include="source\CalculadorCaminoMinimo.h" />
+    <ClInclude Include="source\CondicionVictoria.h" />
     <ClInclude Include="source\ConexionCliente.h" />
     <ClInclude Include="source\ConfigParser.h" />
     <ClInclude Include="source\Construccion.h" />
@@ -94,6 +95,7 @@
   <ItemGroup>
     <ClCompile Include="source\Archivo.cpp" />
     <ClCompile Include="source\CalculadorCaminoMinimo.cpp" />
+    <ClCompile Include="source\CondicionVictoria.cpp" />
     <ClCompile Include="source\ConexionCliente.cpp" />
     <ClCompile Include="source\ConfigParser.cpp" />
     <ClCompile Include="source\Construccion.cpp" />

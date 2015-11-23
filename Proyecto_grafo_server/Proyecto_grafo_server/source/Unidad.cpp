@@ -218,9 +218,11 @@ bool Unidad::resolverAtaque(Entidad* target, Escenario* scene) {
 	scene->updatesAux.push_back(upd);
 
 	if (target->vidaAct <= 0) {
-		target->asignarEstado(EST_MUERTO);
+		target->vidaAct == 0;
+		if (target->verEstado() < EST_MUERTO)
+			target->asignarEstado( Estados_t(EST_MUERTO + this->verJugador()->verID()) );
 		cout << target->verID() << " debe morir!!" << endl;
-		
+	
 		return false;
 	}
 	return true;
@@ -324,7 +326,7 @@ af_result_t Unidad::avanzarFrame(Escenario* scene) {
 	Accion_t accion = this->accion;
 	if (this->cooldownAct > 0) this->cooldownAct--;
 
-	if (state == EST_MUERTO)
+	if (state >= EST_MUERTO || this->vidaAct <= 0)
 		return AF_KILL;
 
 	if (accion == ACT_NONE) {

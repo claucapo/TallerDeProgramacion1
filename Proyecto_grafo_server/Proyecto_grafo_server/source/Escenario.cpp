@@ -5,6 +5,7 @@
 #include "Unidad.h"
 #include "Edificio.h"
 #include "Jugador.h"
+#include "CondicionVictoria.h"
 #include <iostream>
 #include <list>
 #define TAM_DEFAULT 50
@@ -50,12 +51,65 @@ msg_update* Escenario::generarUpdate(CodigoMensaje accion, unsigned int id, floa
 	return upd;
 }
 
+
+
+void Escenario::derrotarJugadores(CondicionVictoria* vCond) {
+	for(int i = 1; i < vCond->cantJugadores; i++) {
+		if (vCond->verSigueJugando(i) && vCond->verCantUnidadesCrit(i) == 0) {
+			vCond->derrotarJugador(i);
+			tipo_derrota_t tipoDerrota = vCond->verTipoDerrota();
+
+			list<Entidad*>::const_iterator iter, next;
+			msg_update* upd = generarUpdate(MSJ_JUGADOR_DERROTADO, i, tipoDerrota, vCond->verUltimoAtacante(i));
+			this->updatesAux.push_back(upd);
+
+			switch (tipoDerrota) {
+			case LOSE_ALL:
+				for (iter = this->entidades.begin(); iter != this->entidades.end(); iter = next) {
+					next = iter;
+					next++;
+					if ((*iter)->verJugador()->verID() == i) {
+						this->mapa->quitarEntidad(*iter);
+						this->entidades.erase(iter);
+					}
+				}
+				break;
+
+			case LOSE_UNITS:
+				for (iter = this->entidades.begin(); iter != this->entidades.end(); iter = next) {
+					next = iter;
+					next++;
+
+					if ((*iter)->verJugador()->verID() == i && (*iter)->tipo == ENT_T_UNIT) {
+						this->mapa->quitarEntidad(*iter);
+						this->entidades.erase(iter);
+					}
+				}
+				break;
+
+			case TRANSFER_ALL:
+				Jugador* player = vCond->jugadores[vCond->verUltimoAtacante(i)];
+				for (iter = this->entidades.begin(); iter != this->entidades.end(); iter = next) {
+					next = iter;
+					next++;
+
+					if ((*iter)->verJugador()->verID() == i) {
+						(*iter)->asignarJugador(player);
+					}
+				}
+				break;
+			}
+		}
+	}
+}
+
+
 template <typename T> bool compare(const T* const & a, const T* const &b) {
 	return *a < *b;
 };
 
-list<msg_update*> Escenario::avanzarFrame(void) {
-
+list<msg_update*> Escenario::avanzarFrame(CondicionVictoria* vCond) {
+	bool playerLost = false;
 	// Lista de las entidades que murieron durante el frame
 	list<Entidad*> toRmv = list<Entidad*>();
 
@@ -79,6 +133,7 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 			break;
 		
 		case AF_KILL:
+			playerLost = playerLost || vCond->deleteEntidad(*it);
 			upd = generarUpdate(MSJ_ELIMINAR, (*it)->verID(), 0, 0);
 			toRmv.push_back(*it);			
 			break;
@@ -86,6 +141,7 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 		case AF_SPAWN:
 			edAux = (Edificio*)(*it);
 			entAux = edAux->obtenerUnidadEntrenada();
+			vCond->spawnEntidad(entAux);
 			if (entAux)
 				toAdd.push_back(entAux);
 			break;
@@ -94,16 +150,16 @@ list<msg_update*> Escenario::avanzarFrame(void) {
 		if (upd) {
 			updates.push_back(upd);
 		}
-
-		// (*it)->verJugador()->agregarPosiciones(this->verMapa()->posicionesVistas(*it));
 	}
 	
+	this->derrotarJugadores(vCond);
+
 	while (!this->updatesAux.empty()) {
 		msg_update* upd = this->updatesAux.front();
 		this->updatesAux.pop_front();
 		updates.push_back(upd);
 	}
-
+	
 	while(!toRmv.empty()) {
 		Entidad* ent = toRmv.front();
 		toRmv.pop_front();

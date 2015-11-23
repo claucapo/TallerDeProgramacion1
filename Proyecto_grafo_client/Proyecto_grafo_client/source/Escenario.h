@@ -66,6 +66,8 @@ public:
 	void quitarEntidad(unsigned int entID);
 
 	void moverEntidad(unsigned int entID, Posicion* pos, bool seguirMoviendo);
+
+	void derrotarJugador(unsigned int defeatedID, tipo_derrota_t accion, Jugador* newOwner);
 	
 	Entidad* obtenerEntidad(unsigned int entID);
 

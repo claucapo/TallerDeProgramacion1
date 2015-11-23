@@ -68,6 +68,7 @@ public:
 	int verTamY() {return this->tamY;}
 	int verRango() {return this->rangoVision;}
 	string verNombre() {return this->name;}
+	costo_t verCosto() {return this->costo;}
 
 	Jugador* verJugador() {return this->owner;}
 

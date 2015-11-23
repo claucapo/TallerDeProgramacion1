@@ -76,3 +76,21 @@ void Jugador::modificarRecurso(resource_type_t tipoR, int cant) {
 		this->resources_dirty = false;
 	}
 }
+
+
+bool Jugador::puedePagar(recursos_jugador_t costo) {
+	bool puedePagar = true;
+	puedePagar &= (costo.comida <= recursos.comida);
+	puedePagar &= (costo.madera <= recursos.madera);
+	puedePagar &= (costo.oro <= recursos.oro);
+	puedePagar &= (costo.piedra <= recursos.piedra);
+	return puedePagar;
+}
+
+void Jugador::gastarRecursos(recursos_jugador_t costo) {
+	recursos.comida -= costo.comida;
+	recursos.oro -= costo.oro;
+	recursos.madera -= costo.madera;
+	recursos.piedra -= costo.piedra;
+	this->resources_dirty = true;
+}

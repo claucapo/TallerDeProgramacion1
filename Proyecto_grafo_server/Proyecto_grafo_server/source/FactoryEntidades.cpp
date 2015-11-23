@@ -341,4 +341,25 @@ string FactoryEntidades::obtenerName(unsigned int typeID) {
 			return (*iter).first;
 		}
 	}
+	return nombre_entidad_def;
+}
+
+
+tipoEntidad_t* FactoryEntidades::obtenerPrototipo(unsigned int typeID){
+	for (map<string, tipoEntidad_t*>::const_iterator iter = this->prototipos.begin(); iter != this->prototipos.end(); ++iter) {
+		if ((*iter).second->typeID == typeID) {
+			return (*iter).second;
+		}
+	}
+	return prototipos[nombre_entidad_def];
+}
+
+
+tipoEntidad_t* FactoryEntidades::obtenerPrototipo(string name){
+	tipoEntidad_t* pType = nullptr;
+
+	if (prototipos.count(name) > 0)
+		return prototipos[name];
+
+	return prototipos[nombre_entidad_def];
 }

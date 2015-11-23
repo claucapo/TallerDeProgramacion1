@@ -58,38 +58,6 @@ void Unidad::setEstado(Estados_t state) {
 af_result_t Unidad::avanzarFrame(Escenario* scene) {
 	this->sprites->siguienteFrame();
 	
-
-	if(this->state == EST_MUERTO)
-		return AF_KILL;
-
-
-	// Aca habría que chequear si la entidad cambió de posición
-	/*
-	Estados_t state = this->state;
-
-	// Si se esta moviendo
-	if (state == EST_CAMINANDO) {
-		Posicion* act = this->pos;
-		Posicion* dest = this->destino;
-
-		// Distantcias
-		float distX = dest->getX() - act->getX();
-		float distY = dest->getY() - act->getY();
-		float totalDist = sqrt((distX*distX) + (distY*distY));	
-
-		this->setDireccion(this->calcularDirecion(distX, distY));
-		
-		if (totalDist > this->rapidez) {
-			float nuevoX = act->getX() + (distX*rapidez)/totalDist;
-			float nuevoY = act->getY() + (distY*rapidez)/totalDist;
-			Posicion nuevaPos(nuevoX, nuevoY);
-			this->asignarPos(&nuevaPos);
-		} else {
-			this->setEstado(EST_QUIETO);
-		}
-		return AF_MOVE;
-	}
-	*/
 	return AF_NONE;
 }
 

@@ -1,6 +1,7 @@
 #include "Escenario.h"
 #include "Entidad.h"
 #include "Posicion.h"
+#include "CondicionVictoria.h"
 #include "Protocolo.h"
 #include <list>
 #pragma once
@@ -11,6 +12,7 @@ del juego. */
 struct Partida {
 	list<Jugador*> jugadores;
 	Escenario* escenario;
+	CondicionVictoria vCond;
 
 	// Constructor y destructor por defecto
 	Partida(void);
@@ -18,6 +20,7 @@ struct Partida {
 
 	bool agregarJugador(Jugador*);
 	void asignarEscenario(Escenario*);
+	void inicializarCondicionVictoria(unsigned int tipoUnidad, tipo_derrota_t accion);
 
 	Jugador* obtenerJugador(int id);
 	

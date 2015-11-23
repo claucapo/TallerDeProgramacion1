@@ -88,6 +88,7 @@ void Partida::procesarUpdate(msg_update msj, unsigned int actPlayer) {
 	// Según la acción que sea, hago lo que corresponda
 	Posicion destino;
 	Jugador* owner;
+	Jugador* newOwner = nullptr;
 	Entidad* ent = nullptr;
 	Estados_t nState;
 	Mix_Chunk* snd = NULL;
@@ -288,6 +289,17 @@ void Partida::procesarUpdate(msg_update msj, unsigned int actPlayer) {
 				ent->verSpritesheet()->cambiarImagen(newImg);
 				ent->vidaAct = ent->vidaMax;
 				}
+			break;
+
+
+		case MSJ_JUGADOR_DERROTADO:
+			for (list<Jugador*>::const_iterator iter = jugadores.begin(); iter != jugadores.end(); iter++) {
+				if ((*iter)->verID() == (unsigned int)msj.extra2) {
+					newOwner = (*iter);
+				}
+			}
+
+			this->escenario->derrotarJugador(msj.idEntidad, tipo_derrota_t((int)msj.extra1), newOwner);
 			break;
 
 		default:

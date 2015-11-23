@@ -5,6 +5,8 @@
 #include <list>
 using namespace std;
 
+enum tipo_derrota_t {LOSE_ALL, LOSE_UNITS, TRANSFER_ALL};
+
 // Enumerado de posible direcciones de movimiento, escritos en un orden arbitrario para
 // que concidan con las filas de los sprites de movimiento
 enum Direcciones_t {DIR_RIGHT, DIR_TOP_RIGHT, DIR_TOP, DIR_TOP_LEFT, DIR_LEFT, DIR_DOWN_LEFT, DIR_DOWN, DIR_DOWN_RIGHT};
@@ -14,7 +16,7 @@ enum af_result_t {AF_NONE, AF_STATE_CHANGE, AF_MOVE, AF_KILL, AF_SPAWN};
 enum resource_type_t {RES_T_NONE = -1, RES_T_GOLD = 0, RES_T_WOOD = 1, RES_T_FOOD = 2, RES_T_STONE = 3};
 
 // Estados
-enum Estados_t {EST_QUIETO, EST_CAMINANDO, EST_ATACANDO, EST_RECOLECTANDO, EST_CONSTRUYENDO, EST_MUERTO, EST_MURIENDO};
+enum Estados_t {EST_QUIETO, EST_CAMINANDO, EST_ATACANDO, EST_RECOLECTANDO, EST_CONSTRUYENDO, EST_MURIENDO, EST_MUERTO = 100};
 const string estados_extensiones[] = {"", "_move"};
 
 const char MAX_ENTRENABLES = 4;	// Cantidad máxima de tipos de entidades distintas que un dado edificio puede entrenar

@@ -26,6 +26,7 @@ enum CodigoMensaje {
 	MSJ_ELIMINAR,
 	MSJ_JUGADOR_LOGIN,
 	MSJ_JUGADOR_LOGOUT,
+	MSJ_JUGADOR_DERROTADO,
 
 
 	MSJ_SPAWN = 100
@@ -237,6 +238,12 @@ struct msg_update {
 	-												idEntidad: la ID de la entidad nueva
 	-												extra1: CoordX del punto de spawn
 	-												extra2: CoordY del punto de spawn
+
+	# Mensaje enviado del servidor al cliente cuando un jugador pierde
+	-											MSJ_JUGADOR_DERROTADO
+	-												idEntidad: la ID del jugador
+	-												extra1: la accion a realizar (tipo_derrota_t)
+	-												extra2: la ID del jugador que atacó por ultima vez
 
 	##### NOTA:  MSJ_SPAWN = 100, y el typeID de la nueva entidad esta codificada dentro del mismo código
 	#####		 del mensaje mediante un offset: así un CodigoMensaje = 101 implica crear una unidad con

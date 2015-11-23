@@ -35,6 +35,8 @@ public:
 
 	list<msg_tipo_entidad*> obtenerListaTipos(void);
 
+	tipoEntidad_t* obtenerPrototipo(unsigned int id);
+	tipoEntidad_t* obtenerPrototipo(string name);
 	Entidad* obtenerEntidad(string name);
 	Entidad* obtenerEntidad(unsigned int id);
 	unsigned int obtenerTypeID(string name);

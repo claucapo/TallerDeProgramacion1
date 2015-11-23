@@ -20,6 +20,13 @@ struct recursos_jugador_t {
 		comida = 0;
 		piedra = 0;
 	}
+
+	recursos_jugador_t(costo_t costo) {
+		oro = costo.oro;
+		madera = costo.madera;
+		comida = costo.comida;
+		piedra = costo.piedra;
+	}
 };
 
 
@@ -69,6 +76,8 @@ public:
 	// Recursos basicos en un mismo struct (hacer público y eliminar métodos (?))
 	void modificarRecurso(resource_type_t tipoR, int cant);
 	recursos_jugador_t verRecurso(void) {return this->recursos;}
+	bool puedePagar(recursos_jugador_t costo);
+	void gastarRecursos(recursos_jugador_t costo);
 
 
 	// Devuelve true si la Entidad recibida
@@ -77,6 +86,7 @@ public:
 	bool poseeEntidad(Entidad* entidad);
 	bool estaConectado(void);
 	void settearConexion(bool estadoConexion);
+
 };
 
 

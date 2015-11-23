@@ -32,7 +32,7 @@ using namespace std;
 // #pragma comment (lib, "Mswsock.lib")
 
 #define TESTING_ENABLED false
-#define ARCHIVO_YAML "desplegadas.yaml"
+#define ARCHIVO_YAML "TestRecursos.yaml"
 
 #define TIMEOUT 10000
 
@@ -450,10 +450,12 @@ int main(int argc, char* argv[]) {
 	cargarFactoryEntidades(parser.verInfoEntidades());
 
 	cargarEscenario(game, parser.verInfoEscenario());
-	
+	game->inicializarCondicionVictoria(FactoryEntidades::obtenerInstancia()->obtenerTypeID("king"), TRANSFER_ALL);
+
+
 	printf("Listo para aceptar clientes\n");
 
-
+	/*
 	struct datosPantInic datos;
 	pantallaInicio(datos);
 
@@ -462,7 +464,7 @@ int main(int argc, char* argv[]) {
 	cout << "TIPO PARTIDA: " << datos.tipoPartida << endl;
 	// datos tiene los datos para empezar la red. 
 	// IMPORTANTE: Agregar chequeos a los datos ingresados!
-		
+	*/
 
 	Servidor server = Servidor(ListenSocket, game);
 	server.start();

@@ -6,6 +6,8 @@
 #include "Protocolo.h"
 #include <list>
 
+class CondicionVictoria;
+
 /* La clase Escenario representa la cuadricula
 de tiles (el mapa) del juego junto con sus
 conexiones entre sí. Además, es la encargada
@@ -43,9 +45,8 @@ public:
 
 	// Avanza un frame para cada Entidad sobre
 	// el mapa, ejecutando sus acciones.
-	list<msg_update*> avanzarFrame(void);
+	list<msg_update*> avanzarFrame(CondicionVictoria* vCond);
 	msg_update* generarUpdate(CodigoMensaje accion, unsigned int id, float extra1, float extra2);
-
 
 	bool casillaEstaVacia(Posicion* pos) {return this->mapa->posicionEstaVacia(pos);}
 	Entidad* obtenerEntidad(unsigned int entID);
@@ -68,6 +69,11 @@ public:
 	// Busca y devuelve la primer casilla de las más cercanas a lo que haya
 	// en origen, que se encuentre libre. Si el mapa está lleno, devuelve null.
 	Posicion* obtenerPosicionSpawn(Posicion* origen);
+
+
+	// Metodo que realiza la accion apropiada cuando un jugador es derrotado
+	void derrotarJugadores(CondicionVictoria* vCond);
+
 
 	list<Entidad*> verEntidades(void);
 	void asignarDestino(unsigned int entID, Posicion pos);

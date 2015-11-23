@@ -115,8 +115,8 @@ vector<Entidad*> Escenario::verEntidades(void) {
 void Escenario::quitarEntidad(unsigned int entID) {
 	for (int i = 0; i < this->cant_entidades; i++) {
 		if (entidades[i]->verID() == entID) {
-			entidades.erase(entidades.begin()+i);
 			mapa->quitarEntidad(entidades[i]);
+			entidades.erase(entidades.begin()+i);
 			this->cant_entidades--;
 		}
 	}
@@ -170,4 +170,45 @@ Entidad* Escenario::obtenerEntidad(unsigned int entID) {
 		}
 	}
 	return nullptr;
+}
+
+
+void Escenario::derrotarJugador(unsigned int defeatedID, tipo_derrota_t accion, Jugador* newOwner) {
+	list<Entidad*>::const_iterator iter, next;
+
+	switch(accion) {
+	case LOSE_ALL:
+		for (int i = 0; i < this->cant_entidades;) {
+			if (entidades[i]->verJugador()->verID() == defeatedID) {
+				this->mapa->quitarEntidad(entidades[i]);
+				this->entidades.erase(entidades.begin() + i);
+				this->cant_entidades--;
+			} else {
+				i++;
+			}
+		}
+		break;
+
+	case LOSE_UNITS:
+		for (int i = 0; i < this->cant_entidades;) {
+			if (entidades[i]->verJugador()->verID() == defeatedID && entidades[i]->tipo == ENT_T_UNIT) {
+				this->mapa->quitarEntidad(entidades[i]);
+				this->entidades.erase(entidades.begin()+i);
+				this->cant_entidades--;
+			} else {
+				i++;
+			}
+		}
+		break;
+
+	case TRANSFER_ALL:
+		if (newOwner) {
+			for (int i = 0; i < this->cant_entidades; i++) {
+				if (entidades[i]->verJugador()->verID() == defeatedID) {
+					entidades[i]->asignarJugador(newOwner);
+				}			
+			}
+		}
+		break;
+	}
 }

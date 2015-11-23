@@ -60,25 +60,20 @@ Jugador* Partida::obtenerJugador(int id) {
 	return nullptr;
 }
 
+void Partida::inicializarCondicionVictoria(unsigned int tipoUnidad, tipo_derrota_t accion) {
+	this->vCond = CondicionVictoria(this->jugadores.size(), tipoUnidad, accion);
+	this->vCond.inicializar(this);
+}
+
+
 list<msg_update*> Partida::avanzarFrame(void){
 	for (list<Jugador*>::iterator iter = this->jugadores.begin(); iter != this->jugadores.end(); ++iter) {
 		Jugador* act = (*iter);
 		act->reiniciarVision();
 	}
+		// Acá adentro se asignan las casillas vistas de cada jugador
 
-	// Algo explota acá
-/*	list<Entidad*>::const_iterator it;
-	list<Entidad*> entidades = this->escenario->verEntidades();
-	int i = 0;
-	for ( it = entidades.begin(); it != entidades.end(); ++it) {
-		Entidad* ent = (*it);
-		list<Posicion> posVistas = this->escenario->verMapa()->posicionesVistas(ent);
-		(ent)->verJugador()->agregarPosiciones(posVistas);
-	}
-	*/
-	// Acá adentro se asignan las casillas vistas de cada jugador
-
-	list<msg_update*> updates = this->escenario->avanzarFrame();
+	list<msg_update*> updates = this->escenario->avanzarFrame(&this->vCond);
 	
 	for (list<Jugador*>::iterator iter = this->jugadores.begin(); iter != this->jugadores.end(); ++iter) {
 		Jugador* act = (*iter);
@@ -171,17 +166,26 @@ void Partida::procesarEvento(msg_event msj, unsigned int source) {
 
 	case MSJ_NUEVO_EDIFICIO:
 		cout << "Recibi un construir edificio" << endl;
-		ent = FactoryEntidades::obtenerInstancia()->obtenerEntidad(msj.idEntidad);
-		destino = Posicion(msj.extra1, msj.extra2);
-		ent->asignarJugador(this->obtenerJugador(source));
-		((Edificio*)ent)->setEnConstruccion(true);
-		this->escenario->ubicarEntidad(ent, &destino);
-		
-		msg_update* upd = this->escenario->generarUpdate(CodigoMensaje(MSJ_SPAWN + ent->typeID), ent->verID(), destino.getX(), destino.getY());
-		this->escenario->updatesAux.push_back(upd);
 
-		upd = this->escenario->generarUpdate(MSJ_ASIGNAR_JUGADOR, ent->verID(), ent->verJugador()->verID(), 0);
-		this->escenario->updatesAux.push_back(upd);
+		tipoEntidad_t* pType = FactoryEntidades::obtenerInstancia()->obtenerPrototipo(msj.idEntidad);
+		if (!this->obtenerJugador(source)->puedePagar(pType->costo)) {
+			cout << "Can't afford [" << pType->typeID << "]" << endl;
+		} else {
+			this->obtenerJugador(source)->gastarRecursos(pType->costo);
+
+			ent = FactoryEntidades::obtenerInstancia()->obtenerEntidad(msj.idEntidad);
+			destino = Posicion(msj.extra1, msj.extra2);
+			ent->asignarJugador(this->obtenerJugador(source));
+			((Edificio*)ent)->setEnConstruccion(true);
+			this->escenario->ubicarEntidad(ent, &destino);
+		
+			msg_update* upd = this->escenario->generarUpdate(CodigoMensaje(MSJ_SPAWN + ent->typeID), ent->verID(), destino.getX(), destino.getY());
+			this->escenario->updatesAux.push_back(upd);
+
+			upd = this->escenario->generarUpdate(MSJ_ASIGNAR_JUGADOR, ent->verID(), ent->verJugador()->verID(), 0);
+			this->escenario->updatesAux.push_back(upd);
+		}
+
 		break;
 	}
 }

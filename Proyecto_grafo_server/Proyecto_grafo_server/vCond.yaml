@@ -1,0 +1,248 @@
+red:
+  puerto: "27015"
+log:
+  warnings: 1
+  info: 0
+  errors: 1
+jugadores:
+  - nombre: "Juana de Arco"
+    id: 1
+    color: "azul"
+  - nombre: "Genghis Khan"
+    id: 2
+    color: "rojo"
+  - nombre: "Saladino"
+    id: 3
+    color: "amarillo"
+entidades:
+  - nombre: "villager"
+    sizeX: 1
+    sizeY: 1
+    tipo: "unit"
+    rangoV: 3
+    rangoA: 1
+    tipoR: -1   # Tipo de recurso: -1 = none
+    maxR: 0
+    velocidad: 7
+    atk: 3
+    def: 1
+    vidaMax: 20
+    cooldown: 20
+    collectR: 5
+    buildR: 50
+    trainR: 50
+    costFood: 50
+    costGold: 100
+    costWood: 10
+    costStone: 55
+    entrenables: []
+    habilidades: ["attack", "build", "collect"]
+  - nombre: "gold mine"
+    tipo: "resource"
+    maxR: 5000
+    tipoR: 0
+  - nombre: "tree"
+    tipo: "resource"
+    maxR: 5000
+    tipoR: 1
+  - nombre: "forage bush"
+    tipo: "resource"
+    maxR: 5000
+    tipoR: 2
+  - nombre: "stone mine"
+    tipo: "resource"
+    maxR: 5000
+    tipoR: 3
+  - nombre: "champion"
+    tipo: "unit"
+    velocidad: 10
+    rangoV: 5
+    atk: 13
+    def: 4
+    vidaMax: 250
+    habilidades: ["attack", "infantry", "bonus_vs_infantry"]
+  - nombre: "pikeman"
+    tipo: "unit"
+    velocidad: 8
+    rangoV: 4
+    atk: 11
+    def: 4
+    vidaMax: 160
+    habilidades: ["attack", "infantry", "bonus_vs_cavalry"]
+    cooldown: 20
+    costFood: 50
+    costGold: 100
+    costWood: 10
+    costStone: 55
+  - nombre: "colosus"
+    tipo: "unit"
+    velocidad: 3
+    rangoV: 5
+    atk: 19
+    def: 11
+    vidaMax: 410
+    habilidades: ["attack", "infantry", "bonus_vs_siege"]
+    cooldown: 20
+    costFood: 50
+    costGold: 100
+    costWood: 10
+    costStone: 55
+  - nombre: "ram"
+    tipo: "unit"
+    velocidad: 3
+    rangoV: 4
+    atk: 14
+    def: 10
+    vidaMax: 360
+    habilidades: ["attack", "siege", "bonus_vs_buildings"]
+    cooldown: 20
+    costFood: 50
+    costGold: 100
+    costWood: 10
+    costStone: 55
+  - nombre: "teutonic knight"
+    tipo: "unit"
+    velocidad: 7
+    rangoV: 5
+    atk: 11
+    def: 4
+    vidaMax: 190
+    habilidades: ["attack", "infantry", "bonus_vs_infantry", "invisible"]
+    cooldown: 20
+    costFood: 50
+    costGold: 100
+    costWood: 10
+    costStone: 55
+  - nombre: "arbalest"
+    sizeX: 1
+    sizeY: 1
+    tipo: "unit"
+    tipoR: -1
+    velocidad: 9
+    rangoV: 9
+    rangoA: 8
+    luck: 99 #Luck: 0-Unlucky	50-Normal	100-Lucky
+    atk: 12
+    def: 5
+    vidaMax: 220
+    habilidades: ["attack", "archery", "bonus_vs_infantry"]
+    cooldown: 20
+    costFood: 50
+    costGold: 100
+    costWood: 10
+    costStone: 55
+  - nombre: "mangudai"
+    sizeX: 1
+    sizeY: 1
+    tipo: "unit"
+    tipoR: -1
+    velocidad: 14
+    rangoV: 9
+    rangoA: 8
+    luck: 99 #Luck: 0-Unlucky	50-Normal	100-Lucky
+    atk: 12
+    def: 5
+    vidaMax: 220
+    habilidades: ["attack", "archery", "bonus_vs_infantry"]
+    cooldown: 20
+    costFood: 50
+    costGold: 100
+    costWood: 10
+    costStone: 55
+  - nombre: "castle"
+    tipo: "building"
+    sizeX: 6
+    sizeY: 6
+    vidaMax: 1000
+    entrenables: ["teutonic knight", "colosus"]
+  - nombre: "knight"
+    sizeX: 1
+    sizeY: 1
+    tipo: "unit"
+    tipoR: -1
+    velocidad: 14
+    rangoV: 5
+    atk: 12
+    def: 5
+    vidaMax: 220
+    habilidades: ["attack", "cavalry", "bonus_vs_archery"]
+    cooldown: 20
+    costFood: 50
+    costGold: 100
+    costWood: 10
+    costStone: 55
+  - nombre: "paladin"
+    sizeX: 1
+    sizeY: 1
+    tipo: "unit"
+    tipoR: -1
+    velocidad: 15
+    rangoV: 6
+    atk: 14
+    def: 8
+    vidaMax: 340
+    habilidades: ["attack", "cavalry", "bonus_vs_cavalry"]
+    cooldown: 20
+    costFood: 50
+    costGold: 100
+    costWood: 10
+    costStone: 55
+  - nombre: "king"
+    sizeX: 1
+    sizeY: 1
+    tipo: "unit"
+    tipoR: -1
+    velocidad: 10
+    rangoV: 5
+    atk: 0
+    def: 4
+    vidaMax: 10000
+    habilidades: []
+  - nombre: "house"
+    tipo: "building"
+    sizeX: 3
+    sizeY: 3
+    vidaMax: 200
+  - nombre: "windmill"
+    tipo: "building"
+    sizeX: 3
+    sizeY: 3
+  - nombre: "town center"
+    tipo: "building"
+    sizeX: 5
+    sizeY: 5
+    entrenables: ["villager"]
+  - nombre: "barracks"
+    tipo: "building"
+    sizeX: 4
+    sizeY: 4
+    vidaMax: 500
+    entrenables: ["pikeman", "champion"]
+  - nombre: "archery"
+    tipo: "building"
+    sizeX: 4
+    sizeY: 4
+    entrenables: ["arbalest", "mangudai"]
+  - nombre: "stable"
+    tipo: "building"
+    sizeX: 4
+    sizeY: 4
+    entrenables: ["knight", "paladin"]
+  - nombre: "siege weapon factory"
+    tipo: "building"
+    sizeX: 4
+    sizeY: 4
+    vidaMax: 500
+    entrenables: ["ram"]
+escenario:
+  nombre: DEFAULT_MAP
+  sizeX: 40
+  sizeY: 40
+  entidades:
+   - {x: 6, y: 4, tipo: "paladin", p: 1}
+   - {x: 4, y: 6, tipo: "paladin", p: 1}
+   - {x: 6, y: 6, tipo: "knight", p: 1}
+   - {x: 10, y: 10, tipo: "knight", p: 2}
+   - {x: 10, y: 13, tipo: "knight", p: 2}
+   - {x: 5, y: 10, tipo: "champion", p: 2}
+   - {x: 12, y: 12, tipo: "paladin", p: 2}

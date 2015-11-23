@@ -1,6 +1,7 @@
 #include "Edificio.h"
 #include "FactoryEntidades.h"
 #include "Escenario.h"
+#include "Jugador.h"
 
 #include <iostream>
 
@@ -112,10 +113,19 @@ bool Edificio::entrenarUnidad(unsigned int id) {
 		return false;
 	}
 
+	tipoEntidad_t* pType = FactoryEntidades::obtenerInstancia()->obtenerPrototipo(id);
+	if (!this->verJugador()->puedePagar(pType->costo)) {
+		cout << "Can't afford [" << pType->typeID << "]" << endl;
+		return false;
+	} else {
+		this->verJugador()->gastarRecursos(pType->costo);
+	}
+
+
 	Entidad* ent = FactoryEntidades::obtenerInstancia()->obtenerEntidad(id);
 	if (!ent)
 		return false;
-
+	
 	this->cola_produccion.push(ent);
 	this->cant_en_produccion++;
 

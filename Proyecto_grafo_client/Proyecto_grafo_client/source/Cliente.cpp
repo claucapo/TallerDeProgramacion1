@@ -188,6 +188,7 @@ void Cliente::procesarUpdates(Partida* game, unsigned int actPlayer) {
 		case MSJ_PRODUCIR_UNIDAD:
 		case MSJ_FINALIZAR_EDIFICIO:
 		case MSJ_FINALIZAR_PRODUCCION:
+		case MSJ_JUGADOR_DERROTADO:
 		case MSJ_ELIMINAR:
 			game->procesarUpdate(upd, actPlayer); break;
 		case MSJ_JUGADOR_LOGIN:
