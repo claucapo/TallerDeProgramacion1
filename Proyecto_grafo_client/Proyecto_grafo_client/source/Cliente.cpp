@@ -23,6 +23,13 @@ Cliente::Cliente(SOCKET sock) {
 
 	this->myReader = NULL;
 	this->mySender = NULL;
+
+	DWORD timeout =  3000;
+	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout, sizeof(timeout)))
+		printf("Error on setting timeout");
+
+	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_SNDTIMEO,(char*)&timeout, sizeof(timeout)))
+		printf("Error on setting timeout");
 }
 
 Cliente::~Cliente() {
@@ -81,16 +88,47 @@ int clientSender( void* data ) {
 }
 
 
+bool Cliente::startLobby(Partida* game) {
+	int result;
+	Jugador* player;
+	char buffer[sizeof(struct msg_lobby)];
+	do {
+		result = sRead(this->clientSocket, buffer, sizeof(struct msg_lobby));
+		if (result <= 0) {
+			printf("Error de recepción. Terminando conexión");
+			closesocket(this->clientSocket);
+			return false;
+		} else {
+			msg_lobby upd = *(struct msg_lobby*)buffer;
+			// Procesar upd...
+			switch (upd.code) {
+			case LOBBY_START_GAME:
+				cout << "Recibi un LOBBY_START_GAME" <<endl;
+				return true;
+
+			case LOBBY_CONNECT:
+				cout << "Recibi un LOBBY_CONNECT" <<endl;
+				player = game->obtenerJugador(upd.playerID);
+				if (player)
+					player->settearConexion(true);
+				break;
+
+			case LOBBY_DISCONECT:
+				cout << "Recibi un LOBBY_DISCONECT" <<endl;
+				player = game->obtenerJugador(upd.playerID);
+				if (player)
+					player->settearConexion(false);
+				break;
+			}
+		}
+	} while (result > 0);
+	return false;
+}
+
+
 // Método que dispara los threads
 void Cliente::start() {
 	this->must_close = false;
-
-	DWORD timeout =  3000;
-	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout, sizeof(timeout)))
-		printf("Error on setting timeout");
-
-	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_SNDTIMEO,(char*)&timeout, sizeof(timeout)))
-		printf("Error on setting timeout");
 
 	this->myReader = SDL_CreateThread(clientReader, "A client reader", this);
 	this->mySender = SDL_CreateThread(clientSender, "A client sender", this);
@@ -141,6 +179,20 @@ bool Cliente::login(redInfo_t rInfo) {
 	if(rsp.ok) {
 		printf( "Solicitud OK\n");
 		this->playerID = solicitud.playerCode;
+	} else {
+		switch (rsp.cause) {
+		case KICK_ID_IN_USE:
+			ErrorLog::getInstance()->escribirLog("Error login, otro jugador ya tiene esa ID");
+			break;
+		case KICK_FULL:
+			ErrorLog::getInstance()->escribirLog("Error login, la partida no acepta más jugadores");
+			break;
+		case KICK_INVALID_ID:
+			ErrorLog::getInstance()->escribirLog("Error login, ID especificada invalida");
+			break;
+		default:
+			ErrorLog::getInstance()->escribirLog("Error desconocido en el login");
+		}
 	}
 	return rsp.ok;
 }

@@ -15,21 +15,23 @@ using namespace std;
 // Defino la función de lectura personalizada
 int sRead(SOCKET source, char* buffer, int length);
 
-Servidor::Servidor(SOCKET ls, Partida* partida) {
+Servidor::Servidor(SOCKET ls, Partida* partida, unsigned int maxJugadores) {
 	this->listenSocket = ls;
 	this->partida = partida;
 
 	this->eventos = queue<struct msg_event_ext>();
-
+	this->maxClientes = maxJugadores;
 	this->send_signal = SDL_CreateCond();
 
 	this->cantClientes = 0;
 	this->clientes = list<ConexionCliente*>();
+	this->lobby_upd = list<msg_lobby>();
 	
 	// Creo los semáforos, que sólo permiten el acceso a las colas de a un thread por vez
 	this->eventos_lock = SDL_CreateSemaphore(1);
 	this->clientes_lock = SDL_CreateSemaphore(1);
 	this->partida_lock = SDL_CreateSemaphore(1);
+	this->lobby_lock = SDL_CreateSemaphore(1);
 }
 
 // Destructor
@@ -39,7 +41,6 @@ Servidor::~Servidor(void) {
 	SDL_DestroyCond(this->send_signal);
 
 	SDL_DestroySemaphore(this->partida_lock);
-
 }
 
 
@@ -56,39 +57,114 @@ int conectorClientes ( void* data ) {
 			printf("accept failed with error: %d\n", WSAGetLastError());
 			closesocket(clientSocket);
 		} else {
-			server->aceptarCliente(clientSocket);
+			ConexionCliente* cc = server->aceptarCliente(clientSocket);
+			if ( cc != nullptr ) {
+				server->agregarUpdateLobby(LOBBY_CONNECT, cc->getPlayerID(), 0);
+			}
 		}
 	}
+	return 0;
 }
+
+
+
+void Servidor::agregarUpdateLobby(CodigoLobby code, unsigned int playerID, char aux[50]) {
+	SDL_SemWait(this->lobby_lock);
+	msg_lobby newUpd = msg_lobby();
+	newUpd.code = code;
+	newUpd.playerID = playerID;
+	if (aux != nullptr)
+		for (int i = 0; i < 50; i++) {
+			newUpd.name[i] = aux[i];
+		}
+	this->lobby_upd.push_back(newUpd);
+	SDL_SemPost(this->lobby_lock);
+}
+
 
 // Crea un thread destinado a la recepción de nuevos clientes
 void Servidor::start(void) {
+	cout << "Empiezo a aceptar clientes" << endl;
 	SDL_Thread* conector = SDL_CreateThread(conectorClientes, "Client connector", this);
+
+	while (this->debeAceptarClientes()) {
+		this->agregarUpdateLobby(LOBBY_KEEP_ALIVE, 0, nullptr);
+		SDL_SemWait(this->clientes_lock);
+		SDL_SemWait(this->lobby_lock);
+		while (!this->lobby_upd.empty()) {
+			msg_lobby upd = this->lobby_upd.front();
+			this->lobby_upd.pop_front();
+
+			list<ConexionCliente*>::const_iterator iter, next;
+			for (iter = this->clientes.begin(); iter != this->clientes.end(); iter = next) {
+				next = iter;
+				next++;
+
+				int result = send((*iter)->clientSocket, (char*)(&upd), sizeof(upd), 0);
+				if (result <= 0) {		
+					msg_lobby newUpd = msg_lobby();
+					newUpd.code = LOBBY_DISCONECT;
+					newUpd.playerID = (*iter)->getPlayerID();
+					this->lobby_upd.push_back(newUpd);
+
+
+					printf("Error lobby updates. Terminando conexion\n");
+					this->partida->obtenerJugador((*iter)->getPlayerID())->settearConexion(false);
+					this->clientes.erase(iter);
+					this->cantClientes--;
+					printf("Se elimina a un cliente. Clientes activos: %d\n", this->cantClientes);
+
+				}
+			}
+		}
+		SDL_SemPost(this->lobby_lock);
+		SDL_SemPost(this->clientes_lock);
+		SDL_Delay(20);
+	}
+	
+	SDL_SemWait(this->clientes_lock);
+	list<ConexionCliente*>::const_iterator iter, next;
+	for (iter = this->clientes.begin(); iter != this->clientes.end(); iter = next) {
+		ErrorLog::getInstance()->escribirLog("Envio un start partida");
+		next = iter;
+		next++;
+
+		msg_lobby newUpd = msg_lobby();
+		newUpd.code = LOBBY_START_GAME;
+
+		int result = send((*iter)->clientSocket, (char*)(&newUpd), sizeof(newUpd), 0);
+		if (result <= 0) {
+			printf("Error lobby updates. Terminando conexion\n");
+		}
+		(*iter)->start();
+	}
+	SDL_SemPost(this->clientes_lock);
 }
 
 
 // Función que se llama cada vez que se acepta un nuevo cliente
 // Acá se define el protocolo de LOG_IN, y se decide si la 
 // solicitud de unirse a la partida es válida
-void Servidor::aceptarCliente(SOCKET clientSocket) {
+ConexionCliente* Servidor::aceptarCliente(SOCKET clientSocket) {
 	// 1) Recibir solicitud de login
 	char buffer[sizeof(struct msg_login)];
 	int result = sRead(clientSocket, buffer, sizeof(struct msg_login));
 	if (result <= 0) {
 		printf("Error leyendo solicitud de login. Terminando conexión");
 		closesocket(clientSocket);
-		return;
+		return nullptr;
 	}
 	// Casteo del buffer
 	struct msg_login loginInfo = *(struct msg_login*)buffer;
 
 
 	// 2) Validar solicitud
-	bool aceptado = this->validarLogin(loginInfo);
+	DisconectCause_t aceptado = this->validarLogin(loginInfo);
 	struct msg_login_response respuesta;
-	respuesta.ok = aceptado;
 
-	if (aceptado) {		
+	if (aceptado == KICK_OK) {
+		respuesta.ok = true;
+		respuesta.cause = KICK_OK;
 		// 2.a) Crear al cliente
 		ConexionCliente* nuevoCliente = new ConexionCliente(clientSocket, this, loginInfo.playerCode);
 
@@ -97,54 +173,47 @@ void Servidor::aceptarCliente(SOCKET clientSocket) {
 		
 		if (result <= 0) {
 			printf("Error respondiendo solicitud de login. Terminando conexión");
-			this->removerCliente(nuevoCliente);
 			closesocket(clientSocket);
-			return;
+			return nullptr;
 		}
 
 		// 2.c) Enviar mapa completo
 		result = this->enviarMapa(nuevoCliente);
 		if (result <= 0) {
 			printf("Error enviando el mapa de login. Terminando conexión\n");
-			this->removerCliente(nuevoCliente);
 			closesocket(clientSocket);
-			return;
+			return nullptr;
 		}
-
-		// Update de login
-		msg_update login_update;
-		login_update.accion = MSJ_JUGADOR_LOGIN;
-		login_update.idEntidad = (unsigned int) loginInfo.playerCode;
-//		this->agregarUpdate(login_update);
-		
+				
 		Jugador* player = this->partida->obtenerJugador(loginInfo.playerCode);
 		player->settearConexion(true);
-
-
+		
 		// 3) Esperar confirmacion
 		char buffer2[sizeof(struct msg_client_ready)];
 		int result = sRead(clientSocket, buffer2, sizeof(struct msg_client_ready));
 		if (result <= 0) {
 			printf("Error leyendo ack del cliente. Terminando conexión");
 			closesocket(clientSocket);
-			return;
+			return nullptr;
 		}
 		struct msg_client_ready client_ready = *(struct msg_client_ready*)buffer2;
 		if (client_ready.ok) {
 			this->agregarCliente(nuevoCliente);
-			nuevoCliente->start();
+			return nuevoCliente;
 		} else {		
 			printf("Error inesperado en el cliente. Terminando conexión");
 			closesocket(clientSocket);
-			return;
+			return nullptr;
 		}
 
 	} else {
+		respuesta.ok = false;
+		respuesta.cause = aceptado;
 		// 2.a) Contestar solicitud negativamente
 		result = send(clientSocket, (char*)&respuesta, sizeof(respuesta), 0);
 		if (result <= 0) {
 			printf("Error respondiendo solicitud de login. Terminando conexión");
-			return;
+			return nullptr;
 		}
 		closesocket(clientSocket);
 	}
@@ -156,16 +225,22 @@ void Servidor::aceptarCliente(SOCKET clientSocket) {
 // y de los jugadores activos si la solicitud es válida o no.
 // Importante: es posible que tenga que acceder a la lista de clientes
 // (aunque no completamente necesario)
-bool Servidor::validarLogin(struct msg_login msg) {
+DisconectCause_t Servidor::validarLogin(struct msg_login msg) {
 	if (msg.playerCode <= 0) {
 		printf("Invalid request login.\n");
-		return false;
+		return KICK_INVALID_ID;
 	} else {
 		Jugador* player = this->partida->obtenerJugador(msg.playerCode);
-		if (!player || player->estaConectado() || ( player->verNombre().c_str() == msg.nombre ) )
-			return false;
+		if (!player)
+			return KICK_INVALID_ID;
+		
+		if (player->estaConectado())
+			return KICK_ID_IN_USE;
+		
+		if (!this->debeAceptarClientes())
+			return KICK_FULL;
 	}
-	return true;
+	return KICK_OK;
 }
 
 
@@ -313,13 +388,17 @@ void Servidor::removerCliente(ConexionCliente* client) {
 }
 
 
+bool Servidor::debeAceptarClientes(void) {
+	SDL_SemWait(this->clientes_lock);
+	bool acpetar = this->cantClientes < this->maxClientes;
+	SDL_SemPost(this->clientes_lock);
+	return acpetar;
+}
+
+
 //------------------------------------------------
 //----------Funciones de la simulación------------
 //------------------------------------------------
-
-void Servidor::enviarKeepAlive(list<msg_update*> updates) {
-	return;
-}
 
 // Bloquea la cola de eventos, y procesa todos ellos hasta dejarla vacía
 void Servidor::procesarEventos(void) {
@@ -385,12 +464,7 @@ void Servidor::desconectarJugador(unsigned int playerID) {
 	Jugador* player = this->partida->obtenerJugador(playerID);
 	if (player) {
 		player->settearConexion(false);
-		
-		// Update logout
-		msg_update logout_update;
-		logout_update.accion = MSJ_JUGADOR_LOGOUT;
-		logout_update.idEntidad = (unsigned int) playerID;
-//		this->agregarUpdate(logout_update);
+		this->partida->escenario->desconectarJugador(playerID);
 	}
 	SDL_SemPost(this->partida_lock);
 }

@@ -73,7 +73,7 @@ public:
 
 	// Metodo que realiza la accion apropiada cuando un jugador es derrotado
 	void derrotarJugadores(CondicionVictoria* vCond);
-
+	void desconectarJugador(unsigned int playerID);
 
 	list<Entidad*> verEntidades(void);
 	void asignarDestino(unsigned int entID, Posicion pos);

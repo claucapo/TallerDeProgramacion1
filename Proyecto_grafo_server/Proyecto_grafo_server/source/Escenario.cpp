@@ -51,7 +51,23 @@ msg_update* Escenario::generarUpdate(CodigoMensaje accion, unsigned int id, floa
 	return upd;
 }
 
+void Escenario::desconectarJugador(unsigned int playerID) {
+	list<Entidad*>::const_iterator iter, next;
+	msg_update* upd = generarUpdate(MSJ_JUGADOR_DERROTADO, playerID, LOSE_ALL, 0);
+	this->updatesAux.push_back(upd);
 
+	upd = generarUpdate(MSJ_JUGADOR_LOGOUT, playerID, 0, 0);
+	this->updatesAux.push_back(upd);
+
+	for (iter = this->entidades.begin(); iter != this->entidades.end(); iter = next) {
+		next = iter;
+		next++;
+		if ((*iter)->verJugador()->verID() == playerID) {
+			this->mapa->quitarEntidad(*iter);
+			this->entidades.erase(iter);
+		}
+	}
+}
 
 void Escenario::derrotarJugadores(CondicionVictoria* vCond) {
 	for(int i = 1; i < vCond->cantJugadores; i++) {

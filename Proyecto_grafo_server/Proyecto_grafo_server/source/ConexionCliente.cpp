@@ -25,6 +25,13 @@ ConexionCliente::ConexionCliente(SOCKET cSocket, Servidor* server, unsigned int 
 
 	this->myReader = NULL;
 	this->mySender = NULL;
+
+	DWORD timeout =  3000;
+	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout, sizeof(timeout)))
+		printf("Error on setting timeout");
+
+	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_SNDTIMEO,(char*)&timeout, sizeof(timeout)))
+		printf("Error on setting timeout");
 }
 
 ConexionCliente::~ConexionCliente() {
@@ -98,13 +105,6 @@ int conexionSender( void* data ) {
 // Lanza los dos threads correspondientes a la
 // lectura y la escritura
 void ConexionCliente::start() {
-	DWORD timeout =  3000;
-	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout, sizeof(timeout)))
-		printf("Error on setting timeout");
-
-	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_SNDTIMEO,(char*)&timeout, sizeof(timeout)))
-		printf("Error on setting timeout");
-
 	this->must_close = false;
 
 	this->myReader = SDL_CreateThread(conexionReader, "A client reader", this);
@@ -120,10 +120,7 @@ void ConexionCliente::stop() {
 		SDL_DetachThread(this->mySender);
 	}
 	this->must_close = true;
-	
-	// this->server->desconectarJugador(this->playerID);
-			
-	// Aca estaban los detach antes
+				
 }
 
 

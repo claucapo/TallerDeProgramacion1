@@ -35,6 +35,22 @@ enum CodigoMensaje {
 };
 enum Estados_t;
 
+enum DisconectCause_t {
+	KICK_OK,
+	KICK_ERROR,
+	KICK_FULL,
+	KICK_ID_IN_USE,
+	KICK_INVALID_ID,
+	KICK_INVALID_NAME
+};
+
+enum CodigoLobby {
+	LOBBY_KEEP_ALIVE,
+	LOBBY_CONNECT,
+	LOBBY_DISCONECT,
+	LOBBY_START_GAME,
+};
+
 struct msg_login {
 	int playerCode;
 	char nombre[50];
@@ -42,10 +58,17 @@ struct msg_login {
 
 struct msg_login_response {
 	bool ok;
+	DisconectCause_t cause;
 };
 
 struct msg_client_ready {
 	bool ok;
+};
+
+struct msg_lobby {
+	CodigoLobby code;
+	unsigned int playerID;
+	char name[50];
 };
 
 struct msg_map {

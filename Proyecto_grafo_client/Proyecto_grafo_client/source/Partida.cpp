@@ -291,7 +291,6 @@ void Partida::procesarUpdate(msg_update msj, unsigned int actPlayer) {
 				}
 			break;
 
-
 		case MSJ_JUGADOR_DERROTADO:
 			for (list<Jugador*>::const_iterator iter = jugadores.begin(); iter != jugadores.end(); iter++) {
 				if ((*iter)->verID() == (unsigned int)msj.extra2) {

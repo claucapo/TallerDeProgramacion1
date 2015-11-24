@@ -34,14 +34,19 @@ private:
 	Servidor() {};
 	msg_instancia enviarEntidad(Entidad* ent);
 
+	SDL_sem* lobby_lock;
+	list<msg_lobby> lobby_upd;
+	
+	int cantClientes;
+	int maxClientes;
+
 public:
 	SDL_cond* send_signal;
-	int cantClientes;
 	SOCKET listenSocket; // El socket que se quedará loopeado en accept
 
 
 	// Constructor y destructor
-	Servidor(SOCKET ls, Partida* partida);
+	Servidor(SOCKET ls, Partida* partida, unsigned int maxJugadores = 1);
 	~Servidor();
 
 	// Inicializa el thread que quedará a la espera de nuevos clientes
@@ -55,21 +60,22 @@ public:
 
 	// Permite a los clientes agregar un nuevo evento
 	void agregarEvento(struct msg_event_ext);
-	//void agregarUpdate(struct msg_update);
 
 	// Valida una conexión entrante y la agrega a la lista de clientes
-	void aceptarCliente(SOCKET cs);
-	bool validarLogin(struct msg_login);
+	ConexionCliente* aceptarCliente(SOCKET cs);
+	DisconectCause_t validarLogin(struct msg_login);
 	void desconectarJugador(unsigned int playerID);
 
 	// Devuelve un código de error <= 0 si no se pudo enviar la información en algún punto
 	int enviarMapa(ConexionCliente* cliente);
-	// int enviarEntidad(ConexionCliente *cliente, Entidad* ent);
-	void Servidor::enviarKeepAlive(list<msg_update*> updates);
 
 	// Funciones para modificar la lista de clientes
 	void agregarCliente(ConexionCliente* cliente);
 	void removerCliente(ConexionCliente* cliente);
+	bool debeAceptarClientes(void);
+
+	// Lobby specific
+	void agregarUpdateLobby(CodigoLobby code, unsigned int playerID, char aux[50]);
 };
 
 

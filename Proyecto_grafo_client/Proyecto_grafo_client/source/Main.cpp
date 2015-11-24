@@ -180,9 +180,7 @@ Partida* generarPartida(mapa_inicial data) {
 
 	BibliotecaDeImagenes::obtenerInstancia()->cargarEfectoSonido("villager_create");
 	BibliotecaDeImagenes::obtenerInstancia()->cargarEfectoSonido("ent_create");
-
-
-
+	
 	Escenario* scene = new Escenario(data.mInfo.coordX, data.mInfo.coordY);
 	Partida* game = new Partida();
 
@@ -531,7 +529,6 @@ int wmain(int argc, char* argv[]) {
 
 	SDL_Window* gameWindow = gp->getVentana();
 	SDL_Surface* gameScreen = gp->getPantalla();
-
 	
 	struct datosPantInic datos;
 	pantallaMenu(gp, &datos);
@@ -550,8 +547,6 @@ int wmain(int argc, char* argv[]) {
 	}
 	
 	ErrorLog::getInstance()->escribirLog("Conexion establecida");
-
-
 
 	// Intento establecer conexión
 	struct mapa_inicial elMapa;
@@ -580,6 +575,13 @@ int wmain(int argc, char* argv[]) {
 		return 1;	
 	}
 	
+
+
+	if (!client.startLobby(game)) {
+		return 1;
+	}
+
+
 	// En este punto el cliente ya está conectado
 	client.start();
 

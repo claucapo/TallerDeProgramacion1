@@ -59,6 +59,7 @@ public:
 
 	// Metodo que inicializa los threads de lectura y escritura para que comiencen a leer
 	void start();
+	bool startLobby(Partida* game);
 	void shutdown();
 
 	// Métodos que operan con las colas de updates y eventos

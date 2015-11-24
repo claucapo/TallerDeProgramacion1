@@ -33,7 +33,7 @@ using namespace std;
 
 #define TESTING_ENABLED false
 #define ARCHIVO_YAML "desplegadas.yaml"
-
+#define MAX_CLIENTS 3
 #define TIMEOUT 10000
 
 
@@ -465,9 +465,8 @@ int main(int argc, char* argv[]) {
 	// IMPORTANTE: Agregar chequeos a los datos ingresados!
 	*/
 
-	Servidor server = Servidor(ListenSocket, game);
-	server.start();
 
+	
 	cout <<endl<<endl;
 
 	bool exit = false;
@@ -481,9 +480,12 @@ int main(int argc, char* argv[]) {
 		cout<< i<<endl;
 	}
 
-	system("cls");
-	cout << "SERVER INITIALIZED WITH IP: *completar*" << endl;
-	cout << "DO NOT CLOSE THIS WINDOW UNTIL THE GAME HAS FINISHED!" << endl;
+
+	Servidor server = Servidor(ListenSocket, game, MAX_CLIENTS);
+	server.start();
+
+	//cout << "SERVER INITIALIZED WITH IP: *completar*" << endl;
+	//cout << "DO NOT CLOSE THIS WINDOW UNTIL THE GAME HAS FINISHED!" << endl;
 
 	list<msg_update*> updates;
 	while ( !exit ) {

@@ -1,8 +1,8 @@
 red:
   puerto: 27015
   ip: "127.0.0.1"
-  ID: 2
-  alias: "Genghis Khan"
+  ID: 3
+  alias: "Juana de Arco"
 pantalla: 
   ancho: 640
   alto: 480
@@ -50,6 +50,16 @@ tipo:
     ruta: "recursos\\screenFrame.png"
   - nombre: "menu_bck"
     ruta: "recursos\\main_title.png"
+  - nombre: "client_window"
+    ruta: "recursos\\client_window.png"
+  - nombre: "insert_ip"
+    ruta: "recursos\\insert_host_ip.png"
+  - nombre: "please_wait"
+    ruta: "recursos\\please_wait.png"
+  - nombre: "client_numbers"
+    ruta: "recursos\\client_numbers.png"
+  - nombre: "insert_port"
+    ruta: "recursos\\insert_port.png"
   - nombre: "sign_menu"
     ruta: "recursos\\sign_main_menu.png"
     pixelX: 138
@@ -101,12 +111,24 @@ tipo:
     ruta: "recursos\\townCenter_icon.png"
   - nombre: "house_icon"
     ruta: "recursos\\house_icon.png"
+  - nombre: "luck_icon"
+    ruta: "recursos\\luck_icon.png"
   - nombre: "attack_icon"
     ruta: "recursos\\attack_icon.png"
   - nombre: "range_icon"
     ruta: "recursos\\range_icon.png"
   - nombre: "armor_icon"
     ruta: "recursos\\armor_icon.png"
+  - nombre: "food_icon"
+    ruta: "recursos\\food_icon.png"
+  - nombre: "gold_icon"
+    ruta: "recursos\\gold_icon.png"
+  - nombre: "stone_icon"
+    ruta: "recursos\\stone_icon.png"
+  - nombre: "wood_icon"
+    ruta: "recursos\\wood_icon.png"
+  - nombre: "flag_icon"
+    ruta: "recursos\\flag_icon.png"
   - nombre: "champion"
     ruta: "recursos\\championAOE.png"
     subX: 10
@@ -572,6 +594,34 @@ tipo:
     subY: 8
     fps: 7
     delay: 11
+  - nombre: "king_move"
+    ruta: "recursos\\king_moveAOE.png"
+    pixelX: 9
+    pixelY: 29
+    subX: 10
+    subY: 8
+    fps: 8
+  - nombre: "king_move2"
+    ruta: "recursos\\king_moveAOEp2.png"
+    pixelX: 9
+    pixelY: 29
+    subX: 10
+    subY: 8
+    fps: 8
+  - nombre: "king_move3"
+    ruta: "recursos\\king_moveAOEp3.png"
+    pixelX: 9
+    pixelY: 29
+    subX: 10
+    subY: 8
+    fps: 8
+  - nombre: "Gking_move"
+    ruta: "recursos\\Gking_moveAOE.png"
+    pixelX: 9
+    pixelY: 29
+    subX: 10
+    subY: 8
+    fps: 8
   - nombre: "villager_collect"
     ruta: "recursos\\villager_collectAOE.png"
     pixelX: 13
@@ -1289,3 +1339,35 @@ tipo:
     ruta: "recursos\\GblacksmithAOE.png"
     pixelX: 101
     pixelY: 29
+  - nombre: "flag"
+    ruta: "recursos\\flagAOE.png"
+    subX: 13
+    subY: 1
+    pixelX: 15
+    pixelY: 46
+    fps: 10
+    delay: 0
+  - nombre: "flag2"
+    ruta: "recursos\\flagAOEp2.png"
+    subX: 13
+    subY: 1
+    pixelX: 15
+    pixelY: 54
+    fps: 10
+    delay: 0
+  - nombre: "flag3"
+    ruta: "recursos\\flagAOEp3.png"
+    subX: 13
+    subY: 1
+    pixelX: 15
+    pixelY: 54
+    fps: 10
+    delay: 0
+  - nombre: "Gflag"
+    ruta: "recursos\\flagAOE.png"
+    subX: 13
+    subY: 1
+    pixelX: 15
+    pixelY: 54
+    fps: 10
+    delay: 0
