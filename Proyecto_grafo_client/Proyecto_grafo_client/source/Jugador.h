@@ -34,6 +34,7 @@ poseerá una única Entidad móvil, */
 class Jugador {
 private:
 	string nombre;
+	string nombre_def;
 	int id;
 	string color;	// Proximamente cambiar por un enum
 					// Con un int inclusive ya basta
@@ -60,6 +61,9 @@ public:
 
 	void reiniciarVision(void);
 	void agregarPosiciones(list<Posicion> posiciones);
+	
+	void asingarNombre(string name);
+	void resetearNombre(void);
 
 	estado_vision_t visionCasilla(Posicion pos);
 

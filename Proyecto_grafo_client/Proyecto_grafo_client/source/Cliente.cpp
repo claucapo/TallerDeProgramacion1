@@ -103,23 +103,47 @@ bool Cliente::startLobby(Partida* game) {
 			// Procesar upd...
 			switch (upd.code) {
 			case LOBBY_START_GAME:
-				cout << "Recibi un LOBBY_START_GAME" <<endl;
+				cout << "Recibi un LOBBY_START_GAME" << endl;
 				return true;
 
 			case LOBBY_CONNECT:
-				cout << "Recibi un LOBBY_CONNECT" <<endl;
+				cout << "Recibi un LOBBY_CONNECT" << endl;
 				player = game->obtenerJugador(upd.playerID);
-				if (player)
+				if (player) {
 					player->settearConexion(true);
+					player->asingarNombre(string(upd.name));
+				}
 				break;
 
 			case LOBBY_DISCONECT:
-				cout << "Recibi un LOBBY_DISCONECT" <<endl;
+				cout << "Recibi un LOBBY_DISCONECT" << endl;
 				player = game->obtenerJugador(upd.playerID);
-				if (player)
+				if (player) {
 					player->settearConexion(false);
+					player->resetearNombre();
+				}
 				break;
 			}
+			if (upd.code != LOBBY_KEEP_ALIVE) {
+				cout << endl << "----------- LOBBY STATUS ----------" << endl;
+				for (int i = 1; i < game->jugadores.size(); i++) {
+					player = game->obtenerJugador(i);
+					if (player) {
+						cout << "Player: " << i << " - ";
+						if (player->estaConectado())
+							cout << "CONECTADO - ";
+						else
+							cout << "DESCONECTADO - ";
+
+						cout << "Alias: [" << player->verNombre() << "]";
+						if (player->verID() == this->playerID)
+							cout << " (YOU)";
+						cout << endl;
+					}
+				}
+				cout << endl;
+			}
+
 		}
 	} while (result > 0);
 	return false;
@@ -189,6 +213,9 @@ bool Cliente::login(redInfo_t rInfo) {
 			break;
 		case KICK_INVALID_ID:
 			ErrorLog::getInstance()->escribirLog("Error login, ID especificada invalida");
+			break;
+		case KICK_NAME_IN_USE:
+			ErrorLog::getInstance()->escribirLog("Error login, otro jugador ya tiene ese nombre");
 			break;
 		default:
 			ErrorLog::getInstance()->escribirLog("Error desconocido en el login");

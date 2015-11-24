@@ -39,9 +39,10 @@ NOTA: Actualmente, como el juego sólo
 poseerá una única Entidad móvil, */
 class Jugador {
 private:
-	string nombre;
+	std::string nombre;
+	std::string nombre_def;
 	int id;
-	string color;	// Proximamente cambiar por un enum
+	std::string color;	// Proximamente cambiar por un enum
 					// Con un int inclusive ya basta
 
 	Vision* vision;
@@ -60,10 +61,13 @@ public:
 
 	// Getters
 	string verNombre(void) {return this->nombre;}
+	string verNombreDef(void) {return this->nombre_def;}
 	int verID(void) {return this->id;}
 	string verColor(void) {return this->color;}
 	Vision* verVision(void) {return this->vision;}
 
+	void asingarNombre(string name);
+	void resetearNombre(void);
 
 	// Asigna al jugador una vision de tamaño fxc
 	void asignarVision(int filas, int columnas);

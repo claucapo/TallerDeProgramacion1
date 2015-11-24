@@ -18,6 +18,7 @@ struct Partida {
 	Partida(void);
 	~Partida(void);
 
+	bool nombreExiste(string name);
 	bool agregarJugador(Jugador*);
 	void asignarEscenario(Escenario*);
 	void inicializarCondicionVictoria(unsigned int tipoUnidad, tipo_derrota_t accion);

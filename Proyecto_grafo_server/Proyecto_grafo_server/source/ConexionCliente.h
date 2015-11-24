@@ -3,6 +3,7 @@
 
 #include <WinSock2.h>
 #include "Protocolo.h"
+#include "Enumerados.h"
 #include <queue>
 #include <SDL.h>
 #include <SDL_thread.h>
@@ -15,6 +16,7 @@ class Servidor;
 class ConexionCliente {
 private:
 	unsigned int playerID;
+	char playerName[NAME_LENGH_DEF];
 
 	// Threads de lectura y escritura
 	SDL_Thread* myReader;
@@ -32,10 +34,11 @@ public:
 	SDL_mutex* updates_lock;
 	queue<struct msg_update> updates;
 
-	ConexionCliente(SOCKET cSocket, Servidor* server, unsigned int ID);
+	ConexionCliente(SOCKET cSocket, Servidor* server, unsigned int ID, char* name);
 	~ConexionCliente();
 
 	unsigned int getPlayerID() {return this->playerID;}
+	char* getPlayerName() {return this->playerName;}
 
 	// Lanzará los threads de lectura y escritura
 	void start();

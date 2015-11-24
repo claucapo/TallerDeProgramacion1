@@ -59,7 +59,7 @@ int conectorClientes ( void* data ) {
 		} else {
 			ConexionCliente* cc = server->aceptarCliente(clientSocket);
 			if ( cc != nullptr ) {
-				server->agregarUpdateLobby(LOBBY_CONNECT, cc->getPlayerID(), 0);
+				server->agregarUpdateLobby(LOBBY_CONNECT, cc->getPlayerID(), cc->getPlayerName());
 			}
 		}
 	}
@@ -86,8 +86,10 @@ void Servidor::agregarUpdateLobby(CodigoLobby code, unsigned int playerID, char 
 void Servidor::start(void) {
 	cout << "Empiezo a aceptar clientes" << endl;
 	SDL_Thread* conector = SDL_CreateThread(conectorClientes, "Client connector", this);
+	bool continuar = true;
 
-	while (this->debeAceptarClientes()) {
+	while (continuar) {
+		continuar = this->debeAceptarClientes();
 		this->agregarUpdateLobby(LOBBY_KEEP_ALIVE, 0, nullptr);
 		SDL_SemWait(this->clientes_lock);
 		SDL_SemWait(this->lobby_lock);
@@ -166,7 +168,7 @@ ConexionCliente* Servidor::aceptarCliente(SOCKET clientSocket) {
 		respuesta.ok = true;
 		respuesta.cause = KICK_OK;
 		// 2.a) Crear al cliente
-		ConexionCliente* nuevoCliente = new ConexionCliente(clientSocket, this, loginInfo.playerCode);
+		ConexionCliente* nuevoCliente = new ConexionCliente(clientSocket, this, loginInfo.playerCode, loginInfo.nombre);
 
 		// 2.b) Contestar solicitud afirmativamente
 		result = send(clientSocket, (char*)&respuesta, sizeof(respuesta), 0);
@@ -199,6 +201,7 @@ ConexionCliente* Servidor::aceptarCliente(SOCKET clientSocket) {
 		struct msg_client_ready client_ready = *(struct msg_client_ready*)buffer2;
 		if (client_ready.ok) {
 			this->agregarCliente(nuevoCliente);
+			this->partida->obtenerJugador(nuevoCliente->getPlayerID())->asingarNombre(std::string(loginInfo.nombre));
 			return nuevoCliente;
 		} else {		
 			printf("Error inesperado en el cliente. Terminando conexión");
@@ -239,6 +242,9 @@ DisconectCause_t Servidor::validarLogin(struct msg_login msg) {
 		
 		if (!this->debeAceptarClientes())
 			return KICK_FULL;
+
+		if (this->partida->nombreExiste(std::string(msg.nombre)))
+			return KICK_NAME_IN_USE;
 	}
 	return KICK_OK;
 }
@@ -298,6 +304,9 @@ int Servidor::enviarMapa(ConexionCliente *cliente) {
 		msg_jugador act;
 		int last = (*it)->verNombre().copy(act.name, 49, 0);
 		act.name[last] = '\0';
+
+		last = (*it)->verNombreDef().copy(act.name_def, 49, 0);
+		act.name_def[last] = '\0';
 
 		last = (*it)->verColor().copy(act.color, 49, 0);
 		act.color[last] = '\0';
@@ -381,6 +390,7 @@ void Servidor::agregarCliente(ConexionCliente* client) {
 // ESTA FUNCION ESTA MAL... LO CAMBIE A PUNTEROS Y NO LA MODIFIQUÉ
 void Servidor::removerCliente(ConexionCliente* client) {
 	SDL_SemWait(this->clientes_lock);
+	this->partida->obtenerJugador(client->getPlayerID())->resetearNombre();
 	this->clientes.remove(client);
 	this->cantClientes--;
 	printf("Se elimina a un cliente. Clientes activos: %d\n", this->cantClientes);

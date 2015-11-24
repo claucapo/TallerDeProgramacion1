@@ -1,0 +1,808 @@
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelX
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelY
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelX
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelY
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelX
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelY
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 55, column 5: key not found: pixelX
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 55, column 5: key not found: pixelY
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 57, column 5: key not found: pixelX
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 57, column 5: key not found: pixelY
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 59, column 5: key not found: pixelX
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 59, column 5: key not found: pixelY
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 61, column 5: key not found: pixelX
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 61, column 5: key not found: pixelY
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 63, column 5: key not found: pixelY
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 66, column 5: key not found: pixelX
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 66, column 5: key not found: pixelY
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 68, column 5: key not found: pixelX
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 68, column 5: key not found: pixelY
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 70, column 5: key not found: pixelX
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 70, column 5: key not found: pixelY
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 72, column 5: key not found: pixelX
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 72, column 5: key not found: pixelY
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 74, column 5: key not found: pixelX
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 74, column 5: key not found: pixelY
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 76, column 5: key not found: pixelX
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 76, column 5: key not found: pixelY
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 78, column 5: key not found: pixelX
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 78, column 5: key not found: pixelY
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 80, column 5: key not found: pixelX
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 80, column 5: key not found: pixelY
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 82, column 5: key not found: pixelX
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 82, column 5: key not found: pixelY
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 84, column 5: key not found: pixelX
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 84, column 5: key not found: pixelY
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 86, column 5: key not found: pixelX
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 86, column 5: key not found: pixelY
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 88, column 5: key not found: pixelX
+[24/11/2015 02:14:13] - [WARNING] - yaml-cpp: error at line 88, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 90, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 90, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 92, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 92, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 94, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 94, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 96, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 96, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 98, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 98, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 100, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 100, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 102, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 102, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 104, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 104, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 106, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 106, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 108, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 108, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 110, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 110, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 112, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 112, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 114, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 114, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 116, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 116, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 118, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 118, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 120, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 120, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 122, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 122, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 124, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 124, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 126, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 126, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 128, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 128, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 130, column 5: key not found: pixelX
+[24/11/2015 02:14:14] - [WARNING] - yaml-cpp: error at line 130, column 5: key not found: pixelY
+[24/11/2015 02:14:14] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:14:14] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:14:14] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:14:14] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:14:14] - [ALLWAYS] - ----INICIANDO----
+[24/11/2015 02:14:15] - [ERROR] - SDL_image Error:  con imagenrecursos\GtownCenterAOE.png
+[24/11/2015 02:14:15] - [ERROR] - Error al cargar imágen: recursos\GtownCenterAOE.png.¡Imagen inexistente!
+[24/11/2015 02:14:24] - [ALLWAYS] - Conexion establecida
+[24/11/2015 02:14:24] - [ALLWAYS] - Error desconocido en el login
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 55, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 55, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 57, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 57, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 59, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 59, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 61, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 61, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 63, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 66, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 66, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 68, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 68, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 70, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 70, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 72, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 72, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 74, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 74, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 76, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 76, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 78, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 78, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 80, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 80, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 82, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 82, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 84, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 84, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 86, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 86, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 88, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 88, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 90, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 90, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 92, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 92, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 94, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 94, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 96, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 96, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 98, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 98, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 100, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 100, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 102, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 102, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 104, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 104, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 106, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 106, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 108, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 108, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 110, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 110, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 112, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 112, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 114, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 114, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 116, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 116, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 118, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 118, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 120, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 120, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 122, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 122, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 124, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 124, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 126, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 126, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 128, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 128, column 5: key not found: pixelY
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 130, column 5: key not found: pixelX
+[24/11/2015 02:16:22] - [WARNING] - yaml-cpp: error at line 130, column 5: key not found: pixelY
+[24/11/2015 02:16:23] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:16:23] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:16:23] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:16:23] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:16:23] - [ALLWAYS] - ----INICIANDO----
+[24/11/2015 02:16:23] - [ERROR] - SDL_image Error:  con imagenrecursos\GtownCenterAOE.png
+[24/11/2015 02:16:23] - [ERROR] - Error al cargar imágen: recursos\GtownCenterAOE.png.¡Imagen inexistente!
+[24/11/2015 02:16:26] - [ALLWAYS] - Conexion establecida
+[24/11/2015 02:16:26] - [ALLWAYS] - Error desconocido en el login
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 55, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 55, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 57, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 57, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 59, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 59, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 61, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 61, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 63, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 66, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 66, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 68, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 68, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 70, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 70, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 72, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 72, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 74, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 74, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 76, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 76, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 78, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 78, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 80, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 80, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 82, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 82, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 84, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 84, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 86, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 86, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 88, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 88, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 90, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 90, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 92, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 92, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 94, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 94, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 96, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 96, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 98, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 98, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 100, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 100, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 102, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 102, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 104, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 104, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 106, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 106, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 108, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 108, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 110, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 110, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 112, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 112, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 114, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 114, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 116, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 116, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 118, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 118, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 120, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 120, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 122, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 122, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 124, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 124, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 126, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 126, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 128, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 128, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 130, column 5: key not found: pixelX
+[24/11/2015 02:18:01] - [WARNING] - yaml-cpp: error at line 130, column 5: key not found: pixelY
+[24/11/2015 02:18:01] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:18:01] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:18:01] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:18:01] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:18:02] - [ALLWAYS] - ----INICIANDO----
+[24/11/2015 02:18:02] - [ERROR] - SDL_image Error:  con imagenrecursos\GtownCenterAOE.png
+[24/11/2015 02:18:02] - [ERROR] - Error al cargar imágen: recursos\GtownCenterAOE.png.¡Imagen inexistente!
+[24/11/2015 02:18:06] - [ALLWAYS] - Conexion establecida
+[24/11/2015 02:18:06] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[24/11/2015 02:18:06] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[24/11/2015 02:18:06] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[24/11/2015 02:18:06] - [WARNING] - Rango visión inválido en la entidad [flag]. Se utiliza valor por defecto.
+[24/11/2015 02:18:06] - [ERROR] - Error al cargar sonido: flag
+[24/11/2015 02:18:06] - [WARNING] - Rango visión inválido en la entidad [forage bush]. Se utiliza valor por defecto.
+[24/11/2015 02:18:06] - [ERROR] - Error al cargar sonido: forage bush
+[24/11/2015 02:18:06] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[24/11/2015 02:18:06] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[24/11/2015 02:18:06] - [WARNING] - Rango visión inválido en la entidad [siege weapon factory]. Se utiliza valor por defecto.
+[24/11/2015 02:18:06] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[24/11/2015 02:18:06] - [WARNING] - Rango visión inválido en la entidad [stone mine]. Se utiliza valor por defecto.
+[24/11/2015 02:18:06] - [WARNING] - Rango visión inválido en la entidad [town center]. Se utiliza valor por defecto.
+[24/11/2015 02:18:06] - [WARNING] - Rango visión inválido en la entidad [tree]. Se utiliza valor por defecto.
+[24/11/2015 02:18:06] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[24/11/2015 02:18:06] - [ERROR] - Error al cargar sonido: unknown
+[24/11/2015 02:18:06] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[24/11/2015 02:18:06] - [ERROR] - Error al cargar sonido: windmill
+[24/11/2015 02:18:06] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 55, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 55, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 57, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 57, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 59, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 59, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 61, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 61, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 63, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 66, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 66, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 68, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 68, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 70, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 70, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 72, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 72, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 74, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 74, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 76, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 76, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 78, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 78, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 80, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 80, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 82, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 82, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 84, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 84, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 86, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 86, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 88, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 88, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 90, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 90, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 92, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 92, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 94, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 94, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 96, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 96, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 98, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 98, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 100, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 100, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 102, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 102, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 104, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 104, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 106, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 106, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 108, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 108, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 110, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 110, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 112, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 112, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 114, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 114, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 116, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 116, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 118, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 118, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 120, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 120, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 122, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 122, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 124, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 124, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 126, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 126, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 128, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 128, column 5: key not found: pixelY
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 130, column 5: key not found: pixelX
+[24/11/2015 02:18:55] - [WARNING] - yaml-cpp: error at line 130, column 5: key not found: pixelY
+[24/11/2015 02:18:56] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:18:56] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:18:56] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:18:56] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:18:56] - [ALLWAYS] - ----INICIANDO----
+[24/11/2015 02:18:56] - [ERROR] - SDL_image Error:  con imagenrecursos\GtownCenterAOE.png
+[24/11/2015 02:18:56] - [ERROR] - Error al cargar imágen: recursos\GtownCenterAOE.png.¡Imagen inexistente!
+[24/11/2015 02:19:02] - [ALLWAYS] - Conexion establecida
+[24/11/2015 02:19:02] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[24/11/2015 02:19:02] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[24/11/2015 02:19:02] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[24/11/2015 02:19:02] - [WARNING] - Rango visión inválido en la entidad [flag]. Se utiliza valor por defecto.
+[24/11/2015 02:19:02] - [ERROR] - Error al cargar sonido: flag
+[24/11/2015 02:19:02] - [WARNING] - Rango visión inválido en la entidad [forage bush]. Se utiliza valor por defecto.
+[24/11/2015 02:19:02] - [ERROR] - Error al cargar sonido: forage bush
+[24/11/2015 02:19:02] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[24/11/2015 02:19:02] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[24/11/2015 02:19:02] - [WARNING] - Rango visión inválido en la entidad [siege weapon factory]. Se utiliza valor por defecto.
+[24/11/2015 02:19:02] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[24/11/2015 02:19:02] - [WARNING] - Rango visión inválido en la entidad [stone mine]. Se utiliza valor por defecto.
+[24/11/2015 02:19:02] - [WARNING] - Rango visión inválido en la entidad [town center]. Se utiliza valor por defecto.
+[24/11/2015 02:19:02] - [WARNING] - Rango visión inválido en la entidad [tree]. Se utiliza valor por defecto.
+[24/11/2015 02:19:02] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[24/11/2015 02:19:02] - [ERROR] - Error al cargar sonido: unknown
+[24/11/2015 02:19:02] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[24/11/2015 02:19:02] - [ERROR] - Error al cargar sonido: windmill
+[24/11/2015 02:19:02] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[24/11/2015 02:19:30] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelX
+[24/11/2015 02:19:30] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelY
+[24/11/2015 02:19:30] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelX
+[24/11/2015 02:19:30] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelY
+[24/11/2015 02:19:30] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelX
+[24/11/2015 02:19:30] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 55, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 55, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 57, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 57, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 59, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 59, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 61, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 61, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 63, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 66, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 66, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 68, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 68, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 70, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 70, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 72, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 72, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 74, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 74, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 76, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 76, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 78, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 78, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 80, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 80, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 82, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 82, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 84, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 84, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 86, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 86, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 88, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 88, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 90, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 90, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 92, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 92, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 94, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 94, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 96, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 96, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 98, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 98, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 100, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 100, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 102, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 102, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 104, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 104, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 106, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 106, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 108, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 108, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 110, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 110, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 112, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 112, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 114, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 114, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 116, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 116, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 118, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 118, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 120, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 120, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 122, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 122, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 124, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 124, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 126, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 126, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 128, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 128, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 130, column 5: key not found: pixelX
+[24/11/2015 02:19:31] - [WARNING] - yaml-cpp: error at line 130, column 5: key not found: pixelY
+[24/11/2015 02:19:31] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:19:31] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:19:31] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:19:31] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:19:32] - [ALLWAYS] - ----INICIANDO----
+[24/11/2015 02:19:32] - [ERROR] - SDL_image Error:  con imagenrecursos\GtownCenterAOE.png
+[24/11/2015 02:19:32] - [ERROR] - Error al cargar imágen: recursos\GtownCenterAOE.png.¡Imagen inexistente!
+[24/11/2015 02:19:36] - [ALLWAYS] - Conexion establecida
+[24/11/2015 02:19:36] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[24/11/2015 02:19:36] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[24/11/2015 02:19:36] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[24/11/2015 02:19:36] - [WARNING] - Rango visión inválido en la entidad [flag]. Se utiliza valor por defecto.
+[24/11/2015 02:19:36] - [ERROR] - Error al cargar sonido: flag
+[24/11/2015 02:19:36] - [WARNING] - Rango visión inválido en la entidad [forage bush]. Se utiliza valor por defecto.
+[24/11/2015 02:19:36] - [ERROR] - Error al cargar sonido: forage bush
+[24/11/2015 02:19:36] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[24/11/2015 02:19:36] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[24/11/2015 02:19:36] - [WARNING] - Rango visión inválido en la entidad [siege weapon factory]. Se utiliza valor por defecto.
+[24/11/2015 02:19:36] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[24/11/2015 02:19:36] - [WARNING] - Rango visión inválido en la entidad [stone mine]. Se utiliza valor por defecto.
+[24/11/2015 02:19:36] - [WARNING] - Rango visión inválido en la entidad [town center]. Se utiliza valor por defecto.
+[24/11/2015 02:19:36] - [WARNING] - Rango visión inválido en la entidad [tree]. Se utiliza valor por defecto.
+[24/11/2015 02:19:36] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[24/11/2015 02:19:36] - [ERROR] - Error al cargar sonido: unknown
+[24/11/2015 02:19:36] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[24/11/2015 02:19:36] - [ERROR] - Error al cargar sonido: windmill
+[24/11/2015 02:19:36] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 55, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 55, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 57, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 57, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 59, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 59, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 61, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 61, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 63, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 66, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 66, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 68, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 68, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 70, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 70, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 72, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 72, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 74, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 74, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 76, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 76, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 78, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 78, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 80, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 80, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 82, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 82, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 84, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 84, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 86, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 86, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 88, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 88, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 90, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 90, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 92, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 92, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 94, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 94, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 96, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 96, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 98, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 98, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 100, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 100, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 102, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 102, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 104, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 104, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 106, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 106, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 108, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 108, column 5: key not found: pixelY
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 110, column 5: key not found: pixelX
+[24/11/2015 02:29:12] - [WARNING] - yaml-cpp: error at line 110, column 5: key not found: pixelY
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 112, column 5: key not found: pixelX
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 112, column 5: key not found: pixelY
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 114, column 5: key not found: pixelX
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 114, column 5: key not found: pixelY
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 116, column 5: key not found: pixelX
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 116, column 5: key not found: pixelY
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 118, column 5: key not found: pixelX
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 118, column 5: key not found: pixelY
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 120, column 5: key not found: pixelX
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 120, column 5: key not found: pixelY
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 122, column 5: key not found: pixelX
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 122, column 5: key not found: pixelY
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 124, column 5: key not found: pixelX
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 124, column 5: key not found: pixelY
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 126, column 5: key not found: pixelX
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 126, column 5: key not found: pixelY
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 128, column 5: key not found: pixelX
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 128, column 5: key not found: pixelY
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 130, column 5: key not found: pixelX
+[24/11/2015 02:29:13] - [WARNING] - yaml-cpp: error at line 130, column 5: key not found: pixelY
+[24/11/2015 02:29:13] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:29:13] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:29:13] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:29:13] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:29:13] - [ALLWAYS] - ----INICIANDO----
+[24/11/2015 02:29:13] - [ERROR] - SDL_image Error:  con imagenrecursos\GtownCenterAOE.png
+[24/11/2015 02:29:13] - [ERROR] - Error al cargar imágen: recursos\GtownCenterAOE.png.¡Imagen inexistente!
+[24/11/2015 02:29:33] - [ALLWAYS] - Conexion establecida
+[24/11/2015 02:29:33] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[24/11/2015 02:29:33] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[24/11/2015 02:29:33] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[24/11/2015 02:29:33] - [WARNING] - Rango visión inválido en la entidad [flag]. Se utiliza valor por defecto.
+[24/11/2015 02:29:33] - [ERROR] - Error al cargar sonido: flag
+[24/11/2015 02:29:33] - [WARNING] - Rango visión inválido en la entidad [forage bush]. Se utiliza valor por defecto.
+[24/11/2015 02:29:33] - [ERROR] - Error al cargar sonido: forage bush
+[24/11/2015 02:29:33] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[24/11/2015 02:29:33] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[24/11/2015 02:29:33] - [WARNING] - Rango visión inválido en la entidad [siege weapon factory]. Se utiliza valor por defecto.
+[24/11/2015 02:29:33] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[24/11/2015 02:29:33] - [WARNING] - Rango visión inválido en la entidad [stone mine]. Se utiliza valor por defecto.
+[24/11/2015 02:29:33] - [WARNING] - Rango visión inválido en la entidad [town center]. Se utiliza valor por defecto.
+[24/11/2015 02:29:33] - [WARNING] - Rango visión inválido en la entidad [tree]. Se utiliza valor por defecto.
+[24/11/2015 02:29:33] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[24/11/2015 02:29:33] - [ERROR] - Error al cargar sonido: unknown
+[24/11/2015 02:29:33] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[24/11/2015 02:29:33] - [ERROR] - Error al cargar sonido: windmill
+[24/11/2015 02:29:33] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 55, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 55, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 57, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 57, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 59, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 59, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 61, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 61, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 63, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 66, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 66, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 68, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 68, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 70, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 70, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 72, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 72, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 74, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 74, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 76, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 76, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 78, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 78, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 80, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 80, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 82, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 82, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 84, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 84, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 86, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 86, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 88, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 88, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 90, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 90, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 92, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 92, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 94, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 94, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 96, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 96, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 98, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 98, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 100, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 100, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 102, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 102, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 104, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 104, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 106, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 106, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 108, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 108, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 110, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 110, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 112, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 112, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 114, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 114, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 116, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 116, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 118, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 118, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 120, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 120, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 122, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 122, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 124, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 124, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 126, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 126, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 128, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 128, column 5: key not found: pixelY
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 130, column 5: key not found: pixelX
+[24/11/2015 02:43:00] - [WARNING] - yaml-cpp: error at line 130, column 5: key not found: pixelY
+[24/11/2015 02:43:01] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:43:01] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:43:01] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:43:01] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:43:01] - [ALLWAYS] - ----INICIANDO----
+[24/11/2015 02:43:02] - [ERROR] - SDL_image Error:  con imagenrecursos\GtownCenterAOE.png
+[24/11/2015 02:43:02] - [ERROR] - Error al cargar imágen: recursos\GtownCenterAOE.png.¡Imagen inexistente!
+[24/11/2015 02:43:08] - [ALLWAYS] - Conexion establecida
+[24/11/2015 02:43:08] - [WARNING] - Rango visión inválido en la entidad [archery]. Se utiliza valor por defecto.
+[24/11/2015 02:43:08] - [WARNING] - Rango visión inválido en la entidad [barracks]. Se utiliza valor por defecto.
+[24/11/2015 02:43:08] - [WARNING] - Rango visión inválido en la entidad [castle]. Se utiliza valor por defecto.
+[24/11/2015 02:43:08] - [WARNING] - Rango visión inválido en la entidad [flag]. Se utiliza valor por defecto.
+[24/11/2015 02:43:08] - [ERROR] - Error al cargar sonido: flag
+[24/11/2015 02:43:08] - [WARNING] - Rango visión inválido en la entidad [forage bush]. Se utiliza valor por defecto.
+[24/11/2015 02:43:08] - [ERROR] - Error al cargar sonido: forage bush
+[24/11/2015 02:43:08] - [WARNING] - Rango visión inválido en la entidad [gold mine]. Se utiliza valor por defecto.
+[24/11/2015 02:43:08] - [WARNING] - Rango visión inválido en la entidad [house]. Se utiliza valor por defecto.
+[24/11/2015 02:43:08] - [WARNING] - Rango visión inválido en la entidad [siege weapon factory]. Se utiliza valor por defecto.
+[24/11/2015 02:43:08] - [WARNING] - Rango visión inválido en la entidad [stable]. Se utiliza valor por defecto.
+[24/11/2015 02:43:08] - [WARNING] - Rango visión inválido en la entidad [stone mine]. Se utiliza valor por defecto.
+[24/11/2015 02:43:08] - [WARNING] - Rango visión inválido en la entidad [town center]. Se utiliza valor por defecto.
+[24/11/2015 02:43:08] - [WARNING] - Rango visión inválido en la entidad [tree]. Se utiliza valor por defecto.
+[24/11/2015 02:43:08] - [WARNING] - Tipo de instancia [unknown] reservada. No se reemplazará el tipo por defecto.
+[24/11/2015 02:43:08] - [ERROR] - Error al cargar sonido: unknown
+[24/11/2015 02:43:08] - [WARNING] - Rango visión inválido en la entidad [windmill]. Se utiliza valor por defecto.
+[24/11/2015 02:43:08] - [ERROR] - Error al cargar sonido: windmill
+[24/11/2015 02:43:08] - [ERROR] - El jugador [gaia] ya existe en la partida.
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 49, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 51, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 53, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 55, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 55, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 57, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 57, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 59, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 59, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 61, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 61, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 63, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 66, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 66, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 68, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 68, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 70, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 70, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 72, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 72, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 74, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 74, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 76, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 76, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 78, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 78, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 80, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 80, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 82, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 82, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 84, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 84, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 86, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 86, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 88, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 88, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 90, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 90, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 92, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 92, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 94, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 94, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 96, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 96, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 98, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 98, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 100, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 100, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 102, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 102, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 104, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 104, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 106, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 106, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 108, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 108, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 110, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 110, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 112, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 112, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 114, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 114, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 116, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 116, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 118, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 118, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 120, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 120, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 122, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 122, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 124, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 124, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 126, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 126, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 128, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 128, column 5: key not found: pixelY
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 130, column 5: key not found: pixelX
+[24/11/2015 02:47:14] - [WARNING] - yaml-cpp: error at line 130, column 5: key not found: pixelY
+[24/11/2015 02:47:15] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:47:15] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:47:15] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:47:15] - [WARNING] - Valor de [fps] debe ser distinto de cero. Se tomará el valor por defecto
+[24/11/2015 02:47:15] - [ALLWAYS] - ----INICIANDO----
+[24/11/2015 02:47:15] - [ERROR] - SDL_image Error:  con imagenrecursos\GtownCenterAOE.png
+[24/11/2015 02:47:15] - [ERROR] - Error al cargar imágen: recursos\GtownCenterAOE.png.¡Imagen inexistente!

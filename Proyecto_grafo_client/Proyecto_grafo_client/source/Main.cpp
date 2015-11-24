@@ -196,7 +196,8 @@ Partida* generarPartida(mapa_inicial data) {
 			gaia->verVision()->setFromArray(jugador_act->varray);
 			delete jugador_act;
 		} else {
-			Jugador* nuevo = new Jugador(jugador_act->jInfo.name, jugador_act->jInfo.id, jugador_act->jInfo.color);
+			Jugador* nuevo = new Jugador(jugador_act->jInfo.name_def, jugador_act->jInfo.id, jugador_act->jInfo.color);
+			nuevo->asingarNombre(jugador_act->jInfo.name);
 			if (!game->agregarJugador(nuevo)) {
 				delete nuevo;
 				delete[] jugador_act->varray;

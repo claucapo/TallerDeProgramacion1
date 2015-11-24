@@ -27,6 +27,7 @@ enum Accion_t {ACT_NONE, ACT_ATACK, ACT_COLLECT, ACT_BUILD, ACT_INFANTRY, ACT_CA
 
 const Estados_t accionAEstado[] = {EST_QUIETO, EST_ATACANDO, EST_RECOLECTANDO, EST_CONSTRUYENDO};
 
+const unsigned int NAME_LENGH_DEF = 50;
 const string nombre_entidad_def = "unknown";
 
 // Otras constantes

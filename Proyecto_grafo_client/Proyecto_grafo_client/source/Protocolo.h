@@ -40,6 +40,7 @@ enum DisconectCause_t {
 	KICK_ERROR,
 	KICK_FULL,
 	KICK_ID_IN_USE,
+	KICK_NAME_IN_USE,
 	KICK_INVALID_ID,
 	KICK_INVALID_NAME
 };
@@ -91,6 +92,7 @@ struct msg_recursos {
 // Los recursos se pasan por un struc estático dentro de este propio struct
 struct msg_jugador {
 	char name[50];
+	char name_def[50];
 	char color[50];
 	unsigned int id;
 	msg_recursos recursos;

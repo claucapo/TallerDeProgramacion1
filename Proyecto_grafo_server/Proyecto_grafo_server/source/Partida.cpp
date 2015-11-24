@@ -60,6 +60,15 @@ Jugador* Partida::obtenerJugador(int id) {
 	return nullptr;
 }
 
+bool Partida::nombreExiste(string name) {
+	for( list<Jugador*>::const_iterator iter = this->jugadores.begin(); iter != this->jugadores.end(); ++iter) {
+		if ((*iter)->estaConectado() && (*iter)->verNombre() == name) {
+			return true;
+		}
+	}
+	return false;
+}
+
 void Partida::inicializarCondicionVictoria(unsigned int tipoUnidad, tipo_derrota_t accion) {
 	this->vCond = CondicionVictoria(this->jugadores.size(), tipoUnidad, accion);
 	this->vCond.inicializar(this);

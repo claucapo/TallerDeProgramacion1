@@ -5,6 +5,7 @@
 
 Jugador::Jugador(string name, int id, string color){
 	this->nombre = name;
+	this->nombre_def = name;
 	this->id = 1;
 	if (id < 0)
 		ErrorLog::getInstance()->escribirLog("Error al crear jugador [" + this->nombre + "]. ID invalida", LOG_ERROR);
@@ -93,4 +94,13 @@ void Jugador::gastarRecursos(recursos_jugador_t costo) {
 	recursos.madera -= costo.madera;
 	recursos.piedra -= costo.piedra;
 	this->resources_dirty = true;
+}
+
+void Jugador::asingarNombre(string name) {
+	this->nombre = name;
+}
+	
+
+void Jugador::resetearNombre(void) {
+	this->nombre = this->nombre_def;
 }

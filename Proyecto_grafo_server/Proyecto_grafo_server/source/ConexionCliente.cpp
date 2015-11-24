@@ -11,7 +11,7 @@
 // Función de lectura auxiliar
 int sRead(SOCKET source, char* buffer, int length);
 
-ConexionCliente::ConexionCliente(SOCKET cSocket, Servidor* server, unsigned int id) {
+ConexionCliente::ConexionCliente(SOCKET cSocket, Servidor* server, unsigned int id, char* name) {
 	this->clientSocket = cSocket;
 	
 	this->playerID = id;
@@ -25,6 +25,10 @@ ConexionCliente::ConexionCliente(SOCKET cSocket, Servidor* server, unsigned int 
 
 	this->myReader = NULL;
 	this->mySender = NULL;
+
+	for (int i = 0; i < NAME_LENGH_DEF; i++) {
+		this->playerName[i] = name[i];
+	}
 
 	DWORD timeout =  3000;
 	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout, sizeof(timeout)))
