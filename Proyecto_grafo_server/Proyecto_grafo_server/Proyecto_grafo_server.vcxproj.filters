@@ -120,6 +120,9 @@
     <ClInclude Include="source\CondicionVictoria.h">
       <Filter>Archivos de encabezado\Partida</Filter>
     </ClInclude>
+    <ClInclude Include="source\GeneradorEscenarios.h">
+      <Filter>Archivos de encabezado\Utilidades</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Main.cpp">
@@ -190,6 +193,9 @@
     </ClCompile>
     <ClCompile Include="source\CondicionVictoria.cpp">
       <Filter>Archivos de código fuente\Partida</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GeneradorEscenarios.cpp">
+      <Filter>Archivos de código fuente\Utilidades</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

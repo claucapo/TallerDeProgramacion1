@@ -24,7 +24,7 @@ Cliente::Cliente(SOCKET sock) {
 	this->myReader = NULL;
 	this->mySender = NULL;
 
-	DWORD timeout =  3000;
+	DWORD timeout =  5000;
 	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout, sizeof(timeout)))
 		printf("Error on setting timeout");
 
@@ -258,6 +258,18 @@ void Cliente::procesarUpdates(Partida* game, unsigned int actPlayer) {
 		this->updates.pop();
 		
 		switch (upd.accion) {
+		case MSJ_JUGADOR_DERROTADO:
+			game->procesarUpdate(upd, actPlayer);
+			if (upd.idEntidad == actPlayer) {
+				cout << "Has sido derrotado!!!!" << endl;
+			}
+			break;
+
+		case MSJ_JUGADOR_GANADOR:
+			if (upd.idEntidad == actPlayer) {
+				cout << "Has ganado!!!!" << endl;
+			}
+			break;
 		case MSJ_STATE_CHANGE:
 		case MSJ_MOVER:
 		case MSJ_RES_CHANGE:
@@ -267,7 +279,6 @@ void Cliente::procesarUpdates(Partida* game, unsigned int actPlayer) {
 		case MSJ_PRODUCIR_UNIDAD:
 		case MSJ_FINALIZAR_EDIFICIO:
 		case MSJ_FINALIZAR_PRODUCCION:
-		case MSJ_JUGADOR_DERROTADO:
 		case MSJ_ELIMINAR:
 			game->procesarUpdate(upd, actPlayer); break;
 		case MSJ_JUGADOR_LOGIN:

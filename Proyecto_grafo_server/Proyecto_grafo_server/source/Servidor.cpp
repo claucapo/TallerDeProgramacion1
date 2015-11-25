@@ -187,24 +187,26 @@ ConexionCliente* Servidor::aceptarCliente(SOCKET clientSocket) {
 			return nullptr;
 		}
 				
-		Jugador* player = this->partida->obtenerJugador(loginInfo.playerCode);
-		player->settearConexion(true);
 		
 		// 3) Esperar confirmacion
 		char buffer2[sizeof(struct msg_client_ready)];
 		int result = sRead(clientSocket, buffer2, sizeof(struct msg_client_ready));
 		if (result <= 0) {
-			printf("Error leyendo ack del cliente. Terminando conexión");
+			printf("Error leyendo ack del cliente. Terminando conexion %d\n", WSAGetLastError());
 			closesocket(clientSocket);
 			return nullptr;
 		}
+		
+		Jugador* player = this->partida->obtenerJugador(loginInfo.playerCode);
+		player->settearConexion(true);
+
 		struct msg_client_ready client_ready = *(struct msg_client_ready*)buffer2;
 		if (client_ready.ok) {
 			this->agregarCliente(nuevoCliente);
 			this->partida->obtenerJugador(nuevoCliente->getPlayerID())->asingarNombre(std::string(loginInfo.nombre));
 			return nuevoCliente;
 		} else {		
-			printf("Error inesperado en el cliente. Terminando conexión");
+			printf("Error inesperado en el cliente. Terminando conexion");
 			closesocket(clientSocket);
 			return nullptr;
 		}

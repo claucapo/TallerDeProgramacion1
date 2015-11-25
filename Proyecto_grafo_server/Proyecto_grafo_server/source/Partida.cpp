@@ -145,19 +145,16 @@ void Partida::procesarEvento(msg_event msj, unsigned int source) {
 		break;
 
 	case MSJ_RECOLECTAR:
-		cout << "Recibi un recolectar" << endl;
 		if (ent)
 			ent->asignarAccion(ACT_COLLECT, (unsigned int)msj.extra1);
 		break;
 
 	case MSJ_ATACAR:
-		cout << "Recibi un recolectar" << endl;
 		if (ent)
 			ent->asignarAccion(ACT_ATACK, (unsigned int)msj.extra1);
 		break;
 
 	case MSJ_CONSTRUIR:
-		cout << "Recibi un construir" << endl;
 		destino = Posicion(msj.extra1, msj.extra2);
 		aux = this->escenario->obtenerEntidad(destino);
 		if (ent && aux)
@@ -176,7 +173,6 @@ void Partida::procesarEvento(msg_event msj, unsigned int source) {
 		break;
 
 	case MSJ_NUEVO_EDIFICIO:
-		cout << "Recibi un construir edificio" << endl;
 
 		tipoEntidad_t* pType = FactoryEntidades::obtenerInstancia()->obtenerPrototipo(msj.idEntidad);
 		if (!this->obtenerJugador(source)->puedePagar(pType->costo)) {

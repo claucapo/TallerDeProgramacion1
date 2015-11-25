@@ -1,5 +1,8 @@
 red:
   puerto: "27015"
+  cant_jugadores: 2
+  random_map: 1
+  tipo_partida: 1
 log:
   warnings: 1
   info: 0
@@ -14,6 +17,9 @@ jugadores:
   - nombre: "Saladino"
     id: 3
     color: "amarillo"
+  - nombre: "Moctezuma"
+    id: 4
+    color: "verde"
 entidades:
   - nombre: "villager"
     sizeX: 1
@@ -74,6 +80,10 @@ entidades:
     costGold: 100
     costWood: 10
     costStone: 55
+  - nombre: "flag"
+    sizeX: 1
+    sizeY: 1
+    vidaMax: 1
   - nombre: "colosus"
     tipo: "unit"
     velocidad: 3
@@ -165,8 +175,8 @@ entidades:
     sizeY: 3
   - nombre: "town center"
     tipo: "building"
-    sizeX: 2
-    sizeY: 2
+    sizeX: 5
+    sizeY: 5
   - nombre: "barracks"
     tipo: "building"
     sizeX: 4

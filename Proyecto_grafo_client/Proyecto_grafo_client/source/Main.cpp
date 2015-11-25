@@ -627,12 +627,12 @@ int wmain(int argc, char* argv[]) {
 	struct datosPantInic datos;
 	pantallaMenu(gp, &datos);
 
-	cout << "PLAYER NAME: " << datos.pName << endl;
-	cout << "IP: " << datos.ip << endl;
-	cout << "PUERTO: " << datos.puerto << endl;
+	redInfo_t rInfo = parser.verInfoRed();
+	rInfo.port = datos.puerto;
+	rInfo.name = datos.pName;
 
 	// Después modificar el método para que tome como parámetro el puerto y la ip del yaml
-	SOCKET connectSocket = inicializarConexion(parser.verInfoRed());
+	SOCKET connectSocket = inicializarConexion(rInfo);
 	if (connectSocket == INVALID_SOCKET) {
 		printf("Unable to connect to server!\n");
 		// Salir elegantemente;
@@ -646,7 +646,7 @@ int wmain(int argc, char* argv[]) {
 	struct mapa_inicial elMapa;
 	Partida* game;
 	Cliente client = Cliente(connectSocket);
-	if ( client.login(parser.verInfoRed()) ) {
+	if ( client.login(rInfo) ) {
 		elMapa = client.getEscenario();
 		printf("Tam mapa recibido: %d - %d\n", elMapa.mInfo.coordX, elMapa.mInfo.coordY);
 		game = generarPartida(elMapa);

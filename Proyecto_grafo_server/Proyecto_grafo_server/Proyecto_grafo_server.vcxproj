@@ -81,6 +81,7 @@
     <ClInclude Include="source\ErrorLog.h" />
     <ClInclude Include="source\Escenario.h" />
     <ClInclude Include="source\FactoryEntidades.h" />
+    <ClInclude Include="source\GeneradorEscenarios.h" />
     <ClInclude Include="source\Jugador.h" />
     <ClInclude Include="source\Matriz.h" />
     <ClInclude Include="source\Nodo.h" />
@@ -105,6 +106,7 @@
     <ClCompile Include="source\ErrorLog.cpp" />
     <ClCompile Include="source\Escenario.cpp" />
     <ClCompile Include="source\FactoryEntidades.cpp" />
+    <ClCompile Include="source\GeneradorEscenarios.cpp" />
     <ClCompile Include="source\Jugador.cpp" />
     <ClCompile Include="source\Main.cpp" />
     <ClCompile Include="source\Matriz.cpp" />

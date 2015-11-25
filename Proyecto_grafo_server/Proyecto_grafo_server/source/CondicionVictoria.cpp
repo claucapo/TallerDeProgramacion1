@@ -49,11 +49,15 @@ void CondicionVictoria::inicializar(Partida* game) {
 	}
 }
 
+
+
 void CondicionVictoria::spawnEntidad(Entidad* ent) {
 	if (ent->typeID == this->tipoUnidadCritica || this->tipoUnidadCritica == 0)
 		this->cantUnidadesCriticas[ent->verJugador()->verID()]++;
 }
-	
+
+
+
 bool CondicionVictoria::deleteEntidad(Entidad* ent) {
 	if (ent->typeID == this->tipoUnidadCritica || this->tipoUnidadCritica == 0)
 		this->cantUnidadesCriticas[ent->verJugador()->verID()]--;
@@ -65,4 +69,22 @@ bool CondicionVictoria::deleteEntidad(Entidad* ent) {
 		return true;
 	}
 	return false;
+}
+
+
+int CondicionVictoria::cantJugadoresActivos(void) {
+	int cant = 0;
+	for (int i = 1; i < cantJugadores; i++) {
+		if (this->sigueJugando[i])
+			cant++;
+	}
+	return cant;
+}
+
+unsigned int CondicionVictoria::verUltimoJugador(void) {
+	for (int i = 1; i < cantJugadores; i++) {
+		if (this->sigueJugando[i])
+			return i;
+	}
+	return 0;
 }

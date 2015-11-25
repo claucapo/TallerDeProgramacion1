@@ -95,8 +95,11 @@ struct logInfo_t {
 // Struct de la información de red
 struct redInfo_t {
 	std::string port;
+	int cant_jugadores;
+	bool random_map;
+	int tipo_partida;
 
-	redInfo_t(): port(PORT_DEFAULT) {};
+	redInfo_t(): port(PORT_DEFAULT), cant_jugadores(2), random_map(false), tipo_partida(1) {};
 };
 
 

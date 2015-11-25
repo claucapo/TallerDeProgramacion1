@@ -7,6 +7,9 @@
 
 #define RED_KEY "red"
 	#define PUERTO_KEY "puerto"
+	#define CANT_JUGADORES_KEY "cant_jugadores"
+	#define RANDOM_MAP_KEY "random_map"
+	#define TIPO_PARTIDA_KEY "tipo_partida"
 
 #define LOG_KEY "log"
 	#define WARNINGS_KEY "warnings"
@@ -372,6 +375,9 @@ void operator >> (const YAML::Node& node, escenarioInfo_t& sInfo) {
 // Informacion de red
 void operator >> (const YAML::Node& node, redInfo_t& rInfo) {
 	parsearString(node, PUERTO_KEY, &rInfo.port, LOG_WARNING);
+	parsearEntero(node, CANT_JUGADORES_KEY, &rInfo.cant_jugadores, LOG_WARNING, false);
+	parsearBoolean(node, RANDOM_MAP_KEY, &rInfo.random_map, LOG_INFO);
+	parsearEntero(node, TIPO_PARTIDA_KEY, &rInfo.tipo_partida, LOG_INFO);
 }
 
 

@@ -1,7 +1,7 @@
 red:
   puerto: 27015
   ip: "127.0.0.1"
-  ID: 3
+  ID: 1
   alias: "Pepe"
 pantalla: 
   ancho: 640
@@ -62,6 +62,9 @@ tipo:
     ruta: "recursos\\insert_port.png"
   - nombre: "sign_menu"
     ruta: "recursos\\sign_main_menu.png"
+    pixelX: 138
+  - nombre: "sign_name"
+    ruta: "recursos\\sign_insert_name.png"
     pixelX: 138
   - nombre: "gold mine_icon"
     ruta: "recursos\\goldMine_icon.png"

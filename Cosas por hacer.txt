@@ -18,3 +18,11 @@
 		- Y poner todo en una pantalla linda al principio
 	
 	- Unidades nuevas para sumar puntillos ?				[DONE!]
+
+
+- Mensajes de "Ganaste" - "Peridste"			[DONE]	
+- Unidades no se traban al moverse en diagonal			
+- Unidad en idle responde a un ataque			[DONE]	
+- Uso de pantallas de configuracion			[HALF DONE]		
+- Incorporar mapas aleatorios				[DONE]	
+- Quitar pritnf						[QUEDAN ALGUNOS]

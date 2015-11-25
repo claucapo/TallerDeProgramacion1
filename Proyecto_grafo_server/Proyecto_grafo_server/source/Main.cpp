@@ -24,7 +24,7 @@
 #include "Partida.h"
 #include "Jugador.h"
 #include "Servidor.h"
-#include "Edificio.h"
+#include "GeneradorEscenarios.h"
 
 using namespace std;
 
@@ -32,17 +32,15 @@ using namespace std;
 // #pragma comment (lib, "Mswsock.lib")
 
 #define TESTING_ENABLED false
-#define ARCHIVO_YAML "desplegadas.yaml"
-#define MAX_CLIENTS 1
+#define ARCHIVO_YAML "EscenarioPrueba.yaml"
 #define TIMEOUT 10000
 
 
-struct datosPantInic{
+struct datosPantInic {
 	string puerto;
 	int cantPlayers;
 	int tipoPartida;
 };
-
 
 SOCKET inicializarConexion(redInfo_t rInfo) {
 	WSADATA wsaData;
@@ -103,9 +101,20 @@ SOCKET inicializarConexion(redInfo_t rInfo) {
 	return ListenSocket;
 }
 
+
+// -----------------------------------------------------
+// ----------------LOADER DE LA PARTIDA-----------------
+// -----------------------------------------------------
+
+
+
 // Carga la información de los jugadores en la partida
-void cargarJugadores(Partida* partida, std::list<jugadorInfo_t*> jInfoL) {
-	for (std::list<jugadorInfo_t*>::const_iterator iter = jInfoL.begin(); iter != jInfoL.end(); ++iter) {
+void cargarJugadores(Partida* partida, std::list<jugadorInfo_t*> jInfoL, int cant_jugadores) {
+	if (cant_jugadores > MAX_JUGADORES || cant_jugadores < 0)
+		cant_jugadores = 2;
+
+	int i = 0;
+	for (std::list<jugadorInfo_t*>::const_iterator iter = jInfoL.begin(); iter != jInfoL.end() && i < cant_jugadores; ++iter, i++) {
 		jugadorInfo_t act = *(*iter);
 		Jugador* newPlayer = new Jugador(act.nombre, act.id, act.color);
 		if ( !(partida->agregarJugador(newPlayer)) ) {
@@ -156,6 +165,67 @@ void cargarEscenario(Partida* partida, escenarioInfo_t eInfo) {
 
 	partida->asignarEscenario(scene);
 }
+
+bool cargarEscenarioAleatorio(Partida* partida, int size, tipo_partida_t tipo, int cant_jugadores) {
+	// Chequeo de los parámetros (e inicializacion a valores default en caso de error)
+	if (cant_jugadores < MIN_JUGADORES || cant_jugadores > MAX_JUGADORES)
+		cant_jugadores = 2;
+
+	if (size < MIN_SIZE || size > MAX_SIZE)
+		size = 50;
+	
+	Escenario* scene = new Escenario(size, size);
+	tile_content* tiles = generarEscenario(size, cant_jugadores);
+	if (!tiles) {
+		return false;
+	} else {
+		std::string ent_name = "unknown";
+		int owner;
+		Entidad* entidad = nullptr;
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				tile_content act = tiles[i * size + j];
+				ent_name = tile_content_entity[act];
+				owner = tile_content_owner[act];
+				if (act >= TILE_CRIT_UNIT1) {
+					switch(tipo) {
+					case PARTIDA_REGICIDA:
+						ent_name = "king"; break;
+					case PARTIDA_CAPTURE_FLAG:
+						ent_name = "flag"; break;
+					default:
+						ent_name = "unknown";
+					}
+				}
+				if (!(ent_name == "unknown")) {
+					entidad = FactoryEntidades::obtenerInstancia()->obtenerEntidad(ent_name);
+					if (entidad) {
+						Posicion posicion = Posicion((float)i, (float)j);
+						Jugador* player = partida->obtenerJugador(owner);
+						if (!player) {
+							ErrorLog::getInstance()->escribirLog("Error asignando jugador a entidad, jugador inexistente. Se le asigna gaia", LOG_WARNING);
+							player = partida->obtenerJugador(0);
+						}
+						if ( !scene->ubicarEntidad(entidad, &posicion) )
+							delete entidad;
+						else
+							entidad->asignarJugador(player);
+					}
+				}
+			}
+		}
+	}
+	partida->asignarEscenario(scene);
+	return true;
+}
+
+
+
+
+
+// -------------------------------------------------------------
+// -------------------PARTE GRÁFICA DEL SERVER-------------------
+// -------------------------------------------------------------
 
 SDL_Surface* loadSurface(std::string path, SDL_Surface* pantalla) {
 	SDL_Surface* optimizedSurface = NULL;
@@ -420,55 +490,80 @@ void pantallaInicio(struct datosPantInic *datos){
 
 }
 
+
+
+
+
+
 /*******************************************
-
 			PROGRAMA PRINCIPAL
-
 ********************************************/
 int main(int argc, char* argv[]) {
 	
-	// Esto tiene que ser la logica y tiene que incluir players
+	// 1) Parseo del YAML
 	ConfigParser parser = ConfigParser();
 	parser.setPath(ARCHIVO_YAML);
-			
+
 	parser.parsearTodo();
-	
+
 	ErrorLog::getInstance()->escribirLog("----INICIANDO----");
-
-	// Graficos lindos xd
-
-	SOCKET ListenSocket = inicializarConexion(parser.verInfoRed());
-	if (ListenSocket == INVALID_SOCKET) {
-		// limpiarPartida();
-		// cerrar();
-		return 1;
-	}
 	
-	Partida* game = new Partida();
-	cargarJugadores(game, parser.verInfoJugadores());
-	cargarFactoryEntidades(parser.verInfoEntidades());
+	redInfo_t rInfo = parser.verInfoRed();
+	
+	// 2) Obtencion de datos de la pantalla
 
-	cargarEscenario(game, parser.verInfoEscenario());
-	game->inicializarCondicionVictoria(FactoryEntidades::obtenerInstancia()->obtenerTypeID("flag"), TRANSFER_ALL);
-
-
-	printf("Listo para aceptar clientes\n");
-
-	/*
+	// NECESITO: Puerto, Cant_Jugadores, Tipo_Partida, Mapa_Aleatorio, Tam_Mapa_Aleatorio
+	
 	struct datosPantInic datos;
 	pantallaInicio(&datos);
 
-	cout << "PUERTO: " << datos.puerto << endl;
-	cout << "CANT PLAYERS: " << datos.cantPlayers << endl;
-	cout << "TIPO PARTIDA: " << datos.tipoPartida << endl;
-	// datos tiene los datos para empezar la red. 
-	// IMPORTANTE: Agregar chequeos a los datos ingresados!
-	*/
+	rInfo.port = datos.puerto;
+	rInfo.cant_jugadores = datos.cantPlayers;
+	rInfo.tipo_partida = datos.tipoPartida - 1;
+
+
+
+	// 3) Inicialización de socket
+	SOCKET ListenSocket = inicializarConexion(rInfo);
+	if (ListenSocket == INVALID_SOCKET) {
+		return 1;
+	}
+	
+
+
+	// 4) Creación de la partida
+	// 4.1) Chequeo de errores
+	if (rInfo.cant_jugadores < 0 || rInfo.cant_jugadores > MAX_JUGADORES)
+		rInfo.cant_jugadores = 2;
+	if (rInfo.tipo_partida < 0 || rInfo.tipo_partida > PARTIDA_REGICIDA)
+		rInfo.tipo_partida = PARTIDA_SUPREMACIA;
+
+	Partida* game = new Partida();
+	cargarJugadores(game, parser.verInfoJugadores(), parser.verInfoRed().cant_jugadores);
+	cargarFactoryEntidades(parser.verInfoEntidades());
+
+	if (!rInfo.random_map) {
+		cargarEscenario(game, parser.verInfoEscenario());
+	} else {
+		if (!cargarEscenarioAleatorio(game, parser.verInfoEscenario().size_X, tipo_partida_t(rInfo.tipo_partida), rInfo.cant_jugadores)) {
+			cargarEscenario(game, parser.verInfoEscenario());
+		}
+	}
+
+	switch(rInfo.tipo_partida) {
+	case PARTIDA_REGICIDA:
+		game->inicializarCondicionVictoria(FactoryEntidades::obtenerInstancia()->obtenerTypeID("king"), LOSE_UNITS); break;
+	case PARTIDA_SUPREMACIA:
+		game->inicializarCondicionVictoria(FactoryEntidades::obtenerInstancia()->obtenerTypeID("town center"), LOSE_ALL); break;
+	case PARTIDA_CAPTURE_FLAG:
+		game->inicializarCondicionVictoria(FactoryEntidades::obtenerInstancia()->obtenerTypeID("flag"), TRANSFER_ALL); break;
+	}
+	// FIN de la configuracion de la partida
+
+	printf("Listo para aceptar clientes\n");
 
 
 	
-	cout <<endl<<endl;
-
 	bool exit = false;
 	for (int i = 0; i < parser.verInfoEscenario().size_X; i++) {
 		for (int j = 0; j < parser.verInfoEscenario().size_Y; j++) {
@@ -481,7 +576,7 @@ int main(int argc, char* argv[]) {
 	}
 
 
-	Servidor server = Servidor(ListenSocket, game, MAX_CLIENTS);
+	Servidor server = Servidor(ListenSocket, game, parser.verInfoRed().cant_jugadores);
 	server.start();
 
 	//cout << "SERVER INITIALIZED WITH IP: *completar*" << endl;

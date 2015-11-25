@@ -5,6 +5,7 @@
 using namespace std;
 
 enum tipo_derrota_t {LOSE_ALL, LOSE_UNITS, TRANSFER_ALL};
+enum tipo_partida_t {PARTIDA_SUPREMACIA, PARTIDA_CAPTURE_FLAG, PARTIDA_REGICIDA};
 
 // Enumerado de posible direcciones de movimiento, escritos en un orden arbitrario para
 // que concidan con las filas de los sprites de movimiento

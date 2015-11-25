@@ -297,7 +297,6 @@ void Partida::procesarUpdate(msg_update msj, unsigned int actPlayer) {
 					newOwner = (*iter);
 				}
 			}
-
 			this->escenario->derrotarJugador(msj.idEntidad, tipo_derrota_t((int)msj.extra1), newOwner);
 			break;
 

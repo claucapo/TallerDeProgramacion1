@@ -33,6 +33,9 @@ public:
 	// ha perdido el juego
 	bool deleteEntidad(Entidad* ent);
 
+	int cantJugadoresActivos(void);
+	unsigned int verUltimoJugador(void);
+
 	void derrotarJugador(unsigned int ID) {this->sigueJugando[ID] = false;}
 	
 	tipo_derrota_t verTipoDerrota(void) {return this->accionAlPerder;}

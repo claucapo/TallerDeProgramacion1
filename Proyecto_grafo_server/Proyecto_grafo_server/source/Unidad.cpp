@@ -131,8 +131,7 @@ void Unidad::mover(Escenario* scene) {
 		this->state == EST_QUIETO;
 		return;
 	}
-
-
+	
 	if (scene->verMapa()->verContenido(dest) != this && this->camino.size() > 1) {
 		if (!scene->casillaEstaVacia(dest)) {
 			cout << "Hmmm... algo no me deja pasar" << endl;
@@ -222,7 +221,11 @@ int Unidad::calcularDamage(Entidad* target) {
 bool Unidad::resolverAtaque(Entidad* target, Escenario* scene) {
 	int damage = this->calcularDamage(target);
 	target->vidaAct -= damage;
-	// cout << this->verID() << " ataca a " << target->verID() << " y lo deja en " << target->vidaAct << " de vida." << endl;
+
+	// Respuesta al ataque
+	if (target->verEstado() == EST_QUIETO) {
+		target->asignarAccion(ACT_ATACK, (unsigned int)this->id);
+	}
 
 	msg_update* upd = scene->generarUpdate(MSJ_VIDA_CHANGE, target->verID(), -damage, 0);
 	scene->updatesAux.push_back(upd);
@@ -231,7 +234,6 @@ bool Unidad::resolverAtaque(Entidad* target, Escenario* scene) {
 		target->vidaAct == 0;
 		if (target->verEstado() < EST_MUERTO)
 			target->asignarEstado( Estados_t(EST_MUERTO + this->verJugador()->verID()) );
-		cout << target->verID() << " debe morir!!" << endl;
 	
 		return false;
 	}

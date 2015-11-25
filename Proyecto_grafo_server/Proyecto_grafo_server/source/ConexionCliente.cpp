@@ -30,7 +30,7 @@ ConexionCliente::ConexionCliente(SOCKET cSocket, Servidor* server, unsigned int 
 		this->playerName[i] = name[i];
 	}
 
-	DWORD timeout =  3000;
+	DWORD timeout =  5000;
 	if (setsockopt(this->clientSocket,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout, sizeof(timeout)))
 		printf("Error on setting timeout");
 

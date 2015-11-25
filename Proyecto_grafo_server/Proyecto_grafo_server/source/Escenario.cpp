@@ -78,6 +78,12 @@ void Escenario::derrotarJugadores(CondicionVictoria* vCond) {
 			list<Entidad*>::const_iterator iter, next;
 			msg_update* upd = generarUpdate(MSJ_JUGADOR_DERROTADO, i, tipoDerrota, vCond->verUltimoAtacante(i));
 			this->updatesAux.push_back(upd);
+			
+			if (vCond->cantJugadoresActivos() <= 1) {
+				unsigned int last = vCond->verUltimoJugador();
+				msg_update* upd = generarUpdate(MSJ_JUGADOR_GANADOR, last, 0, 0);
+				this->updatesAux.push_back(upd);
+			}
 
 			switch (tipoDerrota) {
 			case LOSE_ALL:
