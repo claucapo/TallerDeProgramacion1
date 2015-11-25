@@ -81,7 +81,7 @@ bool Matriz::posicionPertenece(Posicion* pos){
 	float pos_y = pos->getY();
 	if((pos_x < 0) || (pos_y < 0))
 		return false;
-	if ((this->filas < pos_x) || (this->columnas < pos_y))
+	if ((this->filas <= pos_x) || (this->columnas <= pos_y))
 		return false;
 	return true;
 }
@@ -282,12 +282,14 @@ list<Posicion> Matriz::adyacentesVacias(Entidad* elemento) {
 	int origenY = elemento->verPosicion()->getRoundY();
 	for (int i = -1; i <= elemento->verTamX(); i++) {
 		pos = Posicion(origenX + i, origenY-1);
+		if(this->posicionPertenece(&pos)){
 		if (this->posicionEstaVacia(&pos))
 			posAdyacentes.push_back(pos);
 
 		pos = Posicion(origenX + i, origenY + elemento->verTamY());
 		if (this->posicionEstaVacia(&pos))
 			posAdyacentes.push_back(pos);
+		}
 	}
 
 	for (int i = 0; i < elemento->verTamY(); i++) {

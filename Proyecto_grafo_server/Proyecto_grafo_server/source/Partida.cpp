@@ -133,6 +133,8 @@ void Partida::procesarEvento(msg_event msj, unsigned int source) {
 	Edificio* building = nullptr;
 	Posicion destino;
 	ent = scene->obtenerEntidad(msj.idEntidad);
+	if(ent == nullptr)
+		return;
 
 	// Según la acción que sea, hago lo que corresponda
 	switch(accion){

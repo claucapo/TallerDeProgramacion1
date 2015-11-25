@@ -155,10 +155,15 @@ list<Posicion*> CalculadorCaminoMinimo::calcularCaminoMinimo( int xAct, int yAct
                     listaAbierta[xdx][ydy] = m0->obtenerPrioridad();
                     listaDirecciones[xdx][ydy] = (i+4)%8;
 
+					
                     while(!(pN[pNi].top().obtenerPosX() == xdx && pN[pNi].top().obtenerPosY() == ydy))
                     {                
                         pN[1-pNi].push(pN[pNi].top());
-                        pN[pNi].pop();       
+                        pN[pNi].pop();
+						if(pN[pNi].empty()){
+							cout << "DESENCOLAR ALGO MAGICO by juan" << endl;
+							break;
+							}
                     }
                     pN[pNi].pop();
                     

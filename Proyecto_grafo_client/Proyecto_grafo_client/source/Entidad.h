@@ -25,7 +25,7 @@ protected:
 	// Interaccion
 	Accion_t accion;
 	
-	costo_t costo;
+	
 	int trainRate;
 	
 
@@ -38,6 +38,7 @@ protected:
 	Jugador* owner;
 
 public:
+	costo_t costo;
 	unsigned int targetID;
 	unsigned int typeID;
 	string name;

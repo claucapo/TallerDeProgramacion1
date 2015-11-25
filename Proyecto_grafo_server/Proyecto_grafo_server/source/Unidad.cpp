@@ -122,7 +122,16 @@ bool Unidad::objetivoEnRango(Entidad* target, Escenario* scene) {
 
 void Unidad::mover(Escenario* scene) {
 	Posicion* act = this->pos;
+	if(this->camino.empty()){
+		this->state == EST_QUIETO;
+		return;
+	}
 	Posicion* dest = this->camino.front();
+	if(dest == nullptr){
+		this->state == EST_QUIETO;
+		return;
+	}
+
 
 	if (scene->verMapa()->verContenido(dest) != this && this->camino.size() > 1) {
 		if (!scene->casillaEstaVacia(dest)) {
@@ -360,6 +369,7 @@ af_result_t Unidad::avanzarFrame(Escenario* scene) {
 		bool enRango = this->objetivoEnRango(target, scene);
 		if (!enRango) {
 			if (state == EST_CAMINANDO) {
+				if(!this->camino.empty())
 				if (!scene->casillaEstaVacia(this->camino.back())) {
 					this->state = EST_QUIETO;
 					return AF_NONE;

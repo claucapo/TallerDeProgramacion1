@@ -4,6 +4,7 @@
 #include "ConversorUnidades.h"
 #include "Jugador.h"
 #include "Partida.h"
+#include <string.h>
 
 #pragma once
 class GraficadorPantalla {
@@ -19,7 +20,7 @@ private:
 	int vel_scroll, margen_scroll;
 public:
 	float screen_width, screen_height;
-	void mostrarPantallaInicio();
+	void mostrarPantallaInicio(bool show_name, string name);
 	bool puntoEstaEnPantalla(int xPant, int yPant);
 	GraficadorPantalla(void);
 	~GraficadorPantalla(void);

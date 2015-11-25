@@ -63,6 +63,9 @@ tipo:
   - nombre: "sign_menu"
     ruta: "recursos\\sign_main_menu.png"
     pixelX: 138
+  - nombre: "sign_name"
+    ruta: "recursos\\sign_insert_name.png"
+    pixelX: 138
   - nombre: "gold mine_icon"
     ruta: "recursos\\goldMine_icon.png"
   - nombre: "stone mine_icon"

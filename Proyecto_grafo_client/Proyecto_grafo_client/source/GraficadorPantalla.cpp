@@ -18,6 +18,7 @@
 #include <SDL_mixer.h>
 #include <stdlib.h>
 #include <queue>
+#include <string.h>
 
 using namespace std;
 
@@ -336,17 +337,62 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 			if(entPri->habilidades[ACT_BUILD]){
 				list<string> edifConst = FactoryEntidades::obtenerInstancia()->verListaEdificios();
 				SDL_Rect button;
-				button.x = 5;
-				button.y = 372;
+				button.x = 5 * screen_width*0.0015625;
+				button.y = 372 * screen_height*0.00208333;
 				for (list<string>::iterator it=edifConst.begin(); it != edifConst.end(); ++it){
 					string icName = (*it) + "_icon";
 					SDL_Surface* icono = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(icName);
 					SDL_BlitSurface(icono, NULL, pantalla, &button);
+					// Si el mouse está sobre el boton, muestro sus recursos
+					int moX, moY;
+					SDL_GetMouseState(&moX, &moY);
+					bool mouseSobreBoton = moX > button.x;
+					mouseSobreBoton &= moX < (button.x + BUTTON_SIZE);
+					mouseSobreBoton &= moY > button.y;
+					mouseSobreBoton &= moY < (button.y + BUTTON_SIZE);
+
+					if(mouseSobreBoton){
+						Entidad* prot = FactoryEntidades::obtenerInstancia()->obtenerEntidad(*it, 65500);
+						std::stringstream food;
+						food << prot->costo.comida;
+						std::stringstream wood;
+						wood << prot->costo.madera;
+						std::stringstream gold;
+						gold << prot->costo.oro;
+						std::stringstream stone;
+						stone << prot->costo.piedra;
+						SDL_Surface* surfCosto = this->renderText(wood.str());
+						rectangulo.x = 431 * screen_width*0.0015625;
+						rectangulo.y = 2 * screen_height*0.00208333;
+						rectangulo.h = 17;
+						rectangulo.w = wood.str().length()* 11;
+						SDL_BlitScaled(surfCosto, NULL, pantalla, &rectangulo);
+						SDL_FreeSurface(surfCosto);
+						surfCosto = this->renderText(food.str());
+						rectangulo.x = 490 * screen_width*0.0015625;
+						rectangulo.w = food.str().length()* 11;
+						SDL_BlitScaled(surfCosto, NULL, pantalla, &rectangulo);
+						SDL_FreeSurface(surfCosto);
+						surfCosto = this->renderText(gold.str());
+						rectangulo.x = 548 * screen_width*0.0015625;
+						rectangulo.w = gold.str().length()* 11;
+						SDL_BlitScaled(surfCosto, NULL, pantalla, &rectangulo);
+						SDL_FreeSurface(surfCosto);
+						surfCosto = this->renderText(stone.str());
+						rectangulo.x = 600 * screen_width*0.0015625;
+						rectangulo.w = stone.str().length()* 11;
+						SDL_BlitScaled(surfCosto, NULL, pantalla, &rectangulo);
+						SDL_FreeSurface(surfCosto);
+
+						delete prot;
+					}
+
 					button.x += BUTTON_SIZE;
 					if(button.x >= 165){
-						button.x = 5;
+						button.x = 5 * screen_width*0.0015625;
 						button.y += BUTTON_SIZE;
 						}
+
 					}
 
 				}
@@ -361,16 +407,59 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 				
 				if(entL.size()){ // Si el edificio entrena...
 					SDL_Rect button;
-					button.x = 5;
-					button.y = 372;
+					button.x = 5 * screen_width*0.0015625;
+					button.y = 372 * screen_height*0.00208333;
 					for (list<string>::iterator it=entL.begin(); it != entL.end(); ++it){
 						string icName = (*it) + "_icon";
 					//	cout << icName << " sdfalj" << endl;
 						SDL_Surface* icono = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen(icName);
 						SDL_BlitSurface(icono, NULL, pantalla, &button);
+						// Si el mouse está sobre el boton, muestro sus recursos
+						int moX, moY;
+						SDL_GetMouseState(&moX, &moY);
+						bool mouseSobreBoton = moX > button.x;
+						mouseSobreBoton &= moX < (button.x + BUTTON_SIZE);
+						mouseSobreBoton &= moY > button.y;
+						mouseSobreBoton &= moY < (button.y + BUTTON_SIZE);
+
+						if(mouseSobreBoton){
+							Entidad* prot = FactoryEntidades::obtenerInstancia()->obtenerEntidad(*it, 65500);
+							std::stringstream food;
+							food << prot->costo.comida;
+							std::stringstream wood;
+							wood << prot->costo.madera;
+							std::stringstream gold;
+							gold << prot->costo.oro;
+							std::stringstream stone;
+							stone << prot->costo.piedra;
+							SDL_Surface* surfCosto = this->renderText(wood.str());
+							rectangulo.x = 431 * screen_width*0.0015625;
+							rectangulo.y = 2 * screen_height*0.00208333;
+							rectangulo.h = 17;
+							rectangulo.w = wood.str().length()* 11;
+							SDL_BlitScaled(surfCosto, NULL, pantalla, &rectangulo);
+							SDL_FreeSurface(surfCosto);
+							surfCosto = this->renderText(food.str());
+							rectangulo.x = 490 * screen_width*0.0015625;
+							rectangulo.w = food.str().length()* 11;
+							SDL_BlitScaled(surfCosto, NULL, pantalla, &rectangulo);
+							SDL_FreeSurface(surfCosto);
+							surfCosto = this->renderText(gold.str());
+							rectangulo.x = 548 * screen_width*0.0015625;
+							rectangulo.w = gold.str().length()* 11;
+							SDL_BlitScaled(surfCosto, NULL, pantalla, &rectangulo);
+							SDL_FreeSurface(surfCosto);
+							surfCosto = this->renderText(stone.str());
+							rectangulo.x = 600 * screen_width*0.0015625;
+							rectangulo.w = stone.str().length()* 11;
+							SDL_BlitScaled(surfCosto, NULL, pantalla, &rectangulo);
+							SDL_FreeSurface(surfCosto);
+
+							delete prot;
+						}
 						button.x += BUTTON_SIZE;
-						if(button.x >= 165){
-							button.x = 5;
+						if(button.x >= 165 * screen_width*0.0015625){
+							button.x = 5 * screen_width*0.0015625;
 							button.y += BUTTON_SIZE;
 							}
 						}
@@ -523,8 +612,8 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 	recursitoM << this->player->verRecurso().madera;
 	string recurso = recursitoM.str();
 	surfRes = this->renderText(recurso);
-	rectangulo.x = 27;
-	rectangulo.y = 2;
+	rectangulo.x = 27 * screen_width*0.0015625;
+	rectangulo.y = 2 * screen_height*0.00208333;
 	rectangulo.h = 17;
 	rectangulo.w = recurso.length()* 11;
 	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
@@ -535,9 +624,7 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 	recursitoC << this->player->verRecurso().comida;
 	recurso = recursitoC.str();
 	surfRes = this->renderText(recurso);
-	rectangulo.x = 90;
-	rectangulo.y = 2;
-	rectangulo.h = 17;
+	rectangulo.x = 90 * screen_width*0.0015625;
 	rectangulo.w = recurso.length()* 11;
 	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
 	SDL_FreeSurface(surfRes);
@@ -547,9 +634,7 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 	recursitoO << this->player->verRecurso().oro;
 	recurso = recursitoO.str();
 	surfRes = this->renderText(recurso);
-	rectangulo.x = 155;
-	rectangulo.y = 2;
-	rectangulo.h = 17;
+	rectangulo.x = 155 * screen_width*0.0015625;
 	rectangulo.w = recurso.length()* 11;
 	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
 	SDL_FreeSurface(surfRes);
@@ -559,9 +644,7 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 	recursitoP << this->player->verRecurso().piedra;
 	recurso = recursitoP.str();
 	surfRes = this->renderText(recurso);
-	rectangulo.x = 214;
-	rectangulo.y = 2;
-	rectangulo.h = 17;
+	rectangulo.x = 214 * screen_width*0.0015625;
 	rectangulo.w = recurso.length()* 11;
 	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
 	SDL_FreeSurface(surfRes);
@@ -902,15 +985,28 @@ SDL_Surface* GraficadorPantalla::renderText(string msj){
 	return texto;
 }
 
-void GraficadorPantalla::mostrarPantallaInicio(){
+void GraficadorPantalla::mostrarPantallaInicio(bool show_name, string name){
 	SDL_Surface* img = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("menu_bck");
 	SDL_BlitSurface(img, NULL, pantalla, NULL);
-	DatosImagen* data = BibliotecaDeImagenes::obtenerInstancia()->devolverDatosImagen("sign_menu");
 	SDL_Rect dest;
 	dest.y = 400;
-	dest.x = 320 - data->origenX;
-	SDL_BlitSurface(data->imagen, NULL, pantalla, &dest);
-
+	DatosImagen* data;
+	if(show_name){
+		data = BibliotecaDeImagenes::obtenerInstancia()->devolverDatosImagen("sign_name");
+		dest.x = 320 - data->origenX;
+		SDL_BlitSurface(data->imagen, NULL, pantalla, &dest);
+		SDL_Surface* surfNombre = this->renderText(name);
+		dest.x += 155; dest.y += 5;
+		dest.h = 18;
+		dest.w = 14 * name.length();	
+		SDL_BlitScaled( surfNombre, NULL, pantalla, &dest );
+		SDL_FreeSurface(surfNombre);
+	}
+	else{
+		data = BibliotecaDeImagenes::obtenerInstancia()->devolverDatosImagen("sign_menu");
+		dest.x = 320 - data->origenX;
+		SDL_BlitSurface(data->imagen, NULL, pantalla, &dest);
+	}
 	SDL_UpdateWindowSurface(ventana);
 }
 

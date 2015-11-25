@@ -106,9 +106,23 @@ void ProcesadorEventos::procesarBoton(Cliente* client, Jugador* player){
 			i--;
 		}
 
-		cout << "Hay que construir: " << (*it) << endl;
-		game->edificioAubicar = (*it);
-		game->modoUbicarEdificio = true;
+		Entidad* prot = FactoryEntidades::obtenerInstancia()->obtenerEntidad(*it, 65500);
+		bool hayRecursos = prot->costo.comida <= player->verRecurso().comida;
+		hayRecursos &= prot->costo.piedra <= player->verRecurso().piedra;
+		hayRecursos &= prot->costo.oro <= player->verRecurso().oro;
+		hayRecursos &= prot->costo.madera <= player->verRecurso().madera;
+
+	
+		if(hayRecursos){
+			cout << "Hay que construir: " << (*it) << endl;
+			game->edificioAubicar = (*it);
+			game->modoUbicarEdificio = true;
+		}
+		else{
+			cout << "YOU DONT HAVE ENOUGH MINERALS!" << endl;
+		}
+
+		delete prot;
 
 	}
 	else if(entPri->verTipo() == ENT_T_BUILDING){
@@ -379,6 +393,7 @@ void ProcesadorEventos::procesarConstruir(Cliente* client) {
 	msg_event newEvent;
 	newEvent.accion = MSJ_NUEVO_EDIFICIO;
 	newEvent.idEntidad = FactoryEntidades::obtenerInstancia()->obtenerTypeID(game->edificioAubicar);
+	
 	newEvent.extra1 = dest.getRoundX();
 	newEvent.extra2 = dest.getRoundY();
 	client->agregarEvento(newEvent);

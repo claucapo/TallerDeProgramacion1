@@ -28,6 +28,8 @@ Entidad::Entidad(unsigned int id, string name, tipoEntidad_t pType) {
 	this->ataque = pType.ataque;
 	this->defensa = pType.defensa;
 
+	this->sprites = NULL;
+
 	this->costo = pType.costo;
 	this->trainRate = pType.trainRate;
 
@@ -75,9 +77,9 @@ Entidad::Entidad(unsigned int id, string name, tipoEntidad_t pType) {
 // Llamo al destructor de todos los miembros de la clase (en caso de que alguno
 // necesitara librar memoria)
 Entidad::~Entidad(void) {
-	if (this->pos)
+	if (this->pos != NULL)
 		delete this->pos;
-	if (this->sprites)
+	if (this->sprites != NULL)
 		delete this->sprites;
 }
 

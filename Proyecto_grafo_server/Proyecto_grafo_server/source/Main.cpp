@@ -33,7 +33,7 @@ using namespace std;
 
 #define TESTING_ENABLED false
 #define ARCHIVO_YAML "desplegadas.yaml"
-#define MAX_CLIENTS 3
+#define MAX_CLIENTS 1
 #define TIMEOUT 10000
 
 
@@ -500,7 +500,7 @@ int main(int argc, char* argv[]) {
 		
 		float timeB = SDL_GetTicks();
 		if((FRAME_DURATION - timeB + timeA) > 0)
-			SDL_Delay(FRAME_DURATION - timeB + timeA); // -16????
+			SDL_Delay(FRAME_DURATION - timeB + timeA); 
 
 		std::stringstream s;
 		s << "E: " << timeC- timeA << " - AF: " << timeD - timeC << " - U: "<< timeB-timeD << " - T:" << timeB-timeA;

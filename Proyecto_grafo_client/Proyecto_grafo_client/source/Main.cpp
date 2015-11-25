@@ -42,10 +42,11 @@
 struct datosPantInic{
 	string puerto;
 	string ip;
+	string pName;
 };
 
 void pantallaInicio(struct datosPantInic *datos, SDL_Surface* pantalla, SDL_Window* ventana);
-
+string procesarEventoLetras(SDL_Event evento);
 
 
 SOCKET inicializarConexion(redInfo_t rInfo) {
@@ -278,24 +279,48 @@ void actualizarMusicaFondo(Partida* game, bool habiaViolencia){
 
 void pantallaMenu(GraficadorPantalla* gp, struct datosPantInic* datos){
 
-	gp->mostrarPantallaInicio();
-
 	
 	Mix_Music *music = reproducirMusicaFondo("recursos\\main_menu.wav");
 
 	SDL_Event evento;
 	bool loopear = true;
+	string playerName;
 	do{
 		while((SDL_PollEvent(&evento) != 0)){
 			if(evento.type == SDL_KEYDOWN)
 				if(evento.key.keysym.scancode == SDL_SCANCODE_SPACE)
 					loopear = false;
-				else{
-				Mix_Chunk *high = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido("sdajkfksaldfhask");
-				Mix_PlayChannel( -1, high, 0 );
-				}
+				if((evento.type) == SDL_QUIT)
+					return;
+
+		}
+		gp->mostrarPantallaInicio(false, playerName);
+		SDL_Delay(FRAME_DURATION);
+	}while(loopear);
+
+	loopear = true;
+	do{
+		while((SDL_PollEvent(&evento) != 0)){
+			if(evento.type == SDL_KEYDOWN){
+				string q = procesarEventoLetras(evento);
+				if(q == "erase"){
+					if(playerName.size())
+						playerName.resize(playerName.size() -1);
+						}
+				else if(q == "finish")
+					loopear = false;
+				else 
+					playerName += q;
+			}
+			if((evento.type) == SDL_QUIT)
+					return;
+			
+		gp->mostrarPantallaInicio(true, playerName);
+		SDL_Delay(FRAME_DURATION);
 		}
 	}while(loopear);
+
+	datos->pName = playerName;
 
 	Mix_FreeMusic( music );
 	Mix_HaltMusic();
@@ -303,6 +328,74 @@ void pantallaMenu(GraficadorPantalla* gp, struct datosPantInic* datos){
 	pantallaInicio(datos, gp->getPantalla(), gp->getVentana());
 }
 
+string procesarEventoLetras(SDL_Event evento){
+	if(evento.type != SDL_KEYDOWN)
+		return "error";
+
+	string p;
+	switch(evento.key.keysym.scancode){
+	case SDL_SCANCODE_A:
+		p = "A"; break;
+	case SDL_SCANCODE_B:
+		p = "B"; break;
+	case SDL_SCANCODE_C:
+		p = "C"; break;
+	case SDL_SCANCODE_D:
+		p = "D"; break;
+	case SDL_SCANCODE_E:
+		p = "E"; break;
+	case SDL_SCANCODE_F:
+		p = "F"; break;
+	case SDL_SCANCODE_G:
+		p = "G"; break;
+	case SDL_SCANCODE_H:
+		p = "H"; break;
+	case SDL_SCANCODE_I:
+		p = "I"; break;
+	case SDL_SCANCODE_J:
+		p = "J"; break;
+	case SDL_SCANCODE_K:
+		p = "K"; break;
+	case SDL_SCANCODE_L:
+		p = "L"; break;
+	case SDL_SCANCODE_M:
+		p = "M"; break;
+	case SDL_SCANCODE_N:
+		p = "N"; break;
+	case SDL_SCANCODE_O:
+		p = "O"; break;
+	case SDL_SCANCODE_P:
+		p = "P"; break;
+	case SDL_SCANCODE_Q:
+		p = "Q"; break;
+	case SDL_SCANCODE_R:
+		p = "R"; break;
+	case SDL_SCANCODE_S:
+		p = "S"; break;
+	case SDL_SCANCODE_T:
+		p = "T"; break;
+	case SDL_SCANCODE_U:
+		p = "U"; break;
+	case SDL_SCANCODE_V:
+		p = "V"; break;
+	case SDL_SCANCODE_W:
+		p = "W"; break;
+	case SDL_SCANCODE_X:
+		p = "X"; break;
+	case SDL_SCANCODE_Y:
+		p = "Y"; break;
+	case SDL_SCANCODE_Z:
+		p = "Z"; break;
+	case SDL_SCANCODE_SPACE:
+		p = " "; break;
+	case SDL_SCANCODE_BACKSPACE:
+		p = "erase"; break;
+	default:
+		p = "finish"; break;
+	}
+		
+	return p;
+}
 
 string procesarEventoTexto(SDL_Event evento){
 	if(evento.type != SDL_KEYDOWN)
@@ -534,9 +627,9 @@ int wmain(int argc, char* argv[]) {
 	struct datosPantInic datos;
 	pantallaMenu(gp, &datos);
 
+	cout << "PLAYER NAME: " << datos.pName << endl;
 	cout << "IP: " << datos.ip << endl;
 	cout << "PUERTO: " << datos.puerto << endl;
-	getch();
 
 	// Después modificar el método para que tome como parámetro el puerto y la ip del yaml
 	SOCKET connectSocket = inicializarConexion(parser.verInfoRed());
