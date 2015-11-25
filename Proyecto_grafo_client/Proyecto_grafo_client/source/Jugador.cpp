@@ -16,6 +16,9 @@ Jugador::Jugador(string name, int id, string color){
 	this->vision = nullptr;
 	this->recursos = recursos_jugador_t();
 	this->esta_conectado = false;
+	
+	this->poblacionMax = 0;
+	this->poblacionAct = 0;
 }
 
 Jugador::~Jugador(void) {

@@ -8,6 +8,7 @@
 #include <SDL.h>
 #include <SDL_thread.h>
 #include <SDL_mutex.h>
+#include "CondicionVictoria.h"
 
 using namespace std;
 

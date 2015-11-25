@@ -5,7 +5,7 @@
 #include "Partida.h"
 #include "Protocolo.h"
 #include "Jugador.h"
-
+#include "CondicionVictoria.h"
 #include <queue>
 #include <list>
 #include <sstream>
@@ -477,6 +477,12 @@ void Servidor::desconectarJugador(unsigned int playerID) {
 	if (player) {
 		player->settearConexion(false);
 		this->partida->escenario->desconectarJugador(playerID);
+		this->partida->vCond.derrotarJugador(playerID);
+		if (this->partida->vCond.cantJugadoresActivos() <= 1) {
+			unsigned int last = this->partida->vCond.verUltimoJugador();;
+			msg_update* upd = this->partida->escenario->generarUpdate(MSJ_JUGADOR_GANADOR, last, 0, 0);
+			this->partida->escenario->updatesAux.push_back(upd);
+		}
 	}
 	SDL_SemPost(this->partida_lock);
 }

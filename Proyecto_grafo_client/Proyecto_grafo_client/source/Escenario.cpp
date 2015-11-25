@@ -57,6 +57,15 @@ bool Escenario::avanzarFrame(unsigned int actPlayer) {
 		act->avanzarFrame(this);
 
 		if (act->verJugador()->verID() == actPlayer){
+			if (act->verTipo() == ENT_T_UNIT)
+				act->verJugador()->poblacionAct++;
+			else if(act->verNombre() == "house")
+				act->verJugador()->poblacionMax += 5;
+			else if(act->verNombre() == "castle")
+				act->verJugador()->poblacionMax += 20;
+			else if(act->verNombre() == "town center")
+				act->verJugador()->poblacionMax += 10;
+			
 			act->verJugador()->agregarPosiciones(this->verMapa()->posicionesVistas(act));
 			if(act->verEstado() == EST_ATACANDO)
 				hayViolencia = true;
@@ -99,7 +108,8 @@ void Escenario::quitarEntidad(Entidad* entidad) {
 
 void Escenario::asignarDestino(unsigned int entID, Posicion pos) {
 	for (int i = 0; i < this->cant_entidades; i++) {
-		if (entidades[i]->verID() == entID) {
+		if (entidades[i]->verID
+			() == entID) {
 			if ( entidades[i]->tipo == ENT_T_UNIT ) {
 				Unidad* unit = (Unidad*)(entidades[i]);
 				unit->nuevoDestino(&pos);
@@ -123,7 +133,6 @@ void Escenario::quitarEntidad(unsigned int entID) {
 }
 
 
-// TODO: Cambiar entidades de list<Entidad*> a un vector?
 void Escenario::moverEntidad(unsigned int entID, Posicion* pos, bool seguirMoviendo) {
 
 	Entidad* ent = NULL;

@@ -162,8 +162,10 @@ void cargarSonidosEntidad(msg_tipo_entidad* act){
 void agregarSonidosExtra(){
 	BibliotecaDeImagenes::obtenerInstancia()->cargarEfectoSonido("villager_create");
 	BibliotecaDeImagenes::obtenerInstancia()->cargarEfectoSonido("ent_create");
-
+	
+	BibliotecaDeImagenes::obtenerInstancia()->cargarEfectoSonido("victory_win");
 	BibliotecaDeImagenes::obtenerInstancia()->cargarEfectoSonido("underAttack");
+
 
 }
 
@@ -690,8 +692,11 @@ int wmain(int argc, char* argv[]) {
 	while (codigo_programa != CODE_EXIT && !client.must_close) {
 		
 		float timeA = SDL_GetTicks();
-		client.procesarUpdates(game, playerActual->verID());
-		
+		playerActual->poblacionMax = 0;
+		playerActual->poblacionAct = 0;
+		bool partidaOver = client.procesarUpdates(game, playerActual->verID());
+		if(partidaOver)
+			break;
 		float timeC = SDL_GetTicks();
 
 		game->avanzarFrame(playerActual->verID());

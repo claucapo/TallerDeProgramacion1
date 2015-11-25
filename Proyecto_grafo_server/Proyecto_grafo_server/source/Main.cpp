@@ -110,7 +110,7 @@ SOCKET inicializarConexion(redInfo_t rInfo) {
 
 // Carga la información de los jugadores en la partida
 void cargarJugadores(Partida* partida, std::list<jugadorInfo_t*> jInfoL, int cant_jugadores) {
-	if (cant_jugadores > MAX_JUGADORES || cant_jugadores < 0)
+	if (cant_jugadores > MAX_JUGADORES || cant_jugadores <= 0)
 		cant_jugadores = 2;
 
 	int i = 0;
@@ -522,7 +522,6 @@ int main(int argc, char* argv[]) {
 	rInfo.tipo_partida = datos.tipoPartida - 1;
 
 
-
 	// 3) Inicialización de socket
 	SOCKET ListenSocket = inicializarConexion(rInfo);
 	if (ListenSocket == INVALID_SOCKET) {
@@ -530,16 +529,16 @@ int main(int argc, char* argv[]) {
 	}
 	
 
-
 	// 4) Creación de la partida
 	// 4.1) Chequeo de errores
-	if (rInfo.cant_jugadores < 0 || rInfo.cant_jugadores > MAX_JUGADORES)
+	if ((rInfo.cant_jugadores <= 0) || (rInfo.cant_jugadores > MAX_JUGADORES))
 		rInfo.cant_jugadores = 2;
+
 	if (rInfo.tipo_partida < 0 || rInfo.tipo_partida > PARTIDA_REGICIDA)
 		rInfo.tipo_partida = PARTIDA_SUPREMACIA;
 
 	Partida* game = new Partida();
-	cargarJugadores(game, parser.verInfoJugadores(), parser.verInfoRed().cant_jugadores);
+	cargarJugadores(game, parser.verInfoJugadores(), rInfo.cant_jugadores);
 	cargarFactoryEntidades(parser.verInfoEntidades());
 
 	if (!rInfo.random_map) {

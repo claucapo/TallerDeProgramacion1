@@ -49,7 +49,7 @@ public:
 	// Constructor y destructor por defecto
 	Jugador(string name, int id, string color);
 	~Jugador(void);
-
+	int poblacionMax, poblacionAct;
 	// Getters
 	string verNombre(void) {return this->nombre;}
 	int verID(void) {return this->id;}

@@ -225,10 +225,6 @@ entidades:
     costGold: 0
     costWood: 50
     costStone: 0
-  - nombre: "windmill"
-    tipo: "building"
-    sizeX: 3
-    sizeY: 3
   - nombre: "flag"
     sizeX: 1
     sizeY: 1

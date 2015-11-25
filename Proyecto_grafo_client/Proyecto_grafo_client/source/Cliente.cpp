@@ -8,6 +8,8 @@ int sRead(SOCKET source, char* buffer, int length);
 #include <queue>
 #include <SDL.h>
 #include <SDL_thread.h>
+#include <SDL_mixer.h>
+#include "BibliotecaDeImagenes.h"
 
 using namespace std;
 
@@ -247,7 +249,7 @@ void Cliente::agregarUpdate(struct msg_update upd) {
 
 // Proces todos los updates que estan en el momento de la invoación
 // en la cola. La estructura se bloquea hasta que se acaben los updates.
-void Cliente::procesarUpdates(Partida* game, unsigned int actPlayer) {
+bool Cliente::procesarUpdates(Partida* game, unsigned int actPlayer) {
 	SDL_SemWait(this->updates_lock);
 	// printf("Hay %d updates\n", this->updates.size());
 
@@ -268,6 +270,11 @@ void Cliente::procesarUpdates(Partida* game, unsigned int actPlayer) {
 		case MSJ_JUGADOR_GANADOR:
 			if (upd.idEntidad == actPlayer) {
 				cout << "Has ganado!!!!" << endl;
+				Mix_Chunk* snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido("victory_win");
+				Mix_PlayChannel( -1, snd, 0 );
+				SDL_SemPost(this->updates_lock);
+				SDL_Delay(4200);
+				return true;
 			}
 			break;
 		case MSJ_STATE_CHANGE:
@@ -307,6 +314,7 @@ void Cliente::procesarUpdates(Partida* game, unsigned int actPlayer) {
 
 	}
 	SDL_SemPost(this->updates_lock);
+	return false;
 }
 
 
