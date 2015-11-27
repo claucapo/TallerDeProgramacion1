@@ -46,4 +46,6 @@ public:
 	float getAnchoBorde(void);
 private:
 	SDL_Surface* renderText(string msj);
+public:
+	void pantallaFinal(bool pantDerrota);
 };

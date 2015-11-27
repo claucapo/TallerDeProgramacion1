@@ -3,6 +3,7 @@
 #include "Matriz.h"
 #include "Posicion.h"
 #include "Entidad.h"
+#include "Enumerados.h"
 #include "Protocolo.h"
 #include <list>
 #include <vector>
@@ -26,6 +27,7 @@ private:
 	Matriz* mapa;
 	int tamX;
 	int tamY;
+	bool jugadoresDerrotados[MAX_PLAYERS];
 
 public:
 	// Constructor y destructor por defecto
@@ -73,5 +75,5 @@ public:
 
 	vector<Entidad*> verEntidades(void);
 	void asignarDestino(unsigned int entID, Posicion pos);
-
+	bool jugadorFueDerrotado(unsigned int playerID);
 };

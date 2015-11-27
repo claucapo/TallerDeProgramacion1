@@ -248,6 +248,14 @@ void Partida::procesarUpdate(msg_update msj, unsigned int actPlayer) {
 			owner = this->obtenerJugador((int)msj.extra1);
 			if (owner) {
 				ent->asignarJugador(owner);
+				string nombreEnt = ent->verNombre();
+				if(ent->verTipo() == ENT_T_UNIT){
+					if(owner->verID() == 2)
+						nombreEnt = nombreEnt + '2';
+					if(owner->verID() == 3)
+						nombreEnt = nombreEnt + '3';
+					ent->verSpritesheet()->cambiarImagen(nombreEnt);
+					}
 			}
 			break;
 

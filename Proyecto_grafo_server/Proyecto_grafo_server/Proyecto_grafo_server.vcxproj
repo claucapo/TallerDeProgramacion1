@@ -85,6 +85,7 @@
     <ClInclude Include="source\Jugador.h" />
     <ClInclude Include="source\Matriz.h" />
     <ClInclude Include="source\Nodo.h" />
+    <ClInclude Include="source\PantallaInicio.h" />
     <ClInclude Include="source\Partida.h" />
     <ClInclude Include="source\Posicion.h" />
     <ClInclude Include="source\Protocolo.h" />
@@ -111,6 +112,7 @@
     <ClCompile Include="source\Main.cpp" />
     <ClCompile Include="source\Matriz.cpp" />
     <ClCompile Include="source\Nodo.cpp" />
+    <ClCompile Include="source\PantallaInicio.cpp" />
     <ClCompile Include="source\Partida.cpp" />
     <ClCompile Include="source\Posicion.cpp" />
     <ClCompile Include="source\Recurso.cpp" />

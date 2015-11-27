@@ -1,5 +1,6 @@
 red:
   puerto: "27015"
+  random_map: 0
 log:
   warnings: 1
   info: 0
@@ -28,7 +29,7 @@ entidades:
     def: 1
     vidaMax: 80
     cooldown: 40
-    collectR: 1
+    collectR: 100
     buildR: 50
     trainR: 50
     costFood: 50
@@ -247,7 +248,7 @@ entidades:
     entrenables: ["pikeman", "champion"]
     costFood: 0
     costGold: 0
-    costWood: 175
+    costWood: 75
     costStone: 25
   - nombre: "archery"
     tipo: "building"

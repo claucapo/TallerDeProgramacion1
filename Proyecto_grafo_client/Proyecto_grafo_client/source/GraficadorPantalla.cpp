@@ -606,7 +606,7 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 
 	// Muestro los recursos
 	SDL_Surface* surfRes;
-	stringstream recursitoM, recursitoC, recursitoO, recursitoP;
+	stringstream pobAct, pobMax, recursitoM, recursitoC, recursitoO, recursitoP;
 
 	// Madera
 	recursitoM << this->player->verRecurso().madera;
@@ -650,7 +650,21 @@ void GraficadorPantalla::dibujarMarcoPantalla(int* minimapX, int* minimapY, int*
 	SDL_FreeSurface(surfRes);
 	recursitoP.seekp(0);
 	recursitoP.clear();
-	
+	// Population
+	pobAct << this->player->poblacionAct;
+	recurso = pobAct.str();
+	surfRes = this->renderText(recurso);
+	rectangulo.x = 270 * screen_width*0.0015625;
+	rectangulo.w = recurso.length()* 11;
+	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
+	SDL_FreeSurface(surfRes);
+	pobMax << this->player->poblacionMax;
+	recurso = pobMax.str();
+	surfRes = this->renderText(recurso);
+	rectangulo.x = 291 * screen_width*0.0015625;
+	rectangulo.w = recurso.length()* 11;
+	SDL_BlitScaled( surfRes, NULL, pantalla, &rectangulo );
+	SDL_FreeSurface(surfRes);
 
 	// Rectangulo de selecion
 	if(partida->algoSeleccionado){
@@ -1187,4 +1201,15 @@ void GraficadorPantalla::mostrarStatsEntidad(Entidad* ent){
 			strStat.seekp(0);
 
 		}
+}
+
+void GraficadorPantalla::pantallaFinal(bool pantDerrota){
+	SDL_Surface* img = NULL;
+	if(pantDerrota)
+		img = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("defeat_bck");
+	else
+		img = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("victory_bck");
+	SDL_BlitSurface(img, NULL, pantalla, NULL);
+	
+	SDL_UpdateWindowSurface(ventana);
 }

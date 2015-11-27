@@ -134,5 +134,11 @@ struct tipoEntidad_t {
 };
 
 
+struct datosPantInic {
+	string puerto;
+	int cantPlayers;
+	int tipoPartida;
+};
+
 
 #endif

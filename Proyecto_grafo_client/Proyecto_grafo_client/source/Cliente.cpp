@@ -264,6 +264,9 @@ bool Cliente::procesarUpdates(Partida* game, unsigned int actPlayer) {
 			game->procesarUpdate(upd, actPlayer);
 			if (upd.idEntidad == actPlayer) {
 				cout << "Has sido derrotado!!!!" << endl;
+				SDL_SemPost(this->updates_lock);
+				SDL_Delay(1000);
+				return true;
 			}
 			break;
 
@@ -273,7 +276,7 @@ bool Cliente::procesarUpdates(Partida* game, unsigned int actPlayer) {
 				Mix_Chunk* snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido("victory_win");
 				Mix_PlayChannel( -1, snd, 0 );
 				SDL_SemPost(this->updates_lock);
-				SDL_Delay(4200);
+				SDL_Delay(1000);
 				return true;
 			}
 			break;

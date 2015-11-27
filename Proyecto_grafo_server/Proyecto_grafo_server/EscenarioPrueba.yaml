@@ -34,7 +34,7 @@ entidades:
     def: 1
     vidaMax: 80
     cooldown: 40
-    collectR: 1
+    collectR: 300
     buildR: 50
     trainR: 50
     costFood: 50
@@ -130,6 +130,21 @@ entidades:
     costWood: 0
     costStone: 0
     luck: 75
+  - nombre: "janissary"
+    tipo: "unit"
+    velocidad: 7
+    rangoV: 6
+    rangoA: 5
+    atk: 13
+    def: 3
+    vidaMax: 220
+    habilidades: ["attack", "archery", "bonus_vs_infantry", "invisible", "bonus_vs_siege"]
+    cooldown: 50
+    costFood: 60
+    costGold: 55
+    costWood: 0
+    costStone: 0
+    luck: 75
   - nombre: "arbalest"
     sizeX: 1
     sizeY: 1
@@ -171,7 +186,7 @@ entidades:
     sizeX: 6
     sizeY: 6
     vidaMax: 2200
-    entrenables: ["teutonic knight", "colosus"]
+    entrenables: ["teutonic knight", "colosus", "janissary"]
     costFood: 0
     costGold: 100
     costWood: 0

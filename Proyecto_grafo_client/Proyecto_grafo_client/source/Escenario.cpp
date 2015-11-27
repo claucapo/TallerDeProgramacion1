@@ -18,6 +18,9 @@ Escenario::Escenario(int casillas_x, int casillas_y) {
 	this->max_entidades = CANT_ENTIDADES_INI;
 	this->tamX = casillas_x;
 	this->tamY = casillas_y;
+
+	for(int i=0; i<MAX_PLAYERS; i++)
+		this->jugadoresDerrotados[i] = false;
 }
 
 // Constructor por defecto
@@ -28,6 +31,8 @@ Escenario::Escenario(void) {
 	this->max_entidades = CANT_ENTIDADES_INI;
 	this->tamX = TAM_DEFAULT;
 	this->tamY = TAM_DEFAULT;
+	for(int i=0; i<MAX_PLAYERS; i++)
+		this->jugadoresDerrotados[i] = false;
 }
 
 // Destructor
@@ -59,13 +64,14 @@ bool Escenario::avanzarFrame(unsigned int actPlayer) {
 		if (act->verJugador()->verID() == actPlayer){
 			if (act->verTipo() == ENT_T_UNIT)
 				act->verJugador()->poblacionAct++;
-			else if(act->verNombre() == "house")
-				act->verJugador()->poblacionMax += 5;
-			else if(act->verNombre() == "castle")
-				act->verJugador()->poblacionMax += 20;
-			else if(act->verNombre() == "town center")
-				act->verJugador()->poblacionMax += 10;
-			
+			else if(act->verTipo() != ENT_T_CONSTRUCTION){
+				if(act->verNombre() == "house")
+					act->verJugador()->poblacionMax += 5;
+				else if(act->verNombre() == "castle")
+					act->verJugador()->poblacionMax += 20;
+				else if(act->verNombre() == "town center")
+					act->verJugador()->poblacionMax += 10;
+			}
 			act->verJugador()->agregarPosiciones(this->verMapa()->posicionesVistas(act));
 			if(act->verEstado() == EST_ATACANDO)
 				hayViolencia = true;
@@ -183,6 +189,7 @@ Entidad* Escenario::obtenerEntidad(unsigned int entID) {
 
 
 void Escenario::derrotarJugador(unsigned int defeatedID, tipo_derrota_t accion, Jugador* newOwner) {
+	this->jugadoresDerrotados[defeatedID] = true;
 	list<Entidad*>::const_iterator iter, next;
 
 	switch(accion) {
@@ -220,4 +227,10 @@ void Escenario::derrotarJugador(unsigned int defeatedID, tipo_derrota_t accion, 
 		}
 		break;
 	}
+}
+
+
+
+bool Escenario::jugadorFueDerrotado(unsigned int playerID){
+	return this->jugadoresDerrotados[playerID];
 }

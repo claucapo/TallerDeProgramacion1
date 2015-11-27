@@ -210,6 +210,11 @@ list<msg_update*> Escenario::avanzarFrame(CondicionVictoria* vCond) {
 
 	}
 
+		while (!this->updatesAux.empty()) {
+		msg_update* upd = this->updatesAux.front();
+		this->updatesAux.pop_front();
+		updates.push_back(upd);
+	}
 	return updates;
 }
 

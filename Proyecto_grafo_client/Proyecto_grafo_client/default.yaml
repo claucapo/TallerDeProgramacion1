@@ -50,6 +50,10 @@ tipo:
     ruta: "recursos\\screenFrame.png"
   - nombre: "menu_bck"
     ruta: "recursos\\main_title.png"
+  - nombre: "victory_bck"
+    ruta: "recursos\\victory_bck.png"
+  - nombre: "defeat_bck"
+    ruta: "recursos\\defeat_bck.png"
   - nombre: "client_window"
     ruta: "recursos\\client_window.png"
   - nombre: "insert_ip"
@@ -98,6 +102,8 @@ tipo:
     ruta: "recursos\\paladin_icon.png"
   - nombre: "ram_icon"
     ruta: "recursos\\ram_icon.png"
+  - nombre: "janissary_icon"
+    ruta: "recursos\\janissary_icon.png"
   - nombre: "king_icon"
     ruta: "recursos\\king_icon.png"
   - nombre: "castle_icon"
@@ -721,6 +727,30 @@ tipo:
     subY: 8
     fps: 7
     delay: 0
+  - nombre: "villager_atk"
+    ruta: "recursos\\villager_atkAOE.png"
+    pixelX: 30
+    pixelY: 31
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 1
+  - nombre: "villager_atk2"
+    ruta: "recursos\\villager_atkAOEp2.png"
+    pixelX: 30
+    pixelY: 31
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 1
+  - nombre: "villager_atk3"
+    ruta: "recursos\\villager_atkAOEp3.png"
+    pixelX: 30
+    pixelY: 31
+    subX: 15
+    subY: 8
+    fps: 7
+    delay: 1
   - nombre: "villager"
     ruta: "recursos\\villagerAOE.png"
     pixelX: 11
@@ -1323,6 +1353,90 @@ tipo:
     ruta: "recursos\\GteutonicKnight_moveAOE.png"
     pixelX: 11
     pixelY: 28
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "janissary_atk"
+    ruta: "recursos\\janissary_atkAOE.png"
+    pixelX: 19
+    pixelY: 32
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "janissary_atk2"
+    ruta: "recursos\\janissary_atkAOEp2.png"
+    pixelX: 19
+    pixelY: 32
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "janissary_atk3"
+    ruta: "recursos\\janissary_atkAOEp3.png"
+    pixelX: 19
+    pixelY: 32
+    subX: 10
+    subY: 8
+    fps: 6
+    delay: 0
+  - nombre: "janissary"
+    ruta: "recursos\\janissaryAOE.png"
+    pixelX: 16
+    pixelY: 29
+    subX: 8
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "janissary2"
+    ruta: "recursos\\janissaryAOEp2.png"
+    pixelX: 16
+    pixelY: 29
+    subX: 8
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "janissary3"
+    ruta: "recursos\\janissaryAOEp3.png"
+    pixelX: 16
+    pixelY: 29
+    subX: 8
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "Gjanissary"
+    ruta: "recursos\\janissaryAOE.png"
+    pixelX: 16
+    pixelY: 29
+    subX: 10
+    subY: 8
+    fps: 7
+    delay: 11
+  - nombre: "janissary_move"
+    ruta: "recursos\\janissary_moveAOE.png"
+    pixelX: 20
+    pixelY: 29
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "janissary_move2"
+    ruta: "recursos\\janissary_moveAOEp2.png"
+    pixelX: 20
+    pixelY: 29
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "janissary_move3"
+    ruta: "recursos\\janissary_moveAOEp3.png"
+    pixelX: 20
+    pixelY: 29
+    subX: 10
+    subY: 8
+    fps: 5
+  - nombre: "Gjanissary_move"
+    ruta: "recursos\\janissary_moveAOE.png"
+    pixelX: 20
+    pixelY: 29
     subX: 10
     subY: 8
     fps: 5

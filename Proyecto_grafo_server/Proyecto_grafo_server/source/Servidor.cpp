@@ -84,7 +84,7 @@ void Servidor::agregarUpdateLobby(CodigoLobby code, unsigned int playerID, char 
 
 // Crea un thread destinado a la recepción de nuevos clientes
 void Servidor::start(void) {
-	cout << "Empiezo a aceptar clientes" << endl;
+//	cout << "Empiezo a aceptar clientes" << endl;
 	SDL_Thread* conector = SDL_CreateThread(conectorClientes, "Client connector", this);
 	bool continuar = true;
 

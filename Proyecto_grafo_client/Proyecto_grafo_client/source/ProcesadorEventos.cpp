@@ -125,7 +125,7 @@ void ProcesadorEventos::procesarBoton(Cliente* client, Jugador* player){
 		delete prot;
 
 	}
-	else if(entPri->verTipo() == ENT_T_BUILDING){
+	else if((entPri->verTipo() == ENT_T_BUILDING) && (player->poblacionAct < player->poblacionMax)){
 		Edificio* edif = (Edificio*) entPri;
 		list<string> entL;
 		for(int i = 0; i < MAX_ENTRENABLES; i++){

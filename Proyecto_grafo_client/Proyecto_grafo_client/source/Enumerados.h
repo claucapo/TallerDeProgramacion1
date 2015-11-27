@@ -42,6 +42,8 @@ const float VEL_CONST = 0.2;
 
 #define BUTTON_SIZE 40
 
+#define MAX_PLAYERS 6
+
 
 // Definicion del struct que contiene informacion del costo
 struct costo_t {
@@ -130,5 +132,10 @@ struct tipoEntidad_t {
 	}
 };
 
+struct datosPantInic{
+	string puerto;
+	string ip;
+	string pName;
+};
 
 #endif
