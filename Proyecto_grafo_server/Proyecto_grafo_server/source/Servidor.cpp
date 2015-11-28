@@ -287,6 +287,9 @@ int Servidor::enviarMapa(ConexionCliente *cliente) {
 
 	list<Jugador*> jugadores = this->partida->jugadores;
 	msg.cantJugadores = jugadores.size();
+
+	list<msg_terreno> terrenos = this->partida->escenario->verMapa()->verListaTerrenos();
+	msg.cantTerrenosEspeciales = terrenos.size();
 	
 	// Mando el tamaño del mapa y la cantidad de tipos e instancias
 	int result = send(cliente->clientSocket, (char*)&msg, sizeof(msg), 0);
@@ -298,6 +301,18 @@ int Servidor::enviarMapa(ConexionCliente *cliente) {
 		tipos.clear();
 		SDL_SemPost(this->partida_lock);
 		return result;
+	}
+
+	// Mando la informacion del terreno
+	while(!terrenos.empty()) {
+		msg_terreno act = terrenos.front();
+		terrenos.pop_front();
+
+		result = send(cliente->clientSocket, (char*)&act, sizeof(act), 0);
+		if (result <= 0) {
+			SDL_SemPost(this->partida_lock);
+			return result;
+		}
 	}
 
 	// Mando la información de los jugadores

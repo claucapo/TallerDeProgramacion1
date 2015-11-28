@@ -182,6 +182,10 @@ tipo:
     ruta: "recursos\\tileG.png"
     pixelX: 26
     pixelY: 0
+  - nombre: "tileWater"
+    ruta: "recursos\\tileWater.png"
+    pixelX: 26
+    pixelY: 0
   - nombre: "tileSlct"
     ruta: "recursos\\tileSelec.png"
     pixelX: 26

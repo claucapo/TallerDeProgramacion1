@@ -122,6 +122,8 @@ struct entidadInfo_t {
 	int cooldown;
 	int collectRate, buildRate, trainRate;
 
+	std::string terreno;
+
 	std::list<std::string> entrenables;
 	std::list<std::string> habilidades;
 
@@ -129,7 +131,7 @@ struct entidadInfo_t {
 	entidadInfo_t(): nombre(TYPE_NAME_DEFAULT),	tipo(ENT_TYPE_DEFAULT), tamX(1), tamY(1),
 				recursoMax(1), rangoV(1), rangoA(1), velocidad(1), tipoR(RES_TYPE_DEFAULT),
 				vidaMax(VIDA_MAX_DEFAULT), ataque(ATK_BASE_DEFAULT), defensa(DEF_BASE_DEFAULT),
-				entrenables(), habilidades(),
+				entrenables(), habilidades(), terreno("grass"),
 				cooldown(0), collectRate(0), buildRate(0), trainRate(0), luck(50),
 				costoOro(0), costoMadera(0), costoPiedra(0), costoComida(0) {};
 };
@@ -153,15 +155,27 @@ struct instanciaInfo_t {
 	instanciaInfo_t(): x(0), y(0), tipo(TYPE_NAME_DEFAULT), player(0) {};
 };
 
+struct terrenoInfo_t {
+	int x;
+	int y;
+	std::string tipo_terreno;
+
+	terrenoInfo_t():  x(0), y(0), tipo_terreno("grass") {};
+};
+
+
 // Struct que define la información acerca del escenario
 struct escenarioInfo_t {
 	std::string name;
 	int size_X;
 	int size_Y;
+	std::list<terrenoInfo_t*> terreno;
 	std::list<instanciaInfo_t*> instancias;
 
-	escenarioInfo_t(): name(SCENARY_NAME_DEAFAULT), size_X(100), size_Y(100), instancias() {};
+	escenarioInfo_t(): name(SCENARY_NAME_DEAFAULT), size_X(100), size_Y(100), instancias(), terreno() {};
 };
+
+
 
 // PARSER //
 

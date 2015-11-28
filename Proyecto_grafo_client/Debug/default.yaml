@@ -1,7 +1,7 @@
 red:
   puerto: 27015
   ip: "127.0.0.1"
-  ID: 2
+  ID: 1
   alias: "Juana de Arco"
 pantalla: 
   ancho: 640
@@ -180,6 +180,10 @@ tipo:
     pixelY: 42
   - nombre: "tile"
     ruta: "recursos\\tileG.png"
+    pixelX: 26
+    pixelY: 0
+  - nombre: "tileWater"
+    ruta: "recursos\\tileWater.png"
     pixelX: 26
     pixelY: 0
   - nombre: "tileSlct"

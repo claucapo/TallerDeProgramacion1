@@ -26,6 +26,7 @@ struct mapa_inicial {
 	list<msg_tipo_entidad*> tipos;
 	list<msg_instancia*> instancias;
 	list<jugador_info*> jugadores;
+	list<msg_terreno*> terreno;
 };
 
 

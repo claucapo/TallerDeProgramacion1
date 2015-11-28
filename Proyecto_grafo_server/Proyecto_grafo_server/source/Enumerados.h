@@ -7,6 +7,9 @@ using namespace std;
 enum tipo_derrota_t {LOSE_ALL, LOSE_UNITS, TRANSFER_ALL};
 enum tipo_partida_t {PARTIDA_SUPREMACIA, PARTIDA_CAPTURE_FLAG, PARTIDA_REGICIDA};
 
+const int cant_tipos_terreno = 2;
+enum terrain_type_t {TERRAIN_GRASS, TERRAIN_WATER};
+
 // Enumerado de posible direcciones de movimiento, escritos en un orden arbitrario para
 // que concidan con las filas de los sprites de movimiento
 enum Direcciones_t {DIR_RIGHT, DIR_TOP_RIGHT, DIR_TOP, DIR_TOP_LEFT, DIR_LEFT, DIR_DOWN_LEFT, DIR_DOWN, DIR_DOWN_RIGHT};
@@ -95,6 +98,8 @@ struct tipoEntidad_t {
 	int trainRate;
 	int cantidad_entrenables;
 	std::string entrenables[MAX_ENTRENABLES];
+	
+	terrain_type_t validTerrain;
 
 	// Valores por defecto
 	tipoEntidad_t() {
@@ -116,6 +121,7 @@ struct tipoEntidad_t {
 		cooldown = 20;
 
 		trainRate = 0;
+		validTerrain = TERRAIN_GRASS;
 
 		// Inicializo el arreglo de entrenables en "unknown"
 		cantidad_entrenables = 0;

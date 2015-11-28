@@ -180,6 +180,14 @@ Partida* generarPartida(mapa_inicial data) {
 	Escenario* scene = new Escenario(data.mInfo.coordX, data.mInfo.coordY);
 	Partida* game = new Partida();
 
+	// Setteo los tipos de terreno
+	while (!data.terreno.empty()) {
+		msg_terreno* act = data.terreno.front();
+		data.terreno.pop_front();
+		scene->verMapa()->settearTipoTerreno(Posicion(act->coord_x, act->coord_y), act->tipo);
+		delete act;
+	}
+
 	// Agrego los jugadores
 	while (!data.jugadores.empty()) {
 		jugador_info* jugador_act = data.jugadores.front();

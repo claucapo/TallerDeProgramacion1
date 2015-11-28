@@ -21,12 +21,15 @@ Matriz::Matriz(void) {
 	for(int i = 0; i < TAM_DEFAULT; i++)
 		casillas[i] = new Entidad*[TAM_DEFAULT];
 
-
-	//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 	this->calculadorCamino = new CalculadorCaminoMinimo(TAM_DEFAULT,TAM_DEFAULT);
 	mapDeOcupaciones = new int*[TAM_DEFAULT];
 	for(int j = 0; j < TAM_DEFAULT; j++)
 		mapDeOcupaciones[j] = new int[TAM_DEFAULT];
+
+	this->mapDeTerreno = new terrain_type_t*[TAM_DEFAULT];
+	for (int k = 0; k < TAM_DEFAULT; k++) {
+		mapDeTerreno[k] = new terrain_type_t[TAM_DEFAULT];
+	}
 
 	generarMatrizVacia();
 
@@ -45,33 +48,37 @@ Matriz::Matriz(int casillas_x, int casillas_y) {
 	for(int i = 0; i < casillas_x; i++)
 		casillas[i] = new Entidad*[casillas_y];
 
-	//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 	this->calculadorCamino = new CalculadorCaminoMinimo(casillas_x,casillas_y);
 	mapDeOcupaciones = new int*[casillas_x];
 	for(int j = 0; j < casillas_x; j++)
 		mapDeOcupaciones[j] = new int[casillas_y];
 
+	mapDeTerreno = new terrain_type_t*[casillas_x];
+	for(int k = 0; k < casillas_x; k++)
+		mapDeTerreno[k] = new terrain_type_t[casillas_y];
+
 	generarMatrizVacia();
 }
 
-//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 // Destructor que libera los arrays pedidos dinamicamente
 Matriz::~Matriz(void) {
 	for(int i = 0; i < this->filas; i++){
 		delete[] casillas[i];
 		delete[] mapDeOcupaciones[i];
+		delete[] mapDeTerreno[i];
 	}
+	delete[] mapDeTerreno;
 	delete[] casillas;
 	delete[] mapDeOcupaciones;
 } 
 
 
-//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 void Matriz::generarMatrizVacia(){
 	for(int i = 0; i < this->filas; i++){
 		for(int j = 0; j < this->columnas; j++){
 		 casillas[i][j] = nullptr;
 		 mapDeOcupaciones[i][j] = 0;
+		 mapDeTerreno[i][j] = TERRAIN_GRASS;
 		}
 	}
 } 
@@ -235,7 +242,7 @@ list<Posicion> Matriz::posicionesVistas(Entidad* elemento, int rangoV) {
 	return posEnRango;
 }
 
-//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
 void Matriz::actualizarMapDeOcupaciones(){
 	for(int i = 0; i < this->filas; i++){
 		for(int j = 0; j < this->columnas; j++){
@@ -244,15 +251,16 @@ void Matriz::actualizarMapDeOcupaciones(){
 		}
 	}
 }
-//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-list<Posicion*> Matriz::caminoMinimo(Posicion posAct, Posicion posDest){
+
+
+list<Posicion*> Matriz::caminoMinimo(Posicion posAct, Posicion posDest, terrain_type_t validTerrain){
 
 	int actX = posAct.getRoundX();
 	int actY = posAct.getRoundY();
 	int destX = posDest.getRoundX();
 	int destY = posDest.getRoundY();
 	this->actualizarMapDeOcupaciones();
-	return this->calculadorCamino->calcularCaminoMinimo(actX,actY,destX,destY,this->mapDeOcupaciones);
+	return this->calculadorCamino->calcularCaminoMinimo(actX,actY,destX,destY,this->mapDeOcupaciones, this->mapDeTerreno, validTerrain);
 
 }
 
@@ -324,4 +332,37 @@ Posicion* Matriz::adyacenteCercana(Entidad* destino, Entidad* origen) {
 
 	}
 	return new Posicion(pos.getX(), pos.getY());
+}
+
+
+
+terrain_type_t Matriz::verTipoTerreno(Posicion pos) {
+	if (this->posicionPertenece(&pos)) {
+		return mapDeTerreno[pos.getRoundX()][pos.getRoundY()];
+	}
+	return TERRAIN_GRASS;
+}
+
+
+void Matriz::settearTipoTerreno(Posicion pos, terrain_type_t tipo) {
+	if (this->posicionPertenece(&pos)) {
+		mapDeTerreno[pos.getRoundX()][pos.getRoundY()] = tipo;
+	}
+}
+
+
+list<msg_terreno> Matriz::verListaTerrenos(void) {
+	list<msg_terreno> terrenos = list<msg_terreno>();
+	for(int i = 0; i < this->filas; i++){
+		for(int j = 0; j < this->columnas; j++){
+			if (mapDeTerreno[i][j] != TERRAIN_GRASS) {
+				msg_terreno msg;
+				msg.coord_x = i;
+				msg.coord_y = j;
+				msg.tipo = mapDeTerreno[i][j];
+				terrenos.push_back(msg);
+			}
+		}
+	}
+	return terrenos;
 }

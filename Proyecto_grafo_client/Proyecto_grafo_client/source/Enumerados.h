@@ -7,6 +7,9 @@ using namespace std;
 
 enum tipo_derrota_t {LOSE_ALL, LOSE_UNITS, TRANSFER_ALL};
 
+const int cant_tipos_terreno = 2;
+enum terrain_type_t {TERRAIN_GRASS, TERRAIN_WATER};
+
 // Enumerado de posible direcciones de movimiento, escritos en un orden arbitrario para
 // que concidan con las filas de los sprites de movimiento
 enum Direcciones_t {DIR_RIGHT, DIR_TOP_RIGHT, DIR_TOP, DIR_TOP_LEFT, DIR_LEFT, DIR_DOWN_LEFT, DIR_DOWN, DIR_DOWN_RIGHT};

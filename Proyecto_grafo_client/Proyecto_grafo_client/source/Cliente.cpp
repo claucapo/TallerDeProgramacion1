@@ -330,6 +330,17 @@ struct mapa_inicial Cliente::getEscenario(void) {
 		return scene_info;
 	}
 	
+	// Se la cantidad de tipos de terreno que voy a recibir
+	for (int i = 0; i < scene_info.mInfo.cantTerrenosEspeciales; i++) {
+		msg_terreno* terreno_act = new msg_terreno();
+		result = sRead(this->clientSocket, (char*)terreno_act, sizeof(msg_terreno));
+		if ( result <= 0 ) {
+			ErrorLog::getInstance()->escribirLog("Error recibiendo informacion de terreno.", LOG_ERROR);
+			return scene_info;
+		}
+		scene_info.terreno.push_back(terreno_act);
+	}
+
 	// Se la cantidad de jugadores que voy a recibir, y el tamaño de sus visiones
 	for (int i = 0; i < scene_info.mInfo.cantJugadores; i++) {
 		jugador_info* jugador_act = new jugador_info();

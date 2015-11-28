@@ -236,7 +236,6 @@ bool Escenario::ubicarEntidad(Entidad* entidad, Posicion* pos) {
 	if (mapa->ubicarEntidad(entidad, pos)) {
 		entidades.push_back(entidad);
 		entidad->asignarPos(pos);
-		//entidades.sort(compare<Entidad>);
 		return true;
 	}
 	return false;
@@ -269,15 +268,21 @@ void Escenario::moverEntidad(Entidad* entidad, Posicion* destino) {
  		if ( (*it)->verID() == entID ) {
  			if ( (*it)->tipo == ENT_T_UNIT ) {
  				Unidad* unit = (Unidad*)(*it);
- 				unit->nuevoDestino(&pos);
-				list<Posicion*> camino = mapa->caminoMinimo(*unit->verPosicion(),*unit->verDestino());
+				if (mapa->verTipoTerreno(pos) != unit->validTerrain)
+					return;
+
+				list<Posicion*> camino = mapa->caminoMinimo(*unit->verPosicion(), pos, unit->validTerrain);
 				if (!camino.empty()) {
+					unit->nuevoDestino(&pos);
 					camino.pop_front();
 					unit->marcarCamino(camino);
  					printf("seleccionado nuevo destino\n");
 				} else {
 					printf("no valid path\n");
+					msg_update* upd = this->generarUpdate(MSJ_STATE_CHANGE, entID, EST_QUIETO, 0);
+					this->updatesAux.push_back(upd);
 				}
+				return;
  			}
  		}
  	}

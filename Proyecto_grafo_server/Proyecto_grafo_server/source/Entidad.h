@@ -32,11 +32,11 @@ protected:
 
 	// Quizas agregar un struct con la informacion?;
 	int rangoVision;
-
 	Jugador* owner;
 
 public:
 	
+	terrain_type_t validTerrain;
 	int luck;
 	unsigned int targetID;
 	unsigned int typeID;

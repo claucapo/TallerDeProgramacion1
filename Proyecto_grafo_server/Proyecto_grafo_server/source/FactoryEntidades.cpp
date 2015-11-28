@@ -179,6 +179,11 @@ void FactoryEntidades::agregarEntidad(entidadInfo_t eInfo) {
 		pType->trainRate = eInfo.trainRate;
 		pType->cooldown = eInfo.cooldown;
 		
+
+		if (eInfo.terreno == "water") {
+			pType->validTerrain = TERRAIN_WATER;
+		}
+
 		
 		// Mapeo provisorio, hasta redefinir yaml para tercer entrega?
 		switch (eInfo.tipoR) {

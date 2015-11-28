@@ -56,6 +56,8 @@
 	#define COORD_X_KEY "x"
 	#define COORD_Y_KEY "y"
 	#define INSTANCE_PLAYER_KEY "p"
+	#define TERRAIN_KEY "terreno"
+	#define TERRAIN_SHORT_KEY "t"
 
 
 /* Descripción de los errores
@@ -288,6 +290,8 @@ void operator >> (const YAML::Node& node, entidadInfo_t& eInfo) {
 	parsearEntero(node, RATE_COLLECT_KEY, &eInfo.collectRate, LOG_INFO, true);
 	parsearEntero(node, RATE_TRAIN_KEY, &eInfo.trainRate, LOG_INFO, true);
 
+	parsearString(node, TERRAIN_KEY, &eInfo.terreno, LOG_INFO);
+
 	parsearEntero(node, COST_FOOD_KEY, &eInfo.costoComida, LOG_INFO, true);	
 	parsearEntero(node, COST_GOLD_KEY, &eInfo.costoOro, LOG_INFO, true);
 	parsearEntero(node, COST_WOOD_KEY, &eInfo.costoMadera, LOG_INFO, true);
@@ -331,7 +335,7 @@ void operator >> (const YAML::Node& node, logInfo_t& lInfo) {
 	parsearBoolean(node, ERRORS_KEY, &lInfo.errors, LOG_INFO);
 }
 
-// Informacion de una instancia particualr (instanciaInfo_t)
+// Informacion de una instancia particular (instanciaInfo_t)
 void operator >> (const YAML::Node& node, instanciaInfo_t& iInfo) {
 	parsearString(node, TIPO_KEY, &iInfo.tipo);
 
@@ -357,12 +361,42 @@ void operator >> (const YAML::Node& node, std::list<instanciaInfo_t*>& iInfoL) {
 	}
 }
 
+
+// Informacion de una instancia particular de terrenoInfo_t
+void operator >> (const YAML::Node& node, terrenoInfo_t& tInfo) {
+	parsearEntero(node, COORD_X_KEY, &tInfo.x, LOG_ERROR, true);
+	parsearEntero(node, COORD_Y_KEY, &tInfo.y, LOG_ERROR, true);
+	parsearString(node, TERRAIN_SHORT_KEY, &tInfo.tipo_terreno, LOG_ERROR);
+}
+
+
+// Coleccion de especificaciones de terreno especial bajo TDA de lista.
+// IMPORTANTE: memoria pedida dinamicamente!!!
+void operator >> (const YAML::Node& node, std::list<terrenoInfo_t*>& tInfoL) {
+	try {
+		for (unsigned i = 0; i < node.size(); i++) {
+			terrenoInfo_t* tInfo = new terrenoInfo_t();
+			node[i] >> *(tInfo);
+			tInfoL.push_back(tInfo);
+		}
+	} catch (YAML::Exception e) {
+		raiseError(UNKNOWN_ERR, e.what(), LOG_INFO);
+	}
+}
+
 // Informacion del escenario (escenarioInfo_t)
 // Contiene el tamanio del mapa y la lista de entidades que hay en el mismo.
 void operator >> (const YAML::Node& node, escenarioInfo_t& sInfo) {
 	parsearString(node, NOMBRE_KEY, &sInfo.name, LOG_INFO);
 	parsearEntero(node, TAM_X_KEY, &sInfo.size_X, LOG_WARNING, false);
 	parsearEntero(node, TAM_Y_KEY, &sInfo.size_Y, LOG_WARNING, false);
+
+	try {
+		node[TERRAIN_KEY] >> sInfo.terreno;
+	} catch (YAML::KeyNotFound e) {
+		raiseError(MISSING_SECTION_ERR, e.what(), LOG_INFO);
+	}
+
 
 	// Obtengo lista de entidades.
 	try {

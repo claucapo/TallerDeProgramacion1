@@ -19,6 +19,10 @@ Matriz::Matriz(void) {
 	casillas = new Entidad**[TAM_DEFAULT];
 	for(int i = 0; i < TAM_DEFAULT; i++)
 		casillas[i] = new Entidad*[TAM_DEFAULT];
+	
+	mapDeTerreno = new terrain_type_t*[TAM_DEFAULT];
+	for(int k = 0; k < TAM_DEFAULT; k++)
+		mapDeTerreno[k] = new terrain_type_t[TAM_DEFAULT];
 
 	generarMatrizVacia();
 }
@@ -34,22 +38,31 @@ Matriz::Matriz(int casillas_x, int casillas_y) {
 	casillas = new Entidad**[casillas_x];
 	for(int i = 0; i < casillas_x; i++)
 		casillas[i] = new Entidad*[casillas_y];
+	
+	mapDeTerreno = new terrain_type_t*[casillas_x];
+	for(int k = 0; k < casillas_x; k++)
+		mapDeTerreno[k] = new terrain_type_t[casillas_y];
 
 	generarMatrizVacia();
 }
 
 // Destructor que libera los arrays pedidos dinamicamente
 Matriz::~Matriz(void) {
-	for(int i = 0; i < this->filas; i++)
+	for(int i = 0; i < this->filas; i++) {
 		delete[] casillas[i];
+		delete[] mapDeTerreno[i];
+	}
+	delete[] mapDeTerreno;
 	delete[] casillas;
 } 
 
 
 void Matriz::generarMatrizVacia(){
 	for(int i = 0; i < this->filas; i++){
-		for(int j = 0; j < this->columnas; j++)
-		 casillas[i][j] = nullptr;
+		for(int j = 0; j < this->columnas; j++) {
+			casillas[i][j] = nullptr;
+			mapDeTerreno[i][j] = TERRAIN_GRASS;
+		}
 	}
 	
 } 
@@ -212,4 +225,19 @@ void Matriz::vaciarPosicionSinChequeo(Posicion* pos) {
 
 void Matriz::ocuparPosicionSinChequeo(Posicion* pos, Entidad* ent) {
 	this->casillas[pos->getRoundX()][pos->getRoundY()] = ent;
+}
+
+
+terrain_type_t Matriz::verTipoTerreno(Posicion pos) {
+	if (this->posicionPertenece(&pos)) {
+		return mapDeTerreno[pos.getRoundX()][pos.getRoundY()];
+	}
+	return TERRAIN_GRASS;
+}
+
+
+void Matriz::settearTipoTerreno(Posicion pos, terrain_type_t tipo) {
+	if (this->posicionPertenece(&pos)) {
+		mapDeTerreno[pos.getRoundX()][pos.getRoundY()] = tipo;
+	}
 }

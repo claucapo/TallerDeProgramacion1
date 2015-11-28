@@ -16,7 +16,8 @@ private:
 	int cantidad_entidades;
 	int columnas;
 	int filas;
-
+	
+	terrain_type_t** mapDeTerreno;
 	// Metodo que crea una matriz vacia.
 	void generarMatrizVacia();
 	
@@ -68,6 +69,10 @@ public:
 
 	void vaciarPosicionSinChequeo(Posicion* pos);
 	void ocuparPosicionSinChequeo(Posicion* pos, Entidad* ent);
+
+	
+	terrain_type_t verTipoTerreno(Posicion pos);
+	void settearTipoTerreno(Posicion pos, terrain_type_t tipo);
 };
 
 

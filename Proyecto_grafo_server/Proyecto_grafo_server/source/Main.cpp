@@ -33,7 +33,7 @@ using namespace std;
 // #pragma comment (lib, "Mswsock.lib")
 
 #define TESTING_ENABLED false
-#define ARCHIVO_YAML "EscenarioPrueba.yaml"
+#define ARCHIVO_YAML "WaterTest.yaml"
 #define TIMEOUT 10000
 
 
@@ -135,6 +135,18 @@ void cargarEscenario(Partida* partida, escenarioInfo_t eInfo) {
 
 	for(list<Jugador*>::iterator it = partida->jugadores.begin(); it != partida->jugadores.end(); ++it) {
 		(*it)->asignarVision(eInfo.size_X, eInfo.size_Y);
+	}
+
+	for(list<terrenoInfo_t*>::const_iterator it = eInfo.terreno.begin(); it != eInfo.terreno.end(); ++it) {
+		terrenoInfo_t act = *(*it);
+		Posicion pos = Posicion(act.x, act.y);
+		if (act.tipo_terreno == "water") {
+			scene->verMapa()->settearTipoTerreno(pos, TERRAIN_WATER);
+		} else if (act.tipo_terreno == "grass") {
+			scene->verMapa()->settearTipoTerreno(pos, TERRAIN_GRASS);
+		} else {
+			ErrorLog::getInstance()->escribirLog("Error al generar el mapa, tipo de terreno [" + act.tipo_terreno + "] desconocido", LOG_WARNING);
+		}
 	}
 
 	for(list<instanciaInfo_t*>::const_iterator it = eInfo.instancias.begin(); it != eInfo.instancias.end(); ++it) {
@@ -286,7 +298,11 @@ int main(int argc, char* argv[]) {
 
 	
 	bool exit = false;
-	/*for (int i = 0; i < parser.verInfoEscenario().size_X; i++) {
+	
+	system("cls");
+	cout << "SERVER INITIALIZED"<< endl;
+	cout << "DO NOT CLOSE THIS WINDOW UNTIL THE GAME HAS FINISHED!" << endl;
+	for (int i = 0; i < parser.verInfoEscenario().size_X; i++) {
 		for (int j = 0; j < parser.verInfoEscenario().size_Y; j++) {
 			if (!game->escenario->verMapa()->posicionEstaVacia(&Posicion(i,j)))
 				cout<< "X";
@@ -295,11 +311,8 @@ int main(int argc, char* argv[]) {
 		}
 		cout<< i<<endl;
 	}
-	*/
-	
-	system("cls");
-	cout << "SERVER INITIALIZED"<< endl;
-	cout << "DO NOT CLOSE THIS WINDOW UNTIL THE GAME HAS FINISHED!" << endl;
+
+
 
 	Servidor server = Servidor(ListenSocket, game, parser.verInfoRed().cant_jugadores);
 	server.start();

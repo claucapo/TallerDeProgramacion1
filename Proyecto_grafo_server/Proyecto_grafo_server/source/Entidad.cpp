@@ -32,6 +32,8 @@ Entidad::Entidad(unsigned int id, string name, tipoEntidad_t pType) {
 	for (int i = 0; i < CANT_ACCIONES; i++) {
 		this->habilidades[i] = pType.habilidades[i];		
 	}
+
+	this->validTerrain = pType.validTerrain;
 }
 
 // Llamo al destructor de todos los miembros de la clase (en caso de que alguno

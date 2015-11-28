@@ -129,18 +129,36 @@ void GraficadorPantalla::reajustarCamara(void) {
 // PASO 2: renderizar terreno
 #define TRANSPARENCIA_COLOR_MOD 160 
 void GraficadorPantalla::renderizarTerreno(void) {
-	SDL_Surface* imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tile");
 	SDL_Rect rectangulo;
+
+	// Tile regular
+	SDL_Surface* imgTile = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tile");
 	SDL_SetColorKey(imgTile, true, SDL_MapRGB(imgTile->format, 255, 255, 255));
 
+	// Tile regular sombreado
 	SDL_Surface* imgAux = SDL_CreateRGBSurface(0, imgTile->w, imgTile->h,32,0,0,0,0); 
-
 	SDL_SetSurfaceColorMod(imgTile, TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD );
 	SDL_BlitSurface( imgTile, NULL, imgAux, NULL );
+
 	SDL_Surface* imgTileFog = SDL_ConvertSurface(imgAux, pantalla->format, NULL);
 	SDL_FreeSurface(imgAux);
 	SDL_SetSurfaceColorMod(imgTile, 255 , 255 , 255);
 	SDL_SetColorKey(imgTileFog, true, SDL_MapRGB(imgTileFog->format, 0, 0, 0));
+
+	// Tile de agua
+	SDL_Surface* imgTileWater = BibliotecaDeImagenes::obtenerInstancia()->devolverImagen("tileWater");
+	SDL_SetColorKey(imgTileWater, true, SDL_MapRGB(imgTile->format, 255, 255, 255));
+
+	// Tile de agua sombreado
+	imgAux = SDL_CreateRGBSurface(0, imgTileWater->w, imgTileWater->h,32,0,0,0,0); 
+	SDL_SetSurfaceColorMod(imgTileWater, TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD , TRANSPARENCIA_COLOR_MOD );
+	SDL_BlitSurface( imgTileWater, NULL, imgAux, NULL );
+	
+	SDL_Surface* imgTileWaterFog = SDL_ConvertSurface(imgAux, pantalla->format, NULL);
+	SDL_FreeSurface(imgAux);
+	SDL_SetSurfaceColorMod(imgTileWater, 255 , 255 , 255);
+	SDL_SetColorKey(imgTileWaterFog, true, SDL_MapRGB(imgTileWaterFog->format, 0, 0, 0));
+
 
 	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
 	Vision* vis = this->player->verVision();
@@ -155,10 +173,19 @@ void GraficadorPantalla::renderizarTerreno(void) {
 				if ((rectangulo.x) < (this->screen_width) && (rectangulo.x + imgTile->w) > 0) {
 					rectangulo.y = cu->obtenerCoordPantallaY(i, j, view_x, view_y, ancho_borde);
 					if ((rectangulo.y) < (this->screen_height) && (rectangulo.y + imgTile->h) > 0) {
-						if(vis->visibilidadPosicion(Posicion(i,j)) == VIS_VISITADA)
-							SDL_BlitSurface( imgTileFog, NULL, pantalla, &rectangulo );	
-						else
-							SDL_BlitSurface( imgTile, NULL, pantalla, &rectangulo );
+						if(vis->visibilidadPosicion(Posicion(i,j)) == VIS_VISITADA){
+							if (partida->escenario->verMapa()->verTipoTerreno(pAct) == TERRAIN_WATER) {
+								SDL_BlitSurface( imgTileWaterFog, NULL, pantalla, &rectangulo );
+							} else {
+								SDL_BlitSurface( imgTileFog, NULL, pantalla, &rectangulo );
+							}
+						} else {
+							if (partida->escenario->verMapa()->verTipoTerreno(pAct) == TERRAIN_WATER) {
+								SDL_BlitSurface( imgTileWater, NULL, pantalla, &rectangulo );
+							} else {
+								SDL_BlitSurface( imgTile, NULL, pantalla, &rectangulo );
+							}
+						}
 					}
 				}
 			}

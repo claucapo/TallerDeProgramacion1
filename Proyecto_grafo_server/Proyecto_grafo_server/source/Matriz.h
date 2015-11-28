@@ -4,6 +4,8 @@
 #include "Entidad.h"
 #include "Posicion.h"
 #include "CalculadorCaminoMinimo.h"
+#include "Enumerados.h"
+#include "Protocolo.h"
 #include <list>
 using namespace std;
 
@@ -17,10 +19,10 @@ private:
 	int cantidad_entidades;
 	int columnas;
 	int filas;
-
+	
+	terrain_type_t** mapDeTerreno;
 	int** mapDeOcupaciones;
 	CalculadorCaminoMinimo* calculadorCamino;
-
 
 	// Metodo que crea una matriz vacia.
 	void generarMatrizVacia();
@@ -29,6 +31,7 @@ public:
 	// Constructor y destructor por defecto
 	Matriz(void);
 	~Matriz(void);
+	
 
 	// Constructor sobrecargado.
 	// Pre: las casillas deben ser mayores a cero.
@@ -75,7 +78,12 @@ public:
 	list<Posicion> posicionesVistas(Entidad* elemento, int rangoV = 0);
 	list<Posicion> posicionesOcupadas(Entidad* elemento);
 	void actualizarMapDeOcupaciones();
-	list<Posicion*> Matriz::caminoMinimo(Posicion posAct, Posicion posDest);
+	list<Posicion*> Matriz::caminoMinimo(Posicion posAct, Posicion posDest, terrain_type_t validTerrain);
+
+	terrain_type_t verTipoTerreno(Posicion pos);
+	void settearTipoTerreno(Posicion pos, terrain_type_t tipo);
+
+	list<msg_terreno> verListaTerrenos(void);
 };
 
 

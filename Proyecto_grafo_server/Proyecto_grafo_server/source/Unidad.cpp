@@ -58,7 +58,6 @@ void Unidad::nuevoDestino(Posicion* pos){
 
 void Unidad::marcarCamino(list<Posicion*> camino) {
 	this->camino = camino;
-	this->camino.push_back(this->destino);
 }
 
 bool estaEnCasilla(Posicion* punto, Posicion* contenedor){
@@ -122,10 +121,12 @@ bool Unidad::objetivoEnRango(Entidad* target, Escenario* scene) {
 
 void Unidad::mover(Escenario* scene) {
 	Posicion* act = this->pos;
+
 	if(this->camino.empty()){
 		this->state == EST_QUIETO;
 		return;
 	}
+
 	Posicion* dest = this->camino.front();
 	if(dest == nullptr){
 		this->state == EST_QUIETO;
@@ -140,7 +141,7 @@ void Unidad::mover(Escenario* scene) {
 		}
 	}
 
-	// Distantcias ---- le agruegué el +0.5   Like it!
+	// Distantcias
 	float distX = dest->getX() - act->getX() + 0.5;
 	float distY = dest->getY() - act->getY() + 0.5;
 	float totalDist = sqrt((distX*distX) + (distY*distY));	
@@ -151,6 +152,8 @@ void Unidad::mover(Escenario* scene) {
  		float nuevoX = act->getX() + (distX*rapidez)/totalDist;
  		float nuevoY = act->getY() + (distY*rapidez)/totalDist;
  		Posicion nuevaPos(nuevoX, nuevoY);
+		
+		/*
 		if( !(estaEnCasilla(&nuevaPos, act) || estaEnCasilla(&nuevaPos, dest)) ) {
 			if ( !(scene->verMapa()->posicionEstaVacia(&nuevaPos)) ) {
 				Posicion aux(nuevaPos.getX(), nuevaPos.getY());
@@ -177,13 +180,17 @@ void Unidad::mover(Escenario* scene) {
 				nuevaPos = Posicion(aux.getX(), aux.getY());
 			}
 		}
+		*/
 		scene->moverEntidad(this, &nuevaPos);
  	} else {
 		this->camino.pop_front();
+
+		/*
 		if (camino.size() == 0){
 			Posicion aux(act->getRoundX()+0.44,act->getRoundY()+0.44);
 			scene->moverEntidad(this, &aux);
 		}
+		*/
  	}
 }
 
@@ -465,62 +472,3 @@ void Unidad::setDireccion(Direcciones_t dir) {
 	direccion = dir;
 }
 
-
-
-
-
-
-/* void Unidad::mover(Escenario* scene) {
-	Posicion* act = this->pos;
-	Posicion* dest = this->camino.front();
-
-	// Distantcias
-	float distX = dest->getX() - act->getX() ;
-	float distY = dest->getY() - act->getY() ;
-	float totalDist = sqrt((distX*distX) + (distY*distY));	
-
-	this->setDireccion(this->calcularDirecion(distX, distY));
-		
-	if ((totalDist > this->rapidez) || (dest->getX() > act->getX())) {
- 		float nuevoX = act->getX() + (distX*rapidez)/totalDist;
- 		float nuevoY = act->getY() + (distY*rapidez)/totalDist;
- 		Posicion nuevaPos(nuevoX, nuevoY);
-		if(estaEnCasilla(&nuevaPos, act) || estaEnCasilla(&nuevaPos, dest)){				
-			this->asignarPos(&nuevaPos);
-		} else {
-			if(scene->verMapa()->posicionEstaVacia(&nuevaPos)){
-				this->asignarPos(&nuevaPos);
-			} else {
-				Posicion aux(nuevaPos.getX(), nuevaPos.getY());
-				if((this->direccion == DIR_RIGHT)){
-					do
-					aux = Posicion(aux.getX() +0.35, aux.getY() +0.45);
-					while(aux == nuevaPos);
-				}
-				else if((this->direccion == DIR_LEFT)){
-					do
-					aux = Posicion(aux.getX() +0.45, aux.getY() +0.35);
-					while(aux == nuevaPos);
-				}
-				else if((this->direccion == DIR_DOWN_LEFT)){
-					do
-					aux = Posicion(aux.getX() +0.1, aux.getY() +0.35);
-					while(aux == nuevaPos);
-				}
-				else if((this->direccion == DIR_DOWN_LEFT)){
-					do
-					aux = Posicion(aux.getX() +0.35, aux.getY() +0.1);
-					while(aux == nuevaPos);
-				}
-				nuevaPos = Posicion(aux.getX(), aux.getY());
-				scene->moverEntidad(this, &nuevaPos);
-			}
-		}
- 	} else {
-		this->camino.pop_front();
-		if (camino.size() == 0){
-			this->setEstado(EST_QUIETO);
-			this->asignarPos( new Posicion(act->getRoundX()+0.44,act->getRoundY()+0.44));
-		}
- 	}
-} */

@@ -78,6 +78,14 @@ struct msg_map {
 	int cantTipos;
 	int cantInstancias;
 	int cantJugadores;
+	int cantTerrenosEspeciales;
+};
+
+
+struct msg_terreno {
+	int coord_x;
+	int coord_y;
+	terrain_type_t tipo;
 };
 
 // struct que define los recursos
