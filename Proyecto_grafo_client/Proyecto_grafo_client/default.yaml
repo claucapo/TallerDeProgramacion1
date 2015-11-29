@@ -46,6 +46,14 @@ tipo:
     pixelX: 27
     pixelY: 18
     score: 1
+  - nombre: "fish"
+    ruta: "recursos\\fishAOE.png"
+    subX: 18
+    subY: 8
+    pixelX: 29
+    pixelY: 57
+    fps: 8
+    score: 1
   - nombre: "screen_frame"
     ruta: "recursos\\screenFrame.png"
   - nombre: "menu_bck"
@@ -92,6 +100,8 @@ tipo:
     ruta: "recursos\\pikeman_icon.png"
   - nombre: "teutonic knight_icon"
     ruta: "recursos\\teutonicKnight_icon.png"
+  - nombre: "fishing boat_icon"
+    ruta: "recursos\\fishingBoat_icon.png"
   - nombre: "arbalest_icon"
     ruta: "recursos\\arbalest_icon.png"
   - nombre: "mangudai_icon"
@@ -110,8 +120,12 @@ tipo:
     ruta: "recursos\\castle_icon.png"
   - nombre: "archery_icon"
     ruta: "recursos\\archery_icon.png"
+  - nombre: "dock_icon"
+    ruta: "recursos\\dock_icon.png"
   - nombre: "barracks_icon"
     ruta: "recursos\\barracks_icon.png"
+  - nombre: "fish_icon"
+    ruta: "recursos\\fish_icon.png"
   - nombre: "stable_icon"
     ruta: "recursos\\stable_icon.png"
   - nombre: "windmill_icon"
@@ -635,6 +649,78 @@ tipo:
     subX: 10
     subY: 8
     fps: 8
+  - nombre: "fishing boat_move"
+    ruta: "recursos\\fishingBoatAOE.png"
+    pixelX: 35
+    pixelY: 78
+    subX: 1
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "fishing boat_move2"
+    ruta: "recursos\\fishingBoatAOEp2.png"
+    pixelX: 35
+    pixelY: 78
+    subX: 1
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "fishing boat_move3"
+    ruta: "recursos\\fishingBoatAOEp3.png"
+    pixelX: 35
+    pixelY: 78
+    subX: 1
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "fishing boat"
+    ruta: "recursos\\fishingBoatAOE.png"
+    pixelX: 35
+    pixelY: 78
+    subX: 1
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "fishing boat2"
+    ruta: "recursos\\fishingBoatAOEp2.png"
+    pixelX: 35
+    pixelY: 78
+    subX: 1
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "fishing boat3"
+    ruta: "recursos\\fishingBoatAOEp3.png"
+    pixelX: 35
+    pixelY: 78
+    subX: 1
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "fishing boat_collect"
+    ruta: "recursos\\fishingBoat_collectAOE.png"
+    pixelX: 35
+    pixelY: 78
+    subX: 1
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "fishing boat_collect2"
+    ruta: "recursos\\fishingBoat_collectAOEp2.png"
+    pixelX: 35
+    pixelY: 78
+    subX: 1
+    subY: 8
+    fps: 7
+    delay: 0
+  - nombre: "fishing boat_collect3"
+    ruta: "recursos\\fishingBoat_collectAOEp3.png"
+    pixelX: 35
+    pixelY: 78
+    subX: 1
+    subY: 8
+    fps: 7
+    delay: 0
   - nombre: "villager_collect"
     ruta: "recursos\\villager_collectAOE.png"
     pixelX: 13
@@ -1444,6 +1530,18 @@ tipo:
     subX: 10
     subY: 8
     fps: 5
+  - nombre: "dock"
+    ruta: "recursos\\dockAOE.png"
+    pixelX: 113
+    pixelY: 33
+  - nombre: "dock2"
+    ruta: "recursos\\dockAOEp2.png"
+    pixelX: 113
+    pixelY: 33
+  - nombre: "dock3"
+    ruta: "recursos\\dockAOEp3.png"
+    pixelX: 113
+    pixelY: 33
   - nombre: "siege weapon factory"
     ruta: "recursos\\blacksmithAOE.png"
     pixelX: 101

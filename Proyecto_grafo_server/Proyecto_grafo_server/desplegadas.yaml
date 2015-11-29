@@ -39,6 +39,30 @@ entidades:
     entrenables: []
     habilidades: ["attack", "build", "collect"]
     luck: 20
+  - nombre: "fishing boat"
+    sizeX: 1
+    sizeY: 1
+    tipo: "unit"
+    rangoV: 4
+    rangoA: 1
+    tipoR: -1   # Tipo de recurso: -1 = none
+    maxR: 0
+    velocidad: 8
+    atk: 3
+    def: 1
+    vidaMax: 110
+    cooldown: 40
+    collectR: 300
+    buildR: 50
+    trainR: 50
+    costFood: 0
+    costGold: 25
+    costWood: 75
+    costStone: 0
+    entrenables: []
+    habilidades: ["collect"]
+    luck: 20
+    terreno: "water"
   - nombre: "gold mine"
     tipo: "resource"
     maxR: 5000
@@ -285,7 +309,11 @@ escenario:
   nombre: DEFAULT_MAP
   sizeX: 40
   sizeY: 40
+  terreno:
+   - {x: 23, y: 23, t: "water"}
+   - {x: 22, y: 22, t: "water"}
   entidades:
+   - {x: 23, y: 23, tipo: "fishing boat", p: 2}
    - {x: 6, y: 4, tipo: "paladin", p: 1}
    - {x: 4, y: 6, tipo: "paladin", p: 1}
    - {x: 6, y: 6, tipo: "colosus", p: 1}
@@ -340,12 +368,7 @@ escenario:
    - {x: 11, y: 14, tipo: "stone mine"}
    - {x: 9, y: 12, tipo: "gold mine"}
    - {x: 20, y: 20, tipo: "forage bush", p: 0}
-   - {x: 22, y: 21, tipo: "tree", p: 0}
-   - {x: 21, y: 22, tipo: "stone mine"}
-   - {x: 24, y: 23, tipo: "gold mine"}
-   - {x: 25, y: 23, tipo: "forage bush", p: 0}
-   - {x: 22, y: 26, tipo: "tree", p: 0}
-   - {x: 21, y: 26, tipo: "stone mine"}
+
    - {x: 28, y: 33, tipo: "gold mine"}
    - {x: 30, y: 32, tipo: "forage bush", p: 0}
    - {x: 32, y: 21, tipo: "tree", p: 0}

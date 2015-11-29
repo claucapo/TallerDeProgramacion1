@@ -209,7 +209,7 @@ list<msg_update*> Escenario::avanzarFrame(CondicionVictoria* vCond) {
 		}
 
 	}
-
+	// da add
 		while (!this->updatesAux.empty()) {
 		msg_update* upd = this->updatesAux.front();
 		this->updatesAux.pop_front();

@@ -818,8 +818,12 @@ void GraficadorPantalla::dibujarMinimapa(int minimapX, int minimapY, int minimap
 				pixel.x += floor(cu->obtenerCoordPantallaX(i, j, 0, 0, minimapW)/LARGO_TILE);
 				pixel.y += floor(cu->obtenerCoordPantallaY(i, j, 0, 0, minimapW)/LARGO_TILE);
 
-				if(this->partida->escenario->verMapa()->posicionEstaVacia(&pAct))
-					SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 51, 151, 37));
+				if(this->partida->escenario->verMapa()->posicionEstaVacia(&pAct)){
+					if(this->partida->escenario->verMapa()->verTipoTerreno(pAct) == TERRAIN_GRASS)
+						SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 51, 151, 37));
+					else
+						SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 34, 94, 180));
+					}
 				else if(this->partida->escenario->verMapa()->verContenido(&pAct)->verTipo() == ENT_T_RESOURCE){
 					Recurso* recur = (Recurso*) this->partida->escenario->verMapa()->verContenido(&pAct);
 					if(recur->tipoR== RES_T_FOOD)
@@ -840,8 +844,10 @@ void GraficadorPantalla::dibujarMinimapa(int minimapX, int minimapY, int minimap
 					SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 255, 71, 2));
 				else if(this->partida->escenario->verMapa()->verContenido(&pAct)->verJugador()->verID() == 3) // player3: yellow
 					SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 255, 250, 10));
-				else 
+				else{
 					SDL_FillRect(this->pantalla, &pixel, SDL_MapRGB(this->pantalla->format, 250, 200, 16));
+				}
+					
 			}
 		}
 	// LA CAMARA	

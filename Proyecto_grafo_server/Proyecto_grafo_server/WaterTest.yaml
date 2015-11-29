@@ -44,6 +44,30 @@ entidades:
     entrenables: []
     habilidades: ["attack", "build", "collect"]
     luck: 20
+  - nombre: "fishing boat"
+    sizeX: 1
+    sizeY: 1
+    tipo: "unit"
+    rangoV: 4
+    rangoA: 1
+    tipoR: -1   # Tipo de recurso: -1 = none
+    maxR: 0
+    velocidad: 8
+    atk: 3
+    def: 1
+    vidaMax: 110
+    cooldown: 40
+    collectR: 300
+    buildR: 50
+    trainR: 50
+    costFood: 0
+    costGold: 25
+    costWood: 75
+    costStone: 0
+    entrenables: []
+    habilidades: ["collect"]
+    luck: 20
+    terreno: "water"
   - nombre: "gold mine"
     tipo: "resource"
     maxR: 5000
@@ -52,6 +76,10 @@ entidades:
     tipo: "resource"
     maxR: 5000
     tipoR: 1
+  - nombre: "fish"
+    tipo: "resource"
+    maxR: 5000
+    tipoR: 2
   - nombre: "forage bush"
     tipo: "resource"
     maxR: 5000
@@ -225,7 +253,6 @@ entidades:
     costWood: 0
     costStone: 0
     luck: 50
-    terreno: "water"
   - nombre: "king"
     sizeX: 1
     sizeY: 1
@@ -261,6 +288,16 @@ entidades:
     costGold: 0
     costWood: 275
     costStone: 100
+  - nombre: "dock"
+    tipo: "building"
+    sizeX: 4
+    sizeY: 4
+    vidaMax: 580
+    entrenables: ["fishing boat"]
+    costFood: 0
+    costGold: 25
+    costWood: 150
+    costStone: 0
   - nombre: "barracks"
     tipo: "building"
     sizeX: 4
@@ -410,13 +447,19 @@ escenario:
   entidades:
    - {x: 39, y: 39, tipo: "flag", p: 1}
    - {x: 39, y: 38, tipo: "flag",  p: 2}
-   - {x: 5, y: 5, tipo: "knight", p: 1}
-   - {x: 5, y: 6, tipo: "knight", p: 2}
-   - {x: 6, y: 5, tipo: "paladin", p: 1}
-   - {x: 6, y: 6, tipo: "paladin", p: 2}
+   - {x: 4, y: 4, tipo: "fish", p: 0}
+   - {x: 2, y: 3, tipo: "fish", p: 0}
+   - {x: 1, y: 1, tipo: "fish", p: 0}
+   - {x: 6, y: 5, tipo: "fishing boat", p: 1}
+   - {x: 6, y: 6, tipo: "fishing boat", p: 2}
    - {x: 10, y: 10, tipo: "knight", p: 1}
    - {x: 10, y: 11, tipo: "knight", p: 2}
-   - {x: 11, y: 10, tipo: "paladin", p: 1}
-   - {x: 11, y: 11, tipo: "paladin", p: 2}
-   - {x: 32, y: 32, tipo: "gold mine", p: 0}
-   - {x: 33, y: 33, tipo: "gold mine", p: 0}
+   - {x: 11, y: 10, tipo: "villager", p: 1}
+   - {x: 14, y: 10, tipo: "villager", p: 1}
+   - {x: 11, y: 11, tipo: "villager", p: 2}
+   - {x: 12, y: 12, tipo: "tree", p: 0}
+   - {x: 12, y: 13, tipo: "gold mine", p: 0}
+   - {x: 13, y: 12, tipo: "stone mine", p: 0}
+   - {x: 13, y: 13, tipo: "forage bush", p: 0}
+   - {x: 15, y: 15, tipo: "barracks", p: 1}
+   - {x: 25, y: 25, tipo: "house", p: 2}

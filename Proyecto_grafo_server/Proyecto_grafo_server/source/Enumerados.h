@@ -97,9 +97,10 @@ struct tipoEntidad_t {
 	// Para edificios
 	int trainRate;
 	int cantidad_entrenables;
+	terrain_type_t validTerrain;
 	std::string entrenables[MAX_ENTRENABLES];
 	
-	terrain_type_t validTerrain;
+//	terrain_type_t validTerrain;
 
 	// Valores por defecto
 	tipoEntidad_t() {
