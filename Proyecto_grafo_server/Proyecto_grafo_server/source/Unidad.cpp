@@ -119,25 +119,24 @@ bool Unidad::objetivoEnRango(Entidad* target, Escenario* scene) {
 }
 
 
-void Unidad::mover(Escenario* scene) {
+bool Unidad::mover(Escenario* scene) {
 	Posicion* act = this->pos;
 
 	if(this->camino.empty()){
 		this->state == EST_QUIETO;
-		return;
+		return false;
 	}
 
 	Posicion* dest = this->camino.front();
 	if(dest == nullptr){
 		this->state == EST_QUIETO;
-		return;
+		return false;
 	}
 	
 	if (scene->verMapa()->verContenido(dest) != this && this->camino.size() > 1) {
 		if (!scene->casillaEstaVacia(dest)) {
-			cout << "Hmmm... algo no me deja pasar" << endl;
-			scene->asignarDestino(this->verID(), *this->verDestino());
-			return;
+			scene->asignarDestino(this, *this->verDestino());
+			return true;
 		}
 	}
 
@@ -153,45 +152,11 @@ void Unidad::mover(Escenario* scene) {
  		float nuevoY = act->getY() + (distY*rapidez)/totalDist;
  		Posicion nuevaPos(nuevoX, nuevoY);
 		
-		/*
-		if( !(estaEnCasilla(&nuevaPos, act) || estaEnCasilla(&nuevaPos, dest)) ) {
-			if ( !(scene->verMapa()->posicionEstaVacia(&nuevaPos)) ) {
-				Posicion aux(nuevaPos.getX(), nuevaPos.getY());
-				if((this->direccion == DIR_RIGHT)){
-					do
-					aux = Posicion(aux.getX() +0.35, aux.getY() +0.45);
-					while(aux == nuevaPos);
-				}
-				else if((this->direccion == DIR_LEFT)){
-					do
-					aux = Posicion(aux.getX() +0.45, aux.getY() +0.35);
-					while(aux == nuevaPos);
-				}
-				else if((this->direccion == DIR_DOWN_LEFT)){
-					do
-					aux = Posicion(aux.getX() +0.1, aux.getY() +0.35);
-					while(aux == nuevaPos);
-				}
-				else if((this->direccion == DIR_DOWN_LEFT)){
-					do
-					aux = Posicion(aux.getX() +0.35, aux.getY() +0.1);
-					while(aux == nuevaPos);
-				}
-				nuevaPos = Posicion(aux.getX(), aux.getY());
-			}
-		}
-		*/
 		scene->moverEntidad(this, &nuevaPos);
  	} else {
 		this->camino.pop_front();
-
-		/*
-		if (camino.size() == 0){
-			Posicion aux(act->getRoundX()+0.44,act->getRoundY()+0.44);
-			scene->moverEntidad(this, &aux);
-		}
-		*/
  	}
+	return true;
 }
 
 
@@ -355,8 +320,12 @@ af_result_t Unidad::avanzarFrame(Escenario* scene) {
 				this->asignarEstado(EST_QUIETO);
 				return AF_STATE_CHANGE;
 			} else {
-				this->mover(scene);
- 				return AF_MOVE;
+				if (this->mover(scene)) {
+	 				return AF_MOVE;
+				} else {
+					this->state = EST_QUIETO;
+					return AF_STATE_CHANGE;
+				}
 			}
 		} else {
 			// Si la unidad estaba haciendo cualquier otra cosa, altero el estado para que se detenga
@@ -381,17 +350,20 @@ af_result_t Unidad::avanzarFrame(Escenario* scene) {
 				if(!this->camino.empty())
 				if (!scene->casillaEstaVacia(this->camino.back())) {
 					this->state = EST_QUIETO;
-					return AF_NONE;
+					return AF_STATE_CHANGE;
 				}
-				this->mover(scene);
- 				return AF_MOVE;
+				if (this->mover(scene)) {
+	 				return AF_MOVE;
+				} else {
+					this->state = EST_QUIETO;
+					return AF_STATE_CHANGE;
+				}
 			} else {
 
 				Posicion* pos = scene->verMapa()->adyacenteCercana(target, this);
 				if (pos) {
 					this->asignarEstado(EST_CAMINANDO);
-					scene->asignarDestino(this->verID(), *pos);
-					// cout << "Asigne un path a: " << pos.toStrRound() << endl;
+					scene->asignarDestino(this, *pos);
 					delete pos;
 					return AF_STATE_CHANGE;
 				}

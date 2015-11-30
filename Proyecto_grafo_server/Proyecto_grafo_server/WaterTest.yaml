@@ -303,7 +303,7 @@ entidades:
     sizeX: 4
     sizeY: 4
     vidaMax: 530
-    entrenables: ["pikeman", "champion"]
+    entrenables: ["pikeman", "champion", "fishing boat"]
     costFood: 0
     costGold: 0
     costWood: 175

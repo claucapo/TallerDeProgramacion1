@@ -391,6 +391,7 @@ void ProcesadorEventos::procesarConstruir(Cliente* client) {
 		return;
 
 	msg_event newEvent;
+
 	newEvent.accion = MSJ_NUEVO_EDIFICIO;
 	newEvent.idEntidad = FactoryEntidades::obtenerInstancia()->obtenerTypeID(game->edificioAubicar);
 	
@@ -407,7 +408,7 @@ void ProcesadorEventos::procesarConstruir(Cliente* client) {
 	if(game->verListaEntidadesSeleccionadas().size()){
 		Mix_Chunk* snd = BibliotecaDeImagenes::obtenerInstancia()->devolverSonido(game->verEntidadSeleccionada()->verNombre() + "_build");
 		Mix_PlayChannel( -1, snd, 0 );
-		}
+	}
 }
 
 void ProcesadorEventos::procesarSeleccion(Cliente* client, Jugador* player){

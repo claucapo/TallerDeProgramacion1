@@ -223,8 +223,8 @@ list<Posicion> Matriz::posicionesVistas(Entidad* elemento, int rangoV) {
 	list<Posicion> posEnRango;
 	int origenX = elemento->verPosicion()->getRoundX();
 	int origenY = elemento->verPosicion()->getRoundY();
-	for (int i = -rango; i <= rango + elemento->verTamX(); i++) {
-		for (int j = -rango; j <= rango + elemento->verTamY(); j++) {
+	for (int i = rango + elemento->verTamX(); i >= -rango; i--) {
+		for (int j = rango + elemento->verTamY(); j >= -rango; j--) {
 			Posicion act = Posicion(i + origenX, j + origenY);
 			if (this->posicionPertenece(&act) && distanciaEntre(act, elemento) <= rango) {
 				posEnRango.push_back(act);

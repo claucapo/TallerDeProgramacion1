@@ -76,7 +76,6 @@ int clientSender( void* data ) {
 		if ( !cliente->eventos.empty() ) {
 			struct msg_event ev = cliente->eventos.front();
 			cliente->eventos.pop();
-
 			result = send(cliente->clientSocket, (char*)&ev, sizeof(struct msg_event), 0);
 			if (result <= 0) {
 				printf("Error enviando evento. Terminando conexion\n");

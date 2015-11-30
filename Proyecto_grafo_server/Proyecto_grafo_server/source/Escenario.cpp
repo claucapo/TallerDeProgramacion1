@@ -140,6 +140,13 @@ list<msg_update*> Escenario::avanzarFrame(CondicionVictoria* vCond) {
 
 	list<msg_update*> updates = list<msg_update*>();
 
+	
+	while (!this->updatesAux.empty()) {
+		msg_update* upd = this->updatesAux.front();
+		this->updatesAux.pop_front();
+		updates.push_back(upd);
+	}
+
 	for(list<Entidad*>::iterator it = entidades.begin(); it != entidades.end(); ++it) {
 		af_result_t res = (*it)->avanzarFrame(this);
 		msg_update* upd = nullptr;
@@ -196,7 +203,7 @@ list<msg_update*> Escenario::avanzarFrame(CondicionVictoria* vCond) {
 		// Acá va la lógica de spawn... hay que encontrar la posición vacía más cenrcana
 		// a la que tiene cargada la entidad, y hacer que aparezca ahí.
 		// Este método es muy ineficiente
-		Posicion* pos = this->obtenerPosicionSpawn(ent->verPosicion());
+		Posicion* pos = this->obtenerPosicionSpawn(ent->verPosicion(), ent->validTerrain);
 		if (pos) {
 			this->ubicarEntidad(ent, pos);
 			msg_update* upd = generarUpdate(CodigoMensaje(MSJ_SPAWN + ent->typeID), ent->verID(), pos->getX(), pos->getY());
@@ -205,7 +212,6 @@ list<msg_update*> Escenario::avanzarFrame(CondicionVictoria* vCond) {
 			upd = generarUpdate(MSJ_ASIGNAR_JUGADOR, ent->verID(), ent->verJugador()->verID(), 0);
 			updates.push_back(upd);
 
-			cout << "Debo spawnear un nuevo [" << ent->name << "] en " << pos->toStrRound() << endl;
 		}
 
 	}
@@ -268,19 +274,20 @@ void Escenario::moverEntidad(Entidad* entidad, Posicion* destino) {
  		if ( (*it)->verID() == entID ) {
  			if ( (*it)->tipo == ENT_T_UNIT ) {
  				Unidad* unit = (Unidad*)(*it);
-				if (mapa->verTipoTerreno(pos) != unit->validTerrain)
+				if (mapa->verTipoTerreno(pos) != unit->validTerrain) {
+					unit->asignarEstado(EST_QUIETO);
+					unit->asignarAccion(ACT_NONE, entID);
 					return;
-
+				}
 				list<Posicion*> camino = mapa->caminoMinimo(*unit->verPosicion(), pos, unit->validTerrain);
 				if (!camino.empty()) {
 					unit->nuevoDestino(&pos);
 					camino.pop_front();
 					unit->marcarCamino(camino);
- 					printf("seleccionado nuevo destino\n");
 				} else {
 					printf("no valid path\n");
-					msg_update* upd = this->generarUpdate(MSJ_STATE_CHANGE, entID, EST_QUIETO, 0);
-					this->updatesAux.push_back(upd);
+					unit->asignarEstado(EST_QUIETO);
+					unit->asignarAccion(ACT_NONE, entID);
 				}
 				return;
  			}
@@ -288,20 +295,45 @@ void Escenario::moverEntidad(Entidad* entidad, Posicion* destino) {
  	}
  }
 
- 
-Posicion* Escenario::obtenerPosicionSpawn(Posicion* origen) {
+void Escenario::asignarDestino(Entidad* ent, Posicion pos) {
+ 	if ( (ent)->tipo == ENT_T_UNIT ) {
+ 		Unidad* unit = (Unidad*)(ent);
+		if (mapa->verTipoTerreno(pos) != unit->validTerrain) {
+			unit->asignarEstado(EST_QUIETO);
+			unit->asignarAccion(ACT_NONE, ent->verID());
+			msg_update* upd = this->generarUpdate(MSJ_STATE_CHANGE, ent->verID(), EST_QUIETO, 0);
+			this->updatesAux.push_back(upd);
+			return;
+		}
+		list<Posicion*> camino = mapa->caminoMinimo(*unit->verPosicion(), pos, unit->validTerrain);
+		if (!camino.empty()) {
+			unit->nuevoDestino(&pos);
+			camino.pop_front();
+			unit->marcarCamino(camino);
+		} else {
+			printf("no valid path\n");
+			unit->asignarEstado(EST_QUIETO);
+			unit->asignarAccion(ACT_NONE, ent->verID());
+			msg_update* upd = this->generarUpdate(MSJ_STATE_CHANGE, ent->verID(), EST_QUIETO, 0);
+			this->updatesAux.push_back(upd);
+		}
+		return;
+ 	}
+ }
+
+ Posicion* Escenario::obtenerPosicionSpawn(Posicion* origen, terrain_type_t validTerrain) {
 	if (this->casillaEstaVacia(origen)) {
 		return origen;
 	}
 	Posicion* pos = nullptr;
 	Entidad* ent = this->mapa->verContenido(origen);
-	for (int i = 1; i <= ent->verRango(); i++) {
+	for (int i = 1; i <= ent->verRango() + 1; i++) {
 		list<Posicion> vistas = this->mapa->posicionesVistas(ent, i);
 		while (!vistas.empty()) {
 			Posicion act = vistas.front();
 			vistas.pop_front();
 
-			if (this->casillaEstaVacia(&act)) {
+			if (this->casillaEstaVacia(&act) && this->mapa->verTipoTerreno(act) == validTerrain) {
 				return new Posicion(act.getX(), act.getY());
 			}
 		}

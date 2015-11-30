@@ -133,15 +133,15 @@ void Partida::procesarEvento(msg_event msj, unsigned int source) {
 	Edificio* building = nullptr;
 	Posicion destino;
 	ent = scene->obtenerEntidad(msj.idEntidad);
-	if(ent == nullptr)
-		return;
 
 	// Según la acción que sea, hago lo que corresponda
 	switch(accion){
 	case MSJ_MOVER:
+		if (ent == nullptr)
+			return;
 		ent->asignarAccion(ACT_NONE, ent->verID());
 		destino = Posicion(msj.extra1, msj.extra2);
-		scene->asignarDestino(msj.idEntidad, destino);
+		scene->asignarDestino(ent, destino);
 		break;
 
 	case MSJ_RECOLECTAR:
@@ -162,6 +162,8 @@ void Partida::procesarEvento(msg_event msj, unsigned int source) {
 		break;
 
 	case MSJ_PRODUCIR_UNIDAD:
+		if (ent == nullptr)
+			return;
 		if (ent->tipo == ENT_T_BUILDING) {
 			building = (Edificio*)ent;
 			bool success = building->entrenarUnidad(msj.extra1);
@@ -173,7 +175,6 @@ void Partida::procesarEvento(msg_event msj, unsigned int source) {
 		break;
 
 	case MSJ_NUEVO_EDIFICIO:
-
 		tipoEntidad_t* pType = FactoryEntidades::obtenerInstancia()->obtenerPrototipo(msj.idEntidad);
 		if (!this->obtenerJugador(source)->puedePagar(pType->costo)) {
 			cout << "Can't afford [" << pType->typeID << "]" << endl;

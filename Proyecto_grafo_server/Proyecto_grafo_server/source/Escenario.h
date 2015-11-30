@@ -68,7 +68,7 @@ public:
 
 	// Busca y devuelve la primer casilla de las más cercanas a lo que haya
 	// en origen, que se encuentre libre. Si el mapa está lleno, devuelve null.
-	Posicion* obtenerPosicionSpawn(Posicion* origen);
+	Posicion* obtenerPosicionSpawn(Posicion* origen, terrain_type_t validTerrain);
 
 
 	// Metodo que realiza la accion apropiada cuando un jugador es derrotado
@@ -77,5 +77,6 @@ public:
 
 	list<Entidad*> verEntidades(void);
 	void asignarDestino(unsigned int entID, Posicion pos);
+	void asignarDestino(Entidad* ent, Posicion pos);
 
 };

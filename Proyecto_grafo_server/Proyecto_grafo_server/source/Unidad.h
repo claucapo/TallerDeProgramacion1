@@ -22,7 +22,7 @@ protected:
 	int rangoAtaque;
 
 private:
-	void mover(Escenario* scene);
+	bool mover(Escenario* scene);
 	bool realizarAccion(Accion_t acc, Entidad* target, Escenario* scene);
 	
 	bool resolverAtaque(Entidad* target, Escenario* scene);
