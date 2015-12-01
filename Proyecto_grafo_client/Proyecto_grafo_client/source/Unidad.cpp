@@ -18,11 +18,16 @@ Unidad::Unidad(unsigned int id, string name, tipoEntidad_t pType) : Entidad(id, 
 
 	this->collectRate = pType.collectRate;
 	this->buildRate = pType.buildRate;
+	this->proyectil = nullptr;
 }
 
 
 Unidad::~Unidad() {
-	delete this->destino;
+	if(this->destino != nullptr)
+		delete this->destino;
+
+	if(	this->proyectil != nullptr)
+		delete this->proyectil;
 }
 
 // Se espera la velocidad en UL/frames!

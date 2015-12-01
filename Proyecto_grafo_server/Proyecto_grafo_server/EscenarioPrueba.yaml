@@ -29,7 +29,7 @@ entidades:
     rangoA: 1
     tipoR: -1   # Tipo de recurso: -1 = none
     maxR: 0
-    velocidad: 7
+    velocidad: 12
     atk: 3
     def: 1
     vidaMax: 80

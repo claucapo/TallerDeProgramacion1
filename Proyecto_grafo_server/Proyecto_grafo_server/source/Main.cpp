@@ -34,7 +34,7 @@ using namespace std;
 
 #define TESTING_ENABLED false
 #define ARCHIVO_YAML "WaterTest.yaml"
-#define TIMEOUT 10000
+#define TIMEOUT 20000
 
 
 

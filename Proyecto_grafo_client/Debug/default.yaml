@@ -46,6 +46,26 @@ tipo:
     pixelX: 27
     pixelY: 18
     score: 1
+  - nombre: "arbalest_arrow"
+    ruta: "recursos\\arbalest_arrow.png"
+    subY: 8
+    pixelX: 9
+    pixelY: 17
+  - nombre: "mangudai_arrow"
+    ruta: "recursos\\arbalest_arrow.png"
+    subY: 8
+    pixelX: 6
+    pixelY: 26
+  - nombre: "longboat_arrow"
+    ruta: "recursos\\longboat_arrow.png"
+    subY: 8
+    pixelX: 6
+    pixelY: 26
+  - nombre: "janissary_arrow"
+    ruta: "recursos\\janissary_arrow.png"
+    subY: 8
+    pixelX: 7
+    pixelY: 30
   - nombre: "fish"
     ruta: "recursos\\fishAOE.png"
     subX: 18
@@ -90,6 +110,8 @@ tipo:
     ruta: "recursos\\champion_icon.png"
   - nombre: "knight_icon"
     ruta: "recursos\\knight_icon.png"
+  - nombre: "longboat_icon"
+    ruta: "recursos\\longboat_icon.png"
   - nombre: "villager_icon"
     ruta: "recursos\\villager_icon.png"
   - nombre: "siege weapon factory_icon"
@@ -1119,13 +1141,96 @@ tipo:
     subX: 10
     subY: 8
     fps: 5
-  - nombre: "Gcolosus_move"
-    ruta: "recursos\\Gcolosus_moveAOE.png"
-    pixelX: 23
-    pixelY: 23
-    subX: 10
+
+  - nombre: "longboat_atk"
+    ruta: "recursos\\longboatAOE.png"
+    pixelX: 44
+    pixelY: 74
+    subX: 1
     subY: 8
-    fps: 5
+    fps: 1
+    delay: 0
+  - nombre: "longboat_atk2"
+    ruta: "recursos\\longboatAOEp2.png"
+    pixelX: 44
+    pixelY: 74
+    subX: 1
+    subY: 8
+    fps: 1
+    delay: 0
+  - nombre: "longboat_atk3"
+    ruta: "recursos\\longboatAOEp3.png"
+    pixelX: 44
+    pixelY: 74
+    subX: 1
+    subY: 8
+    fps: 1
+    delay: 0
+  - nombre: "longboat"
+    ruta: "recursos\\longboatAOE.png"
+    pixelX: 44
+    pixelY: 74
+    subX: 1
+    subY: 8
+    fps: 1
+    delay: 0
+  - nombre: "longboat2"
+    ruta: "recursos\\longboatAOEp2.png"
+    pixelX: 44
+    pixelY: 74
+    subX: 1
+    subY: 8
+    fps: 1
+    delay: 0
+  - nombre: "longboat3"
+    ruta: "recursos\\longboatAOEp3.png"
+    pixelX: 44
+    pixelY: 74
+    subX: 1
+    subY: 8
+    fps: 1
+    delay: 0
+  - nombre: "Glongboat"
+    ruta: "recursos\\longboatAOE.png"
+    pixelX: 44
+    pixelY: 74
+    subX: 1
+    subY: 8
+    fps: 1
+    delay: 0
+  - nombre: "longboat_move"
+    ruta: "recursos\\longboatAOE.png"
+    pixelX: 44
+    pixelY: 74
+    subX: 1
+    subY: 8
+    fps: 1
+    delay: 0
+  - nombre: "longboat_move2"
+    ruta: "recursos\\longboatAOEp2.png"
+    pixelX: 44
+    pixelY: 74
+    subX: 1
+    subY: 8
+    fps: 1
+    delay: 0
+  - nombre: "longboat_move3"
+    ruta: "recursos\\longboatAOEp3.png"
+    pixelX: 44
+    pixelY: 74
+    subX: 1
+    subY: 8
+    fps: 1
+    delay: 0
+
+  - nombre: "Glongboat_move"
+    ruta: "recursos\\longboatAOE.png"
+    pixelX: 44
+    pixelY: 74
+    subX: 1
+    subY: 8
+    fps: 1
+    delay: 0
   - nombre: "building2x2"
     ruta: "recursos\\building_2x2AOE.png"
     pixelX: 54

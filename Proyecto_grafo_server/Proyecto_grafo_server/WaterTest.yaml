@@ -68,6 +68,30 @@ entidades:
     habilidades: ["collect"]
     luck: 20
     terreno: "water"
+  - nombre: "longboat"
+    sizeX: 1
+    sizeY: 1
+    tipo: "unit"
+    rangoV: 5
+    rangoA: 4
+    tipoR: -1   # Tipo de recurso: -1 = none
+    maxR: 0
+    velocidad: 8
+    atk: 12
+    def: 1
+    vidaMax: 190
+    cooldown: 40
+    collectR: 0
+    buildR: 50
+    trainR: 50
+    costFood: 0
+    costGold: 50
+    costWood: 120
+    costStone: 0
+    entrenables: []
+    habilidades: ["attack", "archery", "bonus_vs_buildings"]
+    luck: 50
+    terreno: "water"
   - nombre: "gold mine"
     tipo: "resource"
     maxR: 5000
@@ -293,7 +317,7 @@ entidades:
     sizeX: 4
     sizeY: 4
     vidaMax: 580
-    entrenables: ["fishing boat"]
+    entrenables: ["fishing boat", "longboat"]
     costFood: 0
     costGold: 25
     costWood: 150
@@ -452,14 +476,31 @@ escenario:
    - {x: 1, y: 1, tipo: "fish", p: 0}
    - {x: 6, y: 5, tipo: "fishing boat", p: 1}
    - {x: 6, y: 6, tipo: "fishing boat", p: 2}
+   - {x: 7, y: 6, tipo: "fishing boat", p: 2}
+   - {x: 6, y: 8, tipo: "fishing boat", p: 2}
    - {x: 10, y: 10, tipo: "knight", p: 1}
    - {x: 10, y: 11, tipo: "knight", p: 2}
    - {x: 11, y: 10, tipo: "villager", p: 1}
+   - {x: 12, y: 10, tipo: "arbalest", p: 1}
    - {x: 14, y: 10, tipo: "villager", p: 1}
    - {x: 11, y: 11, tipo: "villager", p: 2}
    - {x: 12, y: 12, tipo: "tree", p: 0}
    - {x: 12, y: 13, tipo: "gold mine", p: 0}
    - {x: 13, y: 12, tipo: "stone mine", p: 0}
    - {x: 13, y: 13, tipo: "forage bush", p: 0}
-   - {x: 15, y: 15, tipo: "barracks", p: 1}
+   - {x: 15, y: 15, tipo: "archery", p: 1}
    - {x: 25, y: 25, tipo: "house", p: 2}
+   - {x: 30, y: 30, tipo: "house", p: 1}
+
+#   - {x: 25, y: 12, tipo: "arbalest", p: 1}
+#   - {x: 26, y: 12, tipo: "arbalest", p: 1}
+#   - {x: 25, y: 13, tipo: "arbalest", p: 1}
+#   - {x: 26, y: 13, tipo: "janissary", p: 1}
+#   - {x: 25, y: 14, tipo: "janissary", p: 1}
+#   - {x: 26, y: 14, tipo: "janissary", p: 1}
+#   - {x: 27, y: 18, tipo: "arbalest", p: 2}
+#   - {x: 27, y: 17, tipo: "arbalest", p: 2}
+#   - {x: 28, y: 18, tipo: "arbalest", p: 2}
+#   - {x: 28, y: 17, tipo: "janissary", p: 2}
+#   - {x: 27, y: 16, tipo: "janissary", p: 2}
+#   - {x: 28, y: 16, tipo: "janissary", p: 2}

@@ -4,6 +4,7 @@
 #include "ConversorUnidades.h"
 #include "Jugador.h"
 #include "Partida.h"
+#include "Unidad.h"
 #include <string.h>
 
 #pragma once
@@ -46,6 +47,7 @@ public:
 	float getAnchoBorde(void);
 private:
 	SDL_Surface* renderText(string msj);
+	void dibujarProyectil(Unidad* uni);
 public:
 	void pantallaFinal(bool pantDerrota);
 };

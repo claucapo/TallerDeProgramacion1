@@ -344,6 +344,8 @@ void ProcesadorEventos::procesarSeleccionSecundaria(Cliente* client, Jugador* pl
 				}
 			}
 		}
+	else
+		delete dest;
 
 }
 

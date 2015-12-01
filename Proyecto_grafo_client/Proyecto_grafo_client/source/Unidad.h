@@ -18,6 +18,7 @@ protected:
 
 public:
 	// Constructor y destructor por defecto
+	Spritesheet* proyectil;
 
 	~Unidad(void);
 	

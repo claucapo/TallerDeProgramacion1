@@ -8,6 +8,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+#include "Unidad.h"
 #include "ConversorUnidades.h"
 #include "BibliotecaDeImagenes.h"
 #include "FactoryEntidades.h"
@@ -193,6 +194,7 @@ void GraficadorPantalla::renderizarTerreno(void) {
 	}
 
 	SDL_FreeSurface(imgTileFog);
+	SDL_FreeSurface(imgTileWaterFog);
 
 	// Muestro las posiciones de las entidades seleccionadas
 	//SDL_SetSurfaceColorMod(imgTile, 110 , 255 , 110 );
@@ -302,8 +304,21 @@ void GraficadorPantalla::renderizarEntidades(void) {
 				entAct->cambirCoord(newX, newY);
 				rectangulo.x = entAct->getCoordX();
 				rectangulo.y = entAct->getCoordY();
-				if(((*it)->verTipo() == ENT_T_RESOURCE)||((*it)->verTipo() == ENT_T_UNIT))
+				entity_type_t tipo = (*it)->verTipo(); 
+				if((tipo == ENT_T_RESOURCE)||(tipo == ENT_T_UNIT))
 					rectangulo.y += 12;
+				
+				if((*it)->habilidades[ACT_ARCHERY]){
+					Unidad* elArcher = (Unidad*) (*it);
+					if(elArcher->verEstado() == EST_ATACANDO)
+						this->dibujarProyectil(elArcher);
+					else
+						if(elArcher->proyectil != nullptr){
+							delete elArcher->proyectil;
+							elArcher->proyectil = nullptr;
+							}
+				}
+					
 
 				SDL_Rect recOr;
 				recOr.x = entAct->calcularOffsetX();
@@ -1136,7 +1151,7 @@ void GraficadorPantalla::mostrarStatsEntidad(Entidad* ent){
 				rectangulo.w = strStat.str().length() * 11;	
 				SDL_SetSurfaceColorMod(stat, 38, 37, 32);
 				SDL_BlitScaled( stat, NULL, pantalla, &rectangulo );
-		
+				SDL_FreeSurface(stat);
 				strStat.seekp(0);
 				strStat << "      ";
 				strStat.seekp(0);
@@ -1186,6 +1201,7 @@ void GraficadorPantalla::mostrarStatsEntidad(Entidad* ent){
 					strStat.seekp(0);
 					strStat << "      ";
 					strStat.seekp(0);
+					SDL_FreeSurface(stat);
 				}
 			}
 			// Construccion
@@ -1246,3 +1262,159 @@ void GraficadorPantalla::pantallaFinal(bool pantDerrota){
 	
 	SDL_UpdateWindowSurface(ventana);
 }
+
+
+void GraficadorPantalla::dibujarProyectil(Unidad* uni){
+	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
+	
+	if(uni->proyectil == nullptr){
+		uni->proyectil = new Spritesheet(uni->verNombre() + "_arrow");
+		uni->proyectil->cambirCoord(uni->verPosicion()->getX() *100, uni->verPosicion()->getY()*100);
+		//uni->proyectil->setAnimationDelay(
+	}
+
+	
+	Entidad* target = partida->escenario->obtenerEntidad(uni->targetID);
+	if(target == nullptr)
+		return;
+
+	DatosImagen* dataIm = BibliotecaDeImagenes::obtenerInstancia()->devolverDatosImagen(uni->verNombre() + "_arrow");
+
+	float x_viejo = (float)uni->proyectil->getCoordX()/100 + (float)dataIm->origenX/100;
+	float y_viejo = (float)uni->proyectil->getCoordY()/100 + (float)dataIm->origenY/100;
+
+	cout << uni->proyectil->getCoordX() << "-" << uni->proyectil->getCoordY() <<endl;
+	cout << ((float)uni->proyectil->getCoordX())/100 << "-" << (float)uni->proyectil->getCoordY()/100 <<endl;
+
+
+	float delta_x = (target->verPosicion()->getX() - (float)uni->proyectil->getCoordX()/100 - (float)dataIm->origenX/100);
+	float delta_y = (target->verPosicion()->getY() - (float)uni->proyectil->getCoordY()/100 - (float)dataIm->origenY/100);
+	
+	delta_x /= 8;
+	delta_y /= 8;
+
+	float x_nuevo = (float)uni->proyectil->getCoordX()/100 + delta_x + (float)dataIm->origenX/100;
+	float y_nuevo = (float)uni->proyectil->getCoordY()/100 + delta_y + (float)dataIm->origenY/100;
+	
+	int panX = cu->obtenerCoordPantallaX(x_nuevo, y_nuevo, view_x, view_y, ancho_borde);
+	int panY = cu->obtenerCoordPantallaY(x_nuevo, y_nuevo, view_x, view_y, ancho_borde);
+
+	
+
+	float radX = target->verPosicion()->getX() - x_nuevo;
+	float radY = target->verPosicion()->getY() - y_nuevo;
+
+	float avance = radX * radX + radY * radY;
+
+	bool seMantuvoLaPosicion = ((x_nuevo - x_viejo)*(x_nuevo - x_viejo)) < 0.03;
+	seMantuvoLaPosicion &= ((y_nuevo - y_viejo)*(y_nuevo - y_viejo)) < 0.03;
+
+	cout << "Viejo: (" << x_viejo << "," << y_viejo << ") Nuevo: ("<< x_nuevo << "," << y_nuevo << ")" << endl;
+
+	if((avance < 0.0005) || seMantuvoLaPosicion){
+		uni->proyectil->cambirCoord(uni->verPosicion()->getX()*100, uni->verPosicion()->getY()*100);
+	}
+	else
+		uni->proyectil->cambirCoord(x_nuevo*100, y_nuevo*100);
+
+
+
+	SDL_Surface* proyectil =  uni->proyectil->devolverImagenAsociada();
+	SDL_SetColorKey(proyectil, true, SDL_MapRGB(proyectil->format, 255, 0, 255));
+
+	SDL_Rect rectangulo;
+	rectangulo.x = panX;
+	rectangulo.y = panY;
+	SDL_Rect recOr;
+	uni->proyectil->cambiarSubImagen(0, uni->verDireccion());
+	recOr.x = uni->proyectil->calcularOffsetX();
+	recOr.y = uni->proyectil->calcularOffsetY();
+	recOr.w = uni->proyectil->subImagenWidth();
+	recOr.h = uni->proyectil->subImagenHeight();
+
+	SDL_BlitSurface(proyectil, &recOr, pantalla, &rectangulo);
+
+}
+
+/*
+void GraficadorPantalla::dibujarProyectil(Unidad* uni){
+	ConversorUnidades* cu = ConversorUnidades::obtenerInstancia();
+	DatosImagen* dataIm = BibliotecaDeImagenes::obtenerInstancia()->devolverDatosImagen(uni->verNombre() + "_arrow");
+
+	if(uni->proyectil == nullptr){
+		uni->proyectil = new Spritesheet(uni->verNombre() + "_arrow");
+		uni->proyectil->cambirCoord(uni->verPosicion()->getX() *100, uni->verPosicion()->getY()*100);
+		//uni->proyectil->setAnimationDelay(
+	}
+
+	
+	Entidad* target = partida->escenario->obtenerEntidad(uni->targetID);
+	if(target == nullptr)
+		return;
+
+	
+	float x_viejo = uni->proyectil->getCoordX()/100 + dataIm->origenX/100;
+	float y_viejo = uni->proyectil->getCoordY()/100 + dataIm->origenY/100;
+
+	float x_nuevo = x_viejo;
+	float y_nuevo = y_viejo;
+
+	switch(uni->verDireccion()){
+	case DIR_DOWN:
+		x_nuevo++; y_nuevo++; break;
+	case DIR_DOWN_RIGHT:
+		y_nuevo++; break;
+	case DIR_DOWN_LEFT:
+		x_nuevo++; break;
+	case DIR_TOP:
+		x_nuevo--; y_nuevo--; break;
+	case DIR_TOP_LEFT:
+		y_nuevo--; break;
+	case DIR_TOP_RIGHT:
+		x_nuevo--; break;
+	case DIR_LEFT:
+		x_nuevo++; y_nuevo--; break;
+	case DIR_RIGHT:
+		x_nuevo--; y_nuevo++; break;
+
+	}
+
+	int panX = cu->obtenerCoordPantallaX(x_nuevo, y_nuevo, view_x, view_y, ancho_borde);
+	int panY = cu->obtenerCoordPantallaY(x_nuevo, y_nuevo, view_x, view_y, ancho_borde);
+
+	
+
+	float radX = target->verPosicion()->getX() - x_nuevo;
+	float radY = target->verPosicion()->getY() - y_nuevo;
+
+	float avance = radX * radX + radY * radY;
+
+	bool seMantuvoLaPosicion = ((x_nuevo - x_viejo)*(x_nuevo - x_viejo)) < 0.03;
+	seMantuvoLaPosicion &= ((y_nuevo - y_viejo)*(y_nuevo - y_viejo)) < 0.03;
+
+	cout << "Viejo: (" << x_viejo << "," << y_viejo << ") Nuevo: ("<< x_nuevo << "," << y_nuevo << ")" << endl;
+
+	if((avance < 0.0005) || seMantuvoLaPosicion){
+		uni->proyectil->cambirCoord(uni->verPosicion()->getX()*100, uni->verPosicion()->getY()*100);
+	}
+	else
+		uni->proyectil->cambirCoord(x_nuevo*100, y_nuevo*100);
+
+
+
+	SDL_Surface* proyectil =  uni->proyectil->devolverImagenAsociada();
+	SDL_SetColorKey(proyectil, true, SDL_MapRGB(proyectil->format, 255, 0, 255));
+
+	SDL_Rect rectangulo;
+	rectangulo.x = panX;
+	rectangulo.y = panY;
+	SDL_Rect recOr;
+	uni->proyectil->cambiarSubImagen(0, uni->verDireccion());
+	recOr.x = uni->proyectil->calcularOffsetX();
+	recOr.y = uni->proyectil->calcularOffsetY();
+	recOr.w = uni->proyectil->subImagenWidth();
+	recOr.h = uni->proyectil->subImagenHeight();
+
+	SDL_BlitSurface(proyectil, &recOr, pantalla, &rectangulo);
+
+}*/

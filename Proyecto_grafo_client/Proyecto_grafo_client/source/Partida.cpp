@@ -403,19 +403,51 @@ bool Partida::edificioUbicablePuedeConstruirse(Posicion pos){
 
 	Entidad* edif = FactoryEntidades::obtenerInstancia()->obtenerEntidad(this->edificioAubicar, 65500);
 
-	for(int i = 0; i < edif->verTamX(); i++){
-		for(int j = 0; j < edif->verTamY(); j++){
-				Posicion pAct(pos.getRoundX() + i, pos.getRoundY() + j);
-				if(!this->escenario->verMapa()->posicionPertenece(&pAct))
-					return false;
-				if(!this->escenario->casillaEstaVacia(&pAct)){
-	//				delete edif;
-					return false;
-					}
+	if(edificioAubicar == "dock"){
+		bool hay_agua = false;
+		bool hay_tierra = false;
+		for(int i = 0; i < edif->verTamX(); i++){
+			for(int j = 0; j < edif->verTamY(); j++){
+					Posicion pAct(pos.getRoundX() + i, pos.getRoundY() + j);
+					if(!this->escenario->verMapa()->posicionPertenece(&pAct)){
+						delete edif;
+						return false;
+						}
+					if(this->escenario->verMapa()->verTipoTerreno(pAct) == TERRAIN_GRASS)
+						hay_tierra = true;
+					if(this->escenario->verMapa()->verTipoTerreno(pAct) == TERRAIN_WATER)
+						hay_agua = true;
+					if(!this->escenario->casillaEstaVacia(&pAct)){
+						delete edif;
+						return false;
+						}
+				}
 			}
+		delete edif;
+		return (hay_agua && hay_tierra);
 		}
+	else{
+	
+		for(int i = 0; i < edif->verTamX(); i++){
+			for(int j = 0; j < edif->verTamY(); j++){
+					Posicion pAct(pos.getRoundX() + i, pos.getRoundY() + j);
+					if(!this->escenario->verMapa()->posicionPertenece(&pAct)){
+						delete edif;
+						return false;
+						}
+					if(this->escenario->verMapa()->verTipoTerreno(pAct) != TERRAIN_GRASS){
+						delete edif;
+						return false;
+						}
+					if(!this->escenario->casillaEstaVacia(&pAct)){
+						delete edif;
+						return false;
+						}
+				}
+			}
 
-//	delete edif;
-	return true;
+		delete edif;
+		return true;
+	}
 
 }
